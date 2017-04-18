@@ -1,0 +1,61 @@
+
+To download Docker image:
+
+sudo docker pull docker.io/rcaloger/annotate.2017.01 
+sudo docker pull docker.io/rcaloger/bwa.2017.01 
+sudo docker pull docker.io/rcaloger/chipseq.2017.01
+sudo docker pull docker.io/rcaloger/mirnaseq.2017.01 
+sudo docker pull docker.io/rcaloger/rsemstar.2017.01 
+sudo docker pull docker.io/rcaloger/skewer.2017.01 
+
+-----------------------------------------------------------------------
+To access Docker machine
+
+ID=$(sudo docker run -i --privileged=true  -t -d -v /home/data/scratch/hg38star:/data/scratch docker.io/rcaloger/rsemstar.2017.01 /bin/bash)
+sudo docker attach $ID
+
+
+-----------------------------------------------------------------------
+To remove all containers
+
+docker rm $(docker ps -aq)
+
+
+-----------------------------------------------------------------------
+To upload an image
+1. commit
+ docker commit 1a5eb97012bb   docker.io/rcaloger/rsemstar.2017.01:latest
+2. login
+docker login 
+    user rcaloger
+    password bianca3eve
+3. push
+docker push rcaloger/docker.io/rcaloger/rsemstar.2017.01:latest
+
+
+-----------------------------------------------------------------------
+To cope with SElinux --> no authorization 
+--privileged=true  
+must be added!!!
+
+
+
+
+
+-----------------------------------------------------------------------
+To run without  password process (Error --> sudo: no tty present and no askpass program specified)
+modificare sudo.user
+user  ALL=(ALL) NOPASSWD:ALL
+
+
+-----------------------------------------------------------------------
+To run at boot
+sudo systemctl enable docker
+ 
+
+----------------------------------------------------------------------- 
+Problem docker image must be moved.
+sudo service docker stop
+sudo ln -s  /home/docker /var/lib/docker 
+
+

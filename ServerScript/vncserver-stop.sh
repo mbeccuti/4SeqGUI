@@ -1,0 +1,22 @@
+#!/bin/sh
+#It closes 19 vncserver sections
+
+/usr/sbin/runuser -l u1 -c "/usr/bin/vncserver -kill :21 "
+/usr/sbin/runuser -l u2 -c "/usr/bin/vncserver -kill :22 "
+/usr/sbin/runuser -l u3 -c "/usr/bin/vncserver -kill :23 "
+/usr/sbin/runuser -l u4 -c "/usr/bin/vncserver -kill :24 "
+/usr/sbin/runuser -l u5 -c "/usr/bin/vncserver -kill :25 "
+/usr/sbin/runuser -l u6 -c "/usr/bin/vncserver -kill :26 "
+/usr/sbin/runuser -l u7 -c "/usr/bin/vncserver -kill :27 "
+/usr/sbin/runuser -l u8 -c "/usr/bin/vncserver -kill :28 "
+/usr/sbin/runuser -l u9 -c "/usr/bin/vncserver -kill :29 "
+/usr/sbin/runuser -l u10 -c "/usr/bin/vncserver -kill :30 "
+/usr/sbin/runuser -l u11 -c "/usr/bin/vncserver -kill :31 "
+/usr/sbin/runuser -l u12 -c "/usr/bin/vncserver -kill :32 "
+/usr/sbin/runuser -l u13 -c "/usr/bin/vncserver -kill :33 "
+/usr/sbin/runuser -l u14 -c "/usr/bin/vncserver -kill :34"
+/usr/sbin/runuser -l u16 -c "/usr/bin/vncserver -kill :36 "
+/usr/sbin/runuser -l u17 -c "/usr/bin/vncserver -kill :37 "
+/usr/sbin/runuser -l u18 -c "/usr/bin/vncserver -kill :38 "
+/usr/sbin/runuser -l u19 -c "/usr/bin/vncserver -kill :39 "
+/usr/sbin/runuser -l u20 -c "/usr/bin/vncserver -kill :40"

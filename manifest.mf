@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+SplashScreen-Image: src/pkg4seqgui/images/splashscreen.png
+X-COMMENT: Main-Class will be added automatically by build
