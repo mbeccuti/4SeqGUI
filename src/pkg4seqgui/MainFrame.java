@@ -6974,11 +6974,27 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_MOutputFolderTextActionPerformed
 
     private void jToggleButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton20ActionPerformed
-        // TODO add your handling code here:
+     JFileChooser openDir = new JFileChooser();
+        if (!(MOutputFolderText.getText().equals(""))){
+            File file =new File(MOutputFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            MOutputFolderText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());        // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton20ActionPerformed
 
     private void jToggleButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton21ActionPerformed
-        // TODO add your handling code here:
+    MOutputFolderText.setText("");
     }//GEN-LAST:event_jToggleButton21ActionPerformed
 
     private void jToggleButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton22ActionPerformed
