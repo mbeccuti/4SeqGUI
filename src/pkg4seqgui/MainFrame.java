@@ -196,6 +196,7 @@ public class MainFrame extends javax.swing.JFrame {
         MExecution = new javax.swing.ButtonGroup();
         MSeq = new javax.swing.ButtonGroup();
         MRemoveDuplicates = new javax.swing.ButtonGroup();
+        MAdapter = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -448,22 +449,40 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel57 = new javax.swing.JLabel();
         MThreadText = new javax.swing.JTextField();
         jPanel19 = new javax.swing.JPanel();
-        MAdapter5Text = new javax.swing.JTextField();
-        jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
-        MAdapter3Text = new javax.swing.JTextField();
-        jLabel61 = new javax.swing.JLabel();
-        MMaxUpstreamText = new javax.swing.JTextField();
-        jLabel62 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        vTyesRadioButton1 = new javax.swing.JRadioButton();
-        vTnoRadioButton1 = new javax.swing.JRadioButton();
-        jLabel65 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        MMinLengthText1 = new javax.swing.JTextField();
-        MMaxUpstreamText1 = new javax.swing.JTextField();
-        jLabel66 = new javax.swing.JLabel();
+        MToolComboBox = new javax.swing.JComboBox<>();
+        Tool = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jLabel78 = new javax.swing.JLabel();
+        MMaxUpstreamText4 = new javax.swing.JTextField();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        MMinmfoldText = new javax.swing.JTextField();
+        MMpvalueText = new javax.swing.JTextField();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel80 = new javax.swing.JLabel();
+        MSgsizeText = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        MSWindowsText = new javax.swing.JTextField();
+        MSFDRText = new javax.swing.JTextField();
+        jPanel20 = new javax.swing.JPanel();
+        MAdapter5Text = new javax.swing.JTextField();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        MAdapter3Text = new javax.swing.JTextField();
+        jLabel70 = new javax.swing.JLabel();
+        MMaxUpstreamText2 = new javax.swing.JTextField();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        MDyesRadioButton = new javax.swing.JRadioButton();
+        MRnoRadioButton = new javax.swing.JRadioButton();
+        jLabel74 = new javax.swing.JLabel();
+        MOrgComboBox = new javax.swing.JComboBox<>();
+        MMinLengthText = new javax.swing.JTextField();
+        MMaxUpstreamText = new javax.swing.JTextField();
+        jLabel75 = new javax.swing.JLabel();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -860,11 +879,11 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel13.add(iGenomeFolderText, gridBagConstraints);
 
@@ -875,10 +894,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel13.add(jToggleButton15, gridBagConstraints);
 
@@ -889,8 +907,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel13.add(jToggleButton16, gridBagConstraints);
@@ -899,7 +917,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel30.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel13.add(jLabel30, gridBagConstraints);
@@ -907,9 +925,8 @@ public class MainFrame extends javax.swing.JFrame {
         iGenomeURLText.setToolTipText("The URL which will be used to download the genome");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.1;
@@ -920,15 +937,14 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel33.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel13.add(jLabel33, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.1;
@@ -1177,7 +1193,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel9.add(jLabel23, gridBagConstraints);
 
         mANEBRadioButton.setBackground(new java.awt.Color(235, 230, 230));
-        Strand.add(mANEBRadioButton);
+        MAdapter.add(mANEBRadioButton);
         mANEBRadioButton.setText("NEB");
         mANEBRadioButton.setToolTipText("");
         mANEBRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1195,7 +1211,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel9.add(mANEBRadioButton, gridBagConstraints);
 
         mAILLUMINARadioButton.setBackground(new java.awt.Color(235, 230, 230));
-        Strand.add(mAILLUMINARadioButton);
+        MAdapter.add(mAILLUMINARadioButton);
+        mAILLUMINARadioButton.setSelected(true);
         mAILLUMINARadioButton.setText("ILLUMINA");
         mAILLUMINARadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1285,10 +1302,10 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         jPanel8.add(mFastQFolderText, gridBagConstraints);
 
@@ -1299,10 +1316,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
-        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jToggleButton8, gridBagConstraints);
 
@@ -1313,19 +1329,20 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jToggleButton7, gridBagConstraints);
 
         mOutputFolderText.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         jPanel8.add(mOutputFolderText, gridBagConstraints);
 
@@ -1336,9 +1353,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jToggleButton9, gridBagConstraints);
 
@@ -1349,10 +1366,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
-        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jToggleButton10, gridBagConstraints);
 
@@ -1360,7 +1376,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel16.setToolTipText("This folder will be mounted in the docker container");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jLabel16, gridBagConstraints);
@@ -1721,10 +1737,10 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
         jPanel2.add(vFastQFolderText, gridBagConstraints);
 
@@ -1735,10 +1751,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton2, gridBagConstraints);
 
@@ -1749,9 +1764,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton1, gridBagConstraints);
 
@@ -1759,7 +1774,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel3.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel3, gridBagConstraints);
@@ -1768,11 +1783,12 @@ public class MainFrame extends javax.swing.JFrame {
         vOutputFolderText.setToolTipText("This folder will be mounted in the docker container.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
         jPanel2.add(vOutputFolderText, gridBagConstraints);
 
@@ -1783,10 +1799,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton4, gridBagConstraints);
 
@@ -1797,9 +1812,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton3, gridBagConstraints);
 
@@ -1807,8 +1822,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel9.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.6;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel9, gridBagConstraints);
 
@@ -1816,10 +1832,11 @@ public class MainFrame extends javax.swing.JFrame {
         vGenomeFolderText.setToolTipText("The folder containing the indexed genome.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
         jPanel2.add(vGenomeFolderText, gridBagConstraints);
 
@@ -1830,10 +1847,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton5, gridBagConstraints);
 
@@ -1844,9 +1860,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton6, gridBagConstraints);
 
@@ -2747,7 +2763,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel10.add(fCancelButton2, gridBagConstraints);
 
-        jLabel36.setText("FPKM/TPM  file:");
+        jLabel36.setText("Count file:");
         jLabel36.setToolTipText("The FPKM or TPM table file nam");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -2897,7 +2913,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(dGeneRadioButton, gridBagConstraints);
 
-        jLabel47.setText("Covariates:");
+        jLabel47.setText("Ref. Covariates:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -2921,6 +2937,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(dCovComboBox, gridBagConstraints);
 
+        dIsoformRadioButton1.setBackground(new java.awt.Color(225, 239, 250));
         dIsoformRadioButton1.setSelected(true);
         dIsoformRadioButton1.setText("isoform");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3027,11 +3044,10 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel15.add(iGenomeFolderBText, gridBagConstraints);
 
@@ -3042,10 +3058,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jToggleButton18, gridBagConstraints);
 
@@ -3056,8 +3071,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jToggleButton19, gridBagConstraints);
@@ -3066,7 +3081,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel46.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jLabel46, gridBagConstraints);
@@ -3074,9 +3089,8 @@ public class MainFrame extends javax.swing.JFrame {
         iGenomeURLBText.setToolTipText("The URL which will be used to download the genome");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.1;
@@ -3087,7 +3101,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel48.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jLabel48, gridBagConstraints);
@@ -3095,22 +3109,23 @@ public class MainFrame extends javax.swing.JFrame {
         idbSPNText.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 9;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel15.add(idbSPNText, gridBagConstraints);
 
         jLabel51.setText("GATK:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jLabel51, gridBagConstraints);
 
+        iBTrueRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         GATK.add(iBTrueRadioButton);
         iBTrueRadioButton.setText("True");
         iBTrueRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3120,11 +3135,12 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel15.add(iBTrueRadioButton, gridBagConstraints);
 
+        iBFalseRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         GATK.add(iBFalseRadioButton);
         iBFalseRadioButton.setSelected(true);
         iBFalseRadioButton.setText("False");
@@ -3139,20 +3155,20 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 90, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(iBFalseRadioButton, gridBagConstraints);
 
         i1000GenomeText.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel15.add(i1000GenomeText, gridBagConstraints);
 
@@ -3160,7 +3176,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel52.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jLabel52, gridBagConstraints);
@@ -3173,8 +3189,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(i1000BrowseButton, gridBagConstraints);
@@ -3187,8 +3203,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(i1000CancelButton, gridBagConstraints);
@@ -3201,8 +3217,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(idbSPNBrowseButton, gridBagConstraints);
@@ -3215,8 +3231,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(idbSPNCancelButton, gridBagConstraints);
@@ -3330,7 +3346,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3344,7 +3360,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
@@ -3359,7 +3375,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3373,7 +3389,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3715,6 +3731,246 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel19.setLayout(new java.awt.GridBagLayout());
 
+        jLabel63.setText("Tool selection:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel19.add(jLabel63, gridBagConstraints);
+
+        MToolComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACS", "SINCER" }));
+        MToolComboBox.setToolTipText("");
+        MToolComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                MToolComboBoxItemStateChanged(evt);
+            }
+        });
+        MToolComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MToolComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
+        jPanel19.add(MToolComboBox, gridBagConstraints);
+
+        Tool.setLayout(new java.awt.CardLayout());
+
+        jPanel22.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel22.setLayout(new java.awt.GridBagLayout());
+
+        jLabel78.setText("MACS min. mfold:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel22.add(jLabel78, gridBagConstraints);
+
+        MMaxUpstreamText4.setText("30");
+        MMaxUpstreamText4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MMaxUpstreamText4FocusLost(evt);
+            }
+        });
+        MMaxUpstreamText4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MMaxUpstreamText4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
+        jPanel22.add(MMaxUpstreamText4, gridBagConstraints);
+
+        jLabel79.setText("MACS p-value:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel22.add(jLabel79, gridBagConstraints);
+
+        jLabel82.setText("MACS max mfold:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel22.add(jLabel82, gridBagConstraints);
+
+        MMinmfoldText.setText("10");
+        MMinmfoldText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MMinmfoldTextFocusLost(evt);
+            }
+        });
+        MMinmfoldText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MMinmfoldTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
+        jPanel22.add(MMinmfoldText, gridBagConstraints);
+
+        MMpvalueText.setText("1e-5");
+        MMpvalueText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MMpvalueTextFocusLost(evt);
+            }
+        });
+        MMpvalueText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MMpvalueTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 13;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
+        jPanel22.add(MMpvalueText, gridBagConstraints);
+
+        Tool.add(jPanel22, "MACS");
+
+        jPanel23.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel23.setLayout(new java.awt.GridBagLayout());
+
+        jLabel80.setText("SICER windows:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel23.add(jLabel80, gridBagConstraints);
+
+        MSgsizeText.setText("200");
+        MSgsizeText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MSgsizeTextFocusLost(evt);
+            }
+        });
+        MSgsizeText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MSgsizeTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
+        jPanel23.add(MSgsizeText, gridBagConstraints);
+
+        jLabel81.setText("SIGER FDR:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel23.add(jLabel81, gridBagConstraints);
+
+        jLabel83.setText("SICER gsize:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel23.add(jLabel83, gridBagConstraints);
+
+        MSWindowsText.setText("200");
+        MSWindowsText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MSWindowsTextFocusLost(evt);
+            }
+        });
+        MSWindowsText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MSWindowsTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 30, 10, 10);
+        jPanel23.add(MSWindowsText, gridBagConstraints);
+
+        MSFDRText.setText("0.1");
+        MSFDRText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MSFDRTextFocusLost(evt);
+            }
+        });
+        MSFDRText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MSFDRTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 13;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
+        jPanel23.add(MSFDRText, gridBagConstraints);
+
+        Tool.add(jPanel23, "SICER");
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.2;
+        jPanel19.add(Tool, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        MACSPanel.add(jPanel19, gridBagConstraints);
+
+        jPanel20.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel20.setLayout(new java.awt.GridBagLayout());
+
         MAdapter5Text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 MAdapter5TextFocusLost(evt);
@@ -3734,25 +3990,25 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(MAdapter5Text, gridBagConstraints);
+        jPanel20.add(MAdapter5Text, gridBagConstraints);
 
-        jLabel58.setText("Adapter 5':");
+        jLabel68.setText("Adapter 5':");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(jLabel58, gridBagConstraints);
+        jPanel20.add(jLabel68, gridBagConstraints);
 
-        jLabel59.setText("Adapter 3':");
+        jLabel69.setText("Adapter 3':");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(jLabel59, gridBagConstraints);
+        jPanel20.add(jLabel69, gridBagConstraints);
 
         MAdapter3Text.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -3772,18 +4028,137 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(MAdapter3Text, gridBagConstraints);
+        jPanel20.add(MAdapter3Text, gridBagConstraints);
 
-        jLabel61.setText("Min length:");
+        jLabel70.setText("Min length:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(jLabel61, gridBagConstraints);
+        jPanel20.add(jLabel70, gridBagConstraints);
 
-        MMaxUpstreamText.setText("0");
+        MMaxUpstreamText2.setText("0");
+        MMaxUpstreamText2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MMaxUpstreamText2FocusLost(evt);
+            }
+        });
+        MMaxUpstreamText2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MMaxUpstreamText2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 15;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(MMaxUpstreamText2, gridBagConstraints);
+
+        jLabel71.setText("Max. upstream distance:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(jLabel71, gridBagConstraints);
+
+        jLabel72.setText("Organism:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(jLabel72, gridBagConstraints);
+
+        jLabel73.setText("Remove duplicates:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(jLabel73, gridBagConstraints);
+
+        MDyesRadioButton.setBackground(new java.awt.Color(230, 240, 230));
+        MRemoveDuplicates.add(MDyesRadioButton);
+        MDyesRadioButton.setText("yes");
+        MDyesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MDyesRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(MDyesRadioButton, gridBagConstraints);
+
+        MRnoRadioButton.setBackground(new java.awt.Color(230, 240, 230));
+        MRemoveDuplicates.add(MRnoRadioButton);
+        MRnoRadioButton.setSelected(true);
+        MRnoRadioButton.setText("no");
+        MRnoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MRnoRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(MRnoRadioButton, gridBagConstraints);
+
+        jLabel74.setText("TTS distance:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(jLabel74, gridBagConstraints);
+
+        MOrgComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "hg19", "hg38", "mm9", "mm10" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(MOrgComboBox, gridBagConstraints);
+
+        MMinLengthText.setText("30");
+        MMinLengthText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                MMinLengthTextFocusLost(evt);
+            }
+        });
+        MMinLengthText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MMinLengthTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(MMinLengthText, gridBagConstraints);
+
+        MMaxUpstreamText.setText("10000");
         MMaxUpstreamText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 MMaxUpstreamTextFocusLost(evt);
@@ -3795,125 +4170,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 15;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(MMaxUpstreamText, gridBagConstraints);
-
-        jLabel62.setText("Max. upstream distance:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(jLabel62, gridBagConstraints);
-
-        jLabel63.setText("Organism:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(jLabel63, gridBagConstraints);
-
-        jLabel64.setText("Remove duplicates:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(jLabel64, gridBagConstraints);
-
-        vTyesRadioButton1.setBackground(new java.awt.Color(230, 240, 230));
-        MRemoveDuplicates.add(vTyesRadioButton1);
-        vTyesRadioButton1.setText("yes");
-        vTyesRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vTyesRadioButton1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(vTyesRadioButton1, gridBagConstraints);
-
-        vTnoRadioButton1.setBackground(new java.awt.Color(230, 240, 230));
-        MRemoveDuplicates.add(vTnoRadioButton1);
-        vTnoRadioButton1.setSelected(true);
-        vTnoRadioButton1.setText("no");
-        vTnoRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vTnoRadioButton1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(vTnoRadioButton1, gridBagConstraints);
-
-        jLabel65.setText("TTS distance:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 14;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(jLabel65, gridBagConstraints);
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "hg19", "hg38", "mm9", "mm10" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(jComboBox1, gridBagConstraints);
-
-        MMinLengthText1.setText("30");
-        MMinLengthText1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                MMinLengthText1FocusLost(evt);
-            }
-        });
-        MMinLengthText1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MMinLengthText1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(MMinLengthText1, gridBagConstraints);
-
-        MMaxUpstreamText1.setText("10000");
-        MMaxUpstreamText1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                MMaxUpstreamText1FocusLost(evt);
-            }
-        });
-        MMaxUpstreamText1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MMaxUpstreamText1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 4;
@@ -3921,14 +4177,14 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel19.add(MMaxUpstreamText1, gridBagConstraints);
+        jPanel20.add(MMaxUpstreamText, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 21;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
-        jPanel19.add(jLabel66, gridBagConstraints);
+        jPanel20.add(jLabel75, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3937,7 +4193,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        MACSPanel.add(jPanel19, gridBagConstraints);
+        MACSPanel.add(jPanel20, gridBagConstraints);
 
         MACS.setViewportView(MACSPanel);
 
@@ -4090,6 +4346,8 @@ public class MainFrame extends javax.swing.JFrame {
                     MThreadText.setText(Integer.toString(GS.getDefaultThread()));
                     MAdapter5Text.setText(GS.getDefaultAdapter5());
                     MAdapter3Text.setText(GS.getDefaultAdapter3());
+                    CardLayout cardTool = (CardLayout)Tool.getLayout();
+                    cardTool.show(Tool, "MACS");
                 }
                 else
                     if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Genome indexing STAR-RSEM" ){
@@ -6719,54 +6977,6 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MThreadTextActionPerformed
 
-    private void MAdapter5TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MAdapter5TextFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MAdapter5TextFocusLost
-
-    private void MAdapter5TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MAdapter5TextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MAdapter5TextActionPerformed
-
-    private void MAdapter3TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MAdapter3TextFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MAdapter3TextFocusLost
-
-    private void MAdapter3TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MAdapter3TextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MAdapter3TextActionPerformed
-
-    private void MMaxUpstreamTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMaxUpstreamTextFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MMaxUpstreamTextFocusLost
-
-    private void MMaxUpstreamTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMaxUpstreamTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MMaxUpstreamTextActionPerformed
-
-    private void vTyesRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vTyesRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vTyesRadioButton1ActionPerformed
-
-    private void vTnoRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vTnoRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vTnoRadioButton1ActionPerformed
-
-    private void MMinLengthText1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMinLengthText1FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MMinLengthText1FocusLost
-
-    private void MMinLengthText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMinLengthText1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MMinLengthText1ActionPerformed
-
-    private void MMaxUpstreamText1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMaxUpstreamText1FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MMaxUpstreamText1FocusLost
-
-    private void MMaxUpstreamText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMaxUpstreamText1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MMaxUpstreamText1ActionPerformed
-
     private void jToggleButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton26ActionPerformed
      JFileChooser openDir = new JFileChooser();
         if (!(MGenomeFolderText.getText().equals(""))){
@@ -6814,6 +7024,117 @@ public class MainFrame extends javax.swing.JFrame {
     private void jToggleButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton29ActionPerformed
     MTestFolderText.setText("");
     }//GEN-LAST:event_jToggleButton29ActionPerformed
+
+    private void MAdapter5TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MAdapter5TextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MAdapter5TextFocusLost
+
+    private void MAdapter5TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MAdapter5TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MAdapter5TextActionPerformed
+
+    private void MAdapter3TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MAdapter3TextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MAdapter3TextFocusLost
+
+    private void MAdapter3TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MAdapter3TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MAdapter3TextActionPerformed
+
+    private void MMaxUpstreamText2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMaxUpstreamText2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMaxUpstreamText2FocusLost
+
+    private void MMaxUpstreamText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMaxUpstreamText2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMaxUpstreamText2ActionPerformed
+
+    private void MDyesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MDyesRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MDyesRadioButtonActionPerformed
+
+    private void MRnoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MRnoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MRnoRadioButtonActionPerformed
+
+    private void MMinLengthTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMinLengthTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMinLengthTextFocusLost
+
+    private void MMinLengthTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMinLengthTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMinLengthTextActionPerformed
+
+    private void MMaxUpstreamTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMaxUpstreamTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMaxUpstreamTextFocusLost
+
+    private void MMaxUpstreamTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMaxUpstreamTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMaxUpstreamTextActionPerformed
+
+    private void MToolComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MToolComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MToolComboBoxActionPerformed
+
+    private void MMaxUpstreamText4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMaxUpstreamText4FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMaxUpstreamText4FocusLost
+
+    private void MMaxUpstreamText4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMaxUpstreamText4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMaxUpstreamText4ActionPerformed
+
+    private void MMinmfoldTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMinmfoldTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMinmfoldTextFocusLost
+
+    private void MMinmfoldTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMinmfoldTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMinmfoldTextActionPerformed
+
+    private void MMpvalueTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMpvalueTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMpvalueTextFocusLost
+
+    private void MMpvalueTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMpvalueTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MMpvalueTextActionPerformed
+
+    private void MSgsizeTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MSgsizeTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MSgsizeTextFocusLost
+
+    private void MSgsizeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSgsizeTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MSgsizeTextActionPerformed
+
+    private void MSWindowsTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MSWindowsTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MSWindowsTextFocusLost
+
+    private void MSWindowsTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSWindowsTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MSWindowsTextActionPerformed
+
+    private void MSFDRTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MSFDRTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MSFDRTextFocusLost
+
+    private void MSFDRTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MSFDRTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MSFDRTextActionPerformed
+
+    private void MToolComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MToolComboBoxItemStateChanged
+    if ((MToolComboBox.getSelectedItem().toString()).equals("MACS")){
+        CardLayout cardTool = (CardLayout)Tool.getLayout();
+        cardTool.show(Tool, "MACS");
+    }
+    else{
+        CardLayout cardTool = (CardLayout)Tool.getLayout();
+        cardTool.show(Tool, "SICER");
+    }
+    }//GEN-LAST:event_MToolComboBoxItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -6899,22 +7220,33 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel LeftPanel;
     private javax.swing.JScrollPane MACS;
     private javax.swing.JPanel MACSPanel;
+    private javax.swing.ButtonGroup MAdapter;
     private javax.swing.JTextField MAdapter3Text;
     private javax.swing.JTextField MAdapter5Text;
     private javax.swing.JRadioButton MDockerRadioButton;
+    private javax.swing.JRadioButton MDyesRadioButton;
     private javax.swing.ButtonGroup MExecution;
     private javax.swing.JTextField MGenomeFolderText;
     private javax.swing.JTextField MMaxUpstreamText;
-    private javax.swing.JTextField MMaxUpstreamText1;
-    private javax.swing.JTextField MMinLengthText1;
+    private javax.swing.JTextField MMaxUpstreamText2;
+    private javax.swing.JTextField MMaxUpstreamText4;
+    private javax.swing.JTextField MMinLengthText;
+    private javax.swing.JTextField MMinmfoldText;
     private javax.swing.JTextField MMockFolderText;
+    private javax.swing.JTextField MMpvalueText;
+    private javax.swing.JComboBox<String> MOrgComboBox;
     private javax.swing.JTextField MOutputFolderText;
     private javax.swing.ButtonGroup MRemoveDuplicates;
+    private javax.swing.JRadioButton MRnoRadioButton;
+    private javax.swing.JTextField MSFDRText;
+    private javax.swing.JTextField MSWindowsText;
     private javax.swing.JTextField MScratchFolderText;
     private javax.swing.ButtonGroup MSeq;
+    private javax.swing.JTextField MSgsizeText;
     private javax.swing.JRadioButton MSudoRadioButton;
     private javax.swing.JTextField MTestFolderText;
     private javax.swing.JTextField MThreadText;
+    private javax.swing.JComboBox<String> MToolComboBox;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JFrame OutputFrame;
     private javax.swing.JTextArea OutputText;
@@ -6927,6 +7259,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton RemoveOutput;
     private javax.swing.ButtonGroup Strand;
     private javax.swing.JTextField ThreadTextField;
+    private javax.swing.JPanel Tool;
     private javax.swing.ButtonGroup Truncating;
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -6989,7 +7322,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -7043,19 +7375,26 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -7080,6 +7419,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -7175,9 +7517,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton vSudoRadioButton;
     private javax.swing.JTextField vThreadText;
     private javax.swing.JRadioButton vTnoRadioButton;
-    private javax.swing.JRadioButton vTnoRadioButton1;
     private javax.swing.JRadioButton vTyesRadioButton;
-    private javax.swing.JRadioButton vTyesRadioButton1;
     private javax.swing.JScrollPane vmRNA;
     private javax.swing.JPanel vmRNAPanel;
     // End of variables declaration//GEN-END:variables
