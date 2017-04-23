@@ -478,7 +478,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
-        MDyesRadioButton = new javax.swing.JRadioButton();
+        MRyesRadioButton = new javax.swing.JRadioButton();
         MRnoRadioButton = new javax.swing.JRadioButton();
         jLabel74 = new javax.swing.JLabel();
         MOrgComboBox = new javax.swing.JComboBox<>();
@@ -4102,12 +4102,12 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel20.add(jLabel73, gridBagConstraints);
 
-        MDyesRadioButton.setBackground(new java.awt.Color(230, 240, 230));
-        MRemoveDuplicates.add(MDyesRadioButton);
-        MDyesRadioButton.setText("yes");
-        MDyesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+        MRyesRadioButton.setBackground(new java.awt.Color(230, 240, 230));
+        MRemoveDuplicates.add(MRyesRadioButton);
+        MRyesRadioButton.setText("yes");
+        MRyesRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MDyesRadioButtonActionPerformed(evt);
+                MRyesRadioButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4116,7 +4116,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel20.add(MDyesRadioButton, gridBagConstraints);
+        jPanel20.add(MRyesRadioButton, gridBagConstraints);
 
         MRnoRadioButton.setBackground(new java.awt.Color(230, 240, 230));
         MRemoveDuplicates.add(MRnoRadioButton);
@@ -5040,8 +5040,93 @@ public class MainFrame extends javax.swing.JFrame {
                                         throw(new NumberFormatException()); 
                                 }                                
                                 line++;
+                              }
                             }
-                        }
+                            else
+                                if (CurrentLayout=="MACS"){
+                                int line=0;
+                                //chekc right file
+                                if (!br.readLine().equals("MACS")){
+                                    throw(new NumberFormatException());
+                                }
+                                for (String x = br.readLine(); x != null; x = br.readLine()){
+                                switch (line){
+                                    case 0:
+                                        if (x.equals("sudo"))
+                                            MSudoRadioButton.setSelected(true);
+                                        else
+                                            MDockerRadioButton.setSelected(true);
+                                    break;
+                                    case 1:
+                                        MOutputFolderText.setText(x);
+                                    break;
+                                    case 2:
+                                        MScratchFolderText.setText(x);
+                                    break;  
+                                    case 3:
+                                        MGenomeFolderText.setText(x);
+                                    break;
+                                    case 4:
+                                        MTestFolderText.setText(x);
+                                    break;
+                                    case 5:
+                                        MMockFolderText.setText(x);
+                                    break;
+                                    case 6:
+                                        MThreadText.setText(x);
+                                    break;
+                                    case 7:
+                                        MAdapter5Text.setText(x);
+                                    break;
+                                    case 8:
+                                        MAdapter3Text.setText(x);
+                                    break;
+                                    case 9:
+                                        MMinLengthText.setText(x);
+                                    break;
+                                    case 10:
+                                        MOrgComboBox.setSelectedIndex(Integer.valueOf(x));
+                                    break;
+                                    case 11:
+                                        if (x.equals("no"))
+                                           MRnoRadioButton.setSelected(true);
+                                        else
+                                           MRyesRadioButton.setSelected(true);
+                                    break;
+                                    case 12:
+                                        MMaxUpstreamText.setText(x);
+                                    break;
+                                    case 13:
+                                        MTTSText.setText(x);
+                                    break;
+                                    case 14:
+                                        MMinmfoldText.setText(x);
+                                    break;
+                                    case 15:
+                                        MMpvalueText.setText(x);
+                                    break;
+                                    case 16:
+                                        MMaxmfoldText.setText(x);
+                                    break;
+                                    case 17:
+                                        MSWindowsText.setText(x);
+                                    break;
+                                    case 18:
+                                        MSgsizeText.setText(x);
+                                    break;
+                                    case 19:
+                                        MSFDRText.setText(x);
+                                    break;
+                                    case 20:
+                                        MToolComboBox.setSelectedIndex(Integer.valueOf(x));
+                                    break;
+                                    default:
+                                        throw(new NumberFormatException()); 
+                                }                                
+                                line++;
+                              }
+                            }    
+                                
                                 }
                     }
                 getPreferences().put("saved-file",openFile.getCurrentDirectory().getAbsolutePath());  
@@ -5252,8 +5337,60 @@ public class MainFrame extends javax.swing.JFrame {
                                             bw.write(i1000GenomeText.getText());
                                             bw.write("\n");
                                             bw.write(idbSPNText.getText());
-                            }
-                                        
+                                        }
+                                     else
+                                        if (CurrentLayout=="MACS"){   
+                                            bw.write("MACS\n");
+                                            if (MSudoRadioButton.isSelected()){
+                                                bw.write("sudo\n");                
+                                            }                
+                                            else{
+                                                bw.write("docker\n");
+                                            }
+                                            bw.write(MOutputFolderText.getText());
+                                            bw.write("\n");
+                                            bw.write(MScratchFolderText.getText());
+                                            bw.write("\n");
+                                            bw.write(MGenomeFolderText.getText());
+                                            bw.write("\n");
+                                            bw.write(MTestFolderText.getText());
+                                            bw.write("\n");
+                                            bw.write(MMockFolderText.getText());
+                                            bw.write("\n");
+                                            bw.write(MThreadText.getText());
+                                            bw.write("\n");
+                                            bw.write(MAdapter5Text.getText());
+                                            bw.write("\n"); 
+                                            bw.write(MAdapter3Text.getText());
+                                            bw.write("\n"); 
+                                            bw.write(MMinLengthText.getText());
+                                            bw.write("\n");
+                                            bw.write(Integer.toString(MOrgComboBox.getSelectedIndex()));
+                                            bw.write("\n");
+                                            if ( MRnoRadioButton.isSelected()){
+                                                bw.write("no\n");                
+                                            }                
+                                            else{
+                                                bw.write("yes\n");
+                                            }
+                                            bw.write(MMaxUpstreamText.getText());
+                                            bw.write("\n");
+                                            bw.write(MTTSText.getText());
+                                            bw.write("\n");
+                                            bw.write(MMinmfoldText.getText());
+                                            bw.write("\n"); 
+                                            bw.write(MMpvalueText.getText());
+                                            bw.write("\n"); 
+                                            bw.write(MMaxmfoldText.getText());
+                                            bw.write("\n"); 
+                                            bw.write(MSWindowsText.getText());
+                                            bw.write("\n"); 
+                                            bw.write(MSgsizeText.getText());
+                                            bw.write("\n");
+                                            bw.write(MSFDRText.getText());
+                                            bw.write("\n");
+                                            bw.write(Integer.toString(MToolComboBox.getSelectedIndex()));
+                                        }
                         }
                   
                
@@ -7129,9 +7266,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MTTSTextActionPerformed
 
-    private void MDyesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MDyesRadioButtonActionPerformed
+    private void MRyesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MRyesRadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MDyesRadioButtonActionPerformed
+    }//GEN-LAST:event_MRyesRadioButtonActionPerformed
 
     private void MRnoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MRnoRadioButtonActionPerformed
         // TODO add your handling code here:
@@ -7304,7 +7441,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField MAdapter3Text;
     private javax.swing.JTextField MAdapter5Text;
     private javax.swing.JRadioButton MDockerRadioButton;
-    private javax.swing.JRadioButton MDyesRadioButton;
     private javax.swing.ButtonGroup MExecution;
     private javax.swing.JTextField MGenomeFolderText;
     private javax.swing.JTextField MMaxUpstreamText;
@@ -7317,6 +7453,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField MOutputFolderText;
     private javax.swing.ButtonGroup MRemoveDuplicates;
     private javax.swing.JRadioButton MRnoRadioButton;
+    private javax.swing.JRadioButton MRyesRadioButton;
     private javax.swing.JTextField MSFDRText;
     private javax.swing.JTextField MSWindowsText;
     private javax.swing.JTextField MScratchFolderText;
