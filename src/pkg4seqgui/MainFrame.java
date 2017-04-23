@@ -456,7 +456,7 @@ public class MainFrame extends javax.swing.JFrame {
         Tool = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jLabel78 = new javax.swing.JLabel();
-        MMaxUpstreamText4 = new javax.swing.JTextField();
+        MMaxmfoldText = new javax.swing.JTextField();
         jLabel79 = new javax.swing.JLabel();
         jLabel82 = new javax.swing.JLabel();
         MMinmfoldText = new javax.swing.JTextField();
@@ -474,7 +474,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel69 = new javax.swing.JLabel();
         MAdapter3Text = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
-        MMaxUpstreamText2 = new javax.swing.JTextField();
+        MTTSText = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
@@ -3791,15 +3791,15 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel22.add(jLabel78, gridBagConstraints);
 
-        MMaxUpstreamText4.setText("30");
-        MMaxUpstreamText4.addFocusListener(new java.awt.event.FocusAdapter() {
+        MMaxmfoldText.setText("30");
+        MMaxmfoldText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                MMaxUpstreamText4FocusLost(evt);
+                MMaxmfoldTextFocusLost(evt);
             }
         });
-        MMaxUpstreamText4.addActionListener(new java.awt.event.ActionListener() {
+        MMaxmfoldText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MMaxUpstreamText4ActionPerformed(evt);
+                MMaxmfoldTextActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3810,7 +3810,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
-        jPanel22.add(MMaxUpstreamText4, gridBagConstraints);
+        jPanel22.add(MMaxmfoldText, gridBagConstraints);
 
         jLabel79.setText("MACS p-value:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4056,15 +4056,15 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel20.add(jLabel70, gridBagConstraints);
 
-        MMaxUpstreamText2.setText("0");
-        MMaxUpstreamText2.addFocusListener(new java.awt.event.FocusAdapter() {
+        MTTSText.setText("0");
+        MTTSText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                MMaxUpstreamText2FocusLost(evt);
+                MTTSTextFocusLost(evt);
             }
         });
-        MMaxUpstreamText2.addActionListener(new java.awt.event.ActionListener() {
+        MTTSText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MMaxUpstreamText2ActionPerformed(evt);
+                MTTSTextActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4075,7 +4075,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel20.add(MMaxUpstreamText2, gridBagConstraints);
+        jPanel20.add(MTTSText, gridBagConstraints);
 
         jLabel71.setText("Max. upstream distance:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -6907,7 +6907,34 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_idbSPNCancelButtonActionPerformed
 
     private void vCloseButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton4ActionPerformed
-        // TODO add your handling code here:
+        //RESET FIELDS
+        MDockerRadioButton.setSelected(true);
+        MOutputFolderText.setText("");
+        MScratchFolderText.setText("");
+        MGenomeFolderText.setText("");
+        MTestFolderText.setText("");
+        MMockFolderText.setText("");
+        MThreadText.setText(Integer.toString(GS.getDefaultThread()));
+        MAdapter5Text.setText(GS.getDefaultAdapter3());
+        MAdapter3Text.setText(GS.getDefaultAdapter3());
+        MMinLengthText.setText("30");
+        MOrgComboBox.setSelectedIndex(1);
+        MRnoRadioButton.setSelected(true);
+        MMaxUpstreamText.setText("10000");
+        MTTSText.setText("0");
+        MMinmfoldText.setText("10");
+        MMpvalueText.setText("1e-5");
+        MMaxmfoldText.setText("30");
+        MSWindowsText.setText("200");
+        MSgsizeText.setText("200");
+        MSFDRText.setText("0.1");
+        MToolComboBox.setSelectedIndex(0);
+        //RESET FIELDS
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "Empty");
+        CurrentLayout="Empty";
+        //GL.setAvoidProcListValueChanged(-1);
+        AnalysisTree.clearSelection();    
     }//GEN-LAST:event_vCloseButton4ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
@@ -6915,11 +6942,31 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
-        // TODO add your handling code here:
+        MDockerRadioButton.setSelected(true);
+        MOutputFolderText.setText("");
+        MScratchFolderText.setText("");
+        MGenomeFolderText.setText("");
+        MTestFolderText.setText("");
+        MMockFolderText.setText("");
+        MThreadText.setText(Integer.toString(GS.getDefaultThread()));
+        MAdapter5Text.setText(GS.getDefaultAdapter3());
+        MAdapter3Text.setText(GS.getDefaultAdapter3());
+        MMinLengthText.setText("30");
+        MOrgComboBox.setSelectedIndex(1);
+        MRnoRadioButton.setSelected(true);
+        MMaxUpstreamText.setText("10000");
+        MTTSText.setText("0");
+        MMinmfoldText.setText("10");
+        MMpvalueText.setText("1e-5");
+        MMaxmfoldText.setText("30");
+        MSWindowsText.setText("200");
+        MSgsizeText.setText("200");
+        MSFDRText.setText("0.1");
+        MToolComboBox.setSelectedIndex(0);
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
-        // TODO add your handling code here:
+       saveAsMenuItemActionPerformed(evt);
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void MOutputFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MOutputFolderTextActionPerformed
@@ -7058,13 +7105,13 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MAdapter3TextActionPerformed
 
-    private void MMaxUpstreamText2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMaxUpstreamText2FocusLost
+    private void MTTSTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MTTSTextFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_MMaxUpstreamText2FocusLost
+    }//GEN-LAST:event_MTTSTextFocusLost
 
-    private void MMaxUpstreamText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMaxUpstreamText2ActionPerformed
+    private void MTTSTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MTTSTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MMaxUpstreamText2ActionPerformed
+    }//GEN-LAST:event_MTTSTextActionPerformed
 
     private void MDyesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MDyesRadioButtonActionPerformed
         // TODO add your handling code here:
@@ -7094,13 +7141,13 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MToolComboBoxActionPerformed
 
-    private void MMaxUpstreamText4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMaxUpstreamText4FocusLost
+    private void MMaxmfoldTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMaxmfoldTextFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_MMaxUpstreamText4FocusLost
+    }//GEN-LAST:event_MMaxmfoldTextFocusLost
 
-    private void MMaxUpstreamText4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMaxUpstreamText4ActionPerformed
+    private void MMaxmfoldTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MMaxmfoldTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MMaxUpstreamText4ActionPerformed
+    }//GEN-LAST:event_MMaxmfoldTextActionPerformed
 
     private void MMinmfoldTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MMinmfoldTextFocusLost
         // TODO add your handling code here:
@@ -7245,8 +7292,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup MExecution;
     private javax.swing.JTextField MGenomeFolderText;
     private javax.swing.JTextField MMaxUpstreamText;
-    private javax.swing.JTextField MMaxUpstreamText2;
-    private javax.swing.JTextField MMaxUpstreamText4;
+    private javax.swing.JTextField MMaxmfoldText;
     private javax.swing.JTextField MMinLengthText;
     private javax.swing.JTextField MMinmfoldText;
     private javax.swing.JTextField MMockFolderText;
@@ -7261,6 +7307,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup MSeq;
     private javax.swing.JTextField MSgsizeText;
     private javax.swing.JRadioButton MSudoRadioButton;
+    private javax.swing.JTextField MTTSText;
     private javax.swing.JTextField MTestFolderText;
     private javax.swing.JTextField MThreadText;
     private javax.swing.JComboBox<String> MToolComboBox;
