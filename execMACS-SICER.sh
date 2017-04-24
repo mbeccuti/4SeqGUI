@@ -26,7 +26,8 @@ sicergsize=${21}
 sicerfdr=${22}
 tssdistance=${23}
 maxupstreamdistance=${24}
-output=${25}
+removeduplicates=${25}
+output=${26}
 path=${PWD}
 
 
@@ -59,6 +60,7 @@ echo "SICER gsize:       $sicergsize"
 echo "SICER FDR:         $sicerfdr"
 echo "TSS distance:      $tssdistance"
 echo "Max upstream dis.: $maxupstreamdistance"
+echo "Remove Duplicates: $removeduplicates"
 echo "Output:            $output"
 echo 
 echo "======================================================="
@@ -70,7 +72,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $outputfolder $scratchfolder  $adapter5  $adapter3 $mockfolder $testfolder  $seqtype $thread $minlength $genomefolder $mockid $testid $genome $readsize $tool $macsminmfold $macsmaxmfold $macspval  $sicerwsize $sicergsize $sicerfdr  $tssdistance $maxupstreamdistance $output' ./Rscripts/rnaseqCounts.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $outputfolder $scratchfolder  $adapter5  $adapter3 $mockfolder $testfolder  $seqtype $thread $minlength $genomefolder $mockid $testid $genome $readsize $tool $macsminmfold $macsmaxmfold $macspval  $sicerwsize $sicergsize $sicerfdr  $tssdistance $maxupstreamdistance $removeduplicates ' ./Rscripts/chipseqCounts.R  $output/Routput.Rout"
 
 echo "$args"
 

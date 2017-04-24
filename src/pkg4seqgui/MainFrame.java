@@ -7276,7 +7276,7 @@ public class MainFrame extends javax.swing.JFrame {
                         if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
                             Process pr = rt.exec(cmd); 
                             //System.out.println("lanciato "+pr);                            
-                            ElProcRunning tmp= new ElProcRunning("MACS & SICER workflow", vFastQFolderText.getText(),pr,listModel.getSize());
+                            ElProcRunning tmp= new ElProcRunning("MACS & SICER workflow", MOutputFolderText.getText(),pr,listModel.getSize());
                             listProcRunning.add(tmp);
                             java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                             ImageIcon image2 = new ImageIcon(imgURL);
@@ -7291,7 +7291,7 @@ public class MainFrame extends javax.swing.JFrame {
                         }
                          
                         else{
-                            ElProcWaiting tmp= new ElProcWaiting("MACS & SICER workflow",vFastQFolderText.getText(),cmd,listModel.getSize());
+                            ElProcWaiting tmp= new ElProcWaiting("MACS & SICER workflow",MOutputFolderText.getText(),cmd,listModel.getSize());
                             listProcWaiting.add(tmp);
                             java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                             ImageIcon image2 = new ImageIcon(imgURL);
