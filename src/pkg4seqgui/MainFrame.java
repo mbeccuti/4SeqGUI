@@ -129,6 +129,16 @@ public class MainFrame extends javax.swing.JFrame {
             setSize(screenSize.width*95/100,screenSize.height*95/100);
         }
 
+        //OUTPUT FRAME
+        int OutputframeWidth= Integer.valueOf(getPreferences().get("WindowOutputWidth", "0"));
+        int OutputframeHeight= Integer.valueOf(getPreferences().get("WindowOutputHeight", "0")); 
+        if ((OutputframeWidth==0)||(OutputframeHeight==0)){
+              OutputframeWidth=screenSize.width*4/100;
+              OutputframeHeight=screenSize.height*5/100;
+        }
+
+        OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
+        
         String WidthGroup = getPreferences().get("GroupCellWidth", null);
         if (WidthGroup!=null){
              FPKMFileTable.getColumnModel().getColumn(1).setPreferredWidth(Integer.valueOf(WidthGroup));
@@ -503,11 +513,23 @@ public class MainFrame extends javax.swing.JFrame {
 
         OutputFrame.setTitle("Process Output");
         OutputFrame.setLocation(new java.awt.Point(100, 100));
+        OutputFrame.getContentPane().setLayout(new java.awt.GridBagLayout());
 
         OutputText.setEditable(false);
         OutputText.setColumns(20);
         OutputText.setRows(5);
         jScrollPane3.setViewportView(OutputText);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weighty = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        OutputFrame.getContentPane().add(jScrollPane3, gridBagConstraints);
 
         CloseOutput.setText("Close");
         CloseOutput.addActionListener(new java.awt.event.ActionListener() {
@@ -515,6 +537,12 @@ public class MainFrame extends javax.swing.JFrame {
                 CloseOutputActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        OutputFrame.getContentPane().add(CloseOutput, gridBagConstraints);
 
         ReloadOutput.setText("Reload");
         ReloadOutput.addActionListener(new java.awt.event.ActionListener() {
@@ -522,6 +550,13 @@ public class MainFrame extends javax.swing.JFrame {
                 ReloadOutputActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        OutputFrame.getContentPane().add(ReloadOutput, gridBagConstraints);
 
         RemoveOutput.setText("RemoveEntry");
         RemoveOutput.addActionListener(new java.awt.event.ActionListener() {
@@ -529,36 +564,12 @@ public class MainFrame extends javax.swing.JFrame {
                 RemoveOutputActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout OutputFrameLayout = new javax.swing.GroupLayout(OutputFrame.getContentPane());
-        OutputFrame.getContentPane().setLayout(OutputFrameLayout);
-        OutputFrameLayout.setHorizontalGroup(
-            OutputFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OutputFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(OutputFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(OutputFrameLayout.createSequentialGroup()
-                        .addGap(0, 632, Short.MAX_VALUE)
-                        .addComponent(ReloadOutput)
-                        .addGap(18, 18, 18)
-                        .addComponent(RemoveOutput)
-                        .addGap(18, 18, 18)
-                        .addComponent(CloseOutput))
-                    .addComponent(jScrollPane3))
-                .addContainerGap())
-        );
-        OutputFrameLayout.setVerticalGroup(
-            OutputFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(OutputFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(OutputFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CloseOutput)
-                    .addComponent(ReloadOutput)
-                    .addComponent(RemoveOutput))
-                .addGap(0, 22, Short.MAX_VALUE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        OutputFrame.getContentPane().add(RemoveOutput, gridBagConstraints);
 
         ConfigurationFrame.setTitle("Configuration");
         ConfigurationFrame.setLocation(new java.awt.Point(200, 200));
@@ -5650,6 +5661,15 @@ public class MainFrame extends javax.swing.JFrame {
   
         if ((evt!=null)){
         OutputFrame.pack();
+         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int OutputframeWidth= Integer.valueOf(getPreferences().get("WindowOutputWidth", "0"));
+        int OutputframeHeight= Integer.valueOf(getPreferences().get("WindowOutputHeight", "0")); 
+        if ((OutputframeWidth==0)||(OutputframeHeight==0)){
+              OutputframeWidth=screenSize.width*4/100;
+              OutputframeHeight=screenSize.height*5/100;
+        }
+
+        OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
         OutputFrame.setVisible(true);
         //System.out.println("QUII->-Inizio\n"+listModel.getSize()+" "+evt.getLastIndex()+"\n"+evt.getSource());
         ListEntry tmpListEntry;
@@ -5711,6 +5731,8 @@ public class MainFrame extends javax.swing.JFrame {
     //GL.setListProcStatuSelection(-1);  
     ProcList.clearSelection();
     GL.setAvoidProcListValueChanged(0);
+    getPreferences().put("WindowOutputWidth", Integer.toString(OutputFrame.getWidth()));
+    getPreferences().put("WindowOutputHeight", Integer.toString(OutputFrame.getHeight())); 
     //System.out.println("@@@@@@@@@@@@Close: \n");
     }//GEN-LAST:event_CloseOutputActionPerformed
 
