@@ -495,6 +495,8 @@ public class MainFrame extends javax.swing.JFrame {
         MMinLengthText = new javax.swing.JTextField();
         MMaxUpstreamText = new javax.swing.JTextField();
         jLabel75 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        MReadLengthTextField = new javax.swing.JTextField();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -4098,7 +4100,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel72.setText("Organism:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridx = 14;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -4147,10 +4149,10 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel20.add(MRnoRadioButton, gridBagConstraints);
 
-        jLabel74.setText("TTS distance:");
+        jLabel74.setText("Read  length:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 14;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -4158,7 +4160,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MOrgComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "hg19", "hg38", "mm9", "mm10" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridx = 15;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -4180,7 +4182,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -4208,11 +4210,30 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel20.add(MMaxUpstreamText, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 21;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
         jPanel20.add(jLabel75, gridBagConstraints);
+
+        jLabel76.setText("TTS distance:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(jLabel76, gridBagConstraints);
+
+        MReadLengthTextField.setText("50");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel20.add(MReadLengthTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -5096,39 +5117,42 @@ public class MainFrame extends javax.swing.JFrame {
                                         MMinLengthText.setText(x);
                                     break;
                                     case 10:
-                                        MOrgComboBox.setSelectedIndex(Integer.valueOf(x));
+                                        MReadLengthTextField.setText(x);
                                     break;
                                     case 11:
+                                        MOrgComboBox.setSelectedIndex(Integer.valueOf(x));
+                                    break;
+                                    case 12:
                                         if (x.equals("no"))
                                            MRnoRadioButton.setSelected(true);
                                         else
                                            MRyesRadioButton.setSelected(true);
                                     break;
-                                    case 12:
+                                    case 13:
                                         MMaxUpstreamText.setText(x);
                                     break;
-                                    case 13:
+                                    case 14:
                                         MTTSText.setText(x);
                                     break;
-                                    case 14:
+                                    case 15:
                                         MMinmfoldText.setText(x);
                                     break;
-                                    case 15:
+                                    case 16:
                                         MMpvalueText.setText(x);
                                     break;
-                                    case 16:
+                                    case 17:
                                         MMaxmfoldText.setText(x);
                                     break;
-                                    case 17:
+                                    case 18:
                                         MSWindowsText.setText(x);
                                     break;
-                                    case 18:
+                                    case 19:
                                         MSgsizeText.setText(x);
                                     break;
-                                    case 19:
+                                    case 20:
                                         MSFDRText.setText(x);
                                     break;
-                                    case 20:
+                                    case 21:
                                         MToolComboBox.setSelectedIndex(Integer.valueOf(x));
                                     break;
                                     default:
@@ -5375,6 +5399,8 @@ public class MainFrame extends javax.swing.JFrame {
                                             bw.write(MAdapter3Text.getText());
                                             bw.write("\n"); 
                                             bw.write(MMinLengthText.getText());
+                                            bw.write("\n");
+                                            bw.write(MReadLengthTextField.getText());
                                             bw.write("\n");
                                             bw.write(Integer.toString(MOrgComboBox.getSelectedIndex()));
                                             bw.write("\n");
@@ -7077,7 +7103,7 @@ public class MainFrame extends javax.swing.JFrame {
         MAdapter5Text.setText(GS.getDefaultAdapter3());
         MAdapter3Text.setText(GS.getDefaultAdapter3());
         MMinLengthText.setText("30");
-        MOrgComboBox.setSelectedIndex(1);
+        MOrgComboBox.setSelectedIndex(0);
         MRnoRadioButton.setSelected(true);
         MMaxUpstreamText.setText("10000");
         MTTSText.setText("0");
@@ -7087,6 +7113,7 @@ public class MainFrame extends javax.swing.JFrame {
         MSWindowsText.setText("200");
         MSgsizeText.setText("200");
         MSFDRText.setText("0.1");
+        MReadLengthTextField.setText("50");
         MToolComboBox.setSelectedIndex(0);
         //RESET FIELDS
         CardLayout card = (CardLayout)MainPanel.getLayout();
@@ -7097,7 +7124,196 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_vCloseButton4ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
+      //Field check
+        if (MReadLengthTextField.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified a read length value","Error: read length  value",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (MToolComboBox.getSelectedIndex()==0){
+            if (MMinmfoldText.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "You have to specified a MACS min. mfold  value","Error:  MACS min. mfold  value",JOptionPane.ERROR_MESSAGE);
+            return;
+            }
+            else
+            if (MMpvalueText.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "You have to specified a MACS p-value","Error: MACS p-velue",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            else
+            if (MMaxmfoldText.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "You have to specified a MACS max. mfold value","Error: MACS max. mfold value",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+        }
+        else
+        {
+            if (MSWindowsText.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "You have to specified a  SICER window  value","Error:  SICER window  value",JOptionPane.ERROR_MESSAGE);
+            return;
+            }
+            else
+            if (MSgsizeText.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "You have to specified a SICER g-size value","Error: SICER g-size  value",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            else
+            if (MSFDRText.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "You have to specified a SICER FDR value","Error: SICER FDR value",JOptionPane.ERROR_MESSAGE);
+                return;
+            }   
+            
+        }    
+        if (MTTSText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an MTTS   value","Error: MTTS   value",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else
+        if (MMaxUpstreamText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified a maximum upstream  value","Error: Max upstream   value",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else
+        
+        if (MOutputFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an output folder","Error: Output  folder",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else
+        if (MScratchFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified a scratch folder","Error:  scratch folder",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else
+        if (MGenomeFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified a genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else
+        if (MMockFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an Mock folder","Error: Mock folder",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else    
+        if (MThreadText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            MThreadText.requestFocusInWindow();
+            return;
+        }
+        try
+        {
+            Integer x = Integer.valueOf(MThreadText.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+                MThreadText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            MThreadText.requestFocusInWindow();
+            return;
+        }
+
+        if ((!MAdapter5Text.getText().isEmpty())&&(!adapter.matcher(MAdapter5Text.getText()).matches())){
+            JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 5'",JOptionPane.ERROR_MESSAGE);
+            MAdapter5Text.requestFocusInWindow();
+        }
+        else{
+            if ((!MAdapter3Text.getText().isEmpty())&&(!adapter.matcher(MAdapter3Text.getText()).matches())){
+                JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 3'",JOptionPane.ERROR_MESSAGE);
+                MAdapter3Text.requestFocusInWindow();
+            }
+            else{
+                if (MMinLengthText.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "You have to specified a value for the minimum lenght.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+                    MMinLengthText.requestFocusInWindow();
+                    return;
+                }
+                try{
+                    Integer x = Integer.valueOf(MMinLengthText.getText());
+                    if (x<0){
+                        JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+                        MMinLengthText.requestFocusInWindow();
+                        return;
+                    }
+                }
+                catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+                    MMinLengthText.requestFocusInWindow();
+                    return;
+                }
+                
+                if (!org.matcher(vOrganismText.getText()).matches()){
+                    JOptionPane.showMessageDialog(this, "The specified organism is not valid.","Error: Organism",JOptionPane.ERROR_MESSAGE);
+                    vOrganismText.requestFocusInWindow();
+                }
+                else{
+                    //execute code                 
+                    Runtime rt = Runtime.getRuntime();
+                    try{
+                        String[] cmd = {"/bin/bash","-c"," ./execMACS-SICER.sh "}; 
+                        
+                        if (MSudoRadioButton.isSelected()){
+                            cmd[2]+= "group=\\\"sudo\\\"";
+                        }
+                        else{
+                            cmd[2]+= "group=\\\"docker\\\"";
+                        }
+                        cmd[2]+= " output.folder=\\\""+MOutputFolderText.getText()+"\\\" scratch.folder=\\\""+MScratchFolderText.getText()+"\\\" adapter5=\\\""+MAdapter5Text.getText()+"\\\" adapter3=\\\""+MAdapter3Text.getText()+"\\\"";
+                        cmd[2]+= " mock.folder=\\\""+MMockFolderText.getText()+"\\\" test.folder=\\\""+MTestFolderText.getText()+"\\\"";
+                        cmd[2]+= " seq.type=\\\"se\\\" threads="+vThreadText.getText()+" min.length="+MMinLengthText.getText()+" genome.folder=\\\""+MGenomeFolderText.getText()+"\\\"";
+                        cmd[2]+= " mock.id=\\\"sigg\\\"  test.id=\\\"tf\\\" genome=\\\""+MOrgComboBox.getSelectedItem().toString()+"\\\" read.size="+MReadLengthTextField.getText();
+                        cmd[2]+= " tool=\\\""+MToolComboBox.getSelectedItem().toString()+"\\\" macs.min.mfold="+MMinmfoldText.getText()+" macs.max.mfold="+MMaxmfoldText.getText()+" macs.pval=\\\""+MMpvalueText.getText()+"\\\"";
+                        cmd[2]+= " sicer.wsize="+MSWindowsText.getText()+" sicer.gsize="+MSgsizeText.getText()+" sicer.fdr="+MSFDRText.getText()+ " tss.distance="+MTTSText.getText()+" max.upstream.distance="+MMaxUpstreamText.getText();
+                        if (MRyesRadioButton.isSelected())
+                             cmd[2]+= " remove.duplicates=\\\"yes\\\"";
+                        else
+                             cmd[2]+= " remove.duplicates=\\\"no\\\"";
+                        cmd[2]+=" "+MOutputFolderText.getText() +" >& "+MOutputFolderText.getText()+"/outputExecution ";
+                        
+                        //ProcessStatus.setText(pr.toString());
+                        if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                            Process pr = rt.exec(cmd); 
+                            //System.out.println("lanciato "+pr);                            
+                            ElProcRunning tmp= new ElProcRunning("MACS & SICER workflow", vFastQFolderText.getText(),pr,listModel.getSize());
+                            listProcRunning.add(tmp);
+                            java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                            ImageIcon image2 = new ImageIcon(imgURL);
+                            GL.setAvoidProcListValueChanged(-1);
+                            listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                            GL.setAvoidProcListValueChanged(0);
+                                    //addElement("RNAseq counting workflow (data input: "+vFastQFolderText.getText()+")            [Runnig]");
+                            if(listProcRunning.size()==1){
+                                t=new Timer();
+                                t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                            }
+                        }
+                         
+                        else{
+                            ElProcWaiting tmp= new ElProcWaiting("MACS & SICER workflow",vFastQFolderText.getText(),cmd,listModel.getSize());
+                            listProcWaiting.add(tmp);
+                            java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                            ImageIcon image2 = new ImageIcon(imgURL);
+                            GL.setAvoidProcListValueChanged(-1);
+                            listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                            GL.setAvoidProcListValueChanged(0);
+
+                        }
+                        GL.setAvoidProcListValueChanged(-1);
+                        ProcList.setModel(listModel);
+                        ProcList.setCellRenderer(new ListEntryCellRenderer());
+                        GL.setAvoidProcListValueChanged(0);
+                        } 
+                    catch(Exception e) {
+                        JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+                        System.out.println(e.toString());
+                        }
+                    JOptionPane.showMessageDialog(this, "A MACS & SICER  workflow task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+                    }
+                  //execute code
+            }
+        }
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
@@ -7111,7 +7327,7 @@ public class MainFrame extends javax.swing.JFrame {
         MAdapter5Text.setText(GS.getDefaultAdapter3());
         MAdapter3Text.setText(GS.getDefaultAdapter3());
         MMinLengthText.setText("30");
-        MOrgComboBox.setSelectedIndex(1);
+        MOrgComboBox.setSelectedIndex(0);
         MRnoRadioButton.setSelected(true);
         MMaxUpstreamText.setText("10000");
         MTTSText.setText("0");
@@ -7121,6 +7337,7 @@ public class MainFrame extends javax.swing.JFrame {
         MSWindowsText.setText("200");
         MSgsizeText.setText("200");
         MSFDRText.setText("0.1");
+        MReadLengthTextField.setText("50");
         MToolComboBox.setSelectedIndex(0);
     }//GEN-LAST:event_jButton24ActionPerformed
 
@@ -7473,6 +7690,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField MMpvalueText;
     private javax.swing.JComboBox<String> MOrgComboBox;
     private javax.swing.JTextField MOutputFolderText;
+    private javax.swing.JTextField MReadLengthTextField;
     private javax.swing.ButtonGroup MRemoveDuplicates;
     private javax.swing.JRadioButton MRnoRadioButton;
     private javax.swing.JRadioButton MRyesRadioButton;
@@ -7629,6 +7847,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
