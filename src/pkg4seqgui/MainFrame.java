@@ -6720,7 +6720,7 @@ public class MainFrame extends javax.swing.JFrame {
             if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
                 Process pr = rt.exec(cmd); 
                 System.out.println(cmd[2]);                            
-                ElProcRunning tmp= new ElProcRunning("PCA workflow", dOutputFolderText.getText() ,pr,listModel.getSize());
+                ElProcRunning tmp= new ElProcRunning("A differential gene expression workflow", dOutputFolderText.getText() ,pr,listModel.getSize());
                 listProcRunning.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -6733,7 +6733,7 @@ public class MainFrame extends javax.swing.JFrame {
                     }
             }             
             else{
-                 ElProcWaiting tmp= new ElProcWaiting("PCA workflow", dOutputFolderText.getText(),cmd,listModel.getSize());
+                 ElProcWaiting tmp= new ElProcWaiting("A differential gene expression workflow", dOutputFolderText.getText(),cmd,listModel.getSize());
                  listProcWaiting.add(tmp);
                  java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                  ImageIcon image2 = new ImageIcon(imgURL);
