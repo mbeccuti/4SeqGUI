@@ -11,6 +11,9 @@ R
 install.packages("git2r")
 install.packages("httr")
 install.packages("devtools") 
+source("https://bioconductor.org/biocLite.R"
+biocLite("DESeq2")
+biocLite("RnaSeqSampleSize")
 
 library(devtools) 
 

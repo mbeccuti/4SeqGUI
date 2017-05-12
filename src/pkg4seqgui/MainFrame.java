@@ -215,11 +215,9 @@ public class MainFrame extends javax.swing.JFrame {
         VerticalSplitPanel = new javax.swing.JSplitPane();
         BottomPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         ProcStatusPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ProcList = new javax.swing.JList<>();
-        jPanel1 = new javax.swing.JPanel();
         HorizontalSplitPanel = new javax.swing.JSplitPane();
         MainPanel = new javax.swing.JPanel();
         Empty = new javax.swing.JScrollPane();
@@ -460,6 +458,7 @@ public class MainFrame extends javax.swing.JFrame {
         MDockerRadioButton = new javax.swing.JRadioButton();
         jLabel57 = new javax.swing.JLabel();
         MThreadText = new javax.swing.JTextField();
+        jLabel61 = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         jLabel63 = new javax.swing.JLabel();
         MToolComboBox = new javax.swing.JComboBox<>();
@@ -744,9 +743,11 @@ public class MainFrame extends javax.swing.JFrame {
         BottomPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         BottomPanel.setLayout(new java.awt.GridBagLayout());
 
+        jScrollPane4.setToolTipText("");
+
         ProcStatusPanel.setLayout(new java.awt.GridBagLayout());
 
-        ProcList.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        ProcList.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Process status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 82, 150))); // NOI18N
         ProcList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ProcList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -766,22 +767,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.1;
         ProcStatusPanel.add(jScrollPane2, gridBagConstraints);
 
-        jTabbedPane1.addTab("Process status", ProcStatusPanel);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Console", jPanel1);
-
-        jScrollPane4.setViewportView(jTabbedPane1);
+        jScrollPane4.setViewportView(ProcStatusPanel);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -811,6 +797,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(Empty, "Empty");
 
+        IndexingStarRSEMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genome indexing STAR-RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 102, 102))); // NOI18N
         IndexingStarRSEMPanel.setToolTipText("");
         IndexingStarRSEMPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -1063,6 +1050,8 @@ public class MainFrame extends javax.swing.JFrame {
         IndexingStarRSEM.setViewportView(IndexingStarRSEMPanel);
 
         MainPanel.add(IndexingStarRSEM, "indexing");
+
+        mRNA.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "miRNA counting", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(153, 0, 0))); // NOI18N
 
         mRNAPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -1464,6 +1453,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(mRNA, "mRNA");
 
+        FPKMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "From samples to experiment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(102, 0, 153))); // NOI18N
         FPKMPanel.setLayout(new java.awt.GridBagLayout());
 
         jPanel4.setBackground(new java.awt.Color(224, 224, 238));
@@ -1497,7 +1487,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -1505,7 +1495,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jScrollPane6, gridBagConstraints);
 
-        FAddFile.setText("Add folders");
+        FAddFile.setText("Add");
         FAddFile.setToolTipText("");
         FAddFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1513,24 +1503,23 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.3;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 70);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(FAddFile, gridBagConstraints);
 
-        jButton13.setText("Remove folders");
+        jButton13.setText("Remove");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jButton13, gridBagConstraints);
@@ -1547,7 +1536,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.2;
@@ -1566,9 +1555,9 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weightx = 0.4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(FOutputFolderText, gridBagConstraints);
 
@@ -1580,10 +1569,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(Fbrowes, gridBagConstraints);
@@ -1595,8 +1583,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(Fcancel, gridBagConstraints);
@@ -1669,6 +1658,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(FPKM, "FPKMCounting");
 
+        vmRNAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genes, isoforms counting RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
         vmRNAPanel.setToolTipText("");
         vmRNAPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -2292,6 +2282,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(vmRNA, "vmRNA");
 
+        PCAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PCA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(204, 102, 0))); // NOI18N
         PCAPanel.setToolTipText("");
         PCAPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -2662,6 +2653,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(PCA, "PCA");
 
+        DESPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESeq2 analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 204))); // NOI18N
         DESPanel.setToolTipText("");
         DESPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -2991,6 +2983,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(DES, "DES");
 
+        IndexingBWAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genome indexing BWA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
         IndexingBWAPanel.setToolTipText("");
         IndexingBWAPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -3365,6 +3358,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(IndexingBWA, "indexingB");
 
+        MACSPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MAC & SIC analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 153, 0))); // NOI18N
         MACSPanel.setToolTipText("");
         MACSPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -3685,7 +3679,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel18.add(jLabel56, gridBagConstraints);
 
@@ -3695,8 +3690,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         jPanel18.add(MSudoRadioButton, gridBagConstraints);
 
@@ -3710,20 +3705,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel18.add(MDockerRadioButton, gridBagConstraints);
 
         jLabel57.setText("Thread number:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel18.add(jLabel57, gridBagConstraints);
 
@@ -3740,14 +3734,21 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
+        gridBagConstraints.weightx = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel18.add(MThreadText, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        jPanel18.add(jLabel61, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -4255,27 +4256,33 @@ public class MainFrame extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Tools");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Available Analysis");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("RNAseq counting workflow");
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("SeqBox");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("RNAseq Workflow");
+        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genome indexing STAR-RSEM");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("miRNAseq counting workflow");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genes, isoforms counting RSEM");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("MACS & SICER workflow");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("From samples to experiment");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("PCA");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Sample size estimator");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Experiment stat. Power");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("DESeq2 analysis");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Support");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Counts, FPKM and TPM");
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("miRNA workflow");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("miRNA counting");
         treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Principal component analysis");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Differential gene exp. analysis");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("DESeq2 analysis");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Genome indexing");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genome indexing STAR-RSEM");
-        treeNode2.add(treeNode3);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Chipseq workflow");
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genome indexing BWA");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("MACS & SICER analysis");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
         AnalysisTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
@@ -4375,7 +4382,7 @@ public class MainFrame extends javax.swing.JFrame {
            return;
        
         CardLayout card = (CardLayout)MainPanel.getLayout();
-        if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="RNAseq counting workflow" ){
+        if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Genes, isoforms counting RSEM" ){
             vThreadText.setText(Integer.toString(GS.getDefaultThread()));
             vAdapter5Text.setText(GS.getDefaultAdapter5());
             vAdapter3Text.setText(GS.getDefaultAdapter3());
@@ -4384,12 +4391,12 @@ public class MainFrame extends javax.swing.JFrame {
         }
         else{
             
-            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="miRNAseq counting workflow" ){
+            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="miRNA counting" ){
                 card.show(MainPanel, "mRNA");
                 CurrentLayout="mRNA";
             }
             else{
-                if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="MACS & SICER workflow" ){
+                if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="MACS & SICER analysis" ){
                     card.show(MainPanel, "MACS");
                     CurrentLayout="MACS";
                     MThreadText.setText(Integer.toString(GS.getDefaultThread()));
@@ -4405,16 +4412,16 @@ public class MainFrame extends javax.swing.JFrame {
                         CurrentLayout="indexing";
                     }
                     else
-                        if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Counts, FPKM and TPM" ){
+                        if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="From samples to experiment" ){
                             card.show(MainPanel, "FPKMCounting");
                              CurrentLayout="FPKMCounting";
                         }
                         else
-                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Principal component analysis" ){
+                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="PCA" ){
                                 card.show(MainPanel, "PCA");
                                 CurrentLayout="PCA";
                             } 
-                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Differential gene exp. analysis" ){
+                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="DESeq2 analysis" ){
                                 card.show(MainPanel, "DES");
                                 CurrentLayout="DES";
                             } 
@@ -4424,7 +4431,16 @@ public class MainFrame extends javax.swing.JFrame {
                                     card.show(MainPanel, "indexingB");
                                     CurrentLayout="indexingB";
                                  } 
-                         
+                                else
+                                      if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Sample size estimator" ){
+                                        card.show(MainPanel, "Empty");
+                                        CurrentLayout="Empty";  
+                                      }
+                                      else
+                                           if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Experiment stat. Power" ){
+                                                card.show(MainPanel, "Empty");
+                                                CurrentLayout="Empty";  
+                                            }
                         
             }
         }
@@ -7836,6 +7852,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
@@ -7867,7 +7884,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -7895,7 +7911,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton11;
