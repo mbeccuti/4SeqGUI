@@ -392,9 +392,10 @@ public class MainFrame extends javax.swing.JFrame {
         dGeneRadioButton = new javax.swing.JRadioButton();
         jLabel47 = new javax.swing.JLabel();
         dCovComboBox = new javax.swing.JComboBox<>();
-        dIsoformRadioButton1 = new javax.swing.JRadioButton();
+        dmiRNARadioButton = new javax.swing.JRadioButton();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
+        dIsoformRadioButton = new javax.swing.JRadioButton();
         IndexingBWA = new javax.swing.JScrollPane();
         IndexingBWAPanel = new javax.swing.JPanel();
         iCloseButton1 = new javax.swing.JButton();
@@ -2944,15 +2945,14 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(dCovComboBox, gridBagConstraints);
 
-        dIsoformRadioButton1.setBackground(new java.awt.Color(225, 239, 250));
-        dIsoformRadioButton1.setSelected(true);
-        dIsoformRadioButton1.setText("isoform");
+        dmiRNARadioButton.setBackground(new java.awt.Color(225, 239, 250));
+        DEStype.add(dmiRNARadioButton);
+        dmiRNARadioButton.setText("miRNA");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel12.add(dIsoformRadioButton1, gridBagConstraints);
+        jPanel12.add(dmiRNARadioButton, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
@@ -2969,6 +2969,16 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.3;
         jPanel12.add(jLabel59, gridBagConstraints);
+
+        dIsoformRadioButton.setBackground(new java.awt.Color(225, 239, 250));
+        DEStype.add(dIsoformRadioButton);
+        dIsoformRadioButton.setText("isoform");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel12.add(dIsoformRadioButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -4521,7 +4531,7 @@ public class MainFrame extends javax.swing.JFrame {
 
                 if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
                     Process pr = rt.exec(cmd);                          
-                    ElProcRunning tmp= new ElProcRunning("miRNAseq counting workflow ", mFastQFolderText.getText(),pr,listModel.getSize());
+                    ElProcRunning tmp= new ElProcRunning("miRNA counting ", mFastQFolderText.getText(),pr,listModel.getSize());
                     listProcRunning.add(tmp);
                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                     ImageIcon image2 = new ImageIcon(imgURL);
@@ -4534,7 +4544,7 @@ public class MainFrame extends javax.swing.JFrame {
                         }
                 }    
                 else{
-                     ElProcWaiting tmp= new ElProcWaiting("miRNAseq counting workflow", mFastQFolderText.getText(),cmd,listModel.getSize());
+                     ElProcWaiting tmp= new ElProcWaiting("miRNA counting", mFastQFolderText.getText(),cmd,listModel.getSize());
                      listProcWaiting.add(tmp);
                      java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                      ImageIcon image2 = new ImageIcon(imgURL);
@@ -4551,7 +4561,7 @@ public class MainFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                 System.out.println(e.toString());
                 }
-            JOptionPane.showMessageDialog(this, "A miRNAseq  counting workflow task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE); 
+            JOptionPane.showMessageDialog(this, "miRNA counting task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE); 
             }
                   //execute code     
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -5036,9 +5046,12 @@ public class MainFrame extends javax.swing.JFrame {
                                             break;
                                             case 4:
                                                 if (x.equals("isoform"))
-                                                    dIsoformRadioButton1.setSelected(true);
+                                                    dIsoformRadioButton.setSelected(true);
                                                 else
-                                                    dGeneRadioButton.setSelected(true); 
+                                                    if (x.equals("miRNA"))
+                                                        dmiRNARadioButton.setSelected(true);
+                                                    else
+                                                        dGeneRadioButton.setSelected(true);
                                             break;
                                             case 5:
                                                     dOutputFolderText.setText(x);
@@ -5357,11 +5370,14 @@ public class MainFrame extends javax.swing.JFrame {
                                         bw.write("\n");
                                         bw.write(Integer.toString(dCovComboBox.getSelectedIndex()));
                                         bw.write("\n");
-                                       if (dIsoformRadioButton1.isSelected()){
+                                       if (dIsoformRadioButton.isSelected()){
                                             bw.write("isoform\n");
                                         }
                                        else
-                                            bw.write("gene\n");
+                                           if (dGeneRadioButton.isSelected())
+                                               bw.write("gene\n");
+                                           else
+                                               bw.write("miRNA\n");
                                        bw.write(dOutputFolderText.getText());
                                        }
                                       else
@@ -5606,7 +5622,7 @@ public class MainFrame extends javax.swing.JFrame {
                         if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
                             Process pr = rt.exec(cmd); 
                             //System.out.println("lanciato "+pr);                            
-                            ElProcRunning tmp= new ElProcRunning("RNAseq counting workflow", vFastQFolderText.getText(),pr,listModel.getSize());
+                            ElProcRunning tmp= new ElProcRunning("Genes, isoforms counting RSEM ", vFastQFolderText.getText(),pr,listModel.getSize());
                             listProcRunning.add(tmp);
                             java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                             ImageIcon image2 = new ImageIcon(imgURL);
@@ -5621,7 +5637,7 @@ public class MainFrame extends javax.swing.JFrame {
                         }
                          
                         else{
-                            ElProcWaiting tmp= new ElProcWaiting("RNAseq counting workflow",vFastQFolderText.getText(),cmd,listModel.getSize());
+                            ElProcWaiting tmp= new ElProcWaiting("Genes, isoforms counting RSEM ",vFastQFolderText.getText(),cmd,listModel.getSize());
                             listProcWaiting.add(tmp);
                             java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                             ImageIcon image2 = new ImageIcon(imgURL);
@@ -5639,7 +5655,7 @@ public class MainFrame extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                         System.out.println(e.toString());
                         }
-                    JOptionPane.showMessageDialog(this, "A RNAseq counting workflow task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Genes, isoforms counting RSEM task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
                     }
                   //execute code
             }
@@ -5986,7 +6002,7 @@ public class MainFrame extends javax.swing.JFrame {
                 Process pr = rt.exec(cmd); 
                 System.out.println("Runing PID:"+ getPidOfProcess(pr)+"\n");
                 
-                ElProcRunning tmp= new ElProcRunning("Indexing STAR-RSEM workflow", iGenomeFolderText.getText(),pr,listModel.getSize());
+                ElProcRunning tmp= new ElProcRunning("Genome indexing STAR-RSEM ", iGenomeFolderText.getText(),pr,listModel.getSize());
                 listProcRunning.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -5999,7 +6015,7 @@ public class MainFrame extends javax.swing.JFrame {
                     }
                 }         
                 else{
-                    ElProcWaiting tmp= new ElProcWaiting("Indexing STAR-RSEM workflow",iGenomeFolderText.getText(),cmd,listModel.getSize());
+                    ElProcWaiting tmp= new ElProcWaiting("Genome indexing STAR-RSEM ",iGenomeFolderText.getText(),cmd,listModel.getSize());
                     listProcWaiting.add(tmp);
                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                     ImageIcon image2 = new ImageIcon(imgURL);
@@ -6018,7 +6034,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
                     
         
-        JOptionPane.showMessageDialog(this, "A Indexing STAR-RSEM workflow task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Genome indexing STAR-RSEM task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_jButton12ActionPerformed
 
@@ -6324,7 +6340,7 @@ public class MainFrame extends javax.swing.JFrame {
                 Process pr = rt.exec(cmd); 
                 System.out.println("Running PID:"+ getPidOfProcess(pr)+"\n");
                 //System.out.println(cmd[2]+"\n");
-                ElProcRunning tmp= new ElProcRunning("FPKM and TPM counting", FOutputFolderText.getText(),pr,listModel.getSize());
+                ElProcRunning tmp= new ElProcRunning("From samples to experiment ", FOutputFolderText.getText(),pr,listModel.getSize());
                 listProcRunning.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -6337,7 +6353,7 @@ public class MainFrame extends javax.swing.JFrame {
                     }
                 }         
                 else{
-                    ElProcWaiting tmp= new ElProcWaiting("FPKM",FOutputFolderText.getText(),cmd,listModel.getSize());
+                    ElProcWaiting tmp= new ElProcWaiting("From samples to experiment ",FOutputFolderText.getText(),cmd,listModel.getSize());
                     listProcWaiting.add(tmp);
                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                     ImageIcon image2 = new ImageIcon(imgURL);
@@ -6356,7 +6372,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
                     
         
-        JOptionPane.showMessageDialog(this, "A FPKM workflow task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "From samples to experiment task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
         
         
         
@@ -6487,7 +6503,7 @@ public class MainFrame extends javax.swing.JFrame {
             if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
                 Process pr = rt.exec(cmd); 
                 System.out.println(cmd[2]);                            
-                ElProcRunning tmp= new ElProcRunning("PCA workflow", pOutputFolderText.getText() ,pr,listModel.getSize());
+                ElProcRunning tmp= new ElProcRunning("PCA ", pOutputFolderText.getText() ,pr,listModel.getSize());
                 listProcRunning.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -6500,7 +6516,7 @@ public class MainFrame extends javax.swing.JFrame {
                     }
             }             
             else{
-                 ElProcWaiting tmp= new ElProcWaiting("PCA workflow", pOutputFolderText.getText(),cmd,listModel.getSize());
+                 ElProcWaiting tmp= new ElProcWaiting("PCA ", pOutputFolderText.getText(),cmd,listModel.getSize());
                  listProcWaiting.add(tmp);
                  java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                  ImageIcon image2 = new ImageIcon(imgURL);
@@ -6517,7 +6533,7 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
-        JOptionPane.showMessageDialog(this, "A PCA  workflow task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "A PCA task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
@@ -6660,7 +6676,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void vCloseButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton3ActionPerformed
         //RESET FIELDS
         dCovComboBox.setSelectedIndex(0);
-        dIsoformRadioButton1.setSelected(true);
+        dIsoformRadioButton.setSelected(true);
         dFPKMfileText.setText("");
         dLog2fcText.setText("");
         dFDRText.setText("");
@@ -6724,10 +6740,13 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             String[] cmd = {"/bin/bash","-c"," ./execDES.sh "};
             cmd[2]+= " experiment.table=\\\""+ dFPKMfileText.getText() +"\\\"";
-            if (dIsoformRadioButton1.isSelected())
+            if (dIsoformRadioButton.isSelected())
                 cmd[2]+= " type=\\\"isoform\\\"";
             else
-                cmd[2]+= " type=\\\"gene\\\"";
+                if (dGeneRadioButton.isSelected())
+                    cmd[2]+= " type=\\\"gene\\\"";
+                else
+                    cmd[2]+= " type=\\\"mirna\\\"";
             cmd[2]+= " log2fc="+dLog2fcText.getText()+" fdr="+dFDRText.getText();
             cmd[2]+= " ref.covar=\\\""+dCovComboBox.getSelectedItem().toString()+"\\\"";
             cmd[2]+= " output.folder=\\\""+ dOutputFolderText.getText() +"\\\"";
@@ -6736,7 +6755,7 @@ public class MainFrame extends javax.swing.JFrame {
             if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
                 Process pr = rt.exec(cmd); 
                 System.out.println(cmd[2]);                            
-                ElProcRunning tmp= new ElProcRunning("A differential gene expression workflow", dOutputFolderText.getText() ,pr,listModel.getSize());
+                ElProcRunning tmp= new ElProcRunning("DESeq2 analysis ", dOutputFolderText.getText() ,pr,listModel.getSize());
                 listProcRunning.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -6749,7 +6768,7 @@ public class MainFrame extends javax.swing.JFrame {
                     }
             }             
             else{
-                 ElProcWaiting tmp= new ElProcWaiting("A differential gene expression workflow", dOutputFolderText.getText(),cmd,listModel.getSize());
+                 ElProcWaiting tmp= new ElProcWaiting("DESeq2 analysis ", dOutputFolderText.getText(),cmd,listModel.getSize());
                  listProcWaiting.add(tmp);
                  java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                  ImageIcon image2 = new ImageIcon(imgURL);
@@ -6766,12 +6785,12 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
-        JOptionPane.showMessageDialog(this, "A differential gene expression  workflow  task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);      
+        JOptionPane.showMessageDialog(this, "DESeq2 analysis task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);      
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         dCovComboBox.setSelectedIndex(0);
-        dIsoformRadioButton1.setSelected(true);
+        dIsoformRadioButton.setSelected(true);
         dFPKMfileText.setText("");
         dLog2fcText.setText("");
         dFDRText.setText("");
@@ -6944,7 +6963,7 @@ public class MainFrame extends javax.swing.JFrame {
                 Process pr = rt.exec(cmd); 
                 System.out.println("Runing PID:"+ getPidOfProcess(pr)+"\n");
                 System.out.println(cmd[2]);
-                ElProcRunning tmp= new ElProcRunning("Indexing BWA workflow", iGenomeFolderBText.getText(),pr,listModel.getSize());
+                ElProcRunning tmp= new ElProcRunning("Genome indexing BWA ", iGenomeFolderBText.getText(),pr,listModel.getSize());
                 listProcRunning.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -6957,7 +6976,7 @@ public class MainFrame extends javax.swing.JFrame {
                     }
                 }         
                 else{
-                    ElProcWaiting tmp= new ElProcWaiting("Indexing BWA workflow",iGenomeFolderBText.getText(),cmd,listModel.getSize());
+                    ElProcWaiting tmp= new ElProcWaiting("Genome indexing BWA ",iGenomeFolderBText.getText(),cmd,listModel.getSize());
                     listProcWaiting.add(tmp);
                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                     ImageIcon image2 = new ImageIcon(imgURL);
@@ -6976,7 +6995,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
                     
         
-        JOptionPane.showMessageDialog(this, "A Indexing BWA workflow task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Genome indexing BWA task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
    
     }//GEN-LAST:event_jButton21ActionPerformed
 
@@ -7292,7 +7311,7 @@ public class MainFrame extends javax.swing.JFrame {
                         if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
                             Process pr = rt.exec(cmd); 
                             //System.out.println("lanciato "+pr);                            
-                            ElProcRunning tmp= new ElProcRunning("MACS & SICER workflow", MOutputFolderText.getText(),pr,listModel.getSize());
+                            ElProcRunning tmp= new ElProcRunning("MACS & SICER analysis", MOutputFolderText.getText(),pr,listModel.getSize());
                             listProcRunning.add(tmp);
                             java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                             ImageIcon image2 = new ImageIcon(imgURL);
@@ -7307,7 +7326,7 @@ public class MainFrame extends javax.swing.JFrame {
                         }
                          
                         else{
-                            ElProcWaiting tmp= new ElProcWaiting("MACS & SICER workflow",MOutputFolderText.getText(),cmd,listModel.getSize());
+                            ElProcWaiting tmp= new ElProcWaiting("MACS & SICER analysis",MOutputFolderText.getText(),cmd,listModel.getSize());
                             listProcWaiting.add(tmp);
                             java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                             ImageIcon image2 = new ImageIcon(imgURL);
@@ -7325,7 +7344,7 @@ public class MainFrame extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                         System.out.println(e.toString());
                         }
-                    JOptionPane.showMessageDialog(this, "A MACS & SICER  workflow task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "MACS & SICER analysis task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
                     }
                   //execute code
             }
@@ -7740,9 +7759,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField dFDRText;
     private javax.swing.JTextField dFPKMfileText;
     private javax.swing.JRadioButton dGeneRadioButton;
-    private javax.swing.JRadioButton dIsoformRadioButton1;
+    private javax.swing.JRadioButton dIsoformRadioButton;
     private javax.swing.JTextField dLog2fcText;
     private javax.swing.JTextField dOutputFolderText;
+    private javax.swing.JRadioButton dmiRNARadioButton;
     private javax.swing.JToggleButton fCancelButton;
     private javax.swing.JToggleButton fCancelButton1;
     private javax.swing.JToggleButton fCancelButton2;

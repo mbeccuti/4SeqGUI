@@ -669,7 +669,6 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="Genome indexing STAR-RSEM">
-                              <Border PropertyName="innerBorder" info="null"/>
                               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                               <Color PropertyName="color" blue="66" green="66" red="0" type="rgb"/>
                             </TitledBorder>
@@ -944,7 +943,6 @@
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                         <TitledBorder title="miRNA counting">
-                          <Border PropertyName="innerBorder" info="null"/>
                           <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                           <Color PropertyName="color" blue="0" green="0" red="99" type="rgb"/>
                         </TitledBorder>
@@ -1414,7 +1412,6 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="From samples to experiment">
-                              <Border PropertyName="innerBorder" info="null"/>
                               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                               <Color PropertyName="color" blue="99" green="0" red="66" type="rgb"/>
                             </TitledBorder>
@@ -1706,7 +1703,6 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="Genes, isoforms counting RSEM">
-                              <Border PropertyName="innerBorder" info="null"/>
                               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                             </TitledBorder>
                           </Border>
@@ -2372,7 +2368,6 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="PCA">
-                              <Border PropertyName="innerBorder" info="null"/>
                               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                               <Color PropertyName="color" blue="0" green="66" red="cc" type="rgb"/>
                             </TitledBorder>
@@ -2798,7 +2793,6 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="DESeq2 analysis">
-                              <Border PropertyName="innerBorder" info="null"/>
                               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                               <Color PropertyName="color" blue="cc" green="99" red="0" type="rgb"/>
                             </TitledBorder>
@@ -3122,17 +3116,19 @@
                                 </Constraint>
                               </Constraints>
                             </Component>
-                            <Component class="javax.swing.JRadioButton" name="dIsoformRadioButton1">
+                            <Component class="javax.swing.JRadioButton" name="dmiRNARadioButton">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="fa" green="ef" red="e1" type="rgb"/>
                                 </Property>
-                                <Property name="selected" type="boolean" value="true"/>
-                                <Property name="text" type="java.lang.String" value="isoform"/>
+                                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                  <ComponentRef name="DEStype"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="miRNA"/>
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="5" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="512" weightX="0.0" weightY="0.0"/>
+                                  <GridBagConstraints gridX="7" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3147,6 +3143,22 @@
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                                   <GridBagConstraints gridX="6" gridY="1" gridWidth="4" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.3" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JRadioButton" name="dIsoformRadioButton">
+                              <Properties>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="fa" green="ef" red="e1" type="rgb"/>
+                                </Property>
+                                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                                  <ComponentRef name="DEStype"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="isoform"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="5" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="512" weightX="0.0" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3170,7 +3182,6 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="Genome indexing BWA">
-                              <Border PropertyName="innerBorder" info="null"/>
                               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                               <Color PropertyName="color" blue="99" green="99" red="0" type="rgb"/>
                             </TitledBorder>
@@ -3584,7 +3595,6 @@
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                             <TitledBorder title="MAC &amp; SIC analysis">
-                              <Border PropertyName="innerBorder" info="null"/>
                               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                               <Color PropertyName="color" blue="0" green="99" red="33" type="rgb"/>
                             </TitledBorder>
