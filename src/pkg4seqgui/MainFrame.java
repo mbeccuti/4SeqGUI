@@ -140,9 +140,12 @@ public class MainFrame extends javax.swing.JFrame {
         OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
         
         String WidthGroup = getPreferences().get("GroupCellWidth", null);
-        if (WidthGroup!=null){
+        String WidthBatch = getPreferences().get("BatchCellWidth", null);
+        String WidthFolder = getPreferences().get("FolderCellWidth", null);
+        if ((WidthGroup!=null)&&(WidthBatch!=null)&&(WidthFolder!=null)){
              FPKMFileTable.getColumnModel().getColumn(1).setPreferredWidth(Integer.valueOf(WidthGroup));
-             FPKMFileTable.getColumnModel().getColumn(0).setPreferredWidth(FPKMFileTable.getWidth()-Integer.valueOf(WidthGroup));
+             FPKMFileTable.getColumnModel().getColumn(2).setPreferredWidth(Integer.valueOf(WidthBatch));
+             FPKMFileTable.getColumnModel().getColumn(0).setPreferredWidth(Integer.valueOf(WidthFolder));
         }    
         else
             FPKMFileTable.getColumnModel().getColumn(1).setPreferredWidth(FPKMFileTable.getWidth()*10/100);
@@ -207,6 +210,7 @@ public class MainFrame extends javax.swing.JFrame {
         MSeq = new javax.swing.ButtonGroup();
         MRemoveDuplicates = new javax.swing.ButtonGroup();
         MAdapter = new javax.swing.ButtonGroup();
+        BatchComboBox = new javax.swing.JComboBox<>();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -677,6 +681,8 @@ public class MainFrame extends javax.swing.JFrame {
         CovComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cov.1", "Cov.2", "Cov.3", "Cov.4", "Cov.5", "Cov.6", "Cov.7", "Cov.8", "Cov.9", "Cov.10" }));
 
         jRadioButton1.setText("jRadioButton1");
+
+        BatchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Batch1", "Batch2", "Batch3", "Batch4", "Batch5", "Batch6", "Batch7", "Batch8", "Batch9", "Batch10" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("4SeqGUI");
@@ -1466,11 +1472,11 @@ public class MainFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Folder", "Grouping"
+                "Folder", "Grouping", "Batch"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1478,11 +1484,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         FPKMFileTable.setColumnSelectionAllowed(true);
+        FPKMFileTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         FPKMFileTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(FPKMFileTable);
         FPKMFileTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (FPKMFileTable.getColumnModel().getColumnCount() > 0) {
             FPKMFileTable.getColumnModel().getColumn(1).setCellEditor(new DefaultCellEditor(CovComboBox));
+            FPKMFileTable.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(BatchComboBox));
         }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2972,6 +2980,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         dIsoformRadioButton.setBackground(new java.awt.Color(225, 239, 250));
         DEStype.add(dIsoformRadioButton);
+        dIsoformRadioButton.setSelected(true);
         dIsoformRadioButton.setText("isoform");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -3780,7 +3789,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel19.add(jLabel63, gridBagConstraints);
 
-        MToolComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACS", "SINCER" }));
+        MToolComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACS", "SICER" }));
         MToolComboBox.setToolTipText("");
         MToolComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -3930,7 +3939,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel23.add(MSgsizeText, gridBagConstraints);
 
-        jLabel81.setText("SIGER FDR:");
+        jLabel81.setText("SICER FDR:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 0;
@@ -4285,6 +4294,12 @@ public class MainFrame extends javax.swing.JFrame {
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("miRNA workflow");
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("miRNA counting");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("PCA");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Sample size estimator");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Experiment stat. Power");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("DESeq2 analysis");
         treeNode2.add(treeNode3);
@@ -4975,9 +4990,12 @@ public class MainFrame extends javax.swing.JFrame {
                                 default:
                                     DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
                                     String col2 = br.readLine();
+                                    String col3 = br.readLine();
                                     if (col2==null)
                                         col2="Cov.1";
-                                    model.addRow(new Object[]{x,col2}); 
+                                    if (col3==null)
+                                        col3="Batch1";
+                                    model.addRow(new Object[]{x,col2,col3}); 
                                 }
                                 line++;
                                 }
@@ -5328,6 +5346,8 @@ public class MainFrame extends javax.swing.JFrame {
                                         bw.write(FPKMFileTable.getModel().getValueAt(i,0).toString());
                                         bw.write("\n");
                                         bw.write(FPKMFileTable.getModel().getValueAt(i,1).toString());
+                                        bw.write("\n");
+                                        bw.write(FPKMFileTable.getModel().getValueAt(i,2).toString());
                                         bw.write("\n");
                                     }   
                                }
@@ -6263,7 +6283,8 @@ public class MainFrame extends javax.swing.JFrame {
         File[] files = fc.getSelectedFiles();
         for (int i = 0; i < files.length; i++){
             DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
-            model.addRow(new Object[]{files[i].toString(),"Cov.1"});
+            model.addRow(new Object[]{files[i].toString(),"Cov.1","Batch1"});
+            
             }
         }
     curDir = fc.getCurrentDirectory().getAbsolutePath();
@@ -6333,6 +6354,14 @@ public class MainFrame extends javax.swing.JFrame {
                   cmd[2]+="\\\",\\\""+FPKMFileTable.getModel().getValueAt(i,1).toString();
             }
             cmd[2]+= "\\\"\\)";
+
+            cmd[2]+=" batch=c\\(\\\"";
+            cmd[2]+=FPKMFileTable.getModel().getValueAt(0,2).toString();
+            for (int i = 1; i <  FPKMFileTable.getRowCount(); i++){
+                  cmd[2]+="\\\",\\\""+FPKMFileTable.getModel().getValueAt(i,2).toString();
+            }
+            cmd[2]+= "\\\"\\)";            
+            
             cmd[2]+="  bio.type=\\\""+FtypesComboBox.getSelectedItem().toString()+"\\\"";
             cmd[2]+="  output.prefix=\\\""+FOutputFolderText.getText() + "\\\" " + FOutputFolderText.getText() +">& "+FOutputFolderText.getText()+"/outputExecution ";
             //ProcessStatus.setText(pr.toString());
@@ -6407,7 +6436,12 @@ public class MainFrame extends javax.swing.JFrame {
        getPreferences().put("VerticalSplitPanel", Integer.toString(VerticalSplitPanel.getDividerLocation()));
        getPreferences().put("WindowWidth", Integer.toString(getSize().width));
        getPreferences().put("WindowHeight",Integer.toString(getSize().height));
-       getPreferences().put("GroupCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(1).getPreferredWidth()));
+       getPreferences().put("GroupCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(1).getWidth()));
+       getPreferences().put("BatchCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(2).getWidth())); 
+       getPreferences().put("FolderCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(0).getWidth())); 
+       System.out.println((FPKMFileTable.getColumnModel().getColumn(2).getPreferredWidth()));
+       System.out.println((FPKMFileTable.getColumnModel().getColumn(2).getWidth()));
+       System.out.println("CIOA\n");
     }//GEN-LAST:event_formWindowClosing
 
     private void vCloseButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton2ActionPerformed
@@ -7676,6 +7710,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField Adapter5TextField;
     private javax.swing.JTree AnalysisTree;
     private javax.swing.ButtonGroup Annotation;
+    private javax.swing.JComboBox<String> BatchComboBox;
     private javax.swing.JPanel BottomPanel;
     private javax.swing.JToggleButton CloseOutput;
     private javax.swing.JButton ConfCancell;

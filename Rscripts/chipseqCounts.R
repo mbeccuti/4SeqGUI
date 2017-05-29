@@ -16,7 +16,7 @@ if(length(args)==0){
 
 library(docker4seq)
 chipseqCounts(group=group,output.folder=output.folder, mock.folder=mock.folder, test.folder=test.folder, 
-              scratch.folder=scratch.folder,adapter5=adapter,adapter3=adapter3,threads=thread, 
+              scratch.folder=scratch.folder,adapter5=adapter5,adapter3=adapter3,threads=threads, 
               seq.type=seq.type, min.length=min.length,genome.folder=genome.folder, mock.id=mock.id, 
               test.id=test.id, genome=genome, read.size=read.size, tool=tool, macs.min.mfold=macs.min.mfold,
               macs.max.mfold=macs.max.mfold, macs.pval=macs.pval, sicer.wsize=sicer.wsize, 

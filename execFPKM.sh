@@ -5,9 +5,10 @@
 
 samplefolders=$1
 covariates=$2
-biotype=$3
-outputfolder=$4
-output=$5
+batchs=$3
+biotype=$4
+outputfolder=$5
+output=$6
 path=${PWD}
 
 
@@ -18,6 +19,7 @@ echo "======================================================="
 echo
 echo "Sample Folder:           $samplefolders"
 echo "Groups:                  $covariates"
+echo "Batchs:                  $batchs"
 echo "Biological type:         $biotype"
 echo "Output Prefix:           $output"
 echo 
@@ -30,7 +32,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${samplefolders} ${covariates} $biotype $outputfolder ' ./Rscripts/FPKMCounts.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${samplefolders} ${covariates} ${batch} $biotype $outputfolder ' ./Rscripts/FPKMCounts.R  $output/Routput.Rout"
 
 echo "$args"
 

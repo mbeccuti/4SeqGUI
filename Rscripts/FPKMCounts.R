@@ -15,4 +15,4 @@ if(length(args)==0){
 }
 
 library(docker4seq)
-sample2experiment(sample.folders=sample.folders, covariates=covariates, bio.type=bio.type, output.prefix=output.prefix)
+sample2experiment(sample.folders=sample.folders, covariates=covariates, batch=batch, bio.type=bio.type, output.prefix=output.prefix)
