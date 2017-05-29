@@ -104,7 +104,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         
-        String HorSplPan = getPreferences().get("HorizontalSplitPanel", null);
+        String HorSplPan = getPreferences().get("4SeqGUI_HorizontalSplitPanel", null);
         if (HorSplPan!=null){
          HorizontalSplitPanel.setDividerLocation(Integer.valueOf(HorSplPan));   
         }
@@ -112,7 +112,7 @@ public class MainFrame extends javax.swing.JFrame {
          HorizontalSplitPanel.setDividerLocation(screenSize.height*3/10);   
         }
   
-        String VerSplPan = getPreferences().get("VerticalSplitPanel", null);
+        String VerSplPan = getPreferences().get("4SeqGUI_VerticalSplitPanel", null);
         if (VerSplPan!=null){
             VerticalSplitPanel.setDividerLocation(Integer.valueOf(VerSplPan));
         }
@@ -120,8 +120,8 @@ public class MainFrame extends javax.swing.JFrame {
         VerticalSplitPanel.setDividerLocation(screenSize.height*7/10);
         }
         
-        String  WindowWidth= getPreferences().get("WindowWidth", null);
-        String  WindowHeight= getPreferences().get("WindowHeight", null); 
+        String  WindowWidth= getPreferences().get("4SeqGUI_WindowWidth", null);
+        String  WindowHeight= getPreferences().get("4SeqGUI_WindowHeight", null); 
         if ((WindowWidth!=null)&&(WindowHeight!=null)){
           setSize(Integer.valueOf(WindowWidth),Integer.valueOf(WindowHeight));  
         }
@@ -130,8 +130,8 @@ public class MainFrame extends javax.swing.JFrame {
         }
 
         //OUTPUT FRAME
-        int OutputframeWidth= Integer.valueOf(getPreferences().get("WindowOutputWidth", "0"));
-        int OutputframeHeight= Integer.valueOf(getPreferences().get("WindowOutputHeight", "0")); 
+        int OutputframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputWidth", "0"));
+        int OutputframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputHeight", "0")); 
         if ((OutputframeWidth==0)||(OutputframeHeight==0)){
               OutputframeWidth=screenSize.width*4/100;
               OutputframeHeight=screenSize.height*5/100;
@@ -139,9 +139,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
         
-        String WidthGroup = getPreferences().get("GroupCellWidth", null);
-        String WidthBatch = getPreferences().get("BatchCellWidth", null);
-        String WidthFolder = getPreferences().get("FolderCellWidth", null);
+        String WidthGroup = getPreferences().get("4SeqGUI_GroupCellWidth", null);
+        String WidthBatch = getPreferences().get("4SeqGUI_BatchCellWidth", null);
+        String WidthFolder = getPreferences().get("4SeqGUI_FolderCellWidth", null);
         if ((WidthGroup!=null)&&(WidthBatch!=null)&&(WidthFolder!=null)){
              FPKMFileTable.getColumnModel().getColumn(1).setPreferredWidth(Integer.valueOf(WidthGroup));
              FPKMFileTable.getColumnModel().getColumn(2).setPreferredWidth(Integer.valueOf(WidthBatch));
@@ -6432,16 +6432,13 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_FbrowesActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       getPreferences().put("HorizontalSplitPanel", Integer.toString(HorizontalSplitPanel.getDividerLocation()));
-       getPreferences().put("VerticalSplitPanel", Integer.toString(VerticalSplitPanel.getDividerLocation()));
-       getPreferences().put("WindowWidth", Integer.toString(getSize().width));
-       getPreferences().put("WindowHeight",Integer.toString(getSize().height));
-       getPreferences().put("GroupCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(1).getWidth()));
-       getPreferences().put("BatchCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(2).getWidth())); 
-       getPreferences().put("FolderCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(0).getWidth())); 
-       System.out.println((FPKMFileTable.getColumnModel().getColumn(2).getPreferredWidth()));
-       System.out.println((FPKMFileTable.getColumnModel().getColumn(2).getWidth()));
-       System.out.println("CIOA\n");
+       getPreferences().put("4SeqGUI_HorizontalSplitPanel", Integer.toString(HorizontalSplitPanel.getDividerLocation()));
+       getPreferences().put("4SeqGUI_VerticalSplitPanel", Integer.toString(VerticalSplitPanel.getDividerLocation()));
+       getPreferences().put("4SeqGUI_WindowWidth", Integer.toString(getSize().width));
+       getPreferences().put("4SeqGUI_WindowHeight",Integer.toString(getSize().height));
+       getPreferences().put("4SeqGUI_GroupCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(1).getWidth()));
+       getPreferences().put("4SeqGUI_BatchCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(2).getWidth())); 
+       getPreferences().put("4SeqGUI_FolderCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(0).getWidth())); 
     }//GEN-LAST:event_formWindowClosing
 
     private void vCloseButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton2ActionPerformed
