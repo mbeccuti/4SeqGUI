@@ -702,6 +702,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="iCloseButton">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Close"/>
                           </Properties>
                           <Events>
@@ -715,6 +718,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton12">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Execute"/>
                           </Properties>
                           <Events>
@@ -728,6 +734,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="iResetButton">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -741,6 +750,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton14">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Save conf."/>
                           </Properties>
                           <Events>
@@ -798,6 +810,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton15">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -811,6 +826,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton16">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -984,6 +1002,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="jButton6">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Execute"/>
                           </Properties>
                           <Events>
@@ -997,6 +1018,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton8">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Save conf."/>
                           </Properties>
                           <Events>
@@ -1010,6 +1034,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton7">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -1023,6 +1050,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="vCloseButton1">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Close"/>
                           </Properties>
                           <Events>
@@ -1272,6 +1302,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton8">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -1285,6 +1318,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton7">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -1308,6 +1344,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton9">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -1321,6 +1360,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton10">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -1521,6 +1563,9 @@
                             </Container>
                             <Component class="javax.swing.JButton" name="FAddFile">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/fileb.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Add"/>
                                 <Property name="toolTipText" type="java.lang.String" value=""/>
                               </Properties>
@@ -1535,6 +1580,9 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="jButton13">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/remove.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Remove"/>
                               </Properties>
                               <Events>
@@ -1637,6 +1685,9 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="Fbrowes">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                                 <Property name="toolTipText" type="java.lang.String" value=""/>
                               </Properties>
@@ -1651,6 +1702,9 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="Fcancel">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -1666,6 +1720,9 @@
                         </Container>
                         <Component class="javax.swing.JButton" name="FExecuteButton">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Execute"/>
                           </Properties>
                           <Events>
@@ -1679,6 +1736,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="FSaveButton">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Save conf."/>
                           </Properties>
                           <Events>
@@ -1692,6 +1752,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="FResetButton">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -1705,6 +1768,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="FCloseButton">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Close"/>
                             <Property name="toolTipText" type="java.lang.String" value=""/>
                           </Properties>
@@ -1746,6 +1812,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="vCloseButton">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Close"/>
                           </Properties>
                           <Events>
@@ -1759,6 +1828,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton4">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Execute"/>
                           </Properties>
                           <Events>
@@ -1772,6 +1844,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton5">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -1785,6 +1860,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton3">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Save conf."/>
                           </Properties>
                           <Events>
@@ -1842,6 +1920,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton2">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -1855,6 +1936,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton1">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -1890,6 +1974,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton4">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -1903,6 +1990,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton3">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -1938,6 +2028,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton5">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -1951,6 +2044,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton6">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -2412,6 +2508,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="vCloseButton2">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Close"/>
                           </Properties>
                           <Events>
@@ -2425,6 +2524,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton15">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Execute"/>
                           </Properties>
                           <Events>
@@ -2438,6 +2540,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton16">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -2451,6 +2556,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton17">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Save conf."/>
                           </Properties>
                           <Events>
@@ -2508,6 +2616,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton12">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/fileb.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -2521,6 +2632,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="fCancelButton">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -2559,6 +2673,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton13">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -2572,6 +2689,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="fCancelButton1">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -2837,6 +2957,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="vCloseButton3">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Close"/>
                           </Properties>
                           <Events>
@@ -2850,6 +2973,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton18">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Execute"/>
                           </Properties>
                           <Events>
@@ -2863,6 +2989,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton19">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -2876,6 +3005,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton20">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Save conf."/>
                           </Properties>
                           <Events>
@@ -2933,6 +3065,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton14">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/fileb.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -2946,6 +3081,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="fCancelButton2">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -2984,6 +3122,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton17">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -2997,6 +3138,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="fCancelButton3">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -3227,6 +3371,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="iCloseButton1">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Close"/>
                           </Properties>
                           <Events>
@@ -3240,6 +3387,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton21">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Execute"/>
                           </Properties>
                           <Events>
@@ -3253,6 +3403,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="iResetButton1">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -3266,6 +3419,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton22">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Save conf."/>
                           </Properties>
                           <Events>
@@ -3323,6 +3479,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton18">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -3336,6 +3495,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton19">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -3462,6 +3624,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="i1000BrowseButton">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/fileb.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -3476,6 +3641,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="i1000CancelButton">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -3490,6 +3658,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="idbSPNBrowseButton">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/fileb.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -3504,6 +3675,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="idbSPNCancelButton">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                                 <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
@@ -3640,6 +3814,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="vCloseButton4">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Close"/>
                           </Properties>
                           <Events>
@@ -3653,6 +3830,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton23">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Execute"/>
                           </Properties>
                           <Events>
@@ -3666,6 +3846,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton24">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
                           <Events>
@@ -3679,6 +3862,9 @@
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton25">
                           <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
                             <Property name="text" type="java.lang.String" value="Save conf."/>
                           </Properties>
                           <Events>
@@ -3736,6 +3922,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton20">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -3749,6 +3938,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton21">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -3784,6 +3976,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton22">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -3797,6 +3992,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton23">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -3832,6 +4030,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton24">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -3845,6 +4046,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton25">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -3869,6 +4073,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton26">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -3882,6 +4089,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton27">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -3928,6 +4138,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton28">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
                               <Events>
@@ -3941,6 +4154,9 @@
                             </Component>
                             <Component class="javax.swing.JToggleButton" name="jToggleButton29">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
                               </Properties>
                               <Events>
@@ -4530,6 +4746,348 @@
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                                   <GridBagConstraints gridX="10" gridY="4" gridWidth="4" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="21" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="SampleSize">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                      <CardConstraints cardName="SampleSize"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="SampleSizePanel">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Sample size estimator">
+                              <Font PropertyName="font" name="Dialog" size="14" style="1"/>
+                              <Color PropertyName="color" blue="0" green="ae" red="da" type="rgb"/>
+                            </TitledBorder>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                      <SubComponents>
+                        <Container class="javax.swing.JPanel" name="jPanel21">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="d7" green="f1" red="f4" type="rgb"/>
+                            </Property>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                <TitledBorder/>
+                              </Border>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="0" gridWidth="4" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="23" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="jLabel64">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Output Folder:"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="17" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="SSOutputFolderText">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="1" gridY="2" gridWidth="2" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="48" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.4" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="SSbrowes">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Browse"/>
+                                <Property name="toolTipText" type="java.lang.String" value=""/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SSbrowesActionPerformed"/>
+                              </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="3" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="22" weightX="0.0" weightY="0.1"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="SScancel">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Cancel"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SScancelActionPerformed"/>
+                              </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="4" gridY="2" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="768" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel65">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel66">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Count table file:"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="SSCountTableText">
+                              <Properties>
+                                <Property name="editable" type="boolean" value="false"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="1" gridY="0" gridWidth="2" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="48" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="jButton27">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/fileb.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Browse"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton27ActionPerformed"/>
+                              </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="3" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="jButton28">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Cancel"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton28ActionPerformed"/>
+                              </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="4" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                        <Component class="javax.swing.JButton" name="FExecuteButton1">
+                          <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Execute"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FExecuteButton1ActionPerformed"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="24" weightX="0.1" weightY="0.1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="FSaveButton1">
+                          <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Save conf."/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FSaveButton1ActionPerformed"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="1" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="24" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="FResetButton1">
+                          <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Reset"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FResetButton1ActionPerformed"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="2" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="24" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="FCloseButton1">
+                          <Properties>
+                            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Close"/>
+                            <Property name="toolTipText" type="java.lang.String" value=""/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FCloseButton1ActionPerformed"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="3" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="24" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Container class="javax.swing.JPanel" name="jPanel24">
+                          <Properties>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="d7" green="f1" red="f4" type="rgb"/>
+                            </Property>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                                <TitledBorder/>
+                              </Border>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                              <GridBagConstraints gridX="0" gridY="1" gridWidth="4" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="23" weightX="0.0" weightY="0.0"/>
+                            </Constraint>
+                          </Constraints>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JLabel" name="jLabel77">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Log2 fold change:"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="17" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel84">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="#gene for dispertion:"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="17" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel85">
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel86">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Statistical power:"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="SSCountTableText1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="0.8"/>
+                                <Property name="toolTipText" type="java.lang.String" value="expected statistical power required to detect prognostic genes"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="1" gridY="0" gridWidth="2" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="SSOutputFolderText2">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="200"/>
+                                <Property name="toolTipText" type="java.lang.String" value=" an integer indicating the number of genes used in estimation of read counts and dispersion distribution"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SSOutputFolderText2ActionPerformed"/>
+                              </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="1" gridY="2" gridWidth="2" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.4" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="jTextField1">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="1"/>
+                                <Property name="toolTipText" type="java.lang.String" value="an integer indicating the minimum log2 fold change for prognostic genes between two group"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                              </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="1" gridY="4" gridWidth="2" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel87">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="False discovery rate:"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JTextField" name="jTextField2">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="0.1"/>
+                              </Properties>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="1" gridY="6" gridWidth="2" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>

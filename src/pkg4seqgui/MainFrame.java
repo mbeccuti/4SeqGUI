@@ -501,6 +501,32 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel75 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
         MReadLengthTextField = new javax.swing.JTextField();
+        SampleSize = new javax.swing.JScrollPane();
+        SampleSizePanel = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel64 = new javax.swing.JLabel();
+        SSOutputFolderText = new javax.swing.JTextField();
+        SSbrowes = new javax.swing.JButton();
+        SScancel = new javax.swing.JButton();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        SSCountTableText = new javax.swing.JTextField();
+        jButton27 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
+        FExecuteButton1 = new javax.swing.JButton();
+        FSaveButton1 = new javax.swing.JButton();
+        FResetButton1 = new javax.swing.JButton();
+        FCloseButton1 = new javax.swing.JButton();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel84 = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel86 = new javax.swing.JLabel();
+        SSCountTableText1 = new javax.swing.JTextField();
+        SSOutputFolderText2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel87 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -808,6 +834,7 @@ public class MainFrame extends javax.swing.JFrame {
         IndexingStarRSEMPanel.setToolTipText("");
         IndexingStarRSEMPanel.setLayout(new java.awt.GridBagLayout());
 
+        iCloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         iCloseButton.setText("Close");
         iCloseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -822,6 +849,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingStarRSEMPanel.add(iCloseButton, gridBagConstraints);
 
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton12.setText("Execute");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -837,6 +865,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingStarRSEMPanel.add(jButton12, gridBagConstraints);
 
+        iResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         iResetButton.setText("Reset");
         iResetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -851,6 +880,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingStarRSEMPanel.add(iResetButton, gridBagConstraints);
 
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         jButton14.setText("Save conf.");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -896,6 +926,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel13.add(iGenomeFolderText, gridBagConstraints);
 
+        jToggleButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton15.setText("Browse");
         jToggleButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -909,6 +940,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel13.add(jToggleButton15, gridBagConstraints);
 
+        jToggleButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton16.setText("Cancel");
         jToggleButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1062,6 +1094,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         mRNAPanel.setLayout(new java.awt.GridBagLayout());
 
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton6.setText("Execute");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1077,6 +1110,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mRNAPanel.add(jButton6, gridBagConstraints);
 
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         jButton8.setText("Save conf.");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1091,6 +1125,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mRNAPanel.add(jButton8, gridBagConstraints);
 
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton7.setText("Reset");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1105,6 +1140,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mRNAPanel.add(jButton7, gridBagConstraints);
 
+        vCloseButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         vCloseButton1.setText("Close");
         vCloseButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1320,6 +1356,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         jPanel8.add(mFastQFolderText, gridBagConstraints);
 
+        jToggleButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton8.setText("Browse");
         jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1333,6 +1370,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jToggleButton8, gridBagConstraints);
 
+        jToggleButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton7.setText("Cancel");
         jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1357,6 +1395,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         jPanel8.add(mOutputFolderText, gridBagConstraints);
 
+        jToggleButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton9.setText("Cancel");
         jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1370,6 +1409,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel8.add(jToggleButton9, gridBagConstraints);
 
+        jToggleButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton10.setText("Browse");
         jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1504,6 +1544,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jScrollPane6, gridBagConstraints);
 
+        FAddFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         FAddFile.setText("Add");
         FAddFile.setToolTipText("");
         FAddFile.addActionListener(new java.awt.event.ActionListener() {
@@ -1520,6 +1561,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(FAddFile, gridBagConstraints);
 
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/remove.png"))); // NOI18N
         jButton13.setText("Remove");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1570,6 +1612,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(FOutputFolderText, gridBagConstraints);
 
+        Fbrowes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         Fbrowes.setText("Browse");
         Fbrowes.setToolTipText("");
         Fbrowes.addActionListener(new java.awt.event.ActionListener() {
@@ -1585,6 +1628,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(Fbrowes, gridBagConstraints);
 
+        Fcancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         Fcancel.setText("Cancel");
         Fcancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1608,6 +1652,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         FPKMPanel.add(jPanel4, gridBagConstraints);
 
+        FExecuteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         FExecuteButton.setText("Execute");
         FExecuteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1623,6 +1668,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         FPKMPanel.add(FExecuteButton, gridBagConstraints);
 
+        FSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         FSaveButton.setText("Save conf.");
         FSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1636,6 +1682,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         FPKMPanel.add(FSaveButton, gridBagConstraints);
 
+        FResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         FResetButton.setText("Reset");
         FResetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1649,6 +1696,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         FPKMPanel.add(FResetButton, gridBagConstraints);
 
+        FCloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         FCloseButton.setText("Close");
         FCloseButton.setToolTipText("");
         FCloseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1671,6 +1719,7 @@ public class MainFrame extends javax.swing.JFrame {
         vmRNAPanel.setToolTipText("");
         vmRNAPanel.setLayout(new java.awt.GridBagLayout());
 
+        vCloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         vCloseButton.setText("Close");
         vCloseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1685,6 +1734,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(vCloseButton, gridBagConstraints);
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton4.setText("Execute");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1700,6 +1750,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jButton4, gridBagConstraints);
 
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton5.setText("Reset");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1714,6 +1765,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jButton5, gridBagConstraints);
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         jButton3.setText("Save conf.");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1758,6 +1810,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
         jPanel2.add(vFastQFolderText, gridBagConstraints);
 
+        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton2.setText("Browse");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1771,6 +1824,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton2, gridBagConstraints);
 
+        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton1.setText("Cancel");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1806,6 +1860,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
         jPanel2.add(vOutputFolderText, gridBagConstraints);
 
+        jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton4.setText("Browse");
         jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1819,6 +1874,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton4, gridBagConstraints);
 
+        jToggleButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton3.setText("Cancel");
         jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1854,6 +1910,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
         jPanel2.add(vGenomeFolderText, gridBagConstraints);
 
+        jToggleButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton5.setText("Browse");
         jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1867,6 +1924,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jToggleButton5, gridBagConstraints);
 
+        jToggleButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton6.setText("Cancel");
         jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2295,6 +2353,7 @@ public class MainFrame extends javax.swing.JFrame {
         PCAPanel.setToolTipText("");
         PCAPanel.setLayout(new java.awt.GridBagLayout());
 
+        vCloseButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         vCloseButton2.setText("Close");
         vCloseButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2309,6 +2368,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PCAPanel.add(vCloseButton2, gridBagConstraints);
 
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton15.setText("Execute");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2324,6 +2384,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PCAPanel.add(jButton15, gridBagConstraints);
 
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton16.setText("Reset");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2338,6 +2399,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PCAPanel.add(jButton16, gridBagConstraints);
 
+        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         jButton17.setText("Save conf.");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2381,6 +2443,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel5.add(pFPKMfileText, gridBagConstraints);
 
+        jToggleButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jToggleButton12.setText("Browse");
         jToggleButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2395,6 +2458,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(jToggleButton12, gridBagConstraints);
 
+        fCancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         fCancelButton.setText("Cancel");
         fCancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2433,6 +2497,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel5.add(pOutputFolderText, gridBagConstraints);
 
+        jToggleButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton13.setText("Browse");
         jToggleButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2447,6 +2512,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(jToggleButton13, gridBagConstraints);
 
+        fCancelButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         fCancelButton1.setText("Cancel");
         fCancelButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2666,6 +2732,7 @@ public class MainFrame extends javax.swing.JFrame {
         DESPanel.setToolTipText("");
         DESPanel.setLayout(new java.awt.GridBagLayout());
 
+        vCloseButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         vCloseButton3.setText("Close");
         vCloseButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2680,6 +2747,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DESPanel.add(vCloseButton3, gridBagConstraints);
 
+        jButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton18.setText("Execute");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2695,6 +2763,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DESPanel.add(jButton18, gridBagConstraints);
 
+        jButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton19.setText("Reset");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2709,6 +2778,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DESPanel.add(jButton19, gridBagConstraints);
 
+        jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         jButton20.setText("Save conf.");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2752,6 +2822,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 25, 10, 10);
         jPanel10.add(dFPKMfileText, gridBagConstraints);
 
+        jToggleButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jToggleButton14.setText("Browse");
         jToggleButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2766,6 +2837,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel10.add(jToggleButton14, gridBagConstraints);
 
+        fCancelButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         fCancelButton2.setText("Cancel");
         fCancelButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2804,6 +2876,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 25, 10, 10);
         jPanel10.add(dOutputFolderText, gridBagConstraints);
 
+        jToggleButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton17.setText("Browse");
         jToggleButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2818,6 +2891,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel10.add(jToggleButton17, gridBagConstraints);
 
+        fCancelButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         fCancelButton3.setText("Cancel");
         fCancelButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3006,6 +3080,7 @@ public class MainFrame extends javax.swing.JFrame {
         IndexingBWAPanel.setToolTipText("");
         IndexingBWAPanel.setLayout(new java.awt.GridBagLayout());
 
+        iCloseButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         iCloseButton1.setText("Close");
         iCloseButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3020,6 +3095,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingBWAPanel.add(iCloseButton1, gridBagConstraints);
 
+        jButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton21.setText("Execute");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3035,6 +3111,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingBWAPanel.add(jButton21, gridBagConstraints);
 
+        iResetButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         iResetButton1.setText("Reset");
         iResetButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3049,6 +3126,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingBWAPanel.add(iResetButton1, gridBagConstraints);
 
+        jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         jButton22.setText("Save conf.");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3093,6 +3171,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel15.add(iGenomeFolderBText, gridBagConstraints);
 
+        jToggleButton18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton18.setText("Browse");
         jToggleButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3106,6 +3185,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jToggleButton18, gridBagConstraints);
 
+        jToggleButton19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton19.setText("Cancel");
         jToggleButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3223,6 +3303,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jLabel52, gridBagConstraints);
 
+        i1000BrowseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         i1000BrowseButton.setText("Browse");
         i1000BrowseButton.setEnabled(false);
         i1000BrowseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3237,6 +3318,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(i1000BrowseButton, gridBagConstraints);
 
+        i1000CancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         i1000CancelButton.setText("Cancel");
         i1000CancelButton.setEnabled(false);
         i1000CancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3251,6 +3333,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(i1000CancelButton, gridBagConstraints);
 
+        idbSPNBrowseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         idbSPNBrowseButton.setText("Browse");
         idbSPNBrowseButton.setEnabled(false);
         idbSPNBrowseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3265,6 +3348,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(idbSPNBrowseButton, gridBagConstraints);
 
+        idbSPNCancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         idbSPNCancelButton.setText("Cancel");
         idbSPNCancelButton.setEnabled(false);
         idbSPNCancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3381,6 +3465,7 @@ public class MainFrame extends javax.swing.JFrame {
         MACSPanel.setToolTipText("");
         MACSPanel.setLayout(new java.awt.GridBagLayout());
 
+        vCloseButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         vCloseButton4.setText("Close");
         vCloseButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3395,6 +3480,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         MACSPanel.add(vCloseButton4, gridBagConstraints);
 
+        jButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton23.setText("Execute");
         jButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3410,6 +3496,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         MACSPanel.add(jButton23, gridBagConstraints);
 
+        jButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton24.setText("Reset");
         jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3424,6 +3511,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         MACSPanel.add(jButton24, gridBagConstraints);
 
+        jButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         jButton25.setText("Save conf.");
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3468,6 +3556,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         jPanel17.add(MOutputFolderText, gridBagConstraints);
 
+        jToggleButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton20.setText("Browse");
         jToggleButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3481,6 +3570,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel17.add(jToggleButton20, gridBagConstraints);
 
+        jToggleButton21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton21.setText("Cancel");
         jToggleButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3515,6 +3605,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         jPanel17.add(MScratchFolderText, gridBagConstraints);
 
+        jToggleButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton22.setText("Browse");
         jToggleButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3528,6 +3619,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel17.add(jToggleButton22, gridBagConstraints);
 
+        jToggleButton23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton23.setText("Cancel");
         jToggleButton23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3562,6 +3654,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         jPanel17.add(MMockFolderText, gridBagConstraints);
 
+        jToggleButton24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton24.setText("Browse");
         jToggleButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3575,6 +3668,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel17.add(jToggleButton24, gridBagConstraints);
 
+        jToggleButton25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton25.setText("Cancel");
         jToggleButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3600,6 +3694,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         jPanel17.add(MGenomeFolderText, gridBagConstraints);
 
+        jToggleButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton26.setText("Browse");
         jToggleButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3613,6 +3708,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel17.add(jToggleButton26, gridBagConstraints);
 
+        jToggleButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton27.setText("Cancel");
         jToggleButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3656,6 +3752,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         jPanel17.add(MTestFolderText, gridBagConstraints);
 
+        jToggleButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton28.setText("Browse");
         jToggleButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3669,6 +3766,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel17.add(jToggleButton28, gridBagConstraints);
 
+        jToggleButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton29.setText("Cancel");
         jToggleButton29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -4268,6 +4366,274 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(MACS, "MACS");
 
+        SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sample size estimator", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
+        SampleSizePanel.setLayout(new java.awt.GridBagLayout());
+
+        jPanel21.setBackground(new java.awt.Color(244, 241, 215));
+        jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel21.setLayout(new java.awt.GridBagLayout());
+
+        jLabel64.setText("Output Folder:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel21.add(jLabel64, gridBagConstraints);
+
+        SSOutputFolderText.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 48, 10, 10);
+        jPanel21.add(SSOutputFolderText, gridBagConstraints);
+
+        SSbrowes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        SSbrowes.setText("Browse");
+        SSbrowes.setToolTipText("");
+        SSbrowes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SSbrowesActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel21.add(SSbrowes, gridBagConstraints);
+
+        SScancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        SScancel.setText("Cancel");
+        SScancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SScancelActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel21.add(SScancel, gridBagConstraints);
+        jPanel21.add(jLabel65, new java.awt.GridBagConstraints());
+
+        jLabel66.setText("Count table file:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel21.add(jLabel66, gridBagConstraints);
+
+        SSCountTableText.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 48, 10, 10);
+        jPanel21.add(SSCountTableText, gridBagConstraints);
+
+        jButton27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
+        jButton27.setText("Browse");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel21.add(jButton27, gridBagConstraints);
+
+        jButton28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jButton28.setText("Cancel");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel21.add(jButton28, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SampleSizePanel.add(jPanel21, gridBagConstraints);
+
+        FExecuteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        FExecuteButton1.setText("Execute");
+        FExecuteButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FExecuteButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SampleSizePanel.add(FExecuteButton1, gridBagConstraints);
+
+        FSaveButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
+        FSaveButton1.setText("Save conf.");
+        FSaveButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FSaveButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SampleSizePanel.add(FSaveButton1, gridBagConstraints);
+
+        FResetButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        FResetButton1.setText("Reset");
+        FResetButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FResetButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SampleSizePanel.add(FResetButton1, gridBagConstraints);
+
+        FCloseButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        FCloseButton1.setText("Close");
+        FCloseButton1.setToolTipText("");
+        FCloseButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FCloseButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SampleSizePanel.add(FCloseButton1, gridBagConstraints);
+
+        jPanel24.setBackground(new java.awt.Color(244, 241, 215));
+        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel24.setLayout(new java.awt.GridBagLayout());
+
+        jLabel77.setText("Log2 fold change:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel24.add(jLabel77, gridBagConstraints);
+
+        jLabel84.setText("#gene for dispertion:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel24.add(jLabel84, gridBagConstraints);
+        jPanel24.add(jLabel85, new java.awt.GridBagConstraints());
+
+        jLabel86.setText("Statistical power:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel24.add(jLabel86, gridBagConstraints);
+
+        SSCountTableText1.setText("0.8");
+        SSCountTableText1.setToolTipText("expected statistical power required to detect prognostic genes");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel24.add(SSCountTableText1, gridBagConstraints);
+
+        SSOutputFolderText2.setText("200");
+        SSOutputFolderText2.setToolTipText(" an integer indicating the number of genes used in estimation of read counts and dispersion distribution");
+        SSOutputFolderText2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SSOutputFolderText2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel24.add(SSOutputFolderText2, gridBagConstraints);
+
+        jTextField1.setText("1");
+        jTextField1.setToolTipText("an integer indicating the minimum log2 fold change for prognostic genes between two group");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel24.add(jTextField1, gridBagConstraints);
+
+        jLabel87.setText("False discovery rate:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel24.add(jLabel87, gridBagConstraints);
+
+        jTextField2.setText("0.1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel24.add(jTextField2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SampleSizePanel.add(jPanel24, gridBagConstraints);
+
+        SampleSize.setViewportView(SampleSizePanel);
+
+        MainPanel.add(SampleSize, "SampleSize");
+
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
         LeftPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -4458,14 +4824,15 @@ public class MainFrame extends javax.swing.JFrame {
                                  } 
                                 else
                                       if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Sample size estimator" ){
-                                        card.show(MainPanel, "Empty");
-                                        CurrentLayout="Empty";  
+                                        card.show(MainPanel, "SampleSize");
+                                        CurrentLayout="SampleSize";  
                                       }
                                       else
                                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Experiment stat. Power" ){
                                                 card.show(MainPanel, "Empty");
                                                 CurrentLayout="Empty";  
                                             }
+                                               
                         
             }
         }
@@ -7662,6 +8029,78 @@ public class MainFrame extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_MToolComboBoxItemStateChanged
 
+    private void SSbrowesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSbrowesActionPerformed
+     JFileChooser openDir = new JFileChooser();
+     if (!(SSOutputFolderText.getText().equals(""))){
+            File file =new File(SSOutputFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+     else
+     {
+        String curDir = getPreferences().get("open-dir", null);
+        openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+     }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            SSOutputFolderText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());              
+    }//GEN-LAST:event_SSbrowesActionPerformed
+
+    private void SScancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SScancelActionPerformed
+        SSOutputFolderText.setText("");
+    }//GEN-LAST:event_SScancelActionPerformed
+
+    private void FExecuteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FExecuteButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FExecuteButton1ActionPerformed
+
+    private void FSaveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FSaveButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FSaveButton1ActionPerformed
+
+    private void FResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FResetButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FResetButton1ActionPerformed
+
+    private void FCloseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FCloseButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FCloseButton1ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    JFileChooser openDir = new JFileChooser();
+     if (!(SSCountTableText.getText().equals(""))){
+            File file =new File(SSOutputFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+     else
+     {
+        String curDir = getPreferences().get("open-dir", null);
+        openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+     }
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            SSCountTableText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());           
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+       SSCountTableText.setText("");
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void SSOutputFolderText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSOutputFolderText2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SSOutputFolderText2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -7726,13 +8165,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel EmptyPanel;
     private javax.swing.JButton FAddFile;
     private javax.swing.JButton FCloseButton;
+    private javax.swing.JButton FCloseButton1;
     private javax.swing.JButton FExecuteButton;
+    private javax.swing.JButton FExecuteButton1;
     private javax.swing.JTextField FOutputFolderText;
     private javax.swing.JScrollPane FPKM;
     private javax.swing.JTable FPKMFileTable;
     private javax.swing.JPanel FPKMPanel;
     private javax.swing.JButton FResetButton;
+    private javax.swing.JButton FResetButton1;
     private javax.swing.JButton FSaveButton;
+    private javax.swing.JButton FSaveButton1;
     private javax.swing.JButton Fbrowes;
     private javax.swing.JButton Fcancel;
     private javax.swing.JComboBox<String> FtypesComboBox;
@@ -7785,6 +8228,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ProcStatusPanel;
     private javax.swing.JToggleButton ReloadOutput;
     private javax.swing.JButton RemoveOutput;
+    private javax.swing.JTextField SSCountTableText;
+    private javax.swing.JTextField SSCountTableText1;
+    private javax.swing.JTextField SSOutputFolderText;
+    private javax.swing.JTextField SSOutputFolderText2;
+    private javax.swing.JButton SSbrowes;
+    private javax.swing.JButton SScancel;
+    private javax.swing.JScrollPane SampleSize;
+    private javax.swing.JPanel SampleSizePanel;
     private javax.swing.ButtonGroup Strand;
     private javax.swing.JTextField ThreadTextField;
     private javax.swing.JPanel Tool;
@@ -7844,6 +8295,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -7910,6 +8363,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
@@ -7921,6 +8377,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
@@ -7928,6 +8385,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -7952,8 +8413,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -7967,6 +8430,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton11;
