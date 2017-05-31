@@ -66,6 +66,9 @@
         </Container>
         <Component class="javax.swing.JToggleButton" name="CloseOutput">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Close"/>
           </Properties>
           <Events>
@@ -79,6 +82,9 @@
         </Component>
         <Component class="javax.swing.JToggleButton" name="ReloadOutput">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Reload"/>
           </Properties>
           <Events>
@@ -92,6 +98,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="RemoveOutput">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/pkg4seqgui/images/remove.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="RemoveEntry"/>
           </Properties>
           <Events>
@@ -186,7 +195,7 @@
                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="Adapter3TextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ConfCancell" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton10" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -228,6 +237,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="ConfCancell">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cancel"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -237,6 +249,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton10">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/pkg4seqgui/images/86b.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Save&amp;Close"/>
           </Properties>
           <Events>
@@ -245,6 +260,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton11">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Reset"/>
           </Properties>
           <Events>
@@ -3801,7 +3819,7 @@
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                            <TitledBorder title="MAC &amp; SIC analysis">
+                            <TitledBorder title="MAC &amp; SICER analysis">
                               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
                               <Color PropertyName="color" blue="0" green="99" red="33" type="rgb"/>
                             </TitledBorder>
