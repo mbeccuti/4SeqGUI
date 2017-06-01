@@ -513,20 +513,20 @@ public class MainFrame extends javax.swing.JFrame {
         SSCountTableText = new javax.swing.JTextField();
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
-        FExecuteButton1 = new javax.swing.JButton();
-        FSaveButton1 = new javax.swing.JButton();
-        FResetButton1 = new javax.swing.JButton();
-        FCloseButton1 = new javax.swing.JButton();
+        SSExecuteButton = new javax.swing.JButton();
+        SSSaveButton = new javax.swing.JButton();
+        SSResetButton = new javax.swing.JButton();
+        SSCloseButton = new javax.swing.JButton();
         jPanel24 = new javax.swing.JPanel();
         jLabel77 = new javax.swing.JLabel();
         jLabel84 = new javax.swing.JLabel();
         jLabel85 = new javax.swing.JLabel();
         jLabel86 = new javax.swing.JLabel();
-        SSCountTableText1 = new javax.swing.JTextField();
-        SSOutputFolderText2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        SSPowerText = new javax.swing.JTextField();
+        SSGeneText = new javax.swing.JTextField();
+        SSlog2Text = new javax.swing.JTextField();
         jLabel87 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        SSFDRtext = new javax.swing.JTextField();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -3467,7 +3467,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(IndexingBWA, "indexingB");
 
-        MACSPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MAC & SICER analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 153, 0))); // NOI18N
+        MACSPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MACS & SICER analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 153, 0))); // NOI18N
         MACSPanel.setToolTipText("");
         MACSPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -3957,7 +3957,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel22.add(jLabel79, gridBagConstraints);
 
-        jLabel82.setText("MACS max mfold:");
+        jLabel82.setText("MACS max. mfold:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
@@ -4437,6 +4437,11 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel21.add(jLabel66, gridBagConstraints);
 
         SSCountTableText.setEditable(false);
+        SSCountTableText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SSCountTableTextActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -4480,11 +4485,11 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SampleSizePanel.add(jPanel21, gridBagConstraints);
 
-        FExecuteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
-        FExecuteButton1.setText("Execute");
-        FExecuteButton1.addActionListener(new java.awt.event.ActionListener() {
+        SSExecuteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        SSExecuteButton.setText("Execute");
+        SSExecuteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FExecuteButton1ActionPerformed(evt);
+                SSExecuteButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4494,13 +4499,13 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        SampleSizePanel.add(FExecuteButton1, gridBagConstraints);
+        SampleSizePanel.add(SSExecuteButton, gridBagConstraints);
 
-        FSaveButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
-        FSaveButton1.setText("Save conf.");
-        FSaveButton1.addActionListener(new java.awt.event.ActionListener() {
+        SSSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
+        SSSaveButton.setText("Save conf.");
+        SSSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FSaveButton1ActionPerformed(evt);
+                SSSaveButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4508,13 +4513,13 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        SampleSizePanel.add(FSaveButton1, gridBagConstraints);
+        SampleSizePanel.add(SSSaveButton, gridBagConstraints);
 
-        FResetButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
-        FResetButton1.setText("Reset");
-        FResetButton1.addActionListener(new java.awt.event.ActionListener() {
+        SSResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        SSResetButton.setText("Reset");
+        SSResetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FResetButton1ActionPerformed(evt);
+                SSResetButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4522,14 +4527,14 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        SampleSizePanel.add(FResetButton1, gridBagConstraints);
+        SampleSizePanel.add(SSResetButton, gridBagConstraints);
 
-        FCloseButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
-        FCloseButton1.setText("Close");
-        FCloseButton1.setToolTipText("");
-        FCloseButton1.addActionListener(new java.awt.event.ActionListener() {
+        SSCloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        SSCloseButton.setText("Close");
+        SSCloseButton.setToolTipText("");
+        SSCloseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FCloseButton1ActionPerformed(evt);
+                SSCloseButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4537,7 +4542,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        SampleSizePanel.add(FCloseButton1, gridBagConstraints);
+        SampleSizePanel.add(SSCloseButton, gridBagConstraints);
 
         jPanel24.setBackground(new java.awt.Color(244, 241, 215));
         jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -4569,21 +4574,21 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel24.add(jLabel86, gridBagConstraints);
 
-        SSCountTableText1.setText("0.8");
-        SSCountTableText1.setToolTipText("expected statistical power required to detect prognostic genes");
+        SSPowerText.setText("0.8");
+        SSPowerText.setToolTipText("expected statistical power required to detect prognostic genes");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel24.add(SSCountTableText1, gridBagConstraints);
+        jPanel24.add(SSPowerText, gridBagConstraints);
 
-        SSOutputFolderText2.setText("200");
-        SSOutputFolderText2.setToolTipText(" an integer indicating the number of genes used in estimation of read counts and dispersion distribution");
-        SSOutputFolderText2.addActionListener(new java.awt.event.ActionListener() {
+        SSGeneText.setText("200");
+        SSGeneText.setToolTipText(" an integer indicating the number of genes used in estimation of read counts and dispersion distribution");
+        SSGeneText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SSOutputFolderText2ActionPerformed(evt);
+                SSGeneTextActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4593,13 +4598,13 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel24.add(SSOutputFolderText2, gridBagConstraints);
+        jPanel24.add(SSGeneText, gridBagConstraints);
 
-        jTextField1.setText("1");
-        jTextField1.setToolTipText("an integer indicating the minimum log2 fold change for prognostic genes between two group");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        SSlog2Text.setText("1");
+        SSlog2Text.setToolTipText("an integer indicating the minimum log2 fold change for prognostic genes between two group");
+        SSlog2Text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                SSlog2TextActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4608,7 +4613,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel24.add(jTextField1, gridBagConstraints);
+        jPanel24.add(SSlog2Text, gridBagConstraints);
 
         jLabel87.setText("False discovery rate:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4618,14 +4623,14 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel24.add(jLabel87, gridBagConstraints);
 
-        jTextField2.setText("0.1");
+        SSFDRtext.setText("0.1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel24.add(jTextField2, gridBagConstraints);
+        jPanel24.add(SSFDRtext, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -5580,7 +5585,41 @@ public class MainFrame extends javax.swing.JFrame {
                                 }                                
                                 line++;
                               }
-                            }    
+                            }
+                                else
+                                    if(CurrentLayout=="SampleSize"){
+                                        int line=0;
+                                        //chekc right file
+                                        if (!br.readLine().equals("SampleSize")){
+                                            throw(new NumberFormatException());
+                                        }
+                                        for (String x = br.readLine(); x != null; x = br.readLine()){
+                                            switch (line){
+                                                case 0:
+                                                    SSCountTableText.setText(x);
+                                                break;
+                                                case 1:
+                                                    SSOutputFolderText.setText(x);
+                                                break;
+                                                case 2:
+                                                    SSPowerText.setText(x);
+                                                break;  
+                                                case 3:
+                                                    SSGeneText.setText(x);
+                                                break;
+                                                case 4:
+                                                    SSlog2Text.setText(x);
+                                                break;
+                                                case 5:
+                                                   SSFDRtext.setText(x);
+                                                break;
+                                                default:
+                                                   throw(new NumberFormatException()); 
+                                                }                                
+                                            line++;
+                                        
+                                        }
+                                     }
                                 
                                 }
                     }
@@ -5852,7 +5891,22 @@ public class MainFrame extends javax.swing.JFrame {
                                             bw.write(MSFDRText.getText());
                                             bw.write("\n");
                                             bw.write(Integer.toString(MToolComboBox.getSelectedIndex()));
-                                        }
+                                        }else
+                                            if(CurrentLayout=="SampleSize"){
+                                                bw.write("SampleSize\n");
+                                                bw.write(SSCountTableText.getText());
+                                                bw.write("\n");
+                                                bw.write(SSOutputFolderText.getText());
+                                                bw.write("\n");
+                                                bw.write(SSPowerText.getText());
+                                                bw.write("\n");
+                                                bw.write(SSGeneText.getText());
+                                                bw.write("\n");
+                                                bw.write(SSlog2Text.getText());
+                                                bw.write("\n");
+                                                bw.write(SSFDRtext.getText());
+                                            }
+                                          
                         }
                   
                
@@ -8059,21 +8113,155 @@ public class MainFrame extends javax.swing.JFrame {
         SSOutputFolderText.setText("");
     }//GEN-LAST:event_SScancelActionPerformed
 
-    private void FExecuteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FExecuteButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FExecuteButton1ActionPerformed
+    private void SSExecuteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSExecuteButtonActionPerformed
+      if (SSCountTableText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+        if (SSOutputFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+        try
+        {
+            Float x = Float.valueOf(SSPowerText.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error:  Statistical power",JOptionPane.ERROR_MESSAGE);
+                SSPowerText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified  a value for Log2fc threashold.","Error: Statistical power",JOptionPane.ERROR_MESSAGE);
+            SSPowerText.requestFocusInWindow();
+            return;
+        }
+        
+        try
+        {
+            Float x = Float.valueOf(SSFDRtext.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+                SSFDRtext.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+            SSFDRtext.requestFocusInWindow();
+            return;
+        }
+        
+        try
+        {
+            Float x = Float.valueOf(SSGeneText.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: #gene for dispertion",JOptionPane.ERROR_MESSAGE);
+                SSGeneText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: #gene for dispertion",JOptionPane.ERROR_MESSAGE);
+            SSGeneText.requestFocusInWindow();
+            return;
+        }
+        
+        try
+        {
+            Float x = Float.valueOf(SSlog2Text.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Log2 fold change",JOptionPane.ERROR_MESSAGE);
+                SSlog2Text.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: Log2 fold change",JOptionPane.ERROR_MESSAGE);
+            SSlog2Text.requestFocusInWindow();
+            return;
+        }
+        
+          
+        Runtime rt = Runtime.getRuntime();
+        //execute code
+            
+        try{
+            String[] cmd = {"/bin/bash","-c"," ./execSampleSize.sh "};
+  
+            cmd[2]+= " filename=\\\""+ SSCountTableText.getText() +"\\\"";
+            cmd[2]+= " power="+ SSPowerText.getText();
+            cmd[2]+= " FDR="+ SSFDRtext.getText();
+            cmd[2]+= " genes4dispersion="+ SSGeneText.getText();
+            cmd[2]+= " log2fold.change="+ SSlog2Text.getText();
+            cmd[2]+= " output.folder=\\\""+ SSOutputFolderText.getText() +"\\\"";
+            cmd[2]+=" "+ SSOutputFolderText.getText()+" >& "+SSOutputFolderText.getText()+"/outputExecution ";
+            //ProcessStatus.setText(pr.toString());
+            if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                Process pr = rt.exec(cmd); 
+                System.out.println(cmd[2]);                            
+                ElProcRunning tmp= new ElProcRunning("Sample Size Estimator ", SSOutputFolderText.getText() ,pr,listModel.getSize());
+                listProcRunning.add(tmp);
+                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                ImageIcon image2 = new ImageIcon(imgURL);
+                GL.setAvoidProcListValueChanged(-1);
+                listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                GL.setAvoidProcListValueChanged(0);
+                if(listProcRunning.size()==1){
+                    t=new Timer();
+                    t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                    }
+            }             
+            else{
+                 ElProcWaiting tmp= new ElProcWaiting("Sample Size Estimator  ", SSOutputFolderText.getText(),cmd,listModel.getSize());
+                 listProcWaiting.add(tmp);
+                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                 ImageIcon image2 = new ImageIcon(imgURL);
+                 GL.setAvoidProcListValueChanged(-1);
+                 listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                 GL.setAvoidProcListValueChanged(0);
+                }
+            GL.setAvoidProcListValueChanged(-1);
+            ProcList.setModel(listModel);
+            ProcList.setCellRenderer(new ListEntryCellRenderer());
+            GL.setAvoidProcListValueChanged(0);
+            } 
+        catch(Exception e) {
+            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+        JOptionPane.showMessageDialog(this, "Sample Size Estimator task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);  
+    }//GEN-LAST:event_SSExecuteButtonActionPerformed
 
-    private void FSaveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FSaveButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FSaveButton1ActionPerformed
+    private void SSSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSSaveButtonActionPerformed
+    saveAsMenuItemActionPerformed(evt);
+    }//GEN-LAST:event_SSSaveButtonActionPerformed
 
-    private void FResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FResetButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FResetButton1ActionPerformed
+    private void SSResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSResetButtonActionPerformed
+       SSCountTableText.setText("");
+       SSFDRtext.setText("0.1");
+       SSGeneText.setText("200");
+       SSOutputFolderText.setText("");
+       SSPowerText.setText("0.8");
+       SSlog2Text.setText("1"); 
+    }//GEN-LAST:event_SSResetButtonActionPerformed
 
-    private void FCloseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FCloseButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FCloseButton1ActionPerformed
+    private void SSCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSCloseButtonActionPerformed
+       SSCountTableText.setText("");
+       SSFDRtext.setText("0.1");
+       SSGeneText.setText("200");
+       SSOutputFolderText.setText("");
+       SSPowerText.setText("0.8");
+       SSlog2Text.setText("1"); 
+       CardLayout card = (CardLayout)MainPanel.getLayout();
+       card.show(MainPanel, "Empty");
+       CurrentLayout="Empty";
+       AnalysisTree.clearSelection();      
+    }//GEN-LAST:event_SSCloseButtonActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
     JFileChooser openDir = new JFileChooser();
@@ -8099,13 +8287,17 @@ public class MainFrame extends javax.swing.JFrame {
        SSCountTableText.setText("");
     }//GEN-LAST:event_jButton28ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void SSlog2TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSlog2TextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_SSlog2TextActionPerformed
 
-    private void SSOutputFolderText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSOutputFolderText2ActionPerformed
+    private void SSGeneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSGeneTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SSOutputFolderText2ActionPerformed
+    }//GEN-LAST:event_SSGeneTextActionPerformed
+
+    private void SSCountTableTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSCountTableTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SSCountTableTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -8171,17 +8363,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel EmptyPanel;
     private javax.swing.JButton FAddFile;
     private javax.swing.JButton FCloseButton;
-    private javax.swing.JButton FCloseButton1;
     private javax.swing.JButton FExecuteButton;
-    private javax.swing.JButton FExecuteButton1;
     private javax.swing.JTextField FOutputFolderText;
     private javax.swing.JScrollPane FPKM;
     private javax.swing.JTable FPKMFileTable;
     private javax.swing.JPanel FPKMPanel;
     private javax.swing.JButton FResetButton;
-    private javax.swing.JButton FResetButton1;
     private javax.swing.JButton FSaveButton;
-    private javax.swing.JButton FSaveButton1;
     private javax.swing.JButton Fbrowes;
     private javax.swing.JButton Fcancel;
     private javax.swing.JComboBox<String> FtypesComboBox;
@@ -8234,12 +8422,18 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ProcStatusPanel;
     private javax.swing.JToggleButton ReloadOutput;
     private javax.swing.JButton RemoveOutput;
+    private javax.swing.JButton SSCloseButton;
     private javax.swing.JTextField SSCountTableText;
-    private javax.swing.JTextField SSCountTableText1;
+    private javax.swing.JButton SSExecuteButton;
+    private javax.swing.JTextField SSFDRtext;
+    private javax.swing.JTextField SSGeneText;
     private javax.swing.JTextField SSOutputFolderText;
-    private javax.swing.JTextField SSOutputFolderText2;
+    private javax.swing.JTextField SSPowerText;
+    private javax.swing.JButton SSResetButton;
+    private javax.swing.JButton SSSaveButton;
     private javax.swing.JButton SSbrowes;
     private javax.swing.JButton SScancel;
+    private javax.swing.JTextField SSlog2Text;
     private javax.swing.JScrollPane SampleSize;
     private javax.swing.JPanel SampleSizePanel;
     private javax.swing.ButtonGroup Strand;
@@ -8436,8 +8630,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton11;
