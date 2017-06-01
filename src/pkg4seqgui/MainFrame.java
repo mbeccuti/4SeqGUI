@@ -7760,13 +7760,13 @@ public class MainFrame extends javax.swing.JFrame {
                         cmd[2]+= " output.folder=\\\""+MOutputFolderText.getText()+"\\\" scratch.folder=\\\""+MScratchFolderText.getText()+"\\\" adapter5=\\\""+MAdapter5Text.getText()+"\\\" adapter3=\\\""+MAdapter3Text.getText()+"\\\"";
                         cmd[2]+= " mock.folder=\\\""+MMockFolderText.getText()+"\\\" test.folder=\\\""+MTestFolderText.getText()+"\\\"";
                         cmd[2]+= " seq.type=\\\"se\\\" threads="+vThreadText.getText()+" min.length="+MMinLengthText.getText()+" genome.folder=\\\""+MGenomeFolderText.getText()+"\\\"";
-                        cmd[2]+= " mock.id=\\\"sigg\\\"  test.id=\\\"tf\\\" genome=\\\""+MOrgComboBox.getSelectedItem().toString()+"\\\" read.size="+MReadLengthTextField.getText();
+                        cmd[2]+= " mock.id=\\\"igg\\\"  test.id=\\\"tf\\\" genome=\\\""+MOrgComboBox.getSelectedItem().toString()+"\\\" read.size="+MReadLengthTextField.getText();
                         cmd[2]+= " tool=\\\""+MToolComboBox.getSelectedItem().toString()+"\\\" macs.min.mfold="+MMinmfoldText.getText()+" macs.max.mfold="+MMaxmfoldText.getText()+" macs.pval=\\\""+MMpvalueText.getText()+"\\\"";
                         cmd[2]+= " sicer.wsize="+MSWindowsText.getText()+" sicer.gsize="+MSgsizeText.getText()+" sicer.fdr="+MSFDRText.getText()+ " tss.distance="+MTTSText.getText()+" max.upstream.distance="+MMaxUpstreamText.getText();
                         if (MRyesRadioButton.isSelected())
-                             cmd[2]+= " remove.duplicates=\\\"yes\\\"";
+                             cmd[2]+= " remove.duplicates=\\\"Y\\\"";
                         else
-                             cmd[2]+= " remove.duplicates=\\\"no\\\"";
+                             cmd[2]+= " remove.duplicates=\\\"N\\\"";
                         cmd[2]+=" "+MOutputFolderText.getText() +" >& "+MOutputFolderText.getText()+"/outputExecution ";
                         
                         //ProcessStatus.setText(pr.toString());
