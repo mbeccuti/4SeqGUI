@@ -17,7 +17,7 @@ echo "Input file:              $filename"
 echo "Statistical power:       $power"
 echo "Log2fc threshold:        $log2fc"
 echo "FDR threshold:           $fdr"
-echo "#gene for dispertion:    $refcov"
+echo "#gene for dispertion:    $genes4dispersion"
 echo "Output:                  $output"
 echo 
 echo "======================================================="

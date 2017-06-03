@@ -527,6 +527,32 @@ public class MainFrame extends javax.swing.JFrame {
         SSlog2Text = new javax.swing.JTextField();
         jLabel87 = new javax.swing.JLabel();
         SSFDRtext = new javax.swing.JTextField();
+        ExperimentPower = new javax.swing.JScrollPane();
+        ExperimentPowerPanel = new javax.swing.JPanel();
+        jPanel25 = new javax.swing.JPanel();
+        jLabel88 = new javax.swing.JLabel();
+        EPOutputFolderText = new javax.swing.JTextField();
+        SSbrowes1 = new javax.swing.JButton();
+        SScancel1 = new javax.swing.JButton();
+        jLabel89 = new javax.swing.JLabel();
+        jLabel90 = new javax.swing.JLabel();
+        EPCountTableText = new javax.swing.JTextField();
+        jButton29 = new javax.swing.JButton();
+        jButton30 = new javax.swing.JButton();
+        EPExecuteButton1 = new javax.swing.JButton();
+        EPSaveButton = new javax.swing.JButton();
+        EPResetButton = new javax.swing.JButton();
+        EPCloseButton = new javax.swing.JButton();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel91 = new javax.swing.JLabel();
+        jLabel92 = new javax.swing.JLabel();
+        jLabel93 = new javax.swing.JLabel();
+        jLabel94 = new javax.swing.JLabel();
+        EPSampleText = new javax.swing.JTextField();
+        EPGeneText = new javax.swing.JTextField();
+        EPlog2Text = new javax.swing.JTextField();
+        jLabel95 = new javax.swing.JLabel();
+        EPFDRtext = new javax.swing.JTextField();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -4372,7 +4398,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(MACS, "MACS");
 
-        SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sample size estimator", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
+        SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Experiment Power", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
         SampleSizePanel.setLayout(new java.awt.GridBagLayout());
 
         jPanel21.setBackground(new java.awt.Color(244, 241, 215));
@@ -4645,6 +4671,279 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(SampleSize, "SampleSize");
 
+        ExperimentPowerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Experiment power", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 51, 102))); // NOI18N
+        ExperimentPowerPanel.setLayout(new java.awt.GridBagLayout());
+
+        jPanel25.setBackground(new java.awt.Color(189, 217, 241));
+        jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel25.setLayout(new java.awt.GridBagLayout());
+
+        jLabel88.setText("Output Folder:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel25.add(jLabel88, gridBagConstraints);
+
+        EPOutputFolderText.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 48, 10, 10);
+        jPanel25.add(EPOutputFolderText, gridBagConstraints);
+
+        SSbrowes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        SSbrowes1.setText("Browse");
+        SSbrowes1.setToolTipText("");
+        SSbrowes1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SSbrowes1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel25.add(SSbrowes1, gridBagConstraints);
+
+        SScancel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        SScancel1.setText("Cancel");
+        SScancel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SScancel1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel25.add(SScancel1, gridBagConstraints);
+        jPanel25.add(jLabel89, new java.awt.GridBagConstraints());
+
+        jLabel90.setText("Count table file:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel25.add(jLabel90, gridBagConstraints);
+
+        EPCountTableText.setEditable(false);
+        EPCountTableText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EPCountTableTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 48, 10, 10);
+        jPanel25.add(EPCountTableText, gridBagConstraints);
+
+        jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
+        jButton29.setText("Browse");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel25.add(jButton29, gridBagConstraints);
+
+        jButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jButton30.setText("Cancel");
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel25.add(jButton30, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ExperimentPowerPanel.add(jPanel25, gridBagConstraints);
+
+        EPExecuteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        EPExecuteButton1.setText("Execute");
+        EPExecuteButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EPExecuteButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ExperimentPowerPanel.add(EPExecuteButton1, gridBagConstraints);
+
+        EPSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
+        EPSaveButton.setText("Save conf.");
+        EPSaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EPSaveButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ExperimentPowerPanel.add(EPSaveButton, gridBagConstraints);
+
+        EPResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        EPResetButton.setText("Reset");
+        EPResetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EPResetButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ExperimentPowerPanel.add(EPResetButton, gridBagConstraints);
+
+        EPCloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        EPCloseButton.setText("Close");
+        EPCloseButton.setToolTipText("");
+        EPCloseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EPCloseButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ExperimentPowerPanel.add(EPCloseButton, gridBagConstraints);
+
+        jPanel26.setBackground(new java.awt.Color(189, 217, 241));
+        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel26.setLayout(new java.awt.GridBagLayout());
+
+        jLabel91.setText("Log2 fold change:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel26.add(jLabel91, gridBagConstraints);
+
+        jLabel92.setText("#gene for dispertion:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel26.add(jLabel92, gridBagConstraints);
+        jPanel26.add(jLabel93, new java.awt.GridBagConstraints());
+
+        jLabel94.setText("Number of samples:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel26.add(jLabel94, gridBagConstraints);
+
+        EPSampleText.setText("3");
+        EPSampleText.setToolTipText("the number of samples in each group");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel26.add(EPSampleText, gridBagConstraints);
+
+        EPGeneText.setText("200");
+        EPGeneText.setToolTipText(" an integer indicating the number of genes used in estimation of read counts and dispersion distribution");
+        EPGeneText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EPGeneTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel26.add(EPGeneText, gridBagConstraints);
+
+        EPlog2Text.setText("1");
+        EPlog2Text.setToolTipText("an integer indicating the minimum log2 fold change for prognostic genes between two group");
+        EPlog2Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EPlog2TextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel26.add(EPlog2Text, gridBagConstraints);
+
+        jLabel95.setText("False discovery rate:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel26.add(jLabel95, gridBagConstraints);
+
+        EPFDRtext.setText("0.1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel26.add(EPFDRtext, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ExperimentPowerPanel.add(jPanel26, gridBagConstraints);
+
+        ExperimentPower.setViewportView(ExperimentPowerPanel);
+
+        MainPanel.add(ExperimentPower, "ExperimentPower");
+
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
         LeftPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -4840,8 +5139,8 @@ public class MainFrame extends javax.swing.JFrame {
                                       }
                                       else
                                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Experiment stat. Power" ){
-                                                card.show(MainPanel, "Empty");
-                                                CurrentLayout="Empty";  
+                                                card.show(MainPanel, "ExperimentPower");
+                                                CurrentLayout="ExperimentPower";  
                                             }
                                                
                         
@@ -5620,6 +5919,40 @@ public class MainFrame extends javax.swing.JFrame {
                                         
                                         }
                                      }
+                                     else
+                                        if(CurrentLayout=="ExperimentPower"){
+                                        int line=0;
+                                        //chekc right file
+                                        if (!br.readLine().equals("ExperimentPower")){
+                                            throw(new NumberFormatException());
+                                        }
+                                        for (String x = br.readLine(); x != null; x = br.readLine()){
+                                            switch (line){
+                                                case 0:
+                                                    EPCountTableText.setText(x);
+                                                break;
+                                                case 1:
+                                                    EPOutputFolderText.setText(x);
+                                                break;
+                                                case 2:
+                                                    EPSampleText.setText(x);
+                                                break;  
+                                                case 3:
+                                                    EPGeneText.setText(x);
+                                                break;
+                                                case 4:
+                                                    EPlog2Text.setText(x);
+                                                break;
+                                                case 5:
+                                                   EPFDRtext.setText(x);
+                                                break;
+                                                default:
+                                                   throw(new NumberFormatException()); 
+                                                }                                
+                                            line++;
+                                        
+                                        }
+                                     }
                                 
                                 }
                     }
@@ -5906,7 +6239,21 @@ public class MainFrame extends javax.swing.JFrame {
                                                 bw.write("\n");
                                                 bw.write(SSFDRtext.getText());
                                             }
-                                          
+                                            else
+                                                if(CurrentLayout=="ExperimentPower"){
+                                                bw.write("ExperimentPower\n");
+                                                bw.write(EPCountTableText.getText());
+                                                bw.write("\n");
+                                                bw.write(EPOutputFolderText.getText());
+                                                bw.write("\n");
+                                                bw.write(EPSampleText.getText());
+                                                bw.write("\n");
+                                                bw.write(EPGeneText.getText());
+                                                bw.write("\n");
+                                                bw.write(EPlog2Text.getText());
+                                                bw.write("\n");
+                                                bw.write(EPFDRtext.getText());
+                                            } 
                         }
                   
                
@@ -8299,6 +8646,217 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SSCountTableTextActionPerformed
 
+    private void SSbrowes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSbrowes1ActionPerformed
+     JFileChooser openDir = new JFileChooser();
+     if (!(EPOutputFolderText.getText().equals(""))){
+            File file =new File(EPOutputFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+     else
+     {
+        String curDir = getPreferences().get("open-dir", null);
+        openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+     }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            EPOutputFolderText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());          
+    }//GEN-LAST:event_SSbrowes1ActionPerformed
+
+    private void SScancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SScancel1ActionPerformed
+    EPOutputFolderText.setText("");
+    }//GEN-LAST:event_SScancel1ActionPerformed
+
+    private void EPCountTableTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPCountTableTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EPCountTableTextActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+     JFileChooser openDir = new JFileChooser();
+     if (!(EPCountTableText.getText().equals(""))){
+            File file =new File(EPOutputFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+     else
+     {
+        String curDir = getPreferences().get("open-dir", null);
+        openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+     }
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            EPCountTableText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());             
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+      EPCountTableText.setText("");
+    }//GEN-LAST:event_jButton30ActionPerformed
+
+    private void EPExecuteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPExecuteButton1ActionPerformed
+        if (EPCountTableText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+        if (EPOutputFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        
+        try
+        {
+            Float x = Float.valueOf(EPSampleText.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error:  number of samples used in each group",JOptionPane.ERROR_MESSAGE);
+                EPSampleText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified  a value for Log2fc threashold.","Error: number of samples used in each group",JOptionPane.ERROR_MESSAGE);
+            EPSampleText.requestFocusInWindow();
+            return;
+        }
+        
+        try
+        {
+            Float x = Float.valueOf(EPFDRtext.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+                EPFDRtext.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+            EPFDRtext.requestFocusInWindow();
+            return;
+        }
+        
+        try
+        {
+            Float x = Float.valueOf(EPGeneText.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: #gene for dispertion",JOptionPane.ERROR_MESSAGE);
+                EPGeneText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: #gene for dispertion",JOptionPane.ERROR_MESSAGE);
+            EPGeneText.requestFocusInWindow();
+            return;
+        }
+        
+        try
+        {
+            Float x = Float.valueOf(EPlog2Text.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Log2 fold change",JOptionPane.ERROR_MESSAGE);
+                EPlog2Text.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: Log2 fold change",JOptionPane.ERROR_MESSAGE);
+            EPlog2Text.requestFocusInWindow();
+            return;
+        }
+        
+          
+        Runtime rt = Runtime.getRuntime();
+        //execute code
+            
+        try{
+            String[] cmd = {"/bin/bash","-c"," ./execExperimentPower.sh "};
+  
+            cmd[2]+= " filename=\\\""+ EPCountTableText.getText() +"\\\"";
+            cmd[2]+= " replicatesXgroup="+ EPSampleText.getText();
+            cmd[2]+= " FDR="+ EPFDRtext.getText();
+            cmd[2]+= " genes4dispersion="+ EPGeneText.getText();
+            cmd[2]+= " log2fold.change="+ EPlog2Text.getText();
+            cmd[2]+= " output.folder=\\\""+ EPOutputFolderText.getText() +"\\\"";
+            cmd[2]+=" "+ EPOutputFolderText.getText()+" >& "+EPOutputFolderText.getText()+"/outputExecution ";
+            //ProcessStatus.setText(pr.toString());
+            if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                Process pr = rt.exec(cmd); 
+                System.out.println(cmd[2]);                            
+                ElProcRunning tmp= new ElProcRunning("Experiment Stat. Power ", EPOutputFolderText.getText() ,pr,listModel.getSize());
+                listProcRunning.add(tmp);
+                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                ImageIcon image2 = new ImageIcon(imgURL);
+                GL.setAvoidProcListValueChanged(-1);
+                listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                GL.setAvoidProcListValueChanged(0);
+                if(listProcRunning.size()==1){
+                    t=new Timer();
+                    t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                    }
+            }             
+            else{
+                 ElProcWaiting tmp= new ElProcWaiting("Experiment Stat. Power  ", EPOutputFolderText.getText(),cmd,listModel.getSize());
+                 listProcWaiting.add(tmp);
+                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                 ImageIcon image2 = new ImageIcon(imgURL);
+                 GL.setAvoidProcListValueChanged(-1);
+                 listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                 GL.setAvoidProcListValueChanged(0);
+                }
+            GL.setAvoidProcListValueChanged(-1);
+            ProcList.setModel(listModel);
+            ProcList.setCellRenderer(new ListEntryCellRenderer());
+            GL.setAvoidProcListValueChanged(0);
+            } 
+        catch(Exception e) {
+            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+        JOptionPane.showMessageDialog(this, "Experiment Stat. Power task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);  
+
+    }//GEN-LAST:event_EPExecuteButton1ActionPerformed
+
+    private void EPSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPSaveButtonActionPerformed
+        saveAsMenuItemActionPerformed(evt);
+    }//GEN-LAST:event_EPSaveButtonActionPerformed
+
+    private void EPResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPResetButtonActionPerformed
+       EPCountTableText.setText("");
+       EPFDRtext.setText("0.1");
+       EPGeneText.setText("200");
+       EPOutputFolderText.setText("");
+       EPSampleText.setText("3");
+       EPlog2Text.setText("1"); 
+    }//GEN-LAST:event_EPResetButtonActionPerformed
+
+    private void EPCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPCloseButtonActionPerformed
+       EPCountTableText.setText("");
+       EPFDRtext.setText("0.1");
+       EPGeneText.setText("200");
+       EPOutputFolderText.setText("");
+       EPSampleText.setText("3");
+       EPlog2Text.setText("1"); 
+       CardLayout card = (CardLayout)MainPanel.getLayout();
+       card.show(MainPanel, "Empty");
+       CurrentLayout="Empty";
+       AnalysisTree.clearSelection();      
+    }//GEN-LAST:event_EPCloseButtonActionPerformed
+
+    private void EPGeneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPGeneTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EPGeneTextActionPerformed
+
+    private void EPlog2TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPlog2TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EPlog2TextActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -8359,8 +8917,20 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel DESPanel;
     private javax.swing.ButtonGroup DEStype;
     private javax.swing.ButtonGroup DataType;
+    private javax.swing.JButton EPCloseButton;
+    private javax.swing.JTextField EPCountTableText;
+    private javax.swing.JButton EPExecuteButton1;
+    private javax.swing.JTextField EPFDRtext;
+    private javax.swing.JTextField EPGeneText;
+    private javax.swing.JTextField EPOutputFolderText;
+    private javax.swing.JButton EPResetButton;
+    private javax.swing.JTextField EPSampleText;
+    private javax.swing.JButton EPSaveButton;
+    private javax.swing.JTextField EPlog2Text;
     private javax.swing.JScrollPane Empty;
     private javax.swing.JPanel EmptyPanel;
+    private javax.swing.JScrollPane ExperimentPower;
+    private javax.swing.JPanel ExperimentPowerPanel;
     private javax.swing.JButton FAddFile;
     private javax.swing.JButton FCloseButton;
     private javax.swing.JButton FExecuteButton;
@@ -8432,7 +9002,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SSResetButton;
     private javax.swing.JButton SSSaveButton;
     private javax.swing.JButton SSbrowes;
+    private javax.swing.JButton SSbrowes1;
     private javax.swing.JButton SScancel;
+    private javax.swing.JButton SScancel1;
     private javax.swing.JTextField SSlog2Text;
     private javax.swing.JScrollPane SampleSize;
     private javax.swing.JPanel SampleSizePanel;
@@ -8497,7 +9069,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -8589,7 +9163,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -8617,6 +9199,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
