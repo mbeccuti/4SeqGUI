@@ -3919,7 +3919,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel19.add(jLabel63, gridBagConstraints);
 
-        MToolComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MACS", "SICER" }));
+        MToolComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "macs", "sicer" }));
         MToolComboBox.setToolTipText("");
         MToolComboBox.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {

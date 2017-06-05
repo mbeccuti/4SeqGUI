@@ -4320,8 +4320,8 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="2">
-                                    <StringItem index="0" value="MACS"/>
-                                    <StringItem index="1" value="SICER"/>
+                                    <StringItem index="0" value="macs"/>
+                                    <StringItem index="1" value="sicer"/>
                                   </StringArray>
                                 </Property>
                                 <Property name="toolTipText" type="java.lang.String" value=""/>
