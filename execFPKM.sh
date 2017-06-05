@@ -32,7 +32,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${samplefolders} ${covariates} ${batch} $biotype $outputfolder ' ./Rscripts/FPKMCounts.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${samplefolders} ${covariates} ${batchs} $biotype $outputfolder ' ./Rscripts/FPKMCounts.R  $output/Routput.Rout"
 
 echo "$args"
 
