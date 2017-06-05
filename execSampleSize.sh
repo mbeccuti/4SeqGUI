@@ -29,7 +29,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args  $filename $power $frd ${genes4dispersion} $log2fc $outputfolder' ./Rscripts/SampleSize.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args  $filename $power $fdr ${genes4dispersion} $log2fc $outputfolder' ./Rscripts/SampleSize.R  $output/Routput.Rout"
 
 echo "$args"
 
