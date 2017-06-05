@@ -4398,7 +4398,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(MACS, "MACS");
 
-        SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Experiment Power", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
+        SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sample size estimator", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
         SampleSizePanel.setLayout(new java.awt.GridBagLayout());
 
         jPanel21.setBackground(new java.awt.Color(244, 241, 215));
