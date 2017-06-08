@@ -15,5 +15,5 @@ if(length(args)==0){
 }
 
 library(docker4seq)
-wrapperDeseq2(experiment.table=experiment.table, type=type, log2fc=log2fc, fdr=fdr, ref.covar=ref.covar, output.folder=output.folder)
+wrapperDeseq2(experiment.table=experiment.table, type=type, log2fc=log2fc, fdr=fdr, ref.covar=ref.covar, output.folder=output.folder, batch=batch)
 

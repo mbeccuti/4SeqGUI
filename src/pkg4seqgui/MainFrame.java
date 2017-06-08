@@ -211,6 +211,7 @@ public class MainFrame extends javax.swing.JFrame {
         MRemoveDuplicates = new javax.swing.ButtonGroup();
         MAdapter = new javax.swing.ButtonGroup();
         BatchComboBox = new javax.swing.JComboBox<>();
+        DESBatch = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -400,6 +401,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
         dIsoformRadioButton = new javax.swing.JRadioButton();
+        jLabel62 = new javax.swing.JLabel();
+        dBatchesTrue = new javax.swing.JRadioButton();
+        DBatchesFalse = new javax.swing.JRadioButton();
         IndexingBWA = new javax.swing.JScrollPane();
         IndexingBWAPanel = new javax.swing.JPanel();
         iCloseButton1 = new javax.swing.JButton();
@@ -3095,6 +3099,35 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(dIsoformRadioButton, gridBagConstraints);
 
+        jLabel62.setText("Batches:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel12.add(jLabel62, gridBagConstraints);
+
+        dBatchesTrue.setBackground(new java.awt.Color(225, 239, 250));
+        dBatchesTrue.setText("TRUE");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel12.add(dBatchesTrue, gridBagConstraints);
+
+        DBatchesFalse.setBackground(new java.awt.Color(225, 239, 250));
+        DBatchesFalse.setSelected(true);
+        DBatchesFalse.setText("FALSE");
+        DBatchesFalse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DBatchesFalseActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel12.add(DBatchesFalse, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -5751,6 +5784,12 @@ public class MainFrame extends javax.swing.JFrame {
                                             case 5:
                                                     dOutputFolderText.setText(x);
                                             break;
+                                            case 6:
+                                               if (x.equals("TRUE"))
+                                                    dBatchesTrue.setSelected(true);
+                                               else
+                                                    DBatchesFalse.setSelected(true); 
+                                            break;   
                                             }
                                         line++;
                                     }
@@ -6144,6 +6183,10 @@ public class MainFrame extends javax.swing.JFrame {
                                            else
                                                bw.write("miRNA\n");
                                        bw.write(dOutputFolderText.getText());
+                                       if (dBatchesTrue.isSelected())
+                                            bw.write("TRUE\n");
+                                       else
+                                            bw.write("FALSE\n");
                                        }
                                       else
                                         if (CurrentLayout=="indexingB"){   
@@ -7490,6 +7533,7 @@ public class MainFrame extends javax.swing.JFrame {
         dLog2fcText.setText("");
         dFDRText.setText("");
         dOutputFolderText.setText("");
+        dBatchesTrue.setSelected(true);
         //RESET FIELDS
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "Empty");
@@ -7559,6 +7603,10 @@ public class MainFrame extends javax.swing.JFrame {
             cmd[2]+= " log2fc="+dLog2fcText.getText()+" fdr="+dFDRText.getText();
             cmd[2]+= " ref.covar=\\\""+dCovComboBox.getSelectedItem().toString()+"\\\"";
             cmd[2]+= " output.folder=\\\""+ dOutputFolderText.getText() +"\\\"";
+            if (dBatchesTrue.isSelected())
+                cmd[2]+= " batch=\\\"TRUE\\\"";
+            else
+                cmd[2]+= " batch=\\\"FALSE\\\"";
             cmd[2]+=" "+ dOutputFolderText.getText()+" >& "+dOutputFolderText.getText()+"/outputExecution ";
             //ProcessStatus.setText(pr.toString());
             if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
@@ -7604,6 +7652,7 @@ public class MainFrame extends javax.swing.JFrame {
         dLog2fcText.setText("");
         dFDRText.setText("");
         dOutputFolderText.setText("");
+        dBatchesTrue.setSelected(true);
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -8857,6 +8906,10 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EPlog2TextActionPerformed
 
+    private void DBatchesFalseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DBatchesFalseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DBatchesFalseActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -8913,7 +8966,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame ConfigurationFrame;
     private javax.swing.JComboBox<String> CovComboBox;
     private javax.swing.ButtonGroup Covariates;
+    private javax.swing.JRadioButton DBatchesFalse;
     private javax.swing.JScrollPane DES;
+    private javax.swing.ButtonGroup DESBatch;
     private javax.swing.JPanel DESPanel;
     private javax.swing.ButtonGroup DEStype;
     private javax.swing.ButtonGroup DataType;
@@ -9014,6 +9069,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup Truncating;
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton dBatchesTrue;
     private javax.swing.JComboBox<String> dCovComboBox;
     private javax.swing.JTextField dFDRText;
     private javax.swing.JTextField dFPKMfileText;
@@ -9136,6 +9192,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
