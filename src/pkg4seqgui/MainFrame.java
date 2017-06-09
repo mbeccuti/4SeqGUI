@@ -3107,6 +3107,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel12.add(jLabel62, gridBagConstraints);
 
         dBatchesTrue.setBackground(new java.awt.Color(225, 239, 250));
+        DESBatch.add(dBatchesTrue);
         dBatchesTrue.setText("TRUE");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -3115,6 +3116,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel12.add(dBatchesTrue, gridBagConstraints);
 
         DBatchesFalse.setBackground(new java.awt.Color(225, 239, 250));
+        DESBatch.add(DBatchesFalse);
         DBatchesFalse.setSelected(true);
         DBatchesFalse.setText("FALSE");
         DBatchesFalse.addActionListener(new java.awt.event.ActionListener() {
