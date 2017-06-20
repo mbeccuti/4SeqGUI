@@ -15,4 +15,4 @@ if(length(args)==0){
 }
 
 library(docker4seq)
-experimentPower(filename=filename, replicatesXgroup, FDR=FDR, genes4dispersion=genes4dispersion, log2fold.change=log2fold.change, output.folder=output.folder)
+experimentPower(group="docker",filename=filename, replicatesXgroup, FDR=FDR, genes4dispersion=genes4dispersion, log2fold.change=log2fold.change, output.folder=output.folder)

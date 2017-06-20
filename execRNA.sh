@@ -12,10 +12,9 @@ thread=$7
 minlength=$8
 genomefolder=$9
 strandness=${10}
-truncating=${11}
-annotation=${12}
-bam=${13}
-output=${14}
+annotation=${11}
+bam=${12}
+output=${13}
 path=${PWD}
 
 
@@ -34,7 +33,6 @@ echo "Threads:           $thread"
 echo "Min. length read:  $minlength"
 echo "Genome folder:     $genomefolder"
 echo "Strandness:        $strandness"
-echo "Truncating:        $truncating"
 echo "Annotation:        $annotation"
 echo "Bam:               $bam"
 echo "Output:            $output"
@@ -48,7 +46,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $fastqfolder $scratchfolder  $adapter5  $adapter3  $seqtype $thread $minlength $genomefolder $strandness $truncating $annotation $bam' ./Rscripts/rnaseqCounts.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $fastqfolder $scratchfolder  $adapter5  $adapter3  $seqtype $thread $minlength $genomefolder $strandness  $annotation $bam' ./Rscripts/rnaseqCounts.R  $output/Routput.Rout"
 
 echo "$args"
 

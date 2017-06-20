@@ -338,9 +338,6 @@ public class MainFrame extends javax.swing.JFrame {
         vSReverseRadioButton = new javax.swing.JRadioButton();
         vOrganismText = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        vTyesRadioButton = new javax.swing.JRadioButton();
-        vTnoRadioButton = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
         vBAMyesRadioButton = new javax.swing.JRadioButton();
         vBAMnoLRadioButton = new javax.swing.JRadioButton();
@@ -1843,7 +1840,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
         jPanel2.add(vFastQFolderText, gridBagConstraints);
 
         jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -1893,7 +1890,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
         jPanel2.add(vOutputFolderText, gridBagConstraints);
 
         jToggleButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -1943,7 +1940,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
         jPanel2.add(vGenomeFolderText, gridBagConstraints);
 
         jToggleButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -2002,7 +1999,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
         jPanel3.add(vSudoRadioButton, gridBagConstraints);
 
         vDockerRadioButton.setBackground(new java.awt.Color(230, 230, 235));
@@ -2051,7 +2048,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
         jPanel3.add(vThreadText, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2286,56 +2283,12 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(jLabel11, gridBagConstraints);
 
-        jLabel12.setText("Deseq data format :");
+        jLabel13.setText("Save alignments:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel6.add(jLabel12, gridBagConstraints);
-
-        vTyesRadioButton.setBackground(new java.awt.Color(230, 230, 235));
-        Truncating.add(vTyesRadioButton);
-        vTyesRadioButton.setText("yes");
-        vTyesRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vTyesRadioButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel6.add(vTyesRadioButton, gridBagConstraints);
-
-        vTnoRadioButton.setBackground(new java.awt.Color(230, 230, 235));
-        Truncating.add(vTnoRadioButton);
-        vTnoRadioButton.setSelected(true);
-        vTnoRadioButton.setText("no");
-        vTnoRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vTnoRadioButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel6.add(vTnoRadioButton, gridBagConstraints);
-
-        jLabel13.setText("Save the alignement output:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 11;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.gridwidth = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 30, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(jLabel13, gridBagConstraints);
 
         vBAMyesRadioButton.setBackground(new java.awt.Color(230, 230, 235));
@@ -2347,7 +2300,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 22;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
@@ -2364,7 +2317,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 23;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
@@ -5585,18 +5538,12 @@ public class MainFrame extends javax.swing.JFrame {
                                     vSReverseRadioButton.setSelected(true);
                             break;
                             case 10:
-                                if (x.equals("TRUE"))
-                                     vTyesRadioButton.setSelected(true);
-                                else
-                                    vTnoRadioButton.setSelected(true);  
-                            break;
-                            case 11:
                                 if (x.equals("gtfENSEMBL"))
                                     vBAMnoLRadioButton.setSelected(true);
                                 else
                                     vBAMyesRadioButton.setSelected(true);  
                             break;
-                            case 12:
+                            case 11:
                                 vOrganismText.setText(x);
                             break;    
                             default:
@@ -6060,10 +6007,6 @@ public class MainFrame extends javax.swing.JFrame {
                                 bw.write("forward\n");
                             else
                                 bw.write("reverse\n");
-                        if (vTyesRadioButton.isSelected())
-                            bw.write("TRUE\n");
-                        else
-                            bw.write("FALSE\n");
                 
                         if (vBAMnoLRadioButton.isSelected())
                             bw.write("gtfENSEMBL\n");
@@ -6334,7 +6277,6 @@ public class MainFrame extends javax.swing.JFrame {
         vSNoneRadioButton.setSelected(true);
         vOrganismText.setText("hg38");
         vPeRadioButton.setSelected(true);
-        vTnoRadioButton.setSelected(true);
         vBAMnoLRadioButton.setSelected(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -6441,10 +6383,6 @@ public class MainFrame extends javax.swing.JFrame {
                                cmd[2]+= " strandness=\\\"forward\\\"";
                            else
                                cmd[2]+= " strandness=\\\"reverse\\\"";
-                       if (vTyesRadioButton.isSelected())
-                           cmd[2]+= " truncating.expected.counts=TRUE";
-                       else
-                           cmd[2]+= " truncating.expected.counts=FALSE";
                        
                        cmd[2]+= " annotation.type=\\\"gtfENSEMBL\\\"";
                        
@@ -6515,7 +6453,6 @@ public class MainFrame extends javax.swing.JFrame {
         vGenomeFolderText.setText("");
         vSNoneRadioButton.setSelected(true);
         vOrganismText.setText("hg38");
-        vTnoRadioButton.setSelected(true);
         vBAMyesRadioButton.setSelected(true);
         //RESET FIELDS
         CardLayout card = (CardLayout)MainPanel.getLayout();
@@ -6951,14 +6888,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void vBAMyesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vBAMyesRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vBAMyesRadioButtonActionPerformed
-
-    private void vTnoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vTnoRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vTnoRadioButtonActionPerformed
-
-    private void vTyesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vTyesRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vTyesRadioButtonActionPerformed
 
     private void vOrganismTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vOrganismTextActionPerformed
         // TODO add your handling code here:
@@ -9139,7 +9068,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -9353,8 +9281,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup vSeq;
     private javax.swing.JRadioButton vSudoRadioButton;
     private javax.swing.JTextField vThreadText;
-    private javax.swing.JRadioButton vTnoRadioButton;
-    private javax.swing.JRadioButton vTyesRadioButton;
     private javax.swing.JScrollPane vmRNA;
     private javax.swing.JPanel vmRNAPanel;
     // End of variables declaration//GEN-END:variables

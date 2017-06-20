@@ -15,4 +15,5 @@ if(length(args)==0){
 }
 
 library(docker4seq)
-sampleSize(filename=filename, power=power, FDR=FDR, genes4dispersion=genes4dispersion, log2fold.change=log2fold.change, output.folder=output.folder)
+sampleSize(group="docker",filename=filename, power=power, FDR=FDR, genes4dispersion=genes4dispersion, log2fold.change=log2fold.change, output.folder=output.folder)
+
