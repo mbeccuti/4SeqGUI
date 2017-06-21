@@ -554,6 +554,23 @@ public class MainFrame extends javax.swing.JFrame {
         EPlog2Text = new javax.swing.JTextField();
         jLabel95 = new javax.swing.JLabel();
         EPFDRtext = new javax.swing.JTextField();
+        mRNABatch = new javax.swing.JScrollPane();
+        mRNABatchPanel = new javax.swing.JPanel();
+        jPanel27 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        CCountHeaderTable = new javax.swing.JTable();
+        CCovInputFileText = new javax.swing.JTextField();
+        Cinbrowes = new javax.swing.JButton();
+        Cincancel = new javax.swing.JButton();
+        jLabel98 = new javax.swing.JLabel();
+        jLabel97 = new javax.swing.JLabel();
+        COutputFolderText = new javax.swing.JTextField();
+        Coutbrowes = new javax.swing.JButton();
+        Coutcancel = new javax.swing.JButton();
+        FExecuteButton1 = new javax.swing.JButton();
+        FSaveButton1 = new javax.swing.JButton();
+        CResetButton1 = new javax.swing.JButton();
+        CCloseButton1 = new javax.swing.JButton();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -4932,6 +4949,214 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(ExperimentPower, "ExperimentPower");
 
+        mRNABatchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Adding covariates and batch information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
+        mRNABatchPanel.setLayout(new java.awt.GridBagLayout());
+
+        jPanel27.setBackground(new java.awt.Color(228, 248, 243));
+        jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel27.setToolTipText("the all.counts.txt file generated from miRNAseq step");
+        jPanel27.setLayout(new java.awt.GridBagLayout());
+
+        CCountHeaderTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Count Header", "Grouping", "Batch"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        CCountHeaderTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        CCountHeaderTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane7.setViewportView(CCountHeaderTable);
+        CCountHeaderTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (CCountHeaderTable.getColumnModel().getColumnCount() > 0) {
+            CCountHeaderTable.getColumnModel().getColumn(1).setCellEditor(new DefaultCellEditor(CovComboBox));
+            CCountHeaderTable.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(BatchComboBox));
+        }
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(jScrollPane7, gridBagConstraints);
+
+        CCovInputFileText.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(CCovInputFileText, gridBagConstraints);
+
+        Cinbrowes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
+        Cinbrowes.setText("Browse");
+        Cinbrowes.setToolTipText("");
+        Cinbrowes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CinbrowesActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(Cinbrowes, gridBagConstraints);
+
+        Cincancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        Cincancel.setText("Cancel");
+        Cincancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CincancelActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(Cincancel, gridBagConstraints);
+
+        jLabel98.setText("Output Folder:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(jLabel98, gridBagConstraints);
+
+        jLabel97.setText("Count file:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(jLabel97, gridBagConstraints);
+
+        COutputFolderText.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(COutputFolderText, gridBagConstraints);
+
+        Coutbrowes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        Coutbrowes.setText("Browse");
+        Coutbrowes.setToolTipText("");
+        Coutbrowes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CoutbrowesActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(Coutbrowes, gridBagConstraints);
+
+        Coutcancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        Coutcancel.setText("Cancel");
+        Coutcancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CoutcancelActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel27.add(Coutcancel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        mRNABatchPanel.add(jPanel27, gridBagConstraints);
+
+        FExecuteButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        FExecuteButton1.setText("Execute");
+        FExecuteButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FExecuteButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        mRNABatchPanel.add(FExecuteButton1, gridBagConstraints);
+
+        FSaveButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
+        FSaveButton1.setText("Save conf.");
+        FSaveButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FSaveButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        mRNABatchPanel.add(FSaveButton1, gridBagConstraints);
+
+        CResetButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        CResetButton1.setText("Reset");
+        CResetButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CResetButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        mRNABatchPanel.add(CResetButton1, gridBagConstraints);
+
+        CCloseButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        CCloseButton1.setText("Close");
+        CCloseButton1.setToolTipText("");
+        CCloseButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CCloseButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        mRNABatchPanel.add(CCloseButton1, gridBagConstraints);
+
+        mRNABatch.setViewportView(mRNABatchPanel);
+
+        MainPanel.add(mRNABatch, "AddingCovmRNA");
+
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
         LeftPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -4958,6 +5183,8 @@ public class MainFrame extends javax.swing.JFrame {
         treeNode1.add(treeNode2);
         treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("miRNA workflow");
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("miRNA counting");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Adding covariates and batchs");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("PCA");
         treeNode2.add(treeNode3);
@@ -5130,7 +5357,14 @@ public class MainFrame extends javax.swing.JFrame {
                                                 card.show(MainPanel, "ExperimentPower");
                                                 CurrentLayout="ExperimentPower";  
                                             }
-                                               
+                                           else
+                                                if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Adding covariates and batchs" ){
+                                                    card.show(MainPanel, "AddingCovmRNA");
+                                                    CurrentLayout="AddingCovmRNA";  
+                                                }
+                            
+                            
+                                                
                         
             }
         }
@@ -8841,6 +9075,114 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DBatchesFalseActionPerformed
 
+    private void CinbrowesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CinbrowesActionPerformed
+        JFileChooser openDir = new JFileChooser();
+        //reseting header table
+        while( CCountHeaderTable.getRowCount()!=0){
+            DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
+            model.removeRow(0);
+        }
+        //reseting header table
+        if (!(CCovInputFileText.getText().equals(""))){
+            File file =new File(CCovInputFileText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            try{
+                FileReader fw = new FileReader(f.getAbsoluteFile());
+                BufferedReader br = new BufferedReader(fw);
+                String header = br.readLine();
+                DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
+                for (String retval:header.split("\\t")){
+                    if (!(retval.equals("\"\"")))
+                        model.addRow(new Object[]{retval,"Cov.1","Batch1"}); 
+                }
+                CCovInputFileText.setText(String.valueOf(f));
+                br.close();
+            }
+            catch (IOException e) {
+                    JOptionPane.showMessageDialog(this, "Error opening file","Error",JOptionPane.ERROR_MESSAGE);
+            }
+           catch (NumberFormatException e) {
+                  JOptionPane.showMessageDialog(this, "Error reading file","Error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath()); 
+       
+        
+    }//GEN-LAST:event_CinbrowesActionPerformed
+
+    private void CincancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CincancelActionPerformed
+    CCovInputFileText.setText("");  
+    while( CCountHeaderTable.getRowCount()!=0){
+        DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
+        model.removeRow(0);
+        }
+    }//GEN-LAST:event_CincancelActionPerformed
+
+    private void FExecuteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FExecuteButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FExecuteButton1ActionPerformed
+
+    private void FSaveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FSaveButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FSaveButton1ActionPerformed
+
+    private void CResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CResetButton1ActionPerformed
+    CCovInputFileText.setText("");
+    COutputFolderText.setText("");
+    while( CCountHeaderTable.getRowCount()!=0){
+        DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
+        model.removeRow(0);
+        }
+    }//GEN-LAST:event_CResetButton1ActionPerformed
+
+    private void CCloseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CCloseButton1ActionPerformed
+    CCovInputFileText.setText("");
+    COutputFolderText.setText("");
+    while( CCountHeaderTable.getRowCount()!=0){
+        DefaultTableModel model = (DefaultTableModel)  CCountHeaderTable.getModel();
+        model.removeRow(0);
+        }
+     //RESET FIELDS
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "Empty");
+        CurrentLayout="Empty";
+        AnalysisTree.clearSelection();
+    }//GEN-LAST:event_CCloseButton1ActionPerformed
+
+    private void CoutbrowesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CoutbrowesActionPerformed
+    JFileChooser openDir = new JFileChooser();
+        if (!(COutputFolderText.getText().equals(""))){
+            File file =new File(COutputFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            COutputFolderText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_CoutbrowesActionPerformed
+
+    private void CoutcancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CoutcancelActionPerformed
+    COutputFolderText.setText("");
+    }//GEN-LAST:event_CoutcancelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -8892,9 +9234,18 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup Annotation;
     private javax.swing.JComboBox<String> BatchComboBox;
     private javax.swing.JPanel BottomPanel;
+    private javax.swing.JButton CCloseButton1;
+    private javax.swing.JTable CCountHeaderTable;
+    private javax.swing.JTextField CCovInputFileText;
+    private javax.swing.JTextField COutputFolderText;
+    private javax.swing.JButton CResetButton1;
+    private javax.swing.JButton Cinbrowes;
+    private javax.swing.JButton Cincancel;
     private javax.swing.JToggleButton CloseOutput;
     private javax.swing.JButton ConfCancell;
     private javax.swing.JFrame ConfigurationFrame;
+    private javax.swing.JButton Coutbrowes;
+    private javax.swing.JButton Coutcancel;
     private javax.swing.JComboBox<String> CovComboBox;
     private javax.swing.ButtonGroup Covariates;
     private javax.swing.JRadioButton DBatchesFalse;
@@ -8920,12 +9271,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton FAddFile;
     private javax.swing.JButton FCloseButton;
     private javax.swing.JButton FExecuteButton;
+    private javax.swing.JButton FExecuteButton1;
     private javax.swing.JTextField FOutputFolderText;
     private javax.swing.JScrollPane FPKM;
     private javax.swing.JTable FPKMFileTable;
     private javax.swing.JPanel FPKMPanel;
     private javax.swing.JButton FResetButton;
     private javax.swing.JButton FSaveButton;
+    private javax.swing.JButton FSaveButton1;
     private javax.swing.JButton Fbrowes;
     private javax.swing.JButton Fcancel;
     private javax.swing.JComboBox<String> FtypesComboBox;
@@ -9159,6 +9512,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -9188,6 +9543,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -9201,6 +9557,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton11;
@@ -9241,6 +9598,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField mFastQFolderText;
     private javax.swing.JTextField mOutputFolderText;
     private javax.swing.JScrollPane mRNA;
+    private javax.swing.JScrollPane mRNABatch;
+    private javax.swing.JPanel mRNABatchPanel;
     private javax.swing.JPanel mRNAPanel;
     private javax.swing.JRadioButton mSudoRadioButton;
     private javax.swing.JRadioButton mTFalseRadioButton;
