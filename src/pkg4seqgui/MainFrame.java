@@ -150,6 +150,20 @@ public class MainFrame extends javax.swing.JFrame {
         else
             FPKMFileTable.getColumnModel().getColumn(1).setPreferredWidth(FPKMFileTable.getWidth()*10/100);
         
+        
+        
+        String WidthGroup1 = getPreferences().get("4SeqGUI_Group1CellWidth", null);
+        String WidthBatch1 = getPreferences().get("4SeqGUI_Batch1CellWidth", null);
+        String WidthHeader = getPreferences().get("4SeqGUI_HeaderCellWidth", null);
+        if ((WidthGroup1!=null)&&(WidthBatch1!=null)&&(WidthHeader!=null)){
+             CCountHeaderTable.getColumnModel().getColumn(1).setPreferredWidth(Integer.valueOf(WidthGroup1));
+             CCountHeaderTable.getColumnModel().getColumn(2).setPreferredWidth(Integer.valueOf(WidthBatch1));
+             CCountHeaderTable.getColumnModel().getColumn(0).setPreferredWidth(Integer.valueOf(WidthHeader));
+        }    
+        else
+            CCountHeaderTable.getColumnModel().getColumn(1).setPreferredWidth(CCountHeaderTable.getWidth()*10/100);
+        
+        
         setLocationRelativeTo(null);
         invalidate();
         doLayout();
@@ -6175,8 +6189,33 @@ public class MainFrame extends javax.swing.JFrame {
                                         
                                         }
                                      }
-                                
-                                }
+                                     else{
+                                        if (!br.readLine().equals("AddingCovmRNA")){
+                                            throw(new NumberFormatException());
+                                        }
+                                        int line=0;
+                                        for (String x = br.readLine(); x != null; x = br.readLine()){
+                                            switch (line){
+                                                case 0:
+                                                    CCovInputFileText.setText(x);
+                                                break;
+                                                case 1:
+                                                    COutputFolderText.setText(x);
+                                                break;    
+                                                default:
+                                                    DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
+                                                    String col2 = br.readLine();
+                                                    String col3 = br.readLine();
+                                                    if (col2==null)
+                                                        col2="Cov.1";
+                                                    if (col3==null)
+                                                        col3="Batch1";
+                                                    model.addRow(new Object[]{x,col2,col3}); 
+                                            }
+                                        line++;
+                                        }
+                                    }
+                           }
                     }
                 getPreferences().put("saved-file",openFile.getCurrentDirectory().getAbsolutePath());  
                 br.close();
@@ -6463,19 +6502,35 @@ public class MainFrame extends javax.swing.JFrame {
                                             }
                                             else
                                                 if(CurrentLayout=="ExperimentPower"){
-                                                bw.write("ExperimentPower\n");
-                                                bw.write(EPCountTableText.getText());
-                                                bw.write("\n");
-                                                bw.write(EPOutputFolderText.getText());
-                                                bw.write("\n");
-                                                bw.write(EPSampleText.getText());
-                                                bw.write("\n");
-                                                bw.write(EPGeneText.getText());
-                                                bw.write("\n");
-                                                bw.write(EPlog2Text.getText());
-                                                bw.write("\n");
-                                                bw.write(EPFDRtext.getText());
+                                                    bw.write("ExperimentPower\n");
+                                                    bw.write(EPCountTableText.getText());
+                                                    bw.write("\n");
+                                                    bw.write(EPOutputFolderText.getText());
+                                                    bw.write("\n");
+                                                    bw.write(EPSampleText.getText());
+                                                    bw.write("\n");
+                                                    bw.write(EPGeneText.getText());
+                                                    bw.write("\n");
+                                                    bw.write(EPlog2Text.getText());
+                                                    bw.write("\n");
+                                                    bw.write(EPFDRtext.getText());
                                             } 
+                                            else
+                                                  if(CurrentLayout=="AddingCovmRNA"){
+                                                        bw.write("AddingCovmRNA\n");
+                                                        bw.write(CCovInputFileText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(COutputFolderText.getText());
+                                                        bw.write("\n");
+                                                        for (int i=0;i<CCountHeaderTable.getRowCount();i++){
+                                                            bw.write(CCountHeaderTable.getModel().getValueAt(i,0).toString());
+                                                            bw.write("\n");
+                                                            bw.write(CCountHeaderTable.getModel().getValueAt(i,1).toString());
+                                                            bw.write("\n");
+                                                            bw.write(CCountHeaderTable.getModel().getValueAt(i,2).toString());
+                                                            bw.write("\n");
+                                                        }   
+                                                  }  
                         }
                   
                
@@ -7425,6 +7480,9 @@ public class MainFrame extends javax.swing.JFrame {
        getPreferences().put("4SeqGUI_GroupCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(1).getWidth()));
        getPreferences().put("4SeqGUI_BatchCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(2).getWidth())); 
        getPreferences().put("4SeqGUI_FolderCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(0).getWidth())); 
+       getPreferences().put("4SeqGUI_Group1CellWidth",Integer.toString(CCountHeaderTable.getColumnModel().getColumn(1).getWidth()));
+       getPreferences().put("4SeqGUI_Batch1CellWidth",Integer.toString(CCountHeaderTable.getColumnModel().getColumn(2).getWidth())); 
+       getPreferences().put("4SeqGUI_HeaderCellWidth",Integer.toString(CCountHeaderTable.getColumnModel().getColumn(0).getWidth())); 
     }//GEN-LAST:event_formWindowClosing
 
     private void vCloseButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton2ActionPerformed
@@ -9129,11 +9187,78 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CincancelActionPerformed
 
     private void FExecuteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FExecuteButton1ActionPerformed
-        // TODO add your handling code here:
+  
+        
+    if (CCovInputFileText.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this, "You have to specified the count file","Error: Input file",JOptionPane.ERROR_MESSAGE);
+        return;
+    }    
+    if (COutputFolderText.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this, "You have to specified an output folders","Error: Output folder",JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    File f =new File(CCovInputFileText.getText());
+   
+    //execute code
+    Runtime rt = Runtime.getRuntime();
+    try{
+        String[] cmd = {"/bin/bash","-c"," ./execmiRNACovar.sh "};
+        cmd[2]+="experiment.folder=\\\""+ f.getAbsolutePath()+"\\\"";
+        cmd[2]+=" covariates=c\\(\\\"";
+        cmd[2]+=CCountHeaderTable.getModel().getValueAt(0,1).toString();
+        for (int i = 1; i <  CCountHeaderTable.getRowCount(); i++){
+            cmd[2]+="\\\",\\\""+CCountHeaderTable.getModel().getValueAt(i,1).toString();
+        }
+        cmd[2]+= "\\\"\\)";
+        cmd[2]+=" batch=c\\(\\\"";
+        cmd[2]+=CCountHeaderTable.getModel().getValueAt(0,2).toString();
+        for (int i = 1; i <  CCountHeaderTable.getRowCount(); i++){
+            cmd[2]+="\\\",\\\""+CCountHeaderTable.getModel().getValueAt(i,2).toString();
+        }
+        cmd[2]+= "\\\"\\)";            
+        cmd[2]+="  output.folder=\\\""+COutputFolderText.getText() + "\\\" " + COutputFolderText.getText() +">& "+COutputFolderText.getText()+"/outputExecution ";
+        //ProcessStatus.setText(pr.toString());
+        if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+            Process pr = rt.exec(cmd); 
+            System.out.println("Running PID:"+ getPidOfProcess(pr)+"\n");
+            //System.out.println(cmd[2]+"\n");
+            ElProcRunning tmp= new ElProcRunning("Adding covariates and batch information ", COutputFolderText.getText(),pr,listModel.getSize());
+            listProcRunning.add(tmp);
+            java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+            ImageIcon image2 = new ImageIcon(imgURL);
+            GL.setAvoidProcListValueChanged(-1);
+            listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+            GL.setAvoidProcListValueChanged(0);
+            if(listProcRunning.size()==1){
+                t=new Timer();
+                t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+            }
+        }         
+        else{
+            ElProcWaiting tmp= new ElProcWaiting("Adding covariates and batch information",COutputFolderText.getText(),cmd,listModel.getSize());
+            listProcWaiting.add(tmp);
+            java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+            ImageIcon image2 = new ImageIcon(imgURL);
+            GL.setAvoidProcListValueChanged(-1);
+            listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+            GL.setAvoidProcListValueChanged(0);
+            }  
+        GL.setAvoidProcListValueChanged(-1);
+        ProcList.setModel(listModel);
+        ProcList.setCellRenderer(new ListEntryCellRenderer()); 
+        GL.setAvoidProcListValueChanged(0);
+        } 
+    catch(Exception e) {
+        JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+        System.out.println(e.toString());
+        }
+                   
+    JOptionPane.showMessageDialog(this, "Adding covariates and batch information task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+               
     }//GEN-LAST:event_FExecuteButton1ActionPerformed
 
     private void FSaveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FSaveButton1ActionPerformed
-        // TODO add your handling code here:
+        saveAsMenuItemActionPerformed(evt);
     }//GEN-LAST:event_FSaveButton1ActionPerformed
 
     private void CResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CResetButton1ActionPerformed

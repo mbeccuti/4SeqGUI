@@ -1,4 +1,3 @@
-
 #!/bin/sh
 
 list_descendants ()
