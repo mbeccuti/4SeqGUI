@@ -35,7 +35,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $genomefolder $genomeurl $gatk $dbspnfile $g1000file $thread ' ./Rscripts/indexingBWA.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $genomefolder $genomeurl $gatk $dbspnfile $g1000file' ./Rscripts/indexingBWA.R  $output/Routput.Rout"
 
 echo "$args"
 

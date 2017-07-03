@@ -15,4 +15,4 @@ if(length(args)==0){
 }
 
 library(docker4seq)
-bwaIndexUcsc(group=group, genome.folder=genome.folder, uscs.urlgenome=uscs.urlgenome, dbsnp.file=dbsnp.file, g1000.file=g1000.file, gatk=gatk, threads=threads)
+bwaIndexUcsc(group=group, genome.folder=genome.folder, uscs.urlgenome=uscs.urlgenome, dbsnp.file=dbsnp.file, g1000.file=g1000.file, gatk=gatk)

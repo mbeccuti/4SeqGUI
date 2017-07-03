@@ -34,6 +34,34 @@ sudo docker pull docker.io/rcaloger/rsemstar.2017.01
 sudo docker pull docker.io/rcaloger/skewer.2017.01 
 
 
+installare vnc-server 
+
+creare file:  /etc/systemd/system/vncserver@:2.service 
+
+contenuto file:
+
+[Unit]
+Description=Remote desktop service (VNC)
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=user
+PIDFile=/home/user/.vnc/%H%i.pid
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+ExecStart=/usr/bin/vncserver :2 -geometry 1024x768 -alwaysshared -fg
+ExecStop=/usr/bin/vncserver -kill :2
+
+[Install]
+WantedBy=multi-user.target
+
+
+Settare password vnc user
+Settare boot esecutio:
+sudo systemctl  enable  vncserver@:2.service
+
+
+
 testing:
 nohup R CMD BATCH script.R & 
 
