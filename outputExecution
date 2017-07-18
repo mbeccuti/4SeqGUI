@@ -1,0 +1,18 @@
+
+=======================================================
+			  INPUT PARAMETERS
+=======================================================
+
+Container file:          containers.file="NO"
+
+=======================================================
+
+ Current folder: /home/beccuti/NetBeansProjects/4SeqGUI
+ 
+Executing R script
+R CMD BATCH --no-save --no-restore  '--args   containers.file="NO" ' ./Rscripts/DownloadImage.R  /home/beccuti/NetBeansProjects/4SeqGUI/Routput.Rout
+
+
+=======================================================
+			           END EXECUTION
+=======================================================

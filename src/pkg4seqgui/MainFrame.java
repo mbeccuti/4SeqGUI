@@ -139,6 +139,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
         
+        
+        int DownloadframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadWidth", "0"));
+        int DownloadframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadHeight", "0")); 
+        if ((DownloadframeWidth==0)||(DownloadframeHeight==0)){
+              DownloadframeWidth=screenSize.width*4/100;
+              DownloadframeHeight=screenSize.height*5/100;
+        }
+
+        DownloadFrame.setSize(DownloadframeWidth,DownloadframeHeight);
+        
         String WidthGroup = getPreferences().get("4SeqGUI_GroupCellWidth", null);
         String WidthBatch = getPreferences().get("4SeqGUI_BatchCellWidth", null);
         String WidthFolder = getPreferences().get("4SeqGUI_FolderCellWidth", null);
@@ -226,11 +236,20 @@ public class MainFrame extends javax.swing.JFrame {
         MAdapter = new javax.swing.ButtonGroup();
         BatchComboBox = new javax.swing.JComboBox<>();
         DESBatch = new javax.swing.ButtonGroup();
+        DownloadFrame = new javax.swing.JFrame();
+        jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jButton33 = new javax.swing.JButton();
+        jButton34 = new javax.swing.JButton();
+        Downloadtext = new javax.swing.JTextField();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jToggleButton11 = new javax.swing.JToggleButton();
         jButton9 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
         VerticalSplitPanel = new javax.swing.JSplitPane();
         BottomPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -774,6 +793,103 @@ public class MainFrame extends javax.swing.JFrame {
 
         BatchComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Batch1", "Batch2", "Batch3", "Batch4", "Batch5", "Batch6", "Batch7", "Batch8", "Batch9", "Batch10" }));
 
+        DownloadFrame.setTitle("Download Docker imges");
+        DownloadFrame.getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        jButton31.setText("Cancel");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 8);
+        DownloadFrame.getContentPane().add(jButton31, gridBagConstraints);
+
+        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/downloadb.png"))); // NOI18N
+        jButton32.setText("Download");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
+
+        jPanel1.setBackground(new java.awt.Color(194, 238, 194));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel12.setText("Container list  file: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(15, 10, 10, 10);
+        jPanel1.add(jLabel12, gridBagConstraints);
+
+        jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jButton33.setText("Cancel");
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jButton33, gridBagConstraints);
+
+        jButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
+        jButton34.setText("Browse ");
+        jButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton34ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jButton34, gridBagConstraints);
+
+        Downloadtext.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 5.0;
+        gridBagConstraints.insets = new java.awt.Insets(15, 10, 10, 10);
+        jPanel1.add(Downloadtext, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 10);
+        DownloadFrame.getContentPane().add(jPanel1, gridBagConstraints);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("4SeqGUI");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -832,6 +948,17 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton9);
+
+        jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        jButton26.setFocusable(false);
+        jButton26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton26.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton26);
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.NORTH);
 
@@ -5697,6 +5824,22 @@ public class MainFrame extends javax.swing.JFrame {
     private void vFastQFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vFastQFolderTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vFastQFolderTextActionPerformed
+        
+    private void DownloadMenuItemActionPerformed(java.awt.event.ActionEvent evt){
+        
+        DownloadFrame.pack();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int DownloadframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadWidth", "0"));
+        int DownloadframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadHeight", "0")); 
+        if ((DownloadframeWidth==0)||(DownloadframeHeight==0)){
+              DownloadframeWidth=screenSize.width*50/100;
+              DownloadframeHeight=screenSize.height*20/100;
+        }
+
+        DownloadFrame.setSize(DownloadframeWidth,DownloadframeHeight);
+        
+        DownloadFrame.setVisible(true);
+    }
     
     
     private void configurationMenuItemActionPerformed(java.awt.event.ActionEvent evt){
@@ -6854,8 +6997,8 @@ public class MainFrame extends javax.swing.JFrame {
     //GL.setListProcStatuSelection(-1);  
     ProcList.clearSelection();
     GL.setAvoidProcListValueChanged(0);
-    getPreferences().put("WindowOutputWidth", Integer.toString(OutputFrame.getWidth()));
-    getPreferences().put("WindowOutputHeight", Integer.toString(OutputFrame.getHeight())); 
+    getPreferences().put("4SeqGUI_WindowOutputWidth", Integer.toString(OutputFrame.getWidth()));
+    getPreferences().put("4SeqGUI_WindowOutputHeight", Integer.toString(OutputFrame.getHeight())); 
     //System.out.println("@@@@@@@@@@@@Close: \n");
     }//GEN-LAST:event_CloseOutputActionPerformed
 
@@ -9308,6 +9451,100 @@ public class MainFrame extends javax.swing.JFrame {
     COutputFolderText.setText("");
     }//GEN-LAST:event_CoutcancelActionPerformed
 
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+     DownloadMenuItemActionPerformed(evt);
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        DownloadFrame.setVisible(false);
+        Downloadtext.setText("");
+        getPreferences().put("4SeqGUI_WindowDownloadWidth", Integer.toString(DownloadFrame.getWidth()));
+        getPreferences().put("4SeqGUI_WindowDownloadHeight", Integer.toString(DownloadFrame.getHeight())); 
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+      Downloadtext.setText("");
+    }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
+        JFileChooser openDir = new JFileChooser();
+        if (!(Downloadtext.getText().equals(""))){
+            File file =new File(Downloadtext.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            Downloadtext.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        DownloadFrame.toFront();
+        DownloadFrame.requestFocus();
+    }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        //execute code
+        Runtime rt = Runtime.getRuntime();
+        try{
+            String[] cmd = {"/bin/bash","-c"," ./execDownloadImage.sh "};
+            
+            if (!(Downloadtext.getText().equals(""))){
+                    cmd[2]+= "containers.file=\\\""+Downloadtext.getText()+"\\\"";
+            }
+            else{
+                 cmd[2]+= "containers.file=\\\"NO\\\"";
+            }
+            cmd[2]+= " "+System.getProperty("user.dir") +" >& "+System.getProperty("user.dir")+"/outputExecution ";
+            //ProcessStatus.setText(pr.toString());
+            if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                Process pr = rt.exec(cmd); 
+                System.out.println("Runing PID:"+ getPidOfProcess(pr)+"\n");
+                
+                ElProcRunning tmp= new ElProcRunning("Download Docker images ", System.getProperty("user.dir"),pr,listModel.getSize());
+                listProcRunning.add(tmp);
+                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                ImageIcon image2 = new ImageIcon(imgURL);
+                GL.setAvoidProcListValueChanged(-1);
+                listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                GL.setAvoidProcListValueChanged(0);
+                if(listProcRunning.size()==1){
+                    t=new Timer();
+                    t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                    }
+                }         
+                else{
+                    ElProcWaiting tmp= new ElProcWaiting("Download Docker images ", System.getProperty("user.dir"),cmd,listModel.getSize());
+                    listProcWaiting.add(tmp);
+                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                    ImageIcon image2 = new ImageIcon(imgURL);
+                    GL.setAvoidProcListValueChanged(-1);
+                    listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                    GL.setAvoidProcListValueChanged(0);
+                    }  
+                GL.setAvoidProcListValueChanged(-1);
+                ProcList.setModel(listModel);
+                ProcList.setCellRenderer(new ListEntryCellRenderer()); 
+                GL.setAvoidProcListValueChanged(0);
+            } 
+        catch(Exception e) {
+            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+            }
+                    
+        
+        JOptionPane.showMessageDialog(this, "Download Docker image task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        DownloadFrame.setVisible(false);
+        Downloadtext.setText("");
+        getPreferences().put("4SeqGUI_WindowDownloadWidth", Integer.toString(DownloadFrame.getWidth()));
+        getPreferences().put("4SeqGUI_WindowDownloadHeight", Integer.toString(DownloadFrame.getHeight())); 
+    }//GEN-LAST:event_jButton32ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -9379,6 +9616,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel DESPanel;
     private javax.swing.ButtonGroup DEStype;
     private javax.swing.ButtonGroup DataType;
+    private javax.swing.JFrame DownloadFrame;
+    private javax.swing.JTextField Downloadtext;
     private javax.swing.JButton EPCloseButton;
     private javax.swing.JTextField EPCountTableText;
     private javax.swing.JButton EPExecuteButton1;
@@ -9532,11 +9771,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
+    private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -9546,6 +9790,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -9650,6 +9895,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
