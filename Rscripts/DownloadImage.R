@@ -15,4 +15,4 @@ if(length(args)==0){
 }
 
 library(docker4seq)
-downloadContainers ( containers.file=containers.file)
+downloadContainers (containers.file=containers.file)

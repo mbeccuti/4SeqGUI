@@ -24,9 +24,6 @@ echo " "
 echo "Executing R script"
 
 
-if [ "${containersfile}" = "NO" ]; then
-      containersfile=""          
-fi
 
 args="R CMD BATCH --no-save --no-restore  '--args   ${containersfile} ' ./Rscripts/DownloadImage.R  $output/Routput.Rout"
 

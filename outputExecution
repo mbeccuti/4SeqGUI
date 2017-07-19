@@ -3,14 +3,14 @@
 			  INPUT PARAMETERS
 =======================================================
 
-Container file:          containers.file="NO"
+Container file:          containers.file=NULL
 
 =======================================================
 
  Current folder: /home/beccuti/NetBeansProjects/4SeqGUI
  
 Executing R script
-R CMD BATCH --no-save --no-restore  '--args   containers.file="NO" ' ./Rscripts/DownloadImage.R  /home/beccuti/NetBeansProjects/4SeqGUI/Routput.Rout
+R CMD BATCH --no-save --no-restore  '--args   containers.file=NULL ' ./Rscripts/DownloadImage.R  /home/beccuti/NetBeansProjects/4SeqGUI/Routput.Rout
 
 
 =======================================================

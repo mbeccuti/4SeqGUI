@@ -950,6 +950,7 @@ public class MainFrame extends javax.swing.JFrame {
         jToolBar1.add(jButton9);
 
         jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        jButton26.setToolTipText("Download docker images");
         jButton26.setFocusable(false);
         jButton26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton26.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -9495,10 +9496,10 @@ public class MainFrame extends javax.swing.JFrame {
             String[] cmd = {"/bin/bash","-c"," ./execDownloadImage.sh "};
             
             if (!(Downloadtext.getText().equals(""))){
-                    cmd[2]+= "containers.file=\\\""+Downloadtext.getText()+"\\\"";
+                 cmd[2]+= "containers.file=\\\""+Downloadtext.getText()+"\\\"";
             }
             else{
-                 cmd[2]+= "containers.file=\\\"NO\\\"";
+                 cmd[2]+= "containers.file=NULL";
             }
             cmd[2]+= " "+System.getProperty("user.dir") +" >& "+System.getProperty("user.dir")+"/outputExecution ";
             //ProcessStatus.setText(pr.toString());
