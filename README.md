@@ -19,7 +19,15 @@ To start the GUI:
 cd /somewhere_on_PC/4SeqGUI
 ./4SeqGUI.sh
 ```
- 
+or if "4SeqGUI.sh" is not authorization to be executable:
+
+```
+cd /somewhere_on_PC/4SeqGUI
+bash ./4SeqGUI.sh
+```
+
+
+
 
 
 
