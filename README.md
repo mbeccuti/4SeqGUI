@@ -10,9 +10,6 @@ A GUI to **docker4seq**
 [**docker4seq**](https://github.com/kendomaniac/docker4seq) githhub package
 
 
-
-```
-
 To start the GUI open a terminal, go to 4SeqGUI folder and execute the GUI with the bash script "4SeqGUI.sh"
 
 ```
