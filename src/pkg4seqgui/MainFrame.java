@@ -5560,7 +5560,7 @@ public class MainFrame extends javax.swing.JFrame {
             //execute code
             Runtime rt = Runtime.getRuntime();
             try{
-                String[] cmd = {"/bin/bash","-c"," ./execmirna.sh "};
+                String[] cmd = {"/bin/bash","-c"," bash ./execmirna.sh "};
                 if (mSudoRadioButton.isSelected()){
                     cmd[2]+= "group=\\\"sudo\\\"";
                 }
@@ -5866,7 +5866,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     
       private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
+      
          
         if (CurrentLayout!="Empty"){ 
             JFileChooser openFile = new JFileChooser();
@@ -6791,7 +6791,7 @@ public class MainFrame extends javax.swing.JFrame {
                     //execute code
                     Runtime rt = Runtime.getRuntime();
                     try{
-                        String[] cmd = {"/bin/bash","-c"," ./execRNA.sh "};
+                        String[] cmd = {"/bin/bash","-c"," bash ./execRNA.sh "};
                         
                         if (vSudoRadioButton.isSelected()){
                             cmd[2]+= "group=\\\"sudo\\\"";
@@ -7197,7 +7197,7 @@ public class MainFrame extends javax.swing.JFrame {
         //execute code
         Runtime rt = Runtime.getRuntime();
         try{
-            String[] cmd = {"/bin/bash","-c"," ./execIndexingSTAR.sh "};
+            String[] cmd = {"/bin/bash","-c"," bash ./execIndexingSTAR.sh "};
             if (iSudoRadioButton.isSelected()){
                     cmd[2]+= "group=\\\"sudo\\\"";
             }
@@ -7526,7 +7526,7 @@ public class MainFrame extends javax.swing.JFrame {
          //execute code
         Runtime rt = Runtime.getRuntime();
         try{
-            String[] cmd = {"/bin/bash","-c"," ./execFPKM.sh "};
+            String[] cmd = {"/bin/bash","-c","  bash ./execFPKM.sh "};
             cmd[2]+="sample.folders=c\\(\\\"";
             cmd[2]+=FPKMFileTable.getModel().getValueAt(0,0).toString();
             for (int i = 1; i <  FPKMFileTable.getRowCount(); i++){
@@ -7699,7 +7699,7 @@ public class MainFrame extends javax.swing.JFrame {
         //execute code
             
         try{
-            String[] cmd = {"/bin/bash","-c"," ./execPCA.sh "};
+            String[] cmd = {"/bin/bash","-c","  bash ./execPCA.sh "};
             cmd[2]+= " experiment.table=\\\""+ pFPKMfileText.getText() +"\\\"";
             if (pFPKMRadioButton.isSelected())
                 cmd[2]+= " type=\\\"FPKM\\\"";
@@ -7958,7 +7958,7 @@ public class MainFrame extends javax.swing.JFrame {
         //execute code
             
         try{
-            String[] cmd = {"/bin/bash","-c"," ./execDES.sh "};
+            String[] cmd = {"/bin/bash","-c","  bash ./execDES.sh "};
             cmd[2]+= " experiment.table=\\\""+ dFPKMfileText.getText() +"\\\"";
             if (dIsoformRadioButton.isSelected())
                 cmd[2]+= " type=\\\"isoform\\\"";
@@ -8164,7 +8164,7 @@ public class MainFrame extends javax.swing.JFrame {
         //execute code
         Runtime rt = Runtime.getRuntime();
         try{
-            String[] cmd = {"/bin/bash","-c"," ./execIndexingBWA.sh "};
+            String[] cmd = {"/bin/bash","-c","  bash ./execIndexingBWA.sh "};
             if (iSudoBRadioButton.isSelected()){
                     cmd[2]+= "group=\\\"sudo\\\"";
             }
@@ -8512,7 +8512,7 @@ public class MainFrame extends javax.swing.JFrame {
                     //execute code                 
                     Runtime rt = Runtime.getRuntime();
                     try{
-                        String[] cmd = {"/bin/bash","-c"," ./execMACS-SICER.sh "}; 
+                        String[] cmd = {"/bin/bash","-c","   bash ./execMACS-SICER.sh "}; 
                         
                         if (MSudoRadioButton.isSelected()){
                             cmd[2]+= "group=\\\"sudo\\\"";
@@ -8954,7 +8954,7 @@ public class MainFrame extends javax.swing.JFrame {
         //execute code
             
         try{
-            String[] cmd = {"/bin/bash","-c"," ./execSampleSize.sh "};
+            String[] cmd = {"/bin/bash","-c","   bash ./execSampleSize.sh "};
   
             cmd[2]+= " filename=\\\""+ SSCountTableText.getText() +"\\\"";
             cmd[2]+= " power="+ SSPowerText.getText();
@@ -9192,7 +9192,7 @@ public class MainFrame extends javax.swing.JFrame {
         //execute code
             
         try{
-            String[] cmd = {"/bin/bash","-c"," ./execExperimentPower.sh "};
+            String[] cmd = {"/bin/bash","-c","  bash ./execExperimentPower.sh "};
   
             cmd[2]+= " filename=\\\""+ EPCountTableText.getText() +"\\\"";
             cmd[2]+= " replicatesXgroup="+ EPSampleText.getText();
@@ -9346,7 +9346,7 @@ public class MainFrame extends javax.swing.JFrame {
     //execute code
     Runtime rt = Runtime.getRuntime();
     try{
-        String[] cmd = {"/bin/bash","-c"," ./execmiRNACovar.sh "};
+        String[] cmd = {"/bin/bash","-c","  bash ./execmiRNACovar.sh "};
         cmd[2]+="experiment.folder=\\\""+ f.getAbsolutePath()+"\\\"";
         cmd[2]+=" covariates=c\\(\\\"";
         cmd[2]+=CCountHeaderTable.getModel().getValueAt(0,1).toString();
@@ -9493,7 +9493,7 @@ public class MainFrame extends javax.swing.JFrame {
         //execute code
         Runtime rt = Runtime.getRuntime();
         try{
-            String[] cmd = {"/bin/bash","-c"," ./execDownloadImage.sh "};
+            String[] cmd = {"/bin/bash","-c","  bash ./execDownloadImage.sh "};
             
             if (!(Downloadtext.getText().equals(""))){
                  cmd[2]+= "containers.file=\\\""+Downloadtext.getText()+"\\\"";
