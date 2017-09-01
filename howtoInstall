@@ -1,11 +1,12 @@
 
 Installare:
-Java,
+Java ORACLE,  --> must be set with  "sudo update-alternatives --config java "
 Rstudio,
 R devel,
 git,
 openssl-devel
 libcurl-devel
+
 
 R
 install.packages("git2r")

@@ -1,0 +1,5 @@
+How to setup
+1. copy vncserver1.service   in  /etc/systemd/system/vncserver1.service 
+2. copy vnc-run.sh in /home/user
+3. type "sudo systemctl start  vncserver1" one shoot
+4. type "sudo systemctl enable  vncserver1" for every reboot
