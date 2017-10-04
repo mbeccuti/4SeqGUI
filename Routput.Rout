@@ -1,5 +1,5 @@
 
-R version 3.3.3 (2017-03-06) -- "Another Canoe"
+R version 3.4.1 (2017-06-30) -- "Single Candle"
 Copyright (C) 2017 The R Foundation for Statistical Computing
 Platform: x86_64-redhat-linux-gnu (64-bit)
 
@@ -34,5 +34,529 @@ Type 'q()' to quit R.
 + }
 > 
 > library(docker4seq)
-Error in library(docker4seq) : there is no package called ‘docker4seq’
-Execution halted
+> downloadContainers (containers.file=containers.file)
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/annotate.2017.01 ... 
+sha256:806462af3dbe4e37cd21d7b9898c101843f3b71800435d3214276f280dd7e2dc: Pulling from docker.io/rcaloger/annotate.2017.01
+Digest: sha256:806462af3dbe4e37cd21d7b9898c101843f3b71800435d3214276f280dd7e2dc
+Status: Image is up to date for docker.io/rcaloger/annotate.2017.01:latest
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/bwa.2017.01 ... 
+sha256:459491d773ccdd991e827a035404679055e4676777b8c37411ec0f79ae9806a1: Pulling from docker.io/rcaloger/bwa.2017.01
+6bbedd9b76a4: Pulling fs layer
+fc19d60a83f1: Pulling fs layer
+de413bb911fd: Pulling fs layer
+2879a7ad3144: Pulling fs layer
+668604fde02e: Pulling fs layer
+7dfb90fd2150: Pulling fs layer
+668604fde02e: Waiting
+2879a7ad3144: Waiting
+554a5f7ace2a: Pulling fs layer
+d7b5353d4eb1: Pulling fs layer
+1209bb61c85e: Pulling fs layer
+554a5f7ace2a: Waiting
+44c746c6513f: Pulling fs layer
+d7b5353d4eb1: Waiting
+dfee6a8bc248: Pulling fs layer
+5eb5ab5a65c6: Pulling fs layer
+8b35d49dd314: Pulling fs layer
+9bd817ceb32d: Pulling fs layer
+44c746c6513f: Waiting
+d3f39438285f: Pulling fs layer
+5eb5ab5a65c6: Waiting
+cd75c6b13617: Pulling fs layer
+db0ef34f6a31: Pulling fs layer
+dfee6a8bc248: Waiting
+1ce3f6ba46b3: Pulling fs layer
+9bd817ceb32d: Waiting
+db0ef34f6a31: Waiting
+7dfb90fd2150: Waiting
+cd75c6b13617: Waiting
+77cd392ce26f: Pulling fs layer
+1ce3f6ba46b3: Waiting
+c3638443571a: Pulling fs layer
+4f3b6b3b935f: Pulling fs layer
+77cd392ce26f: Waiting
+257ef664b9f9: Pulling fs layer
+c3638443571a: Waiting
+4f3b6b3b935f: Waiting
+0f6e076b2483: Pulling fs layer
+f7293c77f0e8: Pulling fs layer
+257ef664b9f9: Waiting
+0f6e076b2483: Waiting
+f7293c77f0e8: Waiting
+de413bb911fd: Verifying Checksum
+de413bb911fd: Download complete
+fc19d60a83f1: Download complete
+668604fde02e: Download complete
+2879a7ad3144: Download complete
+554a5f7ace2a: Verifying Checksum
+554a5f7ace2a: Download complete
+6bbedd9b76a4: Download complete
+6bbedd9b76a4: Pull complete
+fc19d60a83f1: Pull complete
+de413bb911fd: Pull complete
+2879a7ad3144: Pull complete
+668604fde02e: Pull complete
+1209bb61c85e: Download complete
+dfee6a8bc248: Download complete
+5eb5ab5a65c6: Download complete
+8b35d49dd314: Download complete
+9bd817ceb32d: Download complete
+d3f39438285f: Download complete
+cd75c6b13617: Download complete
+db0ef34f6a31: Verifying Checksum
+db0ef34f6a31: Download complete
+7dfb90fd2150: Verifying Checksum
+7dfb90fd2150: Download complete
+77cd392ce26f: Download complete
+d7b5353d4eb1: Verifying Checksum
+d7b5353d4eb1: Download complete
+c3638443571a: Download complete
+4f3b6b3b935f: Download complete
+257ef664b9f9: Download complete
+0f6e076b2483: Download complete
+f7293c77f0e8: Download complete
+1ce3f6ba46b3: Verifying Checksum
+1ce3f6ba46b3: Download complete
+7dfb90fd2150: Pull complete
+554a5f7ace2a: Pull complete
+d7b5353d4eb1: Pull complete
+1209bb61c85e: Pull complete
+44c746c6513f: Pull complete
+dfee6a8bc248: Pull complete
+5eb5ab5a65c6: Pull complete
+8b35d49dd314: Pull complete
+9bd817ceb32d: Pull complete
+d3f39438285f: Pull complete
+cd75c6b13617: Pull complete
+db0ef34f6a31: Pull complete
+1ce3f6ba46b3: Pull complete
+77cd392ce26f: Pull complete
+c3638443571a: Pull complete
+4f3b6b3b935f: Pull complete
+257ef664b9f9: Pull complete
+0f6e076b2483: Pull complete
+f7293c77f0e8: Pull complete
+Digest: sha256:459491d773ccdd991e827a035404679055e4676777b8c37411ec0f79ae9806a1
+Status: Downloaded newer image for docker.io/rcaloger/bwa.2017.01:latest
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/chipseq.2017.01 ... 
+sha256:592b7641a8143d0d272007682ddfb2d764b141231f84c9a52b6fc5c6ff391874: Pulling from docker.io/rcaloger/chipseq.2017.01
+5b88ea33651f: Pulling fs layer
+8d85cd98ee58: Pulling fs layer
+3767578b027d: Pulling fs layer
+ece07c4d0b33: Pulling fs layer
+ff3997b1b756: Pulling fs layer
+dd715f0ba6a6: Pulling fs layer
+c07f8a9d455b: Pulling fs layer
+7d0e91cd2920: Pulling fs layer
+ece07c4d0b33: Waiting
+dd715f0ba6a6: Waiting
+ff3997b1b756: Waiting
+c07f8a9d455b: Waiting
+7d0e91cd2920: Waiting
+3767578b027d: Verifying Checksum
+3767578b027d: Download complete
+8d85cd98ee58: Verifying Checksum
+8d85cd98ee58: Download complete
+ece07c4d0b33: Download complete
+ff3997b1b756: Download complete
+c07f8a9d455b: Verifying Checksum
+c07f8a9d455b: Download complete
+dd715f0ba6a6: Download complete
+7d0e91cd2920: Verifying Checksum
+7d0e91cd2920: Download complete
+5b88ea33651f: Download complete
+5b88ea33651f: Pull complete
+8d85cd98ee58: Pull complete
+3767578b027d: Pull complete
+ece07c4d0b33: Pull complete
+ff3997b1b756: Pull complete
+dd715f0ba6a6: Pull complete
+c07f8a9d455b: Pull complete
+7d0e91cd2920: Pull complete
+Digest: sha256:592b7641a8143d0d272007682ddfb2d764b141231f84c9a52b6fc5c6ff391874
+Status: Downloaded newer image for docker.io/rcaloger/chipseq.2017.01:latest
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/r332.2017.01 ... 
+sha256:9b306f36701ddbedce92081cc60c7721517fdb38fc53b70c8280dc2406551e2b: Pulling from docker.io/rcaloger/r332.2017.01
+efb13cb8d7e5: Pulling fs layer
+d8b64512ee5b: Pulling fs layer
+8abafe548dfe: Pulling fs layer
+e10aa5f01c20: Pulling fs layer
+9f1ba34ae766: Pulling fs layer
+3309a7a3b93f: Pulling fs layer
+426ce5e62e46: Pulling fs layer
+bb77ea104fe4: Pulling fs layer
+e10aa5f01c20: Waiting
+5a438f57d5fe: Pulling fs layer
+9f1ba34ae766: Waiting
+3309a7a3b93f: Waiting
+426ce5e62e46: Waiting
+5a438f57d5fe: Waiting
+d8b64512ee5b: Verifying Checksum
+d8b64512ee5b: Download complete
+e10aa5f01c20: Verifying Checksum
+e10aa5f01c20: Download complete
+9f1ba34ae766: Verifying Checksum
+9f1ba34ae766: Download complete
+3309a7a3b93f: Download complete
+426ce5e62e46: Verifying Checksum
+426ce5e62e46: Download complete
+bb77ea104fe4: Download complete
+5a438f57d5fe: Download complete
+8abafe548dfe: Verifying Checksum
+8abafe548dfe: Download complete
+efb13cb8d7e5: Verifying Checksum
+efb13cb8d7e5: Download complete
+efb13cb8d7e5: Pull complete
+d8b64512ee5b: Pull complete
+8abafe548dfe: Pull complete
+e10aa5f01c20: Pull complete
+9f1ba34ae766: Pull complete
+3309a7a3b93f: Pull complete
+426ce5e62e46: Pull complete
+bb77ea104fe4: Pull complete
+5a438f57d5fe: Pull complete
+Digest: sha256:9b306f36701ddbedce92081cc60c7721517fdb38fc53b70c8280dc2406551e2b
+Status: Downloaded newer image for docker.io/rcaloger/r332.2017.01:latest
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/mirnaseq.2017.01 ... 
+sha256:b96985901c1c5fbf9f49aa6ebb9ae0d8814505f344f98ea7bd12240ae65b28fa: Pulling from docker.io/rcaloger/mirnaseq.2017.01
+a40ca324fd60: Pulling fs layer
+c1cfc0214d4a: Pulling fs layer
+3991ddd7c2e1: Pulling fs layer
+e973c57d66b8: Pulling fs layer
+ec0935f5fb9d: Pulling fs layer
+92625874e92a: Pulling fs layer
+112afc56c9b1: Pulling fs layer
+2faf5fd9575b: Pulling fs layer
+78be86ecd5da: Pulling fs layer
+97708fe23e11: Pulling fs layer
+5d2aa9770f33: Pulling fs layer
+8c1028bb1208: Pulling fs layer
+b3979c43c64f: Pulling fs layer
+5e7d111fc43e: Pulling fs layer
+2876e78ad9d3: Pulling fs layer
+1345cffe0fc4: Pulling fs layer
+e973c57d66b8: Waiting
+5d2aa9770f33: Waiting
+ec0935f5fb9d: Waiting
+8c1028bb1208: Waiting
+92625874e92a: Waiting
+112afc56c9b1: Waiting
+b3979c43c64f: Waiting
+2faf5fd9575b: Waiting
+5e7d111fc43e: Waiting
+2876e78ad9d3: Waiting
+1345cffe0fc4: Waiting
+97708fe23e11: Waiting
+3991ddd7c2e1: Verifying Checksum
+3991ddd7c2e1: Download complete
+c1cfc0214d4a: Verifying Checksum
+c1cfc0214d4a: Download complete
+e973c57d66b8: Verifying Checksum
+e973c57d66b8: Download complete
+ec0935f5fb9d: Verifying Checksum
+ec0935f5fb9d: Download complete
+92625874e92a: Verifying Checksum
+92625874e92a: Download complete
+112afc56c9b1: Download complete
+2faf5fd9575b: Verifying Checksum
+2faf5fd9575b: Download complete
+78be86ecd5da: Verifying Checksum
+78be86ecd5da: Download complete
+97708fe23e11: Download complete
+5d2aa9770f33: Download complete
+8c1028bb1208: Verifying Checksum
+8c1028bb1208: Download complete
+b3979c43c64f: Verifying Checksum
+b3979c43c64f: Download complete
+5e7d111fc43e: Verifying Checksum
+5e7d111fc43e: Download complete
+2876e78ad9d3: Verifying Checksum
+2876e78ad9d3: Download complete
+1345cffe0fc4: Verifying Checksum
+1345cffe0fc4: Download complete
+a40ca324fd60: Download complete
+a40ca324fd60: Pull complete
+c1cfc0214d4a: Pull complete
+3991ddd7c2e1: Pull complete
+e973c57d66b8: Pull complete
+ec0935f5fb9d: Pull complete
+92625874e92a: Pull complete
+112afc56c9b1: Pull complete
+2faf5fd9575b: Pull complete
+78be86ecd5da: Pull complete
+97708fe23e11: Pull complete
+5d2aa9770f33: Pull complete
+8c1028bb1208: Pull complete
+b3979c43c64f: Pull complete
+5e7d111fc43e: Pull complete
+2876e78ad9d3: Pull complete
+1345cffe0fc4: Pull complete
+Digest: sha256:b96985901c1c5fbf9f49aa6ebb9ae0d8814505f344f98ea7bd12240ae65b28fa
+Status: Downloaded newer image for docker.io/rcaloger/mirnaseq.2017.01:latest
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/rsemstar.2017.01 ... 
+sha256:d1de096bd86b88da5a7de9f706cdbbbab539e380ba802a84f560d71a41a424fe: Pulling from docker.io/rcaloger/rsemstar.2017.01
+6bbedd9b76a4: Already exists
+fc19d60a83f1: Already exists
+de413bb911fd: Already exists
+2879a7ad3144: Already exists
+668604fde02e: Already exists
+b903519c79f0: Pulling fs layer
+38eb2c81d70b: Pulling fs layer
+5ba7dd24c468: Pulling fs layer
+844191cfc8c3: Pulling fs layer
+31cef388ad51: Pulling fs layer
+b7fd94ef2839: Pulling fs layer
+844191cfc8c3: Waiting
+31cef388ad51: Waiting
+6f328a65ae89: Pulling fs layer
+373c65cc9b46: Pulling fs layer
+1a894da0d0c5: Pulling fs layer
+b7fd94ef2839: Waiting
+d4dfaccb1e58: Pulling fs layer
+b3fa8bf83f06: Pulling fs layer
+a88519c8a8f5: Pulling fs layer
+95155cbfd48c: Pulling fs layer
+ea62d8847d09: Pulling fs layer
+6f328a65ae89: Waiting
+42916b5b5d19: Pulling fs layer
+54f0b12e9522: Pulling fs layer
+371941ee9405: Pulling fs layer
+373c65cc9b46: Waiting
+7662a65b23b7: Pulling fs layer
+f8008ebc5bb0: Pulling fs layer
+1a894da0d0c5: Waiting
+43e03b0432bd: Pulling fs layer
+c7255da1e14b: Pulling fs layer
+b0f4115dcfbc: Pulling fs layer
+961631f1c4a6: Pulling fs layer
+b3fa8bf83f06: Waiting
+d4dfaccb1e58: Waiting
+b77501416f00: Pulling fs layer
+95155cbfd48c: Waiting
+f8008ebc5bb0: Waiting
+ea62d8847d09: Waiting
+42916b5b5d19: Waiting
+54f0b12e9522: Waiting
+371941ee9405: Waiting
+b77501416f00: Waiting
+7662a65b23b7: Waiting
+961631f1c4a6: Waiting
+43e03b0432bd: Waiting
+b0f4115dcfbc: Waiting
+38eb2c81d70b: Download complete
+844191cfc8c3: Download complete
+31cef388ad51: Download complete
+5ba7dd24c468: Verifying Checksum
+5ba7dd24c468: Download complete
+6f328a65ae89: Verifying Checksum
+373c65cc9b46: Verifying Checksum
+373c65cc9b46: Download complete
+1a894da0d0c5: Download complete
+d4dfaccb1e58: Download complete
+b3fa8bf83f06: Verifying Checksum
+b3fa8bf83f06: Download complete
+a88519c8a8f5: Download complete
+95155cbfd48c: Verifying Checksum
+95155cbfd48c: Download complete
+ea62d8847d09: Download complete
+42916b5b5d19: Verifying Checksum
+54f0b12e9522: Verifying Checksum
+54f0b12e9522: Download complete
+371941ee9405: Download complete
+7662a65b23b7: Download complete
+b903519c79f0: Download complete
+f8008ebc5bb0: Download complete
+43e03b0432bd: Download complete
+c7255da1e14b: Download complete
+b0f4115dcfbc: Download complete
+961631f1c4a6: Download complete
+b77501416f00: Download complete
+b7fd94ef2839: Verifying Checksum
+b7fd94ef2839: Download complete
+b903519c79f0: Pull complete
+38eb2c81d70b: Pull complete
+5ba7dd24c468: Pull complete
+844191cfc8c3: Pull complete
+31cef388ad51: Pull complete
+b7fd94ef2839: Pull complete
+6f328a65ae89: Pull complete
+373c65cc9b46: Pull complete
+1a894da0d0c5: Pull complete
+d4dfaccb1e58: Pull complete
+b3fa8bf83f06: Pull complete
+a88519c8a8f5: Pull complete
+95155cbfd48c: Pull complete
+ea62d8847d09: Pull complete
+42916b5b5d19: Pull complete
+54f0b12e9522: Pull complete
+371941ee9405: Pull complete
+7662a65b23b7: Pull complete
+f8008ebc5bb0: Pull complete
+43e03b0432bd: Pull complete
+c7255da1e14b: Pull complete
+b0f4115dcfbc: Pull complete
+961631f1c4a6: Pull complete
+b77501416f00: Pull complete
+Digest: sha256:d1de096bd86b88da5a7de9f706cdbbbab539e380ba802a84f560d71a41a424fe
+Status: Downloaded newer image for docker.io/rcaloger/rsemstar.2017.01:latest
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/skewer.2017.01 ... 
+sha256:7e8c2449316fdf70e130b9f68b48663c290715a62cbebec04fc4ddcb089a8385: Pulling from docker.io/rcaloger/skewer.2017.01
+7cdd225d4bb3: Pulling fs layer
+d79706848a23: Pulling fs layer
+f0384a26f6d3: Pulling fs layer
+a5785a3a5235: Pulling fs layer
+11d8be47cc71: Pulling fs layer
+b74baf27cb18: Pulling fs layer
+a6c920421b00: Pulling fs layer
+eb18bdbde52c: Pulling fs layer
+2226081c847a: Pulling fs layer
+11d8be47cc71: Waiting
+a5785a3a5235: Waiting
+eb18bdbde52c: Waiting
+b74baf27cb18: Waiting
+2226081c847a: Waiting
+a6c920421b00: Waiting
+d79706848a23: Download complete
+f0384a26f6d3: Verifying Checksum
+f0384a26f6d3: Download complete
+a5785a3a5235: Download complete
+11d8be47cc71: Download complete
+b74baf27cb18: Verifying Checksum
+b74baf27cb18: Download complete
+a6c920421b00: Verifying Checksum
+a6c920421b00: Download complete
+eb18bdbde52c: Download complete
+2226081c847a: Verifying Checksum
+2226081c847a: Download complete
+7cdd225d4bb3: Download complete
+7cdd225d4bb3: Pull complete
+d79706848a23: Pull complete
+f0384a26f6d3: Pull complete
+a5785a3a5235: Pull complete
+11d8be47cc71: Pull complete
+b74baf27cb18: Pull complete
+a6c920421b00: Pull complete
+eb18bdbde52c: Pull complete
+2226081c847a: Pull complete
+Digest: sha256:7e8c2449316fdf70e130b9f68b48663c290715a62cbebec04fc4ddcb089a8385
+Status: Downloaded newer image for docker.io/rcaloger/skewer.2017.01:latest
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/r340.2017.01 ... 
+sha256:eb9187d332c3ac81a5f904f08b4ae90ac8fdc9c4467940d1d2ba2c58ffdf7998: Pulling from docker.io/rcaloger/r340.2017.01
+efb13cb8d7e5: Already exists
+d8b64512ee5b: Already exists
+8abafe548dfe: Already exists
+e10aa5f01c20: Already exists
+9f1ba34ae766: Already exists
+3309a7a3b93f: Already exists
+426ce5e62e46: Already exists
+bb77ea104fe4: Already exists
+5a438f57d5fe: Already exists
+9602c2d9c7b0: Pulling fs layer
+cc3b3ae7dac1: Pulling fs layer
+f15d144a3a8a: Pulling fs layer
+9b4132e3c473: Pulling fs layer
+aabf6b771c06: Pulling fs layer
+39dfd3997889: Pulling fs layer
+2ab9943f7a63: Pulling fs layer
+3f3e33157784: Pulling fs layer
+9b4132e3c473: Waiting
+60732f5d0bb8: Pulling fs layer
+7bdaf604cab3: Pulling fs layer
+39dfd3997889: Waiting
+6f5fba434821: Pulling fs layer
+2ab9943f7a63: Waiting
+b60f2621a96d: Pulling fs layer
+60732f5d0bb8: Waiting
+a7397e53a726: Pulling fs layer
+0077b16989f0: Pulling fs layer
+7bdaf604cab3: Waiting
+b60f2621a96d: Waiting
+6f5fba434821: Waiting
+a7397e53a726: Waiting
+0077b16989f0: Waiting
+f15d144a3a8a: Verifying Checksum
+f15d144a3a8a: Download complete
+cc3b3ae7dac1: Verifying Checksum
+cc3b3ae7dac1: Download complete
+aabf6b771c06: Download complete
+9b4132e3c473: Download complete
+2ab9943f7a63: Download complete
+39dfd3997889: Verifying Checksum
+39dfd3997889: Download complete
+3f3e33157784: Verifying Checksum
+3f3e33157784: Download complete
+60732f5d0bb8: Verifying Checksum
+60732f5d0bb8: Download complete
+7bdaf604cab3: Download complete
+6f5fba434821: Download complete
+b60f2621a96d: Download complete
+a7397e53a726: Verifying Checksum
+a7397e53a726: Download complete
+0077b16989f0: Download complete
+9602c2d9c7b0: Download complete
+9602c2d9c7b0: Pull complete
+cc3b3ae7dac1: Pull complete
+f15d144a3a8a: Pull complete
+9b4132e3c473: Pull complete
+aabf6b771c06: Pull complete
+39dfd3997889: Pull complete
+2ab9943f7a63: Pull complete
+3f3e33157784: Pull complete
+60732f5d0bb8: Pull complete
+7bdaf604cab3: Pull complete
+6f5fba434821: Pull complete
+b60f2621a96d: Pull complete
+a7397e53a726: Pull complete
+0077b16989f0: Pull complete
+Digest: sha256:eb9187d332c3ac81a5f904f08b4ae90ac8fdc9c4467940d1d2ba2c58ffdf7998
+Status: Downloaded newer image for docker.io/rcaloger/r340.2017.01:latest
+Using default tag: latest
+Trying to pull repository docker.io/rcaloger/demultiplexing.2017.01 ... 
+sha256:9ee2ab6901cb15c04c8ab8fa220f04557eb798f5d197eaf2bdd1cc9db4321cf8: Pulling from docker.io/rcaloger/demultiplexing.2017.01
+6bbedd9b76a4: Already exists
+be890f79952e: Pulling fs layer
+702d5b5709ec: Pulling fs layer
+cd4745b49257: Pulling fs layer
+d81fb6a420a1: Pulling fs layer
+f88b3894864b: Pulling fs layer
+373a9c27b730: Pulling fs layer
+7357fa8b3303: Pulling fs layer
+a5f1b91be8c4: Pulling fs layer
+d81fb6a420a1: Waiting
+7357fa8b3303: Waiting
+f88b3894864b: Waiting
+373a9c27b730: Waiting
+a5f1b91be8c4: Waiting
+cd4745b49257: Download complete
+be890f79952e: Download complete
+702d5b5709ec: Download complete
+be890f79952e: Pull complete
+702d5b5709ec: Pull complete
+373a9c27b730: Verifying Checksum
+373a9c27b730: Download complete
+d81fb6a420a1: Verifying Checksum
+d81fb6a420a1: Download complete
+cd4745b49257: Pull complete
+d81fb6a420a1: Pull complete
+a5f1b91be8c4: Download complete
+7357fa8b3303: Download complete
+f88b3894864b: Verifying Checksum
+f88b3894864b: Download complete
+f88b3894864b: Pull complete
+373a9c27b730: Pull complete
+7357fa8b3303: Pull complete
+a5f1b91be8c4: Pull complete
+Digest: sha256:9ee2ab6901cb15c04c8ab8fa220f04557eb798f5d197eaf2bdd1cc9db4321cf8
+Status: Downloaded newer image for docker.io/rcaloger/demultiplexing.2017.01:latest
+> 
+> proc.time()
+   user  system elapsed 
+  1.177   0.534 828.507 

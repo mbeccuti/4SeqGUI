@@ -52,6 +52,7 @@ import javax.swing.undo.UndoManager;
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form MainFrame
      */
@@ -131,7 +132,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         //OUTPUT FRAME
         int OutputframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputWidth", "0"));
-        int OutputframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputHeight", "0")); 
+        int OutputframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputHeight", "0"));
+        
         if ((OutputframeWidth==0)||(OutputframeHeight==0)){
               OutputframeWidth=screenSize.width*4/100;
               OutputframeHeight=screenSize.height*5/100;
@@ -173,7 +175,9 @@ public class MainFrame extends javax.swing.JFrame {
         else
             CCountHeaderTable.getColumnModel().getColumn(1).setPreferredWidth(CCountHeaderTable.getWidth()*10/100);
         
-        
+ 
+
+
         setLocationRelativeTo(null);
         invalidate();
         doLayout();
@@ -244,12 +248,20 @@ public class MainFrame extends javax.swing.JFrame {
         jButton33 = new javax.swing.JButton();
         jButton34 = new javax.swing.JButton();
         Downloadtext = new javax.swing.JTextField();
+        About4SeqGUIFrame = new javax.swing.JFrame();
+        jLabel96 = new javax.swing.JLabel();
+        jLabel100 = new javax.swing.JLabel();
+        jLabel101 = new javax.swing.JLabel();
+        jButton36 = new javax.swing.JButton();
+        jLabel99 = new javax.swing.JLabel();
+        jLabel102 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jToggleButton11 = new javax.swing.JToggleButton();
         jButton9 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
         VerticalSplitPanel = new javax.swing.JSplitPane();
         BottomPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -615,6 +627,8 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -622,6 +636,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         OutputFrame.setTitle("Process Output");
         OutputFrame.setLocation(new java.awt.Point(100, 100));
+        OutputFrame.setMinimumSize(new java.awt.Dimension(0, 0));
+        OutputFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                OutputFrameWindowClosing(evt);
+            }
+        });
         OutputFrame.getContentPane().setLayout(new java.awt.GridBagLayout());
 
         OutputText.setEditable(false);
@@ -890,6 +910,57 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 10);
         DownloadFrame.getContentPane().add(jPanel1, gridBagConstraints);
 
+        About4SeqGUIFrame.setTitle("About 4SeqGUI");
+        About4SeqGUIFrame.setResizable(false);
+        About4SeqGUIFrame.getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        jLabel96.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/4SeqGUI.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.weightx = 0.01;
+        gridBagConstraints.insets = new java.awt.Insets(10, 1, 10, 1);
+        About4SeqGUIFrame.getContentPane().add(jLabel96, gridBagConstraints);
+
+        jLabel100.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel100.setText("Version 1.0.5");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(1, 1, 1, 1);
+        About4SeqGUIFrame.getContentPane().add(jLabel100, gridBagConstraints);
+
+        jLabel101.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
+        jLabel101.setText("Copyright © January 2017");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 0);
+        About4SeqGUIFrame.getContentPane().add(jLabel101, gridBagConstraints);
+
+        jButton36.setText("OK");
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        About4SeqGUIFrame.getContentPane().add(jButton36, gridBagConstraints);
+
+        jLabel99.setFont(jLabel99.getFont());
+        jLabel99.setText("M. Beccuti, R. Calogero and F. Cordero");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(5, 20, 10, 20);
+        About4SeqGUIFrame.getContentPane().add(jLabel99, gridBagConstraints);
+        About4SeqGUIFrame.getContentPane().add(jLabel102, new java.awt.GridBagConstraints());
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("4SeqGUI");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -898,11 +969,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jToolBar1.setBackground(new java.awt.Color(237, 237, 237));
         jToolBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jToolBar1.setRollover(true);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52.png"))); // NOI18N
         jButton1.setToolTipText("Open a previous execution");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 5));
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -915,6 +988,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86.png"))); // NOI18N
         jButton2.setToolTipText("Save current executions");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         jButton2.setFocusable(false);
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -927,6 +1001,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jToggleButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/preference.png"))); // NOI18N
         jToggleButton11.setToolTipText("Configure 4SeqGUI");
+        jToggleButton11.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
         jToggleButton11.setFocusable(false);
         jToggleButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToggleButton11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -939,6 +1014,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/docker.png"))); // NOI18N
         jButton9.setToolTipText("Remove docker containers");
+        jButton9.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         jButton9.setFocusable(false);
         jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -951,8 +1027,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
         jButton26.setToolTipText("Download docker images");
+        jButton26.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         jButton26.setFocusable(false);
         jButton26.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton26.setMargin(new java.awt.Insets(2, 140, 2, 140));
         jButton26.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -960,6 +1038,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton26);
+
+        jButton35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/iconDNA-small.png"))); // NOI18N
+        jButton35.setToolTipText("About 4SeqGUI");
+        jButton35.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        jButton35.setFocusable(false);
+        jButton35.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton35.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton35);
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.NORTH);
 
@@ -1001,6 +1092,8 @@ public class MainFrame extends javax.swing.JFrame {
         BottomPanel.add(jScrollPane4, gridBagConstraints);
 
         VerticalSplitPanel.setBottomComponent(BottomPanel);
+
+        HorizontalSplitPanel.setBorder(null);
 
         MainPanel.setBackground(new java.awt.Color(255, 255, 255));
         MainPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -5426,6 +5519,21 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setText("?");
+        jMenu5.setToolTipText("");
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/iconDNA-small.png"))); // NOI18N
+        jMenuItem7.setText("About 4SeqGUI");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem7);
+
+        jMenuBar1.add(jMenu5);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -6929,14 +7037,18 @@ public class MainFrame extends javax.swing.JFrame {
         if ((evt!=null)){
         OutputFrame.pack();
          Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int OutputframeWidth= Integer.valueOf(getPreferences().get("WindowOutputWidth", "0"));
-        int OutputframeHeight= Integer.valueOf(getPreferences().get("WindowOutputHeight", "0")); 
+        int OutputframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputWidth", "0"));
+        int OutputframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputHeight", "0")); 
         if ((OutputframeWidth==0)||(OutputframeHeight==0)){
               OutputframeWidth=screenSize.width*4/100;
               OutputframeHeight=screenSize.height*5/100;
         }
 
         OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
+//automatically update file
+        outputTime=new Timer();
+        outputTime.scheduleAtFixedRate(new MyFileUpdate(), 5000, 5000);
+     
         OutputFrame.setVisible(true);
         //System.out.println("QUII->-Inizio\n"+listModel.getSize()+" "+evt.getLastIndex()+"\n"+evt.getSource());
         ListEntry tmpListEntry;
@@ -7001,6 +7113,7 @@ public class MainFrame extends javax.swing.JFrame {
     getPreferences().put("4SeqGUI_WindowOutputWidth", Integer.toString(OutputFrame.getWidth()));
     getPreferences().put("4SeqGUI_WindowOutputHeight", Integer.toString(OutputFrame.getHeight())); 
     //System.out.println("@@@@@@@@@@@@Close: \n");
+    outputTime.cancel();
     }//GEN-LAST:event_CloseOutputActionPerformed
 
     private void ProcListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProcListMouseClicked
@@ -9546,10 +9659,34 @@ public class MainFrame extends javax.swing.JFrame {
         getPreferences().put("4SeqGUI_WindowDownloadHeight", Integer.toString(DownloadFrame.getHeight())); 
     }//GEN-LAST:event_jButton32ActionPerformed
 
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        openAbout4SeqGUI(evt);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        openAbout4SeqGUI(evt);
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+       About4SeqGUIFrame.setVisible(false);
+    }//GEN-LAST:event_jButton36ActionPerformed
+
+    private void OutputFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_OutputFrameWindowClosing
+      outputTime.cancel();
+    }//GEN-LAST:event_OutputFrameWindowClosing
+    private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
+        About4SeqGUIFrame.pack(); 
+        About4SeqGUIFrame.setLocationRelativeTo(null);                                       
+        About4SeqGUIFrame.setVisible(true);
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+        System.setProperty("awt.useSystemAAFontSettings","on");
+        System.setProperty("swing.aatext", "true");
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -9563,6 +9700,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }*/
            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());     
+           
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -9577,7 +9715,7 @@ public class MainFrame extends javax.swing.JFrame {
   
         
         try{
-        Thread.sleep(3000L);
+        Thread.sleep(1000L);
         }
         catch ( Exception e ) { } 
         /* Create and display the form */
@@ -9591,6 +9729,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame About4SeqGUIFrame;
     private javax.swing.JTextField Adapter3TextField;
     private javax.swing.JTextField Adapter5TextField;
     private javax.swing.JTree AnalysisTree;
@@ -9782,6 +9921,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -9790,6 +9931,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -9883,12 +10027,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -9896,6 +10043,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -10241,26 +10389,35 @@ extends JLabel implements ListCellRenderer<Object>
 }
     private String CurrentLayout="Empty";
     
-/*  public class MyThread extends Thread {
 
-    public void run(){
-       while(true){ 
-       System.out.println("MyThread running");
-       try {
-            sleep((2000));
-	} 
-       catch (InterruptedException e) 
-        {
-			
+  Timer t,outputTime;
+
+  class MyFileUpdate extends TimerTask{
+       public void run() {
+          ListEntry tmpListEntry =  listModel.get(GL.getListProcStatuSelection());
+        //
+        if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")){
+             OutputText.setEnabled(true);
+            String text="";
+            try{
+                File file = new File( tmpListEntry.path+"/Routput.Rout");
+                BufferedReader reader = new BufferedReader(new FileReader(file));
+                String strLine;
+                //Read File Line By Line
+                while ((strLine = reader.readLine()) != null)   {
+                    text+="\n"+strLine;
+                }
+                reader.close();    
+            }
+            catch (Exception e){//Catch exception if any
+                System.err.println("Error: " + e.getMessage());
+                JOptionPane.showMessageDialog(OutputFrame, "Error reading file","Error",JOptionPane.ERROR_MESSAGE);
+            }
+            OutputText.setText(text);
         }
-    }
-    }
+        ReloadOutput.setSelected(false);   
+       }
   }
-
-  MyThread thread =new MyThread();
-  */
-  Timer t;
-
   class MyTask extends TimerTask {
       
         public void run() {
