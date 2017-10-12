@@ -636,7 +636,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         OutputFrame.setTitle("Process Output");
         OutputFrame.setLocation(new java.awt.Point(100, 100));
-        OutputFrame.setMinimumSize(new java.awt.Dimension(0, 0));
         OutputFrame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 OutputFrameWindowClosing(evt);
@@ -1788,7 +1787,7 @@ public class MainFrame extends javax.swing.JFrame {
         FPKMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "From samples to experiment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(102, 0, 153))); // NOI18N
         FPKMPanel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel4.setBackground(new java.awt.Color(224, 224, 238));
+        jPanel4.setBackground(new java.awt.Color(232, 232, 242));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
@@ -2655,7 +2654,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PCAPanel.add(jButton17, gridBagConstraints);
 
-        jPanel5.setBackground(new java.awt.Color(248, 234, 222));
+        jPanel5.setBackground(new java.awt.Color(250, 241, 233));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
@@ -2740,6 +2739,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jToggleButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton13.setText("Browse");
+        jToggleButton13.setEnabled(false);
         jToggleButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton13ActionPerformed(evt);
@@ -2755,6 +2755,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         fCancelButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         fCancelButton1.setText("Cancel");
+        fCancelButton1.setEnabled(false);
         fCancelButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fCancelButton1ActionPerformed(evt);
@@ -2776,7 +2777,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PCAPanel.add(jPanel5, gridBagConstraints);
 
-        jPanel11.setBackground(new java.awt.Color(248, 234, 222));
+        jPanel11.setBackground(new java.awt.Color(250, 241, 233));
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
@@ -2948,6 +2949,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel11.add(pCovNoRadioButton, gridBagConstraints);
 
         pLegendComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "bottom", "bottomleft", "left", "topleft", "top", "topright", "right", "center" }));
+        pLegendComboBox.setSelectedIndex(1);
         pLegendComboBox.setToolTipText("Plot legend position.");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -3034,7 +3036,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DESPanel.add(jButton20, gridBagConstraints);
 
-        jPanel10.setBackground(new java.awt.Color(225, 239, 250));
+        jPanel10.setBackground(new java.awt.Color(233, 243, 251));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
@@ -3155,7 +3157,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DESPanel.add(jPanel10, gridBagConstraints);
 
-        jPanel12.setBackground(new java.awt.Color(225, 239, 250));
+        jPanel12.setBackground(new java.awt.Color(233, 243, 251));
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel12.setLayout(new java.awt.GridBagLayout());
 
@@ -4641,7 +4643,7 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sample size estimator", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
         SampleSizePanel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel21.setBackground(new java.awt.Color(244, 241, 215));
+        jPanel21.setBackground(new java.awt.Color(249, 248, 235));
         jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel21.setLayout(new java.awt.GridBagLayout());
 
@@ -4810,7 +4812,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SampleSizePanel.add(SSCloseButton, gridBagConstraints);
 
-        jPanel24.setBackground(new java.awt.Color(244, 241, 215));
+        jPanel24.setBackground(new java.awt.Color(249, 248, 235));
         jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel24.setLayout(new java.awt.GridBagLayout());
 
@@ -4914,7 +4916,7 @@ public class MainFrame extends javax.swing.JFrame {
         ExperimentPowerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Experiment power", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 51, 102))); // NOI18N
         ExperimentPowerPanel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel25.setBackground(new java.awt.Color(189, 217, 241));
+        jPanel25.setBackground(new java.awt.Color(233, 242, 250));
         jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel25.setLayout(new java.awt.GridBagLayout());
 
@@ -5083,7 +5085,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExperimentPowerPanel.add(EPCloseButton, gridBagConstraints);
 
-        jPanel26.setBackground(new java.awt.Color(189, 217, 241));
+        jPanel26.setBackground(new java.awt.Color(233, 242, 250));
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel26.setLayout(new java.awt.GridBagLayout());
 
@@ -5187,7 +5189,7 @@ public class MainFrame extends javax.swing.JFrame {
         mRNABatchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Adding covariates and batch information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
         mRNABatchPanel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel27.setBackground(new java.awt.Color(228, 248, 243));
+        jPanel27.setBackground(new java.awt.Color(238, 250, 247));
         jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel27.setToolTipText("the all.counts.txt file generated from miRNAseq step");
         jPanel27.setLayout(new java.awt.GridBagLayout());
@@ -7904,12 +7906,16 @@ public class MainFrame extends javax.swing.JFrame {
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
             File f = openDir.getSelectedFile();
             pFPKMfileText.setText(String.valueOf(f));
+            //UPDATE TO REMOVE OUTPUT FOLDER            
+            pOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
         }
         getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jToggleButton12ActionPerformed
 
     private void fCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButtonActionPerformed
     pFPKMfileText.setText("");
+    //UPDATE TO REMOVE OUTPUT FOLDER    
+    pOutputFolderText.setText("");
     }//GEN-LAST:event_fCancelButtonActionPerformed
 
     private void pComponent1TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pComponent1TextFocusLost

@@ -42,9 +42,6 @@
         <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
           <Point value="[100, 100]"/>
         </Property>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[0, 0]"/>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="OutputFrameWindowClosing"/>
@@ -1803,7 +1800,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel4">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ee" green="e0" red="e0" type="rgb"/>
+                              <Color blue="f2" green="e8" red="e8" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -2840,7 +2837,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel5">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="de" green="ea" red="f8" type="rgb"/>
+                              <Color blue="e9" green="f1" red="fa" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -2944,6 +2941,7 @@
                                   <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
+                                <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton13ActionPerformed"/>
@@ -2960,6 +2958,7 @@
                                   <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Cancel"/>
+                                <Property name="enabled" type="boolean" value="false"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fCancelButton1ActionPerformed"/>
@@ -2975,7 +2974,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel11">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="de" green="ea" red="f8" type="rgb"/>
+                              <Color blue="e9" green="f1" red="fa" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -3181,6 +3180,7 @@
                                     <StringItem index="7" value="center"/>
                                   </StringArray>
                                 </Property>
+                                <Property name="selectedIndex" type="int" value="1"/>
                                 <Property name="toolTipText" type="java.lang.String" value="Plot legend position."/>
                               </Properties>
                               <AuxValues>
@@ -3289,7 +3289,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel10">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="fa" green="ef" red="e1" type="rgb"/>
+                              <Color blue="fb" green="f3" red="e9" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -3424,7 +3424,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel12">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="fa" green="ef" red="e1" type="rgb"/>
+                              <Color blue="fb" green="f3" red="e9" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -5094,7 +5094,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel21">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="d7" green="f1" red="f4" type="rgb"/>
+                              <Color blue="eb" green="f8" red="f9" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -5295,7 +5295,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel24">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="d7" green="f1" red="f4" type="rgb"/>
+                              <Color blue="eb" green="f8" red="f9" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -5439,7 +5439,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel25">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="f1" green="d9" red="bd" type="rgb"/>
+                              <Color blue="fa" green="f2" red="e9" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -5640,7 +5640,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel26">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="f1" green="d9" red="bd" type="rgb"/>
+                              <Color blue="fa" green="f2" red="e9" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -5784,7 +5784,7 @@
                         <Container class="javax.swing.JPanel" name="jPanel27">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="f3" green="f8" red="e4" type="rgb"/>
+                              <Color blue="f7" green="fa" red="ee" type="rgb"/>
                             </Property>
                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
