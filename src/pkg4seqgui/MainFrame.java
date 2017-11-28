@@ -212,6 +212,7 @@ public class MainFrame extends javax.swing.JFrame {
         CloseOutput = new javax.swing.JToggleButton();
         ReloadOutput = new javax.swing.JToggleButton();
         RemoveOutput = new javax.swing.JButton();
+        DlogButton = new javax.swing.JButton();
         IExecutionStarRSEM = new javax.swing.ButtonGroup();
         ConfigurationFrame = new javax.swing.JFrame();
         jLabel18 = new javax.swing.JLabel();
@@ -684,7 +685,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         OutputFrame.getContentPane().add(ReloadOutput, gridBagConstraints);
 
@@ -701,6 +701,17 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         OutputFrame.getContentPane().add(RemoveOutput, gridBagConstraints);
+
+        DlogButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/log.png"))); // NOI18N
+        DlogButton.setText("Docker Logs");
+        DlogButton.setEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        OutputFrame.getContentPane().add(DlogButton, gridBagConstraints);
 
         ConfigurationFrame.setTitle("Configuration");
         ConfigurationFrame.setLocation(new java.awt.Point(200, 200));
@@ -4668,6 +4679,7 @@ public class MainFrame extends javax.swing.JFrame {
         SSbrowes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         SSbrowes.setText("Browse");
         SSbrowes.setToolTipText("");
+        SSbrowes.setEnabled(false);
         SSbrowes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SSbrowesActionPerformed(evt);
@@ -4683,6 +4695,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         SScancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         SScancel.setText("Cancel");
+        SScancel.setEnabled(false);
         SScancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SScancelActionPerformed(evt);
@@ -4941,6 +4954,7 @@ public class MainFrame extends javax.swing.JFrame {
         SSbrowes1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         SSbrowes1.setText("Browse");
         SSbrowes1.setToolTipText("");
+        SSbrowes1.setEnabled(false);
         SSbrowes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SSbrowes1ActionPerformed(evt);
@@ -4956,6 +4970,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         SScancel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         SScancel1.setText("Cancel");
+        SScancel1.setEnabled(false);
         SScancel1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SScancel1ActionPerformed(evt);
@@ -7089,6 +7104,24 @@ public class MainFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error reading R output file","Error",JOptionPane.ERROR_MESSAGE);
             }
             OutputText.setText(text);
+            if (tmpListEntry.status.equals("Finished"))
+            {
+                try{
+                    File file = new File( tmpListEntry.path+"/dockerID");
+                    BufferedReader reader = new BufferedReader(new FileReader(file));
+                    String strLine;
+                    //Read File Line By Line
+                    while ((strLine = reader.readLine()) != null)   {
+                    text+="\n"+strLine;
+                    }
+                    reader.close();
+                    DlogButton.setEnabled(true);
+                }
+                catch (Exception e){//Catch exception if any
+                    System.err.println("Error: " + e.getMessage());
+                    //JOptionPane.showMessageDialog(this, "Error reading R output file","Error",JOptionPane.ERROR_MESSAGE);
+                }      
+            }
         }
         else
         {
@@ -7107,6 +7140,7 @@ public class MainFrame extends javax.swing.JFrame {
     OutputFrame.setVisible(false);        // TODO add your handling code here:
     OutputText.setText("");
     OutputText.setEnabled(true);
+    DlogButton.setEnabled(false);
     
     GL.setAvoidProcListValueChanged(-1);
     //GL.setListProcStatuSelection(-1);  
@@ -9161,12 +9195,14 @@ public class MainFrame extends javax.swing.JFrame {
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
             File f = openDir.getSelectedFile();
             SSCountTableText.setText(String.valueOf(f));
+            SSOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
         }
         getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());           
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
        SSCountTableText.setText("");
+       SSOutputFolderText.setText("");
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void SSlog2TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSlog2TextActionPerformed
@@ -9225,12 +9261,14 @@ public class MainFrame extends javax.swing.JFrame {
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
             File f = openDir.getSelectedFile();
             EPCountTableText.setText(String.valueOf(f));
+            EPOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
         }
         getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());             
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
       EPCountTableText.setText("");
+       EPOutputFolderText.setText("");
     }//GEN-LAST:event_jButton30ActionPerformed
 
     private void EPExecuteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPExecuteButton1ActionPerformed
@@ -9691,8 +9729,10 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         
+        //Anti-aliasing code
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext", "true");
+         //Anti-aliasing code
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -9762,6 +9802,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel DESPanel;
     private javax.swing.ButtonGroup DEStype;
     private javax.swing.ButtonGroup DataType;
+    private javax.swing.JButton DlogButton;
     private javax.swing.JFrame DownloadFrame;
     private javax.swing.JTextField Downloadtext;
     private javax.swing.JButton EPCloseButton;
