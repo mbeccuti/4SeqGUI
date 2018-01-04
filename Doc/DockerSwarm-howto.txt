@@ -1,0 +1,41 @@
+ Docker Swarm
+
+X Firewall on server  (To stop firewall: sudo systemctl stop  firewalld)
+
+sudo firewall-cmd --add-port=2376/tcp --permanent
+sudo firewall-cmd --add-port=2377/tcp --permanent
+sudo firewall-cmd --add-port=7946/tcp --permanent
+sudo firewall-cmd --add-port=7946/udp --permanent
+sudo firewall-cmd --add-port=4789/udp --permanent
+
+(restart firewall)
+
+To inizialize on server
+> docker swarm init --advertise-addr 192.169.1.2
+
+To list  the node connected. 
+> docker node ls
+
+To obtain the command to add new node (execute on server)
+
+>docker swarm join-token worker
+
+To leave the swarm:
+>docker swarm leave <docker_node_id>
+>docker node rm <docker_node_id>
+
+To run a service:
+
+ 
+ docker service create --replicas 1 --name test1   --restart-condition="none"  docker.io/rcaloger/bwa.2017.01  tail -f /var/log/dmesg
+
+ docker service create --replicas 1 --name Service2 --user 1000   --restart-condition="none"   --mount type=bind,src=/data/scratch/,dst=/data/scratch  docker.io/repbioinfo/skewer.2017.01 sh /bin/trim2.sh /data/scratch/Fri-Dec-29-16-43-08-2017 AGATCGGAAGAGCACACGTCTGAACTCCAGTCA AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT test_R1.fastq test_R2.fastq 10 /data/Input/ 40 
+
+ 
+ 
+ To avoid mount problem
+ sudo setenforce 0 (temporally)
+ 
+ sudo vi /etc/sysconfig/selinux 
+ set:
+ SELINUX=permissive

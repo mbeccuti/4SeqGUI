@@ -1,0 +1,89 @@
+
+Installare:
+Java ORACLE,  --> must be set with  "sudo update-alternatives --config java "
+Rstudio,
+R devel,
+git,
+openssl-devel
+libcurl-devel
+gcc g++
+
+X facilitare utilizzo 
+sudo settenforce 0
+ sudo vi /etc/sysconfig/selinux 
+ set:
+ SELINUX=permissive
+
+R
+install.packages("git2r")
+install.packages("httr")
+install.packages("devtools") 
+source("https://bioconductor.org/biocLite.R"
+biocLite("DESeq2")
+biocLite("RnaSeqSampleSize")
+
+library(devtools) 
+
+install_github("kendomaniac/docker4seq")
+
+
+utente docker:
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+newgrp docker
+
+fare partire il demone:
+sudo systemctl start docker
+
+installare i docker:
+
+sudo docker pull docker.io/rcaloger/annotate.2017.01 
+sudo docker pull docker.io/rcaloger/bwa.2017.01 
+sudo docker pull docker.io/rcaloger/chipseq.2017.01
+sudo docker pull docker.io/rcaloger/mirnaseq.2017.01 
+sudo docker pull docker.io/rcaloger/rsemstar.2017.01 
+sudo docker pull docker.io/rcaloger/skewer.2017.01 
+
+
+installare vnc-server 
+
+creare file:  /etc/systemd/system/vncserver@:2.service 
+
+contenuto file:
+
+[Unit]
+Description=Remote desktop service (VNC)
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=user
+PIDFile=/home/user/.vnc/%H%i.pid
+ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+ExecStart=/usr/bin/vncserver :2 -geometry 1024x768 -alwaysshared -fg
+ExecStop=/usr/bin/vncserver -kill :2
+
+[Install]
+WantedBy=multi-user.target
+
+
+Settare password vnc user
+Settare boot esecutio:
+sudo systemctl  enable  vncserver@:2.service
+
+
+
+testing:
+nohup R CMD BATCH script.R & 
+
+library(docker4seq)
+rsemstarIndex(group="sudo",genome.folder="/data/scratch/hg38star", ensembl.urlgenome="ftp://ftp.ensembl.org/pub/release-87/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.toplevel.fa.gz", ensembl.urlgtf="ftp://ftp.ensembl.org/pub/release-87/gtf/homo_sapiens/Homo_sapiens.GRCh38.87.gtf.gz", threads=8)
+
+
+library(docker4seq)
+system("wget http://130.192.119.59/public/test_R1.fastq.gz")
+system("wget http://130.192.119.59/public/test_R2.fastq.gz")
+rnaseqCounts(group="sudo",fastq.folder=getwd(), scratch.folder="/data/scratch", adapter5="AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT", adapter3="AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT", seq.type="pe", threads=8,  min.length=40, genome.folder="/data/scratch/hg38star", strandness="none", truncating.expected.counts=FALSE, annotation.type="gtfENSEMBL")
+
+
+R command

@@ -256,6 +256,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton36 = new javax.swing.JButton();
         jLabel99 = new javax.swing.JLabel();
         jLabel102 = new javax.swing.JLabel();
+        IExecutionSalmon = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -617,6 +618,30 @@ public class MainFrame extends javax.swing.JFrame {
         FSaveButton1 = new javax.swing.JButton();
         CResetButton1 = new javax.swing.JButton();
         CCloseButton1 = new javax.swing.JButton();
+        IndexingSalmon = new javax.swing.JScrollPane();
+        IndexingStarRSEMPanel1 = new javax.swing.JPanel();
+        iCloseButton2 = new javax.swing.JButton();
+        jButton37 = new javax.swing.JButton();
+        iResetButton2 = new javax.swing.JButton();
+        jButton38 = new javax.swing.JButton();
+        jPanel28 = new javax.swing.JPanel();
+        jLabel103 = new javax.swing.JLabel();
+        iGenomeFolderSText = new javax.swing.JTextField();
+        jToggleButton30 = new javax.swing.JToggleButton();
+        jToggleButton31 = new javax.swing.JToggleButton();
+        jLabel104 = new javax.swing.JLabel();
+        iGenomeURLSText = new javax.swing.JTextField();
+        jLabel105 = new javax.swing.JLabel();
+        iGTFURLSText = new javax.swing.JTextField();
+        iKmerSText = new javax.swing.JTextField();
+        jLabel108 = new javax.swing.JLabel();
+        jLabel109 = new javax.swing.JLabel();
+        jPanel29 = new javax.swing.JPanel();
+        jLabel106 = new javax.swing.JLabel();
+        iSudoRadioSButton = new javax.swing.JRadioButton();
+        iDockerRadioSButton = new javax.swing.JRadioButton();
+        jLabel107 = new javax.swing.JLabel();
+        iThreadSText = new javax.swing.JTextField();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -933,7 +958,7 @@ public class MainFrame extends javax.swing.JFrame {
         About4SeqGUIFrame.getContentPane().add(jLabel96, gridBagConstraints);
 
         jLabel100.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel100.setText("Version 1.0.5");
+        jLabel100.setText("Version 1.1.0");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1324,7 +1349,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         iDockerRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         IExecutionStarRSEM.add(iDockerRadioButton);
-        iDockerRadioButton.setSelected(true);
         iDockerRadioButton.setText("docker");
         iDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -5409,6 +5433,291 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(mRNABatch, "AddingCovmRNA");
 
+        IndexingStarRSEMPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transcriptome pseudo-reference building with Salmon\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        IndexingStarRSEMPanel1.setToolTipText("");
+        IndexingStarRSEMPanel1.setLayout(new java.awt.GridBagLayout());
+
+        iCloseButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        iCloseButton2.setText("Close");
+        iCloseButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iCloseButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        IndexingStarRSEMPanel1.add(iCloseButton2, gridBagConstraints);
+
+        jButton37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        jButton37.setText("Execute");
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        IndexingStarRSEMPanel1.add(jButton37, gridBagConstraints);
+
+        iResetButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        iResetButton2.setText("Reset");
+        iResetButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iResetButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        IndexingStarRSEMPanel1.add(iResetButton2, gridBagConstraints);
+
+        jButton38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
+        jButton38.setText("Save conf.");
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        IndexingStarRSEMPanel1.add(jButton38, gridBagConstraints);
+
+        jPanel28.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel28.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel28.setLayout(new java.awt.GridBagLayout());
+
+        jLabel103.setText("Genome  folder:");
+        jLabel103.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jLabel103, gridBagConstraints);
+
+        iGenomeFolderSText.setEditable(false);
+        iGenomeFolderSText.setToolTipText("The folder that will contain the indexed genome.");
+        iGenomeFolderSText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iGenomeFolderSTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(iGenomeFolderSText, gridBagConstraints);
+
+        jToggleButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton30.setText("Browse");
+        jToggleButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton30ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jToggleButton30, gridBagConstraints);
+
+        jToggleButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton31.setText("Cancel");
+        jToggleButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton31ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jToggleButton31, gridBagConstraints);
+
+        jLabel104.setText("Genome url:");
+        jLabel104.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jLabel104, gridBagConstraints);
+
+        iGenomeURLSText.setToolTipText("The URL which will be used to download the genome");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(iGenomeURLSText, gridBagConstraints);
+
+        jLabel105.setText("GTF url:");
+        jLabel105.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jLabel105, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(iGTFURLSText, gridBagConstraints);
+
+        iKmerSText.setText("31");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.05;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(iKmerSText, gridBagConstraints);
+
+        jLabel108.setText("K-mer size:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jLabel108, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.2;
+        jPanel28.add(jLabel109, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        IndexingStarRSEMPanel1.add(jPanel28, gridBagConstraints);
+
+        jPanel29.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel29.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel29.setLayout(new java.awt.GridBagLayout());
+
+        jLabel106.setText("Execution:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel29.add(jLabel106, gridBagConstraints);
+
+        iSudoRadioSButton.setBackground(new java.awt.Color(253, 232, 232));
+        IExecutionSalmon.add(iSudoRadioSButton);
+        iSudoRadioSButton.setText("sudo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel29.add(iSudoRadioSButton, gridBagConstraints);
+
+        iDockerRadioSButton.setBackground(new java.awt.Color(253, 232, 232));
+        IExecutionSalmon.add(iDockerRadioSButton);
+        iDockerRadioSButton.setSelected(true);
+        iDockerRadioSButton.setText("docker");
+        iDockerRadioSButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iDockerRadioSButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel29.add(iDockerRadioSButton, gridBagConstraints);
+
+        jLabel107.setText("Thread number:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel29.add(jLabel107, gridBagConstraints);
+
+        iThreadSText.setText("8");
+        iThreadSText.setToolTipText("The number of threads which will be used during the computation.");
+        iThreadSText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                iThreadSTextFocusLost(evt);
+            }
+        });
+        iThreadSText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iThreadSTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel29.add(iThreadSText, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        IndexingStarRSEMPanel1.add(jPanel29, gridBagConstraints);
+
+        IndexingSalmon.setViewportView(IndexingStarRSEMPanel1);
+
+        MainPanel.add(IndexingSalmon, "indexingSalmon");
+
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
         LeftPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -5421,6 +5730,10 @@ public class MainFrame extends javax.swing.JFrame {
         javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genome indexing STAR-RSEM");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genes, isoforms counting RSEM");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Transcriptome pseudo-reference building with Salmon");
+        treeNode2.add(treeNode3);
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Transcripts and genes counting with Salmon");
         treeNode2.add(treeNode3);
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("From samples to experiment");
         treeNode2.add(treeNode3);
@@ -5629,10 +5942,12 @@ public class MainFrame extends javax.swing.JFrame {
                                                     card.show(MainPanel, "AddingCovmRNA");
                                                     CurrentLayout="AddingCovmRNA";  
                                                 }
-                            
-                            
-                                                
-                        
+                                                else
+                                                    if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Transcriptome pseudo-reference building with Salmon" ){
+                                                        iThreadSText.setText(Integer.toString(GS.getDefaultThread()));
+                                                        card.show(MainPanel, "indexingSalmon");
+                                                        CurrentLayout="indexingSalmon"; 
+                                                    }
             }
         }
     }//GEN-LAST:event_AnalysisTreeValueChanged
@@ -6069,7 +6384,8 @@ public class MainFrame extends javax.swing.JFrame {
                         }
                     line++;
                     } 
-                }else
+                }
+                else
                     if ( CurrentLayout=="mRNA"){
                         int line=0;
                         //chekc right file
@@ -6119,7 +6435,7 @@ public class MainFrame extends javax.swing.JFrame {
                             line++;
                             } 
                         }
-                    else{
+                    else
                         if (CurrentLayout=="indexing"){
                             int line=0;
                             //chekc right file
@@ -6152,6 +6468,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 line++;
                             }
                         }
+                        else
                         if (CurrentLayout=="FPKMCounting"){
                             //chekc right file
                             if (!br.readLine().equals("FPKMCounting")){
@@ -6261,7 +6578,6 @@ public class MainFrame extends javax.swing.JFrame {
                                     }
                                 }
                                 else
-                                {
                                 if (CurrentLayout=="indexingB"){
                                 int line=0;
                                 //chekc right file
@@ -6426,11 +6742,12 @@ public class MainFrame extends javax.swing.JFrame {
                                      }
                                      else
                                         if(CurrentLayout=="ExperimentPower"){
-                                        int line=0;
+                                        
                                         //chekc right file
                                         if (!br.readLine().equals("ExperimentPower")){
                                             throw(new NumberFormatException());
                                         }
+                                        int line=0;
                                         for (String x = br.readLine(); x != null; x = br.readLine()){
                                             switch (line){
                                                 case 0:
@@ -6457,35 +6774,70 @@ public class MainFrame extends javax.swing.JFrame {
                                             line++;
                                         
                                         }
-                                     }
-                                     else{
-                                        if (!br.readLine().equals("AddingCovmRNA")){
-                                            throw(new NumberFormatException());
-                                        }
-                                        int line=0;
-                                        for (String x = br.readLine(); x != null; x = br.readLine()){
-                                            switch (line){
-                                                case 0:
-                                                    CCovInputFileText.setText(x);
-                                                break;
-                                                case 1:
-                                                    COutputFolderText.setText(x);
-                                                break;    
-                                                default:
-                                                    DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
-                                                    String col2 = br.readLine();
-                                                    String col3 = br.readLine();
-                                                    if (col2==null)
-                                                        col2="Cov.1";
-                                                    if (col3==null)
-                                                        col3="Batch1";
-                                                    model.addRow(new Object[]{x,col2,col3}); 
+                                     }   
+                                     else
+                                        if(CurrentLayout=="AddingCovmRNA"){
+                                            if (!br.readLine().equals("AddingCovmRNA")){
+                                                throw(new NumberFormatException());
                                             }
-                                        line++;
+                                            int line=0;
+                                            for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                switch (line){
+                                                    case 0:
+                                                        CCovInputFileText.setText(x);
+                                                    break;
+                                                    case 1:
+                                                        COutputFolderText.setText(x);
+                                                    break;    
+                                                    default:
+                                                        DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
+                                                        String col2 = br.readLine();
+                                                        String col3 = br.readLine();
+                                                        if (col2==null)
+                                                            col2="Cov.1";
+                                                        if (col3==null)
+                                                            col3="Batch1";
+                                                        model.addRow(new Object[]{x,col2,col3}); 
+                                                }
+                                            line++;
+                                            }
                                         }
-                                    }
-                           }
-                    }
+                                        else
+                                            if (CurrentLayout=="indexingSalmon"){
+                                                //chekc right file
+                                                if (!br.readLine().equals("indexingSalmon")){
+                                                    throw(new NumberFormatException());
+                                                }
+                                                int line=0;
+                                                for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                switch (line){
+                                                    case 0:
+                                                    if (x.equals("sudo"))
+                                                        iSudoRadioSButton.setSelected(true);
+                                                    else
+                                                        iDockerRadioSButton.setSelected(true);
+                                                    break;
+                                                    case 1:
+                                                        iGenomeFolderSText.setText(x);
+                                                    break;
+                                                    case 2:
+                                                        iThreadSText.setText(x);
+                                                    break;  
+                                                    case 3:
+                                                        iGenomeURLSText.setText(x);
+                                                    break;
+                                                    case 4:
+                                                        iGTFURLSText.setText(x);
+                                                    break;
+                                                    case 5:
+                                                        iKmerSText.setText(x);
+                                                    break;    
+                                                    default:
+                                                        throw(new NumberFormatException()); 
+                                                }                                
+                                                line++;
+                                                }
+                                            }
                 getPreferences().put("saved-file",openFile.getCurrentDirectory().getAbsolutePath());  
                 br.close();
                 }
@@ -6799,7 +7151,26 @@ public class MainFrame extends javax.swing.JFrame {
                                                             bw.write(CCountHeaderTable.getModel().getValueAt(i,2).toString());
                                                             bw.write("\n");
                                                         }   
-                                                  }  
+                                                  }
+                                                  else
+                                                      if (CurrentLayout=="indexingSalmon"){   
+                                                            bw.write("indexingSalmon\n");
+                                                            if (iSudoRadioSButton.isSelected()){
+                                                                bw.write("sudo\n");                
+                                                            }                
+                                                            else{
+                                                                bw.write("docker\n");
+                                                            }
+                                                            bw.write(iGenomeFolderSText.getText());
+                                                            bw.write("\n");
+                                                            bw.write(iThreadSText.getText());
+                                                            bw.write("\n");
+                                                            bw.write(iGenomeURLSText.getText());
+                                                            bw.write("\n");
+                                                            bw.write(iGTFURLSText.getText());
+                                                            bw.write("\n");
+                                                            bw.write(iKmerSText.getText());
+                                                      }
                         }
                   
                
@@ -7309,7 +7680,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         if (iGenomeFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an Genome folder","Error: FastQ  folder",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "You have to specified an Genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
             return;
         }
         else
@@ -7647,6 +8018,7 @@ public class MainFrame extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
             model.removeRow(0);
         }
+        FOutputFolderText.setText("");
         //RESET FIELDS
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "Empty");
@@ -7660,6 +8032,7 @@ public class MainFrame extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
             model.removeRow(0);
         }
+        FOutputFolderText.setText("");
     }//GEN-LAST:event_FResetButtonActionPerformed
 
     private void FExecuteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FExecuteButtonActionPerformed
@@ -9718,6 +10091,183 @@ public class MainFrame extends javax.swing.JFrame {
     private void OutputFrameWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_OutputFrameWindowClosing
       outputTime.cancel();
     }//GEN-LAST:event_OutputFrameWindowClosing
+
+    private void iCloseButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iCloseButton2ActionPerformed
+    iDockerRadioSButton.setSelected(true);
+    iGenomeFolderSText.setText("");
+    iThreadSText.setText(Integer.toString(GS.getDefaultThread()));
+    iGenomeURLSText.setText("");
+    iGTFURLSText.setText("");
+    iKmerSText.setText("31");
+    //RESET FIELDS
+    CardLayout card = (CardLayout)MainPanel.getLayout();
+    card.show(MainPanel, "Empty");
+    CurrentLayout="Empty";
+    AnalysisTree.clearSelection();
+    }//GEN-LAST:event_iCloseButton2ActionPerformed
+
+    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
+     if (iGenomeFolderSText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an Genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else
+        if (iGenomeURLSText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an Genome URL ","Error: Genome URL",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else
+             if (iGTFURLSText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an GTF URL ","Error: GTF URL",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        else
+        if (iThreadSText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            iThreadSText.requestFocusInWindow();
+            return;
+        }
+        try
+        {
+            Integer x = Integer.valueOf(iThreadSText.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+                iThreadSText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            iThreadSText.requestFocusInWindow();
+            return;
+        }
+        
+        if (iKmerSText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified the k-mer size that will be used.","Error: k-mer  number",JOptionPane.ERROR_MESSAGE);
+            iKmerSText.requestFocusInWindow();
+            return;
+        }
+        try
+        {
+            Integer x = Integer.valueOf(iKmerSText.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: k-mer  number",JOptionPane.ERROR_MESSAGE);
+                iKmerSText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified the k-mer size that will be used.","Error: k-mer number",JOptionPane.ERROR_MESSAGE);
+            iKmerSText.requestFocusInWindow();
+            return;
+        }
+        
+        
+        //execute code
+        Runtime rt = Runtime.getRuntime();
+        try{
+            String[] cmd = {"/bin/bash","-c"," bash ./execIndexingSalmon.sh "};
+            if (iSudoRadioSButton.isSelected()){
+                    cmd[2]+= "group=\\\"sudo\\\"";
+            }
+            else{
+                    cmd[2]+= "group=\\\"docker\\\"";
+            }
+            cmd[2]+= " genome.folder=\\\""+iGenomeFolderSText.getText()+"\\\" ensembl.urltranscriptome=\\\""+iGenomeURLSText.getText()+"\\\" ensembl.urlgtf=\\\""+iGTFURLSText.getText()+"\\\"";
+            cmd[2]+= " threads="+iThreadSText.getText()+ " k="+iKmerSText.getText()+" "+iGenomeFolderSText.getText() + " >& "+iGenomeFolderSText.getText()+"/outputExecution ";
+            //ProcessStatus.setText(pr.toString());
+            if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                Process pr = rt.exec(cmd); 
+                System.out.println("Runing PID:"+ getPidOfProcess(pr)+"\n");
+                
+                ElProcRunning tmp= new ElProcRunning("Pseudo-reference building Salmon ", iGenomeFolderSText.getText(),pr,listModel.getSize());
+                listProcRunning.add(tmp);
+                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                ImageIcon image2 = new ImageIcon(imgURL);
+                GL.setAvoidProcListValueChanged(-1);
+                listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                GL.setAvoidProcListValueChanged(0);
+                if(listProcRunning.size()==1){
+                    t=new Timer();
+                    t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                    }
+                }         
+                else{
+                    ElProcWaiting tmp= new ElProcWaiting("Pseudo-reference building Salmon  ",iGenomeFolderSText.getText(),cmd,listModel.getSize());
+                    listProcWaiting.add(tmp);
+                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                    ImageIcon image2 = new ImageIcon(imgURL);
+                    GL.setAvoidProcListValueChanged(-1);
+                    listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                    GL.setAvoidProcListValueChanged(0);
+                    }  
+                GL.setAvoidProcListValueChanged(-1);
+                ProcList.setModel(listModel);
+                ProcList.setCellRenderer(new ListEntryCellRenderer()); 
+                GL.setAvoidProcListValueChanged(0);
+            } 
+        catch(Exception e) {
+            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+            }
+                    
+        
+        JOptionPane.showMessageDialog(this, "Transcriptome pseudo-reference Salmon task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        
+    }//GEN-LAST:event_jButton37ActionPerformed
+
+    private void iResetButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iResetButton2ActionPerformed
+     iDockerRadioSButton.setSelected(true);
+     iGenomeFolderSText.setText("");
+     iThreadSText.setText(Integer.toString(GS.getDefaultThread()));
+     iGenomeURLSText.setText("");
+     iGTFURLSText.setText("");
+     iKmerSText.setText("31");
+    }//GEN-LAST:event_iResetButton2ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+    saveAsMenuItemActionPerformed(evt);    
+    }//GEN-LAST:event_jButton38ActionPerformed
+
+    private void iGenomeFolderSTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iGenomeFolderSTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iGenomeFolderSTextActionPerformed
+
+    private void jToggleButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton30ActionPerformed
+     JFileChooser openDir = new JFileChooser();
+     if (!(iGenomeFolderSText.getText().equals(""))){
+            File file =new File(iGenomeFolderSText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+     else
+     {
+        String curDir = getPreferences().get("open-dir", null);
+        openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+     }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            iGenomeFolderSText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jToggleButton30ActionPerformed
+
+    private void jToggleButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton31ActionPerformed
+    iGenomeFolderSText.setText("");
+    }//GEN-LAST:event_jToggleButton31ActionPerformed
+
+    private void iDockerRadioSButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iDockerRadioSButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iDockerRadioSButtonActionPerformed
+
+    private void iThreadSTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_iThreadSTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iThreadSTextFocusLost
+
+    private void iThreadSTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iThreadSTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iThreadSTextActionPerformed
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
         About4SeqGUIFrame.pack(); 
         About4SeqGUIFrame.setLocationRelativeTo(null);                                       
@@ -9836,11 +10386,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup GATK;
     private javax.swing.JSplitPane HorizontalSplitPanel;
     private javax.swing.ButtonGroup IExecutionBWA;
+    private javax.swing.ButtonGroup IExecutionSalmon;
     private javax.swing.ButtonGroup IExecutionStarRSEM;
     private javax.swing.JScrollPane IndexingBWA;
     private javax.swing.JPanel IndexingBWAPanel;
+    private javax.swing.JScrollPane IndexingSalmon;
     private javax.swing.JScrollPane IndexingStarRSEM;
     private javax.swing.JPanel IndexingStarRSEMPanel;
+    private javax.swing.JPanel IndexingStarRSEMPanel1;
     private javax.swing.JPanel LeftPanel;
     private javax.swing.JScrollPane MACS;
     private javax.swing.JPanel MACSPanel;
@@ -9924,18 +10477,27 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton iBTrueRadioButton;
     private javax.swing.JButton iCloseButton;
     private javax.swing.JButton iCloseButton1;
+    private javax.swing.JButton iCloseButton2;
     private javax.swing.JRadioButton iDockerBRadioButton;
     private javax.swing.JRadioButton iDockerRadioButton;
+    private javax.swing.JRadioButton iDockerRadioSButton;
+    private javax.swing.JTextField iGTFURLSText;
     private javax.swing.JTextField iGTFURLText;
     private javax.swing.JTextField iGenomeFolderBText;
+    private javax.swing.JTextField iGenomeFolderSText;
     private javax.swing.JTextField iGenomeFolderText;
     private javax.swing.JTextField iGenomeURLBText;
+    private javax.swing.JTextField iGenomeURLSText;
     private javax.swing.JTextField iGenomeURLText;
+    private javax.swing.JTextField iKmerSText;
     private javax.swing.JButton iResetButton;
     private javax.swing.JButton iResetButton1;
+    private javax.swing.JButton iResetButton2;
     private javax.swing.JRadioButton iSudoBRadioButton;
     private javax.swing.JRadioButton iSudoRadioButton;
+    private javax.swing.JRadioButton iSudoRadioSButton;
     private javax.swing.JTextField iThreadBText;
+    private javax.swing.JTextField iThreadSText;
     private javax.swing.JTextField iThreadText;
     private javax.swing.JToggleButton idbSPNBrowseButton;
     private javax.swing.JToggleButton idbSPNCancelButton;
@@ -9970,6 +10532,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -9981,6 +10545,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
+    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -10111,6 +10682,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel25;
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -10148,6 +10721,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton28;
     private javax.swing.JToggleButton jToggleButton29;
     private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton30;
+    private javax.swing.JToggleButton jToggleButton31;
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;

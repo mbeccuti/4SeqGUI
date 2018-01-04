@@ -1,0 +1,21 @@
+Autofs installation
+
+1.
+>sudo dnf -y install autofs 
+
+2.
+>vi /etc/auto.master 
+
+to update the file as follows:
++auto.master
+/-    /etc/auto.mount
+
+3.
+>sudo vi /etc/auto.mount 
+
+to update the file as follows:
+/home/data/Input -fstype=nfs,rw 192.169.1.2:/home/data/Input
+
+4.
+>sudo systemctl start autofs
+>sudo  systemctl enable autofs 

@@ -1,0 +1,24 @@
+NFS server:
+
+If it is not installed then you should install:
+sudo dnf install -y nfs-utils
+
+
+> vi /etc/idmapd.conf 
+
+# line 5: uncomment and change to your domain name
+Domain = srv.world
+
+> vi /etc/exports 
+
+# write settings for NFS export
+/home/data/scratch/  192.169.1.0/24(rw,no_subtree_check,sync,root_squash)
+
+
+> sudo systemctl  enable  nfs-server     
+> sudo systemctl  enable  rpcbind 
+
+> sudo firewall-cmd --add-service=nfs --permanent  
+> sudo firewall-cmd --add-service=mountd --permanent
+> sudo firewall-cmd --add-service=rpc-bind --permanent
+> sudo  firewall-cmd --reload                                                             

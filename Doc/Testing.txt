@@ -1,0 +1,29 @@
+controlla che esista il folder /data/genomes
+e che contenga:
+hg38star  mm10bwa  mm10star
+poi in /data
+wget http://130.192.119.59/public/tests.tar.gz
+gzip -d tests.tar.gz
+tar xvf tests.tar
+rm tests.tar
+
+poi in R:
+
+library(devtools)
+ install_github("kendomaniac/docker4seq", ref="master")
+
+ed esegui in R:
+library(docker4seq)
+testSeqbox()
+
+
+questa funzione testa che tutto sia ok per le principali funzionalita’ di docker4seq
+alla fine in /data ci sara' il file testSeqBox.out
+che contiene i risultati del test.
+poi puoi cancellare /data/tests
+
+scarica l’ultima versione di 4SeqGUI in /home/user
+https://github.com/mbeccuti/4SeqGUI
+
+
+e creare un immagine da questa release
