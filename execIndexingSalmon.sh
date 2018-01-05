@@ -2,7 +2,7 @@
 
 
 group=$1
-genomefolder=$2
+indexfolder=$2
 urltranscriptome=$3
 gtfurl=$4
 thread=$5
@@ -32,7 +32,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $genomefolder $urltranscriptome $gtfurl $thread $k' ./Rscripts/indexingSalmon.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $indexfolder $urltranscriptome $gtfurl $thread $k' ./Rscripts/indexingSalmon.R  $output/Routput.Rout"
 
 echo "$args"
 

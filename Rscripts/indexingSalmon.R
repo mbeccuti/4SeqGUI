@@ -15,4 +15,4 @@ if(length(args)==0){
 }
 
 library(docker4seq)
-salmonIndex(group=group,genome.folder=genome.folder, ensembl.urltranscriptome=ensembl.urltranscriptome, ensembl.urlgtf=ensembl.urlgtf, k=k)
+salmonIndex(group=group,index.folder=index.folder, ensembl.urltranscriptome=ensembl.urltranscriptome, ensembl.urlgtf=ensembl.urlgtf, k=k)

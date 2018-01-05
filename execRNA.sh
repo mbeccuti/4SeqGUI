@@ -14,7 +14,8 @@ genomefolder=$9
 strandness=${10}
 annotation=${11}
 bam=${12}
-output=${13}
+org=${13}
+output=${14}
 path=${PWD}
 
 
@@ -35,6 +36,7 @@ echo "Genome folder:     $genomefolder"
 echo "Strandness:        $strandness"
 echo "Annotation:        $annotation"
 echo "Bam:               $bam"
+echo "Org:               $org"
 echo "Output:            $output"
 echo 
 echo "======================================================="
@@ -46,7 +48,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $fastqfolder $scratchfolder  $adapter5  $adapter3  $seqtype $thread $minlength $genomefolder $strandness  $annotation $bam' ./Rscripts/rnaseqCounts.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $fastqfolder $scratchfolder  $adapter5  $adapter3  $seqtype $thread $minlength $genomefolder $strandness  $annotation $bam $org' ./Rscripts/rnaseqCounts.R  $output/Routput.Rout"
 
 echo "$args"
 

@@ -97,7 +97,16 @@ public class MainFrame extends javax.swing.JFrame {
         //indexingBW
         contextMenu.add(iThreadBText);
         contextMenu.add(iGenomeURLBText);
-        
+        //indexingSalmonPanel
+        contextMenu.add(iThreadSText);
+        contextMenu.add(iGenomeURLSText);
+        contextMenu.add(iGTFURLSText);
+        //countingSalmon
+        contextMenu.add(cThreadText);
+        contextMenu.add(cAdapter5Text);
+        contextMenu.add(cAdapter3Text);
+        contextMenu.add(cMinLengthText);
+       
         
         FPKMFileTable.getColumn("Folder").setPreferredWidth(1000);
 
@@ -257,6 +266,9 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel99 = new javax.swing.JLabel();
         jLabel102 = new javax.swing.JLabel();
         IExecutionSalmon = new javax.swing.ButtonGroup();
+        cExecutiionSalmon = new javax.swing.ButtonGroup();
+        cSeq = new javax.swing.ButtonGroup();
+        cStrand = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -619,7 +631,7 @@ public class MainFrame extends javax.swing.JFrame {
         CResetButton1 = new javax.swing.JButton();
         CCloseButton1 = new javax.swing.JButton();
         IndexingSalmon = new javax.swing.JScrollPane();
-        IndexingStarRSEMPanel1 = new javax.swing.JPanel();
+        IndexingSalmonPanel = new javax.swing.JPanel();
         iCloseButton2 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
         iResetButton2 = new javax.swing.JButton();
@@ -642,6 +654,45 @@ public class MainFrame extends javax.swing.JFrame {
         iDockerRadioSButton = new javax.swing.JRadioButton();
         jLabel107 = new javax.swing.JLabel();
         iThreadSText = new javax.swing.JTextField();
+        CountingSalmon = new javax.swing.JScrollPane();
+        CountingSalmonPanel = new javax.swing.JPanel();
+        vCloseButton5 = new javax.swing.JButton();
+        jButton39 = new javax.swing.JButton();
+        jButton40 = new javax.swing.JButton();
+        jButton41 = new javax.swing.JButton();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel110 = new javax.swing.JLabel();
+        cFastQFolderText = new javax.swing.JTextField();
+        jToggleButton32 = new javax.swing.JToggleButton();
+        jToggleButton33 = new javax.swing.JToggleButton();
+        jLabel111 = new javax.swing.JLabel();
+        cOutputFolderText = new javax.swing.JTextField();
+        jToggleButton34 = new javax.swing.JToggleButton();
+        jToggleButton35 = new javax.swing.JToggleButton();
+        jLabel112 = new javax.swing.JLabel();
+        cGenomeFolderText = new javax.swing.JTextField();
+        jToggleButton36 = new javax.swing.JToggleButton();
+        jToggleButton37 = new javax.swing.JToggleButton();
+        jPanel31 = new javax.swing.JPanel();
+        jLabel113 = new javax.swing.JLabel();
+        cSudoRadioButton = new javax.swing.JRadioButton();
+        cDockerRadioButton = new javax.swing.JRadioButton();
+        jLabel114 = new javax.swing.JLabel();
+        cThreadText = new javax.swing.JTextField();
+        jPanel32 = new javax.swing.JPanel();
+        cAdapter5Text = new javax.swing.JTextField();
+        jLabel115 = new javax.swing.JLabel();
+        jLabel116 = new javax.swing.JLabel();
+        cAdapter3Text = new javax.swing.JTextField();
+        cPeRadioButton = new javax.swing.JRadioButton();
+        cSeRadioButton = new javax.swing.JRadioButton();
+        jLabel117 = new javax.swing.JLabel();
+        jLabel118 = new javax.swing.JLabel();
+        cMinLengthText = new javax.swing.JTextField();
+        jLabel119 = new javax.swing.JLabel();
+        cSNoneRadioButton = new javax.swing.JRadioButton();
+        cSForwardRadioButton = new javax.swing.JRadioButton();
+        cSReverseRadioButton = new javax.swing.JRadioButton();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -1349,6 +1400,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         iDockerRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         IExecutionStarRSEM.add(iDockerRadioButton);
+        iDockerRadioButton.setSelected(true);
         iDockerRadioButton.setText("docker");
         iDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2034,7 +2086,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(FPKM, "FPKMCounting");
 
-        vmRNAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genes, isoforms counting RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14))); // NOI18N
+        vmRNAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genes, isoforms counting RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 102, 102))); // NOI18N
         vmRNAPanel.setToolTipText("");
         vmRNAPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -2099,7 +2151,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jButton3, gridBagConstraints);
 
-        jPanel2.setBackground(new java.awt.Color(230, 230, 235));
+        jPanel2.setBackground(new java.awt.Color(230, 235, 235));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -2265,7 +2317,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jPanel2, gridBagConstraints);
 
-        jPanel3.setBackground(new java.awt.Color(230, 230, 235));
+        jPanel3.setBackground(new java.awt.Color(230, 235, 235));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
@@ -2277,7 +2329,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel1, gridBagConstraints);
 
-        vSudoRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vSudoRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         vExecution.add(vSudoRadioButton);
         vSudoRadioButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2288,7 +2340,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
         jPanel3.add(vSudoRadioButton, gridBagConstraints);
 
-        vDockerRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vDockerRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         vExecution.add(vDockerRadioButton);
         vDockerRadioButton.setSelected(true);
         vDockerRadioButton.setText("docker");
@@ -2345,7 +2397,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jPanel3, gridBagConstraints);
 
-        jPanel6.setBackground(new java.awt.Color(230, 230, 235));
+        jPanel6.setBackground(new java.awt.Color(230, 235, 235));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
@@ -2407,7 +2459,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vAdapter3Text, gridBagConstraints);
 
-        vPeRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vPeRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         vSeq.add(vPeRadioButton);
         vPeRadioButton.setSelected(true);
         vPeRadioButton.setText("paired-end");
@@ -2425,7 +2477,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vPeRadioButton, gridBagConstraints);
 
-        vSeRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vSeRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         vSeq.add(vSeRadioButton);
         vSeRadioButton.setText("single-end");
         vSeRadioButton.setToolTipText("");
@@ -2486,7 +2538,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(jLabel10, gridBagConstraints);
 
-        vSNoneRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vSNoneRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         Strand.add(vSNoneRadioButton);
         vSNoneRadioButton.setSelected(true);
         vSNoneRadioButton.setText("none");
@@ -2505,7 +2557,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vSNoneRadioButton, gridBagConstraints);
 
-        vSForwardRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vSForwardRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         Strand.add(vSForwardRadioButton);
         vSForwardRadioButton.setText("forward");
         vSForwardRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2522,7 +2574,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vSForwardRadioButton, gridBagConstraints);
 
-        vSReverseRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vSReverseRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         Strand.add(vSReverseRadioButton);
         vSReverseRadioButton.setText("reverse");
         vSReverseRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2536,6 +2588,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 8;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vSReverseRadioButton, gridBagConstraints);
 
@@ -2577,7 +2630,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(jLabel13, gridBagConstraints);
 
-        vBAMyesRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vBAMyesRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         Annotation.add(vBAMyesRadioButton);
         vBAMyesRadioButton.setText("Yes");
         vBAMyesRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2593,7 +2646,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vBAMyesRadioButton, gridBagConstraints);
 
-        vBAMnoLRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        vBAMnoLRadioButton.setBackground(new java.awt.Color(230, 235, 235));
         Annotation.add(vBAMnoLRadioButton);
         vBAMnoLRadioButton.setSelected(true);
         vBAMnoLRadioButton.setText("No");
@@ -2616,7 +2669,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jPanel6, gridBagConstraints);
 
@@ -5433,9 +5487,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(mRNABatch, "AddingCovmRNA");
 
-        IndexingStarRSEMPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transcriptome pseudo-reference building with Salmon\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
-        IndexingStarRSEMPanel1.setToolTipText("");
-        IndexingStarRSEMPanel1.setLayout(new java.awt.GridBagLayout());
+        IndexingSalmonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transcriptome pseudo-reference building with Salmon\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        IndexingSalmonPanel.setToolTipText("");
+        IndexingSalmonPanel.setLayout(new java.awt.GridBagLayout());
 
         iCloseButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         iCloseButton2.setText("Close");
@@ -5450,7 +5504,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        IndexingStarRSEMPanel1.add(iCloseButton2, gridBagConstraints);
+        IndexingSalmonPanel.add(iCloseButton2, gridBagConstraints);
 
         jButton37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton37.setText("Execute");
@@ -5466,7 +5520,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        IndexingStarRSEMPanel1.add(jButton37, gridBagConstraints);
+        IndexingSalmonPanel.add(jButton37, gridBagConstraints);
 
         iResetButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         iResetButton2.setText("Reset");
@@ -5481,7 +5535,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        IndexingStarRSEMPanel1.add(iResetButton2, gridBagConstraints);
+        IndexingSalmonPanel.add(iResetButton2, gridBagConstraints);
 
         jButton38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         jButton38.setText("Save conf.");
@@ -5496,7 +5550,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        IndexingStarRSEMPanel1.add(jButton38, gridBagConstraints);
+        IndexingSalmonPanel.add(jButton38, gridBagConstraints);
 
         jPanel28.setBackground(new java.awt.Color(253, 232, 232));
         jPanel28.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -5627,7 +5681,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        IndexingStarRSEMPanel1.add(jPanel28, gridBagConstraints);
+        IndexingSalmonPanel.add(jPanel28, gridBagConstraints);
 
         jPanel29.setBackground(new java.awt.Color(253, 232, 232));
         jPanel29.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -5712,11 +5766,532 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        IndexingStarRSEMPanel1.add(jPanel29, gridBagConstraints);
+        IndexingSalmonPanel.add(jPanel29, gridBagConstraints);
 
-        IndexingSalmon.setViewportView(IndexingStarRSEMPanel1);
+        IndexingSalmon.setViewportView(IndexingSalmonPanel);
 
         MainPanel.add(IndexingSalmon, "indexingSalmon");
+
+        CountingSalmonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transcripts and genes counting with Salmon ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        CountingSalmonPanel.setToolTipText("");
+        CountingSalmonPanel.setLayout(new java.awt.GridBagLayout());
+
+        vCloseButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        vCloseButton5.setText("Close");
+        vCloseButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vCloseButton5ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        CountingSalmonPanel.add(vCloseButton5, gridBagConstraints);
+
+        jButton39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        jButton39.setText("Execute");
+        jButton39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton39ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        CountingSalmonPanel.add(jButton39, gridBagConstraints);
+
+        jButton40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        jButton40.setText("Reset");
+        jButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton40ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        CountingSalmonPanel.add(jButton40, gridBagConstraints);
+
+        jButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
+        jButton41.setText("Save conf.");
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        CountingSalmonPanel.add(jButton41, gridBagConstraints);
+
+        jPanel30.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel30.setToolTipText("");
+        jPanel30.setLayout(new java.awt.GridBagLayout());
+
+        jLabel110.setText("FastQ  folder:");
+        jLabel110.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel110, gridBagConstraints);
+
+        cFastQFolderText.setEditable(false);
+        cFastQFolderText.setToolTipText("The folder containing the input reads in FastQ format.");
+        cFastQFolderText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cFastQFolderTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        jPanel30.add(cFastQFolderText, gridBagConstraints);
+
+        jToggleButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton32.setText("Browse");
+        jToggleButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton32ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jToggleButton32, gridBagConstraints);
+
+        jToggleButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton33.setText("Cancel");
+        jToggleButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton33ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jToggleButton33, gridBagConstraints);
+
+        jLabel111.setText("Scratch folder:");
+        jLabel111.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel111, gridBagConstraints);
+
+        cOutputFolderText.setEditable(false);
+        cOutputFolderText.setToolTipText("This folder will be mounted in the docker container.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        jPanel30.add(cOutputFolderText, gridBagConstraints);
+
+        jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton34.setText("Browse");
+        jToggleButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton34ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jToggleButton34, gridBagConstraints);
+
+        jToggleButton35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton35.setText("Cancel");
+        jToggleButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton35ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jToggleButton35, gridBagConstraints);
+
+        jLabel112.setText("Genome folder:");
+        jLabel112.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.6;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel112, gridBagConstraints);
+
+        cGenomeFolderText.setEditable(false);
+        cGenomeFolderText.setToolTipText("The folder containing the indexed genome.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        jPanel30.add(cGenomeFolderText, gridBagConstraints);
+
+        jToggleButton36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton36.setText("Browse");
+        jToggleButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton36ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jToggleButton36, gridBagConstraints);
+
+        jToggleButton37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton37.setText("Cancel");
+        jToggleButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton37ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jToggleButton37, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        CountingSalmonPanel.add(jPanel30, gridBagConstraints);
+
+        jPanel31.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel31.setToolTipText("");
+        jPanel31.setLayout(new java.awt.GridBagLayout());
+
+        jLabel113.setText("Execution:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel31.add(jLabel113, gridBagConstraints);
+
+        cSudoRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cExecutiionSalmon.add(cSudoRadioButton);
+        cSudoRadioButton.setText("sudo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        jPanel31.add(cSudoRadioButton, gridBagConstraints);
+
+        cDockerRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cExecutiionSalmon.add(cDockerRadioButton);
+        cDockerRadioButton.setSelected(true);
+        cDockerRadioButton.setText("docker");
+        cDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cDockerRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel31.add(cDockerRadioButton, gridBagConstraints);
+
+        jLabel114.setText("Thread number:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel31.add(jLabel114, gridBagConstraints);
+
+        cThreadText.setText("8");
+        cThreadText.setToolTipText("The number of threads which will be used during the computation.");
+        cThreadText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cThreadTextFocusLost(evt);
+            }
+        });
+        cThreadText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cThreadTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        jPanel31.add(cThreadText, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        CountingSalmonPanel.add(jPanel31, gridBagConstraints);
+
+        jPanel32.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel32.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel32.setLayout(new java.awt.GridBagLayout());
+
+        cAdapter5Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cAdapter5TextFocusLost(evt);
+            }
+        });
+        cAdapter5Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cAdapter5TextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 24;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(cAdapter5Text, gridBagConstraints);
+
+        jLabel115.setText("Adapter 5':");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(jLabel115, gridBagConstraints);
+
+        jLabel116.setText("Adapter 3':");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(jLabel116, gridBagConstraints);
+
+        cAdapter3Text.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cAdapter3TextFocusLost(evt);
+            }
+        });
+        cAdapter3Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cAdapter3TextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 24;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(cAdapter3Text, gridBagConstraints);
+
+        cPeRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cSeq.add(cPeRadioButton);
+        cPeRadioButton.setSelected(true);
+        cPeRadioButton.setText("paired-end");
+        cPeRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cPeRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 7;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(cPeRadioButton, gridBagConstraints);
+
+        cSeRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cSeq.add(cSeRadioButton);
+        cSeRadioButton.setText("single-end");
+        cSeRadioButton.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(cSeRadioButton, gridBagConstraints);
+
+        jLabel117.setText("Type of Sequence");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(jLabel117, gridBagConstraints);
+
+        jLabel118.setText("Min length:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(jLabel118, gridBagConstraints);
+
+        cMinLengthText.setText("40");
+        cMinLengthText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cMinLengthTextFocusLost(evt);
+            }
+        });
+        cMinLengthText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cMinLengthTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(cMinLengthText, gridBagConstraints);
+
+        jLabel119.setText("Strandness:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(jLabel119, gridBagConstraints);
+
+        cSNoneRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cStrand.add(cSNoneRadioButton);
+        cSNoneRadioButton.setSelected(true);
+        cSNoneRadioButton.setText("none");
+        cSNoneRadioButton.setToolTipText("");
+        cSNoneRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cSNoneRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(cSNoneRadioButton, gridBagConstraints);
+
+        cSForwardRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cStrand.add(cSForwardRadioButton);
+        cSForwardRadioButton.setText("forward");
+        cSForwardRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cSForwardRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(cSForwardRadioButton, gridBagConstraints);
+
+        cSReverseRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cStrand.add(cSReverseRadioButton);
+        cSReverseRadioButton.setText("reverse");
+        cSReverseRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cSReverseRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel32.add(cSReverseRadioButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        CountingSalmonPanel.add(jPanel32, gridBagConstraints);
+
+        CountingSalmon.setViewportView(CountingSalmonPanel);
+
+        MainPanel.add(CountingSalmon, "countingSalmon");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -5948,6 +6523,14 @@ public class MainFrame extends javax.swing.JFrame {
                                                         card.show(MainPanel, "indexingSalmon");
                                                         CurrentLayout="indexingSalmon"; 
                                                     }
+                                                    else
+                                                        if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Transcripts and genes counting with Salmon" ){
+                                                            cThreadText.setText(Integer.toString(GS.getDefaultThread()));
+                                                            cAdapter5Text.setText(GS.getDefaultAdapter5());
+                                                            cAdapter3Text.setText(GS.getDefaultAdapter3());
+                                                            card.show(MainPanel, "countingSalmon");
+                                                            CurrentLayout="countingSalmon"; 
+                                                        }
             }
         }
     }//GEN-LAST:event_AnalysisTreeValueChanged
@@ -6213,12 +6796,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton5ActionPerformed
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-        // TODO add your handling code here:
+
         vOutputFolderText.setText("");
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
-        // TODO add your handling code here:
+       
         JFileChooser openDir = new JFileChooser();
         if (!(vOutputFolderText.getText().equals(""))){
             File file =new File(vOutputFolderText.getText());
@@ -6321,7 +6904,6 @@ public class MainFrame extends javax.swing.JFrame {
                     int line=0;
                     //chekc right file
                     String y=br.readLine();
-                    System.out.print("*"+y+"*\n");
                     if (!y.equals("vmRNA")){
                         throw(new NumberFormatException());
                     }              
@@ -6838,6 +7420,66 @@ public class MainFrame extends javax.swing.JFrame {
                                                 line++;
                                                 }
                                             }
+                                            else
+                                                if (CurrentLayout=="countingSalmon"){
+                                                     
+                                                    //chekc right file
+                                                    String y=br.readLine();
+                                                    if (!y.equals("countingSalmon")){
+                                                        throw(new NumberFormatException());
+                                                    }
+                                                    int line=0;
+                                                    for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                        switch (line){
+                                                            case 0:
+                                                            if (x.equals("sudo"))
+                                                                cSudoRadioButton.setSelected(true);
+                                                            else
+                                                                cDockerRadioButton.setSelected(true);
+                                                            break;
+                                                            case 1:
+                                                                cFastQFolderText.setText(x);
+                                                            break;
+                                                            case 2:
+                                                                cOutputFolderText.setText(x);
+                                                            break; 
+                                                            case 3:
+                                                               cAdapter5Text.setText(x);
+                                                            break;  
+                                                            case 4:
+                                                                cAdapter3Text.setText(x);
+                                                            break; 
+                                                            case 5:
+                                                              if (x.equals("se"))
+                                                                cSeRadioButton.setSelected(true);
+                                                            else
+                                                                cPeRadioButton.setSelected(true);  
+                                                            break;
+                                                            case 6:
+                                                                cThreadText.setText(x);
+                                                            break;
+                                                            case 7:
+                                                                cMinLengthText.setText(x);
+                                                            break;
+                                                            case 8:
+                                                                cGenomeFolderText.setText(x);
+                                                            break;
+                                                            case 9:
+                                                              if (x.equals("none"))
+                                                                cSNoneRadioButton.setSelected(true);
+                                                              else
+                                                                  if (x.equals("forward"))
+                                                                    cSForwardRadioButton.setSelected(true);
+                                                                  else
+                                                                    cSReverseRadioButton.setSelected(true);
+                                                            break;    
+                                                            default:
+                                                                System.out.print("Too much lines\n");
+                                                            throw(new NumberFormatException()); 
+                                                        }
+                                                    line++;
+                                                    } 
+                }
                 getPreferences().put("saved-file",openFile.getCurrentDirectory().getAbsolutePath());  
                 br.close();
                 }
@@ -7153,7 +7795,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                         }   
                                                   }
                                                   else
-                                                      if (CurrentLayout=="indexingSalmon"){   
+                                                       if (CurrentLayout=="indexingSalmon"){   
                                                             bw.write("indexingSalmon\n");
                                                             if (iSudoRadioSButton.isSelected()){
                                                                 bw.write("sudo\n");                
@@ -7171,6 +7813,44 @@ public class MainFrame extends javax.swing.JFrame {
                                                             bw.write("\n");
                                                             bw.write(iKmerSText.getText());
                                                       }
+                                                      else
+                                                            if (CurrentLayout=="countingSalmon"){  
+                                                                bw.write("countingSalmon\n");
+                                                                if (cSudoRadioButton.isSelected()){
+                                                                    bw.write("sudo\n");                
+                                                                }                
+                                                                else{
+                                                                    bw.write("docker\n");
+                                                                 }
+                                                                bw.write(cFastQFolderText.getText());
+                                                                bw.write("\n");
+                                                                bw.write(cOutputFolderText.getText());
+                                                                bw.write("\n");
+                                                                bw.write(cAdapter5Text.getText());
+                                                                bw.write("\n");
+                                                                bw.write(cAdapter3Text.getText());
+                                                                bw.write("\n");
+                                                                if (cPeRadioButton.isSelected()){
+                                                                    bw.write("pe\n");
+                                                                }
+                                                                else{
+                                                                    bw.write("se\n");
+                                                                }
+                                                                bw.write(cThreadText.getText());
+                                                                bw.write("\n");
+                                                                bw.write(cMinLengthText.getText());
+                                                                bw.write("\n");
+                                                                bw.write(cGenomeFolderText.getText());
+                                                                bw.write("\n");
+                                                                if (cSNoneRadioButton.isSelected())
+                                                                    bw.write("none\n");
+                                                                else
+                                                                    if (cSForwardRadioButton.isSelected())  
+                                                                        bw.write("forward\n");
+                                                                    else
+                                                                        bw.write("reverse\n");
+
+                                                            }
                         }
                   
                
@@ -7320,7 +8000,7 @@ public class MainFrame extends javax.swing.JFrame {
                        else
                            cmd[2]+= " save.bam=FALSE";
                        
-                       
+                       cmd[2]+=" org=\\\""+vOrganismText.getText()+"\\\"";
                        
                         cmd[2]+=" "+vFastQFolderText.getText() +" >& "+vFastQFolderText.getText()+"/outputExecution ";
                         
@@ -10173,7 +10853,7 @@ public class MainFrame extends javax.swing.JFrame {
             else{
                     cmd[2]+= "group=\\\"docker\\\"";
             }
-            cmd[2]+= " genome.folder=\\\""+iGenomeFolderSText.getText()+"\\\" ensembl.urltranscriptome=\\\""+iGenomeURLSText.getText()+"\\\" ensembl.urlgtf=\\\""+iGTFURLSText.getText()+"\\\"";
+            cmd[2]+= " index.folder=\\\""+iGenomeFolderSText.getText()+"\\\" ensembl.urltranscriptome=\\\""+iGenomeURLSText.getText()+"\\\" ensembl.urlgtf=\\\""+iGTFURLSText.getText()+"\\\"";
             cmd[2]+= " threads="+iThreadSText.getText()+ " k="+iKmerSText.getText()+" "+iGenomeFolderSText.getText() + " >& "+iGenomeFolderSText.getText()+"/outputExecution ";
             //ProcessStatus.setText(pr.toString());
             if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
@@ -10268,6 +10948,314 @@ public class MainFrame extends javax.swing.JFrame {
     private void iThreadSTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iThreadSTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_iThreadSTextActionPerformed
+
+    private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
+    //RESET FIELDS
+        cDockerRadioButton.setSelected(true);
+        cFastQFolderText.setText("");
+        cOutputFolderText.setText("");
+        cThreadText.setText(Integer.toString(GS.getDefaultThread()));
+        cAdapter5Text.setText(GS.getDefaultAdapter5());
+        cAdapter3Text.setText(GS.getDefaultAdapter3());
+        cSeRadioButton.setSelected(true);
+        cMinLengthText.setText("40");
+        cGenomeFolderText.setText("");
+        cSNoneRadioButton.setSelected(true);
+        //RESET FIELDS
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "Empty");
+        CurrentLayout="Empty";
+        //GL.setAvoidProcListValueChanged(-1);
+        AnalysisTree.clearSelection();
+    }//GEN-LAST:event_vCloseButton5ActionPerformed
+
+    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
+    
+        //Field check
+
+        if (cFastQFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an input folder","Error: FastQ  folder",JOptionPane.ERROR_MESSAGE);
+            //vFastQFolderText.requestFocusInWindow();
+            return;
+        }
+        else
+        if (cOutputFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an output folder","Error: Output folder",JOptionPane.ERROR_MESSAGE);
+            //vOutputFolderText.requestFocusInWindow();
+            return;
+        }
+        else
+        if (cGenomeFolderText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified an genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
+            //vGenomeFolderText.requestFocusInWindow();
+            return;
+        }
+        else
+        if (cThreadText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            cThreadText.requestFocusInWindow();
+            return;
+        }
+        try
+        {
+            Integer x = Integer.valueOf(cThreadText.getText());
+            if (x<=0){
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+                cThreadText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            cThreadText.requestFocusInWindow();
+            return;
+        }
+
+        if ((!cAdapter5Text.getText().isEmpty())&&(!adapter.matcher(cAdapter5Text.getText()).matches())){
+            JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 5'",JOptionPane.ERROR_MESSAGE);
+            cAdapter5Text.requestFocusInWindow();
+        }
+        else{
+            if ((!cAdapter3Text.getText().isEmpty())&&(!adapter.matcher(cAdapter3Text.getText()).matches())){
+                JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 3'",JOptionPane.ERROR_MESSAGE);
+                cAdapter3Text.requestFocusInWindow();
+            }
+            else{
+                if (cMinLengthText.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "You have to specified a value for the minimum lenght.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+                    cMinLengthText.requestFocusInWindow();
+                    return;
+                }
+                try{
+                    Integer x = Integer.valueOf(cMinLengthText.getText());
+                    if (x<0){
+                        JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+                        cMinLengthText.requestFocusInWindow();
+                        return;
+                    }
+                }
+                catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+                    cMinLengthText.requestFocusInWindow();
+                    return;
+                }
+                
+                    //execute code
+                 Runtime rt = Runtime.getRuntime();
+                 try{
+                    String[] cmd = {"/bin/bash","-c"," bash ./execSalmon.sh "};
+     
+                    if (cSudoRadioButton.isSelected()){
+                        cmd[2]+= "group=\\\"sudo\\\"";
+                    }
+                    else{
+                        cmd[2]+= "group=\\\"docker\\\"";
+                    }
+                    cmd[2]+= " fastq.folder=\\\""+cFastQFolderText.getText()+"\\\" scratch.folder=\\\""+cOutputFolderText.getText()+"\\\" adapter5=\\\""+cAdapter5Text.getText()+"\\\" adapter3=\\\""+cAdapter3Text.getText()+"\\\"";
+                    
+                    if (cPeRadioButton.isSelected()){
+                        cmd[2]+= " seq.type=\\\"pe\\\"";
+                    }
+                    else{
+                        cmd[2]+= " seq.type=\\\"se\\\"";;
+                    }
+                    cmd[2]+= " threads="+cThreadText.getText()+" min.length="+cMinLengthText.getText()+"  index.folder=\\\""+cGenomeFolderText.getText()+"\\\"";
+                       
+                    if (cSNoneRadioButton.isSelected())
+                        cmd[2]+= " strandness=\\\"none\\\"";
+                    else
+                        if (cSForwardRadioButton.isSelected())
+                            cmd[2]+= " strandness=\\\"forward\\\"";
+                        else
+                            cmd[2]+= " strandness=\\\"reverse\\\"";
+
+                    cmd[2]+=" "+cFastQFolderText.getText() +" >& "+cFastQFolderText.getText()+"/outputExecution ";
+                        
+                    //ProcessStatus.setText(pr.toString());
+                    if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                        Process pr = rt.exec(cmd);                             
+                        ElProcRunning tmp= new ElProcRunning("Transcripts and genes counting with Salmon ", cFastQFolderText.getText(),pr,listModel.getSize());
+                        listProcRunning.add(tmp);
+                        java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                        ImageIcon image2 = new ImageIcon(imgURL);
+                        GL.setAvoidProcListValueChanged(-1);
+                        listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                        GL.setAvoidProcListValueChanged(0);
+                        //addElement("RNAseq counting workflow (data input: "+vFastQFolderText.getText()+")            [Runnig]");
+                        if(listProcRunning.size()==1){
+                            t=new Timer();
+                            t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                        }
+                    }     
+                    else{
+                        ElProcWaiting tmp= new ElProcWaiting("Transcripts and genes counting with Salmon ",cFastQFolderText.getText(),cmd,listModel.getSize());
+                        listProcWaiting.add(tmp);
+                        java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                        ImageIcon image2 = new ImageIcon(imgURL);
+                        GL.setAvoidProcListValueChanged(-1);
+                        listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                        GL.setAvoidProcListValueChanged(0);
+                        }
+                    GL.setAvoidProcListValueChanged(-1);
+                    ProcList.setModel(listModel);
+                    ProcList.setCellRenderer(new ListEntryCellRenderer());
+                    GL.setAvoidProcListValueChanged(0);
+                    } 
+                catch(Exception e) {
+                    JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+                    System.out.println(e.toString());
+                }
+                JOptionPane.showMessageDialog(this, "Transcripts and genes counting Salmon task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+            }
+            //execute code
+        }
+    }//GEN-LAST:event_jButton39ActionPerformed
+
+    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        cDockerRadioButton.setSelected(true);
+        cFastQFolderText.setText("");
+        cOutputFolderText.setText("");
+        cThreadText.setText(Integer.toString(GS.getDefaultThread()));
+        cAdapter5Text.setText(GS.getDefaultAdapter3());
+        cAdapter3Text.setText(GS.getDefaultAdapter3());
+        cSeRadioButton.setSelected(true);
+        cMinLengthText.setText("40");
+        cGenomeFolderText.setText("");
+        cSNoneRadioButton.setSelected(true);
+        cPeRadioButton.setSelected(true);
+    }//GEN-LAST:event_jButton40ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+    saveAsMenuItemActionPerformed(evt);
+    }//GEN-LAST:event_jButton41ActionPerformed
+
+    private void cFastQFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cFastQFolderTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cFastQFolderTextActionPerformed
+
+    private void jToggleButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton32ActionPerformed
+      JFileChooser openDir = new JFileChooser();
+        if (!(cFastQFolderText.getText().equals(""))){
+            File file =new File(cFastQFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            cFastQFolderText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jToggleButton32ActionPerformed
+
+    private void jToggleButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton33ActionPerformed
+    cFastQFolderText.setText("");
+    }//GEN-LAST:event_jToggleButton33ActionPerformed
+
+    private void jToggleButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton34ActionPerformed
+    JFileChooser openDir = new JFileChooser();
+        if (!(cOutputFolderText.getText().equals(""))){
+            File file =new File(cOutputFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            cOutputFolderText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jToggleButton34ActionPerformed
+
+    private void jToggleButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton35ActionPerformed
+     cOutputFolderText.setText("");  
+    }//GEN-LAST:event_jToggleButton35ActionPerformed
+
+    private void jToggleButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton36ActionPerformed
+     JFileChooser openDir = new JFileChooser();
+        if (!(cGenomeFolderText.getText().equals(""))){
+            File file =new File(cGenomeFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            cGenomeFolderText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath()); 
+    }//GEN-LAST:event_jToggleButton36ActionPerformed
+
+    private void jToggleButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton37ActionPerformed
+     cGenomeFolderText.setText("");   
+    }//GEN-LAST:event_jToggleButton37ActionPerformed
+
+    private void cDockerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDockerRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cDockerRadioButtonActionPerformed
+
+    private void cThreadTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cThreadTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cThreadTextFocusLost
+
+    private void cThreadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cThreadTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cThreadTextActionPerformed
+
+    private void cAdapter5TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cAdapter5TextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cAdapter5TextFocusLost
+
+    private void cAdapter5TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cAdapter5TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cAdapter5TextActionPerformed
+
+    private void cAdapter3TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cAdapter3TextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cAdapter3TextFocusLost
+
+    private void cAdapter3TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cAdapter3TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cAdapter3TextActionPerformed
+
+    private void cPeRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cPeRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cPeRadioButtonActionPerformed
+
+    private void cMinLengthTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cMinLengthTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cMinLengthTextFocusLost
+
+    private void cMinLengthTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cMinLengthTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cMinLengthTextActionPerformed
+
+    private void cSNoneRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cSNoneRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cSNoneRadioButtonActionPerformed
+
+    private void cSForwardRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cSForwardRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cSForwardRadioButtonActionPerformed
+
+    private void cSReverseRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cSReverseRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cSReverseRadioButtonActionPerformed
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
         About4SeqGUIFrame.pack(); 
         About4SeqGUIFrame.setLocationRelativeTo(null);                                       
@@ -10311,7 +11299,7 @@ public class MainFrame extends javax.swing.JFrame {
   
         
         try{
-        Thread.sleep(1000L);
+        Thread.sleep(800L);
         }
         catch ( Exception e ) { } 
         /* Create and display the form */
@@ -10342,6 +11330,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton CloseOutput;
     private javax.swing.JButton ConfCancell;
     private javax.swing.JFrame ConfigurationFrame;
+    private javax.swing.JScrollPane CountingSalmon;
+    private javax.swing.JPanel CountingSalmonPanel;
     private javax.swing.JButton Coutbrowes;
     private javax.swing.JButton Coutcancel;
     private javax.swing.JComboBox<String> CovComboBox;
@@ -10391,9 +11381,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane IndexingBWA;
     private javax.swing.JPanel IndexingBWAPanel;
     private javax.swing.JScrollPane IndexingSalmon;
+    private javax.swing.JPanel IndexingSalmonPanel;
     private javax.swing.JScrollPane IndexingStarRSEM;
     private javax.swing.JPanel IndexingStarRSEMPanel;
-    private javax.swing.JPanel IndexingStarRSEMPanel1;
     private javax.swing.JPanel LeftPanel;
     private javax.swing.JScrollPane MACS;
     private javax.swing.JPanel MACSPanel;
@@ -10457,6 +11447,23 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup Truncating;
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField cAdapter3Text;
+    private javax.swing.JTextField cAdapter5Text;
+    private javax.swing.JRadioButton cDockerRadioButton;
+    private javax.swing.ButtonGroup cExecutiionSalmon;
+    private javax.swing.JTextField cFastQFolderText;
+    private javax.swing.JTextField cGenomeFolderText;
+    private javax.swing.JTextField cMinLengthText;
+    private javax.swing.JTextField cOutputFolderText;
+    private javax.swing.JRadioButton cPeRadioButton;
+    private javax.swing.JRadioButton cSForwardRadioButton;
+    private javax.swing.JRadioButton cSNoneRadioButton;
+    private javax.swing.JRadioButton cSReverseRadioButton;
+    private javax.swing.JRadioButton cSeRadioButton;
+    private javax.swing.ButtonGroup cSeq;
+    private javax.swing.ButtonGroup cStrand;
+    private javax.swing.JRadioButton cSudoRadioButton;
+    private javax.swing.JTextField cThreadText;
     private javax.swing.JRadioButton dBatchesTrue;
     private javax.swing.JComboBox<String> dCovComboBox;
     private javax.swing.JTextField dFDRText;
@@ -10534,7 +11541,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -10553,6 +11563,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel110;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -10685,6 +11705,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -10723,6 +11746,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton30;
     private javax.swing.JToggleButton jToggleButton31;
+    private javax.swing.JToggleButton jToggleButton32;
+    private javax.swing.JToggleButton jToggleButton33;
+    private javax.swing.JToggleButton jToggleButton34;
+    private javax.swing.JToggleButton jToggleButton35;
+    private javax.swing.JToggleButton jToggleButton36;
+    private javax.swing.JToggleButton jToggleButton37;
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
@@ -10767,6 +11796,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton vCloseButton2;
     private javax.swing.JButton vCloseButton3;
     private javax.swing.JButton vCloseButton4;
+    private javax.swing.JButton vCloseButton5;
     private javax.swing.JRadioButton vDockerRadioButton;
     private javax.swing.ButtonGroup vExecution;
     private javax.swing.JTextField vFastQFolderText;
