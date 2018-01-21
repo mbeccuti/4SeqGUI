@@ -11631,7 +11631,7 @@ public class MainFrame extends javax.swing.JFrame {
             
         try{
             String[] cmd = {"/bin/bash","-c","  bash ./execFilterCounts.sh "};
-            cmd[2]+= " data.foldere=\\\""+ fFPKMfileText.getText() +"\\\"";
+            cmd[2]+= " data.folder=\\\""+ fFPKMfileText.getText() +"\\\"";
             if (fisoformRadioButton.isSelected())
                 cmd[2]+= " type=\\\"isoform\\\"";
             else

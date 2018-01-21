@@ -1,8 +1,7 @@
 #!/bin/sh
 
 
-
-datafolrde=$1
+datafolder=$1
 type=$2
 outputfolder=$3
 output=$4
