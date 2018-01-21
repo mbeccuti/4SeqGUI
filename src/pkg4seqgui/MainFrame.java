@@ -6383,8 +6383,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel33.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("Output folders:");
-        jLabel120.setToolTipText("The FPKM or TPM table file nam");
+        jLabel120.setText("Output folder:");
+        jLabel120.setToolTipText("Output folder");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -6437,8 +6437,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel33.add(fCancelButton4, gridBagConstraints);
 
-        jLabel121.setText("FPKM/TPM  file:");
-        jLabel121.setToolTipText("The FPKM or TPM table file nam");
+        jLabel121.setText("Input folder:");
+        jLabel121.setToolTipText("The folder containing FPKM or TPM table files");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -11709,12 +11709,12 @@ public class MainFrame extends javax.swing.JFrame {
             String curDir = getPreferences().get("open-dir", null);
             openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
         }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
             File f = openDir.getSelectedFile();
             fFPKMfileText.setText(String.valueOf(f));
             //UPDATE TO REMOVE OUTPUT FOLDER            
-            fOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
+            fOutputFolderText.setText(String.valueOf(f));
         }
         getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jToggleButton38ActionPerformed

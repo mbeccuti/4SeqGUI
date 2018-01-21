@@ -7076,8 +7076,8 @@
                           <SubComponents>
                             <Component class="javax.swing.JLabel" name="jLabel120">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="Output folders:"/>
-                                <Property name="toolTipText" type="java.lang.String" value="The FPKM or TPM table file nam"/>
+                                <Property name="text" type="java.lang.String" value="Output folder:"/>
+                                <Property name="toolTipText" type="java.lang.String" value="Output folder"/>
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -7133,8 +7133,8 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel121">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="FPKM/TPM  file:"/>
-                                <Property name="toolTipText" type="java.lang.String" value="The FPKM or TPM table file nam"/>
+                                <Property name="text" type="java.lang.String" value="Input folder:"/>
+                                <Property name="toolTipText" type="java.lang.String" value="The folder containing FPKM or TPM table files"/>
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
