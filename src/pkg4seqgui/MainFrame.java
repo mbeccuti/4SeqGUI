@@ -106,7 +106,9 @@ public class MainFrame extends javax.swing.JFrame {
         contextMenu.add(cAdapter5Text);
         contextMenu.add(cAdapter3Text);
         contextMenu.add(cMinLengthText);
-       
+        //filterCount
+        contextMenu.add(fFPKMfileText);
+        contextMenu.add(fOutputFolderText);
         
         FPKMFileTable.getColumn("Folder").setPreferredWidth(1000);
 
