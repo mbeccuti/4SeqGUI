@@ -1032,7 +1032,7 @@ public class MainFrame extends javax.swing.JFrame {
         About4SeqGUIFrame.getContentPane().add(jLabel96, gridBagConstraints);
 
         jLabel100.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel100.setText("Version 1.1.0");
+        jLabel100.setText("Version 1.2.1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
