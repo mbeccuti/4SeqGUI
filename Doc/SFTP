@@ -1,0 +1,14 @@
+installare vsftp
+
+sudo systemctl enable  vsftpd.service
+sudo systemctl enable  sshd.service
+sudo systemctl start  vsftpd.service
+sudo systemctl start  sshd.service
+sudo firewall-cmd --add-service=ftp --permanent
+sudo firewall-cmd --reload
+
+
+
+ sudo vi   /etc/hosts.allow
+ ALL : ALL
+

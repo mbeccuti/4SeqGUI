@@ -2771,7 +2771,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
         jLabel29.setText("Output folders:");
-        jLabel29.setToolTipText("The FPKM or TPM table file nam");
+        jLabel29.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -2825,7 +2825,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5.add(fCancelButton, gridBagConstraints);
 
         jLabel34.setText("FPKM/TPM  file:");
-        jLabel34.setToolTipText("The FPKM or TPM table file nam");
+        jLabel34.setToolTipText("The FPKM or TPM table file name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -3153,7 +3153,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
         jLabel35.setText("Output folders:");
-        jLabel35.setToolTipText("The FPKM or TPM table file nam");
+        jLabel35.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -3303,7 +3303,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel12.add(jLabel40, gridBagConstraints);
 
         jLabel41.setText("FDR threshold");
-        jLabel41.setToolTipText("False discovery rate  threshold for differetially expressed genes");
+        jLabel41.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -3312,7 +3312,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(jLabel41, gridBagConstraints);
 
-        dFDRText.setToolTipText("Second componet number");
+        dFDRText.setToolTipText("False Discovery Rate (FDR)  threshold");
         dFDRText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 dFDRTextFocusLost(evt);
@@ -7176,7 +7176,7 @@ public class MainFrame extends javax.swing.JFrame {
     
      private void  removeDockerContainer(java.awt.event.ActionEvent evt){
         
-        String[] cmd = {"/bin/bash","-c"," docker rm $(docker ps -q -f status=exited)"}; 
+        String[] cmd = {"/bin/bash","-c"," docker rm $(docker ps -q -f status=exited); docker rm $(docker ps -q -f status=dead)"}; 
         try{
             Runtime.getRuntime().exec(cmd);
             }
@@ -12576,6 +12576,8 @@ extends JLabel implements ListCellRenderer<Object>
                 reader.close();    
             }
             catch (Exception e){//Catch exception if any
+                //To avoid to recall infinitelly this error
+                outputTime.cancel();
                 System.err.println("Error: " + e.getMessage());
                 JOptionPane.showMessageDialog(OutputFrame, "Error reading file","Error",JOptionPane.ERROR_MESSAGE);
             }
