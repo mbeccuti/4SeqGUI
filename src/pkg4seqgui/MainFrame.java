@@ -3174,7 +3174,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 25, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
         jPanel10.add(dFPKMfileText, gridBagConstraints);
 
         jToggleButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
@@ -3228,11 +3228,12 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 25, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
         jPanel10.add(dOutputFolderText, gridBagConstraints);
 
         jToggleButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton17.setText("Browse");
+        jToggleButton17.setEnabled(false);
         jToggleButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton17ActionPerformed(evt);
@@ -3248,6 +3249,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         fCancelButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         fCancelButton3.setText("Cancel");
+        fCancelButton3.setEnabled(false);
         fCancelButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fCancelButton3ActionPerformed(evt);
@@ -3302,7 +3304,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(jLabel40, gridBagConstraints);
 
-        jLabel41.setText("FDR threshold");
+        jLabel41.setText("adj. p-value threshold:");
         jLabel41.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3312,7 +3314,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(jLabel41, gridBagConstraints);
 
-        dFDRText.setToolTipText("False Discovery Rate (FDR)  threshold");
+        dFDRText.setToolTipText("adjusted p-value  threshold");
         dFDRText.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 dFDRTextFocusLost(evt);
@@ -9592,12 +9594,14 @@ public class MainFrame extends javax.swing.JFrame {
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
             File f = openDir.getSelectedFile();
             dFPKMfileText.setText(String.valueOf(f));
+            dOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
         }
         getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jToggleButton14ActionPerformed
 
     private void fCancelButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton2ActionPerformed
         dFPKMfileText.setText("");
+        dOutputFolderText.setText("");
     }//GEN-LAST:event_fCancelButton2ActionPerformed
 
     private void dOutputFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dOutputFolderTextActionPerformed
