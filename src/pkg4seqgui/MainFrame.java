@@ -726,6 +726,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -6707,6 +6708,16 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem1);
 
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        jMenuItem8.setText("Download Docker Images");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem8);
+
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/docker.png"))); // NOI18N
         jMenuItem2.setText("Remove Docker Containers");
@@ -7181,9 +7192,10 @@ public class MainFrame extends javax.swing.JFrame {
         String[] cmd = {"/bin/bash","-c"," docker rm $(docker ps -q -f status=exited); docker rm $(docker ps -q -f status=dead)"}; 
         try{
             Runtime.getRuntime().exec(cmd);
+            JOptionPane.showMessageDialog(this, "All docker containers were removed!!","Confermation",JOptionPane.INFORMATION_MESSAGE);
             }
         catch (IOException e){
-            System.out.println("No docker caintainers are removed\n");
+            System.out.println("Docker containers were not removed\n");
         } 
      }
     
@@ -11753,6 +11765,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void fgeneRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fgeneRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fgeneRadioButtonActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        DownloadMenuItemActionPerformed(evt);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
         About4SeqGUIFrame.pack(); 
         About4SeqGUIFrame.setLocationRelativeTo(null);                                       
@@ -12195,6 +12211,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
