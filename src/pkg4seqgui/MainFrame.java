@@ -8566,8 +8566,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ProcListMouseClicked
 
     private void ReloadOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReloadOutputActionPerformed
-        // TODO add your handling code here:
-         ///System.out.println("Reload: \n"+GL.getListProcStatuSelection());
+       
          ListEntry tmpListEntry =  listModel.get(GL.getListProcStatuSelection());
         //
         if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")){
@@ -8594,7 +8593,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     private void RemoveOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveOutputActionPerformed
-        // TODO add your handling code here:
+       
         int pos=GL.getListProcStatuSelection();
         //System.out.println("Pos:"+pos+"\n");
         int tmpPos=-1;
@@ -12585,9 +12584,10 @@ extends JLabel implements ListCellRenderer<Object>
 
   class MyFileUpdate extends TimerTask{
        public void run() {
-          ListEntry tmpListEntry =  listModel.get(GL.getListProcStatuSelection());
-        //
-        if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")){
+        if (GL.getListProcStatuSelection()>=0){
+            ListEntry tmpListEntry =  listModel.get(GL.getListProcStatuSelection());
+            //
+            if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")){
              OutputText.setEnabled(true);
             String text="";
             try{
@@ -12605,11 +12605,12 @@ extends JLabel implements ListCellRenderer<Object>
                 outputTime.cancel();
                 System.err.println("Error: " + e.getMessage());
                 JOptionPane.showMessageDialog(OutputFrame, "Error reading file","Error",JOptionPane.ERROR_MESSAGE);
-            }
+                }
             OutputText.setText(text);
-        }
+            }
         ReloadOutput.setSelected(false);   
        }
+    }
   }
   class MyTask extends TimerTask {
       
