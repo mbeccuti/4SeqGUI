@@ -8471,7 +8471,11 @@ public class MainFrame extends javax.swing.JFrame {
         outputTime=new Timer();
         outputTime.scheduleAtFixedRate(new MyFileUpdate(), 5000, 5000);
      
+            
+        OutputFrame.setLocationRelativeTo(null);   
         OutputFrame.setVisible(true);
+        OutputFrame.setAlwaysOnTop(true);
+        
         //System.out.println("QUII->-Inizio\n"+listModel.getSize()+" "+evt.getLastIndex()+"\n"+evt.getSource());
         ListEntry tmpListEntry;
         if ((evt.getLastIndex()!=GL.getListProcStatuSelection()&& (evt.getLastIndex()>=0 && evt.getLastIndex()<listModel.getSize())) ){
@@ -8538,7 +8542,7 @@ public class MainFrame extends javax.swing.JFrame {
         //System.out.println("End ProcListValueChanged\n");
         }
         }
-// TODO add your handling code here:
+
     }//GEN-LAST:event_ProcListValueChanged
 
     private void CloseOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseOutputActionPerformed
