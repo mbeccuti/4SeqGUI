@@ -1290,7 +1290,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingStarRSEMPanel.add(jButton14, gridBagConstraints);
 
-        jPanel13.setBackground(new java.awt.Color(230, 235, 235));
+        jPanel13.setBackground(new java.awt.Color(248, 248, 248));
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel13.setLayout(new java.awt.GridBagLayout());
 
@@ -1396,7 +1396,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingStarRSEMPanel.add(jPanel13, gridBagConstraints);
 
-        jPanel14.setBackground(new java.awt.Color(230, 235, 235));
+        jPanel14.setBackground(new java.awt.Color(248, 248, 248));
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel14.setLayout(new java.awt.GridBagLayout());
 
@@ -1410,7 +1410,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel14.add(jLabel31, gridBagConstraints);
 
-        iSudoRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        iSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         IExecutionStarRSEM.add(iSudoRadioButton);
         iSudoRadioButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1422,7 +1422,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel14.add(iSudoRadioButton, gridBagConstraints);
 
-        iDockerRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        iDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         IExecutionStarRSEM.add(iDockerRadioButton);
         iDockerRadioButton.setSelected(true);
         iDockerRadioButton.setText("docker");
@@ -1435,13 +1435,13 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel14.add(iDockerRadioButton, gridBagConstraints);
 
         jLabel32.setText("Thread number:");
+        jLabel32.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -1550,7 +1550,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mRNAPanel.add(vCloseButton1, gridBagConstraints);
 
-        jPanel9.setBackground(new java.awt.Color(235, 230, 230));
+        jPanel9.setBackground(new java.awt.Color(248, 248, 248));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel9.setLayout(new java.awt.GridBagLayout());
 
@@ -1595,7 +1595,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel9.add(jLabel20, gridBagConstraints);
 
-        mDTrueRadioButton.setBackground(new java.awt.Color(235, 230, 230));
+        mDTrueRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mDownload.add(mDTrueRadioButton);
         mDTrueRadioButton.setText("True");
         mDTrueRadioButton.setToolTipText("");
@@ -1608,7 +1608,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel9.add(mDTrueRadioButton, gridBagConstraints);
 
-        mDFalseRadioButton.setBackground(new java.awt.Color(235, 230, 230));
+        mDFalseRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mDownload.add(mDFalseRadioButton);
         mDFalseRadioButton.setSelected(true);
         mDFalseRadioButton.setText("False");
@@ -1634,7 +1634,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel9.add(jLabel23, gridBagConstraints);
 
-        mANEBRadioButton.setBackground(new java.awt.Color(235, 230, 230));
+        mANEBRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         MAdapter.add(mANEBRadioButton);
         mANEBRadioButton.setText("NEB");
         mANEBRadioButton.setToolTipText("");
@@ -1652,7 +1652,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel9.add(mANEBRadioButton, gridBagConstraints);
 
-        mAILLUMINARadioButton.setBackground(new java.awt.Color(235, 230, 230));
+        mAILLUMINARadioButton.setBackground(new java.awt.Color(248, 248, 248));
         MAdapter.add(mAILLUMINARadioButton);
         mAILLUMINARadioButton.setSelected(true);
         mAILLUMINARadioButton.setText("ILLUMINA");
@@ -1678,7 +1678,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel9.add(jLabel25, gridBagConstraints);
 
-        mTTrueRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        mTTrueRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mTrimmed.add(mTTrueRadioButton);
         mTTrueRadioButton.setText("True");
         mTTrueRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1694,7 +1694,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel9.add(mTTrueRadioButton, gridBagConstraints);
 
-        mTFalseRadioButton.setBackground(new java.awt.Color(230, 230, 235));
+        mTFalseRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mTrimmed.add(mTFalseRadioButton);
         mTFalseRadioButton.setSelected(true);
         mTFalseRadioButton.setText("False");
@@ -1721,7 +1721,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mRNAPanel.add(jPanel9, gridBagConstraints);
 
-        jPanel8.setBackground(new java.awt.Color(235, 230, 230));
+        jPanel8.setBackground(new java.awt.Color(248, 248, 248));
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel8.setLayout(new java.awt.GridBagLayout());
 
@@ -1836,7 +1836,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mRNAPanel.add(jPanel8, gridBagConstraints);
 
-        jPanel7.setBackground(new java.awt.Color(235, 230, 230));
+        jPanel7.setBackground(new java.awt.Color(248, 248, 248));
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel7.setLayout(new java.awt.GridBagLayout());
 
@@ -1848,7 +1848,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel7.add(jLabel14, gridBagConstraints);
 
-        mSudoRadioButton.setBackground(new java.awt.Color(237, 230, 230));
+        mSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(mSudoRadioButton);
         mSudoRadioButton.setText("sudo");
         mSudoRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1864,7 +1864,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 85, 10, 10);
         jPanel7.add(mSudoRadioButton, gridBagConstraints);
 
-        mDockerRadioButton.setBackground(new java.awt.Color(237, 230, 230));
+        mDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(mDockerRadioButton);
         mDockerRadioButton.setSelected(true);
         mDockerRadioButton.setText("docker");
@@ -1898,7 +1898,7 @@ public class MainFrame extends javax.swing.JFrame {
         FPKMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "From samples to experiment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(102, 0, 153))); // NOI18N
         FPKMPanel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel4.setBackground(new java.awt.Color(232, 232, 242));
+        jPanel4.setBackground(new java.awt.Color(248, 248, 248));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
@@ -2175,7 +2175,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jButton3, gridBagConstraints);
 
-        jPanel2.setBackground(new java.awt.Color(230, 235, 235));
+        jPanel2.setBackground(new java.awt.Color(248, 248, 248));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -2341,7 +2341,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jPanel2, gridBagConstraints);
 
-        jPanel3.setBackground(new java.awt.Color(230, 235, 235));
+        jPanel3.setBackground(new java.awt.Color(248, 248, 248));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
@@ -2353,7 +2353,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel1, gridBagConstraints);
 
-        vSudoRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         vExecution.add(vSudoRadioButton);
         vSudoRadioButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2364,7 +2364,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
         jPanel3.add(vSudoRadioButton, gridBagConstraints);
 
-        vDockerRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         vExecution.add(vDockerRadioButton);
         vDockerRadioButton.setSelected(true);
         vDockerRadioButton.setText("docker");
@@ -2421,7 +2421,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         vmRNAPanel.add(jPanel3, gridBagConstraints);
 
-        jPanel6.setBackground(new java.awt.Color(230, 235, 235));
+        jPanel6.setBackground(new java.awt.Color(248, 248, 248));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel6.setLayout(new java.awt.GridBagLayout());
 
@@ -2483,7 +2483,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vAdapter3Text, gridBagConstraints);
 
-        vPeRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vPeRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         vSeq.add(vPeRadioButton);
         vPeRadioButton.setSelected(true);
         vPeRadioButton.setText("paired-end");
@@ -2501,7 +2501,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vPeRadioButton, gridBagConstraints);
 
-        vSeRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vSeRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         vSeq.add(vSeRadioButton);
         vSeRadioButton.setText("single-end");
         vSeRadioButton.setToolTipText("");
@@ -2562,7 +2562,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(jLabel10, gridBagConstraints);
 
-        vSNoneRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vSNoneRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         Strand.add(vSNoneRadioButton);
         vSNoneRadioButton.setSelected(true);
         vSNoneRadioButton.setText("none");
@@ -2581,7 +2581,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vSNoneRadioButton, gridBagConstraints);
 
-        vSForwardRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vSForwardRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         Strand.add(vSForwardRadioButton);
         vSForwardRadioButton.setText("forward");
         vSForwardRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2598,7 +2598,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vSForwardRadioButton, gridBagConstraints);
 
-        vSReverseRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vSReverseRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         Strand.add(vSReverseRadioButton);
         vSReverseRadioButton.setText("reverse");
         vSReverseRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2654,7 +2654,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(jLabel13, gridBagConstraints);
 
-        vBAMyesRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vBAMyesRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         Annotation.add(vBAMyesRadioButton);
         vBAMyesRadioButton.setText("Yes");
         vBAMyesRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2670,7 +2670,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel6.add(vBAMyesRadioButton, gridBagConstraints);
 
-        vBAMnoLRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        vBAMnoLRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         Annotation.add(vBAMnoLRadioButton);
         vBAMnoLRadioButton.setSelected(true);
         vBAMnoLRadioButton.setText("No");
@@ -2767,7 +2767,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PCAPanel.add(jButton17, gridBagConstraints);
 
-        jPanel5.setBackground(new java.awt.Color(250, 241, 233));
+        jPanel5.setBackground(new java.awt.Color(248, 248, 248));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
@@ -2775,7 +2775,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel29.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(jLabel29, gridBagConstraints);
@@ -2804,10 +2804,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(jToggleButton12, gridBagConstraints);
 
@@ -2819,8 +2818,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(fCancelButton, gridBagConstraints);
@@ -2843,10 +2842,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel5.add(pOutputFolderText, gridBagConstraints);
 
@@ -2859,10 +2859,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(jToggleButton13, gridBagConstraints);
 
@@ -2875,8 +2874,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(fCancelButton1, gridBagConstraints);
@@ -2890,7 +2889,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PCAPanel.add(jPanel5, gridBagConstraints);
 
-        jPanel11.setBackground(new java.awt.Color(250, 241, 233));
+        jPanel11.setBackground(new java.awt.Color(248, 248, 248));
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel11.setLayout(new java.awt.GridBagLayout());
 
@@ -2959,7 +2958,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jLabel42, gridBagConstraints);
 
-        pCountsRadioButton.setBackground(new java.awt.Color(250, 241, 233));
+        pCountsRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DataType.add(pCountsRadioButton);
         pCountsRadioButton.setText("counts");
         pCountsRadioButton.setToolTipText("");
@@ -2976,7 +2975,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(pCountsRadioButton, gridBagConstraints);
 
-        pFPKMRadioButton.setBackground(new java.awt.Color(250, 241, 233));
+        pFPKMRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DataType.add(pFPKMRadioButton);
         pFPKMRadioButton.setSelected(true);
         pFPKMRadioButton.setText("FPKM");
@@ -2993,7 +2992,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(pFPKMRadioButton, gridBagConstraints);
 
-        pTPMRadioButton.setBackground(new java.awt.Color(250, 241, 233));
+        pTPMRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DataType.add(pTPMRadioButton);
         pTPMRadioButton.setText("TPM");
         pTPMRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3028,7 +3027,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(jLabel44, gridBagConstraints);
 
-        pCovYesRadioButton.setBackground(new java.awt.Color(250, 241, 233));
+        pCovYesRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         Covariates.add(pCovYesRadioButton);
         pCovYesRadioButton.setSelected(true);
         pCovYesRadioButton.setText("yes");
@@ -3044,7 +3043,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel11.add(pCovYesRadioButton, gridBagConstraints);
 
-        pCovNoRadioButton.setBackground(new java.awt.Color(250, 241, 233));
+        pCovNoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         Covariates.add(pCovNoRadioButton);
         pCovNoRadioButton.setText("no");
         pCovNoRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3149,7 +3148,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DESPanel.add(jButton20, gridBagConstraints);
 
-        jPanel10.setBackground(new java.awt.Color(233, 243, 251));
+        jPanel10.setBackground(new java.awt.Color(248, 248, 248));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel10.setLayout(new java.awt.GridBagLayout());
 
@@ -3157,7 +3156,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel35.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel10.add(jLabel35, gridBagConstraints);
@@ -3175,6 +3174,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
         jPanel10.add(dFPKMfileText, gridBagConstraints);
 
@@ -3186,10 +3186,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel10.add(jToggleButton14, gridBagConstraints);
 
@@ -3201,8 +3200,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel10.add(fCancelButton2, gridBagConstraints);
@@ -3225,7 +3224,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -3241,10 +3240,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel10.add(jToggleButton17, gridBagConstraints);
 
@@ -3257,8 +3255,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel10.add(fCancelButton3, gridBagConstraints);
@@ -3272,7 +3270,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DESPanel.add(jPanel10, gridBagConstraints);
 
-        jPanel12.setBackground(new java.awt.Color(233, 243, 251));
+        jPanel12.setBackground(new java.awt.Color(248, 248, 248));
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel12.setLayout(new java.awt.GridBagLayout());
 
@@ -3344,7 +3342,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(jLabel45, gridBagConstraints);
 
-        dGeneRadioButton.setBackground(new java.awt.Color(225, 239, 250));
+        dGeneRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DEStype.add(dGeneRadioButton);
         dGeneRadioButton.setText("gene");
         dGeneRadioButton.setToolTipText("");
@@ -3385,7 +3383,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(dCovComboBox, gridBagConstraints);
 
-        dmiRNARadioButton.setBackground(new java.awt.Color(225, 239, 250));
+        dmiRNARadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DEStype.add(dmiRNARadioButton);
         dmiRNARadioButton.setText("miRNA");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3410,7 +3408,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.3;
         jPanel12.add(jLabel59, gridBagConstraints);
 
-        dIsoformRadioButton.setBackground(new java.awt.Color(225, 239, 250));
+        dIsoformRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DEStype.add(dIsoformRadioButton);
         dIsoformRadioButton.setSelected(true);
         dIsoformRadioButton.setText("isoform");
@@ -3428,7 +3426,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(jLabel62, gridBagConstraints);
 
-        dBatchesTrue.setBackground(new java.awt.Color(225, 239, 250));
+        dBatchesTrue.setBackground(new java.awt.Color(248, 248, 248));
         DESBatch.add(dBatchesTrue);
         dBatchesTrue.setText("TRUE");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3437,7 +3435,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel12.add(dBatchesTrue, gridBagConstraints);
 
-        DBatchesFalse.setBackground(new java.awt.Color(225, 239, 250));
+        DBatchesFalse.setBackground(new java.awt.Color(248, 248, 248));
         DESBatch.add(DBatchesFalse);
         DBatchesFalse.setSelected(true);
         DBatchesFalse.setText("FALSE");
@@ -3530,7 +3528,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingBWAPanel.add(jButton22, gridBagConstraints);
 
-        jPanel15.setBackground(new java.awt.Color(230, 235, 235));
+        jPanel15.setBackground(new java.awt.Color(247, 248, 248));
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel15.setLayout(new java.awt.GridBagLayout());
 
@@ -3636,7 +3634,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel15.add(jLabel51, gridBagConstraints);
 
-        iBTrueRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        iBTrueRadioButton.setBackground(new java.awt.Color(247, 248, 248));
         GATK.add(iBTrueRadioButton);
         iBTrueRadioButton.setText("True");
         iBTrueRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -3651,7 +3649,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel15.add(iBTrueRadioButton, gridBagConstraints);
 
-        iBFalseRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        iBFalseRadioButton.setBackground(new java.awt.Color(247, 248, 248));
         GATK.add(iBFalseRadioButton);
         iBFalseRadioButton.setSelected(true);
         iBFalseRadioButton.setText("False");
@@ -3683,7 +3681,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel15.add(i1000GenomeText, gridBagConstraints);
 
-        jLabel52.setText(" 1000 Genome  VCF file:");
+        jLabel52.setText("1000 Genome  VCF file:");
         jLabel52.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3761,7 +3759,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingBWAPanel.add(jPanel15, gridBagConstraints);
 
-        jPanel16.setBackground(new java.awt.Color(230, 235, 235));
+        jPanel16.setBackground(new java.awt.Color(247, 248, 248));
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel16.setLayout(new java.awt.GridBagLayout());
 
@@ -3775,7 +3773,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel16.add(jLabel49, gridBagConstraints);
 
-        iSudoBRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        iSudoBRadioButton.setBackground(new java.awt.Color(247, 248, 248));
         IExecutionBWA.add(iSudoBRadioButton);
         iSudoBRadioButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3787,7 +3785,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
         jPanel16.add(iSudoBRadioButton, gridBagConstraints);
 
-        iDockerBRadioButton.setBackground(new java.awt.Color(230, 235, 235));
+        iDockerBRadioButton.setBackground(new java.awt.Color(247, 248, 248));
         IExecutionBWA.add(iDockerBRadioButton);
         iDockerBRadioButton.setSelected(true);
         iDockerBRadioButton.setText("docker");
@@ -3800,7 +3798,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3915,7 +3912,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         MACSPanel.add(jButton25, gridBagConstraints);
 
-        jPanel17.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel17.setBackground(new java.awt.Color(247, 248, 248));
         jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel17.setLayout(new java.awt.GridBagLayout());
 
@@ -4177,7 +4174,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         MACSPanel.add(jPanel17, gridBagConstraints);
 
-        jPanel18.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel18.setBackground(new java.awt.Color(247, 248, 248));
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel18.setLayout(new java.awt.GridBagLayout());
 
@@ -4190,7 +4187,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel18.add(jLabel56, gridBagConstraints);
 
-        MSudoRadioButton.setBackground(new java.awt.Color(230, 240, 230));
+        MSudoRadioButton.setBackground(new java.awt.Color(247, 248, 248));
         MExecution.add(MSudoRadioButton);
         MSudoRadioButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -4201,7 +4198,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
         jPanel18.add(MSudoRadioButton, gridBagConstraints);
 
-        MDockerRadioButton.setBackground(new java.awt.Color(230, 240, 230));
+        MDockerRadioButton.setBackground(new java.awt.Color(247, 248, 248));
         MExecution.add(MDockerRadioButton);
         MDockerRadioButton.setSelected(true);
         MDockerRadioButton.setText("docker");
@@ -4264,7 +4261,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         MACSPanel.add(jPanel18, gridBagConstraints);
 
-        jPanel19.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel19.setBackground(new java.awt.Color(247, 248, 248));
         jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel19.setLayout(new java.awt.GridBagLayout());
 
@@ -4299,7 +4296,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         Tool.setLayout(new java.awt.CardLayout());
 
-        jPanel22.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel22.setBackground(new java.awt.Color(247, 248, 248));
         jPanel22.setLayout(new java.awt.GridBagLayout());
 
         jLabel78.setText("MACS min. mfold:");
@@ -4393,7 +4390,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         Tool.add(jPanel22, "MACS");
 
-        jPanel23.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel23.setBackground(new java.awt.Color(247, 248, 248));
         jPanel23.setLayout(new java.awt.GridBagLayout());
 
         jLabel80.setText("SICER windows:");
@@ -4504,7 +4501,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         MACSPanel.add(jPanel19, gridBagConstraints);
 
-        jPanel20.setBackground(new java.awt.Color(230, 240, 230));
+        jPanel20.setBackground(new java.awt.Color(247, 248, 248));
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel20.setLayout(new java.awt.GridBagLayout());
 
@@ -4622,7 +4619,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel20.add(jLabel73, gridBagConstraints);
 
-        MRyesRadioButton.setBackground(new java.awt.Color(230, 240, 230));
+        MRyesRadioButton.setBackground(new java.awt.Color(247, 248, 248));
         MRemoveDuplicates.add(MRyesRadioButton);
         MRyesRadioButton.setText("yes");
         MRyesRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -4638,7 +4635,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel20.add(MRyesRadioButton, gridBagConstraints);
 
-        MRnoRadioButton.setBackground(new java.awt.Color(230, 240, 230));
+        MRnoRadioButton.setBackground(new java.awt.Color(247, 248, 248));
         MRemoveDuplicates.add(MRnoRadioButton);
         MRnoRadioButton.setSelected(true);
         MRnoRadioButton.setText("no");
@@ -4733,6 +4730,11 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel20.add(jLabel76, gridBagConstraints);
 
         MReadLengthTextField.setText("50");
+        MReadLengthTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MReadLengthTextFieldActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 4;
@@ -4758,7 +4760,7 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sample size estimator", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
         SampleSizePanel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel21.setBackground(new java.awt.Color(249, 248, 235));
+        jPanel21.setBackground(new java.awt.Color(247, 248, 248));
         jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel21.setLayout(new java.awt.GridBagLayout());
 
@@ -4929,7 +4931,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SampleSizePanel.add(SSCloseButton, gridBagConstraints);
 
-        jPanel24.setBackground(new java.awt.Color(249, 248, 235));
+        jPanel24.setBackground(new java.awt.Color(247, 248, 248));
         jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel24.setLayout(new java.awt.GridBagLayout());
 
@@ -5033,7 +5035,7 @@ public class MainFrame extends javax.swing.JFrame {
         ExperimentPowerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Experiment power", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 51, 102))); // NOI18N
         ExperimentPowerPanel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel25.setBackground(new java.awt.Color(233, 242, 250));
+        jPanel25.setBackground(new java.awt.Color(247, 248, 248));
         jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel25.setLayout(new java.awt.GridBagLayout());
 
@@ -5204,7 +5206,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExperimentPowerPanel.add(EPCloseButton, gridBagConstraints);
 
-        jPanel26.setBackground(new java.awt.Color(233, 242, 250));
+        jPanel26.setBackground(new java.awt.Color(247, 248, 248));
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel26.setLayout(new java.awt.GridBagLayout());
 
@@ -5308,7 +5310,7 @@ public class MainFrame extends javax.swing.JFrame {
         mRNABatchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Adding covariates and batch information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
         mRNABatchPanel.setLayout(new java.awt.GridBagLayout());
 
-        jPanel27.setBackground(new java.awt.Color(238, 250, 247));
+        jPanel27.setBackground(new java.awt.Color(248, 248, 248));
         jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel27.setToolTipText("the all.counts.txt file generated from miRNAseq step");
         jPanel27.setLayout(new java.awt.GridBagLayout());
@@ -5578,7 +5580,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingSalmonPanel.add(jButton38, gridBagConstraints);
 
-        jPanel28.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel28.setBackground(new java.awt.Color(248, 248, 248));
         jPanel28.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel28.setLayout(new java.awt.GridBagLayout());
 
@@ -5709,7 +5711,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IndexingSalmonPanel.add(jPanel28, gridBagConstraints);
 
-        jPanel29.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel29.setBackground(new java.awt.Color(248, 248, 248));
         jPanel29.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel29.setLayout(new java.awt.GridBagLayout());
 
@@ -5723,7 +5725,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel29.add(jLabel106, gridBagConstraints);
 
-        iSudoRadioSButton.setBackground(new java.awt.Color(253, 232, 232));
+        iSudoRadioSButton.setBackground(new java.awt.Color(248, 248, 248));
         IExecutionSalmon.add(iSudoRadioSButton);
         iSudoRadioSButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -5735,7 +5737,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel29.add(iSudoRadioSButton, gridBagConstraints);
 
-        iDockerRadioSButton.setBackground(new java.awt.Color(253, 232, 232));
+        iDockerRadioSButton.setBackground(new java.awt.Color(248, 248, 248));
         IExecutionSalmon.add(iDockerRadioSButton);
         iDockerRadioSButton.setSelected(true);
         iDockerRadioSButton.setText("docker");
@@ -5863,7 +5865,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CountingSalmonPanel.add(jButton41, gridBagConstraints);
 
-        jPanel30.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel30.setBackground(new java.awt.Color(248, 248, 248));
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel30.setToolTipText("");
         jPanel30.setLayout(new java.awt.GridBagLayout());
@@ -6030,7 +6032,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CountingSalmonPanel.add(jPanel30, gridBagConstraints);
 
-        jPanel31.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel31.setBackground(new java.awt.Color(248, 248, 248));
         jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel31.setToolTipText("");
         jPanel31.setLayout(new java.awt.GridBagLayout());
@@ -6043,7 +6045,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel31.add(jLabel113, gridBagConstraints);
 
-        cSudoRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         cExecutiionSalmon.add(cSudoRadioButton);
         cSudoRadioButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -6054,7 +6056,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
-        cDockerRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         cExecutiionSalmon.add(cDockerRadioButton);
         cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
@@ -6111,7 +6113,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CountingSalmonPanel.add(jPanel31, gridBagConstraints);
 
-        jPanel32.setBackground(new java.awt.Color(253, 232, 232));
+        jPanel32.setBackground(new java.awt.Color(248, 248, 248));
         jPanel32.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel32.setLayout(new java.awt.GridBagLayout());
 
@@ -6173,7 +6175,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel32.add(cAdapter3Text, gridBagConstraints);
 
-        cPeRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cPeRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         cSeq.add(cPeRadioButton);
         cPeRadioButton.setSelected(true);
         cPeRadioButton.setText("paired-end");
@@ -6191,7 +6193,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel32.add(cPeRadioButton, gridBagConstraints);
 
-        cSeRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cSeRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         cSeq.add(cSeRadioButton);
         cSeRadioButton.setText("single-end");
         cSeRadioButton.setToolTipText("");
@@ -6252,7 +6254,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel32.add(jLabel119, gridBagConstraints);
 
-        cSNoneRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cSNoneRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         cStrand.add(cSNoneRadioButton);
         cSNoneRadioButton.setSelected(true);
         cSNoneRadioButton.setText("none");
@@ -6271,7 +6273,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel32.add(cSNoneRadioButton, gridBagConstraints);
 
-        cSForwardRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cSForwardRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         cStrand.add(cSForwardRadioButton);
         cSForwardRadioButton.setText("forward");
         cSForwardRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -6288,7 +6290,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel32.add(cSForwardRadioButton, gridBagConstraints);
 
-        cSReverseRadioButton.setBackground(new java.awt.Color(253, 232, 232));
+        cSReverseRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         cStrand.add(cSReverseRadioButton);
         cSReverseRadioButton.setText("reverse");
         cSReverseRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -6384,7 +6386,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         filterCountsPanel.add(jButton44, gridBagConstraints);
 
-        jPanel33.setBackground(new java.awt.Color(250, 231, 225));
+        jPanel33.setBackground(new java.awt.Color(248, 248, 248));
         jPanel33.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel33.setLayout(new java.awt.GridBagLayout());
 
@@ -6392,7 +6394,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel120.setToolTipText("Output folder");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel33.add(jLabel120, gridBagConstraints);
@@ -6410,6 +6412,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel33.add(fFPKMfileText, gridBagConstraints);
 
@@ -6421,10 +6424,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel33.add(jToggleButton38, gridBagConstraints);
 
@@ -6436,8 +6438,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel33.add(fCancelButton4, gridBagConstraints);
@@ -6460,7 +6462,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
@@ -6476,10 +6478,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel33.add(jToggleButton39, gridBagConstraints);
 
@@ -6492,8 +6493,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel33.add(fCancelButton5, gridBagConstraints);
@@ -6507,7 +6508,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         filterCountsPanel.add(jPanel33, gridBagConstraints);
 
-        jPanel34.setBackground(new java.awt.Color(250, 231, 225));
+        jPanel34.setBackground(new java.awt.Color(248, 248, 248));
         jPanel34.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel34.setLayout(new java.awt.GridBagLayout());
 
@@ -6520,7 +6521,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel34.add(jLabel124, gridBagConstraints);
 
-        fgeneRadioButton.setBackground(new java.awt.Color(250, 231, 225));
+        fgeneRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DataFilter.add(fgeneRadioButton);
         fgeneRadioButton.setText("gene");
         fgeneRadioButton.setToolTipText("");
@@ -6537,7 +6538,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel34.add(fgeneRadioButton, gridBagConstraints);
 
-        fisoformRadioButton.setBackground(new java.awt.Color(250, 231, 225));
+        fisoformRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DataFilter.add(fisoformRadioButton);
         fisoformRadioButton.setSelected(true);
         fisoformRadioButton.setText("isoform");
@@ -6554,7 +6555,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel34.add(fisoformRadioButton, gridBagConstraints);
 
-        fmirnaRadioButton.setBackground(new java.awt.Color(250, 231, 225));
+        fmirnaRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         DataFilter.add(fmirnaRadioButton);
         fmirnaRadioButton.setText("mirna");
         fmirnaRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -8232,7 +8233,7 @@ public class MainFrame extends javax.swing.JFrame {
         vFastQFolderText.setText("");
         vOutputFolderText.setText("");
         vThreadText.setText(Integer.toString(GS.getDefaultThread()));
-        vAdapter5Text.setText(GS.getDefaultAdapter3());
+        vAdapter5Text.setText(GS.getDefaultAdapter5());
         vAdapter3Text.setText(GS.getDefaultAdapter3());
         vSeRadioButton.setSelected(true);
         vMinLengthText.setText("40");
@@ -10149,7 +10150,7 @@ public class MainFrame extends javax.swing.JFrame {
         MTestFolderText.setText("");
         MMockFolderText.setText("");
         MThreadText.setText(Integer.toString(GS.getDefaultThread()));
-        MAdapter5Text.setText(GS.getDefaultAdapter3());
+        MAdapter5Text.setText(GS.getDefaultAdapter5());
         MAdapter3Text.setText(GS.getDefaultAdapter3());
         MMinLengthText.setText("30");
         MOrgComboBox.setSelectedIndex(0);
@@ -10407,7 +10408,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_MSFDRTextActionPerformed
 
     private void MToolComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_MToolComboBoxItemStateChanged
-    if ((MToolComboBox.getSelectedItem().toString()).equals("MACS")){
+    if ((MToolComboBox.getSelectedItem().toString()).equals("macs")){
         CardLayout cardTool = (CardLayout)Tool.getLayout();
         cardTool.show(Tool, "MACS");
     }
@@ -11475,7 +11476,7 @@ public class MainFrame extends javax.swing.JFrame {
         cFastQFolderText.setText("");
         cOutputFolderText.setText("");
         cThreadText.setText(Integer.toString(GS.getDefaultThread()));
-        cAdapter5Text.setText(GS.getDefaultAdapter3());
+        cAdapter5Text.setText(GS.getDefaultAdapter5());
         cAdapter3Text.setText(GS.getDefaultAdapter3());
         cSeRadioButton.setSelected(true);
         cMinLengthText.setText("40");
@@ -11772,6 +11773,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         DownloadMenuItemActionPerformed(evt);
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void MReadLengthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MReadLengthTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MReadLengthTextFieldActionPerformed
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
         About4SeqGUIFrame.pack(); 
         About4SeqGUIFrame.setLocationRelativeTo(null);                                       
@@ -11792,6 +11797,8 @@ public class MainFrame extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
+    /*
         try {
             /*for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("plafto".equals(info.getName())) {
@@ -11799,7 +11806,7 @@ public class MainFrame extends javax.swing.JFrame {
                     break;
                 }
             }*/
-           javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());     
+    /*       javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());     
            
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -11811,7 +11818,7 @@ public class MainFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+    */    
   
         
         try{

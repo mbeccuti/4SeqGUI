@@ -1,0 +1,45 @@
+version 16.04
+install tiger-vnc (it only works for RSTUDIO) download source
+install mate desktop o xfce
+
+sudo apt install xfce4 xfce4-goodies
+sudo apt-get install mate-desktop-environment-core
+
+xstatup configuration:
+
+
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+xrdb $HOME/.Xresources
+
+-----------------------------------------------------------------------------
+
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+x-window-manager &
+
+exec /usr/bin/mate-session &    
+#exec /usr/bin/startxfce4 &
+------------------------------------------------------------------------------
+
+
+apt-get install R-core
+sudo apt-get install libssl-dev
+sudo apt-get install git
+sudo apt-get install   libcurl4-openssl-dev
+download RSTUDIO
+
+X docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+apt-cache policy docker-ce
+sudo apt-get install -y docker-ce
+
+sudo usermod -aG docker ${USER}
+
+
