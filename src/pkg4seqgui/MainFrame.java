@@ -958,7 +958,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1080,7 +1080,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jToolBar1.setBackground(new java.awt.Color(237, 237, 237));
-        jToolBar1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jToolBar1.setBorder(null);
         jToolBar1.setRollover(true);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52.png"))); // NOI18N
@@ -1164,16 +1164,21 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.NORTH);
 
+        VerticalSplitPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(2, 2, 2, 2));
         VerticalSplitPanel.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        BottomPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        BottomPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         BottomPanel.setLayout(new java.awt.GridBagLayout());
 
+        jScrollPane4.setBorder(null);
         jScrollPane4.setToolTipText("");
 
+        ProcStatusPanel.setBorder(null);
         ProcStatusPanel.setLayout(new java.awt.GridBagLayout());
 
-        ProcList.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Process status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 82, 150))); // NOI18N
+        jScrollPane2.setBorder(null);
+
+        ProcList.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(20, 1, 1, 1), "Process status", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 82, 150))); // NOI18N
         ProcList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ProcList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1203,11 +1208,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         VerticalSplitPanel.setBottomComponent(BottomPanel);
 
-        HorizontalSplitPanel.setBorder(null);
+        HorizontalSplitPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         MainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        MainPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        MainPanel.setBorder(null);
         MainPanel.setLayout(new java.awt.CardLayout());
+
+        Empty.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         EmptyPanel.setBackground(new java.awt.Color(255, 255, 255));
         EmptyPanel.setLayout(new java.awt.GridBagLayout());
@@ -1225,7 +1232,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(Empty, "Empty");
 
-        IndexingStarRSEMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genome indexing STAR-RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 102, 102))); // NOI18N
+        IndexingStarRSEM.setBorder(null);
+
+        IndexingStarRSEMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genome indexing STAR-RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 102, 102))); // NOI18N
         IndexingStarRSEMPanel.setToolTipText("");
         IndexingStarRSEMPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -1485,8 +1494,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(IndexingStarRSEM, "indexing");
 
-        mRNA.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "miRNA counting", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(153, 0, 0))); // NOI18N
+        mRNA.setBorder(null);
 
+        mRNAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "miRNA counting", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(141, 38, 56))); // NOI18N
         mRNAPanel.setLayout(new java.awt.GridBagLayout());
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
@@ -1895,7 +1905,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(mRNA, "mRNA");
 
-        FPKMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "From samples to experiment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(102, 0, 153))); // NOI18N
+        FPKM.setBorder(null);
+
+        FPKMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "From samples to experiment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(102, 0, 153))); // NOI18N
         FPKMPanel.setLayout(new java.awt.GridBagLayout());
 
         jPanel4.setBackground(new java.awt.Color(248, 248, 248));
@@ -2110,7 +2122,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(FPKM, "FPKMCounting");
 
-        vmRNAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genes, isoforms counting RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 102, 102))); // NOI18N
+        vmRNA.setBorder(null);
+
+        vmRNAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genes, isoforms counting RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 102, 102))); // NOI18N
         vmRNAPanel.setToolTipText("");
         vmRNAPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -2702,7 +2716,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(vmRNA, "vmRNA");
 
-        PCAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "PCA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(204, 102, 0))); // NOI18N
+        PCA.setBorder(null);
+
+        PCAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "PCA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(204, 102, 0))); // NOI18N
         PCAPanel.setToolTipText("");
         PCAPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -3083,7 +3099,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(PCA, "PCA");
 
-        DESPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "DESeq2 analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 204))); // NOI18N
+        DES.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        DESPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "DESeq2 analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 204))); // NOI18N
         DESPanel.setToolTipText("");
         DESPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -3463,7 +3481,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(DES, "DES");
 
-        IndexingBWAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Genome indexing BWA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
+        IndexingBWA.setBorder(null);
+
+        IndexingBWAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genome indexing BWA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
         IndexingBWAPanel.setToolTipText("");
         IndexingBWAPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -3847,7 +3867,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(IndexingBWA, "indexingB");
 
-        MACSPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "MACS & SICER analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 153, 0))); // NOI18N
+        MACS.setBorder(null);
+
+        MACSPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "MACS & SICER analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 153, 0))); // NOI18N
         MACSPanel.setToolTipText("");
         MACSPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -4757,7 +4779,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(MACS, "MACS");
 
-        SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sample size estimator", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
+        SampleSize.setBorder(null);
+
+        SampleSizePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Sample size estimator", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(218, 174, 0))); // NOI18N
         SampleSizePanel.setLayout(new java.awt.GridBagLayout());
 
         jPanel21.setBackground(new java.awt.Color(247, 248, 248));
@@ -5032,7 +5056,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(SampleSize, "SampleSize");
 
-        ExperimentPowerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Experiment power", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 51, 102))); // NOI18N
+        ExperimentPower.setBorder(null);
+
+        ExperimentPowerPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Experiment power", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 51, 102))); // NOI18N
         ExperimentPowerPanel.setLayout(new java.awt.GridBagLayout());
 
         jPanel25.setBackground(new java.awt.Color(247, 248, 248));
@@ -5307,7 +5333,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(ExperimentPower, "ExperimentPower");
 
-        mRNABatchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Adding covariates and batch information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
+        mRNABatch.setBorder(null);
+
+        mRNABatchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Adding covariates and batch information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 153, 153))); // NOI18N
         mRNABatchPanel.setLayout(new java.awt.GridBagLayout());
 
         jPanel27.setBackground(new java.awt.Color(248, 248, 248));
@@ -5515,7 +5543,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(mRNABatch, "AddingCovmRNA");
 
-        IndexingSalmonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transcriptome pseudo-reference building with Salmon\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        IndexingSalmon.setBorder(null);
+
+        IndexingSalmonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Transcriptome pseudo-reference building with Salmon\n", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         IndexingSalmonPanel.setToolTipText("");
         IndexingSalmonPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -5800,7 +5830,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(IndexingSalmon, "indexingSalmon");
 
-        CountingSalmonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Transcripts and genes counting with Salmon ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        CountingSalmon.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        CountingSalmonPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Transcripts and genes counting with Salmon ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         CountingSalmonPanel.setToolTipText("");
         CountingSalmonPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -6321,7 +6353,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(CountingSalmon, "countingSalmon");
 
-        filterCountsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Filter Counts", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 51, 51))); // NOI18N
+        filterCounts.setBorder(null);
+
+        filterCountsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Filter Counts", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 51, 51))); // NOI18N
         filterCountsPanel.setToolTipText("");
         filterCountsPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -6591,7 +6625,7 @@ public class MainFrame extends javax.swing.JFrame {
         LeftPanel.setBackground(new java.awt.Color(255, 255, 255));
         LeftPanel.setLayout(new java.awt.GridBagLayout());
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jScrollPane1.setBorder(null);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("SeqBox");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("RNAseq Workflow");
@@ -6661,7 +6695,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(VerticalSplitPanel, java.awt.BorderLayout.CENTER);
 
-        jMenuBar1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 3, 5, 3));
 
         jMenu3.setText("File");
 
@@ -11791,23 +11825,13 @@ public class MainFrame extends javax.swing.JFrame {
         //Anti-aliasing code
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext", "true");
-         //Anti-aliasing code
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        
-    /*
-        try {
-            /*for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("plafto".equals(info.getName())) {
+       try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeel".equals(info.getClassName())) {   
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }*/
-    /*       javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());     
-           
+                     break;
+                } 
+        }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -11817,8 +11841,6 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-    */    
   
         
         try{
