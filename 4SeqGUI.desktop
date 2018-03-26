@@ -2,7 +2,7 @@
 Exec=/home/user/4SeqGUI/4SeqGUIxBox.sh
 Icon=/home/user/4SeqGUI/src/pkg4seqgui/images/iconDNA.png
 Type=Application
-Terminal=true
+Terminal=false
 Name=4SeqGUI
 Categories=Application;
 
