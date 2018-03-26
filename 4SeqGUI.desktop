@@ -1,6 +1,6 @@
 [Desktop Entry]
-Exec=/home/user/4SeqGUI/4SeqGUI.sh
-Icon=/home/beccuti/NetBeansProjects/4SeqGUI/src/pkg4seqgui/images/iconDNA.png
+Exec=/home/user/4SeqGUI/4SeqGUIxBox.sh
+Icon=/home/user/4SeqGUI/src/pkg4seqgui/images/iconDNA.png
 Type=Application
 Terminal=true
 Name=4SeqGUI
