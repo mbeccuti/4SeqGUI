@@ -8,6 +8,9 @@ openssl-devel
 libcurl-devel
 gcc g++
 
+Xgnome
+gnome-tweak-tool
+
 X facilitare utilizzo 
 sudo settenforce 0
  sudo vi /etc/sysconfig/selinux 
