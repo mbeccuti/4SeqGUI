@@ -1,0 +1,8 @@
+[Desktop Entry]
+Exec=/home/user/vnc-run.sh
+Icon=/home/user/4SeqGUI/src/pkg4seqgui/images/iconDNA.png
+Type=Application
+Terminal=false
+Name=VNC
+Categories=Application;
+

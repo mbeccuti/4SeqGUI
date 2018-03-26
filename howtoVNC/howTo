@@ -1,5 +1,15 @@
+
+(OLD)
 How to setup
 1. copy vncserver1.service   in  /etc/systemd/system/vncserver1.service 
 2. copy vnc-run.sh in /home/user
 3. type "sudo systemctl start  vncserver1" one shoot
 4. type "sudo systemctl enable  vncserver1" for every reboot
+
+GNOME
+1. autologin enable
+2. select GNOME orgX11
+3. copy vnc-run.sh in /home/user
+4. copy VNC.desktop in /usr/share/applications
+5. using  startup applications in   Tweak-tool adding VNC.desktop
+
