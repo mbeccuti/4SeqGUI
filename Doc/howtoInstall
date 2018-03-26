@@ -75,6 +75,8 @@ Settare boot esecutio:
 sudo systemctl  enable  vncserver@:2.service
 
 
+Icon 
+copy 4SeqGUI.desktop in /usr/share/applications
 
 testing:
 nohup R CMD BATCH script.R & 
