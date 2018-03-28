@@ -11833,7 +11833,7 @@ public class MainFrame extends javax.swing.JFrame {
                     nofound=false;
                      break;
                 } 
-                if (nofound==false)
+                if (nofound==true)
                     javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName()); 
         }
         } catch (ClassNotFoundException ex) {
