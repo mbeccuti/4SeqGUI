@@ -42,6 +42,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JSeparator;
 import javax.swing.JTree;
 import javax.swing.KeyStroke;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
 import javax.swing.undo.UndoManager;
@@ -775,7 +776,7 @@ public class MainFrame extends javax.swing.JFrame {
         OutputFrame.getContentPane().add(CloseOutput, gridBagConstraints);
 
         ReloadOutput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
-        ReloadOutput.setText("Reload");
+        ReloadOutput.setText("Reload Output");
         ReloadOutput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReloadOutputActionPerformed(evt);
@@ -789,7 +790,7 @@ public class MainFrame extends javax.swing.JFrame {
         OutputFrame.getContentPane().add(ReloadOutput, gridBagConstraints);
 
         RemoveOutput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/remove.png"))); // NOI18N
-        RemoveOutput.setText("RemoveEntry");
+        RemoveOutput.setText("Remove Entry");
         RemoveOutput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RemoveOutputActionPerformed(evt);
@@ -805,6 +806,11 @@ public class MainFrame extends javax.swing.JFrame {
         DlogButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/log.png"))); // NOI18N
         DlogButton.setText("Docker Logs");
         DlogButton.setEnabled(false);
+        DlogButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DlogButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -958,7 +964,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1033,7 +1039,7 @@ public class MainFrame extends javax.swing.JFrame {
         About4SeqGUIFrame.getContentPane().add(jLabel96, gridBagConstraints);
 
         jLabel100.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel100.setText("Version 1.2.1");
+        jLabel100.setText("Version 2.0.1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1173,7 +1179,6 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane4.setBorder(null);
         jScrollPane4.setToolTipText("");
 
-        ProcStatusPanel.setBorder(null);
         ProcStatusPanel.setLayout(new java.awt.GridBagLayout());
 
         jScrollPane2.setBorder(null);
@@ -1211,7 +1216,6 @@ public class MainFrame extends javax.swing.JFrame {
         HorizontalSplitPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         MainPanel.setBackground(new java.awt.Color(255, 255, 255));
-        MainPanel.setBorder(null);
         MainPanel.setLayout(new java.awt.CardLayout());
 
         Empty.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -8503,8 +8507,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
 //automatically update file
-        outputTime=new Timer();
-        outputTime.scheduleAtFixedRate(new MyFileUpdate(), 5000, 5000);
+
      
             
         OutputFrame.setLocationRelativeTo(null);   
@@ -8548,24 +8551,13 @@ public class MainFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error reading R output file","Error",JOptionPane.ERROR_MESSAGE);
             }
             OutputText.setText(text);
-            if (tmpListEntry.status.equals("Finished"))
-            {
-                try{
-                    File file = new File( tmpListEntry.path+"/dockerID");
-                    BufferedReader reader = new BufferedReader(new FileReader(file));
-                    String strLine;
-                    //Read File Line By Line
-                    while ((strLine = reader.readLine()) != null)   {
-                    text+="\n"+strLine;
-                    }
-                    reader.close();
-                    DlogButton.setEnabled(true);
-                }
-                catch (Exception e){//Catch exception if any
-                    System.err.println("Error: " + e.getMessage());
-                    //JOptionPane.showMessageDialog(this, "Error reading R output file","Error",JOptionPane.ERROR_MESSAGE);
-                }      
+           if (tmpListEntry.status.equals("Running")){
+                outputTime=new Timer();
+                outputTime.scheduleAtFixedRate(new MyFileUpdate(), 5000, 5000);  
             }
+           else{
+            DlogButton.setEnabled(true);
+           }
         }
         else
         {
@@ -11811,6 +11803,36 @@ public class MainFrame extends javax.swing.JFrame {
     private void MReadLengthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MReadLengthTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MReadLengthTextFieldActionPerformed
+
+    private void DlogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DlogButtonActionPerformed
+    JFileChooser openFile = new JFileChooser();
+    ListEntry tmpListEntry =  listModel.get(GL.getListProcStatuSelection());
+    openFile.setCurrentDirectory(new File(tmpListEntry.path));
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("LOG FILES", "log", "text");
+    openFile.setFileFilter(filter);
+    if (openFile.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+        
+        try{
+            File file = openFile.getSelectedFile();
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String strLine;
+            String text="";
+            //Read File Line By Line
+            while ((strLine = reader.readLine()) != null)   {
+                    text+="\n"+strLine;
+            }
+            reader.close();
+            OutputText.setText(text);
+                }
+                catch (Exception e){//Catch exception if any
+                    System.err.println("Error: " + e.getMessage());
+                    //JOptionPane.showMessageDialog(this, "Error reading R output file","Error",JOptionPane.ERROR_MESSAGE);
+                }
+        }
+    
+    }//GEN-LAST:event_DlogButtonActionPerformed
+    
+    
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
         About4SeqGUIFrame.pack(); 
         About4SeqGUIFrame.setLocationRelativeTo(null);                                       
@@ -11826,14 +11848,14 @@ public class MainFrame extends javax.swing.JFrame {
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext", "true");
         boolean nofound=true;
-       try {
+      try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeel".equals(info.getClassName())) {   
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     nofound=false;
                      break;
                 } 
-                if (nofound==true)
+                if (nofound=true)
                     javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName()); 
         }
         } catch (ClassNotFoundException ex) {
@@ -12660,10 +12682,30 @@ extends JLabel implements ListCellRenderer<Object>
                     int index=listProcRunning.get(i).pos;
                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/end.png");
                     ImageIcon image2 = new ImageIcon(imgURL);
+                    ImageIcon image3 = new ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"));
                     //listModel.remove(index+1);
                     //GL.setAvoidProcListValueChanged(-1);
-                    listModel.set(index,new ListEntry(" [Finished]   " + listProcRunning.get(i).toString(), "Finished",listProcRunning.get(i).path,image2));
+                    boolean error=false;
+                    try{
+                        File f = new File(listProcRunning.get(i).path+"/ExitStatusFile");
+                         System.out.print("file:"+ f.getAbsoluteFile().toString() );
+                        FileReader fw = new FileReader(f.getAbsoluteFile());
+                        BufferedReader br = new BufferedReader(fw);
+                        String ExitStatus=br.readLine();
+                        System.out.print("br: "+ExitStatus+" "+listProcRunning.get(i).path);
+                        if (!(ExitStatus.equals("0"))){
+                            error=true;
+                        }
+                    }
+                    catch(IOException | NumberFormatException e) {
+                       System.out.print(listProcRunning.get(i).path);
+                       error=true;
+                    }
                     
+                    if (error)
+                    listModel.set(index,new ListEntry(" [Error]   " + listProcRunning.get(i).toString(), "Error",listProcRunning.get(i).path,image3));
+                    else
+                    listModel.set(index,new ListEntry(" [Finished]   " + listProcRunning.get(i).toString(), "Finished",listProcRunning.get(i).path,image2));
                     listProcRunning.remove(i);        
                 }
             }

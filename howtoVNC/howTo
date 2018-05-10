@@ -12,4 +12,7 @@ GNOME
 3. copy vnc-run.sh in /home/user
 4. copy VNC.desktop in /usr/share/applications
 5. using  startup applications in   Tweak-tool adding VNC.desktop
-
+6. vi /etc/gdm/custom.conf
+# Uncoment the line below to force the login screen to use Xorg
+#WaylandEnable=false
+DefaultSession=gnome-xorg.desktop
