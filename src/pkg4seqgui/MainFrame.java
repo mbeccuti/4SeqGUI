@@ -722,7 +722,6 @@ public class MainFrame extends javax.swing.JFrame {
         MultiQC = new javax.swing.JScrollPane();
         MultiQCpanel = new javax.swing.JPanel();
         jButton45 = new javax.swing.JButton();
-        jButton46 = new javax.swing.JButton();
         jButton47 = new javax.swing.JButton();
         vCloseButton7 = new javax.swing.JButton();
         jPanel36 = new javax.swing.JPanel();
@@ -6656,21 +6655,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         MultiQCpanel.add(jButton45, gridBagConstraints);
 
-        jButton46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
-        jButton46.setText("Save conf.");
-        jButton46.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton46ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        MultiQCpanel.add(jButton46, gridBagConstraints);
-
         jButton47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton47.setText("Reset");
         jButton47.addActionListener(new java.awt.event.ActionListener() {
@@ -12106,10 +12090,6 @@ public class MainFrame extends javax.swing.JFrame {
                   //execute code      
     }//GEN-LAST:event_jButton45ActionPerformed
 
-    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton46ActionPerformed
-
     private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
         QDockerRadioButton.setSelected(true);
         QdataFolderText.setText("");
@@ -12465,7 +12445,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
-    private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
