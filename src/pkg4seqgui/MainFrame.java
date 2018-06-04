@@ -66,7 +66,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         DefaultTreeCellRenderer renderer =(DefaultTreeCellRenderer) AnalysisTree.getCellRenderer();
         renderer.setLeafIcon(image);
-        imgURL = getClass().getResource("/pkg4seqgui/images/dna1.png");
+        imgURL = getClass().getResource("/pkg4seqgui/images/dna2.png");
         ImageIcon image2 = new ImageIcon(imgURL);
         renderer.setOpenIcon(image2);
         expandAllNodes(AnalysisTree, 0, AnalysisTree.getRowCount());
@@ -273,6 +273,8 @@ public class MainFrame extends javax.swing.JFrame {
         cSeq = new javax.swing.ButtonGroup();
         cStrand = new javax.swing.ButtonGroup();
         DataFilter = new javax.swing.ButtonGroup();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        MultiQCGroup = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -717,6 +719,21 @@ public class MainFrame extends javax.swing.JFrame {
         fgeneRadioButton = new javax.swing.JRadioButton();
         fisoformRadioButton = new javax.swing.JRadioButton();
         fmirnaRadioButton = new javax.swing.JRadioButton();
+        MultiQC = new javax.swing.JScrollPane();
+        MultiQCpanel = new javax.swing.JPanel();
+        jButton45 = new javax.swing.JButton();
+        jButton46 = new javax.swing.JButton();
+        jButton47 = new javax.swing.JButton();
+        vCloseButton7 = new javax.swing.JButton();
+        jPanel36 = new javax.swing.JPanel();
+        jLabel127 = new javax.swing.JLabel();
+        QdataFolderText = new javax.swing.JTextField();
+        jToggleButton40 = new javax.swing.JToggleButton();
+        jToggleButton41 = new javax.swing.JToggleButton();
+        jPanel37 = new javax.swing.JPanel();
+        jLabel129 = new javax.swing.JLabel();
+        QSudoRadioButton = new javax.swing.JRadioButton();
+        QDockerRadioButton = new javax.swing.JRadioButton();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         AnalysisTree = new javax.swing.JTree();
@@ -1624,7 +1641,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         mDFalseRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mDownload.add(mDFalseRadioButton);
-        mDFalseRadioButton.setSelected(true);
         mDFalseRadioButton.setText("False");
         mDFalseRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1668,7 +1684,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         mAILLUMINARadioButton.setBackground(new java.awt.Color(248, 248, 248));
         MAdapter.add(mAILLUMINARadioButton);
-        mAILLUMINARadioButton.setSelected(true);
         mAILLUMINARadioButton.setText("ILLUMINA");
         mAILLUMINARadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1710,7 +1725,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         mTFalseRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mTrimmed.add(mTFalseRadioButton);
-        mTFalseRadioButton.setSelected(true);
         mTFalseRadioButton.setText("False");
         mTFalseRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1880,7 +1894,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         mDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(mDockerRadioButton);
-        mDockerRadioButton.setSelected(true);
         mDockerRadioButton.setText("docker");
         mDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -6624,6 +6637,196 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(filterCounts, "filtercounts");
 
+        MultiQCpanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "MultiQC ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(153, 0, 204))); // NOI18N
+        MultiQCpanel.setLayout(new java.awt.GridBagLayout());
+
+        jButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        jButton45.setText("Execute");
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton45ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        MultiQCpanel.add(jButton45, gridBagConstraints);
+
+        jButton46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
+        jButton46.setText("Save conf.");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        MultiQCpanel.add(jButton46, gridBagConstraints);
+
+        jButton47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        jButton47.setText("Reset");
+        jButton47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton47ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        MultiQCpanel.add(jButton47, gridBagConstraints);
+
+        vCloseButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        vCloseButton7.setText("Close");
+        vCloseButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vCloseButton7ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        MultiQCpanel.add(vCloseButton7, gridBagConstraints);
+
+        jPanel36.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel36.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel36.setLayout(new java.awt.GridBagLayout());
+
+        jLabel127.setText("Data folder:");
+        jLabel127.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel36.add(jLabel127, gridBagConstraints);
+
+        QdataFolderText.setEditable(false);
+        QdataFolderText.setToolTipText("The folder containing the input reads");
+        QdataFolderText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QdataFolderTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        jPanel36.add(QdataFolderText, gridBagConstraints);
+
+        jToggleButton40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton40.setText("Browse");
+        jToggleButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton40ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel36.add(jToggleButton40, gridBagConstraints);
+
+        jToggleButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton41.setText("Cancel");
+        jToggleButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton41ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel36.add(jToggleButton41, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        MultiQCpanel.add(jPanel36, gridBagConstraints);
+
+        jPanel37.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel37.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel37.setLayout(new java.awt.GridBagLayout());
+
+        jLabel129.setText("Execution:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel37.add(jLabel129, gridBagConstraints);
+
+        QSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        MultiQCGroup.add(QSudoRadioButton);
+        QSudoRadioButton.setText("sudo");
+        QSudoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QSudoRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 85, 10, 10);
+        jPanel37.add(QSudoRadioButton, gridBagConstraints);
+
+        QDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        MultiQCGroup.add(QDockerRadioButton);
+        QDockerRadioButton.setSelected(true);
+        QDockerRadioButton.setText("docker");
+        QDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QDockerRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel37.add(QDockerRadioButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        MultiQCpanel.add(jPanel37, gridBagConstraints);
+
+        MultiQC.setViewportView(MultiQCpanel);
+
+        MainPanel.add(MultiQC, "multiqc");
+
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
         LeftPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -6631,7 +6834,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jScrollPane1.setBorder(null);
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("SeqBox");
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
         javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("RNAseq Workflow");
         javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genome indexing STAR-RSEM");
         treeNode2.add(treeNode3);
@@ -6676,6 +6879,10 @@ public class MainFrame extends javax.swing.JFrame {
         treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("MACS & SICER analysis");
         treeNode2.add(treeNode3);
         treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Tools");
+        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("MultiQC");
+        treeNode2.add(treeNode3);
+        treeNode1.add(treeNode2);
         AnalysisTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         AnalysisTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
@@ -6686,7 +6893,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -6880,6 +7089,11 @@ public class MainFrame extends javax.swing.JFrame {
                                                             if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Count Filter" ){
                                                                 card.show(MainPanel, "filtercounts");
                                                                 CurrentLayout="filtercounts"; 
+                                                            }
+                                                            else
+                                                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="MultiQC" ){
+                                                                card.show(MainPanel, "multiqc");
+                                                                CurrentLayout="multiqc"; 
                                                             }
             }
         }
@@ -7088,7 +7302,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton8ActionPerformed
 
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
-        mFastQFolderText.setText("");// TODO add your handling code here:
+        mFastQFolderText.setText("");
     }//GEN-LAST:event_jToggleButton7ActionPerformed
 
     private void mFastQFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mFastQFolderTextActionPerformed
@@ -11831,6 +12045,121 @@ public class MainFrame extends javax.swing.JFrame {
         }
     
     }//GEN-LAST:event_DlogButtonActionPerformed
+
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+    
+        if (QdataFolderText.getText().isEmpty()){
+           JOptionPane.showMessageDialog(this, "You have to specified an input folder","Error: Data  folder",JOptionPane.ERROR_MESSAGE);
+           //mFastQFolderText.requestFocusInWindow();   
+           return;
+        }
+        else
+        {
+         //execute code
+            Runtime rt = Runtime.getRuntime();
+            try{
+                String[] cmd = {"/bin/bash","-c"," bash ./execmultiqc.sh "};
+                if (QSudoRadioButton.isSelected()){
+                    cmd[2]+= "group=\\\"sudo\\\"";
+                }
+                else{
+                    cmd[2]+= "group=\\\"docker\\\"";
+                }
+                cmd[2]+= " data.folder=\\\""+QdataFolderText.getText()+"\\\"";
+
+                cmd[2]+=" "+QdataFolderText.getText() +" >& "+QdataFolderText.getText()+"/outputExecution ";
+
+                if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                    Process pr = rt.exec(cmd);                          
+                    ElProcRunning tmp= new ElProcRunning("MultiQC  ", QdataFolderText.getText(),pr,listModel.getSize());
+                    listProcRunning.add(tmp);
+                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                    ImageIcon image2 = new ImageIcon(imgURL);
+                    GL.setAvoidProcListValueChanged(-1);
+                    listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                    GL.setAvoidProcListValueChanged(0);
+                    if(listProcRunning.size()==1){
+                        t=new Timer();
+                        t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                        }
+                }    
+                else{
+                     ElProcWaiting tmp= new ElProcWaiting("MultiQC", QdataFolderText.getText(),cmd,listModel.getSize());
+                     listProcWaiting.add(tmp);
+                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                     ImageIcon image2 = new ImageIcon(imgURL);
+                     GL.setAvoidProcListValueChanged(-1);
+                     listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                     GL.setAvoidProcListValueChanged(0);
+                    }
+                GL.setAvoidProcListValueChanged(-1);
+                ProcList.setModel(listModel);
+                ProcList.setCellRenderer(new ListEntryCellRenderer());
+                GL.setAvoidProcListValueChanged(0);
+                }   
+            catch(Exception e) {
+                JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+                System.out.println(e.toString());
+                }
+            JOptionPane.showMessageDialog(this, "MultiQC task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE); 
+        }
+                  //execute code      
+    }//GEN-LAST:event_jButton45ActionPerformed
+
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
+        QDockerRadioButton.setSelected(true);
+        QdataFolderText.setText("");
+    }//GEN-LAST:event_jButton47ActionPerformed
+
+    private void vCloseButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton7ActionPerformed
+        QDockerRadioButton.setSelected(true);
+        QdataFolderText.setText("");
+        //RESET FIELDS
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "Empty");
+        CurrentLayout="Empty";
+        AnalysisTree.clearSelection();
+    }//GEN-LAST:event_vCloseButton7ActionPerformed
+
+    private void QdataFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QdataFolderTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_QdataFolderTextActionPerformed
+
+    private void jToggleButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton40ActionPerformed
+        JFileChooser openDir = new JFileChooser();
+        if (!(QdataFolderText.getText().equals(""))){
+            File file =new File(QdataFolderText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            QdataFolderText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jToggleButton40ActionPerformed
+
+    private void jToggleButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton41ActionPerformed
+      QdataFolderText.setText("");
+    }//GEN-LAST:event_jToggleButton41ActionPerformed
+
+    private void QSudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QSudoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_QSudoRadioButtonActionPerformed
+
+    private void QDockerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QDockerRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_QDockerRadioButtonActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -11850,7 +12179,7 @@ public class MainFrame extends javax.swing.JFrame {
         boolean nofound=true;
       try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeel".equals(info.getClassName())) {   
+                if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeels".equals(info.getClassName())) {   
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     nofound=false;
                      break;
@@ -11988,6 +12317,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField MThreadText;
     private javax.swing.JComboBox<String> MToolComboBox;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JScrollPane MultiQC;
+    private javax.swing.ButtonGroup MultiQCGroup;
+    private javax.swing.JPanel MultiQCpanel;
     private javax.swing.JFrame OutputFrame;
     private javax.swing.JTextArea OutputText;
     private javax.swing.JScrollPane PCA;
@@ -11995,6 +12327,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField ParallelTextField;
     private javax.swing.JList<ListEntry> ProcList;
     private javax.swing.JPanel ProcStatusPanel;
+    private javax.swing.JRadioButton QDockerRadioButton;
+    private javax.swing.JRadioButton QSudoRadioButton;
+    private javax.swing.JTextField QdataFolderText;
     private javax.swing.JToggleButton ReloadOutput;
     private javax.swing.JButton RemoveOutput;
     private javax.swing.JButton SSCloseButton;
@@ -12129,6 +12464,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -12161,6 +12499,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -12298,12 +12638,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -12345,6 +12688,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton38;
     private javax.swing.JToggleButton jToggleButton39;
     private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton jToggleButton40;
+    private javax.swing.JToggleButton jToggleButton41;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
@@ -12390,6 +12735,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton vCloseButton4;
     private javax.swing.JButton vCloseButton5;
     private javax.swing.JButton vCloseButton6;
+    private javax.swing.JButton vCloseButton7;
     private javax.swing.JRadioButton vDockerRadioButton;
     private javax.swing.ButtonGroup vExecution;
     private javax.swing.JTextField vFastQFolderText;
