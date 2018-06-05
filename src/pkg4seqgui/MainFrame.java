@@ -110,6 +110,10 @@ public class MainFrame extends javax.swing.JFrame {
         //filterCount
         contextMenu.add(fFPKMfileText);
         contextMenu.add(fOutputFolderText);
+        //Configuration
+        contextMenu.add(Adapter3TextField);
+        contextMenu.add(Adapter5TextField);
+        
         
         FPKMFileTable.getColumn("Folder").setPreferredWidth(1000);
 
@@ -753,6 +757,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu2.setText("jMenu2");
 
         OutputFrame.setTitle("Process Output");
+        OutputFrame.setAlwaysOnTop(true);
         OutputFrame.setLocation(new java.awt.Point(100, 100));
         OutputFrame.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -8698,11 +8703,12 @@ public class MainFrame extends javax.swing.JFrame {
          Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int OutputframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputWidth", "0"));
         int OutputframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputHeight", "0")); 
+        
         if ((OutputframeWidth==0)||(OutputframeHeight==0)){
-              OutputframeWidth=screenSize.width*4/100;
-              OutputframeHeight=screenSize.height*5/100;
+              OutputframeWidth=screenSize.width*40/100;
+              OutputframeHeight=screenSize.height*50/100;
         }
-
+        
         OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
 //automatically update file
 
