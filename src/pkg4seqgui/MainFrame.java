@@ -64,12 +64,12 @@ public class MainFrame extends javax.swing.JFrame {
         java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/dna.png");
         ImageIcon image = new ImageIcon(imgURL);
         
-        DefaultTreeCellRenderer renderer =(DefaultTreeCellRenderer) AnalysisTree.getCellRenderer();
-        renderer.setLeafIcon(image);
-        imgURL = getClass().getResource("/pkg4seqgui/images/dna2.png");
-        ImageIcon image2 = new ImageIcon(imgURL);
-        renderer.setOpenIcon(image2);
-        expandAllNodes(AnalysisTree, 0, AnalysisTree.getRowCount());
+        //DefaultTreeCellRenderer renderer =(DefaultTreeCellRenderer) AnalysisTree.getCellRenderer();
+        //renderer.setLeafIcon(image);
+        //imgURL = getClass().getResource("/pkg4seqgui/images/dna2.png");
+       // ImageIcon image2 = new ImageIcon(imgURL);
+        //renderer.setOpenIcon(image2);
+       // expandAllNodes(AnalysisTree, 0, AnalysisTree.getRowCount());
                 
 
         //JTREE MULTIPLEFILE
@@ -738,8 +738,32 @@ public class MainFrame extends javax.swing.JFrame {
         QSudoRadioButton = new javax.swing.JRadioButton();
         QDockerRadioButton = new javax.swing.JRadioButton();
         LeftPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        AnalysisTree = new javax.swing.JTree();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        RNAseqPanel = new javax.swing.JPanel();
+        SalmonIndexingButton = new javax.swing.JButton();
+        vmRNAButton = new javax.swing.JButton();
+        mRNAButton = new javax.swing.JButton();
+        PCAButton = new javax.swing.JButton();
+        countingSalmonButton = new javax.swing.JButton();
+        SampleExpButton = new javax.swing.JButton();
+        CountButton = new javax.swing.JButton();
+        SampleSizeButton = new javax.swing.JButton();
+        ExpPowerButton = new javax.swing.JButton();
+        DeseqButton = new javax.swing.JButton();
+        miRNAPanel = new javax.swing.JPanel();
+        jButton59 = new javax.swing.JButton();
+        jButton60 = new javax.swing.JButton();
+        PCAButton1 = new javax.swing.JButton();
+        SampelExpButton1 = new javax.swing.JButton();
+        CountButton1 = new javax.swing.JButton();
+        SampleSizeButton1 = new javax.swing.JButton();
+        ExpPowerButton1 = new javax.swing.JButton();
+        DeseqButton2 = new javax.swing.JButton();
+        ChipSeqPanel = new javax.swing.JPanel();
+        indexingBButton = new javax.swing.JButton();
+        CountButton2 = new javax.swing.JButton();
+        ToolPanel = new javax.swing.JPanel();
+        MultiQCButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1060,7 +1084,7 @@ public class MainFrame extends javax.swing.JFrame {
         About4SeqGUIFrame.getContentPane().add(jLabel96, gridBagConstraints);
 
         jLabel100.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel100.setText("Version 2.0.1");
+        jLabel100.setText("Version 2.1.1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -6818,78 +6842,398 @@ public class MainFrame extends javax.swing.JFrame {
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
-        LeftPanel.setBackground(new java.awt.Color(255, 255, 255));
         LeftPanel.setLayout(new java.awt.GridBagLayout());
 
-        jScrollPane1.setBorder(null);
+        jTabbedPane1.setBackground(new java.awt.Color(238, 238, 238));
+        jTabbedPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("RNAseq Workflow");
-        javax.swing.tree.DefaultMutableTreeNode treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genome indexing STAR-RSEM");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genes, isoforms counting RSEM");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Transcriptome pseudo-reference building with Salmon");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Transcripts and genes counting with Salmon");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("From samples to experiment");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("PCA");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Sample size estimator");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Experiment stat. Power");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("DESeq2 analysis");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Count Filter");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("miRNA workflow");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("miRNA counting");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Adding covariates and batchs");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("PCA");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Sample size estimator");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Experiment stat. Power");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("DESeq2 analysis");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Count Filter");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Chipseq workflow");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("Genome indexing BWA");
-        treeNode2.add(treeNode3);
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("MACS & SICER analysis");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Tools");
-        treeNode3 = new javax.swing.tree.DefaultMutableTreeNode("MultiQC");
-        treeNode2.add(treeNode3);
-        treeNode1.add(treeNode2);
-        AnalysisTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        AnalysisTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                AnalysisTreeValueChanged(evt);
+        RNAseqPanel.setBackground(new java.awt.Color(255, 255, 255));
+        RNAseqPanel.setLayout(new java.awt.GridBagLayout());
+
+        SalmonIndexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/salmon.png"))); // NOI18N
+        SalmonIndexingButton.setText("Trans. pseudo-reference building (Salmon)  ");
+        SalmonIndexingButton.setBorder(null);
+        SalmonIndexingButton.setBorderPainted(false);
+        SalmonIndexingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalmonIndexingButtonActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(AnalysisTree);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(SalmonIndexingButton, gridBagConstraints);
 
+        vmRNAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
+        vmRNAButton.setText("Genome indexing STAR-RSEM  ");
+        vmRNAButton.setBorder(null);
+        vmRNAButton.setBorderPainted(false);
+        vmRNAButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vmRNAButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        RNAseqPanel.add(vmRNAButton, gridBagConstraints);
+
+        mRNAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
+        mRNAButton.setText("Genes, isoforms counting RSEM  ");
+        mRNAButton.setBorder(null);
+        mRNAButton.setBorderPainted(false);
+        mRNAButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mRNAButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(mRNAButton, gridBagConstraints);
+
+        PCAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/PCA.png"))); // NOI18N
+        PCAButton.setText(" PCA  analysis");
+        PCAButton.setBorder(null);
+        PCAButton.setBorderPainted(false);
+        PCAButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PCAButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(PCAButton, gridBagConstraints);
+
+        countingSalmonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/salmon.png"))); // NOI18N
+        countingSalmonButton.setText("Trans. and genes counting (Salmon)  ");
+        countingSalmonButton.setBorder(null);
+        countingSalmonButton.setBorderPainted(false);
+        countingSalmonButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countingSalmonButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(countingSalmonButton, gridBagConstraints);
+
+        SampleExpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sample.png"))); // NOI18N
+        SampleExpButton.setText("From samples to experiment  ");
+        SampleExpButton.setBorder(null);
+        SampleExpButton.setBorderPainted(false);
+        SampleExpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SampleExpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(SampleExpButton, gridBagConstraints);
+
+        CountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
+        CountButton.setText("Count Filter  ");
+        CountButton.setBorder(null);
+        CountButton.setBorderPainted(false);
+        CountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CountButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
-        LeftPanel.add(jScrollPane1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(CountButton, gridBagConstraints);
+
+        SampleSizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
+        SampleSizeButton.setText("Sample size estimator  ");
+        SampleSizeButton.setBorder(null);
+        SampleSizeButton.setBorderPainted(false);
+        SampleSizeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SampleSizeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(SampleSizeButton, gridBagConstraints);
+
+        ExpPowerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/power.png"))); // NOI18N
+        ExpPowerButton.setText("Experiment statistical  Power  ");
+        ExpPowerButton.setBorder(null);
+        ExpPowerButton.setBorderPainted(false);
+        ExpPowerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExpPowerButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(ExpPowerButton, gridBagConstraints);
+
+        DeseqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
+        DeseqButton.setText("DESeq2 analysis  ");
+        DeseqButton.setBorder(null);
+        DeseqButton.setBorderPainted(false);
+        DeseqButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeseqButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(DeseqButton, gridBagConstraints);
+
+        jTabbedPane1.addTab("RNAseq", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtab.png")), RNAseqPanel); // NOI18N
+
+        miRNAPanel.setBackground(new java.awt.Color(255, 255, 255));
+        miRNAPanel.setLayout(new java.awt.GridBagLayout());
+
+        jButton59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/miRNAcount.png"))); // NOI18N
+        jButton59.setText(" miRNA counting  ");
+        jButton59.setBorder(null);
+        jButton59.setBorderPainted(false);
+        jButton59.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton59ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        miRNAPanel.add(jButton59, gridBagConstraints);
+
+        jButton60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/miRNAcov.png"))); // NOI18N
+        jButton60.setText("Adding covariates and batchs  ");
+        jButton60.setBorder(null);
+        jButton60.setBorderPainted(false);
+        jButton60.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton60ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        miRNAPanel.add(jButton60, gridBagConstraints);
+
+        PCAButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/PCA.png"))); // NOI18N
+        PCAButton1.setText(" PCA  analysis");
+        PCAButton1.setBorder(null);
+        PCAButton1.setBorderPainted(false);
+        PCAButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PCAButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        miRNAPanel.add(PCAButton1, gridBagConstraints);
+
+        SampelExpButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sample.png"))); // NOI18N
+        SampelExpButton1.setText("From samples to experiment  ");
+        SampelExpButton1.setBorder(null);
+        SampelExpButton1.setBorderPainted(false);
+        SampelExpButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SampelExpButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        miRNAPanel.add(SampelExpButton1, gridBagConstraints);
+
+        CountButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
+        CountButton1.setText("Count Filter  ");
+        CountButton1.setBorder(null);
+        CountButton1.setBorderPainted(false);
+        CountButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CountButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        miRNAPanel.add(CountButton1, gridBagConstraints);
+
+        SampleSizeButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
+        SampleSizeButton1.setText("Sample size estimator  ");
+        SampleSizeButton1.setBorder(null);
+        SampleSizeButton1.setBorderPainted(false);
+        SampleSizeButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SampleSizeButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        miRNAPanel.add(SampleSizeButton1, gridBagConstraints);
+
+        ExpPowerButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/power.png"))); // NOI18N
+        ExpPowerButton1.setText("Experiment statistical  Power  ");
+        ExpPowerButton1.setBorder(null);
+        ExpPowerButton1.setBorderPainted(false);
+        ExpPowerButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExpPowerButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        miRNAPanel.add(ExpPowerButton1, gridBagConstraints);
+
+        DeseqButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
+        DeseqButton2.setText("DESeq2 analysis  ");
+        DeseqButton2.setBorder(null);
+        DeseqButton2.setBorderPainted(false);
+        DeseqButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeseqButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        miRNAPanel.add(DeseqButton2, gridBagConstraints);
+
+        jTabbedPane1.addTab("miRNA", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/miRNAtab.png")), miRNAPanel); // NOI18N
+
+        ChipSeqPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ChipSeqPanel.setLayout(new java.awt.GridBagLayout());
+
+        indexingBButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqIndex.png"))); // NOI18N
+        indexingBButton.setText("Genome indexing BWA  ");
+        indexingBButton.setBorder(null);
+        indexingBButton.setBorderPainted(false);
+        indexingBButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                indexingBButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ChipSeqPanel.add(indexingBButton, gridBagConstraints);
+
+        CountButton2.setIcon(new javax.swing.ImageIcon("/home/beccuti/NetBeansProjects/4SeqGUI/src/pkg4seqgui/images/chipseqAl.png")); // NOI18N
+        CountButton2.setText("  MACS & SICER analysis");
+        CountButton2.setBorder(null);
+        CountButton2.setBorderPainted(false);
+        CountButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CountButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        ChipSeqPanel.add(CountButton2, gridBagConstraints);
+
+        jTabbedPane1.addTab("Chipseq", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqtab.png")), ChipSeqPanel); // NOI18N
+
+        ToolPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ToolPanel.setLayout(new java.awt.GridBagLayout());
+
+        MultiQCButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/MultiQC.png"))); // NOI18N
+        MultiQCButton.setText("MultiQC analysis  ");
+        MultiQCButton.setBorder(null);
+        MultiQCButton.setBorderPainted(false);
+        MultiQCButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MultiQCButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(MultiQCButton, gridBagConstraints);
+
+        jTabbedPane1.addTab("Tools", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/tooltab.png")), ToolPanel); // NOI18N
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        LeftPanel.add(jTabbedPane1, gridBagConstraints);
+        jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
 
         HorizontalSplitPanel.setLeftComponent(LeftPanel);
 
@@ -6987,107 +7331,6 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
    
-    private void AnalysisTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_AnalysisTreeValueChanged
-        // TODO add your handling code here:
-        //jTextField1.setText(evt.getNewLeadSelectionPath().getLastPathComponent().toString());
- 
-       //to menage clear selection!!
-       if (evt.getNewLeadSelectionPath()==null)
-           return;
-       
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Genes, isoforms counting RSEM" ){
-            vThreadText.setText(Integer.toString(GS.getDefaultThread()));
-            vAdapter5Text.setText(GS.getDefaultAdapter5());
-            vAdapter3Text.setText(GS.getDefaultAdapter3());
-            card.show(MainPanel, "vmRNA");
-            CurrentLayout="vmRNA";
-        }
-        else{
-            
-            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="miRNA counting" ){
-                card.show(MainPanel, "mRNA");
-                CurrentLayout="mRNA";
-            }
-            else{
-                if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="MACS & SICER analysis" ){
-                    card.show(MainPanel, "MACS");
-                    CurrentLayout="MACS";
-                    MThreadText.setText(Integer.toString(GS.getDefaultThread()));
-                    MAdapter5Text.setText(GS.getDefaultAdapter5());
-                    MAdapter3Text.setText(GS.getDefaultAdapter3());
-                    CardLayout cardTool = (CardLayout)Tool.getLayout();
-                    cardTool.show(Tool, "MACS");
-                }
-                else
-                    if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Genome indexing STAR-RSEM" ){
-                        iThreadText.setText(Integer.toString(GS.getDefaultThread()));   
-                        card.show(MainPanel, "indexing");
-                        CurrentLayout="indexing";
-                    }
-                    else
-                        if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="From samples to experiment" ){
-                            card.show(MainPanel, "FPKMCounting");
-                             CurrentLayout="FPKMCounting";
-                        }
-                        else
-                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="PCA" ){
-                                card.show(MainPanel, "PCA");
-                                CurrentLayout="PCA";
-                            } 
-                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="DESeq2 analysis" ){
-                                card.show(MainPanel, "DES");
-                                CurrentLayout="DES";
-                            } 
-                            else
-                                 if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Genome indexing BWA" ){
-                                    iThreadBText.setText(Integer.toString(GS.getDefaultThread()));
-                                    card.show(MainPanel, "indexingB");
-                                    CurrentLayout="indexingB";
-                                 } 
-                                else
-                                      if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Sample size estimator" ){
-                                        card.show(MainPanel, "SampleSize");
-                                        CurrentLayout="SampleSize";  
-                                      }
-                                      else
-                                           if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Experiment stat. Power" ){
-                                                card.show(MainPanel, "ExperimentPower");
-                                                CurrentLayout="ExperimentPower";  
-                                            }
-                                           else
-                                                if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Adding covariates and batchs" ){
-                                                    card.show(MainPanel, "AddingCovmRNA");
-                                                    CurrentLayout="AddingCovmRNA";  
-                                                }
-                                                else
-                                                    if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Transcriptome pseudo-reference building with Salmon" ){
-                                                        iThreadSText.setText(Integer.toString(GS.getDefaultThread()));
-                                                        card.show(MainPanel, "indexingSalmon");
-                                                        CurrentLayout="indexingSalmon"; 
-                                                    }
-                                                    else
-                                                        if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Transcripts and genes counting with Salmon" ){
-                                                            cThreadText.setText(Integer.toString(GS.getDefaultThread()));
-                                                            cAdapter5Text.setText(GS.getDefaultAdapter5());
-                                                            cAdapter3Text.setText(GS.getDefaultAdapter3());
-                                                            card.show(MainPanel, "countingSalmon");
-                                                            CurrentLayout="countingSalmon"; 
-                                                        }
-                                                        else
-                                                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="Count Filter" ){
-                                                                card.show(MainPanel, "filtercounts");
-                                                                CurrentLayout="filtercounts"; 
-                                                            }
-                                                            else
-                                                            if (evt.getNewLeadSelectionPath().getLastPathComponent().toString()=="MultiQC" ){
-                                                                card.show(MainPanel, "multiqc");
-                                                                CurrentLayout="multiqc"; 
-                                                            }
-            }
-        }
-    }//GEN-LAST:event_AnalysisTreeValueChanged
-
         private static final Pattern adapter = Pattern.compile("[acgtACGT]+"
 );
         
@@ -7210,7 +7453,7 @@ public class MainFrame extends javax.swing.JFrame {
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
-        AnalysisTree.clearSelection();
+//        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton1ActionPerformed
 
     private void mTFalseRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mTFalseRadioButtonActionPerformed
@@ -8664,7 +8907,7 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
         //GL.setAvoidProcListValueChanged(-1);
-        AnalysisTree.clearSelection();
+       // AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButtonActionPerformed
 
     private void mDockerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mDockerRadioButtonActionPerformed
@@ -8943,7 +9186,7 @@ public class MainFrame extends javax.swing.JFrame {
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
-        AnalysisTree.clearSelection();
+//        AnalysisTree.clearSelection();
     }//GEN-LAST:event_iCloseButtonActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -9291,7 +9534,7 @@ public class MainFrame extends javax.swing.JFrame {
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
-        AnalysisTree.clearSelection();
+     //   AnalysisTree.clearSelection();
     }//GEN-LAST:event_FCloseButtonActionPerformed
 
     private void FResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FResetButtonActionPerformed
@@ -9434,7 +9677,7 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
         //GL.setAvoidProcListValueChanged(-1);
-        AnalysisTree.clearSelection();    
+       // AnalysisTree.clearSelection();    
         
 
     }//GEN-LAST:event_vCloseButton2ActionPerformed
@@ -9700,7 +9943,7 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
         //GL.setAvoidProcListValueChanged(-1);
-        AnalysisTree.clearSelection();    
+     //   AnalysisTree.clearSelection();    
     }//GEN-LAST:event_vCloseButton3ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
@@ -9914,7 +10157,7 @@ public class MainFrame extends javax.swing.JFrame {
     CardLayout card = (CardLayout)MainPanel.getLayout();
     card.show(MainPanel, "Empty");
     CurrentLayout="Empty";
-    AnalysisTree.clearSelection();
+   // AnalysisTree.clearSelection();
     }//GEN-LAST:event_iCloseButton1ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -10176,7 +10419,7 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
         //GL.setAvoidProcListValueChanged(-1);
-        AnalysisTree.clearSelection();    
+//        AnalysisTree.clearSelection();    
     }//GEN-LAST:event_vCloseButton4ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
@@ -10819,7 +11062,7 @@ public class MainFrame extends javax.swing.JFrame {
        CardLayout card = (CardLayout)MainPanel.getLayout();
        card.show(MainPanel, "Empty");
        CurrentLayout="Empty";
-       AnalysisTree.clearSelection();      
+      // AnalysisTree.clearSelection();      
     }//GEN-LAST:event_SSCloseButtonActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -11062,7 +11305,7 @@ public class MainFrame extends javax.swing.JFrame {
        CardLayout card = (CardLayout)MainPanel.getLayout();
        card.show(MainPanel, "Empty");
        CurrentLayout="Empty";
-       AnalysisTree.clearSelection();      
+     //  AnalysisTree.clearSelection();      
     }//GEN-LAST:event_EPCloseButtonActionPerformed
 
     private void EPGeneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPGeneTextActionPerformed
@@ -11225,7 +11468,7 @@ public class MainFrame extends javax.swing.JFrame {
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
-        AnalysisTree.clearSelection();
+       // AnalysisTree.clearSelection();
     }//GEN-LAST:event_CCloseButton1ActionPerformed
 
     private void CoutbrowesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CoutbrowesActionPerformed
@@ -11373,7 +11616,7 @@ public class MainFrame extends javax.swing.JFrame {
     CardLayout card = (CardLayout)MainPanel.getLayout();
     card.show(MainPanel, "Empty");
     CurrentLayout="Empty";
-    AnalysisTree.clearSelection();
+//    AnalysisTree.clearSelection();
     }//GEN-LAST:event_iCloseButton2ActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
@@ -11556,7 +11799,7 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
         //GL.setAvoidProcListValueChanged(-1);
-        AnalysisTree.clearSelection();
+//        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
@@ -11858,7 +12101,7 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
         //GL.setAvoidProcListValueChanged(-1);
-        AnalysisTree.clearSelection();  
+//        AnalysisTree.clearSelection();  
     }//GEN-LAST:event_vCloseButton6ActionPerformed
 
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
@@ -12108,7 +12351,7 @@ public class MainFrame extends javax.swing.JFrame {
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "Empty");
         CurrentLayout="Empty";
-        AnalysisTree.clearSelection();
+//        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton7ActionPerformed
 
     private void QdataFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QdataFolderTextActionPerformed
@@ -12146,6 +12389,147 @@ public class MainFrame extends javax.swing.JFrame {
     private void QDockerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QDockerRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_QDockerRadioButtonActionPerformed
+
+    private void MultiQCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiQCButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "multiqc");
+        CurrentLayout="multiqc";
+    }//GEN-LAST:event_MultiQCButtonActionPerformed
+
+    private void CountButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountButton2ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "MACS");
+        CurrentLayout="MACS";
+        MThreadText.setText(Integer.toString(GS.getDefaultThread()));
+        MAdapter5Text.setText(GS.getDefaultAdapter5());
+        MAdapter3Text.setText(GS.getDefaultAdapter3());
+        CardLayout cardTool = (CardLayout)Tool.getLayout();
+        cardTool.show(Tool, "MACS");
+    }//GEN-LAST:event_CountButton2ActionPerformed
+
+    private void indexingBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexingBButtonActionPerformed
+        iThreadBText.setText(Integer.toString(GS.getDefaultThread()));
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "indexingB");
+        CurrentLayout="indexingB";    // TODO add your handling code here:
+    }//GEN-LAST:event_indexingBButtonActionPerformed
+
+    private void DeseqButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeseqButton2ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "DES");
+        CurrentLayout="DES";
+    }//GEN-LAST:event_DeseqButton2ActionPerformed
+
+    private void ExpPowerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpPowerButton1ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "ExperimentPower");
+        CurrentLayout="ExperimentPower";
+    }//GEN-LAST:event_ExpPowerButton1ActionPerformed
+
+    private void SampleSizeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleSizeButton1ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "SampleSize");
+        CurrentLayout="SampleSize";
+    }//GEN-LAST:event_SampleSizeButton1ActionPerformed
+
+    private void CountButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountButton1ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "filtercounts");
+        CurrentLayout="filtercounts";
+    }//GEN-LAST:event_CountButton1ActionPerformed
+
+    private void SampelExpButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampelExpButton1ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "FPKMCounting");
+        CurrentLayout="FPKMCounting";
+    }//GEN-LAST:event_SampelExpButton1ActionPerformed
+
+    private void PCAButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PCAButton1ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "PCA");
+        CurrentLayout="PCA";
+    }//GEN-LAST:event_PCAButton1ActionPerformed
+
+    private void jButton60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton60ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "AddingCovmRNA");
+        CurrentLayout="AddingCovmRNA";
+    }//GEN-LAST:event_jButton60ActionPerformed
+
+    private void jButton59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton59ActionPerformed
+
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "mRNA");
+        CurrentLayout="mRNA";
+    }//GEN-LAST:event_jButton59ActionPerformed
+
+    private void DeseqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeseqButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "DES");
+        CurrentLayout="DES";
+    }//GEN-LAST:event_DeseqButtonActionPerformed
+
+    private void ExpPowerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpPowerButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "ExperimentPower");
+        CurrentLayout="ExperimentPower";
+    }//GEN-LAST:event_ExpPowerButtonActionPerformed
+
+    private void SampleSizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleSizeButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "SampleSize");
+        CurrentLayout="SampleSize";
+    }//GEN-LAST:event_SampleSizeButtonActionPerformed
+
+    private void CountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "filtercounts");
+        CurrentLayout="filtercounts";
+    }//GEN-LAST:event_CountButtonActionPerformed
+
+    private void SampleExpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleExpButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "FPKMCounting");
+        CurrentLayout="FPKMCounting";
+    }//GEN-LAST:event_SampleExpButtonActionPerformed
+
+    private void countingSalmonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countingSalmonButtonActionPerformed
+        cThreadText.setText(Integer.toString(GS.getDefaultThread()));
+        cAdapter5Text.setText(GS.getDefaultAdapter5());
+        cAdapter3Text.setText(GS.getDefaultAdapter3());
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "countingSalmon");
+        CurrentLayout="countingSalmon";
+    }//GEN-LAST:event_countingSalmonButtonActionPerformed
+
+    private void PCAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PCAButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "PCA");
+        CurrentLayout="PCA";
+    }//GEN-LAST:event_PCAButtonActionPerformed
+
+    private void mRNAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mRNAButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        vThreadText.setText(Integer.toString(GS.getDefaultThread()));
+        vAdapter5Text.setText(GS.getDefaultAdapter5());
+        vAdapter3Text.setText(GS.getDefaultAdapter3());
+        card.show(MainPanel, "vmRNA");
+        CurrentLayout="vmRNA";
+    }//GEN-LAST:event_mRNAButtonActionPerformed
+
+    private void vmRNAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vmRNAButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        iThreadText.setText(Integer.toString(GS.getDefaultThread()));
+        card.show(MainPanel, "indexing");
+        CurrentLayout="indexing";
+    }//GEN-LAST:event_vmRNAButtonActionPerformed
+
+    private void SalmonIndexingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalmonIndexingButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        iThreadSText.setText(Integer.toString(GS.getDefaultThread()));
+        card.show(MainPanel, "indexingSalmon");
+        CurrentLayout="indexingSalmon";
+    }//GEN-LAST:event_SalmonIndexingButtonActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -12202,7 +12586,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame About4SeqGUIFrame;
     private javax.swing.JTextField Adapter3TextField;
     private javax.swing.JTextField Adapter5TextField;
-    private javax.swing.JTree AnalysisTree;
     private javax.swing.ButtonGroup Annotation;
     private javax.swing.JComboBox<String> BatchComboBox;
     private javax.swing.JPanel BottomPanel;
@@ -12211,11 +12594,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField CCovInputFileText;
     private javax.swing.JTextField COutputFolderText;
     private javax.swing.JButton CResetButton1;
+    private javax.swing.JPanel ChipSeqPanel;
     private javax.swing.JButton Cinbrowes;
     private javax.swing.JButton Cincancel;
     private javax.swing.JToggleButton CloseOutput;
     private javax.swing.JButton ConfCancell;
     private javax.swing.JFrame ConfigurationFrame;
+    private javax.swing.JButton CountButton;
+    private javax.swing.JButton CountButton1;
+    private javax.swing.JButton CountButton2;
     private javax.swing.JScrollPane CountingSalmon;
     private javax.swing.JPanel CountingSalmonPanel;
     private javax.swing.JButton Coutbrowes;
@@ -12229,6 +12616,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup DEStype;
     private javax.swing.ButtonGroup DataFilter;
     private javax.swing.ButtonGroup DataType;
+    private javax.swing.JButton DeseqButton;
+    private javax.swing.JButton DeseqButton2;
     private javax.swing.JButton DlogButton;
     private javax.swing.JFrame DownloadFrame;
     private javax.swing.JTextField Downloadtext;
@@ -12244,6 +12633,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField EPlog2Text;
     private javax.swing.JScrollPane Empty;
     private javax.swing.JPanel EmptyPanel;
+    private javax.swing.JButton ExpPowerButton;
+    private javax.swing.JButton ExpPowerButton1;
     private javax.swing.JScrollPane ExperimentPower;
     private javax.swing.JPanel ExperimentPowerPanel;
     private javax.swing.JButton FAddFile;
@@ -12304,11 +12695,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> MToolComboBox;
     private javax.swing.JPanel MainPanel;
     private javax.swing.JScrollPane MultiQC;
+    private javax.swing.JButton MultiQCButton;
     private javax.swing.ButtonGroup MultiQCGroup;
     private javax.swing.JPanel MultiQCpanel;
     private javax.swing.JFrame OutputFrame;
     private javax.swing.JTextArea OutputText;
     private javax.swing.JScrollPane PCA;
+    private javax.swing.JButton PCAButton;
+    private javax.swing.JButton PCAButton1;
     private javax.swing.JPanel PCAPanel;
     private javax.swing.JTextField ParallelTextField;
     private javax.swing.JList<ListEntry> ProcList;
@@ -12316,6 +12710,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton QDockerRadioButton;
     private javax.swing.JRadioButton QSudoRadioButton;
     private javax.swing.JTextField QdataFolderText;
+    private javax.swing.JPanel RNAseqPanel;
     private javax.swing.JToggleButton ReloadOutput;
     private javax.swing.JButton RemoveOutput;
     private javax.swing.JButton SSCloseButton;
@@ -12332,11 +12727,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SScancel;
     private javax.swing.JButton SScancel1;
     private javax.swing.JTextField SSlog2Text;
+    private javax.swing.JButton SalmonIndexingButton;
+    private javax.swing.JButton SampelExpButton1;
+    private javax.swing.JButton SampleExpButton;
     private javax.swing.JScrollPane SampleSize;
+    private javax.swing.JButton SampleSizeButton;
+    private javax.swing.JButton SampleSizeButton1;
     private javax.swing.JPanel SampleSizePanel;
     private javax.swing.ButtonGroup Strand;
     private javax.swing.JTextField ThreadTextField;
     private javax.swing.JPanel Tool;
+    private javax.swing.JPanel ToolPanel;
     private javax.swing.ButtonGroup Truncating;
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -12357,6 +12758,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup cStrand;
     private javax.swing.JRadioButton cSudoRadioButton;
     private javax.swing.JTextField cThreadText;
+    private javax.swing.JButton countingSalmonButton;
     private javax.swing.JRadioButton dBatchesTrue;
     private javax.swing.JComboBox<String> dCovComboBox;
     private javax.swing.JTextField dFDRText;
@@ -12411,6 +12813,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton idbSPNBrowseButton;
     private javax.swing.JToggleButton idbSPNCancelButton;
     private javax.swing.JTextField idbSPNText;
+    private javax.swing.JButton indexingBButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -12453,7 +12856,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -12633,12 +13038,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton11;
@@ -12693,11 +13098,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane mRNA;
     private javax.swing.JScrollPane mRNABatch;
     private javax.swing.JPanel mRNABatchPanel;
+    private javax.swing.JButton mRNAButton;
     private javax.swing.JPanel mRNAPanel;
     private javax.swing.JRadioButton mSudoRadioButton;
     private javax.swing.JRadioButton mTFalseRadioButton;
     private javax.swing.JRadioButton mTTrueRadioButton;
     private javax.swing.ButtonGroup mTrimmed;
+    private javax.swing.JPanel miRNAPanel;
     private javax.swing.JTextField mmiRBaseText;
     private javax.swing.JTextField pComponent1Text;
     private javax.swing.JTextField pComponent2Text;
@@ -12737,6 +13144,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton vSudoRadioButton;
     private javax.swing.JTextField vThreadText;
     private javax.swing.JScrollPane vmRNA;
+    private javax.swing.JButton vmRNAButton;
     private javax.swing.JPanel vmRNAPanel;
     // End of variables declaration//GEN-END:variables
 
