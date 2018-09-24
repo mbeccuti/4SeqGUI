@@ -279,6 +279,9 @@ public class MainFrame extends javax.swing.JFrame {
         DataFilter = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
         MultiQCGroup = new javax.swing.ButtonGroup();
+        heatmapGroup = new javax.swing.ButtonGroup();
+        heatmapGroupLog = new javax.swing.ButtonGroup();
+        heatmapBaseGroup = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -737,6 +740,34 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel129 = new javax.swing.JLabel();
         QSudoRadioButton = new javax.swing.JRadioButton();
         QDockerRadioButton = new javax.swing.JRadioButton();
+        Heatmap = new javax.swing.JScrollPane();
+        Heatmappanel = new javax.swing.JPanel();
+        jButton46 = new javax.swing.JButton();
+        jButton48 = new javax.swing.JButton();
+        vCloseButton8 = new javax.swing.JButton();
+        jPanel38 = new javax.swing.JPanel();
+        jLabel128 = new javax.swing.JLabel();
+        HscratchText = new javax.swing.JTextField();
+        jToggleButton42 = new javax.swing.JToggleButton();
+        jToggleButton43 = new javax.swing.JToggleButton();
+        jLabel131 = new javax.swing.JLabel();
+        HdataFileText = new javax.swing.JTextField();
+        jToggleButton44 = new javax.swing.JToggleButton();
+        jToggleButton45 = new javax.swing.JToggleButton();
+        jLabel132 = new javax.swing.JLabel();
+        HLogNoRadioButton = new javax.swing.JRadioButton();
+        HLogYesRadioButton = new javax.swing.JRadioButton();
+        jLabel133 = new javax.swing.JLabel();
+        HBaseYesRadioButton = new javax.swing.JRadioButton();
+        HBaseNoRadioButton = new javax.swing.JRadioButton();
+        jToggleButton46 = new javax.swing.JToggleButton();
+        jToggleButton47 = new javax.swing.JToggleButton();
+        HOutputFolderText = new javax.swing.JTextField();
+        jLabel134 = new javax.swing.JLabel();
+        jPanel39 = new javax.swing.JPanel();
+        jLabel130 = new javax.swing.JLabel();
+        HSudoRadioButton = new javax.swing.JRadioButton();
+        HDockerRadioButton = new javax.swing.JRadioButton();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAseqPanel = new javax.swing.JPanel();
@@ -750,6 +781,7 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizeButton = new javax.swing.JButton();
         ExpPowerButton = new javax.swing.JButton();
         DeseqButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         miRNAPanel = new javax.swing.JPanel();
         jButton59 = new javax.swing.JButton();
         jButton60 = new javax.swing.JButton();
@@ -764,6 +796,7 @@ public class MainFrame extends javax.swing.JFrame {
         CountButton2 = new javax.swing.JButton();
         ToolPanel = new javax.swing.JPanel();
         MultiQCButton = new javax.swing.JButton();
+        HeatmapButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -6840,6 +6873,368 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(MultiQC, "multiqc");
 
+        Heatmappanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Heatmap generation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 153, 255))); // NOI18N
+        Heatmappanel.setLayout(new java.awt.GridBagLayout());
+
+        jButton46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        jButton46.setText("Execute");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Heatmappanel.add(jButton46, gridBagConstraints);
+
+        jButton48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        jButton48.setText("Reset");
+        jButton48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton48ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Heatmappanel.add(jButton48, gridBagConstraints);
+
+        vCloseButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        vCloseButton8.setText("Close");
+        vCloseButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vCloseButton8ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Heatmappanel.add(vCloseButton8, gridBagConstraints);
+
+        jPanel38.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel38.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel38.setLayout(new java.awt.GridBagLayout());
+
+        jLabel128.setText("Log. scale:");
+        jLabel128.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jLabel128, gridBagConstraints);
+
+        HscratchText.setEditable(false);
+        HscratchText.setToolTipText("The folder containing the input reads");
+        HscratchText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HscratchTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        jPanel38.add(HscratchText, gridBagConstraints);
+
+        jToggleButton42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton42.setText("Browse");
+        jToggleButton42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton42ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jToggleButton42, gridBagConstraints);
+
+        jToggleButton43.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton43.setText("Cancel");
+        jToggleButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton43ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jToggleButton43, gridBagConstraints);
+
+        jLabel131.setText("Output folder:");
+        jLabel131.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jLabel131, gridBagConstraints);
+
+        HdataFileText.setEditable(false);
+        HdataFileText.setToolTipText("The folder containing the input reads");
+        HdataFileText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HdataFileTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        jPanel38.add(HdataFileText, gridBagConstraints);
+
+        jToggleButton44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
+        jToggleButton44.setText("Browse");
+        jToggleButton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton44ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jToggleButton44, gridBagConstraints);
+
+        jToggleButton45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton45.setText("Cancel");
+        jToggleButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton45ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jToggleButton45, gridBagConstraints);
+
+        jLabel132.setText("Scratch folder:");
+        jLabel132.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jLabel132, gridBagConstraints);
+
+        HLogNoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        heatmapGroupLog.add(HLogNoRadioButton);
+        HLogNoRadioButton.setSelected(true);
+        HLogNoRadioButton.setText("no");
+        HLogNoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HLogNoRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 0);
+        jPanel38.add(HLogNoRadioButton, gridBagConstraints);
+
+        HLogYesRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        heatmapGroupLog.add(HLogYesRadioButton);
+        HLogYesRadioButton.setText("yes");
+        HLogYesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HLogYesRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(0, 45, 0, 10);
+        jPanel38.add(HLogYesRadioButton, gridBagConstraints);
+
+        jLabel133.setText("Base status:");
+        jLabel133.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jLabel133, gridBagConstraints);
+
+        HBaseYesRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        heatmapBaseGroup.add(HBaseYesRadioButton);
+        HBaseYesRadioButton.setSelected(true);
+        HBaseYesRadioButton.setText("yes");
+        HBaseYesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HBaseYesRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 45, 0, 10);
+        jPanel38.add(HBaseYesRadioButton, gridBagConstraints);
+
+        HBaseNoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        heatmapBaseGroup.add(HBaseNoRadioButton);
+        HBaseNoRadioButton.setText("no");
+        HBaseNoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HBaseNoRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 0);
+        jPanel38.add(HBaseNoRadioButton, gridBagConstraints);
+
+        jToggleButton46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton46.setText("Browse");
+        jToggleButton46.setEnabled(false);
+        jToggleButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton46ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jToggleButton46, gridBagConstraints);
+
+        jToggleButton47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton47.setText("Cancel");
+        jToggleButton47.setEnabled(false);
+        jToggleButton47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton47ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jToggleButton47, gridBagConstraints);
+
+        HOutputFolderText.setEditable(false);
+        HOutputFolderText.setToolTipText("The folder containing the input reads");
+        HOutputFolderText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HOutputFolderTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        jPanel38.add(HOutputFolderText, gridBagConstraints);
+
+        jLabel134.setText("Input file:");
+        jLabel134.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jLabel134, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Heatmappanel.add(jPanel38, gridBagConstraints);
+
+        jPanel39.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel39.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel39.setLayout(new java.awt.GridBagLayout());
+
+        jLabel130.setText("Execution:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel39.add(jLabel130, gridBagConstraints);
+
+        HSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        heatmapGroup.add(HSudoRadioButton);
+        HSudoRadioButton.setText("sudo");
+        HSudoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HSudoRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 10);
+        jPanel39.add(HSudoRadioButton, gridBagConstraints);
+
+        HDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        heatmapGroup.add(HDockerRadioButton);
+        HDockerRadioButton.setSelected(true);
+        HDockerRadioButton.setText("docker");
+        HDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HDockerRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel39.add(HDockerRadioButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        Heatmappanel.add(jPanel39, gridBagConstraints);
+
+        Heatmap.setViewportView(Heatmappanel);
+        Heatmappanel.getAccessibleContext().setAccessibleName("");
+
+        MainPanel.add(Heatmap, "heatmap");
+
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
         LeftPanel.setLayout(new java.awt.GridBagLayout());
@@ -6963,7 +7358,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
@@ -6998,7 +7393,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
@@ -7015,11 +7410,17 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         RNAseqPanel.add(DeseqButton, gridBagConstraints);
+
+        jSeparator1.setBackground(new java.awt.Color(51, 255, 51));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        RNAseqPanel.add(jSeparator1, gridBagConstraints);
 
         jTabbedPane1.addTab("RNAseq", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtab.png")), RNAseqPanel); // NOI18N
 
@@ -7210,6 +7611,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MultiQCButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/MultiQC.png"))); // NOI18N
         MultiQCButton.setText("MultiQC analysis  ");
+        MultiQCButton.setToolTipText("");
         MultiQCButton.setBorder(null);
         MultiQCButton.setBorderPainted(false);
         MultiQCButton.addActionListener(new java.awt.event.ActionListener() {
@@ -7219,12 +7621,29 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(MultiQCButton, gridBagConstraints);
+
+        HeatmapButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/heatmap.png"))); // NOI18N
+        HeatmapButton.setText("Heatmap generation    ");
+        HeatmapButton.setBorder(null);
+        HeatmapButton.setBorderPainted(false);
+        HeatmapButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HeatmapButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ToolPanel.add(MultiQCButton, gridBagConstraints);
+        ToolPanel.add(HeatmapButton, gridBagConstraints);
 
         jTabbedPane1.addTab("Tools", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/tooltab.png")), ToolPanel); // NOI18N
 
@@ -12530,6 +12949,202 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(MainPanel, "indexingSalmon");
         CurrentLayout="indexingSalmon";
     }//GEN-LAST:event_SalmonIndexingButtonActionPerformed
+
+    private void HeatmapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HeatmapButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "heatmap");
+        CurrentLayout="heatmap";
+    }//GEN-LAST:event_HeatmapButtonActionPerformed
+
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+    
+        if (HdataFileText.getText().isEmpty()){
+           JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: Data  input file ",JOptionPane.ERROR_MESSAGE);   
+           return;
+        }
+        else
+            if (HscratchText.getText().isEmpty()){
+                JOptionPane.showMessageDialog(this, "You have to specified a scratch folder","Error: scratch folder ",JOptionPane.ERROR_MESSAGE);   
+                return;
+            }
+             else
+            {
+         //execute code
+            Runtime rt = Runtime.getRuntime();
+            try{
+                String[] cmd = {"/bin/bash","-c"," bash ./execheatmap.sh "};
+                if (HSudoRadioButton.isSelected()){
+                    cmd[2]+= "group=\\\"sudo\\\"";
+                }
+                else{
+                    cmd[2]+= "group=\\\"docker\\\"";
+                }
+                cmd[2]+= " data.file=\\\""+HdataFileText.getText()+"\\\"";
+                cmd[2]+= " scratch.folder=\\\""+HscratchText.getText()+"\\\"";
+                if (HBaseNoRadioButton.isSelected()){
+                    cmd[2]+= "heatmapBase=1";
+                }
+                else{
+                    cmd[2]+= "heatmapBase=0";
+                }
+                 if (HLogNoRadioButton.isSelected()){
+                    cmd[2]+= "status=1";
+                }
+                else{
+                    cmd[2]+= "status=0";
+                }
+                cmd[2]+=" "+HOutputFolderText.getText() +" >& "+HOutputFolderText.getText()+"/outputExecution ";
+
+                if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                    Process pr = rt.exec(cmd);                          
+                    ElProcRunning tmp= new ElProcRunning("Heatmap  ", HOutputFolderText.getText(),pr,listModel.getSize());
+                    listProcRunning.add(tmp);
+                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                    ImageIcon image2 = new ImageIcon(imgURL);
+                    GL.setAvoidProcListValueChanged(-1);
+                    listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                    GL.setAvoidProcListValueChanged(0);
+                    if(listProcRunning.size()==1){
+                        t=new Timer();
+                        t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                        }
+                }    
+                else{
+                     ElProcWaiting tmp= new ElProcWaiting("Heatmap", HOutputFolderText.getText(),cmd,listModel.getSize());
+                     listProcWaiting.add(tmp);
+                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                     ImageIcon image2 = new ImageIcon(imgURL);
+                     GL.setAvoidProcListValueChanged(-1);
+                     listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                     GL.setAvoidProcListValueChanged(0);
+                    }
+                GL.setAvoidProcListValueChanged(-1);
+                ProcList.setModel(listModel);
+                ProcList.setCellRenderer(new ListEntryCellRenderer());
+                GL.setAvoidProcListValueChanged(0);
+                }   
+            catch(Exception e) {
+                JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+                System.out.println(e.toString());
+                }
+            JOptionPane.showMessageDialog(this, "Heatmap task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE); 
+        }
+        
+        
+    }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
+       HDockerRadioButton.setSelected(true);
+       HLogNoRadioButton.setSelected(true);
+       HdataFileText.setText("");
+       HscratchText.setText("");
+       HBaseYesRadioButton.setSelected(true);
+    }//GEN-LAST:event_jButton48ActionPerformed
+
+    private void vCloseButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton8ActionPerformed
+       HDockerRadioButton.setSelected(true);
+       HLogNoRadioButton.setSelected(true);
+       HBaseYesRadioButton.setSelected(true);
+       HdataFileText.setText("");
+       HscratchText.setText("");
+       CardLayout card = (CardLayout)MainPanel.getLayout();
+       card.show(MainPanel, "Empty");
+       CurrentLayout="Empty";   
+    }//GEN-LAST:event_vCloseButton8ActionPerformed
+
+    private void HscratchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HscratchTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HscratchTextActionPerformed
+
+    private void jToggleButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton42ActionPerformed
+     JFileChooser openDir = new JFileChooser();
+        if (!(HscratchText.getText().equals(""))){
+            File file =new File(HscratchText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            HscratchText.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jToggleButton42ActionPerformed
+
+    private void jToggleButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton43ActionPerformed
+       HscratchText.setText("");
+    }//GEN-LAST:event_jToggleButton43ActionPerformed
+
+    private void HSudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HSudoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HSudoRadioButtonActionPerformed
+
+    private void HDockerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HDockerRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HDockerRadioButtonActionPerformed
+
+    private void HdataFileTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HdataFileTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HdataFileTextActionPerformed
+
+    private void jToggleButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton44ActionPerformed
+     JFileChooser openDir = new JFileChooser();
+     if (!(HdataFileText.getText().equals(""))){
+            File file =new File(HdataFileText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+     else
+     {
+        String curDir = getPreferences().get("open-dir", null);
+        openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+     }
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            HdataFileText.setText(String.valueOf(f));
+            HOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());    
+    }//GEN-LAST:event_jToggleButton44ActionPerformed
+
+    private void jToggleButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton45ActionPerformed
+        HdataFileText.setText("");
+        HOutputFolderText.setText("");
+    }//GEN-LAST:event_jToggleButton45ActionPerformed
+
+    private void HLogYesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HLogYesRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HLogYesRadioButtonActionPerformed
+
+    private void HLogNoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HLogNoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HLogNoRadioButtonActionPerformed
+
+    private void HBaseYesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HBaseYesRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HBaseYesRadioButtonActionPerformed
+
+    private void HBaseNoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HBaseNoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HBaseNoRadioButtonActionPerformed
+
+    private void jToggleButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton46ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton46ActionPerformed
+
+    private void jToggleButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton47ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton47ActionPerformed
+
+    private void HOutputFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HOutputFolderTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HOutputFolderTextActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -12652,7 +13267,19 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton Fcancel;
     private javax.swing.JComboBox<String> FtypesComboBox;
     private javax.swing.ButtonGroup GATK;
+    private javax.swing.JRadioButton HBaseNoRadioButton;
+    private javax.swing.JRadioButton HBaseYesRadioButton;
+    private javax.swing.JRadioButton HDockerRadioButton;
+    private javax.swing.JRadioButton HLogNoRadioButton;
+    private javax.swing.JRadioButton HLogYesRadioButton;
+    private javax.swing.JTextField HOutputFolderText;
+    private javax.swing.JRadioButton HSudoRadioButton;
+    private javax.swing.JTextField HdataFileText;
+    private javax.swing.JScrollPane Heatmap;
+    private javax.swing.JButton HeatmapButton;
+    private javax.swing.JPanel Heatmappanel;
     private javax.swing.JSplitPane HorizontalSplitPanel;
+    private javax.swing.JTextField HscratchText;
     private javax.swing.ButtonGroup IExecutionBWA;
     private javax.swing.ButtonGroup IExecutionSalmon;
     private javax.swing.ButtonGroup IExecutionStarRSEM;
@@ -12781,6 +13408,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel filterCountsPanel;
     private javax.swing.JRadioButton fisoformRadioButton;
     private javax.swing.JRadioButton fmirnaRadioButton;
+    private javax.swing.ButtonGroup heatmapBaseGroup;
+    private javax.swing.ButtonGroup heatmapGroup;
+    private javax.swing.ButtonGroup heatmapGroupLog;
     private javax.swing.JToggleButton i1000BrowseButton;
     private javax.swing.JToggleButton i1000CancelButton;
     private javax.swing.JTextField i1000GenomeText;
@@ -12854,7 +13484,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
+    private javax.swing.JButton jButton48;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
@@ -12890,8 +13522,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel124;
     private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel130;
+    private javax.swing.JLabel jLabel131;
+    private javax.swing.JLabel jLabel132;
+    private javax.swing.JLabel jLabel133;
+    private javax.swing.JLabel jLabel134;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -13030,6 +13668,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -13043,6 +13683,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
@@ -13080,6 +13721,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton40;
     private javax.swing.JToggleButton jToggleButton41;
+    private javax.swing.JToggleButton jToggleButton42;
+    private javax.swing.JToggleButton jToggleButton43;
+    private javax.swing.JToggleButton jToggleButton44;
+    private javax.swing.JToggleButton jToggleButton45;
+    private javax.swing.JToggleButton jToggleButton46;
+    private javax.swing.JToggleButton jToggleButton47;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
@@ -13128,6 +13775,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton vCloseButton5;
     private javax.swing.JButton vCloseButton6;
     private javax.swing.JButton vCloseButton7;
+    private javax.swing.JButton vCloseButton8;
     private javax.swing.JRadioButton vDockerRadioButton;
     private javax.swing.ButtonGroup vExecution;
     private javax.swing.JTextField vFastQFolderText;
