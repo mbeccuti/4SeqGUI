@@ -32,7 +32,6 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
-import javax.swing.tree.DefaultTreeCellRenderer;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.prefs.Preferences;
@@ -282,6 +281,7 @@ public class MainFrame extends javax.swing.JFrame {
         heatmapGroup = new javax.swing.ButtonGroup();
         heatmapGroupLog = new javax.swing.ButtonGroup();
         heatmapBaseGroup = new javax.swing.ButtonGroup();
+        ANOVAGroup = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -746,7 +746,6 @@ public class MainFrame extends javax.swing.JFrame {
         jButton48 = new javax.swing.JButton();
         vCloseButton8 = new javax.swing.JButton();
         jPanel38 = new javax.swing.JPanel();
-        jLabel128 = new javax.swing.JLabel();
         HscratchText = new javax.swing.JTextField();
         jToggleButton42 = new javax.swing.JToggleButton();
         jToggleButton43 = new javax.swing.JToggleButton();
@@ -755,19 +754,51 @@ public class MainFrame extends javax.swing.JFrame {
         jToggleButton44 = new javax.swing.JToggleButton();
         jToggleButton45 = new javax.swing.JToggleButton();
         jLabel132 = new javax.swing.JLabel();
-        HLogNoRadioButton = new javax.swing.JRadioButton();
-        HLogYesRadioButton = new javax.swing.JRadioButton();
         jLabel133 = new javax.swing.JLabel();
-        HBaseYesRadioButton = new javax.swing.JRadioButton();
-        HBaseNoRadioButton = new javax.swing.JRadioButton();
+        HStatus1RadioButton = new javax.swing.JRadioButton();
+        HStatus0RadioButton = new javax.swing.JRadioButton();
         jToggleButton46 = new javax.swing.JToggleButton();
         jToggleButton47 = new javax.swing.JToggleButton();
         HOutputFolderText = new javax.swing.JTextField();
         jLabel134 = new javax.swing.JLabel();
+        jLabel135 = new javax.swing.JLabel();
+        HLowerRangeText = new javax.swing.JTextField();
+        jLabel136 = new javax.swing.JLabel();
+        HUpperRangeText = new javax.swing.JTextField();
+        jLabel139 = new javax.swing.JLabel();
         jPanel39 = new javax.swing.JPanel();
         jLabel130 = new javax.swing.JLabel();
         HSudoRadioButton = new javax.swing.JRadioButton();
         HDockerRadioButton = new javax.swing.JRadioButton();
+        ANOVAlike = new javax.swing.JScrollPane();
+        ANOVAlikePanel = new javax.swing.JPanel();
+        vCloseButton9 = new javax.swing.JButton();
+        jButton49 = new javax.swing.JButton();
+        jButton50 = new javax.swing.JButton();
+        jButton51 = new javax.swing.JButton();
+        jPanel35 = new javax.swing.JPanel();
+        jLabel122 = new javax.swing.JLabel();
+        ANinputfileText = new javax.swing.JTextField();
+        jToggleButton48 = new javax.swing.JToggleButton();
+        fCancelButton6 = new javax.swing.JToggleButton();
+        jLabel123 = new javax.swing.JLabel();
+        ANOutputFolderText = new javax.swing.JTextField();
+        jToggleButton49 = new javax.swing.JToggleButton();
+        fCancelButton7 = new javax.swing.JToggleButton();
+        jPanel40 = new javax.swing.JPanel();
+        ANLog2fcText = new javax.swing.JTextField();
+        jLabel125 = new javax.swing.JLabel();
+        jLabel126 = new javax.swing.JLabel();
+        ANLogCPMText = new javax.swing.JTextField();
+        jLabel137 = new javax.swing.JLabel();
+        jLabel138 = new javax.swing.JLabel();
+        jLabel140 = new javax.swing.JLabel();
+        ANadjPText = new javax.swing.JTextField();
+        jLabel141 = new javax.swing.JLabel();
+        jPanel41 = new javax.swing.JPanel();
+        jLabel142 = new javax.swing.JLabel();
+        ANSudoRadioButton = new javax.swing.JRadioButton();
+        ANDockerRadioButton1 = new javax.swing.JRadioButton();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAseqPanel = new javax.swing.JPanel();
@@ -782,6 +813,7 @@ public class MainFrame extends javax.swing.JFrame {
         ExpPowerButton = new javax.swing.JButton();
         DeseqButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        ANOVAlikeButton = new javax.swing.JButton();
         miRNAPanel = new javax.swing.JPanel();
         jButton59 = new javax.swing.JButton();
         jButton60 = new javax.swing.JButton();
@@ -6926,17 +6958,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel38.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel38.setLayout(new java.awt.GridBagLayout());
 
-        jLabel128.setText("Log. scale:");
-        jLabel128.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel38.add(jLabel128, gridBagConstraints);
-
         HscratchText.setEditable(false);
-        HscratchText.setToolTipText("The folder containing the input reads");
+        HscratchText.setToolTipText("");
         HscratchText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HscratchTextActionPerformed(evt);
@@ -7034,45 +7057,16 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel38.add(jToggleButton45, gridBagConstraints);
 
-        jLabel132.setText("Scratch folder:");
+        jLabel132.setText("Upper range:");
         jLabel132.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel38.add(jLabel132, gridBagConstraints);
 
-        HLogNoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
-        heatmapGroupLog.add(HLogNoRadioButton);
-        HLogNoRadioButton.setSelected(true);
-        HLogNoRadioButton.setText("no");
-        HLogNoRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HLogNoRadioButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 0);
-        jPanel38.add(HLogNoRadioButton, gridBagConstraints);
-
-        HLogYesRadioButton.setBackground(new java.awt.Color(248, 248, 248));
-        heatmapGroupLog.add(HLogYesRadioButton);
-        HLogYesRadioButton.setText("yes");
-        HLogYesRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HLogYesRadioButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.insets = new java.awt.Insets(0, 45, 0, 10);
-        jPanel38.add(HLogYesRadioButton, gridBagConstraints);
-
-        jLabel133.setText("Base status:");
+        jLabel133.setText("Input type:");
         jLabel133.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -7081,34 +7075,34 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel38.add(jLabel133, gridBagConstraints);
 
-        HBaseYesRadioButton.setBackground(new java.awt.Color(248, 248, 248));
-        heatmapBaseGroup.add(HBaseYesRadioButton);
-        HBaseYesRadioButton.setSelected(true);
-        HBaseYesRadioButton.setText("yes");
-        HBaseYesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+        HStatus1RadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        heatmapBaseGroup.add(HStatus1RadioButton);
+        HStatus1RadioButton.setSelected(true);
+        HStatus1RadioButton.setText("row count");
+        HStatus1RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HBaseYesRadioButtonActionPerformed(evt);
+                HStatus1RadioButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(0, 45, 0, 10);
-        jPanel38.add(HBaseYesRadioButton, gridBagConstraints);
+        jPanel38.add(HStatus1RadioButton, gridBagConstraints);
 
-        HBaseNoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
-        heatmapBaseGroup.add(HBaseNoRadioButton);
-        HBaseNoRadioButton.setText("no");
-        HBaseNoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+        HStatus0RadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        heatmapBaseGroup.add(HStatus0RadioButton);
+        HStatus0RadioButton.setText("other");
+        HStatus0RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HBaseNoRadioButtonActionPerformed(evt);
+                HStatus0RadioButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(0, 20, 0, 0);
-        jPanel38.add(HBaseNoRadioButton, gridBagConstraints);
+        jPanel38.add(HStatus0RadioButton, gridBagConstraints);
 
         jToggleButton46.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton46.setText("Browse");
@@ -7165,6 +7159,64 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel38.add(jLabel134, gridBagConstraints);
+
+        jLabel135.setText("Scratch folder:");
+        jLabel135.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jLabel135, gridBagConstraints);
+
+        HLowerRangeText.setText("-1");
+        HLowerRangeText.setToolTipText("The folder containing the input reads");
+        HLowerRangeText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HLowerRangeTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        jPanel38.add(HLowerRangeText, gridBagConstraints);
+
+        jLabel136.setText("Lower range:");
+        jLabel136.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel38.add(jLabel136, gridBagConstraints);
+
+        HUpperRangeText.setText("1");
+        HUpperRangeText.setToolTipText("");
+        HUpperRangeText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HUpperRangeTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        jPanel38.add(HUpperRangeText, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 3.0;
+        jPanel38.add(jLabel139, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -7234,6 +7286,382 @@ public class MainFrame extends javax.swing.JFrame {
         Heatmappanel.getAccessibleContext().setAccessibleName("");
 
         MainPanel.add(Heatmap, "heatmap");
+
+        ANOVAlikePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "ANOVA-like analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(40, 53, 204))); // NOI18N
+        ANOVAlikePanel.setToolTipText("");
+        ANOVAlikePanel.setLayout(new java.awt.GridBagLayout());
+
+        vCloseButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        vCloseButton9.setText("Close");
+        vCloseButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vCloseButton9ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ANOVAlikePanel.add(vCloseButton9, gridBagConstraints);
+
+        jButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        jButton49.setText("Execute");
+        jButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton49ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ANOVAlikePanel.add(jButton49, gridBagConstraints);
+
+        jButton50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        jButton50.setText("Reset");
+        jButton50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton50ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ANOVAlikePanel.add(jButton50, gridBagConstraints);
+
+        jButton51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
+        jButton51.setText("Save conf.");
+        jButton51.setEnabled(false);
+        jButton51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton51ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ANOVAlikePanel.add(jButton51, gridBagConstraints);
+
+        jPanel35.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel35.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel35.setLayout(new java.awt.GridBagLayout());
+
+        jLabel122.setText("Output folders:");
+        jLabel122.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel35.add(jLabel122, gridBagConstraints);
+
+        ANinputfileText.setEditable(false);
+        ANinputfileText.setToolTipText("Input data file.");
+        ANinputfileText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANinputfileTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
+        jPanel35.add(ANinputfileText, gridBagConstraints);
+
+        jToggleButton48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
+        jToggleButton48.setText("Browse");
+        jToggleButton48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton48ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel35.add(jToggleButton48, gridBagConstraints);
+
+        fCancelButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        fCancelButton6.setText("Cancel");
+        fCancelButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fCancelButton6ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel35.add(fCancelButton6, gridBagConstraints);
+
+        jLabel123.setText("Input file:");
+        jLabel123.setToolTipText("The FPKM or TPM table file nam");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel35.add(jLabel123, gridBagConstraints);
+
+        ANOutputFolderText.setEditable(false);
+        ANOutputFolderText.setToolTipText("Output data folder.");
+        ANOutputFolderText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANOutputFolderTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
+        jPanel35.add(ANOutputFolderText, gridBagConstraints);
+
+        jToggleButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton49.setText("Browse");
+        jToggleButton49.setEnabled(false);
+        jToggleButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton49ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel35.add(jToggleButton49, gridBagConstraints);
+
+        fCancelButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        fCancelButton7.setText("Cancel");
+        fCancelButton7.setEnabled(false);
+        fCancelButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fCancelButton7ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel35.add(fCancelButton7, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ANOVAlikePanel.add(jPanel35, gridBagConstraints);
+
+        jPanel40.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel40.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel40.setLayout(new java.awt.GridBagLayout());
+
+        ANLog2fcText.setText("1.0");
+        ANLog2fcText.setToolTipText("Log_2 fold change threshold for differetially expressed genes");
+        ANLog2fcText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ANLog2fcTextFocusLost(evt);
+            }
+        });
+        ANLog2fcText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANLog2fcTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 18, 10, 10);
+        jPanel40.add(ANLog2fcText, gridBagConstraints);
+
+        jLabel125.setText("LogFC threshold:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel40.add(jLabel125, gridBagConstraints);
+
+        jLabel126.setText("LogCPM threshold:");
+        jLabel126.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel40.add(jLabel126, gridBagConstraints);
+
+        ANLogCPMText.setText("4.0");
+        ANLogCPMText.setToolTipText("");
+        ANLogCPMText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ANLogCPMTextFocusLost(evt);
+            }
+        });
+        ANLogCPMText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANLogCPMTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 18, 10, 10);
+        jPanel40.add(ANLogCPMText, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.8;
+        jPanel40.add(jLabel137, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.3;
+        jPanel40.add(jLabel138, gridBagConstraints);
+
+        jLabel140.setText("Adj. p-value threshold:");
+        jLabel140.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel40.add(jLabel140, gridBagConstraints);
+
+        ANadjPText.setText("0.1");
+        ANadjPText.setToolTipText("adjusted p-value  threshold");
+        ANadjPText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ANadjPTextFocusLost(evt);
+            }
+        });
+        ANadjPText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANadjPTextActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 18, 10, 10);
+        jPanel40.add(ANadjPText, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.5;
+        jPanel40.add(jLabel141, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ANOVAlikePanel.add(jPanel40, gridBagConstraints);
+
+        jPanel41.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel41.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel41.setLayout(new java.awt.GridBagLayout());
+
+        jLabel142.setText("Execution:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel41.add(jLabel142, gridBagConstraints);
+
+        ANSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        ANOVAGroup.add(ANSudoRadioButton);
+        ANSudoRadioButton.setText("sudo");
+        ANSudoRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANSudoRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 10);
+        jPanel41.add(ANSudoRadioButton, gridBagConstraints);
+
+        ANDockerRadioButton1.setBackground(new java.awt.Color(248, 248, 248));
+        ANOVAGroup.add(ANDockerRadioButton1);
+        ANDockerRadioButton1.setSelected(true);
+        ANDockerRadioButton1.setText("docker");
+        ANDockerRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANDockerRadioButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel41.add(ANDockerRadioButton1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ANOVAlikePanel.add(jPanel41, gridBagConstraints);
+
+        ANOVAlike.setViewportView(ANOVAlikePanel);
+
+        MainPanel.add(ANOVAlike, "NOVAlike");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -7358,7 +7786,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
@@ -7421,6 +7849,23 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         RNAseqPanel.add(jSeparator1, gridBagConstraints);
+
+        ANOVAlikeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anovaLike.png"))); // NOI18N
+        ANOVAlikeButton.setText("ANOVA-like  ");
+        ANOVAlikeButton.setBorder(null);
+        ANOVAlikeButton.setBorderPainted(false);
+        ANOVAlikeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANOVAlikeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanel.add(ANOVAlikeButton, gridBagConstraints);
 
         jTabbedPane1.addTab("RNAseq", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtab.png")), RNAseqPanel); // NOI18N
 
@@ -7780,13 +8225,13 @@ public class MainFrame extends javax.swing.JFrame {
         if (mFastQFolderText.getText().isEmpty()){
            JOptionPane.showMessageDialog(this, "You have to specified an input folder","Error: FastQ  folder",JOptionPane.ERROR_MESSAGE);
            //mFastQFolderText.requestFocusInWindow();   
-           return;
+           //return;
         }
         else
            if (mOutputFolderText.getText().isEmpty()){
            JOptionPane.showMessageDialog(this, "You have to specified an output folder","Error: Output folder",JOptionPane.ERROR_MESSAGE);
            //mOutputFolderText.requestFocusInWindow();   
-           return;
+           //return;
            }    
            else
             if (!miRBase.matcher(mmiRBaseText.getText()).matches()){
@@ -7851,7 +8296,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ProcList.setCellRenderer(new ListEntryCellRenderer());
                 GL.setAvoidProcListValueChanged(0);
                 }   
-            catch(Exception e) {
+            catch(IOException e) {
                 JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                 System.out.println(e.toString());
                 }
@@ -7901,7 +8346,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void mmiRBaseTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mmiRBaseTextFocusLost
         if (mmiRBaseText.getText().isEmpty())
-        return;
+            return;
         mmiRBaseText.setForeground(Color.black);
         if (!miRBase.matcher(mmiRBaseText.getText()).matches()){
             mmiRBaseText.setForeground(Color.red);
@@ -7966,7 +8411,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void vThreadTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_vThreadTextFocusLost
         if (vThreadText.getText().isEmpty())
-        return;
+            return;
         vThreadText.setForeground(Color.black);
         try
         {
@@ -7978,7 +8423,7 @@ public class MainFrame extends javax.swing.JFrame {
         catch (NumberFormatException e) {
             vThreadText.setForeground(Color.red);
             vThreadText.setText("");
-            return;
+          //  return;
         }
     }//GEN-LAST:event_vThreadTextFocusLost
 
@@ -8107,7 +8552,7 @@ public class MainFrame extends javax.swing.JFrame {
       private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
       
          
-        if (CurrentLayout!="Empty"){ 
+        if (!"Empty".equals(CurrentLayout)){ 
             JFileChooser openFile = new JFileChooser();
             String curDir = getPreferences().get("saved-file", null);
             openFile.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
@@ -8116,7 +8561,7 @@ public class MainFrame extends javax.swing.JFrame {
                 File f = openFile.getSelectedFile();
                 FileReader fw = new FileReader(f.getAbsoluteFile());
                 BufferedReader br = new BufferedReader(fw);
-                if (CurrentLayout=="vmRNA"){
+                if ("vmRNA".equals(CurrentLayout)){
                     int line=0;
                     //chekc right file
                     String y=br.readLine();
@@ -8184,7 +8629,7 @@ public class MainFrame extends javax.swing.JFrame {
                     } 
                 }
                 else
-                    if ( CurrentLayout=="mRNA"){
+                    if ( "mRNA".equals(CurrentLayout)){
                         int line=0;
                         //chekc right file
                         String y=br.readLine();
@@ -8234,7 +8679,7 @@ public class MainFrame extends javax.swing.JFrame {
                             } 
                         }
                     else
-                        if (CurrentLayout=="indexing"){
+                        if ("indexing".equals(CurrentLayout)){
                             int line=0;
                             //chekc right file
                             if (!br.readLine().equals("indexing")){
@@ -8292,7 +8737,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 }
                         }
                         else
-                            if(CurrentLayout=="PCA"){
+                            if("PCA".equals(CurrentLayout)){
                                 if (!br.readLine().equals("PCA")){
                                     throw(new NumberFormatException());
                                 }
@@ -8309,13 +8754,17 @@ public class MainFrame extends javax.swing.JFrame {
                                     pComponent2Text.setText(x);
                                 break;
                                 case 3:
-                                    if (x.equals("Counts"))
-                                      pCountsRadioButton.setSelected(true);
-                                    else
-                                        if (x.equals("FPKM"))
+                                switch (x) {
+                                    case "Counts":
+                                        pCountsRadioButton.setSelected(true);
+                                        break;
+                                    case "FPKM":
                                         pFPKMRadioButton.setSelected(true);
-                                        else
-                                            pTPMRadioButton.setSelected(true);
+                                        break;
+                                    default:
+                                        pTPMRadioButton.setSelected(true);
+                                        break;
+                                }
                                 break;
                                 case 4:
                                     pLegendComboBox.setSelectedIndex(Integer.valueOf(x));
@@ -8334,7 +8783,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 }
                             }
                             else
-                                if(CurrentLayout=="DES"){
+                                if("DES".equals(CurrentLayout)){
                                     if (!br.readLine().equals("DES")){
                                         throw(new NumberFormatException());
                                     }
@@ -8354,13 +8803,17 @@ public class MainFrame extends javax.swing.JFrame {
                                                 dCovComboBox.setSelectedIndex(Integer.valueOf(x));
                                             break;
                                             case 4:
-                                                if (x.equals("isoform"))
-                                                    dIsoformRadioButton.setSelected(true);
-                                                else
-                                                    if (x.equals("miRNA"))
-                                                        dmiRNARadioButton.setSelected(true);
-                                                    else
-                                                        dGeneRadioButton.setSelected(true);
+                                        switch (x) {
+                                            case "isoform":
+                                                dIsoformRadioButton.setSelected(true);
+                                                break;
+                                            case "miRNA":
+                                                dmiRNARadioButton.setSelected(true);
+                                                break;
+                                            default:
+                                                dGeneRadioButton.setSelected(true);
+                                                break;
+                                        }
                                             break;
                                             case 5:
                                                     dOutputFolderText.setText(x);
@@ -8376,7 +8829,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     }
                                 }
                                 else
-                                if (CurrentLayout=="indexingB"){
+                                if ("indexingB".equals(CurrentLayout)){
                                 int line=0;
                                 //chekc right file
                                 if (!br.readLine().equals("indexingBWA")){
@@ -8418,7 +8871,7 @@ public class MainFrame extends javax.swing.JFrame {
                               }
                             }
                             else
-                                if (CurrentLayout=="MACS"){
+                                if ("MACS".equals(CurrentLayout)){
                                 int line=0;
                                 //chekc right file
                                 if (!br.readLine().equals("MACS")){
@@ -8505,7 +8958,7 @@ public class MainFrame extends javax.swing.JFrame {
                               }
                             }
                                 else
-                                    if(CurrentLayout=="SampleSize"){
+                                    if("SampleSize".equals(CurrentLayout)){
                                         int line=0;
                                         //chekc right file
                                         if (!br.readLine().equals("SampleSize")){
@@ -8539,7 +8992,7 @@ public class MainFrame extends javax.swing.JFrame {
                                         }
                                      }
                                      else
-                                        if(CurrentLayout=="ExperimentPower"){
+                                        if("ExperimentPower".equals(CurrentLayout)){
                                         
                                         //chekc right file
                                         if (!br.readLine().equals("ExperimentPower")){
@@ -8574,7 +9027,7 @@ public class MainFrame extends javax.swing.JFrame {
                                         }
                                      }   
                                      else
-                                        if(CurrentLayout=="AddingCovmRNA"){
+                                        if("AddingCovmRNA".equals(CurrentLayout)){
                                             if (!br.readLine().equals("AddingCovmRNA")){
                                                 throw(new NumberFormatException());
                                             }
@@ -8637,7 +9090,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                 }
                                             }
                                             else
-                                                if (CurrentLayout=="countingSalmon"){
+                                                if ("countingSalmon".equals(CurrentLayout)){
                                                      
                                                     //chekc right file
                                                     String y=br.readLine();
@@ -8681,14 +9134,18 @@ public class MainFrame extends javax.swing.JFrame {
                                                                 cGenomeFolderText.setText(x);
                                                             break;
                                                             case 9:
-                                                              if (x.equals("none"))
+                                                        switch (x) {
+                                                            case "none":
                                                                 cSNoneRadioButton.setSelected(true);
-                                                              else
-                                                                  if (x.equals("forward"))
-                                                                    cSForwardRadioButton.setSelected(true);
-                                                                  else
-                                                                    cSReverseRadioButton.setSelected(true);
-                                                            break;    
+                                                                break;
+                                                            case "forward":
+                                                                cSForwardRadioButton.setSelected(true);
+                                                                break;
+                                                            default:
+                                                                cSReverseRadioButton.setSelected(true);
+                                                                break;
+                                                        }
+                                                            break;        
                                                             default:
                                                                 System.out.print("Too much lines\n");
                                                             throw(new NumberFormatException()); 
@@ -8697,7 +9154,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                     } 
                                                 }
                                                 else
-                                                    if(CurrentLayout=="filtercounts"){
+                                                    if("filtercounts".equals(CurrentLayout)){
                                                         if (!br.readLine().equals("filtercounts")){
                                                             throw(new NumberFormatException());
                                                         }
@@ -8708,13 +9165,17 @@ public class MainFrame extends javax.swing.JFrame {
                                                             fFPKMfileText.setText(x);   
                                                         break;
                                                         case 1:
-                                                            if (x.equals("gene"))
-                                                                fgeneRadioButton.setSelected(true);
-                                                            else
-                                                                if (x.equals("isoform"))
-                                                                    fisoformRadioButton.setSelected(true);
-                                                                else
-                                                                    fmirnaRadioButton.setSelected(true);
+                                                    switch (x) {
+                                                        case "gene":
+                                                            fgeneRadioButton.setSelected(true);
+                                                            break;
+                                                        case "isoform":
+                                                            fisoformRadioButton.setSelected(true);
+                                                            break;
+                                                        default:
+                                                            fmirnaRadioButton.setSelected(true);
+                                                            break;
+                                                    }
                                                         break;
                                                         case 2:
                                                             fOutputFolderText.setText(x);
@@ -8737,7 +9198,7 @@ public class MainFrame extends javax.swing.JFrame {
     } 
     
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        if (CurrentLayout!="Empty"){  
+        if (!"Empty".equals(CurrentLayout)){  
             JFileChooser saveFile = new JFileChooser(); 
             String curDir = getPreferences().get("saved-file", null);
             saveFile.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
@@ -8749,370 +9210,369 @@ public class MainFrame extends javax.swing.JFrame {
                         f.createNewFile();
                     }
                     FileWriter fw = new FileWriter(f.getAbsoluteFile());
-                    BufferedWriter bw = new BufferedWriter(fw);
-
-                    if (CurrentLayout=="vmRNA"){  
-                        bw.write("vmRNA\n");
-                        if (vSudoRadioButton.isSelected()){
-                            bw.write("sudo\n");                
-                        }                
-                        else{
-                            bw.write("docker\n");
-                        }
-                        bw.write(vFastQFolderText.getText());
-                        bw.write("\n");
-                        bw.write(vOutputFolderText.getText());
-                        bw.write("\n");
-                        bw.write(vAdapter5Text.getText());
-                        bw.write("\n");
-                        bw.write(vAdapter3Text.getText());
-                        bw.write("\n");
-                        if (vPeRadioButton.isSelected()){
-                            bw.write("pe\n");
-                        }
-                        else{
-                            bw.write("se\n");
-                        }
-                        bw.write(vThreadText.getText());
-                        bw.write("\n");
-                        bw.write(vMinLengthText.getText());
-                        bw.write("\n");
-                        bw.write(vGenomeFolderText.getText());
-                        bw.write("\n");
-                        if (vSNoneRadioButton.isSelected())
-                            bw.write("none\n");
-                        else
-                            if (vSForwardRadioButton.isSelected())  
-                                bw.write("forward\n");
-                            else
-                                bw.write("reverse\n");
-                
-                        if (vBAMnoLRadioButton.isSelected())
-                            bw.write("gtfENSEMBL\n");
-                        else
-                            bw.write("biocENSEMBL\n");
-                        bw.write(vOrganismText.getText());
-                    }
-                    else
-                        if ( CurrentLayout=="mRNA"){
-                            bw.write("mRNA\n"); 
-                            if (mSudoRadioButton.isSelected()){
-                                bw.write("sudo\n");                
+                    try (BufferedWriter bw = new BufferedWriter(fw)) {
+                        if ("vmRNA".equals(CurrentLayout)){
+                            bw.write("vmRNA\n");
+                            if (vSudoRadioButton.isSelected()){
+                                bw.write("sudo\n");
                             }                    
                             else{
                                 bw.write("docker\n");
                             }
-                            bw.write(mFastQFolderText.getText());
+                            bw.write(vFastQFolderText.getText());
                             bw.write("\n");
-                            bw.write(mOutputFolderText.getText());
+                            bw.write(vOutputFolderText.getText());
                             bw.write("\n");
-                            bw.write(mmiRBaseText.getText());
+                            bw.write(vAdapter5Text.getText());
                             bw.write("\n");
-                            if (mDTrueRadioButton.isSelected()){
-                                bw.write("TRUE\n");                
-                            }                    
-                            else{
-                                bw.write("FALSE\n");
+                            bw.write(vAdapter3Text.getText());
+                            bw.write("\n");
+                            if (vPeRadioButton.isSelected()){
+                                bw.write("pe\n");
                             }
-                            if (mANEBRadioButton.isSelected()){
-                                bw.write("NEB\n");                
-                            }                    
                             else{
-                                bw.write("ILLUMINA\n");
+                                bw.write("se\n");
                             }
-                             if (mTTrueRadioButton.isSelected()){
-                                bw.write("TRUE\n");                
-                            }                    
-                            else{
-                                bw.write("FALSE\n");
-                             }
+                            bw.write(vThreadText.getText());
+                            bw.write("\n");
+                            bw.write(vMinLengthText.getText());
+                            bw.write("\n");
+                            bw.write(vGenomeFolderText.getText());
+                            bw.write("\n");
+                            if (vSNoneRadioButton.isSelected())
+                                bw.write("none\n");
+                            else
+                                if (vSForwardRadioButton.isSelected())
+                                    bw.write("forward\n");
+                                else
+                                    bw.write("reverse\n");
+                            
+                            if (vBAMnoLRadioButton.isSelected())
+                                bw.write("gtfENSEMBL\n");
+                            else
+                                bw.write("biocENSEMBL\n");
+                            bw.write(vOrganismText.getText());
                         }
-                        else{
-                            if (CurrentLayout=="indexing"){   
-                                bw.write("indexingSTAR\n");
-                                if (iSudoRadioButton.isSelected()){
-                                     bw.write("sudo\n");                
+                        else
+                            if ( CurrentLayout=="mRNA"){
+                                bw.write("mRNA\n");
+                                if (mSudoRadioButton.isSelected()){
+                                    bw.write("sudo\n");
                                 }                
                                 else{
                                     bw.write("docker\n");
                                 }
-                                
-                                bw.write(iGenomeFolderText.getText());
+                                bw.write(mFastQFolderText.getText());
                                 bw.write("\n");
-                                bw.write(iThreadText.getText());
+                                bw.write(mOutputFolderText.getText());
                                 bw.write("\n");
-                                bw.write(iGenomeURLText.getText());
+                                bw.write(mmiRBaseText.getText());
                                 bw.write("\n");
-                                bw.write(iGTFURLText.getText());
+                                if (mDTrueRadioButton.isSelected()){
+                                    bw.write("TRUE\n");
+                                }
+                                else{
+                                    bw.write("FALSE\n");
+                                }
+                                if (mANEBRadioButton.isSelected()){
+                                    bw.write("NEB\n");
+                                }
+                                else{
+                                    bw.write("ILLUMINA\n");
+                                }
+                                if (mTTrueRadioButton.isSelected()){
+                                    bw.write("TRUE\n");
+                                }
+                                else{
+                                    bw.write("FALSE\n");
+                                }
                             }
-                            else
-                               if(CurrentLayout=="FPKMCounting"){
-                                    bw.write("FPKMCounting\n"); 
-                                    bw.write(Integer.toString(FtypesComboBox.getSelectedIndex()));
+                            else{
+                                if ("indexing".equals(CurrentLayout)){
+                                    bw.write("indexingSTAR\n");
+                                    if (iSudoRadioButton.isSelected()){
+                                        bw.write("sudo\n");
+                                    }
+                                    else{
+                                        bw.write("docker\n");
+                                    }
+                                    
+                                    bw.write(iGenomeFolderText.getText());
                                     bw.write("\n");
-                                    for (int i=0;i<FPKMFileTable.getRowCount();i++){
-                                        bw.write(FPKMFileTable.getModel().getValueAt(i,0).toString());
+                                    bw.write(iThreadText.getText());
+                                    bw.write("\n");
+                                    bw.write(iGenomeURLText.getText());
+                                    bw.write("\n");
+                                    bw.write(iGTFURLText.getText());
+                                }
+                                else
+                                    if("FPKMCounting".equals(CurrentLayout)){
+                                        bw.write("FPKMCounting\n");
+                                        bw.write(Integer.toString(FtypesComboBox.getSelectedIndex()));
                                         bw.write("\n");
-                                        bw.write(FPKMFileTable.getModel().getValueAt(i,1).toString());
-                                        bw.write("\n");
-                                        bw.write(FPKMFileTable.getModel().getValueAt(i,2).toString());
-                                        bw.write("\n");
-                                    }   
-                               }
-                               else
-                                   if(CurrentLayout=="PCA"){
-                                        bw.write("PCA\n");
-                                        bw.write(pFPKMfileText.getText());
-                                        bw.write("\n");
-                                        bw.write(pComponent1Text.getText());
-                                        bw.write("\n");
-                                        bw.write(pComponent2Text.getText());
-                                        bw.write("\n");
-                                        if (pCountsRadioButton.isSelected()){
-                                            bw.write("Counts\n");
+                                        for (int i=0;i<FPKMFileTable.getRowCount();i++){
+                                            bw.write(FPKMFileTable.getModel().getValueAt(i,0).toString());
+                                            bw.write("\n");
+                                            bw.write(FPKMFileTable.getModel().getValueAt(i,1).toString());
+                                            bw.write("\n");
+                                            bw.write(FPKMFileTable.getModel().getValueAt(i,2).toString());
+                                            bw.write("\n");
                                         }
-                                        else  
-                                            if (pFPKMRadioButton.isSelected()){
-                                                bw.write("FPKM\n");
-                                            }
-                                            else{
-                                                bw.write("TPM\n");
-                                            }
-                                        bw.write(Integer.toString(pLegendComboBox.getSelectedIndex()));
-                                        bw.write("\n");
-                                       if (pCovYesRadioButton.isSelected()){
-                                            bw.write("Yes\n");
-                                        }
-                                       else
-                                            bw.write("No\n");
-                                       bw.write(pOutputFolderText.getText());
-                                       }
+                                    }
                                     else
-                                       if(CurrentLayout=="DES"){
-                                        bw.write("DES\n");
-                                        bw.write(dFPKMfileText.getText());
-                                        bw.write("\n");
-                                        bw.write(dLog2fcText.getText());
-                                        bw.write("\n");
-                                        bw.write(dFDRText.getText());
-                                        bw.write("\n");
-                                        bw.write(Integer.toString(dCovComboBox.getSelectedIndex()));
-                                        bw.write("\n");
-                                       if (dIsoformRadioButton.isSelected()){
-                                            bw.write("isoform\n");
-                                        }
-                                       else
-                                           if (dGeneRadioButton.isSelected())
-                                               bw.write("gene\n");
-                                           else
-                                               bw.write("miRNA\n");
-                                       bw.write(dOutputFolderText.getText());
-                                       if (dBatchesTrue.isSelected())
-                                            bw.write("TRUE\n");
-                                       else
-                                            bw.write("FALSE\n");
-                                       }
-                                      else
-                                        if (CurrentLayout=="indexingB"){   
-                                            bw.write("indexingBWA\n");
-                                            if (iSudoBRadioButton.isSelected()){
-                                                bw.write("sudo\n");                
-                                            }                
-                                            else{
-                                                bw.write("docker\n");
-                                            }
-                                            bw.write(iGenomeFolderBText.getText());
+                                        if("PCA".equals(CurrentLayout)){
+                                            bw.write("PCA\n");
+                                            bw.write(pFPKMfileText.getText());
                                             bw.write("\n");
-                                            bw.write(iThreadBText.getText());
+                                            bw.write(pComponent1Text.getText());
                                             bw.write("\n");
-                                            bw.write(iGenomeURLBText.getText());
+                                            bw.write(pComponent2Text.getText());
                                             bw.write("\n");
-                                            if (iBTrueRadioButton.isSelected()){
-                                                bw.write("true\n");                
-                                            }                
-                                            else{
-                                                bw.write("false\n");
-                                            }
-                                            bw.write(i1000GenomeText.getText());
-                                            bw.write("\n");
-                                            bw.write(idbSPNText.getText());
-                                        }
-                                     else
-                                        if (CurrentLayout=="MACS"){   
-                                            bw.write("MACS\n");
-                                            if (MSudoRadioButton.isSelected()){
-                                                bw.write("sudo\n");                
-                                            }                
-                                            else{
-                                                bw.write("docker\n");
-                                            }
-                                            bw.write(MOutputFolderText.getText());
-                                            bw.write("\n");
-                                            bw.write(MScratchFolderText.getText());
-                                            bw.write("\n");
-                                            bw.write(MGenomeFolderText.getText());
-                                            bw.write("\n");
-                                            bw.write(MTestFolderText.getText());
-                                            bw.write("\n");
-                                            bw.write(MMockFolderText.getText());
-                                            bw.write("\n");
-                                            bw.write(MThreadText.getText());
-                                            bw.write("\n");
-                                            bw.write(MAdapter5Text.getText());
-                                            bw.write("\n"); 
-                                            bw.write(MAdapter3Text.getText());
-                                            bw.write("\n"); 
-                                            bw.write(MMinLengthText.getText());
-                                            bw.write("\n");
-                                            bw.write(MReadLengthTextField.getText());
-                                            bw.write("\n");
-                                            bw.write(Integer.toString(MOrgComboBox.getSelectedIndex()));
-                                            bw.write("\n");
-                                            if ( MRnoRadioButton.isSelected()){
-                                                bw.write("no\n");                
-                                            }                
-                                            else{
-                                                bw.write("yes\n");
-                                            }
-                                            bw.write(MMaxUpstreamText.getText());
-                                            bw.write("\n");
-                                            bw.write(MTTSText.getText());
-                                            bw.write("\n");
-                                            bw.write(MMinmfoldText.getText());
-                                            bw.write("\n"); 
-                                            bw.write(MMpvalueText.getText());
-                                            bw.write("\n"); 
-                                            bw.write(MMaxmfoldText.getText());
-                                            bw.write("\n"); 
-                                            bw.write(MSWindowsText.getText());
-                                            bw.write("\n"); 
-                                            bw.write(MSgsizeText.getText());
-                                            bw.write("\n");
-                                            bw.write(MSFDRText.getText());
-                                            bw.write("\n");
-                                            bw.write(Integer.toString(MToolComboBox.getSelectedIndex()));
-                                        }else
-                                            if(CurrentLayout=="SampleSize"){
-                                                bw.write("SampleSize\n");
-                                                bw.write(SSCountTableText.getText());
-                                                bw.write("\n");
-                                                bw.write(SSOutputFolderText.getText());
-                                                bw.write("\n");
-                                                bw.write(SSPowerText.getText());
-                                                bw.write("\n");
-                                                bw.write(SSGeneText.getText());
-                                                bw.write("\n");
-                                                bw.write(SSlog2Text.getText());
-                                                bw.write("\n");
-                                                bw.write(SSFDRtext.getText());
+                                            if (pCountsRadioButton.isSelected()){
+                                                bw.write("Counts\n");
                                             }
                                             else
-                                                if(CurrentLayout=="ExperimentPower"){
-                                                    bw.write("ExperimentPower\n");
-                                                    bw.write(EPCountTableText.getText());
-                                                    bw.write("\n");
-                                                    bw.write(EPOutputFolderText.getText());
-                                                    bw.write("\n");
-                                                    bw.write(EPSampleText.getText());
-                                                    bw.write("\n");
-                                                    bw.write(EPGeneText.getText());
-                                                    bw.write("\n");
-                                                    bw.write(EPlog2Text.getText());
-                                                    bw.write("\n");
-                                                    bw.write(EPFDRtext.getText());
-                                            } 
+                                                if (pFPKMRadioButton.isSelected()){
+                                                    bw.write("FPKM\n");
+                                                }
+                                                else{
+                                                    bw.write("TPM\n");
+                                                }
+                                            bw.write(Integer.toString(pLegendComboBox.getSelectedIndex()));
+                                            bw.write("\n");
+                                            if (pCovYesRadioButton.isSelected()){
+                                                bw.write("Yes\n");
+                                            }
                                             else
-                                                  if(CurrentLayout=="AddingCovmRNA"){
-                                                        bw.write("AddingCovmRNA\n");
-                                                        bw.write(CCovInputFileText.getText());
+                                                bw.write("No\n");
+                                            bw.write(pOutputFolderText.getText());
+                                        }
+                                        else
+                                            if("DES".equals(CurrentLayout)){
+                                                bw.write("DES\n");
+                                                bw.write(dFPKMfileText.getText());
+                                                bw.write("\n");
+                                                bw.write(dLog2fcText.getText());
+                                                bw.write("\n");
+                                                bw.write(dFDRText.getText());
+                                                bw.write("\n");
+                                                bw.write(Integer.toString(dCovComboBox.getSelectedIndex()));
+                                                bw.write("\n");
+                                                if (dIsoformRadioButton.isSelected()){
+                                                    bw.write("isoform\n");
+                                                }
+                                                else
+                                                    if (dGeneRadioButton.isSelected())
+                                                        bw.write("gene\n");
+                                                    else
+                                                        bw.write("miRNA\n");
+                                                bw.write(dOutputFolderText.getText());
+                                                if (dBatchesTrue.isSelected())
+                                                    bw.write("TRUE\n");
+                                                else
+                                                    bw.write("FALSE\n");
+                                            }
+                                            else
+                                                if ("indexingB".equals(CurrentLayout)){
+                                                    bw.write("indexingBWA\n");
+                                                    if (iSudoBRadioButton.isSelected()){
+                                                        bw.write("sudo\n");
+                                                    }
+                                                    else{
+                                                        bw.write("docker\n");
+                                                    }
+                                                    bw.write(iGenomeFolderBText.getText());
+                                                    bw.write("\n");
+                                                    bw.write(iThreadBText.getText());
+                                                    bw.write("\n");
+                                                    bw.write(iGenomeURLBText.getText());
+                                                    bw.write("\n");
+                                                    if (iBTrueRadioButton.isSelected()){
+                                                        bw.write("true\n");
+                                                    }
+                                                    else{
+                                                        bw.write("false\n");
+                                                    }
+                                                    bw.write(i1000GenomeText.getText());
+                                                    bw.write("\n");
+                                                    bw.write(idbSPNText.getText());
+                                                }
+                                                else
+                                                    if ("MACS".equals(CurrentLayout)){
+                                                        bw.write("MACS\n");
+                                                        if (MSudoRadioButton.isSelected()){
+                                                            bw.write("sudo\n");
+                                                        }
+                                                        else{
+                                                            bw.write("docker\n");
+                                                        }
+                                                        bw.write(MOutputFolderText.getText());
                                                         bw.write("\n");
-                                                        bw.write(COutputFolderText.getText());
+                                                        bw.write(MScratchFolderText.getText());
                                                         bw.write("\n");
-                                                        for (int i=0;i<CCountHeaderTable.getRowCount();i++){
-                                                            bw.write(CCountHeaderTable.getModel().getValueAt(i,0).toString());
+                                                        bw.write(MGenomeFolderText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MTestFolderText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MMockFolderText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MThreadText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MAdapter5Text.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MAdapter3Text.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MMinLengthText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MReadLengthTextField.getText());
+                                                        bw.write("\n");
+                                                        bw.write(Integer.toString(MOrgComboBox.getSelectedIndex()));
+                                                        bw.write("\n");
+                                                        if ( MRnoRadioButton.isSelected()){
+                                                            bw.write("no\n");
+                                                        }
+                                                        else{
+                                                            bw.write("yes\n");
+                                                        }
+                                                        bw.write(MMaxUpstreamText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MTTSText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MMinmfoldText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MMpvalueText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MMaxmfoldText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MSWindowsText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MSgsizeText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(MSFDRText.getText());
+                                                        bw.write("\n");
+                                                        bw.write(Integer.toString(MToolComboBox.getSelectedIndex()));
+                                                    }else
+                                                        if("SampleSize".equals(CurrentLayout)){
+                                                            bw.write("SampleSize\n");
+                                                            bw.write(SSCountTableText.getText());
                                                             bw.write("\n");
-                                                            bw.write(CCountHeaderTable.getModel().getValueAt(i,1).toString());
+                                                            bw.write(SSOutputFolderText.getText());
                                                             bw.write("\n");
-                                                            bw.write(CCountHeaderTable.getModel().getValueAt(i,2).toString());
+                                                            bw.write(SSPowerText.getText());
                                                             bw.write("\n");
-                                                        }   
-                                                  }
-                                                  else
-                                                       if (CurrentLayout=="indexingSalmon"){   
-                                                            bw.write("indexingSalmon\n");
-                                                            if (iSudoRadioSButton.isSelected()){
-                                                                bw.write("sudo\n");                
-                                                            }                
-                                                            else{
-                                                                bw.write("docker\n");
-                                                            }
-                                                            bw.write(iGenomeFolderSText.getText());
+                                                            bw.write(SSGeneText.getText());
                                                             bw.write("\n");
-                                                            bw.write(iThreadSText.getText());
+                                                            bw.write(SSlog2Text.getText());
                                                             bw.write("\n");
-                                                            bw.write(iGenomeURLSText.getText());
-                                                            bw.write("\n");
-                                                            bw.write(iGTFURLSText.getText());
-                                                            bw.write("\n");
-                                                            bw.write(iKmerSText.getText());
-                                                      }
-                                                      else
-                                                            if (CurrentLayout=="countingSalmon"){  
-                                                                bw.write("countingSalmon\n");
-                                                                if (cSudoRadioButton.isSelected()){
-                                                                    bw.write("sudo\n");                
-                                                                }                
-                                                                else{
-                                                                    bw.write("docker\n");
-                                                                 }
-                                                                bw.write(cFastQFolderText.getText());
+                                                            bw.write(SSFDRtext.getText());
+                                                        }
+                                                        else
+                                                            if("ExperimentPower".equals(CurrentLayout)){
+                                                                bw.write("ExperimentPower\n");
+                                                                bw.write(EPCountTableText.getText());
                                                                 bw.write("\n");
-                                                                bw.write(cOutputFolderText.getText());
+                                                                bw.write(EPOutputFolderText.getText());
                                                                 bw.write("\n");
-                                                                bw.write(cAdapter5Text.getText());
+                                                                bw.write(EPSampleText.getText());
                                                                 bw.write("\n");
-                                                                bw.write(cAdapter3Text.getText());
+                                                                bw.write(EPGeneText.getText());
                                                                 bw.write("\n");
-                                                                if (cPeRadioButton.isSelected()){
-                                                                    bw.write("pe\n");
-                                                                }
-                                                                else{
-                                                                    bw.write("se\n");
-                                                                }
-                                                                bw.write(cThreadText.getText());
+                                                                bw.write(EPlog2Text.getText());
                                                                 bw.write("\n");
-                                                                bw.write(cMinLengthText.getText());
-                                                                bw.write("\n");
-                                                                bw.write(cGenomeFolderText.getText());
-                                                                bw.write("\n");
-                                                                if (cSNoneRadioButton.isSelected())
-                                                                    bw.write("none\n");
-                                                                else
-                                                                    if (cSForwardRadioButton.isSelected())  
-                                                                        bw.write("forward\n");
-                                                                    else
-                                                                        bw.write("reverse\n");
-
+                                                                bw.write(EPFDRtext.getText());
                                                             }
                                                             else
-                                                                if(CurrentLayout=="filtercounts"){
-                                                                    bw.write("filtercounts\n");
-                                                                    bw.write(fFPKMfileText.getText());
-                                                                    bw.write("\n"); 
-                                                                    if (fgeneRadioButton.isSelected()){
-                                                                        bw.write("gene\n");
+                                                                if("AddingCovmRNA".equals(CurrentLayout)){
+                                                                    bw.write("AddingCovmRNA\n");
+                                                                    bw.write(CCovInputFileText.getText());
+                                                                    bw.write("\n");
+                                                                    bw.write(COutputFolderText.getText());
+                                                                    bw.write("\n");
+                                                                    for (int i=0;i<CCountHeaderTable.getRowCount();i++){
+                                                                        bw.write(CCountHeaderTable.getModel().getValueAt(i,0).toString());
+                                                                        bw.write("\n");
+                                                                        bw.write(CCountHeaderTable.getModel().getValueAt(i,1).toString());
+                                                                        bw.write("\n");
+                                                                        bw.write(CCountHeaderTable.getModel().getValueAt(i,2).toString());
+                                                                        bw.write("\n");
                                                                     }
-                                                                    else  
-                                                                        if (fisoformRadioButton.isSelected()){
-                                                                            bw.write("isoform\n");
+                                                                }
+                                                                else
+                                                                    if ("indexingSalmon".equals(CurrentLayout)){
+                                                                        bw.write("indexingSalmon\n");
+                                                                        if (iSudoRadioSButton.isSelected()){
+                                                                            bw.write("sudo\n");
                                                                         }
                                                                         else{
-                                                                            bw.write("mirna\n");
+                                                                            bw.write("docker\n");
                                                                         }
-                                                                     bw.write(fOutputFolderText.getText());
-                                                                }
-                        }
-                    bw.close();
+                                                                        bw.write(iGenomeFolderSText.getText());
+                                                                        bw.write("\n");
+                                                                        bw.write(iThreadSText.getText());
+                                                                        bw.write("\n");
+                                                                        bw.write(iGenomeURLSText.getText());
+                                                                        bw.write("\n");
+                                                                        bw.write(iGTFURLSText.getText());
+                                                                        bw.write("\n");
+                                                                        bw.write(iKmerSText.getText());
+                                                                    }
+                                                                    else
+                                                                        if ("countingSalmon".equals(CurrentLayout)){
+                                                                            bw.write("countingSalmon\n");
+                                                                            if (cSudoRadioButton.isSelected()){
+                                                                                bw.write("sudo\n");
+                                                                            }
+                                                                            else{
+                                                                                bw.write("docker\n");
+                                                                            }
+                                                                            bw.write(cFastQFolderText.getText());
+                                                                            bw.write("\n");
+                                                                            bw.write(cOutputFolderText.getText());
+                                                                            bw.write("\n");
+                                                                            bw.write(cAdapter5Text.getText());
+                                                                            bw.write("\n");
+                                                                            bw.write(cAdapter3Text.getText());
+                                                                            bw.write("\n");
+                                                                            if (cPeRadioButton.isSelected()){
+                                                                                bw.write("pe\n");
+                                                                            }
+                                                                            else{
+                                                                                bw.write("se\n");
+                                                                            }
+                                                                            bw.write(cThreadText.getText());
+                                                                            bw.write("\n");
+                                                                            bw.write(cMinLengthText.getText());
+                                                                            bw.write("\n");
+                                                                            bw.write(cGenomeFolderText.getText());
+                                                                            bw.write("\n");
+                                                                            if (cSNoneRadioButton.isSelected())
+                                                                                bw.write("none\n");
+                                                                            else
+                                                                                if (cSForwardRadioButton.isSelected())
+                                                                                    bw.write("forward\n");
+                                                                                else
+                                                                                    bw.write("reverse\n");
+                                                                            
+                                                                        }
+                                                                        else
+                                                                            if("filtercounts".equals(CurrentLayout)){
+                                                                                bw.write("filtercounts\n");
+                                                                                bw.write(fFPKMfileText.getText());
+                                                                                bw.write("\n");
+                                                                                if (fgeneRadioButton.isSelected()){
+                                                                                    bw.write("gene\n");
+                                                                                }
+                                                                                else
+                                                                                    if (fisoformRadioButton.isSelected()){
+                                                                                        bw.write("isoform\n");
+                                                                                    }
+                                                                                    else{
+                                                                                        bw.write("mirna\n");
+                                                                                    }
+                                                                                bw.write(fOutputFolderText.getText());
+                                                                            }
+                            }
+                    }
                     JOptionPane.showMessageDialog(this,"File "+f.getName()+" saved","Save",JOptionPane.INFORMATION_MESSAGE);
                     getPreferences().put("saved-file",saveFile.getCurrentDirectory().getAbsolutePath());                                          
                 }
@@ -9174,7 +9634,7 @@ public class MainFrame extends javax.swing.JFrame {
             vThreadText.requestFocusInWindow();
             return;
         }
-        try
+    try
         {
             Integer x = Integer.valueOf(vThreadText.getText());
             if (x<=0){
@@ -9239,7 +9699,7 @@ public class MainFrame extends javax.swing.JFrame {
                             cmd[2]+= " seq.type=\\\"pe\\\"";
                         }
                         else{
-                            cmd[2]+= " seq.type=\\\"se\\\"";;
+                            cmd[2]+= " seq.type=\\\"se\\\"";
                         }
                        cmd[2]+= " threads="+vThreadText.getText()+" min.length="+vMinLengthText.getText()+" genome.folder=\\\""+vGenomeFolderText.getText()+"\\\"";
                        
@@ -9295,7 +9755,7 @@ public class MainFrame extends javax.swing.JFrame {
                         ProcList.setCellRenderer(new ListEntryCellRenderer());
                         GL.setAvoidProcListValueChanged(0);
                         } 
-                    catch(Exception e) {
+                    catch(IOException e) {
                         JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                         System.out.println(e.toString());
                         }
@@ -9404,15 +9864,15 @@ public class MainFrame extends javax.swing.JFrame {
             OutputText.setEnabled(true);
             try{
                 File file = new File( tmpListEntry.path+"/Routput.Rout");
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                String strLine;
-                //Read File Line By Line
-                while ((strLine = reader.readLine()) != null)   {
-                    text+="\n"+strLine;
+                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                    String strLine;
+                    //Read File Line By Line
+                    while ((strLine = reader.readLine()) != null)   {
+                        text+="\n"+strLine;
+                    }
                 }
-                reader.close();    
             }
-            catch (Exception e){//Catch exception if any
+            catch (IOException e){//Catch exception if any
                 //System.err.println("Error: " + e.getMessage());
                 JOptionPane.showMessageDialog(this, "Error reading R output file","Error",JOptionPane.ERROR_MESSAGE);
             }
@@ -9467,15 +9927,14 @@ public class MainFrame extends javax.swing.JFrame {
             String text="";
             try{
                 File file = new File( tmpListEntry.path+"/Routput.Rout");
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                String strLine;
-                //Read File Line By Line
-                while ((strLine = reader.readLine()) != null)   {
-                    text+="\n"+strLine;
-                }
-                reader.close();    
+                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                     String strLine;
+                     //Read File Line By Line
+                     while ((strLine = reader.readLine()) != null)   {
+                         text+="\n"+strLine;
+                     }}    
             }
-            catch (Exception e){//Catch exception if any
+            catch (IOException e){//Catch exception if any
                 System.err.println("Error: " + e.getMessage());
                 JOptionPane.showMessageDialog(this, "Error reading file","Error",JOptionPane.ERROR_MESSAGE);
             }
@@ -9506,11 +9965,11 @@ public class MainFrame extends javax.swing.JFrame {
             String[] cmd = {"/bin/bash","-c"," "};
             try{
                     File file = new File(listProcRunning.get(tmpPos).path+"/dockerID");
-                    BufferedReader reader = new BufferedReader(new FileReader(file));
+                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     String dockerID = reader.readLine();
                     cmd[2]="docker kill " +dockerID +" ; rm " + listProcRunning.get(tmpPos).path+"/dockerID"; 
                     Runtime.getRuntime().exec(cmd);
-                    reader.close();    
+                }    
                 }
             catch (IOException e){//Catch exception if any
                 System.out.println("No docker running \n");
@@ -9529,13 +9988,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
             try{
                     File file = new File(listProcRunning.get(tmpPos).path+"/tempFolderID");
-                    BufferedReader reader = new BufferedReader(new FileReader(file));
+                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     String tempFolderID = reader.readLine();
                     if (!(tempFolderID.equals(""))){
                         cmd[2]="rm -R " + tempFolderID +" ; rm " + listProcRunning.get(tmpPos).path+"/tempFolderID"; 
                         Runtime.getRuntime().exec(cmd);
                     }
-                    reader.close();    
+                }    
                 }    
             catch (IOException e){//Catch exception if any
                 System.out.println("No temporary folder\n");
@@ -9629,7 +10088,7 @@ public class MainFrame extends javax.swing.JFrame {
             iThreadText.requestFocusInWindow();
             return;
         }
-        try
+    try
         {
             Integer x = Integer.valueOf(iThreadText.getText());
             if (x<=0){
@@ -9687,7 +10146,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ProcList.setCellRenderer(new ListEntryCellRenderer()); 
                 GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
             }
@@ -9744,7 +10203,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void iThreadTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_iThreadTextFocusLost
         if (iThreadText.getText().isEmpty())
-        return;
+            return;
         iThreadText.setForeground(Color.black);
         try
         {
@@ -9756,7 +10215,7 @@ public class MainFrame extends javax.swing.JFrame {
         catch (NumberFormatException e) {
             iThreadText.setForeground(Color.red);
             iThreadText.setText("");
-            return;
+            //return;
         }    // TODO add your handling code here:
     }//GEN-LAST:event_iThreadTextFocusLost
 
@@ -9779,7 +10238,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void vOrganismTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_vOrganismTextFocusLost
         // TODO add your handling code here:
         if (vOrganismText.getText().isEmpty())
-        return;
+            return;
         vOrganismText.setForeground(Color.black);
         if (!org.matcher(vOrganismText.getText()).matches()){
             vOrganismText.setForeground(Color.red);
@@ -9800,7 +10259,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void vMinLengthTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vMinLengthTextActionPerformed
         if (vMinLengthText.getText().isEmpty())
-        return;
+            return;
         vMinLengthText.setForeground(Color.black);
         try
         {
@@ -9812,7 +10271,7 @@ public class MainFrame extends javax.swing.JFrame {
         catch (NumberFormatException e) {
             vMinLengthText.setForeground(Color.red);
             vMinLengthText.setText("");
-            return;
+            //return;
         }         // TODO add your handling code here:
     }//GEN-LAST:event_vMinLengthTextActionPerformed
 
@@ -9831,7 +10290,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void vAdapter3TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_vAdapter3TextFocusLost
         // TODO add your handling code here:
         if (vAdapter3Text.getText().isEmpty())
-        return;
+            return;
         vAdapter3Text.setForeground(Color.black);
         if (!adapter.matcher(vAdapter3Text.getText()).matches()){
             vAdapter3Text.setForeground(Color.red);
@@ -9845,7 +10304,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void vAdapter5TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_vAdapter5TextFocusLost
         // TODO add your handling code here:
         if (vAdapter5Text.getText().isEmpty())
-        return;
+            return;
         vAdapter5Text.setForeground(Color.black);
         if (!adapter.matcher(vAdapter5Text.getText()).matches()){
             vAdapter5Text.setForeground(Color.red);
@@ -9916,11 +10375,10 @@ public class MainFrame extends javax.swing.JFrame {
        
     if (fc.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
         File[] files = fc.getSelectedFiles();
-        for (int i = 0; i < files.length; i++){
+        for (File file : files) {
             DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
-            model.addRow(new Object[]{files[i].toString(),"Cov.1","Batch1"});
-            
-            }
+            model.addRow(new Object[]{file.toString(), "Cov.1", "Batch1"});
+        }
         }
     curDir = fc.getCurrentDirectory().getAbsolutePath();
     getPreferences().put("open-dir", curDir);
@@ -10032,7 +10490,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ProcList.setCellRenderer(new ListEntryCellRenderer()); 
                 GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
             }
@@ -10200,7 +10658,7 @@ public class MainFrame extends javax.swing.JFrame {
             ProcList.setCellRenderer(new ListEntryCellRenderer());
             GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
@@ -10269,8 +10727,8 @@ public class MainFrame extends javax.swing.JFrame {
         catch (NumberFormatException e) {
             pComponent1Text.setForeground(Color.red);
             //pComponent1Text.setText("");
-            return;
-        }        // TODO add your handling code here:
+            //return;
+        }        
     }//GEN-LAST:event_pComponent1TextFocusLost
 
     private void pComponent1TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pComponent1TextActionPerformed
@@ -10292,7 +10750,7 @@ public class MainFrame extends javax.swing.JFrame {
         catch (NumberFormatException e) {
             pComponent2Text.setForeground(Color.red);
             //pComponent2Text.setText("");
-            return;
+            //return;
         }  
     }//GEN-LAST:event_pComponent2TextFocusLost
 
@@ -10461,7 +10919,7 @@ public class MainFrame extends javax.swing.JFrame {
             ProcList.setCellRenderer(new ListEntryCellRenderer());
             GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
@@ -10604,7 +11062,7 @@ public class MainFrame extends javax.swing.JFrame {
             iThreadText.requestFocusInWindow();
             return;
         }
-        try
+    try
         {
             Integer x = Integer.valueOf(iThreadBText.getText());
             if (x<=0){
@@ -10672,7 +11130,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ProcList.setCellRenderer(new ListEntryCellRenderer()); 
                 GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
             }
@@ -10918,7 +11376,7 @@ public class MainFrame extends javax.swing.JFrame {
             MThreadText.requestFocusInWindow();
             return;
         }
-        try
+    try
         {
             Integer x = Integer.valueOf(MThreadText.getText());
             if (x<=0){
@@ -11023,7 +11481,7 @@ public class MainFrame extends javax.swing.JFrame {
                         ProcList.setCellRenderer(new ListEntryCellRenderer());
                         GL.setAvoidProcListValueChanged(0);
                         } 
-                    catch(Exception e) {
+                    catch(IOException e) {
                         JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                         System.out.println(e.toString());
                         }
@@ -11451,7 +11909,7 @@ public class MainFrame extends javax.swing.JFrame {
             ProcList.setCellRenderer(new ListEntryCellRenderer());
             GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
@@ -11693,7 +12151,7 @@ public class MainFrame extends javax.swing.JFrame {
             ProcList.setCellRenderer(new ListEntryCellRenderer());
             GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
@@ -11762,15 +12220,15 @@ public class MainFrame extends javax.swing.JFrame {
             File f = openDir.getSelectedFile();
             try{
                 FileReader fw = new FileReader(f.getAbsoluteFile());
-                BufferedReader br = new BufferedReader(fw);
-                String header = br.readLine();
-                DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
-                for (String retval:header.split("\\t")){
-                    if (!(retval.equals("\"\"")))
-                        model.addRow(new Object[]{retval,"Cov.1","Batch1"}); 
+                try (BufferedReader br = new BufferedReader(fw)) {
+                    String header = br.readLine();
+                    DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
+                    for (String retval:header.split("\\t")){
+                        if (!(retval.equals("\"\"")))
+                            model.addRow(new Object[]{retval,"Cov.1","Batch1"}); 
+                    }
+                    CCovInputFileText.setText(String.valueOf(f));
                 }
-                CCovInputFileText.setText(String.valueOf(f));
-                br.close();
             }
             catch (IOException e) {
                     JOptionPane.showMessageDialog(this, "Error opening file","Error",JOptionPane.ERROR_MESSAGE);
@@ -11854,7 +12312,7 @@ public class MainFrame extends javax.swing.JFrame {
         ProcList.setCellRenderer(new ListEntryCellRenderer()); 
         GL.setAvoidProcListValueChanged(0);
         } 
-    catch(Exception e) {
+    catch(IOException e) {
         JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
         System.out.println(e.toString());
         }
@@ -11995,7 +12453,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ProcList.setCellRenderer(new ListEntryCellRenderer()); 
                 GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
             }
@@ -12059,7 +12517,7 @@ public class MainFrame extends javax.swing.JFrame {
             iThreadSText.requestFocusInWindow();
             return;
         }
-        try
+    try
         {
             Integer x = Integer.valueOf(iThreadSText.getText());
             if (x<=0){
@@ -12138,7 +12596,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ProcList.setCellRenderer(new ListEntryCellRenderer()); 
                 GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
             }
@@ -12248,7 +12706,7 @@ public class MainFrame extends javax.swing.JFrame {
             cThreadText.requestFocusInWindow();
             return;
         }
-        try
+    try
         {
             Integer x = Integer.valueOf(cThreadText.getText());
             if (x<=0){
@@ -12309,7 +12767,7 @@ public class MainFrame extends javax.swing.JFrame {
                         cmd[2]+= " seq.type=\\\"pe\\\"";
                     }
                     else{
-                        cmd[2]+= " seq.type=\\\"se\\\"";;
+                        cmd[2]+= " seq.type=\\\"se\\\"";
                     }
                     cmd[2]+= " threads="+cThreadText.getText()+" min.length="+cMinLengthText.getText()+"  index.folder=\\\""+cGenomeFolderText.getText()+"\\\"";
                        
@@ -12353,7 +12811,7 @@ public class MainFrame extends javax.swing.JFrame {
                     ProcList.setCellRenderer(new ListEntryCellRenderer());
                     GL.setAvoidProcListValueChanged(0);
                     } 
-                catch(Exception e) {
+                catch(IOException e) {
                     JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                     System.out.println(e.toString());
                 }
@@ -12587,7 +13045,7 @@ public class MainFrame extends javax.swing.JFrame {
             ProcList.setCellRenderer(new ListEntryCellRenderer());
             GL.setAvoidProcListValueChanged(0);
             } 
-        catch(Exception e) {
+        catch(IOException e) {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
@@ -12680,17 +13138,18 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             File file = openFile.getSelectedFile();
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String strLine;
-            String text="";
-            //Read File Line By Line
-            while ((strLine = reader.readLine()) != null)   {
+            String text;
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String strLine;
+                text = "";
+                //Read File Line By Line
+                while ((strLine = reader.readLine()) != null)   {
                     text+="\n"+strLine;
+                }
             }
-            reader.close();
             OutputText.setText(text);
                 }
-                catch (Exception e){//Catch exception if any
+                catch (IOException e){//Catch exception if any
                     System.err.println("Error: " + e.getMessage());
                     //JOptionPane.showMessageDialog(this, "Error reading R output file","Error",JOptionPane.ERROR_MESSAGE);
                 }
@@ -12702,8 +13161,7 @@ public class MainFrame extends javax.swing.JFrame {
     
         if (QdataFolderText.getText().isEmpty()){
            JOptionPane.showMessageDialog(this, "You have to specified an input folder","Error: Data  folder",JOptionPane.ERROR_MESSAGE);
-           //mFastQFolderText.requestFocusInWindow();   
-           return;
+            //mFastQFolderText.requestFocusInWindow();
         }
         else
         {
@@ -12749,7 +13207,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ProcList.setCellRenderer(new ListEntryCellRenderer());
                 GL.setAvoidProcListValueChanged(0);
                 }   
-            catch(Exception e) {
+            catch(IOException e) {
                 JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                 System.out.println(e.toString());
                 }
@@ -12958,41 +13416,66 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
     
+        
+        if (HLowerRangeText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified the lower bound.","Error: lower bound",JOptionPane.ERROR_MESSAGE);
+            //HLowerRangeText.requestFocusInWindow();
+            return;
+        }
+        
+         
+        if (HUpperRangeText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified the upper bound.","Error: upper bound",JOptionPane.ERROR_MESSAGE);
+            //HUpperRangeText.requestFocusInWindow();
+            return;
+        }
+        
+        
+        try
+        {
+            Float x = Float.valueOf(HLowerRangeText.getText());
+            Float y = Float.valueOf(HUpperRangeText.getText());
+            if (x>=y){
+                JOptionPane.showMessageDialog(this, "Upper bound must be greater than lower bound.","Error: bounds",JOptionPane.ERROR_MESSAGE);
+                //HLowerRangeText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified the number for the bounds.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
+            ///HLowerRangeText.requestFocusInWindow();
+            return;
+        }
+        
+        
         if (HdataFileText.getText().isEmpty()){
            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: Data  input file ",JOptionPane.ERROR_MESSAGE);   
-           return;
         }
         else
             if (HscratchText.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "You have to specified a scratch folder","Error: scratch folder ",JOptionPane.ERROR_MESSAGE);   
-                return;
             }
              else
-            {
-         //execute code
+            { 
+            //execute code
             Runtime rt = Runtime.getRuntime();
             try{
-                String[] cmd = {"/bin/bash","-c"," bash ./execheatmap.sh "};
+                String[] cmd = {"/bin/bash","-c"," bash ./execHeatmap.sh "};
                 if (HSudoRadioButton.isSelected()){
                     cmd[2]+= "group=\\\"sudo\\\"";
                 }
                 else{
                     cmd[2]+= "group=\\\"docker\\\"";
                 }
-                cmd[2]+= " data.file=\\\""+HdataFileText.getText()+"\\\"";
+                cmd[2]+= " file=\\\""+HdataFileText.getText()+"\\\"";
                 cmd[2]+= " scratch.folder=\\\""+HscratchText.getText()+"\\\"";
-                if (HBaseNoRadioButton.isSelected()){
-                    cmd[2]+= "heatmapBase=1";
+                if (HStatus1RadioButton.isSelected()){
+                    cmd[2]+= " status=1";
                 }
                 else{
-                    cmd[2]+= "heatmapBase=0";
+                    cmd[2]+= " status=0";
                 }
-                 if (HLogNoRadioButton.isSelected()){
-                    cmd[2]+= "status=1";
-                }
-                else{
-                    cmd[2]+= "status=0";
-                }
+                cmd[2]+= " lower.range="+HLowerRangeText.getText()+" upper.range="+HUpperRangeText.getText();
                 cmd[2]+=" "+HOutputFolderText.getText() +" >& "+HOutputFolderText.getText()+"/outputExecution ";
 
                 if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
@@ -13023,7 +13506,7 @@ public class MainFrame extends javax.swing.JFrame {
                 ProcList.setCellRenderer(new ListEntryCellRenderer());
                 GL.setAvoidProcListValueChanged(0);
                 }   
-            catch(Exception e) {
+            catch(IOException e) {
                 JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                 System.out.println(e.toString());
                 }
@@ -13035,18 +13518,20 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
        HDockerRadioButton.setSelected(true);
-       HLogNoRadioButton.setSelected(true);
        HdataFileText.setText("");
        HscratchText.setText("");
-       HBaseYesRadioButton.setSelected(true);
+       HLowerRangeText.setText("-1");
+       HUpperRangeText.setText("1");
+       HStatus1RadioButton.setSelected(true);
     }//GEN-LAST:event_jButton48ActionPerformed
 
     private void vCloseButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton8ActionPerformed
        HDockerRadioButton.setSelected(true);
-       HLogNoRadioButton.setSelected(true);
-       HBaseYesRadioButton.setSelected(true);
+       HStatus1RadioButton.setSelected(true);
        HdataFileText.setText("");
        HscratchText.setText("");
+       HLowerRangeText.setText("-1");
+       HUpperRangeText.setText("1");
        CardLayout card = (CardLayout)MainPanel.getLayout();
        card.show(MainPanel, "Empty");
        CurrentLayout="Empty";   
@@ -13118,21 +13603,13 @@ public class MainFrame extends javax.swing.JFrame {
         HOutputFolderText.setText("");
     }//GEN-LAST:event_jToggleButton45ActionPerformed
 
-    private void HLogYesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HLogYesRadioButtonActionPerformed
+    private void HStatus1RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HStatus1RadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_HLogYesRadioButtonActionPerformed
+    }//GEN-LAST:event_HStatus1RadioButtonActionPerformed
 
-    private void HLogNoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HLogNoRadioButtonActionPerformed
+    private void HStatus0RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HStatus0RadioButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_HLogNoRadioButtonActionPerformed
-
-    private void HBaseYesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HBaseYesRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HBaseYesRadioButtonActionPerformed
-
-    private void HBaseNoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HBaseNoRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HBaseNoRadioButtonActionPerformed
+    }//GEN-LAST:event_HStatus0RadioButtonActionPerformed
 
     private void jToggleButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton46ActionPerformed
         // TODO add your handling code here:
@@ -13145,6 +13622,205 @@ public class MainFrame extends javax.swing.JFrame {
     private void HOutputFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HOutputFolderTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_HOutputFolderTextActionPerformed
+
+    private void ANOVAlikeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANOVAlikeButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "NOVAlike");
+        CurrentLayout="NOVAlike";
+    }//GEN-LAST:event_ANOVAlikeButtonActionPerformed
+
+    private void vCloseButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton9ActionPerformed
+        ANinputfileText.setText("");
+        ANOutputFolderText.setText("");
+        ANLog2fcText.setText("1.0");
+        ANLogCPMText.setText("4.0");
+        ANadjPText.setText("0.1");
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "Empty");
+        CurrentLayout="Empty";   
+    }//GEN-LAST:event_vCloseButton9ActionPerformed
+
+    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+        if (ANinputfileText.getText().isEmpty()){
+           JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: Data  input file ",JOptionPane.ERROR_MESSAGE);   
+           return;
+        }
+            
+        try
+        {
+            Float x = Float.valueOf(ANLog2fcText.getText());
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a number for LogFG threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
+            ///HLowerRangeText.requestFocusInWindow();
+            return;
+        }
+        
+        try
+        {
+            Float x = Float.valueOf(ANLogCPMText.getText());
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a number for LogCPM threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
+            ///HLowerRangeText.requestFocusInWindow();
+            return;
+        }
+        
+        try
+        {
+            Float x = Float.valueOf(ANadjPText.getText());
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a number for  Adj. p-value threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
+            ///HLowerRangeText.requestFocusInWindow();
+            return;
+        }
+        
+       
+        //execute code
+        Runtime rt = Runtime.getRuntime();
+        try{
+            String[] cmd = {"/bin/bash","-c"," bash ./execANOVAlike.sh "};
+                if (ANSudoRadioButton.isSelected()){
+                    cmd[2]+= "group=\\\"sudo\\\"";
+                }
+                else{
+                    cmd[2]+= "group=\\\"docker\\\"";
+                }
+                cmd[2]+= " file=\\\""+ANinputfileText.getText()+"\\\""+" logFC.threshold="+ANLog2fcText.getText();
+                cmd[2]+= " FDR.threshold="+ANadjPText.getText()+" logCPM.threshold="+ANLogCPMText.getText();
+                cmd[2]+=" "+ANOutputFolderText.getText() +" >& "+ANOutputFolderText+"/outputExecution ";
+
+                if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
+                    Process pr = rt.exec(cmd);                          
+                    ElProcRunning tmp= new ElProcRunning("ANOVA-like  ", ANOutputFolderText.getText(),pr,listModel.getSize());
+                    listProcRunning.add(tmp);
+                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
+                    ImageIcon image2 = new ImageIcon(imgURL);
+                    GL.setAvoidProcListValueChanged(-1);
+                    listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                    GL.setAvoidProcListValueChanged(0);
+                    if(listProcRunning.size()==1){
+                        t=new Timer();
+                        t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
+                        }
+                }    
+                else{
+                     ElProcWaiting tmp= new ElProcWaiting("ANOVA-like", ANOutputFolderText.getText(),cmd,listModel.getSize());
+                     listProcWaiting.add(tmp);
+                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
+                     ImageIcon image2 = new ImageIcon(imgURL);
+                     GL.setAvoidProcListValueChanged(-1);
+                     listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                     GL.setAvoidProcListValueChanged(0);
+                    }
+                GL.setAvoidProcListValueChanged(-1);
+                ProcList.setModel(listModel);
+                ProcList.setCellRenderer(new ListEntryCellRenderer());
+                GL.setAvoidProcListValueChanged(0);
+                }   
+            catch(IOException e) {
+                JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+                System.out.println(e.toString());
+                }
+            JOptionPane.showMessageDialog(this, "ANOVA-lie task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE); 
+        
+    }//GEN-LAST:event_jButton49ActionPerformed
+
+    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+    
+        ANinputfileText.setText("");
+        ANOutputFolderText.setText("");
+        ANLog2fcText.setText("1.0");
+        ANLogCPMText.setText("4.0");
+        ANadjPText.setText("0.1");
+    }//GEN-LAST:event_jButton50ActionPerformed
+
+    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton51ActionPerformed
+
+    private void ANinputfileTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANinputfileTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANinputfileTextActionPerformed
+
+    private void jToggleButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton48ActionPerformed
+     JFileChooser openDir = new JFileChooser();
+     if (!(ANinputfileText.getText().equals(""))){
+            File file =new File(ANinputfileText.getText());
+            if (file.isDirectory())
+                openDir.setCurrentDirectory(file);
+        }
+     else
+     {
+        String curDir = getPreferences().get("open-dir", null);
+        openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+     }
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            ANinputfileText.setText(String.valueOf(f));
+            ANOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());    
+    }//GEN-LAST:event_jToggleButton48ActionPerformed
+
+    private void fCancelButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton6ActionPerformed
+    ANinputfileText.setText("");
+    ANOutputFolderText.setText("");
+    }//GEN-LAST:event_fCancelButton6ActionPerformed
+
+    private void ANOutputFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANOutputFolderTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANOutputFolderTextActionPerformed
+
+    private void jToggleButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton49ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton49ActionPerformed
+
+    private void fCancelButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fCancelButton7ActionPerformed
+
+    private void ANLog2fcTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ANLog2fcTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANLog2fcTextFocusLost
+
+    private void ANLog2fcTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANLog2fcTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANLog2fcTextActionPerformed
+
+    private void ANLogCPMTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ANLogCPMTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANLogCPMTextFocusLost
+
+    private void ANLogCPMTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANLogCPMTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANLogCPMTextActionPerformed
+
+    private void ANadjPTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ANadjPTextFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANadjPTextFocusLost
+
+    private void ANadjPTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANadjPTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANadjPTextActionPerformed
+
+    private void HLowerRangeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HLowerRangeTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HLowerRangeTextActionPerformed
+
+    private void HUpperRangeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HUpperRangeTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HUpperRangeTextActionPerformed
+
+    private void ANSudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANSudoRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANSudoRadioButtonActionPerformed
+
+    private void ANDockerRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANDockerRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ANDockerRadioButton1ActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -13172,13 +13848,7 @@ public class MainFrame extends javax.swing.JFrame {
                 if (nofound=true)
                     javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName()); 
         }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
   
@@ -13186,7 +13856,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
         Thread.sleep(800L);
         }
-        catch ( Exception e ) { } 
+        catch ( InterruptedException e ) { } 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -13198,6 +13868,17 @@ public class MainFrame extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton ANDockerRadioButton1;
+    private javax.swing.JTextField ANLog2fcText;
+    private javax.swing.JTextField ANLogCPMText;
+    private javax.swing.ButtonGroup ANOVAGroup;
+    private javax.swing.JScrollPane ANOVAlike;
+    private javax.swing.JButton ANOVAlikeButton;
+    private javax.swing.JPanel ANOVAlikePanel;
+    private javax.swing.JTextField ANOutputFolderText;
+    private javax.swing.JRadioButton ANSudoRadioButton;
+    private javax.swing.JTextField ANadjPText;
+    private javax.swing.JTextField ANinputfileText;
     private javax.swing.JFrame About4SeqGUIFrame;
     private javax.swing.JTextField Adapter3TextField;
     private javax.swing.JTextField Adapter5TextField;
@@ -13267,13 +13948,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton Fcancel;
     private javax.swing.JComboBox<String> FtypesComboBox;
     private javax.swing.ButtonGroup GATK;
-    private javax.swing.JRadioButton HBaseNoRadioButton;
-    private javax.swing.JRadioButton HBaseYesRadioButton;
     private javax.swing.JRadioButton HDockerRadioButton;
-    private javax.swing.JRadioButton HLogNoRadioButton;
-    private javax.swing.JRadioButton HLogYesRadioButton;
+    private javax.swing.JTextField HLowerRangeText;
     private javax.swing.JTextField HOutputFolderText;
+    private javax.swing.JRadioButton HStatus0RadioButton;
+    private javax.swing.JRadioButton HStatus1RadioButton;
     private javax.swing.JRadioButton HSudoRadioButton;
+    private javax.swing.JTextField HUpperRangeText;
     private javax.swing.JTextField HdataFileText;
     private javax.swing.JScrollPane Heatmap;
     private javax.swing.JButton HeatmapButton;
@@ -13401,6 +14082,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton fCancelButton3;
     private javax.swing.JToggleButton fCancelButton4;
     private javax.swing.JToggleButton fCancelButton5;
+    private javax.swing.JToggleButton fCancelButton6;
+    private javax.swing.JToggleButton fCancelButton7;
     private javax.swing.JTextField fFPKMfileText;
     private javax.swing.JTextField fOutputFolderText;
     private javax.swing.JRadioButton fgeneRadioButton;
@@ -13487,7 +14170,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton46;
     private javax.swing.JButton jButton47;
     private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
@@ -13520,9 +14206,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
     private javax.swing.JLabel jLabel127;
-    private javax.swing.JLabel jLabel128;
     private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel130;
@@ -13530,7 +14219,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel132;
     private javax.swing.JLabel jLabel133;
     private javax.swing.JLabel jLabel134;
+    private javax.swing.JLabel jLabel135;
+    private javax.swing.JLabel jLabel136;
+    private javax.swing.JLabel jLabel137;
+    private javax.swing.JLabel jLabel138;
+    private javax.swing.JLabel jLabel139;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel140;
+    private javax.swing.JLabel jLabel141;
+    private javax.swing.JLabel jLabel142;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -13666,11 +14363,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel36;
     private javax.swing.JPanel jPanel37;
     private javax.swing.JPanel jPanel38;
     private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -13727,6 +14427,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton45;
     private javax.swing.JToggleButton jToggleButton46;
     private javax.swing.JToggleButton jToggleButton47;
+    private javax.swing.JToggleButton jToggleButton48;
+    private javax.swing.JToggleButton jToggleButton49;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
@@ -13776,6 +14478,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton vCloseButton6;
     private javax.swing.JButton vCloseButton7;
     private javax.swing.JButton vCloseButton8;
+    private javax.swing.JButton vCloseButton9;
     private javax.swing.JRadioButton vDockerRadioButton;
     private javax.swing.ButtonGroup vExecution;
     private javax.swing.JTextField vFastQFolderText;
@@ -14090,9 +14793,9 @@ extends JLabel implements ListCellRenderer<Object>
                     }
                     
                     if (error)
-                    listModel.set(index,new ListEntry(" [Error]   " + listProcRunning.get(i).toString(), "Error",listProcRunning.get(i).path,image3));
+                        listModel.set(index,new ListEntry(" [Error]   " + listProcRunning.get(i).toString(), "Error",listProcRunning.get(i).path,image3));
                     else
-                    listModel.set(index,new ListEntry(" [Finished]   " + listProcRunning.get(i).toString(), "Finished",listProcRunning.get(i).path,image2));
+                        listModel.set(index,new ListEntry(" [Finished]   " + listProcRunning.get(i).toString(), "Finished",listProcRunning.get(i).path,image2));
                     listProcRunning.remove(i);        
                 }
             }
@@ -14113,13 +14816,13 @@ extends JLabel implements ListCellRenderer<Object>
                     listProcWaiting.remove(0);
                     //System.out.format("Size:"+listProcRunning.size()+"\n");
                 } 
-                catch(Exception e) {
+                catch(IOException e) {
                     JOptionPane.showMessageDialog(vmRNAPanel, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                     System.out.println(e.toString());
                 }
             }
             //System.out.format("End Check!\n"); 
-            if (listProcRunning.size()==0){
+            if (listProcRunning.isEmpty()){
                  //System.out.format("End TimerTask\n");
                  t.cancel();
             }
@@ -14149,7 +14852,7 @@ private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
         pid = f.getLong(p);
         f.setAccessible(false);
       }
-    } catch (Exception e) {
+    } catch (IllegalAccessException | IllegalArgumentException | NoSuchFieldException | SecurityException e) {
       pid = -1;
     }
     return pid;
@@ -14171,17 +14874,17 @@ GlobalSetting GS =new GlobalSetting();
 
 public class DefaultContextMenu extends JPopupMenu
 {
-    private Clipboard clipboard;
+    private final Clipboard clipboard;
 
     private UndoManager undoManager;
 
-    private JMenuItem undo;
-    private JMenuItem redo;
-    private JMenuItem cut;
-    private JMenuItem copy;
-    private JMenuItem paste;
-    private JMenuItem delete;
-    private JMenuItem selectAll;
+    private final JMenuItem undo;
+    private final JMenuItem redo;
+    private final JMenuItem cut;
+    private final JMenuItem copy;
+    private final JMenuItem paste;
+    private final JMenuItem delete;
+    private final JMenuItem selectAll;
 
     private JTextComponent jTextComponent;
     private static final long serialVersionUID = 5778212333L;
@@ -14355,7 +15058,7 @@ public class DefaultContextMenu extends JPopupMenu
 
         show(jTextComponent, event.getX(), event.getY());
     }
-}
+    }
 
 DefaultContextMenu contextMenu = new DefaultContextMenu();
 
