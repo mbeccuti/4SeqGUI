@@ -6560,7 +6560,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 20, 10, 10);
         jPanel33.add(fFPKMfileText, gridBagConstraints);
 
-        jToggleButton38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
+        jToggleButton38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton38.setText("Browse");
         jToggleButton38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -7629,7 +7629,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 95, 10, 10);
         jPanel41.add(ANSudoRadioButton, gridBagConstraints);
 
         ANDockerRadioButton1.setBackground(new java.awt.Color(248, 248, 248));
@@ -8560,632 +8560,636 @@ public class MainFrame extends javax.swing.JFrame {
                 try{
                 File f = openFile.getSelectedFile();
                 FileReader fw = new FileReader(f.getAbsoluteFile());
-                BufferedReader br = new BufferedReader(fw);
-                if ("vmRNA".equals(CurrentLayout)){
-                    int line=0;
-                    //chekc right file
-                    String y=br.readLine();
-                    if (!y.equals("vmRNA")){
-                        throw(new NumberFormatException());
-                    }              
-                    for (String x = br.readLine(); x != null; x = br.readLine()){
-                        switch (line){
-                            case 0:
-                            if (x.equals("sudo"))
-                                vSudoRadioButton.setSelected(true);
-                            else
-                                vDockerRadioButton.setSelected(true);
-                            break;
-                            case 1:
-                                vFastQFolderText.setText(x);
-                            break;
-                            case 2:
-                                vOutputFolderText.setText(x);
-                            break; 
-                            case 3:
-                               vAdapter5Text.setText(x);
-                            break;  
-                            case 4:
-                                vAdapter3Text.setText(x);
-                            break; 
-                            case 5:
-                              if (x.equals("se"))
-                                vSeRadioButton.setSelected(true);
-                            else
-                                vPeRadioButton.setSelected(true);  
-                            break;
-                            case 6:
-                                vThreadText.setText(x);
-                            break;
-                            case 7:
-                                vMinLengthText.setText(x);
-                            break;
-                            case 8:
-                                vGenomeFolderText.setText(x);
-                            break;
-                            case 9:
-                              if (x.equals("none"))
-                                vSNoneRadioButton.setSelected(true);
-                              else
-                                  if (x.equals("forward"))
-                                    vSForwardRadioButton.setSelected(true);
-                                  else
-                                    vSReverseRadioButton.setSelected(true);
-                            break;
-                            case 10:
-                                if (x.equals("gtfENSEMBL"))
-                                    vBAMnoLRadioButton.setSelected(true);
-                                else
-                                    vBAMyesRadioButton.setSelected(true);  
-                            break;
-                            case 11:
-                                vOrganismText.setText(x);
-                            break;    
-                            default:
-                                System.out.print("Too much lines\n");
-                            throw(new NumberFormatException()); 
-                        }
-                    line++;
-                    } 
-                }
-                else
-                    if ( "mRNA".equals(CurrentLayout)){
-                        int line=0;
-                        //chekc right file
-                        String y=br.readLine();
-                        if (!y.equals("mRNA")){
-                            throw(new NumberFormatException());
-                        }
-                        for (String x = br.readLine(); x != null; x = br.readLine()){
-                            switch (line){
-                                case 0:
-                                if (x.equals("sudo"))
-                                    mSudoRadioButton.setSelected(true);
-                                else
-                                    mDockerRadioButton.setSelected(true);
-                                break;
-                                case 1:
-                                    mFastQFolderText.setText(x);
-                                break;
-                                case 2:
-                                    mOutputFolderText.setText(x);
-                                break; 
-                                case 3:
-                                    mmiRBaseText.setText(x);
-                                break;  
-                                case 4:
-                                    if (x.equals("TRUE"))
-                                        mDTrueRadioButton.setSelected(true);
-                                    else
-                                        mDFalseRadioButton.setSelected(true);  
-                                break;
-                                case 5:
-                                    if (x.equals("NEB"))
-                                        mANEBRadioButton.setSelected(true);
-                                    else
-                                        mAILLUMINARadioButton.setSelected(true);
-                                break;
-                                case 6:
-                                if (x.equals("TRUE"))
-                                     mTTrueRadioButton.setSelected(true);
-                                else
-                                    mTFalseRadioButton.setSelected(true);  
-                                break;
-                                default:
-                                    System.out.print("Too much lines\n");
-                                throw(new NumberFormatException()); 
-                                }
-                            line++;
-                            } 
-                        }
-                    else
-                        if ("indexing".equals(CurrentLayout)){
+                    try (BufferedReader br = new BufferedReader(fw)) {
+                        if ("vmRNA".equals(CurrentLayout)){
                             int line=0;
                             //chekc right file
-                            if (!br.readLine().equals("indexing")){
-                            throw(new NumberFormatException());
+                            String y=br.readLine();
+                            if (!y.equals("vmRNA")){
+                                throw(new NumberFormatException());
                             }
                             for (String x = br.readLine(); x != null; x = br.readLine()){
                                 switch (line){
                                     case 0:
                                         if (x.equals("sudo"))
-                                            iSudoRadioButton.setSelected(true);
+                                            vSudoRadioButton.setSelected(true);
                                         else
-                                            iDockerRadioButton.setSelected(true);
-                                    break;
+                                            vDockerRadioButton.setSelected(true);
+                                        break;
                                     case 1:
-                                        iGenomeFolderText.setText(x);
-                                    break;
+                                        vFastQFolderText.setText(x);
+                                        break;
                                     case 2:
-                                         iThreadText.setText(x);
-                                    break;  
+                                        vOutputFolderText.setText(x);
+                                        break;  
                                     case 3:
-                                        iGenomeURLText.setText(x);
-                                    break;
+                                        vAdapter5Text.setText(x);
+                                        break;
                                     case 4:
-                                        iGTFURLText.setText(x);
-                                    break;
+                                        vAdapter3Text.setText(x);
+                                        break;
+                                    case 5:
+                                        if (x.equals("se"))
+                                            vSeRadioButton.setSelected(true);
+                                        else
+                                            vPeRadioButton.setSelected(true);
+                                        break;
+                                    case 6:
+                                        vThreadText.setText(x);
+                                        break;
+                                    case 7:
+                                        vMinLengthText.setText(x);
+                                        break;
+                                    case 8:
+                                        vGenomeFolderText.setText(x);
+                                        break;
+                                    case 9:
+                                        switch (x) {
+                                            case "none":
+                                                vSNoneRadioButton.setSelected(true);
+                                                break;
+                                            case "forward":
+                                                vSForwardRadioButton.setSelected(true);
+                                                break;
+                                            default:
+                                                vSReverseRadioButton.setSelected(true);
+                                                break;
+                                        }
+                                        break;
+                                    case 10:
+                                        if (x.equals("gtfENSEMBL"))
+                                            vBAMnoLRadioButton.setSelected(true);
+                                        else
+                                            vBAMyesRadioButton.setSelected(true);
+                                        break;
+                                    case 11:
+                                        vOrganismText.setText(x);
+                                        break;
                                     default:
-                                        throw(new NumberFormatException()); 
-                                }                                
+                                        System.out.print("Too much lines\n");
+                                        throw(new NumberFormatException());                                
+                                }
                                 line++;
                             }
                         }
                         else
-                        if (CurrentLayout=="FPKMCounting"){
-                            //chekc right file
-                            if (!br.readLine().equals("FPKMCounting")){
-                            throw(new NumberFormatException());
-                            }
-                            int line=0;
-                            for (String x = br.readLine(); x != null; x = br.readLine()){
-                                switch (line){
-                                case 0:
-                                    FtypesComboBox.setSelectedIndex(Integer.valueOf(x));
-                                break;    
-                                default:
-                                    DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
-                                    String col2 = br.readLine();
-                                    String col3 = br.readLine();
-                                    if (col2==null)
-                                        col2="Cov.1";
-                                    if (col3==null)
-                                        col3="Batch1";
-                                    model.addRow(new Object[]{x,col2,col3}); 
-                                }
-                                line++;
-                                }
-                        }
-                        else
-                            if("PCA".equals(CurrentLayout)){
-                                if (!br.readLine().equals("PCA")){
+                            if ( "mRNA".equals(CurrentLayout)){
+                                int line=0;
+                                //chekc right file
+                                String y=br.readLine();
+                                if (!y.equals("mRNA")){
                                     throw(new NumberFormatException());
                                 }
-                                int line=0;
-                                  for (String x = br.readLine(); x != null; x = br.readLine()){
-                                switch (line){
-                                case 0:
-                                    pFPKMfileText.setText(x);   
-                                break;
-                                case 1:
-                                    pComponent1Text.setText(x);
-                                break;
-                                case 2:
-                                    pComponent2Text.setText(x);
-                                break;
-                                case 3:
-                                switch (x) {
-                                    case "Counts":
-                                        pCountsRadioButton.setSelected(true);
-                                        break;
-                                    case "FPKM":
-                                        pFPKMRadioButton.setSelected(true);
-                                        break;
-                                    default:
-                                        pTPMRadioButton.setSelected(true);
-                                        break;
-                                }
-                                break;
-                                case 4:
-                                    pLegendComboBox.setSelectedIndex(Integer.valueOf(x));
-                                break;
-                                case 5:
-                                      if (x.equals("Yes"))
-                                         pCovYesRadioButton.setSelected(true);
-                                      else
-                                         pCovNoRadioButton.setSelected(true); 
-                                break;
-                                case 6:
-                                      pOutputFolderText.setText(x);
-                                break;
-                                }
-                                line++;
+                                for (String x = br.readLine(); x != null; x = br.readLine()){
+                                    switch (line){
+                                        case 0:
+                                            if (x.equals("sudo"))
+                                                mSudoRadioButton.setSelected(true);
+                                            else
+                                                mDockerRadioButton.setSelected(true);
+                                            break;
+                                        case 1:
+                                            mFastQFolderText.setText(x);
+                                            break;
+                                        case 2:
+                                            mOutputFolderText.setText(x);
+                                            break;
+                                        case 3:
+                                            mmiRBaseText.setText(x);
+                                            break;
+                                        case 4:
+                                            if (x.equals("TRUE"))
+                                                mDTrueRadioButton.setSelected(true);
+                                            else
+                                                mDFalseRadioButton.setSelected(true);
+                                            break;
+                                        case 5:
+                                            if (x.equals("NEB"))
+                                                mANEBRadioButton.setSelected(true);
+                                            else
+                                                mAILLUMINARadioButton.setSelected(true);
+                                            break;
+                                        case 6:
+                                            if (x.equals("TRUE"))
+                                                mTTrueRadioButton.setSelected(true);
+                                            else
+                                                mTFalseRadioButton.setSelected(true);
+                                            break;
+                                        default:
+                                            System.out.print("Too much lines\n");
+                                            throw(new NumberFormatException());
+                                    }
+                                    line++;
                                 }
                             }
                             else
-                                if("DES".equals(CurrentLayout)){
-                                    if (!br.readLine().equals("DES")){
+                                if ("indexing".equals(CurrentLayout)){
+                                    int line=0;
+                                    //chekc right file
+                                    if (!br.readLine().equals("indexing")){
                                         throw(new NumberFormatException());
                                     }
-                                    int line=0;
                                     for (String x = br.readLine(); x != null; x = br.readLine()){
                                         switch (line){
                                             case 0:
-                                                dFPKMfileText.setText(x);   
-                                            break;
-                                            case 1:
-                                                dLog2fcText.setText(x);
-                                            break;
-                                            case 2:
-                                                dFDRText.setText(x);
-                                            break;
-                                            case 3:
-                                                dCovComboBox.setSelectedIndex(Integer.valueOf(x));
-                                            break;
-                                            case 4:
-                                        switch (x) {
-                                            case "isoform":
-                                                dIsoformRadioButton.setSelected(true);
+                                                if (x.equals("sudo"))
+                                                    iSudoRadioButton.setSelected(true);
+                                                else
+                                                    iDockerRadioButton.setSelected(true);
                                                 break;
-                                            case "miRNA":
-                                                dmiRNARadioButton.setSelected(true);
+                                            case 1:
+                                                iGenomeFolderText.setText(x);
+                                                break;
+                                            case 2:
+                                                iThreadText.setText(x);
+                                                break;
+                                            case 3:
+                                                iGenomeURLText.setText(x);
+                                                break;
+                                            case 4:
+                                                iGTFURLText.setText(x);
                                                 break;
                                             default:
-                                                dGeneRadioButton.setSelected(true);
-                                                break;
+                                                throw(new NumberFormatException());
                                         }
-                                            break;
-                                            case 5:
-                                                    dOutputFolderText.setText(x);
-                                            break;
-                                            case 6:
-                                               if (x.equals("TRUE"))
-                                                    dBatchesTrue.setSelected(true);
-                                               else
-                                                    DBatchesFalse.setSelected(true); 
-                                            break;   
-                                            }
                                         line++;
                                     }
                                 }
                                 else
-                                if ("indexingB".equals(CurrentLayout)){
-                                int line=0;
-                                //chekc right file
-                                if (!br.readLine().equals("indexingBWA")){
-                                    throw(new NumberFormatException());
-                                }
-                                for (String x = br.readLine(); x != null; x = br.readLine()){
-                                switch (line){
-                                    case 0:
-                                        if (x.equals("sudo"))
-                                            iSudoRadioButton.setSelected(true);
-                                        else
-                                            iDockerRadioButton.setSelected(true);
-                                    break;
-                                    case 1:
-                                        iGenomeFolderBText.setText(x);
-                                    break;
-                                    case 2:
-                                         iThreadBText.setText(x);
-                                    break;  
-                                    case 3:
-                                        iGenomeURLBText.setText(x);
-                                    break;
-                                    case 4:
-                                        if (x.equals("true"))
-                                            iBTrueRadioButton.setSelected(true);
-                                        else
-                                            iBFalseRadioButton.setSelected(true);
-                                    break;
-                                    case 5:
-                                        i1000GenomeText.setText(x);
-                                    break;
-                                    case 6:
-                                        idbSPNText.setText(x);
-                                    break;
-                                    default:
-                                        throw(new NumberFormatException()); 
-                                }                                
-                                line++;
-                              }
-                            }
-                            else
-                                if ("MACS".equals(CurrentLayout)){
-                                int line=0;
-                                //chekc right file
-                                if (!br.readLine().equals("MACS")){
-                                    throw(new NumberFormatException());
-                                }
-                                for (String x = br.readLine(); x != null; x = br.readLine()){
-                                switch (line){
-                                    case 0:
-                                        if (x.equals("sudo"))
-                                            MSudoRadioButton.setSelected(true);
-                                        else
-                                            MDockerRadioButton.setSelected(true);
-                                    break;
-                                    case 1:
-                                        MOutputFolderText.setText(x);
-                                    break;
-                                    case 2:
-                                        MScratchFolderText.setText(x);
-                                    break;  
-                                    case 3:
-                                        MGenomeFolderText.setText(x);
-                                    break;
-                                    case 4:
-                                        MTestFolderText.setText(x);
-                                    break;
-                                    case 5:
-                                        MMockFolderText.setText(x);
-                                    break;
-                                    case 6:
-                                        MThreadText.setText(x);
-                                    break;
-                                    case 7:
-                                        MAdapter5Text.setText(x);
-                                    break;
-                                    case 8:
-                                        MAdapter3Text.setText(x);
-                                    break;
-                                    case 9:
-                                        MMinLengthText.setText(x);
-                                    break;
-                                    case 10:
-                                        MReadLengthTextField.setText(x);
-                                    break;
-                                    case 11:
-                                        MOrgComboBox.setSelectedIndex(Integer.valueOf(x));
-                                    break;
-                                    case 12:
-                                        if (x.equals("no"))
-                                           MRnoRadioButton.setSelected(true);
-                                        else
-                                           MRyesRadioButton.setSelected(true);
-                                    break;
-                                    case 13:
-                                        MMaxUpstreamText.setText(x);
-                                    break;
-                                    case 14:
-                                        MTTSText.setText(x);
-                                    break;
-                                    case 15:
-                                        MMinmfoldText.setText(x);
-                                    break;
-                                    case 16:
-                                        MMpvalueText.setText(x);
-                                    break;
-                                    case 17:
-                                        MMaxmfoldText.setText(x);
-                                    break;
-                                    case 18:
-                                        MSWindowsText.setText(x);
-                                    break;
-                                    case 19:
-                                        MSgsizeText.setText(x);
-                                    break;
-                                    case 20:
-                                        MSFDRText.setText(x);
-                                    break;
-                                    case 21:
-                                        MToolComboBox.setSelectedIndex(Integer.valueOf(x));
-                                    break;
-                                    default:
-                                        throw(new NumberFormatException()); 
-                                }                                
-                                line++;
-                              }
-                            }
-                                else
-                                    if("SampleSize".equals(CurrentLayout)){
-                                        int line=0;
+                                    if ("FPKMCounting".equals(CurrentLayout)){
                                         //chekc right file
-                                        if (!br.readLine().equals("SampleSize")){
-                                            throw(new NumberFormatException());
-                                        }
-                                        for (String x = br.readLine(); x != null; x = br.readLine()){
-                                            switch (line){
-                                                case 0:
-                                                    SSCountTableText.setText(x);
-                                                break;
-                                                case 1:
-                                                    SSOutputFolderText.setText(x);
-                                                break;
-                                                case 2:
-                                                    SSPowerText.setText(x);
-                                                break;  
-                                                case 3:
-                                                    SSGeneText.setText(x);
-                                                break;
-                                                case 4:
-                                                    SSlog2Text.setText(x);
-                                                break;
-                                                case 5:
-                                                   SSFDRtext.setText(x);
-                                                break;
-                                                default:
-                                                   throw(new NumberFormatException()); 
-                                                }                                
-                                            line++;
-                                        
-                                        }
-                                     }
-                                     else
-                                        if("ExperimentPower".equals(CurrentLayout)){
-                                        
-                                        //chekc right file
-                                        if (!br.readLine().equals("ExperimentPower")){
+                                        if (!br.readLine().equals("FPKMCounting")){
                                             throw(new NumberFormatException());
                                         }
                                         int line=0;
                                         for (String x = br.readLine(); x != null; x = br.readLine()){
                                             switch (line){
                                                 case 0:
-                                                    EPCountTableText.setText(x);
-                                                break;
-                                                case 1:
-                                                    EPOutputFolderText.setText(x);
-                                                break;
-                                                case 2:
-                                                    EPSampleText.setText(x);
-                                                break;  
-                                                case 3:
-                                                    EPGeneText.setText(x);
-                                                break;
-                                                case 4:
-                                                    EPlog2Text.setText(x);
-                                                break;
-                                                case 5:
-                                                   EPFDRtext.setText(x);
-                                                break;
+                                                    FtypesComboBox.setSelectedIndex(Integer.valueOf(x));
+                                                    break;
                                                 default:
-                                                   throw(new NumberFormatException()); 
-                                                }                                
+                                                    DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
+                                                    String col2 = br.readLine();                                
+                                                    String col3 = br.readLine();
+                                                    if (col2==null)
+                                                        col2="Cov.1";
+                                                    if (col3==null)
+                                                        col3="Batch1";
+                                                    model.addRow(new Object[]{x,col2,col3});
+                                            }
                                             line++;
-                                        
                                         }
-                                     }   
-                                     else
-                                        if("AddingCovmRNA".equals(CurrentLayout)){
-                                            if (!br.readLine().equals("AddingCovmRNA")){
+                                    }
+                                    else
+                                        if("PCA".equals(CurrentLayout)){
+                                            if (!br.readLine().equals("PCA")){
                                                 throw(new NumberFormatException());
                                             }
                                             int line=0;
                                             for (String x = br.readLine(); x != null; x = br.readLine()){
                                                 switch (line){
                                                     case 0:
-                                                        CCovInputFileText.setText(x);
-                                                    break;
+                                                        pFPKMfileText.setText(x);
+                                                        break;
                                                     case 1:
-                                                        COutputFolderText.setText(x);
-                                                    break;    
-                                                    default:
-                                                        DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
-                                                        String col2 = br.readLine();
-                                                        String col3 = br.readLine();
-                                                        if (col2==null)
-                                                            col2="Cov.1";
-                                                        if (col3==null)
-                                                            col3="Batch1";
-                                                        model.addRow(new Object[]{x,col2,col3}); 
+                                                        pComponent1Text.setText(x);
+                                                        break;
+                                                    case 2:
+                                                        pComponent2Text.setText(x);
+                                                        break;
+                                                    case 3:
+                                                        switch (x) {
+                                                            case "Counts":
+                                                                pCountsRadioButton.setSelected(true);
+                                                                break;
+                                                            case "FPKM": 
+                                                                pFPKMRadioButton.setSelected(true);
+                                                                break;
+                                                            default:
+                                                                pTPMRadioButton.setSelected(true);
+                                                                break;
+                                                        }
+                                                        break;
+                                                    case 4:
+                                                        pLegendComboBox.setSelectedIndex(Integer.valueOf(x));
+                                                        break;
+                                                    case 5:
+                                                        if (x.equals("Yes"))
+                                                            pCovYesRadioButton.setSelected(true);
+                                                        else
+                                                            pCovNoRadioButton.setSelected(true);
+                                                        break;
+                                                    case 6:
+                                                        pOutputFolderText.setText(x);
+                                                        break;
                                                 }
-                                            line++;
+                                                line++;
                                             }
                                         }
                                         else
-                                            if (CurrentLayout=="indexingSalmon"){
-                                                //chekc right file
-                                                if (!br.readLine().equals("indexingSalmon")){
+                                            if("DES".equals(CurrentLayout)){
+                                                if (!br.readLine().equals("DES")){
                                                     throw(new NumberFormatException());
                                                 }
                                                 int line=0;
                                                 for (String x = br.readLine(); x != null; x = br.readLine()){
-                                                switch (line){
-                                                    case 0:
-                                                    if (x.equals("sudo"))
-                                                        iSudoRadioSButton.setSelected(true);
-                                                    else
-                                                        iDockerRadioSButton.setSelected(true);
-                                                    break;
-                                                    case 1:
-                                                        iGenomeFolderSText.setText(x);
-                                                    break;
-                                                    case 2:
-                                                        iThreadSText.setText(x);
-                                                    break;  
-                                                    case 3:
-                                                        iGenomeURLSText.setText(x);
-                                                    break;
-                                                    case 4:
-                                                        iGTFURLSText.setText(x);
-                                                    break;
-                                                    case 5:
-                                                        iKmerSText.setText(x);
-                                                    break;    
-                                                    default:
-                                                        throw(new NumberFormatException()); 
-                                                }                                
-                                                line++;
+                                                    switch (line){
+                                                        case 0:
+                                                            dFPKMfileText.setText(x);
+                                                            break;
+                                                        case 1:
+                                                            dLog2fcText.setText(x);
+                                                            break;
+                                                        case 2:
+                                                            dFDRText.setText(x);
+                                                            break;
+                                                        case 3:
+                                                            dCovComboBox.setSelectedIndex(Integer.valueOf(x));
+                                                            break;
+                                                        case 4:
+                                                            switch (x) {
+                                                                case "isoform":
+                                                                    dIsoformRadioButton.setSelected(true);
+                                                                    break;
+                                                                case "miRNA":
+                                                                    dmiRNARadioButton.setSelected(true);
+                                                                    break;
+                                                                default:
+                                                                    dGeneRadioButton.setSelected(true);
+                                                                    break;
+                                                            }
+                                                            break;
+                                                        case 5:
+                                                            dOutputFolderText.setText(x);
+                                                            break;
+                                                        case 6:
+                                                            if (x.equals("TRUE"))
+                                                                dBatchesTrue.setSelected(true);
+                                                            else
+                                                                DBatchesFalse.setSelected(true);
+                                                            break;
+                                                    }
+                                                    line++;
                                                 }
                                             }
                                             else
-                                                if ("countingSalmon".equals(CurrentLayout)){
-                                                     
+                                                if ("indexingB".equals(CurrentLayout)){
+                                                    int line=0;
                                                     //chekc right file
-                                                    String y=br.readLine();
-                                                    if (!y.equals("countingSalmon")){
+                                                    if (!br.readLine().equals("indexingBWA")){
                                                         throw(new NumberFormatException());
                                                     }
-                                                    int line=0;
                                                     for (String x = br.readLine(); x != null; x = br.readLine()){
                                                         switch (line){
                                                             case 0:
-                                                            if (x.equals("sudo"))
-                                                                cSudoRadioButton.setSelected(true);
-                                                            else
-                                                                cDockerRadioButton.setSelected(true);
-                                                            break;
+                                                                if (x.equals("sudo"))
+                                                                    iSudoRadioButton.setSelected(true);
+                                                                else
+                                                                    iDockerRadioButton.setSelected(true);
+                                                                break;
                                                             case 1:
-                                                                cFastQFolderText.setText(x);
-                                                            break;
+                                                                iGenomeFolderBText.setText(x);
+                                                                break;
                                                             case 2:
-                                                                cOutputFolderText.setText(x);
-                                                            break; 
+                                                                iThreadBText.setText(x);
+                                                                break; 
                                                             case 3:
-                                                               cAdapter5Text.setText(x);
-                                                            break;  
+                                                                iGenomeURLBText.setText(x);
+                                                                break;  
                                                             case 4:
-                                                                cAdapter3Text.setText(x);
-                                                            break; 
+                                                                if (x.equals("true"))
+                                                                    iBTrueRadioButton.setSelected(true); 
+                                                                else
+                                                                    iBFalseRadioButton.setSelected(true);
+                                                                break;
                                                             case 5:
-                                                              if (x.equals("se"))
-                                                                cSeRadioButton.setSelected(true);
-                                                            else
-                                                                cPeRadioButton.setSelected(true);  
-                                                            break;
+                                                                i1000GenomeText.setText(x);
+                                                                break;
                                                             case 6:
-                                                                cThreadText.setText(x);
-                                                            break;
-                                                            case 7:
-                                                                cMinLengthText.setText(x);
-                                                            break;
-                                                            case 8:
-                                                                cGenomeFolderText.setText(x);
-                                                            break;
-                                                            case 9:
-                                                        switch (x) {
-                                                            case "none":
-                                                                cSNoneRadioButton.setSelected(true);
-                                                                break;
-                                                            case "forward":
-                                                                cSForwardRadioButton.setSelected(true);
+                                                                idbSPNText.setText(x);
                                                                 break;
                                                             default:
-                                                                cSReverseRadioButton.setSelected(true);
-                                                                break;
+                                                                throw(new NumberFormatException());
                                                         }
-                                                            break;        
-                                                            default:
-                                                                System.out.print("Too much lines\n");
-                                                            throw(new NumberFormatException()); 
-                                                        }
-                                                    line++;
+                                                        line++;
                                                     } 
                                                 }
                                                 else
-                                                    if("filtercounts".equals(CurrentLayout)){
-                                                        if (!br.readLine().equals("filtercounts")){
+                                                    if ("MACS".equals(CurrentLayout)){
+                                                        int line=0;
+                                                        //chekc right file
+                                                        if (!br.readLine().equals("MACS")){
                                                             throw(new NumberFormatException());
                                                         }
-                                                    int line=0;
-                                                    for (String x = br.readLine(); x != null; x = br.readLine()){
-                                                    switch (line){
-                                                        case 0:
-                                                            fFPKMfileText.setText(x);   
-                                                        break;
-                                                        case 1:
-                                                    switch (x) {
-                                                        case "gene":
-                                                            fgeneRadioButton.setSelected(true);
-                                                            break;
-                                                        case "isoform":
-                                                            fisoformRadioButton.setSelected(true);
-                                                            break;
-                                                        default:
-                                                            fmirnaRadioButton.setSelected(true);
-                                                            break;
+                                                        for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                            switch (line){
+                                                                case 0:
+                                                                    if (x.equals("sudo"))
+                                                                        MSudoRadioButton.setSelected(true);
+                                                                    else
+                                                                        MDockerRadioButton.setSelected(true);
+                                                                    break;
+                                                                case 1:
+                                                                    MOutputFolderText.setText(x);
+                                                                    break;
+                                                                case 2:
+                                                                    MScratchFolderText.setText(x);
+                                                                    break;
+                                                                case 3:
+                                                                    MGenomeFolderText.setText(x);
+                                                                    break;
+                                                                case 4:
+                                                                    MTestFolderText.setText(x);
+                                                                    break;
+                                                                case 5:
+                                                                    MMockFolderText.setText(x);
+                                                                    break;
+                                                                case 6:
+                                                                    MThreadText.setText(x);
+                                                                    break;
+                                                                case 7:
+                                                                    MAdapter5Text.setText(x);
+                                                                    break;
+                                                                case 8:
+                                                                    MAdapter3Text.setText(x);
+                                                                    break;
+                                                                case 9:
+                                                                    MMinLengthText.setText(x);
+                                                                    break;
+                                                                case 10:
+                                                                    MReadLengthTextField.setText(x);
+                                                                    break;
+                                                                case 11:
+                                                                    MOrgComboBox.setSelectedIndex(Integer.valueOf(x));
+                                                                    break;
+                                                                case 12:
+                                                                    if (x.equals("no"))
+                                                                        MRnoRadioButton.setSelected(true);
+                                                                    else
+                                                                        MRyesRadioButton.setSelected(true);
+                                                                    break;
+                                                                case 13:
+                                                                    MMaxUpstreamText.setText(x);
+                                                                    break;
+                                                                case 14:
+                                                                    MTTSText.setText(x);
+                                                                    break;
+                                                                case 15:
+                                                                    MMinmfoldText.setText(x);
+                                                                    break;
+                                                                case 16:
+                                                                    MMpvalueText.setText(x);
+                                                                    break;
+                                                                case 17:
+                                                                    MMaxmfoldText.setText(x);
+                                                                    break;
+                                                                case 18:
+                                                                    MSWindowsText.setText(x);
+                                                                    break;
+                                                                case 19:
+                                                                    MSgsizeText.setText(x);
+                                                                    break;
+                                                                case 20:
+                                                                    MSFDRText.setText(x);
+                                                                    break;
+                                                                case 21:
+                                                                    MToolComboBox.setSelectedIndex(Integer.valueOf(x));
+                                                                    break;
+                                                                default:
+                                                                    throw(new NumberFormatException());
+                                                            }
+                                                            line++;
+                                                        }
                                                     }
-                                                        break;
-                                                        case 2:
-                                                            fOutputFolderText.setText(x);
-                                                        break;
-                                                    }
-                                                    line++;
-                                                    }
-                            }
-                getPreferences().put("saved-file",openFile.getCurrentDirectory().getAbsolutePath());  
-                br.close();
+                                                    else
+                                                        if("SampleSize".equals(CurrentLayout)){
+                                                            int line=0;
+                                                            //chekc right file
+                                                            if (!br.readLine().equals("SampleSize")){
+                                                                throw(new NumberFormatException());
+                                                            }
+                                                            for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                                switch (line){
+                                                                    case 0:
+                                                                        SSCountTableText.setText(x);
+                                                                        break;
+                                                                    case 1:
+                                                                        SSOutputFolderText.setText(x);
+                                                                        break;
+                                                                    case 2:
+                                                                        SSPowerText.setText(x);
+                                                                        break;
+                                                                    case 3:
+                                                                        SSGeneText.setText(x);
+                                                                        break;
+                                                                    case 4:
+                                                                        SSlog2Text.setText(x);
+                                                                        break;
+                                                                    case 5:
+                                                                        SSFDRtext.setText(x);
+                                                                        break;
+                                                                    default:
+                                                                        throw(new NumberFormatException());
+                                                                }
+                                                                line++;
+                                                                
+                                                            }
+                                                        }
+                                                        else
+                                                            if("ExperimentPower".equals(CurrentLayout)){
+                                                                
+                                                                //chekc right file
+                                                                if (!br.readLine().equals("ExperimentPower")){
+                                                                    throw(new NumberFormatException());
+                                                                }
+                                                                int line=0;
+                                                                for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                                    switch (line){
+                                                                        case 0:
+                                                                            EPCountTableText.setText(x);
+                                                                            break;
+                                                                        case 1:
+                                                                            EPOutputFolderText.setText(x);
+                                                                            break;
+                                                                        case 2:
+                                                                            EPSampleText.setText(x);
+                                                                            break;
+                                                                        case 3:
+                                                                            EPGeneText.setText(x);
+                                                                            break;
+                                                                        case 4:
+                                                                            EPlog2Text.setText(x);
+                                                                            break;
+                                                                        case 5:
+                                                                            EPFDRtext.setText(x);
+                                                                            break;
+                                                                        default:
+                                                                            throw(new NumberFormatException());
+                                                                    }
+                                                                    line++;
+                                                                    
+                                                                }
+                                                            }
+                                                            else
+                                                                if("AddingCovmRNA".equals(CurrentLayout)){
+                                                                    if (!br.readLine().equals("AddingCovmRNA")){
+                                                                        throw(new NumberFormatException());
+                                                                    }
+                                                                    int line=0;
+                                                                    for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                                        switch (line){
+                                                                            case 0:
+                                                                                CCovInputFileText.setText(x);
+                                                                                break;
+                                                                            case 1:
+                                                                                COutputFolderText.setText(x);
+                                                                                break;
+                                                                            default:
+                                                                                DefaultTableModel model = (DefaultTableModel) CCountHeaderTable.getModel();
+                                                                                String col2 = br.readLine();
+                                                                                String col3 = br.readLine();
+                                                                                if (col2==null)
+                                                                                    col2="Cov.1";
+                                                                                if (col3==null)
+                                                                                    col3="Batch1";
+                                                                                model.addRow(new Object[]{x,col2,col3});
+                                                                        }
+                                                                        line++;
+                                                                    }
+                                                                }
+                                                                else
+                                                                    if ("indexingSalmon".equals(CurrentLayout)){
+                                                                        //chekc right file
+                                                                        if (!br.readLine().equals("indexingSalmon")){
+                                                                            throw(new NumberFormatException());
+                                                                        }
+                                                                        int line=0;
+                                                                        for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                                            switch (line){
+                                                                                case 0:
+                                                                                    if (x.equals("sudo"))
+                                                                                        iSudoRadioSButton.setSelected(true);
+                                                                                    else
+                                                                                        iDockerRadioSButton.setSelected(true);
+                                                                                    break;
+                                                                                case 1:
+                                                                                    iGenomeFolderSText.setText(x);
+                                                                                    break;
+                                                                                case 2:
+                                                                                    iThreadSText.setText(x);
+                                                                                    break;
+                                                                                case 3:
+                                                                                    iGenomeURLSText.setText(x);
+                                                                                    break;
+                                                                                case 4:
+                                                                                    iGTFURLSText.setText(x);
+                                                                                    break;
+                                                                                case 5:
+                                                                                    iKmerSText.setText(x);
+                                                                                    break;
+                                                                                default:
+                                                                                    throw(new NumberFormatException());
+                                                                            }
+                                                                            line++;
+                                                                        }
+                                                                    }
+                                                                    else
+                                                                        if ("countingSalmon".equals(CurrentLayout)){
+                                                                            
+                                                                            //chekc right file
+                                                                            String y=br.readLine();
+                                                                            if (!y.equals("countingSalmon")){
+                                                                                throw(new NumberFormatException());
+                                                                            }
+                                                                            int line=0;
+                                                                            for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                                                switch (line){
+                                                                                    case 0:
+                                                                                        if (x.equals("sudo"))
+                                                                                            cSudoRadioButton.setSelected(true);
+                                                                                        else
+                                                                                            cDockerRadioButton.setSelected(true);
+                                                                                        break;
+                                                                                    case 1:
+                                                                                        cFastQFolderText.setText(x);
+                                                                                        break;
+                                                                                    case 2:
+                                                                                        cOutputFolderText.setText(x);
+                                                                                        break;
+                                                                                    case 3:
+                                                                                        cAdapter5Text.setText(x);
+                                                                                        break;
+                                                                                    case 4:
+                                                                                        cAdapter3Text.setText(x);
+                                                                                        break;
+                                                                                    case 5:
+                                                                                        if (x.equals("se"))
+                                                                                            cSeRadioButton.setSelected(true);
+                                                                                        else
+                                                                                            cPeRadioButton.setSelected(true);
+                                                                                        break;
+                                                                                    case 6:
+                                                                                        cThreadText.setText(x);
+                                                                                        break;
+                                                                                    case 7:
+                                                                                        cMinLengthText.setText(x);
+                                                                                        break;
+                                                                                    case 8:
+                                                                                        cGenomeFolderText.setText(x);
+                                                                                        break;
+                                                                                    case 9:
+                                                                                        switch (x) {
+                                                                                            case "none":
+                                                                                                cSNoneRadioButton.setSelected(true);
+                                                                                                break;
+                                                                                            case "forward":
+                                                                                                cSForwardRadioButton.setSelected(true);
+                                                                                                break;
+                                                                                            default:
+                                                                                                cSReverseRadioButton.setSelected(true);
+                                                                                                break;
+                                                                                        }
+                                                                                        break;
+                                                                                    default:
+                                                                                        System.out.print("Too much lines\n");
+                                                                                        throw(new NumberFormatException());
+                                                                                }
+                                                                                line++;
+                                                                            }
+                                                                        }
+                                                                        else
+                                                                            if("filtercounts".equals(CurrentLayout)){
+                                                                                if (!br.readLine().equals("filtercounts")){
+                                                                                    throw(new NumberFormatException());
+                                                                                }
+                                                                                int line=0;
+                                                                                for (String x = br.readLine(); x != null; x = br.readLine()){
+                                                                                    switch (line){
+                                                                                        case 0:
+                                                                                            fFPKMfileText.setText(x);
+                                                                                            break;
+                                                                                        case 1:
+                                                                                            switch (x) {
+                                                                                                case "gene":
+                                                                                                    fgeneRadioButton.setSelected(true);
+                                                                                                    break;
+                                                                                                case "isoform":
+                                                                                                    fisoformRadioButton.setSelected(true);
+                                                                                                    break;
+                                                                                                default:
+                                                                                                    fmirnaRadioButton.setSelected(true);
+                                                                                                    break;
+                                                                                            }
+                                                                                            break;
+                                                                                        case 2:
+                                                                                            fOutputFolderText.setText(x);
+                                                                                            break;
+                                                                                    }
+                                                                                    line++;
+                                                                                }
+                                                                            }
+                        getPreferences().put("saved-file",openFile.getCurrentDirectory().getAbsolutePath());
+                    }
                 }
                 catch (IOException e) {
                     JOptionPane.showMessageDialog(this, "Error opening file","Error",JOptionPane.ERROR_MESSAGE);
@@ -10688,7 +10692,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton12ActionPerformed
     JFileChooser openDir = new JFileChooser();
         if (!(pFPKMfileText.getText().equals(""))){
-            File file =new File(pFPKMfileText.getText());
+            File file =new File(pOutputFolderText.getText());
             if (file.isDirectory())
                 openDir.setCurrentDirectory(file);
         }
@@ -10947,7 +10951,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jToggleButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton14ActionPerformed
         JFileChooser openDir = new JFileChooser();
         if (!(dFPKMfileText.getText().equals(""))){
-            File file =new File(dFPKMfileText.getText());
+            File file =new File(dOutputFolderText.getText());
             if (file.isDirectory())
                 openDir.setCurrentDirectory(file);
         }
@@ -13072,7 +13076,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jToggleButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton38ActionPerformed
      JFileChooser openDir = new JFileChooser();
         if (!(fFPKMfileText.getText().equals(""))){
-            File file =new File(fFPKMfileText.getText());
+            File file =new File(fOutputFolderText.getText());
             if (file.isDirectory())
                 openDir.setCurrentDirectory(file);
         }
@@ -13518,6 +13522,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
        HDockerRadioButton.setSelected(true);
+       HOutputFolderText.setText("");
        HdataFileText.setText("");
        HscratchText.setText("");
        HLowerRangeText.setText("-1");
@@ -13527,6 +13532,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void vCloseButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton8ActionPerformed
        HDockerRadioButton.setSelected(true);
+       HOutputFolderText.setText("");
        HStatus1RadioButton.setSelected(true);
        HdataFileText.setText("");
        HscratchText.setText("");
@@ -13580,7 +13586,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void jToggleButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton44ActionPerformed
      JFileChooser openDir = new JFileChooser();
      if (!(HdataFileText.getText().equals(""))){
-            File file =new File(HdataFileText.getText());
+            File file =new File(HOutputFolderText.getText());
+            //file=  new File(file.getAbsolutePath());
             if (file.isDirectory())
                 openDir.setCurrentDirectory(file);
         }
@@ -13689,7 +13696,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }
                 cmd[2]+= " file=\\\""+ANinputfileText.getText()+"\\\""+" logFC.threshold="+ANLog2fcText.getText();
                 cmd[2]+= " FDR.threshold="+ANadjPText.getText()+" logCPM.threshold="+ANLogCPMText.getText();
-                cmd[2]+=" "+ANOutputFolderText.getText() +" >& "+ANOutputFolderText+"/outputExecution ";
+                cmd[2]+=" "+ANOutputFolderText.getText() +" >& "+ANOutputFolderText.getText()+"/outputExecution ";
 
                 if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
                     Process pr = rt.exec(cmd);                          
@@ -13747,7 +13754,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jToggleButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton48ActionPerformed
      JFileChooser openDir = new JFileChooser();
      if (!(ANinputfileText.getText().equals(""))){
-            File file =new File(ANinputfileText.getText());
+            File file =new File(ANOutputFolderText.getText());
             if (file.isDirectory())
                 openDir.setCurrentDirectory(file);
         }

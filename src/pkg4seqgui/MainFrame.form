@@ -7302,7 +7302,7 @@
                             <Component class="javax.swing.JToggleButton" name="jToggleButton38">
                               <Properties>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/fileb.png"/>
+                                  <Image iconType="3" name="/pkg4seqgui/images/52b.png"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Browse"/>
                               </Properties>
@@ -8546,9 +8546,6 @@
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="f8" green="f8" red="f8" type="rgb"/>
                                 </Property>
-                                <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                                  <ComponentRef name="default"/>
-                                </Property>
                                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                                   <ComponentRef name="ANOVAGroup"/>
                                 </Property>
@@ -8559,7 +8556,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="2" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="77" insetsBottom="10" insetsRight="10" anchor="512" weightX="0.0" weightY="0.0"/>
+                                  <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="2" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="95" insetsBottom="10" insetsRight="10" anchor="512" weightX="0.0" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -8567,9 +8564,6 @@
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                                   <Color blue="f8" green="f8" red="f8" type="rgb"/>
-                                </Property>
-                                <Property name="model" type="javax.swing.ButtonModel" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                                  <ComponentRef name="default"/>
                                 </Property>
                                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                                   <ComponentRef name="ANOVAGroup"/>
