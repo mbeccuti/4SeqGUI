@@ -8031,7 +8031,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChipSeqPanel.add(indexingBButton, gridBagConstraints);
 
-        CountButton2.setIcon(new javax.swing.ImageIcon("/home/beccuti/NetBeansProjects/4SeqGUI/src/pkg4seqgui/images/chipseqAl.png")); // NOI18N
+        CountButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqAl.png"))); // NOI18N
         CountButton2.setText("  MACS & SICER analysis");
         CountButton2.setBorder(null);
         CountButton2.setBorderPainted(false);
