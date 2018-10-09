@@ -139,7 +139,7 @@ public class MainFrame extends javax.swing.JFrame {
         String  WindowWidth= getPreferences().get("4SeqGUI_WindowWidth", null);
         String  WindowHeight= getPreferences().get("4SeqGUI_WindowHeight", null); 
         if ((WindowWidth!=null)&&(WindowHeight!=null)){
-          setSize(Integer.valueOf(WindowWidth),Integer.valueOf(WindowHeight));  
+            setSize(Integer.valueOf(WindowWidth),Integer.valueOf(WindowHeight));  
         }
         else{
             setSize(screenSize.width*95/100,screenSize.height*95/100);
@@ -291,7 +291,6 @@ public class MainFrame extends javax.swing.JFrame {
         jButton35 = new javax.swing.JButton();
         VerticalSplitPanel = new javax.swing.JSplitPane();
         BottomPanel = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
         ProcStatusPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ProcList = new javax.swing.JList<>();
@@ -800,6 +799,7 @@ public class MainFrame extends javax.swing.JFrame {
         ANSudoRadioButton = new javax.swing.JRadioButton();
         ANDockerRadioButton1 = new javax.swing.JRadioButton();
         LeftPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAseqPanel = new javax.swing.JPanel();
         SalmonIndexingButton = new javax.swing.JButton();
@@ -1285,9 +1285,6 @@ public class MainFrame extends javax.swing.JFrame {
         BottomPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         BottomPanel.setLayout(new java.awt.GridBagLayout());
 
-        jScrollPane4.setBorder(null);
-        jScrollPane4.setToolTipText("");
-
         ProcStatusPanel.setLayout(new java.awt.GridBagLayout());
 
         jScrollPane2.setBorder(null);
@@ -1312,13 +1309,11 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.1;
         ProcStatusPanel.add(jScrollPane2, gridBagConstraints);
 
-        jScrollPane4.setViewportView(ProcStatusPanel);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        BottomPanel.add(jScrollPane4, gridBagConstraints);
+        BottomPanel.add(ProcStatusPanel, gridBagConstraints);
 
         VerticalSplitPanel.setBottomComponent(BottomPanel);
 
@@ -1348,7 +1343,7 @@ public class MainFrame extends javax.swing.JFrame {
         IndexingStarRSEM.setBorder(null);
 
         IndexingStarRSEMPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genome indexing STAR-RSEM", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 102, 102))); // NOI18N
-        IndexingStarRSEMPanel.setToolTipText("");
+        IndexingStarRSEMPanel.setToolTipText(null);
         IndexingStarRSEMPanel.setLayout(new java.awt.GridBagLayout());
 
         iCloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
@@ -1414,10 +1409,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel13.setBackground(new java.awt.Color(248, 248, 248));
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel13.setToolTipText(null);
         jPanel13.setLayout(new java.awt.GridBagLayout());
 
         jLabel28.setText("Genome  folder:");
-        jLabel28.setToolTipText("");
+        jLabel28.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1472,7 +1468,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel13.add(jToggleButton16, gridBagConstraints);
 
         jLabel30.setText("Genome url:");
-        jLabel30.setToolTipText("");
+        jLabel30.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -1492,13 +1488,15 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel13.add(iGenomeURLText, gridBagConstraints);
 
         jLabel33.setText("GTF url:");
-        jLabel33.setToolTipText("");
+        jLabel33.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel13.add(jLabel33, gridBagConstraints);
+
+        iGTFURLText.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -1520,9 +1518,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel14.setBackground(new java.awt.Color(248, 248, 248));
         jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel14.setToolTipText(null);
         jPanel14.setLayout(new java.awt.GridBagLayout());
 
         jLabel31.setText("Execution:");
+        jLabel31.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -1563,7 +1563,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel14.add(iDockerRadioButton, gridBagConstraints);
 
         jLabel32.setText("Thread number:");
-        jLabel32.setToolTipText("");
+        jLabel32.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -7666,6 +7666,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         LeftPanel.setLayout(new java.awt.GridBagLayout());
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setAutoscrolls(true);
+        jScrollPane1.setHorizontalScrollBar(null);
+
         jTabbedPane1.setBackground(new java.awt.Color(238, 238, 238));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
@@ -8074,12 +8078,14 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Tools", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/tooltab.png")), ToolPanel); // NOI18N
 
+        jScrollPane1.setViewportView(jTabbedPane1);
+        jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        LeftPanel.add(jTabbedPane1, gridBagConstraints);
-        jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
+        LeftPanel.add(jScrollPane1, gridBagConstraints);
 
         HorizontalSplitPanel.setLeftComponent(LeftPanel);
 
@@ -14360,9 +14366,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
@@ -14546,8 +14552,8 @@ class GlobalStatus{
 
 class ListEntry
 {
-   private String value;
-   private ImageIcon icon;
+   private final String value;
+   private final ImageIcon icon;
    private  String status;
    private  String path;
    private static final long serialVersionUID = 57782123311L;
