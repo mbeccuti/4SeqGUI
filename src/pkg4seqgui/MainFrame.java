@@ -9844,7 +9844,7 @@ public class MainFrame extends javax.swing.JFrame {
                     return;
         }
         
-        if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")){ 
+        if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")|| tmpListEntry.status.equals("Error")){ 
             //System.out.println("\tQUII->-RUNNING\n");
             String text="";
             OutputText.setEnabled(true);
@@ -9908,7 +9908,7 @@ public class MainFrame extends javax.swing.JFrame {
        
          ListEntry tmpListEntry =  listModel.get(GL.getListProcStatuSelection());
         //
-        if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")){
+        if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")|| tmpListEntry.status.equals("Error")){
              OutputText.setEnabled(true);
             String text="";
             try{
