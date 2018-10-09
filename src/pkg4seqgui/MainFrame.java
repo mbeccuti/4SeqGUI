@@ -818,7 +818,6 @@ public class MainFrame extends javax.swing.JFrame {
         jButton59 = new javax.swing.JButton();
         jButton60 = new javax.swing.JButton();
         PCAButton1 = new javax.swing.JButton();
-        SampelExpButton1 = new javax.swing.JButton();
         CountButton1 = new javax.swing.JButton();
         SampleSizeButton1 = new javax.swing.JButton();
         ExpPowerButton1 = new javax.swing.JButton();
@@ -7923,23 +7922,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         miRNAPanel.add(PCAButton1, gridBagConstraints);
 
-        SampelExpButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sample.png"))); // NOI18N
-        SampelExpButton1.setText("From samples to experiment  ");
-        SampelExpButton1.setBorder(null);
-        SampelExpButton1.setBorderPainted(false);
-        SampelExpButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SampelExpButton1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        miRNAPanel.add(SampelExpButton1, gridBagConstraints);
-
         CountButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
         CountButton1.setText("Count Filter  ");
         CountButton1.setBorder(null);
@@ -13319,12 +13301,6 @@ public class MainFrame extends javax.swing.JFrame {
         CurrentLayout="filtercounts";
     }//GEN-LAST:event_CountButton1ActionPerformed
 
-    private void SampelExpButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampelExpButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "FPKMCounting");
-        CurrentLayout="FPKMCounting";
-    }//GEN-LAST:event_SampelExpButton1ActionPerformed
-
     private void PCAButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PCAButton1ActionPerformed
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "PCA");
@@ -14043,7 +14019,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SScancel1;
     private javax.swing.JTextField SSlog2Text;
     private javax.swing.JButton SalmonIndexingButton;
-    private javax.swing.JButton SampelExpButton1;
     private javax.swing.JButton SampleExpButton;
     private javax.swing.JScrollPane SampleSize;
     private javax.swing.JButton SampleSizeButton;
