@@ -28,7 +28,7 @@ echo "Adapter3:          $adapter3"
 echo "Sequence type:     $seqtype"
 echo "Threads:           $thread"
 echo "Min. length read:  $minlength"
-echo "Genome folder:     $genomefolder"
+echo "Genome folder:     $indexfolder"
 echo "Strandness:        $strandness"
 echo "Output:            $output"
 echo 

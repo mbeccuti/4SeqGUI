@@ -2950,8 +2950,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(fCancelButton, gridBagConstraints);
 
-        jLabel34.setText("FPKM/TPM  file:");
-        jLabel34.setToolTipText("The FPKM or TPM table file name");
+        jLabel34.setText("Input  file:");
+        jLabel34.setToolTipText("TheCounts or FPKM or TPM table file name");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;

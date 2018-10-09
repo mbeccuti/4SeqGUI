@@ -3056,8 +3056,8 @@
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel34">
                               <Properties>
-                                <Property name="text" type="java.lang.String" value="FPKM/TPM  file:"/>
-                                <Property name="toolTipText" type="java.lang.String" value="The FPKM or TPM table file name"/>
+                                <Property name="text" type="java.lang.String" value="Input  file:"/>
+                                <Property name="toolTipText" type="java.lang.String" value="TheCounts or FPKM or TPM table file name"/>
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
