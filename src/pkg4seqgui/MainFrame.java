@@ -71,8 +71,11 @@ public class MainFrame extends javax.swing.JFrame {
        // expandAllNodes(AnalysisTree, 0, AnalysisTree.getRowCount());
                 
 
-        //JTREE MULTIPLEFILE
-       
+        //ADDING PANEL
+        tmp test = new tmp();
+        
+        Test.setViewportView(test);
+        //ADDING PANEL
 
         //adding here all the textarea that must be maneged with right button mouse
         
@@ -798,6 +801,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel142 = new javax.swing.JLabel();
         ANSudoRadioButton = new javax.swing.JRadioButton();
         ANDockerRadioButton1 = new javax.swing.JRadioButton();
+        Test = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -828,6 +832,7 @@ public class MainFrame extends javax.swing.JFrame {
         ToolPanel = new javax.swing.JPanel();
         MultiQCButton = new javax.swing.JButton();
         HeatmapButton = new javax.swing.JButton();
+        TestButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -7661,6 +7666,7 @@ public class MainFrame extends javax.swing.JFrame {
         ANOVAlike.setViewportView(ANOVAlikePanel);
 
         MainPanel.add(ANOVAlike, "NOVAlike");
+        MainPanel.add(Test, "test");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -8052,7 +8058,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -8069,12 +8075,30 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(HeatmapButton, gridBagConstraints);
+
+        TestButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/waiting.png"))); // NOI18N
+        TestButton.setText("Test -- test");
+        TestButton.setToolTipText("");
+        TestButton.setBorder(null);
+        TestButton.setBorderPainted(false);
+        TestButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TestButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(TestButton, gridBagConstraints);
 
         jTabbedPane1.addTab("Tools", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/tooltab.png")), ToolPanel); // NOI18N
 
@@ -9189,7 +9213,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
     } 
     
-    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+    public void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         if (!"Empty".equals(CurrentLayout)){  
             JFileChooser saveFile = new JFileChooser(); 
             String curDir = getPreferences().get("saved-file", null);
@@ -13810,6 +13834,12 @@ public class MainFrame extends javax.swing.JFrame {
     private void ANDockerRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANDockerRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ANDockerRadioButton1ActionPerformed
+
+    private void TestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "test");
+        CurrentLayout="test";
+    }//GEN-LAST:event_TestButtonActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -13873,7 +13903,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField Adapter5TextField;
     private javax.swing.ButtonGroup Annotation;
     private javax.swing.JComboBox<String> BatchComboBox;
-    private javax.swing.JPanel BottomPanel;
+    public static javax.swing.JPanel BottomPanel;
     private javax.swing.JButton CCloseButton1;
     private javax.swing.JTable CCountHeaderTable;
     private javax.swing.JTextField CCovInputFileText;
@@ -13884,7 +13914,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton Cincancel;
     private javax.swing.JToggleButton CloseOutput;
     private javax.swing.JButton ConfCancell;
-    private javax.swing.JFrame ConfigurationFrame;
+    public static javax.swing.JFrame ConfigurationFrame;
     private javax.swing.JButton CountButton;
     private javax.swing.JButton CountButton1;
     private javax.swing.JButton CountButton2;
@@ -13990,25 +14020,25 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField MTestFolderText;
     private javax.swing.JTextField MThreadText;
     private javax.swing.JComboBox<String> MToolComboBox;
-    private javax.swing.JPanel MainPanel;
+    public static javax.swing.JPanel MainPanel;
     private javax.swing.JScrollPane MultiQC;
     private javax.swing.JButton MultiQCButton;
     private javax.swing.ButtonGroup MultiQCGroup;
     private javax.swing.JPanel MultiQCpanel;
-    private javax.swing.JFrame OutputFrame;
-    private javax.swing.JTextArea OutputText;
+    public static javax.swing.JFrame OutputFrame;
+    public static javax.swing.JTextArea OutputText;
     private javax.swing.JScrollPane PCA;
     private javax.swing.JButton PCAButton;
     private javax.swing.JButton PCAButton1;
     private javax.swing.JPanel PCAPanel;
     private javax.swing.JTextField ParallelTextField;
-    private javax.swing.JList<ListEntry> ProcList;
+    public static javax.swing.JList<ListEntry> ProcList;
     private javax.swing.JPanel ProcStatusPanel;
     private javax.swing.JRadioButton QDockerRadioButton;
     private javax.swing.JRadioButton QSudoRadioButton;
     private javax.swing.JTextField QdataFolderText;
     private javax.swing.JPanel RNAseqPanel;
-    private javax.swing.JToggleButton ReloadOutput;
+    public static javax.swing.JToggleButton ReloadOutput;
     private javax.swing.JButton RemoveOutput;
     private javax.swing.JButton SSCloseButton;
     private javax.swing.JTextField SSCountTableText;
@@ -14031,6 +14061,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SampleSizeButton1;
     private javax.swing.JPanel SampleSizePanel;
     private javax.swing.ButtonGroup Strand;
+    public javax.swing.JScrollPane Test;
+    private javax.swing.JButton TestButton;
     private javax.swing.JTextField ThreadTextField;
     private javax.swing.JPanel Tool;
     private javax.swing.JPanel ToolPanel;
@@ -14491,7 +14523,7 @@ public class MainFrame extends javax.swing.JFrame {
         
 
 
-public class ElProcRunning {
+static public class ElProcRunning {
     public String type;
     public String path;
     public Process pr;
@@ -14508,7 +14540,7 @@ public class ElProcRunning {
    }
 }
 
-public class ElProcWaiting {
+static public class ElProcWaiting {
     public String type;
     public String path;
     public String[] cmd;
@@ -14526,7 +14558,7 @@ public class ElProcWaiting {
 }
 
 
-class GlobalStatus{
+static public class GlobalStatus{
  private int ListProcStatusSelection;
  private int AvoidProcListValueChanged; //-1 avoid  ProcListValueChanged
  public GlobalStatus(){
@@ -14550,7 +14582,7 @@ class GlobalStatus{
  }
 }
 
-class ListEntry
+static public class ListEntry
 {
    private final String value;
    private final ImageIcon icon;
@@ -14584,7 +14616,7 @@ class ListEntry
    }
 }
 
-class GlobalSetting{
+static public class GlobalSetting{
     private int DefaultThread= 8;
     private int MaxSizelistProcRunning=1;
     private String DefaultAdapter5="";
@@ -14681,7 +14713,7 @@ class GlobalSetting{
 }
 
   
-class ListEntryCellRenderer
+static public class ListEntryCellRenderer
 extends JLabel implements ListCellRenderer<Object> 
 {
    private JLabel label;
@@ -14710,12 +14742,12 @@ extends JLabel implements ListCellRenderer<Object>
       return this;
    }
 }
-    private String CurrentLayout="Empty";
+static    String CurrentLayout="Empty";
     
 
-  Timer t,outputTime;
+ static public  Timer t,outputTime;
 
-  class MyFileUpdate extends TimerTask{
+ static public class MyFileUpdate extends TimerTask{
        public void run() {
         if (GL.getListProcStatuSelection()>=0){
             ListEntry tmpListEntry =  listModel.get(GL.getListProcStatuSelection());
@@ -14745,7 +14777,7 @@ extends JLabel implements ListCellRenderer<Object>
        }
     }
   }
-  class MyTask extends TimerTask {
+ static public class MyTask extends TimerTask {
       
         public void run() {
 
@@ -14805,7 +14837,7 @@ extends JLabel implements ListCellRenderer<Object>
                     //System.out.format("Size:"+listProcRunning.size()+"\n");
                 } 
                 catch(IOException e) {
-                    JOptionPane.showMessageDialog(vmRNAPanel, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(BottomPanel, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                     System.out.println(e.toString());
                 }
             }
@@ -14847,15 +14879,15 @@ private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
   }
 
  
-ArrayList <ElProcRunning> listProcRunning =  new  ArrayList <ElProcRunning> ();
-ArrayList <ElProcWaiting> listProcWaiting = new  ArrayList <ElProcWaiting> ();
-DefaultListModel<ListEntry> listModel= new DefaultListModel <ListEntry> ();
+static public ArrayList <ElProcRunning> listProcRunning =  new  ArrayList <ElProcRunning> ();
+static public ArrayList <ElProcWaiting> listProcWaiting = new  ArrayList <ElProcWaiting> ();
+static public DefaultListModel<ListEntry> listModel= new DefaultListModel <ListEntry> ();
 
 
 //int MaxSizelistProcRunning=1; 
-GlobalStatus GL =new GlobalStatus();
+static public GlobalStatus GL =new GlobalStatus();
 //String DefaultThread="8";
-GlobalSetting GS =new GlobalSetting();
+static public GlobalSetting GS =new GlobalSetting();
 
 
 
