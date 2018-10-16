@@ -31,6 +31,7 @@ public class tmp extends javax.swing.JPanel {
         initComponents();
     }
 
+    private static final long serialVersionUID = 5778212333L;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
