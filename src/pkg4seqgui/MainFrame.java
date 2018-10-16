@@ -76,6 +76,8 @@ public class MainFrame extends javax.swing.JFrame {
         MultiQC.setViewportView(MQC);
         HeatmapPanel HPP= new HeatmapPanel();
         Heatmap.setViewportView(HPP);
+        ANOVApanel ANV= new ANOVApanel();
+        ANOVAlike.setViewportView(ANV);
         //ADDING PANEL
 
         //adding here all the textarea that must be maneged with right button mouse
@@ -281,7 +283,6 @@ public class MainFrame extends javax.swing.JFrame {
         cStrand = new javax.swing.ButtonGroup();
         DataFilter = new javax.swing.ButtonGroup();
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        ANOVAGroup = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -728,34 +729,6 @@ public class MainFrame extends javax.swing.JFrame {
         MultiQC = new javax.swing.JScrollPane();
         Heatmap = new javax.swing.JScrollPane();
         ANOVAlike = new javax.swing.JScrollPane();
-        ANOVAlikePanel = new javax.swing.JPanel();
-        vCloseButton9 = new javax.swing.JButton();
-        jButton49 = new javax.swing.JButton();
-        jButton50 = new javax.swing.JButton();
-        jButton51 = new javax.swing.JButton();
-        jPanel35 = new javax.swing.JPanel();
-        jLabel122 = new javax.swing.JLabel();
-        ANinputfileText = new javax.swing.JTextField();
-        jToggleButton48 = new javax.swing.JToggleButton();
-        fCancelButton6 = new javax.swing.JToggleButton();
-        jLabel123 = new javax.swing.JLabel();
-        ANOutputFolderText = new javax.swing.JTextField();
-        jToggleButton49 = new javax.swing.JToggleButton();
-        fCancelButton7 = new javax.swing.JToggleButton();
-        jPanel40 = new javax.swing.JPanel();
-        ANLog2fcText = new javax.swing.JTextField();
-        jLabel125 = new javax.swing.JLabel();
-        jLabel126 = new javax.swing.JLabel();
-        ANLogCPMText = new javax.swing.JTextField();
-        jLabel137 = new javax.swing.JLabel();
-        jLabel138 = new javax.swing.JLabel();
-        jLabel140 = new javax.swing.JLabel();
-        ANadjPText = new javax.swing.JTextField();
-        jLabel141 = new javax.swing.JLabel();
-        jPanel41 = new javax.swing.JPanel();
-        jLabel142 = new javax.swing.JLabel();
-        ANSudoRadioButton = new javax.swing.JRadioButton();
-        ANDockerRadioButton1 = new javax.swing.JRadioButton();
         Test = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -6689,381 +6662,6 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(filterCounts, "filtercounts");
         MainPanel.add(MultiQC, "multiqc");
         MainPanel.add(Heatmap, "heatmap");
-
-        ANOVAlikePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "ANOVA-like analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(40, 53, 204))); // NOI18N
-        ANOVAlikePanel.setToolTipText("");
-        ANOVAlikePanel.setLayout(new java.awt.GridBagLayout());
-
-        vCloseButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
-        vCloseButton9.setText("Close");
-        vCloseButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vCloseButton9ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ANOVAlikePanel.add(vCloseButton9, gridBagConstraints);
-
-        jButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
-        jButton49.setText("Execute");
-        jButton49.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton49ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ANOVAlikePanel.add(jButton49, gridBagConstraints);
-
-        jButton50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
-        jButton50.setText("Reset");
-        jButton50.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton50ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ANOVAlikePanel.add(jButton50, gridBagConstraints);
-
-        jButton51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
-        jButton51.setText("Save conf.");
-        jButton51.setEnabled(false);
-        jButton51.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton51ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ANOVAlikePanel.add(jButton51, gridBagConstraints);
-
-        jPanel35.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel35.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel35.setLayout(new java.awt.GridBagLayout());
-
-        jLabel122.setText("Output folders:");
-        jLabel122.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel35.add(jLabel122, gridBagConstraints);
-
-        ANinputfileText.setEditable(false);
-        ANinputfileText.setToolTipText("Input data file.");
-        ANinputfileText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANinputfileTextActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
-        jPanel35.add(ANinputfileText, gridBagConstraints);
-
-        jToggleButton48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
-        jToggleButton48.setText("Browse");
-        jToggleButton48.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton48ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel35.add(jToggleButton48, gridBagConstraints);
-
-        fCancelButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
-        fCancelButton6.setText("Cancel");
-        fCancelButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fCancelButton6ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel35.add(fCancelButton6, gridBagConstraints);
-
-        jLabel123.setText("Input file:");
-        jLabel123.setToolTipText("The FPKM or TPM table file nam");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel35.add(jLabel123, gridBagConstraints);
-
-        ANOutputFolderText.setEditable(false);
-        ANOutputFolderText.setToolTipText("Output data folder.");
-        ANOutputFolderText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANOutputFolderTextActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
-        jPanel35.add(ANOutputFolderText, gridBagConstraints);
-
-        jToggleButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
-        jToggleButton49.setText("Browse");
-        jToggleButton49.setEnabled(false);
-        jToggleButton49.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton49ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel35.add(jToggleButton49, gridBagConstraints);
-
-        fCancelButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
-        fCancelButton7.setText("Cancel");
-        fCancelButton7.setEnabled(false);
-        fCancelButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fCancelButton7ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel35.add(fCancelButton7, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ANOVAlikePanel.add(jPanel35, gridBagConstraints);
-
-        jPanel40.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel40.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel40.setLayout(new java.awt.GridBagLayout());
-
-        ANLog2fcText.setText("1.0");
-        ANLog2fcText.setToolTipText("Log_2 fold change threshold for differetially expressed genes");
-        ANLog2fcText.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ANLog2fcTextFocusLost(evt);
-            }
-        });
-        ANLog2fcText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANLog2fcTextActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 18, 10, 10);
-        jPanel40.add(ANLog2fcText, gridBagConstraints);
-
-        jLabel125.setText("LogFC threshold:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel40.add(jLabel125, gridBagConstraints);
-
-        jLabel126.setText("LogCPM threshold:");
-        jLabel126.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel40.add(jLabel126, gridBagConstraints);
-
-        ANLogCPMText.setText("4.0");
-        ANLogCPMText.setToolTipText("");
-        ANLogCPMText.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ANLogCPMTextFocusLost(evt);
-            }
-        });
-        ANLogCPMText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANLogCPMTextActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 18, 10, 10);
-        jPanel40.add(ANLogCPMText, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.weightx = 0.8;
-        jPanel40.add(jLabel137, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.weightx = 0.3;
-        jPanel40.add(jLabel138, gridBagConstraints);
-
-        jLabel140.setText("Adj. p-value threshold:");
-        jLabel140.setToolTipText("");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel40.add(jLabel140, gridBagConstraints);
-
-        ANadjPText.setText("0.1");
-        ANadjPText.setToolTipText("adjusted p-value  threshold");
-        ANadjPText.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                ANadjPTextFocusLost(evt);
-            }
-        });
-        ANadjPText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANadjPTextActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 18, 10, 10);
-        jPanel40.add(ANadjPText, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.5;
-        jPanel40.add(jLabel141, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ANOVAlikePanel.add(jPanel40, gridBagConstraints);
-
-        jPanel41.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel41.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel41.setLayout(new java.awt.GridBagLayout());
-
-        jLabel142.setText("Execution:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel41.add(jLabel142, gridBagConstraints);
-
-        ANSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
-        ANOVAGroup.add(ANSudoRadioButton);
-        ANSudoRadioButton.setText("sudo");
-        ANSudoRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANSudoRadioButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 95, 10, 10);
-        jPanel41.add(ANSudoRadioButton, gridBagConstraints);
-
-        ANDockerRadioButton1.setBackground(new java.awt.Color(248, 248, 248));
-        ANOVAGroup.add(ANDockerRadioButton1);
-        ANDockerRadioButton1.setSelected(true);
-        ANDockerRadioButton1.setText("docker");
-        ANDockerRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANDockerRadioButton1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel41.add(ANDockerRadioButton1, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ANOVAlikePanel.add(jPanel41, gridBagConstraints);
-
-        ANOVAlike.setViewportView(ANOVAlikePanel);
-
         MainPanel.add(ANOVAlike, "NOVAlike");
         MainPanel.add(Test, "test");
 
@@ -9296,13 +8894,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ProcListValueChanged
 
     private void CloseOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseOutputActionPerformed
-    OutputFrame.setVisible(false);        // TODO add your handling code here:
+    OutputFrame.setVisible(false);        
     OutputText.setText("");
     OutputText.setEnabled(true);
     DlogButton.setEnabled(false);
-    
     GL.setAvoidProcListValueChanged(-1);
-    //GL.setListProcStatuSelection(-1);  
     ProcList.clearSelection();
     GL.setAvoidProcListValueChanged(0);
     getPreferences().put("4SeqGUI_WindowOutputWidth", Integer.toString(OutputFrame.getWidth()));
@@ -12700,191 +12296,6 @@ public class MainFrame extends javax.swing.JFrame {
         card.show(MainPanel, "NOVAlike");
         CurrentLayout="NOVAlike";
     }//GEN-LAST:event_ANOVAlikeButtonActionPerformed
-
-    private void vCloseButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton9ActionPerformed
-        ANinputfileText.setText("");
-        ANOutputFolderText.setText("");
-        ANLog2fcText.setText("1.0");
-        ANLogCPMText.setText("4.0");
-        ANadjPText.setText("0.1");
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "Empty");
-        CurrentLayout="Empty";   
-    }//GEN-LAST:event_vCloseButton9ActionPerformed
-
-    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
-        if (ANinputfileText.getText().isEmpty()){
-           JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: Data  input file ",JOptionPane.ERROR_MESSAGE);   
-           return;
-        }
-            
-        try
-        {
-            Float x = Float.valueOf(ANLog2fcText.getText());
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a number for LogFG threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
-            ///HLowerRangeText.requestFocusInWindow();
-            return;
-        }
-        
-        try
-        {
-            Float x = Float.valueOf(ANLogCPMText.getText());
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a number for LogCPM threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
-            ///HLowerRangeText.requestFocusInWindow();
-            return;
-        }
-        
-        try
-        {
-            Float x = Float.valueOf(ANadjPText.getText());
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a number for  Adj. p-value threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
-            ///HLowerRangeText.requestFocusInWindow();
-            return;
-        }
-        
-       
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execANOVAlike.sh "};
-                if (ANSudoRadioButton.isSelected()){
-                    cmd[2]+= "group=\\\"sudo\\\"";
-                }
-                else{
-                    cmd[2]+= "group=\\\"docker\\\"";
-                }
-                cmd[2]+= " file=\\\""+ANinputfileText.getText()+"\\\""+" logFC.threshold="+ANLog2fcText.getText();
-                cmd[2]+= " FDR.threshold="+ANadjPText.getText()+" logCPM.threshold="+ANLogCPMText.getText();
-                cmd[2]+=" "+ANOutputFolderText.getText() +" >& "+ANOutputFolderText.getText()+"/outputExecution ";
-
-                if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
-                    Process pr = rt.exec(cmd);                          
-                    ElProcRunning tmp= new ElProcRunning("ANOVA-like  ", ANOutputFolderText.getText(),pr,listModel.getSize());
-                    listProcRunning.add(tmp);
-                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                    ImageIcon image2 = new ImageIcon(imgURL);
-                    GL.setAvoidProcListValueChanged(-1);
-                    listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                    GL.setAvoidProcListValueChanged(0);
-                    if(listProcRunning.size()==1){
-                        t=new Timer();
-                        t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                        }
-                }    
-                else{
-                     ElProcWaiting tmp= new ElProcWaiting("ANOVA-like", ANOutputFolderText.getText(),cmd,listModel.getSize());
-                     listProcWaiting.add(tmp);
-                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                     ImageIcon image2 = new ImageIcon(imgURL);
-                     GL.setAvoidProcListValueChanged(-1);
-                     listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                     GL.setAvoidProcListValueChanged(0);
-                    }
-                GL.setAvoidProcListValueChanged(-1);
-                ProcList.setModel(listModel);
-                ProcList.setCellRenderer(new ListEntryCellRenderer());
-                GL.setAvoidProcListValueChanged(0);
-                }   
-            catch(IOException e) {
-                JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-                System.out.println(e.toString());
-                }
-            JOptionPane.showMessageDialog(this, "ANOVA-lie task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE); 
-        
-    }//GEN-LAST:event_jButton49ActionPerformed
-
-    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
-    
-        ANinputfileText.setText("");
-        ANOutputFolderText.setText("");
-        ANLog2fcText.setText("1.0");
-        ANLogCPMText.setText("4.0");
-        ANadjPText.setText("0.1");
-    }//GEN-LAST:event_jButton50ActionPerformed
-
-    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton51ActionPerformed
-
-    private void ANinputfileTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANinputfileTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANinputfileTextActionPerformed
-
-    private void jToggleButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton48ActionPerformed
-     JFileChooser openDir = new JFileChooser();
-     if (!(ANinputfileText.getText().equals(""))){
-            File file =new File(ANOutputFolderText.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-     else
-     {
-        String curDir = getPreferences().get("open-dir", null);
-        openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
-     }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            ANinputfileText.setText(String.valueOf(f));
-            ANOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());    
-    }//GEN-LAST:event_jToggleButton48ActionPerformed
-
-    private void fCancelButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton6ActionPerformed
-    ANinputfileText.setText("");
-    ANOutputFolderText.setText("");
-    }//GEN-LAST:event_fCancelButton6ActionPerformed
-
-    private void ANOutputFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANOutputFolderTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANOutputFolderTextActionPerformed
-
-    private void jToggleButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton49ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton49ActionPerformed
-
-    private void fCancelButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fCancelButton7ActionPerformed
-
-    private void ANLog2fcTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ANLog2fcTextFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANLog2fcTextFocusLost
-
-    private void ANLog2fcTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANLog2fcTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANLog2fcTextActionPerformed
-
-    private void ANLogCPMTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ANLogCPMTextFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANLogCPMTextFocusLost
-
-    private void ANLogCPMTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANLogCPMTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANLogCPMTextActionPerformed
-
-    private void ANadjPTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ANadjPTextFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANadjPTextFocusLost
-
-    private void ANadjPTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANadjPTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANadjPTextActionPerformed
-
-    private void ANSudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANSudoRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANSudoRadioButtonActionPerformed
-
-    private void ANDockerRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANDockerRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ANDockerRadioButton1ActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -12932,17 +12343,8 @@ public class MainFrame extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton ANDockerRadioButton1;
-    private javax.swing.JTextField ANLog2fcText;
-    private javax.swing.JTextField ANLogCPMText;
-    private javax.swing.ButtonGroup ANOVAGroup;
     private javax.swing.JScrollPane ANOVAlike;
     private javax.swing.JButton ANOVAlikeButton;
-    private javax.swing.JPanel ANOVAlikePanel;
-    private javax.swing.JTextField ANOutputFolderText;
-    private javax.swing.JRadioButton ANSudoRadioButton;
-    private javax.swing.JTextField ANadjPText;
-    private javax.swing.JTextField ANinputfileText;
     private javax.swing.JFrame About4SeqGUIFrame;
     private javax.swing.JTextField Adapter3TextField;
     private javax.swing.JTextField Adapter5TextField;
@@ -13131,8 +12533,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton fCancelButton3;
     private javax.swing.JToggleButton fCancelButton4;
     private javax.swing.JToggleButton fCancelButton5;
-    private javax.swing.JToggleButton fCancelButton6;
-    private javax.swing.JToggleButton fCancelButton7;
     private javax.swing.JTextField fFPKMfileText;
     private javax.swing.JTextField fOutputFolderText;
     private javax.swing.JRadioButton fgeneRadioButton;
@@ -13212,10 +12612,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton50;
-    private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
@@ -13248,18 +12645,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
-    private javax.swing.JLabel jLabel122;
-    private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel124;
-    private javax.swing.JLabel jLabel125;
-    private javax.swing.JLabel jLabel126;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel137;
-    private javax.swing.JLabel jLabel138;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel140;
-    private javax.swing.JLabel jLabel141;
-    private javax.swing.JLabel jLabel142;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -13395,10 +12783,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
-    private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel40;
-    private javax.swing.JPanel jPanel41;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -13447,8 +12832,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton38;
     private javax.swing.JToggleButton jToggleButton39;
     private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton48;
-    private javax.swing.JToggleButton jToggleButton49;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;
     private javax.swing.JToggleButton jToggleButton7;
@@ -13496,7 +12879,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton vCloseButton4;
     private javax.swing.JButton vCloseButton5;
     private javax.swing.JButton vCloseButton6;
-    private javax.swing.JButton vCloseButton9;
     private javax.swing.JRadioButton vDockerRadioButton;
     private javax.swing.ButtonGroup vExecution;
     private javax.swing.JTextField vFastQFolderText;
@@ -13743,7 +13125,7 @@ extends JLabel implements ListCellRenderer<Object>
 static    String CurrentLayout="Empty";
     
 
- static public  Timer t,outputTime;
+ static public  Timer t,outputTime=new Timer();
 
  static public class MyFileUpdate extends TimerTask{
        public void run() {
