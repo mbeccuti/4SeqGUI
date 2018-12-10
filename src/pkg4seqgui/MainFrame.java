@@ -517,6 +517,9 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizeButton1 = new javax.swing.JButton();
         ExpPowerButton1 = new javax.swing.JButton();
         DeseqButton2 = new javax.swing.JButton();
+        CircRNAPanel = new javax.swing.JPanel();
+        SubPreductionPanel = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         ChipSeqPanel = new javax.swing.JPanel();
         indexingBButton = new javax.swing.JButton();
         CountButton2 = new javax.swing.JButton();
@@ -814,7 +817,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1500,6 +1503,54 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("miRNA", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/miRNAtab.png")), miRNAPanel); // NOI18N
 
+        CircRNAPanel.setLayout(new java.awt.GridBagLayout());
+
+        SubPreductionPanel.setBackground(new java.awt.Color(255, 255, 255));
+        SubPreductionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), "Prediction", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 0, 0))); // NOI18N
+
+        javax.swing.GroupLayout SubPreductionPanelLayout = new javax.swing.GroupLayout(SubPreductionPanel);
+        SubPreductionPanel.setLayout(SubPreductionPanelLayout);
+        SubPreductionPanelLayout.setHorizontalGroup(
+            SubPreductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        SubPreductionPanelLayout.setVerticalGroup(
+            SubPreductionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        CircRNAPanel.add(SubPreductionPanel, gridBagConstraints);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(204, 204, 204)), "Classification  and Annotation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        CircRNAPanel.add(jPanel3, gridBagConstraints);
+
+        jTabbedPane1.addTab("CircRNA", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cRNAtab.png")), CircRNAPanel); // NOI18N
+
         ChipSeqPanel.setBackground(new java.awt.Color(255, 255, 255));
         ChipSeqPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -2059,6 +2110,7 @@ public class MainFrame extends javax.swing.JFrame {
         PredictionPanel.setBackground(new java.awt.Color(255, 255, 255));
         PredictionPanel.setLayout(new java.awt.GridBagLayout());
 
+        Ciri2PredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cRNA.png"))); // NOI18N
         Ciri2PredictionButton.setText("BWA+CIRI2");
         Ciri2PredictionButton.setBorder(null);
         Ciri2PredictionButton.setBorderPainted(false);
@@ -2067,13 +2119,7 @@ public class MainFrame extends javax.swing.JFrame {
                 Ciri2PredictionButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 49;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        PredictionPanel.add(Ciri2PredictionButton, gridBagConstraints);
+        PredictionPanel.add(Ciri2PredictionButton, new java.awt.GridBagConstraints());
 
         StarchipCircleButton.setText("STARchip Circle");
         StarchipCircleButton.setBorder(null);
@@ -2231,7 +2277,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         CircRNATabPanel.addTab("Expression Analysis", ExpressionAnalysisPanel);
 
-        jTabbedPane1.addTab("CircRNA", CircRNATabPanel);
+        jTabbedPane1.addTab("CircRNA", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cRNAtab.png")), CircRNATabPanel); // NOI18N
 
         jScrollPane1.setViewportView(jTabbedPane1);
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
@@ -4345,6 +4391,7 @@ CardLayout card = (CardLayout)MainPanel.getLayout();
     private javax.swing.JComboBox<String> BatchComboBox;
     public static javax.swing.JPanel BottomPanel;
     private javax.swing.JPanel ChipSeqPanel;
+    private javax.swing.JPanel CircRNAPanel;
     private javax.swing.JTabbedPane CircRNATabPanel;
     private javax.swing.JButton CirchunterClassificButton;
     private javax.swing.JButton CirchunterJunctionsButton;
@@ -4455,6 +4502,7 @@ CardLayout card = (CardLayout)MainPanel.getLayout();
     private javax.swing.JTabbedPane SingleCellPanel;
     private javax.swing.JButton StarChimericButton;
     private javax.swing.JButton StarchipCircleButton;
+    private javax.swing.JPanel SubPreductionPanel;
     public javax.swing.JScrollPane Test;
     private javax.swing.JTextField ThreadTextField;
     private javax.swing.JPanel ToolPanel;
@@ -4522,6 +4570,7 @@ CardLayout card = (CardLayout)MainPanel.getLayout();
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
