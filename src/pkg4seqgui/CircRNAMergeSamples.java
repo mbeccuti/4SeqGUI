@@ -422,7 +422,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         String execution = DockerRadioButton.isSelected() ? "docker" : "sudo";
         String outputFolder = outputFolderTextField.getText(),
                samplesFolder = samplesFolderTextField.getText(), 
-               scratchFolder = "";//scratchFolderTextField.getText();
+               scratchFolder = scratchFolderTextField.getText();
         int min_reads, min_reps, min_avg; 
         
         
@@ -441,6 +441,16 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
             return;
         }
+        
+        
+        if (scratchFolder.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                "You have to specify the scratch folder.",
+                "Error: output folder",
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
         
         try {
             min_reads = Integer.parseInt(minReadsTextField.getText()); 
@@ -483,16 +493,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
             return; 
         }
-        
-        
-
-//        if (scratchFolder.isEmpty()) {
-//            JOptionPane.showMessageDialog(this,
-//                "You have to specify the scratch folder.",
-//                "Error: scratch folder",
-//                JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
+     
 
         String samples = ""; 
         String covariates = ""; 
