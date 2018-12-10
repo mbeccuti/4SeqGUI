@@ -234,6 +234,18 @@ public class MainFrame extends javax.swing.JFrame {
         
         S_SeuratPrior SP= new S_SeuratPrior();
         S_seuratPrior.setViewportView(SP);
+
+
+        circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
+        circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
+        circRNA_BSJunctions.setViewportView(new CircRNABSJunctionsPanel());
+        circRNA_quantification.setViewportView(new CircRNAQuantificationPanel());
+        circRNA_annotation.setViewportView(new CircRNAAnnotationPanel());
+        circRNA_structure.setViewportView(new CircRNAPredictStructurePanel());
+        circRNA_starPrediction.setViewportView(new CircRNAStarPrediction());
+        circRNA_starChimeric.setViewportView(new CircRNAStarChimeric());
+        circRNA_prepareExonIsoformFiles.setViewportView(new CircRNADownloadData());
+        circRNA_mergeCiri2Samples.setViewportView(new CircRNAMergeSamples());
 //ADDING PANEL
 
         
@@ -471,6 +483,16 @@ public class MainFrame extends javax.swing.JFrame {
         S_seuratPrior = new javax.swing.JScrollPane();
         S_genesPrioritization = new javax.swing.JScrollPane();
         S_genesSelection = new javax.swing.JScrollPane();
+        circRNA_ciri2 = new javax.swing.JScrollPane();
+        circRNA_postprocessing = new javax.swing.JScrollPane();
+        circRNA_BSJunctions = new javax.swing.JScrollPane();
+        circRNA_annotation = new javax.swing.JScrollPane();
+        circRNA_structure = new javax.swing.JScrollPane();
+        circRNA_quantification = new javax.swing.JScrollPane();
+        circRNA_starPrediction = new javax.swing.JScrollPane();
+        circRNA_starChimeric = new javax.swing.JScrollPane();
+        circRNA_prepareExonIsoformFiles = new javax.swing.JScrollPane();
+        circRNA_mergeCiri2Samples = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -532,6 +554,21 @@ public class MainFrame extends javax.swing.JFrame {
         S_genesPrioritizationButton = new javax.swing.JButton();
         S_ClustersFeatureButton = new javax.swing.JButton();
         S_SeuratPriorButton = new javax.swing.JButton();
+        CircRNATabPanel = new javax.swing.JTabbedPane();
+        PredictionPanel = new javax.swing.JPanel();
+        Ciri2PredictionButton = new javax.swing.JButton();
+        StarchipCircleButton = new javax.swing.JButton();
+        StarChimericButton = new javax.swing.JButton();
+        Ciri2MergeResultsButton = new javax.swing.JButton();
+        ClassificationPanel = new javax.swing.JPanel();
+        CirchunterClassificButton = new javax.swing.JButton();
+        circRNAAnnotationButton = new javax.swing.JButton();
+        downloadExonIsoformDataButton = new javax.swing.JButton();
+        SequenceAnalysisPanel = new javax.swing.JPanel();
+        CirchunterJunctionsButton = new javax.swing.JButton();
+        CiriAS_StructureButton = new javax.swing.JButton();
+        ExpressionAnalysisPanel = new javax.swing.JPanel();
+        HashcircQuantifButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -777,7 +814,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1117,6 +1154,16 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(S_seuratPrior, "S_seuratPriorCard");
         MainPanel.add(S_genesPrioritization, "S_genesPrioritizationCard");
         MainPanel.add(S_genesSelection, "S_genesSelectionCard");
+        MainPanel.add(circRNA_ciri2, "wrapperCiriCard");
+        MainPanel.add(circRNA_postprocessing, "circRNA_ppCard");
+        MainPanel.add(circRNA_BSJunctions, "bsjunctionsCard");
+        MainPanel.add(circRNA_annotation, "circrnaAnnotationCard");
+        MainPanel.add(circRNA_structure, "circrnaStructureCard");
+        MainPanel.add(circRNA_quantification, "circrnaquantifCard");
+        MainPanel.add(circRNA_starPrediction, "circrnaStarPrediction");
+        MainPanel.add(circRNA_starChimeric, "circrnaStarChimeric");
+        MainPanel.add(circRNA_prepareExonIsoformFiles, "circrnaPrepareFilesCard");
+        MainPanel.add(circRNA_mergeCiri2Samples, "circrnaMergeCiri2ResultsCard");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2006,6 +2053,185 @@ public class MainFrame extends javax.swing.JFrame {
         SingleCellPanel.addTab("Feature Selection", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtab.png")), S_FeatureSelection); // NOI18N
 
         jTabbedPane1.addTab("Single Cell", SingleCellPanel);
+
+        CircRNATabPanel.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+
+        PredictionPanel.setBackground(new java.awt.Color(255, 255, 255));
+        PredictionPanel.setLayout(new java.awt.GridBagLayout());
+
+        Ciri2PredictionButton.setText("BWA+CIRI2");
+        Ciri2PredictionButton.setBorder(null);
+        Ciri2PredictionButton.setBorderPainted(false);
+        Ciri2PredictionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ciri2PredictionButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 49;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        PredictionPanel.add(Ciri2PredictionButton, gridBagConstraints);
+
+        StarchipCircleButton.setText("STARchip Circle");
+        StarchipCircleButton.setBorder(null);
+        StarchipCircleButton.setBorderPainted(false);
+        StarchipCircleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StarchipCircleButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        PredictionPanel.add(StarchipCircleButton, gridBagConstraints);
+
+        StarChimericButton.setText("STAR Chimeric");
+        StarChimericButton.setBorder(null);
+        StarChimericButton.setBorderPainted(false);
+        StarChimericButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StarChimericButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        PredictionPanel.add(StarChimericButton, gridBagConstraints);
+
+        Ciri2MergeResultsButton.setText("Merge CIRI2 stuff");
+        Ciri2MergeResultsButton.setBorder(null);
+        Ciri2MergeResultsButton.setBorderPainted(false);
+        Ciri2MergeResultsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ciri2MergeResultsButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        PredictionPanel.add(Ciri2MergeResultsButton, gridBagConstraints);
+
+        CircRNATabPanel.addTab("Prediction", PredictionPanel);
+
+        ClassificationPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ClassificationPanel.setLayout(new java.awt.GridBagLayout());
+
+        CirchunterClassificButton.setText("CircHunter classification");
+        CirchunterClassificButton.setBorder(null);
+        CirchunterClassificButton.setBorderPainted(false);
+        CirchunterClassificButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CirchunterClassificButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ClassificationPanel.add(CirchunterClassificButton, gridBagConstraints);
+
+        circRNAAnnotationButton.setText("Annotation");
+        circRNAAnnotationButton.setBorder(null);
+        circRNAAnnotationButton.setBorderPainted(false);
+        circRNAAnnotationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                circRNAAnnotationButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.ipadx = 79;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ClassificationPanel.add(circRNAAnnotationButton, gridBagConstraints);
+
+        downloadExonIsoformDataButton.setText("Download Exon and Isoform Data");
+        downloadExonIsoformDataButton.setBorder(null);
+        downloadExonIsoformDataButton.setBorderPainted(false);
+        downloadExonIsoformDataButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                downloadExonIsoformDataButtonActionPerformed(evt);
+            }
+        });
+        ClassificationPanel.add(downloadExonIsoformDataButton, new java.awt.GridBagConstraints());
+
+        CircRNATabPanel.addTab("Classification and Annotation", ClassificationPanel);
+
+        SequenceAnalysisPanel.setBackground(new java.awt.Color(255, 255, 255));
+        SequenceAnalysisPanel.setLayout(new java.awt.GridBagLayout());
+
+        CirchunterJunctionsButton.setText("Back-splicing Junctions");
+        CirchunterJunctionsButton.setBorder(null);
+        CirchunterJunctionsButton.setBorderPainted(false);
+        CirchunterJunctionsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CirchunterJunctionsButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SequenceAnalysisPanel.add(CirchunterJunctionsButton, gridBagConstraints);
+
+        CiriAS_StructureButton.setText("Predict Structure");
+        CiriAS_StructureButton.setBorder(null);
+        CiriAS_StructureButton.setBorderPainted(false);
+        CiriAS_StructureButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CiriAS_StructureButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SequenceAnalysisPanel.add(CiriAS_StructureButton, gridBagConstraints);
+
+        CircRNATabPanel.addTab("Sequence Analysis", SequenceAnalysisPanel);
+
+        ExpressionAnalysisPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ExpressionAnalysisPanel.setLayout(new java.awt.GridBagLayout());
+
+        HashcircQuantifButton.setText("Quantification");
+        HashcircQuantifButton.setBorder(null);
+        HashcircQuantifButton.setBorderPainted(false);
+        HashcircQuantifButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HashcircQuantifButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ExpressionAnalysisPanel.add(HashcircQuantifButton, gridBagConstraints);
+
+        CircRNATabPanel.addTab("Expression Analysis", ExpressionAnalysisPanel);
+
+        jTabbedPane1.addTab("CircRNA", CircRNATabPanel);
 
         jScrollPane1.setViewportView(jTabbedPane1);
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
@@ -4004,6 +4230,66 @@ CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "S_seuratPriorCard");
         CurrentLayout="S_seuratPriorCard";
     }//GEN-LAST:event_S_SeuratPriorButtonActionPerformed
+
+    private void Ciri2PredictionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ciri2PredictionButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "wrapperCiriCard");
+        CurrentLayout="wrapperCiriCard";
+    }//GEN-LAST:event_Ciri2PredictionButtonActionPerformed
+
+    private void CirchunterClassificButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CirchunterClassificButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "circRNA_ppCard");
+        CurrentLayout="circRNA_ppCard";
+    }//GEN-LAST:event_CirchunterClassificButtonActionPerformed
+
+    private void circRNAAnnotationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circRNAAnnotationButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "circrnaAnnotationCard");
+        CurrentLayout="circrnaAnnotationCard";
+    }//GEN-LAST:event_circRNAAnnotationButtonActionPerformed
+
+    private void CirchunterJunctionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CirchunterJunctionsButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "bsjunctionsCard");
+        CurrentLayout="bsjunctionsCard";
+    }//GEN-LAST:event_CirchunterJunctionsButtonActionPerformed
+
+    private void CiriAS_StructureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CiriAS_StructureButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "circrnaStructureCard");
+        CurrentLayout="circrnaStructureCard";
+    }//GEN-LAST:event_CiriAS_StructureButtonActionPerformed
+
+    private void HashcircQuantifButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HashcircQuantifButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "circrnaquantifCard");
+        CurrentLayout="circrnaquantifCard";
+    }//GEN-LAST:event_HashcircQuantifButtonActionPerformed
+
+    private void StarchipCircleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StarchipCircleButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "circrnaStarPrediction");
+        CurrentLayout="circrnaStarPrediction";
+    }//GEN-LAST:event_StarchipCircleButtonActionPerformed
+
+    private void StarChimericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StarChimericButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "circrnaStarChimeric");
+        CurrentLayout="circrnaStarChimeric";
+    }//GEN-LAST:event_StarChimericButtonActionPerformed
+
+    private void downloadExonIsoformDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downloadExonIsoformDataButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "circrnaPrepareFilesCard");
+        CurrentLayout="circrnaPrepareFilesCard";     
+    }//GEN-LAST:event_downloadExonIsoformDataButtonActionPerformed
+
+    private void Ciri2MergeResultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ciri2MergeResultsButtonActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "circrnaMergeCiri2ResultsCard");
+        CurrentLayout="circrnaMergeCiri2ResultsCard";     
+    }//GEN-LAST:event_Ciri2MergeResultsButtonActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -4059,6 +4345,13 @@ CardLayout card = (CardLayout)MainPanel.getLayout();
     private javax.swing.JComboBox<String> BatchComboBox;
     public static javax.swing.JPanel BottomPanel;
     private javax.swing.JPanel ChipSeqPanel;
+    private javax.swing.JTabbedPane CircRNATabPanel;
+    private javax.swing.JButton CirchunterClassificButton;
+    private javax.swing.JButton CirchunterJunctionsButton;
+    private javax.swing.JButton Ciri2MergeResultsButton;
+    private javax.swing.JButton Ciri2PredictionButton;
+    private javax.swing.JButton CiriAS_StructureButton;
+    private javax.swing.JPanel ClassificationPanel;
     private javax.swing.JToggleButton CloseOutput;
     private javax.swing.JButton ConfCancell;
     public static javax.swing.JFrame ConfigurationFrame;
@@ -4075,6 +4368,8 @@ CardLayout card = (CardLayout)MainPanel.getLayout();
     private javax.swing.JPanel EmptyPanel;
     private javax.swing.JButton ExpPowerButton;
     private javax.swing.JButton ExpPowerButton1;
+    private javax.swing.JPanel ExpressionAnalysisPanel;
+    private javax.swing.JButton HashcircQuantifButton;
     private javax.swing.JScrollPane Heatmap;
     private javax.swing.JButton HeatmapButton;
     private javax.swing.JSplitPane HorizontalSplitPanel;
@@ -4090,6 +4385,7 @@ CardLayout card = (CardLayout)MainPanel.getLayout();
     private javax.swing.JButton PCAButton;
     private javax.swing.JButton PCAButton1;
     private javax.swing.JTextField ParallelTextField;
+    private javax.swing.JPanel PredictionPanel;
     public static javax.swing.JList<ListEntry> ProcList;
     private javax.swing.JPanel ProcStatusPanel;
     private javax.swing.JPanel RNAseqPanel;
@@ -4155,15 +4451,30 @@ CardLayout card = (CardLayout)MainPanel.getLayout();
     private javax.swing.JButton SampleExpButton;
     private javax.swing.JButton SampleSizeButton;
     private javax.swing.JButton SampleSizeButton1;
+    private javax.swing.JPanel SequenceAnalysisPanel;
     private javax.swing.JTabbedPane SingleCellPanel;
+    private javax.swing.JButton StarChimericButton;
+    private javax.swing.JButton StarchipCircleButton;
     public javax.swing.JScrollPane Test;
     private javax.swing.JTextField ThreadTextField;
     private javax.swing.JPanel ToolPanel;
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton circRNAAnnotationButton;
+    private javax.swing.JScrollPane circRNA_BSJunctions;
+    private javax.swing.JScrollPane circRNA_annotation;
+    private javax.swing.JScrollPane circRNA_ciri2;
+    private javax.swing.JScrollPane circRNA_mergeCiri2Samples;
+    private javax.swing.JScrollPane circRNA_postprocessing;
+    private javax.swing.JScrollPane circRNA_prepareExonIsoformFiles;
+    private javax.swing.JScrollPane circRNA_quantification;
+    private javax.swing.JScrollPane circRNA_starChimeric;
+    private javax.swing.JScrollPane circRNA_starPrediction;
+    private javax.swing.JScrollPane circRNA_structure;
     private javax.swing.JScrollPane countingSalmon;
     private javax.swing.JButton countingSalmonButton;
     private javax.swing.JScrollPane dESPanel;
+    private javax.swing.JButton downloadExonIsoformDataButton;
     private javax.swing.JScrollPane experimentPowerPanel;
     private javax.swing.JScrollPane fPKMPanel;
     private javax.swing.JScrollPane filterCounts;
@@ -4802,4 +5113,51 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         return root.node(prefRootNode);
     } 
 
+    
+    
+    
+    public static void execCommand(Component stuff, String commandName, String script, String commandArgs, String outputFolder) {        
+        //bash nomescript arg1..argN outputFolder >& outputFolder/outputExecution
+        String bashString = String.format(
+            "bash ./%s %s %s >& %s/outputExecution", script, commandArgs, outputFolder, outputFolder);
+        String[] cmd = {"/bin/bash","-c", bashString};
+        Runtime rt = Runtime.getRuntime();
+        
+        try {
+            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
+                Process pr = rt.exec(cmd);
+                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning(commandName, outputFolder,pr,MainFrame.listModel.getSize());
+                MainFrame.listProcRunning.add(tmp);
+                java.net.URL imgURL = MainFrame.class.getResource("/pkg4seqgui/images/running.png");
+                ImageIcon image2 = new ImageIcon(imgURL);
+                MainFrame.GL.setAvoidProcListValueChanged(-1);
+                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                MainFrame.GL.setAvoidProcListValueChanged(0);
+                if(MainFrame.listProcRunning.size()==1){
+                    MainFrame.t=new Timer();
+                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
+                }
+            }
+            else{
+                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting(commandName, outputFolder, cmd,MainFrame.listModel.getSize());
+                MainFrame.listProcWaiting.add(tmp);
+                java.net.URL imgURL = MainFrame.class.getResource("/pkg4seqgui/images/waiting.png");
+                ImageIcon image2 = new ImageIcon(imgURL);
+                MainFrame.GL.setAvoidProcListValueChanged(-1);
+                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                MainFrame.GL.setAvoidProcListValueChanged(0);
+            }
+            MainFrame.GL.setAvoidProcListValueChanged(-1);
+            MainFrame.ProcList.setModel(MainFrame.listModel);
+            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
+            MainFrame.GL.setAvoidProcListValueChanged(0);
+        }
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(stuff, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+        JOptionPane.showMessageDialog(stuff, String.format("%s task was scheduled", commandName),"Confermation",JOptionPane.INFORMATION_MESSAGE);
+    }   
+    
+    
 }
