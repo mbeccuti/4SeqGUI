@@ -7,22 +7,20 @@ package pkg4seqgui;
 
 import java.awt.CardLayout;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author nico
+ * @author Nicola Licheri
  */
 public class CircRNAAnnotationPanel extends javax.swing.JPanel {
 
+    private static final long serialVersionUID = 9778212332L;
     /**
      * Creates new form CircRNAAnnotationPanel
      */
@@ -71,18 +69,22 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
+        AnnotationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "CircRNA annotation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(105, 64, 226))); // NOI18N
         AnnotationPanel.setLayout(new java.awt.GridBagLayout());
 
         DataPanel.setBackground(new java.awt.Color(248, 248, 248));
         DataPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         DataPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel3.setText("Dati circRNA");
+        jLabel3.setText("Dati circRNA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(jLabel3, gridBagConstraints);
 
+        browseCircrnaDataButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         browseCircrnaDataButton.setText("Browse");
         browseCircrnaDataButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,8 +95,10 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(browseCircrnaDataButton, gridBagConstraints);
 
+        cancelCircrnaDataButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelCircrnaDataButton.setText("Cancel");
         cancelCircrnaDataButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +109,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(cancelCircrnaDataButton, gridBagConstraints);
 
         circrnaDataTextField.setEditable(false);
@@ -114,6 +119,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(circrnaDataTextField, gridBagConstraints);
 
         assemblyVersionGroupButton.add(buttonAssembly_hg19);
@@ -122,6 +128,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg19, gridBagConstraints);
 
         assemblyVersionGroupButton.add(buttonAssembly_hg18);
@@ -129,6 +136,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg18, gridBagConstraints);
 
         assemblyVersionGroupButton.add(buttonAssembly_hg38);
@@ -136,12 +144,15 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg38, gridBagConstraints);
 
-        jLabel4.setText("Assembly");
+        jLabel4.setText("Assembly:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(jLabel4, gridBagConstraints);
 
         jLabel5.setText("Scratch folder:");
@@ -149,6 +160,8 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(jLabel5, gridBagConstraints);
 
         scratchFolderTextField.setEditable(false);
@@ -158,8 +171,10 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(scratchFolderTextField, gridBagConstraints);
 
+        browseScratchFolderButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseScratchFolderButton1.setText("Browse");
         browseScratchFolderButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,8 +184,10 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(browseScratchFolderButton1, gridBagConstraints);
 
+        cancelScratchFolderButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelScratchFolderButton1.setText("Cancel");
         cancelScratchFolderButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +197,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(cancelScratchFolderButton1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -188,8 +206,11 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationPanel.add(DataPanel, gridBagConstraints);
 
+        AnnotationSourcesPanel.setBackground(new java.awt.Color(248, 248, 248));
+        AnnotationSourcesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         AnnotationSourcesPanel.setLayout(new java.awt.GridBagLayout());
 
         circbaseCheckBox.setText("circBase");
@@ -198,6 +219,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(circbaseCheckBox, gridBagConstraints);
 
         tscdCheckBox.setText("TSCD");
@@ -206,6 +228,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(tscdCheckBox, gridBagConstraints);
 
         cscdCheckBox.setText("CSCD");
@@ -214,22 +237,28 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(cscdCheckBox, gridBagConstraints);
 
         jLabel1.setText("Sources:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(jLabel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationPanel.add(AnnotationSourcesPanel, gridBagConstraints);
 
+        closeFormPostProcessingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         closeFormPostProcessingButton.setText("Close");
         closeFormPostProcessingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,12 +266,14 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 2.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationPanel.add(closeFormPostProcessingButton, gridBagConstraints);
 
+        executeFormPostProcessingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         executeFormPostProcessingButton.setText("Execute");
         executeFormPostProcessingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,8 +284,11 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 12.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationPanel.add(executeFormPostProcessingButton, gridBagConstraints);
 
+        resetFormPostProcessingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         resetFormPostProcessingButton.setText("Reset");
         resetFormPostProcessingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,7 +298,10 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationPanel.add(resetFormPostProcessingButton, gridBagConstraints);
 
         ExecutionPanel.setBackground(new java.awt.Color(248, 248, 248));
@@ -329,9 +366,10 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 63;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(74, 0, 74, 0);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         add(AnnotationPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

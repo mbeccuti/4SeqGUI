@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author nico
+ * @author Nicola Licheri
  */
 public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
 
@@ -27,7 +27,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
     public CircRNAWrapperCiriPanel() {
         initComponents();
     }
-
+    private static final long serialVersionUID = 9778212331L;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +73,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         qualityThresholdTextField = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         executeWrapperCiriButton = new javax.swing.JButton();
         resetFormWrapperCiriButton = new javax.swing.JButton();
         closeFormWrapperCiriButton = new javax.swing.JButton();
@@ -82,15 +83,18 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         DockerRadioButton = new javax.swing.JRadioButton();
         jLabel6 = new javax.swing.JLabel();
         nThreadsTextField = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("BWA alignment & circRNA prediction"));
         setLayout(new java.awt.GridBagLayout());
 
+        wrapperCiriPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "BWA Alignment & circRNA Prediction", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 204, 153))); // NOI18N
+        wrapperCiriPanel.setToolTipText(null);
         wrapperCiriPanel.setMinimumSize(new java.awt.Dimension(417, 291));
         wrapperCiriPanel.setLayout(new java.awt.GridBagLayout());
 
         BWAExecution.setBackground(new java.awt.Color(248, 248, 248));
         BWAExecution.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        BWAExecution.setToolTipText(null);
         BWAExecution.setLayout(new java.awt.GridBagLayout());
 
         genomePathTextField.setEditable(false);
@@ -106,52 +110,62 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(genomePathTextField, gridBagConstraints);
 
         GenomeFolder.setText("Genome file:");
+        GenomeFolder.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 90);
         BWAExecution.add(GenomeFolder, gridBagConstraints);
         GenomeFolder.getAccessibleContext().setAccessibleName("genomeFolderLabel");
 
+        browseGenomePathButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         browseGenomePathButton.setText("Browse");
+        browseGenomePathButton.setToolTipText(null);
         browseGenomePathButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseGenomePathButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(browseGenomePathButton, gridBagConstraints);
 
+        cancelGenomePathButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelGenomePathButton.setText("Cancel");
+        cancelGenomePathButton.setToolTipText(null);
         cancelGenomePathButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelGenomePathButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(cancelGenomePathButton, gridBagConstraints);
 
         jLabel1.setText("Fastq folder: ");
+        jLabel1.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(jLabel1, gridBagConstraints);
 
         fastqPathTextField.setEditable(false);
@@ -162,116 +176,142 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(fastqPathTextField, gridBagConstraints);
 
+        browseFastqFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseFastqFolderButton.setText("Browse");
+        browseFastqFolderButton.setToolTipText(null);
         browseFastqFolderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseFastqFolderButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(browseFastqFolderButton, gridBagConstraints);
 
+        cancelFastqFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelFastqFolderButton.setText("Cancel");
+        cancelFastqFolderButton.setToolTipText(null);
         cancelFastqFolderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelFastqFolderButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(cancelFastqFolderButton, gridBagConstraints);
 
         jLabel2.setText("Scratch folder:");
+        jLabel2.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(jLabel2, gridBagConstraints);
 
         scratchFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(scratchFolderTextField, gridBagConstraints);
 
+        browseScratchFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseScratchFolderButton.setText("Browse");
+        browseScratchFolderButton.setToolTipText(null);
         browseScratchFolderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseScratchFolderButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(browseScratchFolderButton, gridBagConstraints);
 
+        cancelScratchFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelScratchFolderButton.setText("Cancel");
+        cancelScratchFolderButton.setToolTipText(null);
         cancelScratchFolderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelScratchFolderButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_TRAILING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(cancelScratchFolderButton, gridBagConstraints);
 
-        jLabel8.setText("sequencing:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        BWAExecution.add(jLabel8, gridBagConstraints);
-
-        sequencingModeGroup.add(singleEndSeqRadioButton);
-        singleEndSeqRadioButton.setText("single-end");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        BWAExecution.add(singleEndSeqRadioButton, gridBagConstraints);
-
-        sequencingModeGroup.add(pairedEndSeqRadioButton);
-        pairedEndSeqRadioButton.setSelected(true);
-        pairedEndSeqRadioButton.setText("paired-end");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        BWAExecution.add(pairedEndSeqRadioButton, gridBagConstraints);
-
-        jLabel9.setText("Sample ID");
+        jLabel8.setText("Sequencing:");
+        jLabel8.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        BWAExecution.add(jLabel9, gridBagConstraints);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        BWAExecution.add(jLabel8, gridBagConstraints);
+
+        singleEndSeqRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        sequencingModeGroup.add(singleEndSeqRadioButton);
+        singleEndSeqRadioButton.setText("single-end");
+        singleEndSeqRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        BWAExecution.add(singleEndSeqRadioButton, gridBagConstraints);
+
+        pairedEndSeqRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        sequencingModeGroup.add(pairedEndSeqRadioButton);
+        pairedEndSeqRadioButton.setSelected(true);
+        pairedEndSeqRadioButton.setText("paired-end");
+        pairedEndSeqRadioButton.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        BWAExecution.add(pairedEndSeqRadioButton, gridBagConstraints);
+
+        jLabel9.setText("Sample ID:");
+        jLabel9.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        BWAExecution.add(jLabel9, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BWAExecution.add(sampleIdTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -279,110 +319,161 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 10.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         wrapperCiriPanel.add(BWAExecution, gridBagConstraints);
 
         CIRIParameters.setBackground(new java.awt.Color(248, 248, 248));
         CIRIParameters.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        CIRIParameters.setToolTipText(null);
         CIRIParameters.setMinimumSize(new java.awt.Dimension(417, 291));
         CIRIParameters.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setText("Annotation file (.gtf):");
-        CIRIParameters.add(jLabel3, new java.awt.GridBagConstraints());
+        jLabel3.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        CIRIParameters.add(jLabel3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(maxSpanningTextField, gridBagConstraints);
 
+        browseAnnotationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         browseAnnotationButton.setText("Browse");
+        browseAnnotationButton.setToolTipText(null);
         browseAnnotationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browseAnnotationButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(browseAnnotationButton, gridBagConstraints);
 
+        cancelAnnotationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelAnnotationButton.setText("Cancel");
+        cancelAnnotationButton.setToolTipText(null);
         cancelAnnotationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelAnnotationButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(cancelAnnotationButton, gridBagConstraints);
 
         annotationFilepathTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weightx = 100.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(annotationFilepathTextField, gridBagConstraints);
 
         jLabel4.setText("Strigency:");
+        jLabel4.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(jLabel4, gridBagConstraints);
 
+        highStrigencyRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         strigencyValue.add(highStrigencyRadioButton);
         highStrigencyRadioButton.setSelected(true);
         highStrigencyRadioButton.setText("high");
+        highStrigencyRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(highStrigencyRadioButton, gridBagConstraints);
 
+        lowStrigencyRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         strigencyValue.add(lowStrigencyRadioButton);
         lowStrigencyRadioButton.setText("low");
+        lowStrigencyRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(lowStrigencyRadioButton, gridBagConstraints);
 
+        zeroStrigencyRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         strigencyValue.add(zeroStrigencyRadioButton);
         zeroStrigencyRadioButton.setText("zero");
+        zeroStrigencyRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(zeroStrigencyRadioButton, gridBagConstraints);
 
-        jLabel5.setText("Max Spanning Distance");
+        jLabel5.setText("Max Spanning Distance:");
+        jLabel5.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(jLabel5, gridBagConstraints);
 
-        jLabel7.setText("Quality threshold");
+        jLabel7.setText("Quality threshold:");
+        jLabel7.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(jLabel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CIRIParameters.add(qualityThresholdTextField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 100.0;
+        CIRIParameters.add(jLabel10, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 10.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         wrapperCiriPanel.add(CIRIParameters, gridBagConstraints);
 
+        executeWrapperCiriButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         executeWrapperCiriButton.setText("Execute");
+        executeWrapperCiriButton.setToolTipText(null);
         executeWrapperCiriButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 executeWrapperCiriButtonActionPerformed(evt);
@@ -393,9 +484,13 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         wrapperCiriPanel.add(executeWrapperCiriButton, gridBagConstraints);
 
+        resetFormWrapperCiriButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         resetFormWrapperCiriButton.setText("Reset");
+        resetFormWrapperCiriButton.setToolTipText(null);
         resetFormWrapperCiriButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetFormWrapperCiriButtonActionPerformed(evt);
@@ -406,9 +501,12 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         wrapperCiriPanel.add(resetFormWrapperCiriButton, gridBagConstraints);
 
+        closeFormWrapperCiriButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         closeFormWrapperCiriButton.setText("Close");
+        closeFormWrapperCiriButton.setToolTipText(null);
         closeFormWrapperCiriButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeFormWrapperCiriButtonActionPerformed(evt);
@@ -418,6 +516,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         wrapperCiriPanel.add(closeFormWrapperCiriButton, gridBagConstraints);
 
         ExecutionPanel.setBackground(new java.awt.Color(248, 248, 248));
@@ -431,7 +530,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 107);
         ExecutionPanel.add(jLabel142, gridBagConstraints);
 
         SudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -448,7 +547,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 95, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExecutionPanel.add(SudoRadioButton, gridBagConstraints);
 
         DockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -470,18 +569,30 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExecutionPanel.add(DockerRadioButton, gridBagConstraints);
 
-        jLabel6.setText("threads:");
+        jLabel6.setText("Threads:");
+        jLabel6.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExecutionPanel.add(jLabel6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.weightx = 0.4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExecutionPanel.add(nThreadsTextField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 100.0;
+        ExecutionPanel.add(jLabel11, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -493,7 +604,9 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         wrapperCiriPanel.add(ExecutionPanel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         add(wrapperCiriPanel, gridBagConstraints);
         wrapperCiriPanel.getAccessibleContext().setAccessibleName("BWA alignment & CIRI prediction");
     }// </editor-fold>//GEN-END:initComponents
@@ -788,6 +901,8 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
     private javax.swing.JTextField genomePathTextField;
     private javax.swing.JRadioButton highStrigencyRadioButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel142;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
