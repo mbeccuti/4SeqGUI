@@ -43,6 +43,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         DockerRadioButton = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         numThreadsTextField = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         IOFilesPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         samplesFolderTextField = new javax.swing.JTextField();
@@ -103,9 +104,8 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 95, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 75, 10, 10);
         ExecutionPanel.add(SudoRadioButton, gridBagConstraints);
 
         DockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -121,7 +121,6 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -129,16 +128,27 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
 
         jLabel5.setText("Num. threads: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExecutionPanel.add(jLabel5, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 75, 10, 10);
         ExecutionPanel.add(numThreadsTextField, gridBagConstraints);
+
+        jLabel9.setText("jLabel9");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 10.0;
+        ExecutionPanel.add(jLabel9, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -329,6 +339,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.weighty = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         starPredictionPanel.add(executeFormCircRNAStarChimericButton, gridBagConstraints);
 
@@ -346,7 +357,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         starPredictionPanel.add(resetFormCircRNAStarChimericButton, gridBagConstraints);
 
-        starchipCircleParametersPanel.setBackground(new java.awt.Color(255, 255, 255));
+        starchipCircleParametersPanel.setBackground(new java.awt.Color(248, 248, 248));
         starchipCircleParametersPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         starchipCircleParametersPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -411,6 +422,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         starchipCircleParametersPanel.add(jLabel7, gridBagConstraints);
 
+        doSpliceCheckBox.setBackground(new java.awt.Color(248, 248, 248));
         doSpliceCheckBox.setText("do.splice");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -420,6 +432,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         starchipCircleParametersPanel.add(doSpliceCheckBox, gridBagConstraints);
 
+        annotationCheckBox.setBackground(new java.awt.Color(248, 248, 248));
         annotationCheckBox.setText("annotation");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -700,6 +713,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField minSubjLimitTextField;
     private javax.swing.JTextField numThreadsTextField;
     private javax.swing.JTextField readsCutoffTextField;

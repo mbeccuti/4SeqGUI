@@ -122,6 +122,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(circrnaDataTextField, gridBagConstraints);
 
+        buttonAssembly_hg19.setBackground(new java.awt.Color(248, 248, 248));
         assemblyVersionGroupButton.add(buttonAssembly_hg19);
         buttonAssembly_hg19.setSelected(true);
         buttonAssembly_hg19.setText("hg19");
@@ -131,6 +132,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg19, gridBagConstraints);
 
+        buttonAssembly_hg18.setBackground(new java.awt.Color(248, 248, 248));
         assemblyVersionGroupButton.add(buttonAssembly_hg18);
         buttonAssembly_hg18.setText("hg18");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -139,6 +141,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg18, gridBagConstraints);
 
+        buttonAssembly_hg38.setBackground(new java.awt.Color(248, 248, 248));
         assemblyVersionGroupButton.add(buttonAssembly_hg38);
         buttonAssembly_hg38.setText("hg38");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -213,6 +216,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         AnnotationSourcesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         AnnotationSourcesPanel.setLayout(new java.awt.GridBagLayout());
 
+        circbaseCheckBox.setBackground(new java.awt.Color(248, 248, 248));
         circbaseCheckBox.setText("circBase");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -222,6 +226,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(circbaseCheckBox, gridBagConstraints);
 
+        tscdCheckBox.setBackground(new java.awt.Color(248, 248, 248));
         tscdCheckBox.setText("TSCD");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -231,13 +236,14 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(tscdCheckBox, gridBagConstraints);
 
+        cscdCheckBox.setBackground(new java.awt.Color(248, 248, 248));
         cscdCheckBox.setText("CSCD");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(cscdCheckBox, gridBagConstraints);
@@ -248,8 +254,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 50);
         AnnotationSourcesPanel.add(jLabel1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -335,7 +340,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 95, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 42, 10, 10);
         ExecutionPanel.add(SudoRadioButton, gridBagConstraints);
 
         DockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
