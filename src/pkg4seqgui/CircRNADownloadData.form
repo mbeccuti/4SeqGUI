@@ -28,7 +28,7 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Download Exon &amp; Isoform Data">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                <EmptyBorder/>
+                <EmptyBorder bottom="1" left="1" right="1" top="30"/>
               </Border>
               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
               <Color PropertyName="color" blue="83" green="7e" red="1b" type="rgb"/>

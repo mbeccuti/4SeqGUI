@@ -61,7 +61,7 @@ public class CircRNADownloadData extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        DownloadDataPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Download Exon & Isoform Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(27, 126, 131))); // NOI18N
+        DownloadDataPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Download Exon & Isoform Data", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(27, 126, 131))); // NOI18N
         DownloadDataPanel.setLayout(new java.awt.GridBagLayout());
 
         AssemblyPanel.setBackground(new java.awt.Color(248, 248, 248));
