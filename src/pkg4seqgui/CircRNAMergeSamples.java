@@ -38,8 +38,6 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
      */
     public CircRNAMergeSamples() {
         initComponents();
-        
-        clearSamplesGroupsTable();
     }
 
     /**
@@ -86,7 +84,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        CircRNAMergePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "Merge CIRI2 output files", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(58, 140, 44))); // NOI18N
+        CircRNAMergePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Merge CIRI2 output files", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(58, 140, 44))); // NOI18N
         CircRNAMergePanel.setLayout(new java.awt.GridBagLayout());
 
         ExecutionPanel.setBackground(new java.awt.Color(248, 248, 248));
@@ -154,10 +152,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
 
         samplesGroupsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Sample", "Group", "Replicate"
@@ -178,6 +173,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        samplesGroupsTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(samplesGroupsTable);
 
         gridBagConstraints = new java.awt.GridBagConstraints();

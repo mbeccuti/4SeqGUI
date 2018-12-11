@@ -74,7 +74,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         setLayout(new java.awt.GridBagLayout());
 
-        starPredictionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "STARChip CircRNA Prediction", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(4, 235, 164))); // NOI18N
+        starPredictionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "STARChip CircRNA Prediction", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(4, 235, 164))); // NOI18N
         starPredictionPanel.setLayout(new java.awt.GridBagLayout());
 
         ExecutionPanel.setBackground(new java.awt.Color(248, 248, 248));

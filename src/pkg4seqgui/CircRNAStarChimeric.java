@@ -68,7 +68,7 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         setLayout(new java.awt.GridBagLayout());
 
-        StarChimericPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "STAR Chimeric Alignment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(159, 162, 34))); // NOI18N
+        StarChimericPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "STAR Chimeric Alignment", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(159, 162, 34))); // NOI18N
         StarChimericPanel.setLayout(new java.awt.GridBagLayout());
 
         ExecutionPanel.setBackground(new java.awt.Color(248, 248, 248));

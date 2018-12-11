@@ -69,7 +69,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        AnnotationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "CircRNA annotation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(105, 64, 226))); // NOI18N
+        AnnotationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "CircRNA annotation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(105, 64, 226))); // NOI18N
         AnnotationPanel.setLayout(new java.awt.GridBagLayout());
 
         DataPanel.setBackground(new java.awt.Color(248, 248, 248));
@@ -92,7 +92,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -106,7 +106,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -114,9 +114,9 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
 
         circrnaDataTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -126,7 +126,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         buttonAssembly_hg19.setSelected(true);
         buttonAssembly_hg19.setText("hg19");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg19, gridBagConstraints);
@@ -134,7 +134,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         assemblyVersionGroupButton.add(buttonAssembly_hg18);
         buttonAssembly_hg18.setText("hg18");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg18, gridBagConstraints);
@@ -142,7 +142,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         assemblyVersionGroupButton.add(buttonAssembly_hg38);
         buttonAssembly_hg38.setText("hg38");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg38, gridBagConstraints);
@@ -166,9 +166,9 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
 
         scratchFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -182,7 +182,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(browseScratchFolderButton1, gridBagConstraints);
@@ -195,7 +195,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(cancelScratchFolderButton1, gridBagConstraints);
@@ -237,6 +237,8 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(cscdCheckBox, gridBagConstraints);
 
@@ -246,6 +248,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(jLabel1, gridBagConstraints);
 
@@ -254,7 +257,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationPanel.add(AnnotationSourcesPanel, gridBagConstraints);
 
@@ -386,7 +389,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
         }
 
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
             File f = openDir.getSelectedFile();

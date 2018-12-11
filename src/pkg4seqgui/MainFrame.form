@@ -3295,7 +3295,7 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="StarchipCircleButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="STARchip Circle"/>
+                                    <Property name="text" type="java.lang.String" value="STARChip Circle"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
