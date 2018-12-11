@@ -77,7 +77,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        QuantificationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "CircRNA quantification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(194, 16, 29))); // NOI18N
+        QuantificationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "CircRNA quantification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(194, 16, 29))); // NOI18N
         QuantificationPanel.setLayout(new java.awt.GridBagLayout());
 
         PostCiriDataPanel.setBackground(new java.awt.Color(248, 248, 248));
@@ -509,7 +509,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
             openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
         }
 
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
             File f = openDir.getSelectedFile();
@@ -535,7 +535,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
             openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
         }
 
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
             File f = openDir.getSelectedFile();
@@ -561,7 +561,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
             openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
         }
 
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
             File f = openDir.getSelectedFile();

@@ -70,7 +70,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("")));
         setLayout(new java.awt.GridBagLayout());
 
-        PPCircRNAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "CircRNA classification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(16, 107, 233))); // NOI18N
+        PPCircRNAPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "CircRNA classification", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(16, 107, 233))); // NOI18N
         PPCircRNAPanel.setMinimumSize(new java.awt.Dimension(417, 291));
         PPCircRNAPanel.setPreferredSize(new java.awt.Dimension(417, 291));
         PPCircRNAPanel.setLayout(new java.awt.GridBagLayout());

@@ -26,7 +26,7 @@
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="CircRNA quantification">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
-                <EmptyBorder/>
+                <EmptyBorder bottom="1" left="1" right="1" top="30"/>
               </Border>
               <Font PropertyName="font" name="Dialog" size="14" style="1"/>
               <Color PropertyName="color" blue="1d" green="10" red="c2" type="rgb"/>
