@@ -101,6 +101,25 @@ import static pkg4seqgui.PCAPanel.pComponent2Text;
 public class MainFrame extends javax.swing.JFrame {
 
     
+    private void randomMethodThatDoesRandomStuff() {
+  //      ArrayList<String> stuff[] = {"circrna", "singlecell", "mirna"};
+        ArrayList<String> stuff = new ArrayList<>(); 
+        stuff.add("circrna"); 
+        stuff.add("singlecell"); 
+        stuff.add("mirna"); 
+        
+        
+        if (stuff.contains("tools")) 
+            ; 
+        if (stuff.contains("chipseq"))
+            ;
+        if (stuff.contains("circrna"))
+            jTabbedPane1.remove(CircRNAPanel);
+        if (stuff.contains("singlecell"))
+            ;
+        if (stuff.contains("mirna")); 
+    }
+    
     /**
      * Creates new form MainFrame
      */
@@ -108,6 +127,10 @@ public class MainFrame extends javax.swing.JFrame {
         
  
         initComponents();
+        
+        randomMethodThatDoesRandomStuff();
+        
+        
         java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/dna.png");
         ImageIcon image = new ImageIcon(imgURL);
         
