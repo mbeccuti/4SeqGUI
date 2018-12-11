@@ -224,6 +224,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="buttonAssembly_hg19">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                </Property>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="assemblyVersion"/>
                 </Property>
@@ -238,6 +241,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="buttonAssembly_hg18">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                </Property>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="assemblyVersion"/>
                 </Property>
@@ -251,6 +257,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="buttonAssembly_hg38">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                </Property>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="assemblyVersion"/>
                 </Property>
@@ -427,7 +436,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="2" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="95" insetsBottom="10" insetsRight="10" anchor="512" weightX="0.0" weightY="0.0"/>
+                  <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="2" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="42" insetsBottom="10" insetsRight="10" anchor="512" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>

@@ -6,6 +6,7 @@
 package pkg4seqgui;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -38,6 +39,10 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
      */
     public CircRNAMergeSamples() {
         initComponents();
+        Dimension d=new Dimension(40,60);
+        samplesGroupsTable.setPreferredSize(d);
+                //setPreferredSize( 40, 60 );
+        //.setSize(d);
     }
 
     /**
@@ -115,7 +120,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 95, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 45, 10, 10);
         ExecutionPanel.add(SudoRadioButton, gridBagConstraints);
 
         DockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -150,6 +155,8 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         SamplesPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         SamplesPanel.setLayout(new java.awt.GridBagLayout());
 
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(253, 403));
+
         samplesGroupsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -178,9 +185,10 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SamplesPanel.add(jScrollPane1, gridBagConstraints);
 
@@ -318,6 +326,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CircRNAMergePanel.add(SamplesPanel, gridBagConstraints);
 
@@ -425,6 +434,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CircRNAMergePanel.add(FilterCircRNAsPanel, gridBagConstraints);
 

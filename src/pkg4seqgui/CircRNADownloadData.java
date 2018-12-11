@@ -233,7 +233,7 @@ public class CircRNADownloadData extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 95, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 64, 10, 10);
         ExecutionPanel.add(SudoRadioButton, gridBagConstraints);
 
         DockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

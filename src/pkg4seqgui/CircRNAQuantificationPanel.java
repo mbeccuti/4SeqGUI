@@ -95,7 +95,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         jLabel2.setText("BS-Junctions data:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(jLabel2, gridBagConstraints);
@@ -103,7 +103,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         jLabel3.setText("Dati circRNA:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -115,15 +115,17 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(rnaseqDataTextField, gridBagConstraints);
 
         bsjunctionsDataTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(bsjunctionsDataTextField, gridBagConstraints);
 
@@ -165,7 +167,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(browseBSJunctionsDataButton, gridBagConstraints);
@@ -179,7 +181,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(cancelBSJunctionsDataButton, gridBagConstraints);
@@ -193,7 +195,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(browseCircrnaDataButton, gridBagConstraints);
@@ -207,23 +209,25 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(cancelCircrnaDataButton, gridBagConstraints);
+
+        circrnaDataTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weightx = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(circrnaDataTextField, gridBagConstraints);
 
         jLabel10.setText("Scratch folder:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -232,10 +236,10 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         scratchFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.weightx = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(scratchFolderTextField, gridBagConstraints);
 
@@ -248,7 +252,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(browseScratchFolderButton2, gridBagConstraints);
@@ -262,7 +266,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(cancelScratchFolderButton1, gridBagConstraints);
@@ -455,7 +459,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 95, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 60, 10, 10);
         ExecutionPanel.add(SudoRadioButton, gridBagConstraints);
 
         DockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
