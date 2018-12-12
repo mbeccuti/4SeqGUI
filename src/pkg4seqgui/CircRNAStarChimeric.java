@@ -160,7 +160,7 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.weighty = 2.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         StarChimericPanel.add(closeFormCircRNAStarChimericButton, gridBagConstraints);
 
@@ -356,7 +356,7 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 45);
         jPanel1.add(jLabel3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
