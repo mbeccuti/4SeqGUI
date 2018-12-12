@@ -37,6 +37,7 @@ import java.util.prefs.Preferences;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JCheckBox;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
@@ -102,16 +103,37 @@ import static pkg4seqgui.PCAPanel.pComponent2Text;
  */
 public class MainFrame extends javax.swing.JFrame {
 
+    private ArrayList<JPanel> tabsPanels; 
     
-    private void initializeLeftPanelTabs() {        
-        Component[] comps = jTabbedPane1.getComponents();
+    private void initializeLeftPanelTabs() {           
+        //remember all panels 
+        tabsPanels = new ArrayList<>(); 
         
-        for (Component comp: comps) {
+        for (Component comp: jTabbedPane1.getComponents()) {
+            tabsPanels.add((JPanel) comp); 
+            
             String varname = String.format("4SeqGUI_EnableTab%s", comp.getName());
             String varvalue = getPreferences().get(varname, "true");
 
-            if (varvalue.equals("false"))
+            if (varvalue.equals("false")) 
                 jTabbedPane1.remove(comp);
+        }
+    }
+    
+    private void visualizeTabs() {
+        //remove all tabs, then re-add them
+        for (Component comp: jTabbedPane1.getComponents()) 
+            jTabbedPane1.remove(comp); 
+       
+        for (JPanel tab: tabsPanels) {
+            System.out.println(tab.getName());
+            
+            String varname = String.format("4SeqGUI_EnableTab%s", tab.getName());
+            
+            if (getPreferences().get(varname, "true").equals("true")) {
+                jTabbedPane1.add(tab);
+            }
+            
         }
     }
     
@@ -4707,6 +4729,9 @@ public class MainFrame extends javax.swing.JFrame {
         if (deleteContainersChecker.isSelected()) {
             //do stuff using disabledTabs values
         }
+        
+       // visualizeTabs();
+        ConfigureTabsFrame.setVisible(false);
     }//GEN-LAST:event_confermConfigureTabButtonActionPerformed
 
     private void closeConfigureTabButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeConfigureTabButtonActionPerformed
