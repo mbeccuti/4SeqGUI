@@ -2833,6 +2833,9 @@
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                               <JTabbedPaneConstraints tabName="Single Cell">
                                 <Property name="tabTitle" type="java.lang.String" value="Single Cell"/>
+                                <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/SingleCell.jpg"/>
+                                </Property>
                               </JTabbedPaneConstraints>
                             </Constraint>
                           </Constraints>
@@ -2860,6 +2863,9 @@
                               <SubComponents>
                                 <Component class="javax.swing.JButton" name="SC_IndropIndexButton">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/indrop_counts.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Indrop Index  "/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
@@ -2877,6 +2883,9 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_IndropCountsButton">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/indrop_counts.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Indrop Counts  "/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
@@ -2894,7 +2903,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_CellRangerCountButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Cell Ranger Count  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/cellranger_count.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="10XGenomics Counts generation"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -2949,7 +2961,10 @@
                               <SubComponents>
                                 <Component class="javax.swing.JButton" name="SC_CCRemoveButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="CC Remove  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/ccremove.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Cell cycle normalization"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -2966,7 +2981,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_ScannoByGtfButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="ScannoByGtf  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/ScannoByGTF.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Annotation and Ribo/Mito filtering"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -2983,7 +3001,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_UmiNormButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="UmiNorm  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/count_depth.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Normalizing samples"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3000,7 +3021,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_GenesUmiButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Genes Umi  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/gene_UMI.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Genes vs counts"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3017,6 +3041,9 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_FilterZerosButton">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/filter_zero.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Filter Zeros  "/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
@@ -3034,7 +3061,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_RecatPredictionButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Recat Prediction  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/ccremove.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Cell cycle estimation"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3051,7 +3081,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_SCNormButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="ScNorm  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/count_depth.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Normalizing sequencing depth"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3068,7 +3101,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_TopXButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="topX  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/topX.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Select by expression"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3085,7 +3121,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_CountDepthButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Count Depth  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/count_depth.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Estimating sequencing depth"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3102,6 +3141,9 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_LorenzFilterButton">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/lorenz_filter.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Lorenz Filter  "/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
@@ -3119,7 +3161,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_Counts2LogButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Counts2Log  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/log.jpg"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Counts to log counts"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3174,7 +3219,10 @@
                               <SubComponents>
                                 <Component class="javax.swing.JButton" name="SC_BootstrapVideoButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Boostrap Video  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/Bootstrap Video.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Perturbation effects video"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3191,7 +3239,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_SimlrBootstrapButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="SimlrBootstrap  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/clusteringNgriph.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Clustering with SIMLR"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3208,7 +3259,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_SeuratBootstrapButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Seurat Bootstrap  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/Seurat Bootstrap.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Clustering with Seurat"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3225,7 +3279,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_ClusteringNgriphButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="ClusteringNgriph  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/clusteringNgriph.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Defining the number of clusters for SIMLR"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3242,7 +3299,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_SeuratPCAEvalButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Seurat PCA Eval  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/gene_UMI.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Estimating PCA range for Seurat"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3259,7 +3319,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_TsneBootstrap">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Tsne Bootstrap  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/clusteringNgriph.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Clustering with tSne"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3314,6 +3377,9 @@
                               <SubComponents>
                                 <Component class="javax.swing.JButton" name="SC_GenesSelectionSIMLRButton">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/Deseq2.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Genes Selection SIMLR  "/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
@@ -3331,7 +3397,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_HFCButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="HFC  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/heatmap.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Clusters heatmap"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3348,6 +3417,9 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_AnovaLikeButton">
                                   <Properties>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/anlovalike.png"/>
+                                    </Property>
                                     <Property name="text" type="java.lang.String" value="Anova Like  "/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
@@ -3365,7 +3437,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_SeuratPriorButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Seurat Prior  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/Deseq2.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Gene prioritization with Seurat"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3382,7 +3457,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_ClustersFeaturesButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Clusters Features  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/size.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Assigning labels to clusters"/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3399,7 +3477,10 @@
                                 </Component>
                                 <Component class="javax.swing.JButton" name="SC_GenesPrioritizSIMLRButton">
                                   <Properties>
-                                    <Property name="text" type="java.lang.String" value="Genes Prioritization SIMLR  "/>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/Deseq2.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Genes Prioritization with SIMLR  "/>
                                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                       <Border info="null"/>
                                     </Property>
@@ -3459,7 +3540,7 @@
                                 </DimensionLayout>
                                 <DimensionLayout dim="1">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="521" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="294" max="32767" attributes="0"/>
                                   </Group>
                                 </DimensionLayout>
                               </Layout>
