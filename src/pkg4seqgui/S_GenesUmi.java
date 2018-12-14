@@ -13,6 +13,7 @@ import java.util.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import static pkg4seqgui.MainFrame.getPreferences;
 /**
  *
  * @author user
@@ -43,14 +44,26 @@ public class S_GenesUmi extends javax.swing.JPanel {
         jButton41 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
         jLabel120 = new javax.swing.JLabel();
-        S_Threshold = new javax.swing.JTextField();
+        S_umiXgene = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         S_separator = new javax.swing.JComboBox<>();
         jButton29 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         S_countTable = new javax.swing.JTextField();
+        jLabel111 = new javax.swing.JLabel();
+        sScratchFolder = new javax.swing.JTextField();
+        jToggleButton34 = new javax.swing.JToggleButton();
+        jToggleButton35 = new javax.swing.JToggleButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel121 = new javax.swing.JLabel();
+        S_gtfname = new javax.swing.JTextField();
+        jLabel122 = new javax.swing.JLabel();
+        S_biotype = new javax.swing.JTextField();
+        jPanel31 = new javax.swing.JPanel();
+        jLabel113 = new javax.swing.JLabel();
+        cSudoRadioButton = new javax.swing.JRadioButton();
+        cDockerRadioButton = new javax.swing.JRadioButton();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -136,22 +149,22 @@ public class S_GenesUmi extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         jPanel30.add(jLabel120, gridBagConstraints);
 
-        S_Threshold.setText("0");
-        S_Threshold.setToolTipText(null);
-        S_Threshold.addFocusListener(new java.awt.event.FocusAdapter() {
+        S_umiXgene.setText("0");
+        S_umiXgene.setToolTipText(null);
+        S_umiXgene.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                S_ThresholdFocusLost(evt);
+                S_umiXgeneFocusLost(evt);
             }
         });
-        S_Threshold.addActionListener(new java.awt.event.ActionListener() {
+        S_umiXgene.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_ThresholdActionPerformed(evt);
+                S_umiXgeneActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
-        jPanel30.add(S_Threshold, gridBagConstraints);
+        jPanel30.add(S_umiXgene, gridBagConstraints);
 
         jLabel2.setText("Matrix Count");
         jPanel30.add(jLabel2, new java.awt.GridBagConstraints());
@@ -208,6 +221,58 @@ public class S_GenesUmi extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 48, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
+        jLabel111.setText("Scratch folder:");
+        jLabel111.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel111, gridBagConstraints);
+
+        sScratchFolder.setEditable(false);
+        sScratchFolder.setToolTipText("This folder will be mounted in the docker container.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        jPanel30.add(sScratchFolder, gridBagConstraints);
+
+        jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton34.setText("Browse");
+        jToggleButton34.setToolTipText(null);
+        jToggleButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton34ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jToggleButton34, gridBagConstraints);
+
+        jToggleButton35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton35.setText("Cancel");
+        jToggleButton35.setToolTipText(null);
+        jToggleButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton35ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jToggleButton35, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -220,6 +285,56 @@ public class S_GenesUmi extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(248, 248, 248));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel121.setText("gtf.name");
+        jLabel121.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        jPanel1.add(jLabel121, gridBagConstraints);
+
+        S_gtfname.setToolTipText(null);
+        S_gtfname.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                S_gtfnameFocusLost(evt);
+            }
+        });
+        S_gtfname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_gtfnameActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(S_gtfname, gridBagConstraints);
+
+        jLabel122.setText("bio type");
+        jLabel122.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 3;
+        jPanel1.add(jLabel122, gridBagConstraints);
+
+        S_biotype.setText("protein_coding");
+        S_biotype.setToolTipText(null);
+        S_biotype.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                S_biotypeFocusLost(evt);
+            }
+        });
+        S_biotype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_biotypeActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel1.add(S_biotype, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -228,6 +343,58 @@ public class S_GenesUmi extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         S_GenesUmiPanel.add(jPanel1, gridBagConstraints);
+
+        jPanel31.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel31.setToolTipText(null);
+        jPanel31.setLayout(new java.awt.GridBagLayout());
+
+        jLabel113.setText("Execution:");
+        jLabel113.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel31.add(jLabel113, gridBagConstraints);
+
+        cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        cSudoRadioButton.setText("sudo");
+        cSudoRadioButton.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        jPanel31.add(cSudoRadioButton, gridBagConstraints);
+
+        cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        cDockerRadioButton.setSelected(true);
+        cDockerRadioButton.setText("docker");
+        cDockerRadioButton.setToolTipText(null);
+        cDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cDockerRadioButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel31.add(cDockerRadioButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        S_GenesUmiPanel.add(jPanel31, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -258,9 +425,20 @@ public class S_GenesUmi extends javax.swing.JPanel {
         try{
             String[] cmd = {"/bin/bash","-c"," bash ./execGenesUmi.sh "};
 
+           if (cSudoRadioButton.isSelected()){
+                cmd[2]+= "group=\\\"sudo\\\"";
+            }
+            else{
+                cmd[2]+= "group=\\\"docker\\\"";
+            }
+            cmd[2]+=" scratch.folder=\\\""+sScratchFolder.getText()+"\\\"";
             cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" umiXgene=\\\""+S_Threshold.getText()+"\\\"";
-            cmd[2]+=" sep=\\\""+S_separator.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" separator=\\\""+S_separator.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" gtf.name=\\\""+S_gtfname.getText()+"\\\"";
+            cmd[2]+=" bio.type=\\\""+S_biotype.getText()+"\\\"";
+            cmd[2]+=" umiXgene=\\\""+S_umiXgene.getText()+"\\\"";
+        
+
 
             Path p = Paths.get(S_countTable.getText());
             Path folder = p.getParent();
@@ -313,13 +491,13 @@ public class S_GenesUmi extends javax.swing.JPanel {
         //saveAsMenuItemActionPerformed(evt);
     }//GEN-LAST:event_jButton41ActionPerformed
 
-    private void S_ThresholdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_ThresholdFocusLost
+    private void S_umiXgeneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_umiXgeneFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_ThresholdFocusLost
+    }//GEN-LAST:event_S_umiXgeneFocusLost
 
-    private void S_ThresholdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_ThresholdActionPerformed
+    private void S_umiXgeneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_umiXgeneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_ThresholdActionPerformed
+    }//GEN-LAST:event_S_umiXgeneActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
         Path p = Paths.get(S_countTable.getText());
@@ -352,22 +530,78 @@ public class S_GenesUmi extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_S_countTableActionPerformed
 
+    private void jToggleButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton34ActionPerformed
+        JFileChooser openDir = new JFileChooser();
+        if (!(sScratchFolder.getText().equals(""))){
+            File file =new File(sScratchFolder.getText());
+            if (file.isDirectory())
+            openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            sScratchFolder.setText(String.valueOf(f));
+        }
+        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jToggleButton34ActionPerformed
+
+    private void jToggleButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton35ActionPerformed
+        sScratchFolder.setText("");
+    }//GEN-LAST:event_jToggleButton35ActionPerformed
+
+    private void cDockerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDockerRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cDockerRadioButtonActionPerformed
+
+    private void S_gtfnameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_gtfnameFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_gtfnameFocusLost
+
+    private void S_gtfnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_gtfnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_gtfnameActionPerformed
+
+    private void S_biotypeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_biotypeFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_biotypeFocusLost
+
+    private void S_biotypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_biotypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_biotypeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel S_GenesUmiPanel;
-    public static javax.swing.JTextField S_Threshold;
+    public static javax.swing.JTextField S_biotype;
     private javax.swing.JTextField S_countTable;
+    public static javax.swing.JTextField S_gtfname;
     private javax.swing.JComboBox<String> S_separator;
+    public static javax.swing.JTextField S_umiXgene;
+    private javax.swing.JRadioButton cDockerRadioButton;
+    private javax.swing.JRadioButton cSudoRadioButton;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JToggleButton jToggleButton34;
+    private javax.swing.JToggleButton jToggleButton35;
+    private javax.swing.JTextField sScratchFolder;
     private javax.swing.JButton vCloseButton5;
     // End of variables declaration//GEN-END:variables
 }

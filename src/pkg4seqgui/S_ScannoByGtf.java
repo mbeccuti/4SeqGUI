@@ -61,6 +61,14 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         jLabel122 = new javax.swing.JLabel();
         S_biotype = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        jLabel123 = new javax.swing.JLabel();
+        S_R1 = new javax.swing.JTextField();
+        jLabel124 = new javax.swing.JLabel();
+        S_R2 = new javax.swing.JTextField();
+        jLabel125 = new javax.swing.JLabel();
+        S_R3 = new javax.swing.JTextField();
+        jLabel126 = new javax.swing.JLabel();
+        S_R4 = new javax.swing.JTextField();
         jPanel31 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
         cSudoRadioButton = new javax.swing.JRadioButton();
@@ -299,6 +307,107 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(248, 248, 248));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jLabel123.setText("Ribosomal Percentage Start");
+        jLabel123.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        jPanel2.add(jLabel123, gridBagConstraints);
+
+        S_R1.setText("20");
+        S_R1.setToolTipText(null);
+        S_R1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                S_R1FocusLost(evt);
+            }
+        });
+        S_R1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_R1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(S_R1, gridBagConstraints);
+
+        jLabel124.setText("Ribosomal Percentage End");
+        jLabel124.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        jPanel2.add(jLabel124, gridBagConstraints);
+
+        S_R2.setText("70");
+        S_R2.setToolTipText(null);
+        S_R2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                S_R2FocusLost(evt);
+            }
+        });
+        S_R2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_R2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(S_R2, gridBagConstraints);
+
+        jLabel125.setText("Mitochondrial Percentage Start");
+        jLabel125.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        jPanel2.add(jLabel125, gridBagConstraints);
+
+        S_R3.setText("1");
+        S_R3.setToolTipText(null);
+        S_R3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                S_R3FocusLost(evt);
+            }
+        });
+        S_R3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_R3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(S_R3, gridBagConstraints);
+
+        jLabel126.setText("Mitochondrial Percentage End");
+        jLabel126.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        jPanel2.add(jLabel126, gridBagConstraints);
+
+        S_R4.setText("100");
+        S_R4.setToolTipText(null);
+        S_R4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                S_R4FocusLost(evt);
+            }
+        });
+        S_R4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_R4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel2.add(S_R4, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -412,6 +521,10 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
             cmd[2]+=" umiXgene=\\\""+S_umiXgene.getText()+"\\\"";
             cmd[2]+=" ribo.proteins=\\\""+S_ribo.getSelectedItem().toString()+"\\\"";
             cmd[2]+=" mt=\\\""+S_MT.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" R1=\\\""+S_R1.getText()+"\\\"";
+            cmd[2]+=" R2=\\\""+S_R2.getText()+"\\\"";
+            cmd[2]+=" R3=\\\""+S_R3.getText()+"\\\"";
+            cmd[2]+=" R4=\\\""+S_R4.getText()+"\\\"";
 
             Path p = Paths.get(S_countTable.getText());
             Path folder = p.getParent();
@@ -523,11 +636,47 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_S_biotypeActionPerformed
 
+    private void S_R1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R1FocusLost
+
+    private void S_R1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R1ActionPerformed
+
+    private void S_R2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R2FocusLost
+
+    private void S_R2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R2ActionPerformed
+
+    private void S_R3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R3FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R3FocusLost
+
+    private void S_R3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R3ActionPerformed
+
+    private void S_R4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R4FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R4FocusLost
+
+    private void S_R4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel S_LorenzFilterPanel;
     private javax.swing.JButton S_LorenzFilter_jButton39;
     private javax.swing.JComboBox<String> S_MT;
+    public static javax.swing.JTextField S_R1;
+    public static javax.swing.JTextField S_R2;
+    public static javax.swing.JTextField S_R3;
+    public static javax.swing.JTextField S_R4;
     public static javax.swing.JTextField S_biotype;
     private javax.swing.JTextField S_countTable;
     public static javax.swing.JTextField S_gtfname;
@@ -543,6 +692,10 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

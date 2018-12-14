@@ -15,7 +15,7 @@ if(length(args)==0){
 }
 
 library(rCASC)
-if(sep=="TAB"){
+if(separator=="TAB"){
 separator="\t"
 }else{separator=","}
 cat(separator)
@@ -24,5 +24,5 @@ cat(umiXgene)
 cat("\n")
 cat(file)
 
-genesUmi(file=file, umiXgene=as.numeric(umiXgene), sep=separator)
+mitoRiboUmi(group=group,scratch.folder=scratch.folder,file=file,separator=separator,gtf.name=gtf.name,bio.type=bio.type,umiXgene=as.numeric(umiXgene))
 

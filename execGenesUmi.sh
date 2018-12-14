@@ -1,10 +1,17 @@
 #!/bin/sh
 
+group=$1
+scratchfolder=$2
+ file=$3
+separator=$4
+gtf=$5
+biotype=$6
+umiXgenes=$7
 
- file=$1
-umiXgenes=$2
-separator=$3
-output=${4}
+
+
+
+output=${8}
 path=${PWD}                   
 
 
@@ -17,6 +24,10 @@ echo
 echo "file:        $file"
 echo "umiXgenes:	$umiXgenes"
 echo "separator:	$separator"
+echo "group:	$group"
+echo "scratch folder:	$scratchfolder"
+echo "gtf:	$gtf"
+echo "biotype:	$biotype"
 echo 
 echo "======================================================="
 
@@ -27,7 +38,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   $file $umiXgenes $separator' ./Rscripts/genesUmi.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args  $group $scratchfolder $file $separator $gtf $biotype $umiXgenes' ./Rscripts/genesUmi.R  $output/Routput.Rout"
 
 echo "$args"
 
