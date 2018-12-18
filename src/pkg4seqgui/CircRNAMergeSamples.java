@@ -24,6 +24,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     
     private class TableEntry {
         public final String sample; 
+//        public final String path; 
         public final int group; 
         public final int replicate; 
         
@@ -39,8 +40,8 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
      */
     public CircRNAMergeSamples() {
         initComponents();
-        Dimension d=new Dimension(40,60);
-        samplesGroupsTable.setPreferredSize(d);
+     //   Dimension d=new Dimension(40,60);
+   //     samplesGroupsTable.setPreferredSize(d);
                 //setPreferredSize( 40, 60 );
         //.setSize(d);
     }
@@ -162,14 +163,14 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Sample", "Group", "Replicate"
+                "Path", "Sample", "Group", "Replicate"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true
+                false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -181,6 +182,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
             }
         });
         samplesGroupsTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        samplesGroupsTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(samplesGroupsTable);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -379,7 +381,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         CircRNAMergePanel.add(closeFormPostProcessingButton, gridBagConstraints);
 
         FilterCircRNAsPanel.setBackground(new java.awt.Color(248, 248, 248));
-        FilterCircRNAsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Filter parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(77, 160, 73))); // NOI18N
+        FilterCircRNAsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Filter parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(77, 160, 73))); // NOI18N
         FilterCircRNAsPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setText("min reads: ");
@@ -568,8 +570,9 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
              min_reads, min_reps, min_avg)
                 .replace("'", "\\\""); 
 
+        /*
         Path p = Paths.get(outputFolder);
-        Path folder = p.getParent();
+        Path folder = p.getParent();*/
         
         MainFrame.execCommand(this, "CircRNA merge CIRI2 files", "execCircMergeSamples.sh", command, outputFolder);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
@@ -644,8 +647,8 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         JFileChooser openDir = new JFileChooser();
 
-        if (!(outputFolderTextField.getText().equals(""))){
-            File file =new File(outputFolderTextField.getText());
+        if (!(scratchFolderTextField.getText().equals(""))){
+            File file =new File(scratchFolderTextField.getText());
             if (file.isDirectory())
             openDir.setCurrentDirectory(file);
         }
@@ -658,7 +661,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
 
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
             File f = openDir.getSelectedFile();
-            outputFolderTextField.setText(String.valueOf(f));
+            scratchFolderTextField.setText(String.valueOf(f));
         }
         MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -697,7 +700,9 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
             if (fileEntry.isDirectory()) {
                 for (final File content: fileEntry.listFiles()) {
                     if (content.getName().endsWith(".ciri")) {
-                        model.addRow(new Object[]{content.getName(), 0, 0});
+                        String relpath = String.format("%s/%s", fileEntry.getName(), content.getName());
+                        model.addRow(new Object[]{relpath, fileEntry.getName(), 0, 0});
+//                        model.addRow(new Object[]{content.getName(), 0, 0});
                     }
                 }
             }
