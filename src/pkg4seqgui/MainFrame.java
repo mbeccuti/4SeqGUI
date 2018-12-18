@@ -145,7 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
  
         initComponents();
         
-        initializeLeftPanelTabs();
+ //       initializeLeftPanelTabs();
         
         java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/dna.png");
         ImageIcon image = new ImageIcon(imgURL);
@@ -633,6 +633,7 @@ public class MainFrame extends javax.swing.JFrame {
         SC_GenesPrioritizSIMLRButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         SubBottomPanel = new javax.swing.JPanel();
+        jScrollBar1 = new javax.swing.JScrollBar();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1394,11 +1395,13 @@ public class MainFrame extends javax.swing.JFrame {
         LeftPanel.setLayout(new java.awt.GridBagLayout());
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jScrollPane1.setViewportBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane1.setAutoscrolls(true);
-        jScrollPane1.setHorizontalScrollBar(null);
+        jScrollPane1.setHorizontalScrollBar(jScrollBar1);
 
         jTabbedPane1.setBackground(new java.awt.Color(238, 238, 238));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
         RNAseqPanel.setBackground(new java.awt.Color(255, 255, 255));
         RNAseqPanel.setName("rnaseq"); // NOI18N
@@ -2666,6 +2669,7 @@ public class MainFrame extends javax.swing.JFrame {
         SingleCellPanel.add(SubBottomPanel, gridBagConstraints);
 
         jTabbedPane1.addTab("Single Cell", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/SingleCell.jpg")), SingleCellPanel); // NOI18N
+        jTabbedPane1.addTab("tab7", jScrollBar1);
 
         jScrollPane1.setViewportView(jTabbedPane1);
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
@@ -4741,6 +4745,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void confermConfigureTabButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confermConfigureTabButtonActionPerformed
         ArrayList<String> disabledTabs = new ArrayList<String>();
         
+        //for each tab, set a variable to show/hide it 
         for (Component c: enableTabsPanel.getComponents()) {
             JCheckBox cb = (JCheckBox) c; 
             String varname = String.format("4SeqGUI_EnableTab%s", cb.getName()); 
@@ -5021,6 +5026,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

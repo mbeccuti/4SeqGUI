@@ -1830,9 +1830,14 @@
                         <EmptyBorder/>
                       </Border>
                     </Property>
+                    <Property name="viewportBorder" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                        <EmptyBorder/>
+                      </Border>
+                    </Property>
                     <Property name="autoscrolls" type="boolean" value="true"/>
-                    <Property name="horizontalScrollBar" type="javax.swing.JScrollBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                      <ComponentRef name="null"/>
+                    <Property name="horizontalScrollBar" type="javax.swing.JScrollBar" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="jScrollBar1" type="code"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1853,6 +1858,7 @@
                             <EmptyBorder bottom="0" left="0" right="0" top="0"/>
                           </Border>
                         </Property>
+                        <Property name="tabLayoutPolicy" type="int" value="1"/>
                       </Properties>
                       <AccessibilityProperties>
                         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
@@ -3547,6 +3553,15 @@
                             </Container>
                           </SubComponents>
                         </Container>
+                        <Component class="javax.swing.JScrollBar" name="jScrollBar1">
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                              <JTabbedPaneConstraints tabName="tab7">
+                                <Property name="tabTitle" type="java.lang.String" value="tab7"/>
+                              </JTabbedPaneConstraints>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
                       </SubComponents>
                     </Container>
                   </SubComponents>
