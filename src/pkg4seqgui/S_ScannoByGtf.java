@@ -39,7 +39,6 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         mExecution = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
         S_LorenzFilterPanel = new javax.swing.JPanel();
         vCloseButton5 = new javax.swing.JButton();
         S_LorenzFilter_jButton39 = new javax.swing.JButton();
@@ -75,9 +74,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        S_LorenzFilterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "ScannoByGtf", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_LorenzFilterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Annotation and Ribo/Mito filtering", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_LorenzFilterPanel.setToolTipText(null);
         S_LorenzFilterPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -135,7 +132,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("umi X gene:");
+        jLabel120.setText("UMIs X gene:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -163,7 +160,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
         jPanel30.add(S_umiXgene, gridBagConstraints);
 
-        jLabel2.setText("Matrix Count:");
+        jLabel2.setText("Counts table:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -203,7 +200,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton30, gridBagConstraints);
 
-        jLabel3.setText("Ribo Proteins:");
+        jLabel3.setText("Ribo proteins:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -233,7 +230,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
         jPanel30.add(S_MT, gridBagConstraints);
 
-        jLabel4.setText("Mt:");
+        jLabel4.setText("Mito proteins:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -268,7 +265,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
         jPanel30.add(S_gtfname, gridBagConstraints);
 
-        jLabel122.setText("Bio type:");
+        jLabel122.setText("Biotype:");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -315,7 +312,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel123, gridBagConstraints);
 
@@ -336,7 +333,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 4.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 21, 10, 10);
         jPanel2.add(S_R1, gridBagConstraints);
 
         jLabel124.setText("Ribosomal % End:");
@@ -392,7 +389,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 21, 10, 10);
         jPanel2.add(S_R3, gridBagConstraints);
 
         jLabel126.setText("Mitochondrial % End:");
@@ -490,16 +487,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        jPanel1.add(S_LorenzFilterPanel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        add(jPanel1, gridBagConstraints);
+        add(S_LorenzFilterPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
@@ -706,7 +694,6 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;

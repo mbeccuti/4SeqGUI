@@ -67,7 +67,7 @@ public class S_GenesUmi extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_GenesUmiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genes Umi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_GenesUmiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genes vs counts ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_GenesUmiPanel.setToolTipText(null);
         S_GenesUmiPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -125,7 +125,7 @@ public class S_GenesUmi extends javax.swing.JPanel {
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("Umi X gene");
+        jLabel120.setText("UMIs X gene:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -133,7 +133,7 @@ public class S_GenesUmi extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel120, gridBagConstraints);
 
-        S_umiXgene.setText("0");
+        S_umiXgene.setText("3");
         S_umiXgene.setToolTipText(null);
         S_umiXgene.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -153,7 +153,7 @@ public class S_GenesUmi extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_umiXgene, gridBagConstraints);
 
-        jLabel2.setText("Matrix Count:");
+        jLabel2.setText("Counts table:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -493,6 +493,8 @@ public class S_GenesUmi extends javax.swing.JPanel {
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
         S_countTable.setText("");
+        sScratchFolder.setText("");
+        S_umiXgene.setText("3");
     }//GEN-LAST:event_jButton40ActionPerformed
 
     private void S_umiXgeneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_umiXgeneFocusLost

@@ -38,14 +38,10 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         mExecution = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
         S_LorenzFilterPanel = new javax.swing.JPanel();
         vCloseButton5 = new javax.swing.JButton();
         S_LorenzFilter_jButton39 = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
         jLabel120 = new javax.swing.JLabel();
         S_window = new javax.swing.JTextField();
@@ -63,7 +59,6 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         sScratchFolder = new javax.swing.JTextField();
         jToggleButton34 = new javax.swing.JToggleButton();
         jToggleButton35 = new javax.swing.JToggleButton();
-        jPanel4 = new javax.swing.JPanel();
         jPanel31 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
         cSudoRadioButton = new javax.swing.JRadioButton();
@@ -71,13 +66,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        jPanel3.setLayout(new java.awt.GridBagLayout());
-
-        S_LorenzFilterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Recat Prediction", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_LorenzFilterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Cell cycle prediction by recat ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_LorenzFilterPanel.setToolTipText(null);
         S_LorenzFilterPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -91,7 +80,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -106,8 +95,8 @@ public class S_RecatPrediction extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
@@ -124,40 +113,25 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         S_LorenzFilterPanel.add(jButton40, gridBagConstraints);
-
-        jButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
-        jButton41.setText("Save conf.");
-        jButton41.setToolTipText(null);
-        jButton41.setEnabled(false);
-        jButton41.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton41ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jButton41, gridBagConstraints);
 
         jPanel30.setBackground(new java.awt.Color(248, 248, 248));
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("Window");
+        jLabel120.setText("N. of cells/point:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel120, gridBagConstraints);
 
         S_window.setText("10");
@@ -173,13 +147,20 @@ public class S_RecatPrediction extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_window, gridBagConstraints);
 
-        jLabel2.setText("Matrix Count");
-        jPanel30.add(jLabel2, new java.awt.GridBagConstraints());
+        jLabel2.setText("Counts table:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel2, gridBagConstraints);
 
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jButton29.setText("Browse");
@@ -189,7 +170,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton29, gridBagConstraints);
@@ -202,7 +183,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton30, gridBagConstraints);
@@ -216,28 +197,37 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 48, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
         S_sep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TAB", "COMMA" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_sep, gridBagConstraints);
 
-        jLabel4.setText("Sep");
+        jLabel4.setText("Sep: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel4, gridBagConstraints);
 
-        jLabel122.setText("Seed");
+        jLabel122.setText("Seed: ");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel122, gridBagConstraints);
 
         S_seed.setText("111");
@@ -253,21 +243,36 @@ public class S_RecatPrediction extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_seed, gridBagConstraints);
 
         S_geneNameControl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        S_geneNameControl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_geneNameControlActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_geneNameControl, gridBagConstraints);
 
-        jLabel5.setText("Gene Name Control");
+        jLabel5.setText("Gene name format:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel5, gridBagConstraints);
 
         jLabel111.setText("Scratch folder:");
@@ -275,7 +280,8 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel111, gridBagConstraints);
 
@@ -289,7 +295,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(sScratchFolder, gridBagConstraints);
 
         jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -331,18 +337,6 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         S_LorenzFilterPanel.add(jPanel30, gridBagConstraints);
 
-        jPanel4.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel4.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jPanel4, gridBagConstraints);
-
         jPanel31.setBackground(new java.awt.Color(248, 248, 248));
         jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel31.setToolTipText(null);
@@ -359,6 +353,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
 
         cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(cSudoRadioButton);
+        cSudoRadioButton.setSelected(true);
         cSudoRadioButton.setText("sudo");
         cSudoRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -371,7 +366,6 @@ public class S_RecatPrediction extends javax.swing.JPanel {
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(cDockerRadioButton);
-        cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
         cDockerRadioButton.setToolTipText(null);
         cDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -404,34 +398,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        jPanel3.add(S_LorenzFilterPanel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel2.add(jPanel3, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel1.add(jPanel2, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        add(jPanel1, gridBagConstraints);
+        add(S_LorenzFilterPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
@@ -512,10 +479,6 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         S_countTable.setText("");
     }//GEN-LAST:event_jButton40ActionPerformed
 
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
-        //saveAsMenuItemActionPerformed(evt);
-    }//GEN-LAST:event_jButton41ActionPerformed
-
     private void S_windowFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_windowFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_S_windowFocusLost
@@ -591,6 +554,10 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         sScratchFolder.setText("");
     }//GEN-LAST:event_jToggleButton35ActionPerformed
 
+    private void S_geneNameControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_geneNameControlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_geneNameControlActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel S_LorenzFilterPanel;
@@ -605,7 +572,6 @@ public class S_RecatPrediction extends javax.swing.JPanel {
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel120;
@@ -613,12 +579,8 @@ public class S_RecatPrediction extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JToggleButton jToggleButton34;
     private javax.swing.JToggleButton jToggleButton35;
     private javax.swing.ButtonGroup mExecution;

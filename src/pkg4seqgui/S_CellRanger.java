@@ -61,12 +61,10 @@ public class S_CellRanger extends javax.swing.JPanel {
         S_ExpectCells = new javax.swing.JTextField();
         jLabel120 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        S_NS = new javax.swing.JComboBox<>();
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_IndropCountsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Cell Ranger", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_IndropCountsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "10XGenomics Counts generation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_IndropCountsPanel.setToolTipText(null);
         S_IndropCountsPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -232,7 +230,7 @@ public class S_CellRanger extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jToggleButton35, gridBagConstraints);
 
-        jLabel112.setText("Transcriptome Folder:");
+        jLabel112.setText("Transcriptome folder:");
         jLabel112.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -350,6 +348,7 @@ public class S_CellRanger extends javax.swing.JPanel {
         jPanel32.setToolTipText(null);
         jPanel32.setLayout(new java.awt.GridBagLayout());
 
+        S_ExpectCells.setText("3000");
         S_ExpectCells.setToolTipText(null);
         S_ExpectCells.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -369,10 +368,10 @@ public class S_CellRanger extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.weighty = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 62, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         jPanel32.add(S_ExpectCells, gridBagConstraints);
 
-        jLabel120.setText("Expect cells:");
+        jLabel120.setText("Expected cells:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -387,20 +386,6 @@ public class S_CellRanger extends javax.swing.JPanel {
         gridBagConstraints.weightx = 0.5;
         gridBagConstraints.weighty = 0.5;
         jPanel32.add(jLabel1, gridBagConstraints);
-
-        jLabel2.setText("No Secondary:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel32.add(jLabel2, gridBagConstraints);
-
-        S_NS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TRUE", "FALSE" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 62, 10, 10);
-        jPanel32.add(S_NS, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -427,7 +412,7 @@ public class S_CellRanger extends javax.swing.JPanel {
         sFastQFolderText.setText("");
         sScratchFolder.setText("");
         sTranscriptomeFolder.setText("");
-        S_NS.setSelectedIndex(0);
+//        S_NS.setSelectedIndex(0);
         S_ExpectCells.setText("");
         //RESET FIELDS
         CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
@@ -456,7 +441,7 @@ public class S_CellRanger extends javax.swing.JPanel {
             cmd[2]+=" fastq.folder=\\\""+sFastQFolderText.getText()+"\\\"";
             cmd[2]+=" transcriptome.folder=\\\""+sTranscriptomeFolder.getText()+"\\\"";
             cmd[2]+=" expect.cells=\\\""+S_ExpectCells.getText()+"\\\"";
-            cmd[2]+=" nosecondary=\\\""+S_NS.getSelectedItem().toString()+"\\\"";
+//            cmd[2]+=" nosecondary=\\\""+S_NS.getSelectedItem().toString()+"\\\"";
             cmd[2]+=" "+ sFastQFolderText.getText()+" >& "+sFastQFolderText.getText()+"/outputExecution ";
 
             //ProcessStatus.setText(pr.toString());
@@ -504,8 +489,8 @@ public class S_CellRanger extends javax.swing.JPanel {
         sFastQFolderText.setText("");
         sScratchFolder.setText("");
         sTranscriptomeFolder.setText("");
-        S_NS.setSelectedIndex(0);
-        S_ExpectCells.setText("");
+//        S_NS.setSelectedIndex(0);
+        S_ExpectCells.setText("3000");
     }//GEN-LAST:event_jButton40ActionPerformed
 
     private void sFastQFolderTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sFastQFolderTextActionPerformed
@@ -600,7 +585,6 @@ public class S_CellRanger extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField S_ExpectCells;
     private javax.swing.JPanel S_IndropCountsPanel;
-    private javax.swing.JComboBox<String> S_NS;
     private javax.swing.JRadioButton cDockerRadioButton;
     private javax.swing.JRadioButton cSudoRadioButton;
     private javax.swing.JButton jButton39;
@@ -611,7 +595,6 @@ public class S_CellRanger extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel120;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;

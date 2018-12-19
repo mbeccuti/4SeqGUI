@@ -37,10 +37,7 @@ public class S_Scnorm extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         mExecution = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        S_LorenzFilterPanel = new javax.swing.JPanel();
+        S_ScnormPanel = new javax.swing.JPanel();
         vCloseButton5 = new javax.swing.JButton();
         S_LorenzFilter_jButton39 = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
@@ -70,15 +67,9 @@ public class S_Scnorm extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        jPanel3.setLayout(new java.awt.GridBagLayout());
-
-        S_LorenzFilterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Scnorm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
-        S_LorenzFilterPanel.setToolTipText(null);
-        S_LorenzFilterPanel.setLayout(new java.awt.GridBagLayout());
+        S_ScnormPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Normalizing sequencing depth by scnorm ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_ScnormPanel.setToolTipText(null);
+        S_ScnormPanel.setLayout(new java.awt.GridBagLayout());
 
         vCloseButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         vCloseButton5.setText("Close");
@@ -90,11 +81,11 @@ public class S_Scnorm extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(vCloseButton5, gridBagConstraints);
+        S_ScnormPanel.add(vCloseButton5, gridBagConstraints);
 
         S_LorenzFilter_jButton39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         S_LorenzFilter_jButton39.setText("Execute");
@@ -105,13 +96,13 @@ public class S_Scnorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(S_LorenzFilter_jButton39, gridBagConstraints);
+        S_ScnormPanel.add(S_LorenzFilter_jButton39, gridBagConstraints);
 
         jButton40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton40.setText("Reset");
@@ -123,23 +114,26 @@ public class S_Scnorm extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jButton40, gridBagConstraints);
+        S_ScnormPanel.add(jButton40, gridBagConstraints);
 
         jPanel30.setBackground(new java.awt.Color(248, 248, 248));
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("Output Name");
+        jLabel120.setText("Output Name:  ");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel120, gridBagConstraints);
 
         S_outputName.setToolTipText(null);
@@ -154,13 +148,21 @@ public class S_Scnorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_outputName, gridBagConstraints);
 
-        jLabel2.setText("Matrix Count");
-        jPanel30.add(jLabel2, new java.awt.GridBagConstraints());
+        jLabel2.setText("Counts table:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel2, gridBagConstraints);
 
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jButton29.setText("Browse");
@@ -170,7 +172,7 @@ public class S_Scnorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton29, gridBagConstraints);
@@ -183,7 +185,7 @@ public class S_Scnorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 9;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton30, gridBagConstraints);
@@ -197,28 +199,37 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 7;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 48, 10, 10);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
         S_printProgressPlot.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TRUE", "FALSE" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_printProgressPlot, gridBagConstraints);
 
-        jLabel4.setText("Print Progress Plot");
+        jLabel4.setText("Print Progress Plot:  ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel4, gridBagConstraints);
 
-        jLabel121.setText("Filter Cell num");
+        jLabel121.setText("Min non-zero cells:");
         jLabel121.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel121, gridBagConstraints);
 
         S_filterCellnum.setText("10");
@@ -234,16 +245,21 @@ public class S_Scnorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_filterCellnum, gridBagConstraints);
 
-        jLabel122.setText("Filter Expression");
+        jLabel122.setText("Med non-zero expr. threshold ");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel122, gridBagConstraints);
 
         S_filterExpression.setText("1");
@@ -259,17 +275,21 @@ public class S_Scnorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_filterExpression, gridBagConstraints);
 
-        jLabel123.setText("nCores");
+        jLabel123.setText("nCores:  ");
         jLabel123.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel123, gridBagConstraints);
 
         S_nCores.setText("8");
@@ -285,16 +305,20 @@ public class S_Scnorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 9;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 7;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_nCores, gridBagConstraints);
 
-        jLabel124.setText("Prop To use");
+        jLabel124.setText("Prop. to use:  ");
         jLabel124.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel124, gridBagConstraints);
 
         S_PropToUse.setText("0.1");
@@ -310,21 +334,28 @@ public class S_Scnorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_PropToUse, gridBagConstraints);
 
-        jLabel5.setText("Dither Counts");
+        jLabel5.setText("UMI:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel5, gridBagConstraints);
 
         S_ditherCount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TRUE", "FALSE" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_ditherCount, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -334,7 +365,7 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jPanel30, gridBagConstraints);
+        S_ScnormPanel.add(jPanel30, gridBagConstraints);
 
         jPanel31.setBackground(new java.awt.Color(248, 248, 248));
         jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -352,19 +383,18 @@ public class S_Scnorm extends javax.swing.JPanel {
 
         cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(cSudoRadioButton);
+        cSudoRadioButton.setSelected(true);
         cSudoRadioButton.setText("sudo");
         cSudoRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 118, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(cDockerRadioButton);
-        cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
         cDockerRadioButton.setToolTipText(null);
         cDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -375,7 +405,6 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -388,7 +417,7 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jPanel31, gridBagConstraints);
+        S_ScnormPanel.add(jPanel31, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -397,34 +426,7 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        jPanel3.add(S_LorenzFilterPanel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel2.add(jPanel3, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel1.add(jPanel2, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        add(jPanel1, gridBagConstraints);
+        add(S_ScnormPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
@@ -585,9 +587,9 @@ public class S_Scnorm extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel S_LorenzFilterPanel;
     private javax.swing.JButton S_LorenzFilter_jButton39;
     public static javax.swing.JTextField S_PropToUse;
+    private javax.swing.JPanel S_ScnormPanel;
     private javax.swing.JTextField S_countTable;
     private javax.swing.JComboBox<String> S_ditherCount;
     public static javax.swing.JTextField S_filterCellnum;
@@ -609,9 +611,6 @@ public class S_Scnorm extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.ButtonGroup mExecution;

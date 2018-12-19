@@ -24,7 +24,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Cell Ranger">
+            <TitledBorder title="10XGenomics Counts generation">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder bottom="1" left="1" right="1" top="30"/>
               </Border>
@@ -253,7 +253,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel112">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Transcriptome Folder:"/>
+                <Property name="text" type="java.lang.String" value="Transcriptome folder:"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="null" type="code"/>
                 </Property>
@@ -418,6 +418,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="S_ExpectCells">
               <Properties>
+                <Property name="text" type="java.lang.String" value="3000"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="null" type="code"/>
                 </Property>
@@ -431,13 +432,13 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="1" gridY="0" gridWidth="4" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="62" insetsBottom="10" insetsRight="10" anchor="512" weightX="0.2" weightY="0.2"/>
+                  <GridBagConstraints gridX="1" gridY="0" gridWidth="4" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="50" insetsBottom="10" insetsRight="10" anchor="512" weightX="0.2" weightY="0.2"/>
                 </Constraint>
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel120">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Expect cells:"/>
+                <Property name="text" type="java.lang.String" value="Expected cells:"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="null" type="code"/>
                 </Property>
@@ -452,34 +453,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
                   <GridBagConstraints gridX="13" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.5" weightY="0.5"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="No Secondary:"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="S_NS">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="TRUE"/>
-                    <StringItem index="1" value="FALSE"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                  <GridBagConstraints gridX="1" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="62" insetsBottom="10" insetsRight="10" anchor="10" weightX="0.0" weightY="0.0"/>
                 </Constraint>
               </Constraints>
             </Component>

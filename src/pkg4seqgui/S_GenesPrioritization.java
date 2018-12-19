@@ -38,14 +38,10 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         mExecution = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        S_LorenzFilterPanel = new javax.swing.JPanel();
+        S_GenesPrioritSIMLRPanel = new javax.swing.JPanel();
         vCloseButton5 = new javax.swing.JButton();
-        S_LorenzFilter_jButton39 = new javax.swing.JButton();
+        S_GenesPrioritSIMLR_jButton = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jButton29 = new javax.swing.JButton();
@@ -81,15 +77,9 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        jPanel3.setLayout(new java.awt.GridBagLayout());
-
-        S_LorenzFilterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genes Prioritization SIMLR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
-        S_LorenzFilterPanel.setToolTipText(null);
-        S_LorenzFilterPanel.setLayout(new java.awt.GridBagLayout());
+        S_GenesPrioritSIMLRPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genes Prioritization SIMLR", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_GenesPrioritSIMLRPanel.setToolTipText(null);
+        S_GenesPrioritSIMLRPanel.setLayout(new java.awt.GridBagLayout());
 
         vCloseButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         vCloseButton5.setText("Close");
@@ -101,28 +91,28 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(vCloseButton5, gridBagConstraints);
+        S_GenesPrioritSIMLRPanel.add(vCloseButton5, gridBagConstraints);
 
-        S_LorenzFilter_jButton39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
-        S_LorenzFilter_jButton39.setText("Execute");
-        S_LorenzFilter_jButton39.setToolTipText(null);
-        S_LorenzFilter_jButton39.addActionListener(new java.awt.event.ActionListener() {
+        S_GenesPrioritSIMLR_jButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        S_GenesPrioritSIMLR_jButton.setText("Execute");
+        S_GenesPrioritSIMLR_jButton.setToolTipText(null);
+        S_GenesPrioritSIMLR_jButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_LorenzFilter_jButton39ActionPerformed(evt);
+                S_GenesPrioritSIMLR_jButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(S_LorenzFilter_jButton39, gridBagConstraints);
+        S_GenesPrioritSIMLRPanel.add(S_GenesPrioritSIMLR_jButton, gridBagConstraints);
 
         jButton40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton40.setText("Reset");
@@ -134,36 +124,22 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jButton40, gridBagConstraints);
-
-        jButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
-        jButton41.setText("Save conf.");
-        jButton41.setToolTipText(null);
-        jButton41.setEnabled(false);
-        jButton41.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton41ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jButton41, gridBagConstraints);
+        S_GenesPrioritSIMLRPanel.add(jButton40, gridBagConstraints);
 
         jPanel30.setBackground(new java.awt.Color(248, 248, 248));
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setText("Matrix Count");
-        jPanel30.add(jLabel2, new java.awt.GridBagConstraints());
+        jLabel2.setText("Matrix Count:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel2, gridBagConstraints);
 
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jButton29.setText("Browse");
@@ -173,7 +149,7 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton29, gridBagConstraints);
@@ -186,7 +162,7 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton30, gridBagConstraints);
@@ -200,9 +176,10 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 48, 10, 10);
+        gridBagConstraints.weightx = 3.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
         jLabel111.setText("Scratch folder:");
@@ -210,7 +187,7 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel111, gridBagConstraints);
 
@@ -222,9 +199,9 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.weightx = 3.0;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(sScratchFolder, gridBagConstraints);
 
         jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -264,18 +241,20 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jPanel30, gridBagConstraints);
+        S_GenesPrioritSIMLRPanel.add(jPanel30, gridBagConstraints);
 
         jPanel4.setBackground(new java.awt.Color(248, 248, 248));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("permAtTime");
+        jLabel120.setText("permAtTime:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel120, gridBagConstraints);
 
         S_permAtTime.setText("8");
@@ -291,40 +270,57 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_permAtTime, gridBagConstraints);
 
         S_logTen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_logTen, gridBagConstraints);
 
-        jLabel5.setText("logTen");
+        jLabel5.setText("logTen:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel5, gridBagConstraints);
 
-        jLabel4.setText("Sep");
+        jLabel4.setText("Sep:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel4, gridBagConstraints);
 
         S_sep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TAB", "COMMA" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_sep, gridBagConstraints);
 
-        jLabel122.setText("NCluster");
+        jLabel122.setText("NCluster:");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel122, gridBagConstraints);
 
         S_nCluster.setToolTipText(null);
@@ -339,17 +335,21 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_nCluster, gridBagConstraints);
 
-        jLabel121.setText("Percent");
+        jLabel121.setText("Percent:");
         jLabel121.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel121, gridBagConstraints);
 
         S_percent.setText("10");
@@ -365,17 +365,21 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_percent, gridBagConstraints);
 
-        jLabel123.setText("nPerm");
+        jLabel123.setText("nPerm:");
         jLabel123.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel123, gridBagConstraints);
 
         S_nPerm.setText("160");
@@ -391,9 +395,11 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_nPerm, gridBagConstraints);
 
         S_sp.setText("0.8");
@@ -409,16 +415,21 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_sp, gridBagConstraints);
 
-        jLabel124.setText("Sp");
+        jLabel124.setText("Sp:");
         jLabel124.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel124, gridBagConstraints);
 
         S_seed.setText("111");
@@ -434,23 +445,31 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_seed, gridBagConstraints);
 
-        jLabel125.setText("Seed");
+        jLabel125.setText("Seed:");
         jLabel125.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel125, gridBagConstraints);
 
-        jLabel126.setText("Cluster Permutation Error");
+        jLabel126.setText("Cluster Permutation Error:");
         jLabel126.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel126, gridBagConstraints);
 
         S_clusterPermErr.setText("0.05");
@@ -466,19 +485,21 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_clusterPermErr, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jPanel4, gridBagConstraints);
+        S_GenesPrioritSIMLRPanel.add(jPanel4, gridBagConstraints);
 
         jPanel31.setBackground(new java.awt.Color(248, 248, 248));
         jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -496,6 +517,7 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
 
         cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(cSudoRadioButton);
+        cSudoRadioButton.setSelected(true);
         cSudoRadioButton.setText("sudo");
         cSudoRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -508,7 +530,6 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(cDockerRadioButton);
-        cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
         cDockerRadioButton.setToolTipText(null);
         cDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -532,7 +553,7 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jPanel31, gridBagConstraints);
+        S_GenesPrioritSIMLRPanel.add(jPanel31, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -541,34 +562,7 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        jPanel3.add(S_LorenzFilterPanel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel2.add(jPanel3, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel1.add(jPanel2, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        add(jPanel1, gridBagConstraints);
+        add(S_GenesPrioritSIMLRPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
@@ -581,7 +575,7 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
-    private void S_LorenzFilter_jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_LorenzFilter_jButton39ActionPerformed
+    private void S_GenesPrioritSIMLR_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_GenesPrioritSIMLR_jButtonActionPerformed
 
         //execute code
         Runtime rt = Runtime.getRuntime();
@@ -646,15 +640,11 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Genes Prioritization task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
 
         //execute code
-    }//GEN-LAST:event_S_LorenzFilter_jButton39ActionPerformed
+    }//GEN-LAST:event_S_GenesPrioritSIMLR_jButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
         S_countTable.setText("");
     }//GEN-LAST:event_jButton40ActionPerformed
-
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
-        //saveAsMenuItemActionPerformed(evt);
-    }//GEN-LAST:event_jButton41ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
         Path p = Paths.get(S_countTable.getText());
@@ -773,8 +763,8 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel S_LorenzFilterPanel;
-    private javax.swing.JButton S_LorenzFilter_jButton39;
+    private javax.swing.JPanel S_GenesPrioritSIMLRPanel;
+    private javax.swing.JButton S_GenesPrioritSIMLR_jButton;
     public static javax.swing.JTextField S_clusterPermErr;
     private javax.swing.JTextField S_countTable;
     private javax.swing.JComboBox<String> S_logTen;
@@ -790,7 +780,6 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel120;
@@ -803,9 +792,6 @@ public class S_GenesPrioritization extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel4;

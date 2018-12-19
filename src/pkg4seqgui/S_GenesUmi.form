@@ -20,7 +20,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Genes Umi">
+            <TitledBorder title="Genes vs counts ">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder bottom="1" left="1" right="1" top="30"/>
               </Border>
@@ -122,7 +122,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel120">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Umi X gene"/>
+                <Property name="text" type="java.lang.String" value="UMIs X gene:"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="null" type="code"/>
                 </Property>
@@ -135,7 +135,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="S_umiXgene">
               <Properties>
-                <Property name="text" type="java.lang.String" value="0"/>
+                <Property name="text" type="java.lang.String" value="3"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="null" type="code"/>
                 </Property>
@@ -155,7 +155,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Matrix Count:"/>
+                <Property name="text" type="java.lang.String" value="Counts table:"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

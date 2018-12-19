@@ -37,15 +37,10 @@ public class S_UmiNorm extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         mExecution = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         S_LorenzFilterPanel = new javax.swing.JPanel();
         vCloseButton5 = new javax.swing.JButton();
         S_LorenzFilter_jButton39 = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
         jLabel120 = new javax.swing.JLabel();
         S_outputName = new javax.swing.JTextField();
@@ -54,8 +49,7 @@ public class S_UmiNorm extends javax.swing.JPanel {
         jButton30 = new javax.swing.JButton();
         S_countTable = new javax.swing.JTextField();
         jLabel122 = new javax.swing.JLabel();
-        S_Method = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel31 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
         cSudoRadioButton = new javax.swing.JRadioButton();
@@ -63,15 +57,7 @@ public class S_UmiNorm extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        jPanel2.setLayout(new java.awt.GridBagLayout());
-
-        jPanel3.setLayout(new java.awt.GridBagLayout());
-
-        jPanel4.setLayout(new java.awt.GridBagLayout());
-
-        S_LorenzFilterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Umi Norm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_LorenzFilterPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Normalizing samples", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_LorenzFilterPanel.setToolTipText(null);
         S_LorenzFilterPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -85,7 +71,7 @@ public class S_UmiNorm extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -100,8 +86,8 @@ public class S_UmiNorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
@@ -118,40 +104,25 @@ public class S_UmiNorm extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         S_LorenzFilterPanel.add(jButton40, gridBagConstraints);
-
-        jButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
-        jButton41.setText("Save conf.");
-        jButton41.setToolTipText(null);
-        jButton41.setEnabled(false);
-        jButton41.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton41ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jButton41, gridBagConstraints);
 
         jPanel30.setBackground(new java.awt.Color(248, 248, 248));
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("Output Name");
+        jLabel120.setText("Output Name: ");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel120, gridBagConstraints);
 
         S_outputName.setToolTipText(null);
@@ -166,13 +137,19 @@ public class S_UmiNorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_outputName, gridBagConstraints);
 
-        jLabel2.setText("Matrix Count");
-        jPanel30.add(jLabel2, new java.awt.GridBagConstraints());
+        jLabel2.setText("Counts table:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel2, gridBagConstraints);
 
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jButton29.setText("Browse");
@@ -182,7 +159,7 @@ public class S_UmiNorm extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton29, gridBagConstraints);
@@ -209,34 +186,29 @@ public class S_UmiNorm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 2.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
-        jLabel122.setText("Method");
+        jLabel122.setText("Method: ");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel122, gridBagConstraints);
 
-        S_Method.setToolTipText(null);
-        S_Method.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                S_MethodFocusLost(evt);
-            }
-        });
-        S_Method.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_MethodActionPerformed(evt);
-            }
-        });
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CLR_FN", "DESEQ_FN", "FQ_FN", "SCRAN_FN", "SUM_FN", "TMM_FN", "UQ_FN" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        jPanel30.add(S_Method, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jComboBox1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -246,18 +218,6 @@ public class S_UmiNorm extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         S_LorenzFilterPanel.add(jPanel30, gridBagConstraints);
-
-        jPanel5.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel5.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jPanel5, gridBagConstraints);
 
         jPanel31.setBackground(new java.awt.Color(248, 248, 248));
         jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -280,9 +240,8 @@ public class S_UmiNorm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 28, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 55, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -298,7 +257,6 @@ public class S_UmiNorm extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -320,43 +278,7 @@ public class S_UmiNorm extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        jPanel4.add(S_LorenzFilterPanel, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel3.add(jPanel4, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel2.add(jPanel3, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        jPanel1.add(jPanel2, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
-        add(jPanel1, gridBagConstraints);
+        add(S_LorenzFilterPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
@@ -386,7 +308,7 @@ public class S_UmiNorm extends javax.swing.JPanel {
 
             cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
             cmd[2]+=" outputName=\\\""+S_outputName.getText()+"\\\"";
-            cmd[2]+=" normMethod=\\\""+S_Method.getText()+"\\\"";
+            cmd[2]+=" normMethod=\\\""+jComboBox1.getSelectedItem()+"\\\"";
 
             Path p = Paths.get(S_countTable.getText());
             Path folder = p.getParent();
@@ -433,11 +355,8 @@ public class S_UmiNorm extends javax.swing.JPanel {
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
         S_countTable.setText("");
+        jComboBox1.setSelectedItem("CLR_FN");
     }//GEN-LAST:event_jButton40ActionPerformed
-
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
-        //saveAsMenuItemActionPerformed(evt);
-    }//GEN-LAST:event_jButton41ActionPerformed
 
     private void S_outputNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_outputNameFocusLost
         // TODO add your handling code here:
@@ -478,14 +397,6 @@ public class S_UmiNorm extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_S_countTableActionPerformed
 
-    private void S_MethodFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_MethodFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_S_MethodFocusLost
-
-    private void S_MethodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_MethodActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_S_MethodActionPerformed
-
     private void cDockerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDockerRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cDockerRadioButtonActionPerformed
@@ -494,7 +405,6 @@ public class S_UmiNorm extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel S_LorenzFilterPanel;
     private javax.swing.JButton S_LorenzFilter_jButton39;
-    public static javax.swing.JTextField S_Method;
     private javax.swing.JTextField S_countTable;
     public static javax.swing.JTextField S_outputName;
     private javax.swing.JRadioButton cDockerRadioButton;
@@ -502,18 +412,13 @@ public class S_UmiNorm extends javax.swing.JPanel {
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.ButtonGroup mExecution;
     private javax.swing.JButton vCloseButton5;
     // End of variables declaration//GEN-END:variables

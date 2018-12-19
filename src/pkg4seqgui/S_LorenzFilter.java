@@ -121,7 +121,7 @@ public class S_LorenzFilter extends javax.swing.JPanel {
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("P_value:");
+        jLabel120.setText("p-value:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -149,7 +149,7 @@ public class S_LorenzFilter extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_pValue, gridBagConstraints);
 
-        jLabel2.setText("Matrix Count:");
+        jLabel2.setText("Counts table:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
