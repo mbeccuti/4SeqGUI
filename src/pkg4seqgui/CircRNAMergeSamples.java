@@ -343,7 +343,6 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
-        gridBagConstraints.weighty = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CircRNAMergePanel.add(resetFormPostProcessingButton, gridBagConstraints);
 
@@ -359,7 +358,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 3.0;
-        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CircRNAMergePanel.add(executeFormPostProcessingButton, gridBagConstraints);
 
@@ -375,13 +374,11 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
-        gridBagConstraints.weightx = 0.2;
-        gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         CircRNAMergePanel.add(closeFormPostProcessingButton, gridBagConstraints);
 
         FilterCircRNAsPanel.setBackground(new java.awt.Color(248, 248, 248));
-        FilterCircRNAsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Filter parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(77, 160, 73))); // NOI18N
+        FilterCircRNAsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Filter parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(77, 160, 73))); // NOI18N
         FilterCircRNAsPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setText("min reads: ");

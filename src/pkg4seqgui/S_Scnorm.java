@@ -44,7 +44,6 @@ public class S_Scnorm extends javax.swing.JPanel {
         vCloseButton5 = new javax.swing.JButton();
         S_LorenzFilter_jButton39 = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
-        jButton41 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
         jLabel120 = new javax.swing.JLabel();
         S_outputName = new javax.swing.JTextField();
@@ -64,7 +63,6 @@ public class S_Scnorm extends javax.swing.JPanel {
         S_PropToUse = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         S_ditherCount = new javax.swing.JComboBox<>();
-        jPanel4 = new javax.swing.JPanel();
         jPanel31 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
         cSudoRadioButton = new javax.swing.JRadioButton();
@@ -130,23 +128,6 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         S_LorenzFilterPanel.add(jButton40, gridBagConstraints);
-
-        jButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
-        jButton41.setText("Save conf.");
-        jButton41.setToolTipText(null);
-        jButton41.setEnabled(false);
-        jButton41.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton41ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jButton41, gridBagConstraints);
 
         jPanel30.setBackground(new java.awt.Color(248, 248, 248));
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -355,18 +336,6 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         S_LorenzFilterPanel.add(jPanel30, gridBagConstraints);
 
-        jPanel4.setBackground(new java.awt.Color(248, 248, 248));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel4.setLayout(new java.awt.GridBagLayout());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_LorenzFilterPanel.add(jPanel4, gridBagConstraints);
-
         jPanel31.setBackground(new java.awt.Color(248, 248, 248));
         jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel31.setToolTipText(null);
@@ -539,10 +508,6 @@ public class S_Scnorm extends javax.swing.JPanel {
         S_countTable.setText("");
     }//GEN-LAST:event_jButton40ActionPerformed
 
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
-        //saveAsMenuItemActionPerformed(evt);
-    }//GEN-LAST:event_jButton41ActionPerformed
-
     private void S_outputNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_outputNameFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_S_outputNameFocusLost
@@ -635,7 +600,6 @@ public class S_Scnorm extends javax.swing.JPanel {
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
@@ -650,7 +614,6 @@ public class S_Scnorm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.ButtonGroup mExecution;
     private javax.swing.JButton vCloseButton5;
     // End of variables declaration//GEN-END:variables

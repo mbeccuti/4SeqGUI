@@ -325,7 +325,6 @@ public class CircRNABSJunctionsPanel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
-        gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         BSJunctionPanel.add(closeFormPostProcessingButton, gridBagConstraints);
 

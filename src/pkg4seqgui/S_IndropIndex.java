@@ -40,7 +40,6 @@ public class S_IndropIndex extends javax.swing.JPanel {
         iCloseButton2 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
         iResetButton2 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
         jPanel28 = new javax.swing.JPanel();
         jLabel103 = new javax.swing.JLabel();
         S_IndropIndex_indexFolder = new javax.swing.JTextField();
@@ -59,11 +58,12 @@ public class S_IndropIndex extends javax.swing.JPanel {
         setLayout(new java.awt.GridBagLayout());
 
         S_indropIndexPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Indrop Index", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
-        S_indropIndexPanel.setToolTipText("");
+        S_indropIndexPanel.setToolTipText(null);
         S_indropIndexPanel.setLayout(new java.awt.GridBagLayout());
 
         iCloseButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         iCloseButton2.setText("Close");
+        iCloseButton2.setToolTipText(null);
         iCloseButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iCloseButton2ActionPerformed(evt);
@@ -79,6 +79,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
 
         jButton37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         jButton37.setText("Execute");
+        jButton37.setToolTipText(null);
         jButton37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton37ActionPerformed(evt);
@@ -95,6 +96,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
 
         iResetButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         iResetButton2.setText("Reset");
+        iResetButton2.setToolTipText(null);
         iResetButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iResetButton2ActionPerformed(evt);
@@ -108,36 +110,22 @@ public class S_IndropIndex extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         S_indropIndexPanel.add(iResetButton2, gridBagConstraints);
 
-        jButton38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
-        jButton38.setText("Save conf.");
-        jButton38.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton38ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_indropIndexPanel.add(jButton38, gridBagConstraints);
-
         jPanel28.setBackground(new java.awt.Color(248, 248, 248));
         jPanel28.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel28.setToolTipText(null);
         jPanel28.setLayout(new java.awt.GridBagLayout());
 
-        jLabel103.setText("Index Folder");
-        jLabel103.setToolTipText("");
+        jLabel103.setText("Index Folder:");
+        jLabel103.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(jLabel103, gridBagConstraints);
 
         S_IndropIndex_indexFolder.setEditable(false);
-        S_IndropIndex_indexFolder.setToolTipText("The folder that will contain the indexed genome.");
+        S_IndropIndex_indexFolder.setToolTipText(null);
         S_IndropIndex_indexFolder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 S_IndropIndex_indexFolderActionPerformed(evt);
@@ -147,15 +135,14 @@ public class S_IndropIndex extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(S_IndropIndex_indexFolder, gridBagConstraints);
 
         jToggleButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         jToggleButton30.setText("Browse");
+        jToggleButton30.setToolTipText(null);
         jToggleButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton30ActionPerformed(evt);
@@ -170,6 +157,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
 
         jToggleButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jToggleButton31.setText("Cancel");
+        jToggleButton31.setToolTipText(null);
         jToggleButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton31ActionPerformed(evt);
@@ -183,7 +171,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         jPanel28.add(jToggleButton31, gridBagConstraints);
 
         jLabel104.setText("Ensemble Genome url:");
-        jLabel104.setToolTipText("");
+        jLabel104.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -203,13 +191,15 @@ public class S_IndropIndex extends javax.swing.JPanel {
         jPanel28.add(S_indropIndex_EnsembleGenomeUrl, gridBagConstraints);
 
         jLabel105.setText("GTF url:");
-        jLabel105.setToolTipText("");
+        jLabel105.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(jLabel105, gridBagConstraints);
+
+        S_indropIndex_GTFUrl.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -237,9 +227,11 @@ public class S_IndropIndex extends javax.swing.JPanel {
 
         jPanel29.setBackground(new java.awt.Color(248, 248, 248));
         jPanel29.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel29.setToolTipText(null);
         jPanel29.setLayout(new java.awt.GridBagLayout());
 
         jLabel106.setText("Execution:");
+        jLabel106.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -252,6 +244,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         iSudoRadioSButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(iSudoRadioSButton);
         iSudoRadioSButton.setText("sudo");
+        iSudoRadioSButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -264,6 +257,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         mExecution.add(iDockerRadioSButton);
         iDockerRadioSButton.setSelected(true);
         iDockerRadioSButton.setText("docker");
+        iDockerRadioSButton.setToolTipText(null);
         iDockerRadioSButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iDockerRadioSButtonActionPerformed(evt);
@@ -386,10 +380,6 @@ public class S_IndropIndex extends javax.swing.JPanel {
         S_indropIndex_GTFUrl.setText("");
     }//GEN-LAST:event_iResetButton2ActionPerformed
 
-    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
-        // saveAsMenuItemActionPerformed(evt);
-    }//GEN-LAST:event_jButton38ActionPerformed
-
     private void S_IndropIndex_indexFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_IndropIndex_indexFolderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_S_IndropIndex_indexFolderActionPerformed
@@ -433,7 +423,6 @@ public class S_IndropIndex extends javax.swing.JPanel {
     private javax.swing.JButton iResetButton2;
     private javax.swing.JRadioButton iSudoRadioSButton;
     private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
