@@ -285,6 +285,7 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_starChimeric.setViewportView(new CircRNAStarChimeric());
         circRNA_prepareExonIsoformFiles.setViewportView(new CircRNADownloadData());
         circRNA_mergeCiri2Samples.setViewportView(new CircRNAMergeSamples());
+        bonusScrollPane.setViewportView(new MiRNAGenomeIndexing());
 //ADDING PANEL
 
         
@@ -547,6 +548,7 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_starChimeric = new javax.swing.JScrollPane();
         circRNA_prepareExonIsoformFiles = new javax.swing.JScrollPane();
         circRNA_mergeCiri2Samples = new javax.swing.JScrollPane();
+        bonusScrollPane = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -572,6 +574,7 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizeButton1 = new javax.swing.JButton();
         ExpPowerButton1 = new javax.swing.JButton();
         DeseqButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         ChipSeqScrollPanel = new javax.swing.JScrollPane();
         ChipSeqPanel = new javax.swing.JPanel();
         indexingBButton = new javax.swing.JButton();
@@ -884,7 +887,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1393,6 +1396,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(circRNA_starChimeric, "circrnaStarChimeric");
         MainPanel.add(circRNA_prepareExonIsoformFiles, "circrnaPrepareFilesCard");
         MainPanel.add(circRNA_mergeCiri2Samples, "circrnaMergeCiri2ResultsCard");
+        MainPanel.add(bonusScrollPane, "bonus");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -1715,6 +1719,13 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         miRNAPanel.add(DeseqButton2, gridBagConstraints);
+
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        miRNAPanel.add(jButton3, new java.awt.GridBagConstraints());
 
         miRNAScrollPanel.setViewportView(miRNAPanel);
 
@@ -4743,6 +4754,12 @@ public class MainFrame extends javax.swing.JFrame {
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         ConfigureTabsButtonActionPerformed(evt);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "bonus");
+        CurrentLayout="bonus";
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -4921,6 +4938,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane ToolScrollPanel;
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.JPanel YouHaveToChooseABetterNamePanel;
+    private javax.swing.JScrollPane bonusScrollPane;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chipseqTabChecker;
     private javax.swing.JButton circRNAAnnotationButton2;
@@ -4955,6 +4973,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
