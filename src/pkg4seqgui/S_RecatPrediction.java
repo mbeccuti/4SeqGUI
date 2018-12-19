@@ -204,7 +204,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
 
         S_sep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TAB", "COMMA" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -213,7 +213,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
 
         jLabel4.setText("Sep: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -251,14 +251,14 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_seed, gridBagConstraints);
 
-        S_geneNameControl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        S_geneNameControl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
         S_geneNameControl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 S_geneNameControlActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -266,9 +266,9 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_geneNameControl, gridBagConstraints);
 
-        jLabel5.setText("Gene name format:");
+        jLabel5.setText("Gene name format: ENSEMBL ID:Symbol");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -359,7 +359,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -426,7 +426,7 @@ public class S_RecatPrediction extends javax.swing.JPanel {
             cmd[2]+=" scratch.folder=\\\""+sScratchFolder.getText()+"\\\"";
             cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
             cmd[2]+=" sep=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" geneNameControl=\\\""+S_geneNameControl.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" geneNameControl=\\\""+(S_geneNameControl.getSelectedItem().equals("true") ? "0" : "1")+"\\\"";
             cmd[2]+=" window=\\\""+S_window.getText()+"\\\"";
             cmd[2]+=" seed=\\\""+S_seed.getText()+"\\\"";
 
