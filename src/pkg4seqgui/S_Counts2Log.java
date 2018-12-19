@@ -204,7 +204,6 @@ public class S_Counts2Log extends javax.swing.JPanel {
 
         cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         executionGroup.add(cSudoRadioButton);
-        cSudoRadioButton.setSelected(true);
         cSudoRadioButton.setText("sudo");
         cSudoRadioButton.setToolTipText(null);
         cSudoRadioButton.setEnabled(false);
@@ -218,6 +217,7 @@ public class S_Counts2Log extends javax.swing.JPanel {
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         executionGroup.add(cDockerRadioButton);
+        cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
         cDockerRadioButton.setToolTipText(null);
         cDockerRadioButton.setEnabled(false);

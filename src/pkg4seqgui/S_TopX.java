@@ -228,7 +228,6 @@ public class S_TopX extends javax.swing.JPanel {
         jPanel31.add(jLabel113, gridBagConstraints);
 
         cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
-        cSudoRadioButton.setSelected(true);
         cSudoRadioButton.setText("sudo");
         cSudoRadioButton.setToolTipText(null);
         cSudoRadioButton.setEnabled(false);
@@ -241,6 +240,7 @@ public class S_TopX extends javax.swing.JPanel {
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
         cDockerRadioButton.setToolTipText(null);
         cDockerRadioButton.setEnabled(false);
