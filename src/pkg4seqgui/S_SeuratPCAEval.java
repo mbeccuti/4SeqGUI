@@ -65,7 +65,7 @@ public class S_SeuratPCAEval extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_SeuratPCAEvalPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "seurat PCA Eval", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_SeuratPCAEvalPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Estimating PCA range for Seurat", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_SeuratPCAEvalPanel.setToolTipText(null);
         S_SeuratPCAEvalPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -123,7 +123,7 @@ public class S_SeuratPCAEval extends javax.swing.JPanel {
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setText("Matrix Count");
+        jLabel2.setText("Counts table:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
@@ -237,17 +237,17 @@ public class S_SeuratPCAEval extends javax.swing.JPanel {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        S_logTen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        S_logTen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 53, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 65, 10, 10);
         jPanel4.add(S_logTen, gridBagConstraints);
 
-        jLabel5.setText("logTen: ");
+        jLabel5.setText("log10:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -400,7 +400,7 @@ public class S_SeuratPCAEval extends javax.swing.JPanel {
             cmd[2]+=" scratch.folder=\\\""+sScratchFolder.getText()+"\\\"";
             cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
             cmd[2]+=" separator=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" logTen=\\\""+S_logTen.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" logTen=\\\""+(S_logTen.getSelectedItem().equals("true") ? "1" : "0")+"\\\"";
             cmd[2]+=" seed=\\\""+S_seed.getText()+"\\\"";
 
             Path p = Paths.get(S_countTable.getText());

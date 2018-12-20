@@ -225,7 +225,7 @@ public class CircRNABSJunctionsPanel extends javax.swing.JPanel {
         buttonAssembly_hg19.setSelected(true);
         buttonAssembly_hg19.setText("hg19");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(buttonAssembly_hg19, gridBagConstraints);
@@ -234,7 +234,7 @@ public class CircRNABSJunctionsPanel extends javax.swing.JPanel {
         assemblyVersion.add(buttonAssembly_hg18);
         buttonAssembly_hg18.setText("hg18");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(buttonAssembly_hg18, gridBagConstraints);

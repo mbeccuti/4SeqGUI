@@ -137,8 +137,9 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setText("Matrix Count:");
+        jLabel2.setText("Counts table:");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel2, gridBagConstraints);
 
@@ -182,7 +183,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 2.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 32, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
         jLabel111.setText("Scratch folder:");
@@ -190,7 +191,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel111, gridBagConstraints);
 
@@ -201,10 +202,10 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 2.0;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 32, 10, 10);
         jPanel30.add(sScratchFolder, gridBagConstraints);
 
         jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -218,7 +219,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jToggleButton34, gridBagConstraints);
 
@@ -233,7 +234,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 7;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jToggleButton35, gridBagConstraints);
 
@@ -250,7 +251,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("permAtTime:");
+        jLabel120.setText("Permutations group:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -280,7 +281,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_permAtTime, gridBagConstraints);
 
-        S_logTen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        S_logTen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -290,7 +291,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_logTen, gridBagConstraints);
 
-        jLabel5.setText("logTen:");
+        jLabel5.setText("log10:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -375,7 +376,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_Sp, gridBagConstraints);
 
-        jLabel123.setText("nPerm: ");
+        jLabel123.setText("# of permutations:");
         jLabel123.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -494,7 +495,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_perplexity, gridBagConstraints);
 
-        jLabel127.setText("Percent:");
+        jLabel127.setText("% of removed cells:");
         jLabel127.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
@@ -555,7 +556,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 35, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 55, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -625,7 +626,7 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
             cmd[2]+=" range1=\\\""+S_range1.getText()+"\\\"";
             cmd[2]+=" range2=\\\""+S_range2.getText()+"\\\"";
             cmd[2]+=" separator=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" logTen=\\\""+S_logTen.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" logTen=\\\""+(S_logTen.getSelectedItem().equals("true") ? "1" : "0")+"\\\"";
             cmd[2]+=" seed=\\\""+S_range1.getText()+"\\\"";
             cmd[2]+=" sp=\\\""+S_Sp.getText()+"\\\"";
             cmd[2]+=" perplexity=\\\""+S_perplexity.getText()+"\\\"";

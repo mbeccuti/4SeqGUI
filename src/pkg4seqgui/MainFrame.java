@@ -1598,7 +1598,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         RNAScrollPane.setViewportView(RNAseqPanel);
 
-        jTabbedPane1.addTab("RNA seq.", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtab.png")), RNAScrollPane); // NOI18N
+        jTabbedPane1.addTab("RNA seq", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtab.png")), RNAScrollPane); // NOI18N
 
         miRNAScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         miRNAScrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
@@ -1870,7 +1870,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SubCountManipulationPanel.add(SC_CCRemoveButton, gridBagConstraints);
 
@@ -1884,7 +1883,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -1900,7 +1899,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -1916,14 +1915,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SubCountManipulationPanel.add(SC_GenesUmiButton, gridBagConstraints);
 
         SC_FilterZerosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
-        SC_FilterZerosButton.setText("Filter Zeros  ");
+        SC_FilterZerosButton.setText("Filter zeros  ");
         SC_FilterZerosButton.setBorderPainted(false);
         SC_FilterZerosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1932,7 +1931,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -1964,7 +1963,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -1980,7 +1979,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2003,7 +2002,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubCountManipulationPanel.add(SC_CountDepthButton, gridBagConstraints);
 
         SC_LorenzFilterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/lorenz_filter.png"))); // NOI18N
-        SC_LorenzFilterButton.setText("Lorenz Filter  ");
+        SC_LorenzFilterButton.setText("Lorenz filtering  ");
         SC_LorenzFilterButton.setBorderPainted(false);
         SC_LorenzFilterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2012,7 +2011,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2028,7 +2027,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2106,7 +2105,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubClusteringPanel.add(SC_SeuratBootstrapButton, gridBagConstraints);
 
         SC_ClusteringNgriphButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/clusteringNgriph.png"))); // NOI18N
-        SC_ClusteringNgriphButton.setText("Defining the number of clusters for SIMLR");
+        SC_ClusteringNgriphButton.setText("Defining a range of number of Clusters to inspect with SIMLR  ");
         SC_ClusteringNgriphButton.setBorderPainted(false);
         SC_ClusteringNgriphButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2177,7 +2176,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubFeatureSelectionPanel.setLayout(new java.awt.GridBagLayout());
 
         SC_GenesSelectionSIMLRButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
-        SC_GenesSelectionSIMLRButton.setText("Genes Selection SIMLR  ");
+        SC_GenesSelectionSIMLRButton.setText("Genes selection with SIMLR  ");
         SC_GenesSelectionSIMLRButton.setBorderPainted(false);
         SC_GenesSelectionSIMLRButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2226,7 +2225,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubFeatureSelectionPanel.add(SC_AnovaLikeButton, gridBagConstraints);
 
         SC_SeuratPriorButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
-        SC_SeuratPriorButton.setText("Gene prioritization with Seurat");
+        SC_SeuratPriorButton.setText("Genes prioritization with Seurat");
         SC_SeuratPriorButton.setBorderPainted(false);
         SC_SeuratPriorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2242,7 +2241,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubFeatureSelectionPanel.add(SC_SeuratPriorButton, gridBagConstraints);
 
         SC_ClustersFeaturesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
-        SC_ClustersFeaturesButton.setText("Assigning labels to clusters");
+        SC_ClustersFeaturesButton.setText("Anova like gene features counts table");
         SC_ClustersFeaturesButton.setBorderPainted(false);
         SC_ClustersFeaturesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2258,7 +2257,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubFeatureSelectionPanel.add(SC_ClustersFeaturesButton, gridBagConstraints);
 
         SC_GenesPrioritizSIMLRButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
-        SC_GenesPrioritizSIMLRButton.setText("Genes Prioritization with SIMLR  ");
+        SC_GenesPrioritizSIMLRButton.setText("Genes prioritization with SIMLR  ");
         SC_GenesPrioritizSIMLRButton.setBorderPainted(false);
         SC_GenesPrioritizSIMLRButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2347,7 +2346,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubPredictionPanel.add(Ciri2PredictionButton1, gridBagConstraints);
 
         Ciri2MergeResultsButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ciri.png"))); // NOI18N
-        Ciri2MergeResultsButton1.setText("Merge CIRI2 stuff  ");
+        Ciri2MergeResultsButton1.setText("Merge CIRI2 predictions");
         Ciri2MergeResultsButton1.setBorderPainted(false);
         Ciri2MergeResultsButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -57,8 +57,8 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         AnnotationSourcesPanel = new javax.swing.JPanel();
         circbaseCheckBox = new javax.swing.JCheckBox();
         tscdCheckBox = new javax.swing.JCheckBox();
-        cscdCheckBox = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         closeFormPostProcessingButton = new javax.swing.JButton();
         executeFormPostProcessingButton = new javax.swing.JButton();
         resetFormPostProcessingButton = new javax.swing.JButton();
@@ -127,7 +127,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         buttonAssembly_hg19.setSelected(true);
         buttonAssembly_hg19.setText("hg19");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg19, gridBagConstraints);
@@ -136,7 +136,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         assemblyVersionGroupButton.add(buttonAssembly_hg18);
         buttonAssembly_hg18.setText("hg18");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(buttonAssembly_hg18, gridBagConstraints);
@@ -236,18 +236,6 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AnnotationSourcesPanel.add(tscdCheckBox, gridBagConstraints);
 
-        cscdCheckBox.setBackground(new java.awt.Color(248, 248, 248));
-        cscdCheckBox.setText("CSCD");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        AnnotationSourcesPanel.add(cscdCheckBox, gridBagConstraints);
-
         jLabel1.setText("Sources:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -256,6 +244,14 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 50);
         AnnotationSourcesPanel.add(jLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.1;
+        AnnotationSourcesPanel.add(jLabel2, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -456,8 +452,8 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             annotationSources.add("circbase"); 
         if (tscdCheckBox.isSelected())
             annotationSources.add("tscd"); 
-        if (cscdCheckBox.isSelected())
-            annotationSources.add("cscd"); 
+/*        if (cscdCheckBox.isSelected())
+            annotationSources.add("cscd"); */
         
         if (annotationSources.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
@@ -536,11 +532,11 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox circbaseCheckBox;
     private javax.swing.JTextField circrnaDataTextField;
     private javax.swing.JButton closeFormPostProcessingButton;
-    private javax.swing.JCheckBox cscdCheckBox;
     private javax.swing.JButton executeFormPostProcessingButton;
     private javax.swing.ButtonGroup executionGroup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel144;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

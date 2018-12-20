@@ -71,7 +71,7 @@ public class S_Hfc extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_SeuratPriorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Recat Prediction", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_SeuratPriorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Clusters heatmap", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_SeuratPriorPanel.setToolTipText(null);
         S_SeuratPriorPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -129,7 +129,7 @@ public class S_Hfc extends javax.swing.JPanel {
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("B1:");
+        jLabel120.setText("Lower range heatmap signal:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -138,6 +138,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel120, gridBagConstraints);
 
+        S_B1.setText("-1");
         S_B1.setToolTipText(null);
         S_B1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -158,7 +159,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_B1, gridBagConstraints);
 
-        jLabel2.setText("Matrix Count:");
+        jLabel2.setText("Counts table:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -222,7 +223,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel4, gridBagConstraints);
 
-        jLabel122.setText("Lfn:");
+        jLabel122.setText("Selected genes list file:");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -251,7 +252,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_Lfn, gridBagConstraints);
 
-        S_geneNameControl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1" }));
+        S_geneNameControl.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "true", "false" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -260,7 +261,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_geneNameControl, gridBagConstraints);
 
-        jLabel5.setText("Gene Name Control:");
+        jLabel5.setText("Gene name format: ENSEMBL ID:Symbol");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -320,7 +321,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jToggleButton35, gridBagConstraints);
 
-        jLabel121.setText("B2:");
+        jLabel121.setText("Upper range heatmap signal:");
         jLabel121.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -330,6 +331,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel121, gridBagConstraints);
 
+        S_B2.setText("1");
         S_B2.setToolTipText(null);
         S_B2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -359,7 +361,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel123, gridBagConstraints);
 
-        jLabel124.setText("nCluster:");
+        jLabel124.setText("# of clusters to be inspected:");
         jLabel124.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -428,7 +430,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 73, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 200, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -497,7 +499,7 @@ public class S_Hfc extends javax.swing.JPanel {
             cmd[2]+=" nCluster=\\\""+S_nCluster.getText()+"\\\"";
             cmd[2]+=" sep=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
             cmd[2]+=" lfn=\\\""+S_Lfn.getText()+"\\\"";
-            cmd[2]+=" geneNameControl=\\\""+S_geneNameControl.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" geneNameControl=\\\""+(S_geneNameControl.getSelectedItem().equals("true") ? "0" : "1")+"\\\"";
             cmd[2]+=" status=\\\""+S_Status.getSelectedItem().toString()+"\\\"";
             cmd[2]+=" b1=\\\""+S_B1.getText()+"\\\"";
             cmd[2]+=" b2=\\\""+S_B2.getText()+"\\\"";
@@ -548,6 +550,8 @@ public class S_Hfc extends javax.swing.JPanel {
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
         S_countTable.setText("");
+        S_B1.setText("-1");
+        S_B2.setText("1");
     }//GEN-LAST:event_jButton40ActionPerformed
 
     private void S_B1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_B1FocusLost

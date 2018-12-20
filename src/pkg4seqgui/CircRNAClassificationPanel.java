@@ -98,7 +98,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(jLabel2, gridBagConstraints);
 
-        jLabel3.setText("CircrRNA data:");
+        jLabel3.setText("CircRNA data:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -223,7 +223,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         buttonAssembly_hg19.setSelected(true);
         buttonAssembly_hg19.setText("hg19");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(buttonAssembly_hg19, gridBagConstraints);
@@ -232,7 +232,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         assemblyVersion.add(buttonAssembly_hg18);
         buttonAssembly_hg18.setText("hg18");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(buttonAssembly_hg18, gridBagConstraints);

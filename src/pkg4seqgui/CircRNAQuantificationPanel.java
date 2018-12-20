@@ -100,7 +100,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(jLabel2, gridBagConstraints);
 
-        jLabel3.setText("Dati circRNA:");
+        jLabel3.setText("CircRNA data:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -327,7 +327,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         QuantificationPanel.add(resetFormPostProcessingButton, gridBagConstraints);
 
         HashCircParamsPanel.setBackground(new java.awt.Color(248, 248, 248));
-        HashCircParamsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "HashCirc Parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(208, 31, 31))); // NOI18N
+        HashCircParamsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "HashCirc Parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(208, 31, 31))); // NOI18N
         HashCircParamsPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel4.setText("k-mer size:");
