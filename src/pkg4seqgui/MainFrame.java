@@ -35,10 +35,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.prefs.Preferences;
 import javax.swing.DefaultCellEditor;
+import javax.swing.Icon;
 import javax.swing.JCheckBox;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import javax.swing.JTree;
@@ -102,50 +104,72 @@ import static pkg4seqgui.PCAPanel.pComponent2Text;
  * @author beccuti
  */
 public class MainFrame extends javax.swing.JFrame {
-
-    private ArrayList<JPanel> tabsPanels; 
     
-    private void initializeLeftPanelTabs() {           
-        //remember all panels 
-        tabsPanels = new ArrayList<>(); 
-        
-        for (Component comp: jTabbedPane1.getComponents()) {
-            tabsPanels.add((JPanel) comp); 
-            
-            String varname = String.format("4SeqGUI_EnableTab%s", comp.getName());
-            String varvalue = getPreferences().get(varname, "true");
+    private class TabBarController {        
+        private class SingleTabInfo {
+            public final int numTab; 
+            public final Icon icon;
+            public final String text, name;
+            public final JScrollPane content; 
+            private boolean state; //true: visible, false: hidden
 
-            if (varvalue.equals("false")) 
-                jTabbedPane1.remove(comp);
-        }
-    }
-    
-    private void visualizeTabs() {
-        //remove all tabs, then re-add them
-        for (Component comp: jTabbedPane1.getComponents()) 
-            jTabbedPane1.remove(comp); 
-       
-        for (JPanel tab: tabsPanels) {
-            System.out.println(tab.getName());
-            
-            String varname = String.format("4SeqGUI_EnableTab%s", tab.getName());
-            
-            if (getPreferences().get(varname, "true").equals("true")) {
-                jTabbedPane1.add(tab);
+            public SingleTabInfo(int index, JTabbedPane tabbedPane) {
+                this.numTab = index; 
+                this.icon = tabbedPane.getIconAt(index); 
+                this.text = tabbedPane.getTitleAt(index); 
+                this.content = (JScrollPane) tabbedPane.getComponentAt(index); 
+                this.name = this.content.getName();
             }
             
+            public void setVisibility() {
+                String varname = String.format("4SeqGUI_EnableTab%s", this.name);
+                
+                this.state = getPreferences().get(varname, "true").equals("true"); 
+            }
+            
+            public boolean getVisibility() {
+                return this.state;
+            }
+        }
+        
+        private final JTabbedPane myJTabbedPane;
+        private final ArrayList<SingleTabInfo> tabList;
+        
+        public TabBarController(JTabbedPane myTab) {
+            this.tabList = new ArrayList<>();
+            this.myJTabbedPane = myTab;
+            
+            //store all tabs in the list
+            for (int i = 0, count = myTab.getTabCount(); i < count; i++) 
+                this.tabList.add(new SingleTabInfo(i, myTab)); 
+            
+        }
+        
+        public TabBarController refreshTabs() {
+            // remove all tabs
+            for (SingleTabInfo tab: this.tabList) {
+                this.myJTabbedPane.remove(tab.content);
+                tab.setVisibility();
+            }
+            // add those tabs that are not hidden
+            for (SingleTabInfo tab: this.tabList) 
+                if (tab.getVisibility()) 
+                    this.myJTabbedPane.addTab(tab.text, tab.icon, tab.content);
+                
+            return this; 
         }
     }
+    
+    private final TabBarController tabsController; 
+    
     
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {       
-        
- 
         initComponents();
         
- //       initializeLeftPanelTabs();
+        tabsController = new TabBarController(jTabbedPane1).refreshTabs();
         
         java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/dna.png");
         ImageIcon image = new ImageIcon(imgURL);
@@ -1408,6 +1432,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         RNAScrollPane.setBackground(new java.awt.Color(255, 255, 255));
         RNAScrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
+        RNAScrollPane.setName("rnaseq"); // NOI18N
 
         RNAseqPanel.setBackground(new java.awt.Color(255, 255, 255));
         RNAseqPanel.setName("rnaseq"); // NOI18N
@@ -1602,6 +1627,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         miRNAScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         miRNAScrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
+        miRNAScrollPanel.setName("mirna"); // NOI18N
 
         miRNAPanel.setBackground(new java.awt.Color(255, 255, 255));
         miRNAPanel.setName("mirna"); // NOI18N
@@ -1734,6 +1760,7 @@ public class MainFrame extends javax.swing.JFrame {
         ChipSeqScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         ChipSeqScrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
         ChipSeqScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        ChipSeqScrollPanel.setName("chipseq"); // NOI18N
 
         ChipSeqPanel.setBackground(new java.awt.Color(255, 255, 255));
         ChipSeqPanel.setName("chipseq"); // NOI18N
@@ -1779,6 +1806,7 @@ public class MainFrame extends javax.swing.JFrame {
         SingleCellScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         SingleCellScrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
         SingleCellScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        SingleCellScrollPanel.setName("singlecell"); // NOI18N
 
         SingleCellPanel.setBackground(new java.awt.Color(255, 255, 255));
         SingleCellPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -2320,6 +2348,7 @@ public class MainFrame extends javax.swing.JFrame {
         CircRNAScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         CircRNAScrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
         CircRNAScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        CircRNAScrollPanel.setName("circrna"); // NOI18N
 
         CircRNAPanel.setBackground(new java.awt.Color(255, 255, 255));
         CircRNAPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 0, 0, 0));
@@ -2611,6 +2640,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         ToolScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         ToolScrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
+        ToolScrollPanel.setName("tools"); // NOI18N
 
         ToolPanel.setBackground(new java.awt.Color(255, 255, 255));
         ToolPanel.setName("tools"); // NOI18N
@@ -4724,7 +4754,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_miRNATabCheckerActionPerformed
 
     private void confermConfigureTabButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confermConfigureTabButtonActionPerformed
-        ArrayList<String> disabledTabs = new ArrayList<String>();
+        ArrayList<String> disabledTabs = new ArrayList<>();
         
         //for each tab, set a variable to show/hide it 
         for (Component c: enableTabsPanel.getComponents()) {
@@ -4735,8 +4765,9 @@ public class MainFrame extends javax.swing.JFrame {
             
             if (!cb.isSelected()) 
                 disabledTabs.add(c.getName());
-            
         }
+        
+        tabsController.refreshTabs();
         
         if (deleteContainersChecker.isSelected()) {
             //do stuff using disabledTabs values

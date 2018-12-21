@@ -1865,6 +1865,7 @@
                             <EmptyBorder bottom="7" left="5" right="5" top="7"/>
                           </Border>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="rnaseq" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -2102,6 +2103,7 @@
                             <EmptyBorder bottom="7" left="5" right="5" top="7"/>
                           </Border>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="mirna" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -2270,6 +2272,7 @@
                           </Border>
                         </Property>
                         <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                        <Property name="name" type="java.lang.String" value="chipseq" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -2343,6 +2346,7 @@
                           </Border>
                         </Property>
                         <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                        <Property name="name" type="java.lang.String" value="singlecell" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -3012,6 +3016,7 @@
                           </Border>
                         </Property>
                         <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                        <Property name="name" type="java.lang.String" value="circrna" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -3414,6 +3419,7 @@
                             <EmptyBorder bottom="7" left="5" right="5" top="7"/>
                           </Border>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="tools" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
