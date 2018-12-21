@@ -6,12 +6,16 @@
 package pkg4seqgui;
 
 import java.awt.CardLayout;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Nicola Licheri
  */
 public class MiRNAGenomeIndexing extends javax.swing.JPanel {
+    private static final long serialVersionUID = 9778212350L;
     private String mode; 
 
     /**
@@ -42,13 +46,12 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         indexModeGroup = new javax.swing.ButtonGroup();
-        mirnaQuantificPanel = new javax.swing.JPanel();
+        executionGroup = new javax.swing.ButtonGroup();
+        mirnaIndexingPanel = new javax.swing.JPanel();
         ExecutionPanel = new javax.swing.JPanel();
         jLabel144 = new javax.swing.JLabel();
         SudoRadioButton = new javax.swing.JRadioButton();
         DockerRadioButton = new javax.swing.JRadioButton();
-        jLabel5 = new javax.swing.JLabel();
-        numThreadsTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         genomePanel = new javax.swing.JPanel();
         modeGeneralButton = new javax.swing.JRadioButton();
@@ -74,9 +77,9 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         gatkGenomeUrlTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        gatkGenomeUrlTextField1 = new javax.swing.JTextField();
+        gatkDbsnpFileTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        gatkGenomeUrlTextField2 = new javax.swing.JTextField();
+        gatk1000genomesFileTextField = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -86,22 +89,23 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         mirbaseVersionTextField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        mirnaSpecieTextField = new javax.swing.JTextField();
+        mirbaseSpecieTextField = new javax.swing.JTextField();
         ncrnaModePanel = new javax.swing.JPanel();
         ncrnaPanel = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        crnaVersionTextField = new javax.swing.JTextField();
+        ncrnaVersionTextField = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        crnaSpecieTextField = new javax.swing.JTextField();
+        ncrnaSpecieTextField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        lengthThresholdTextField = new javax.swing.JTextField();
-        executeFormMiRNAQuantificationButton = new javax.swing.JButton();
-        resetFormMiRNAQuantificationButton = new javax.swing.JButton();
-        closeFormMiRNAQuantificationButton = new javax.swing.JButton();
+        ncLengthThresholdTextField = new javax.swing.JTextField();
+        executeFormMiRNAIndexingButton = new javax.swing.JButton();
+        resetFormMiRNAIndexingButton = new javax.swing.JButton();
+        closeFormMiRNAIndexingButton = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
-        mirnaQuantificPanel.setLayout(new java.awt.GridBagLayout());
+        mirnaIndexingPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Genome indexing for miRNA analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(16, 149, 92))); // NOI18N
+        mirnaIndexingPanel.setLayout(new java.awt.GridBagLayout());
 
         ExecutionPanel.setBackground(new java.awt.Color(248, 248, 248));
         ExecutionPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -118,6 +122,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         ExecutionPanel.add(jLabel144, gridBagConstraints);
 
         SudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        executionGroup.add(SudoRadioButton);
         SudoRadioButton.setText("sudo");
         SudoRadioButton.setToolTipText(null);
         SudoRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -129,10 +134,11 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 53, 10, 10);
         ExecutionPanel.add(SudoRadioButton, gridBagConstraints);
 
         DockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        executionGroup.add(DockerRadioButton);
         DockerRadioButton.setSelected(true);
         DockerRadioButton.setText("docker");
         DockerRadioButton.setToolTipText(null);
@@ -147,23 +153,6 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExecutionPanel.add(DockerRadioButton, gridBagConstraints);
-
-        jLabel5.setText("Num. threads: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ExecutionPanel.add(jLabel5, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
-        ExecutionPanel.add(numThreadsTextField, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.weightx = 10.0;
         ExecutionPanel.add(jLabel7, gridBagConstraints);
@@ -174,7 +163,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        mirnaQuantificPanel.add(ExecutionPanel, gridBagConstraints);
+        mirnaIndexingPanel.add(ExecutionPanel, gridBagConstraints);
 
         genomePanel.setBackground(new java.awt.Color(248, 248, 248));
         genomePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -192,7 +181,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 15, 10, 10);
         genomePanel.add(modeGeneralButton, gridBagConstraints);
 
         indexModeGroup.add(modeGATKButton);
@@ -234,6 +223,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(modeNcRNAButton, gridBagConstraints);
 
@@ -245,24 +235,26 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(jLabel1, gridBagConstraints);
-
-        genomeFolderTextField.setText("Genomeee");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 15, 10, 10);
         genomePanel.add(genomeFolderTextField, gridBagConstraints);
 
-        scratchFolderTextField.setText("Scratchhhh");
+        scratchFolderTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                scratchFolderTextFieldActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 15, 10, 10);
         genomePanel.add(scratchFolderTextField, gridBagConstraints);
 
         jLabel2.setText("Scratch folder: ");
@@ -274,35 +266,49 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(jLabel2, gridBagConstraints);
 
+        browseGenomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         browseGenomeButton.setText("Browse");
+        browseGenomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseGenomeButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(browseGenomeButton, gridBagConstraints);
 
+        cancelGenomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelGenomeButton.setText("Cancel");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(cancelGenomeButton, gridBagConstraints);
 
+        browseScratchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseScratchButton.setText("Browse");
+        browseScratchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseScratchButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(browseScratchButton, gridBagConstraints);
 
+        cancelScratchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelScratchButton.setText("Cancel");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(cancelScratchButton, gridBagConstraints);
 
-        jLabel14.setText("Genome:  ");
+        jLabel14.setText("Genome folder:  ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -317,7 +323,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        mirnaQuantificPanel.add(genomePanel, gridBagConstraints);
+        mirnaIndexingPanel.add(genomePanel, gridBagConstraints);
 
         modePanel.setBackground(new java.awt.Color(248, 248, 248));
         modePanel.setLayout(new java.awt.CardLayout());
@@ -337,8 +343,6 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.weighty = 0.4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         generalPanel.add(jLabel3, gridBagConstraints);
-
-        generalGenomeUrlTextField.setText("jTextField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -346,7 +350,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 5.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 26, 10, 10);
         generalPanel.add(generalGenomeUrlTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -364,21 +368,19 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gatkPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         gatkPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setText("Genome URL");
+        jLabel4.setText("Genome URL:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         gatkPanel.add(jLabel4, gridBagConstraints);
-
-        gatkGenomeUrlTextField.setText("jTextField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 34, 10, 10);
         gatkPanel.add(gatkGenomeUrlTextField, gridBagConstraints);
 
-        jLabel6.setText("dbsnp file");
+        jLabel6.setText("dbsnp file:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -386,17 +388,15 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         gatkPanel.add(jLabel6, gridBagConstraints);
-
-        gatkGenomeUrlTextField1.setText("jTextField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        gatkPanel.add(gatkGenomeUrlTextField1, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 34, 10, 10);
+        gatkPanel.add(gatkDbsnpFileTextField, gridBagConstraints);
 
-        jLabel8.setText("1000g file");
+        jLabel8.setText("1000g file:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -404,17 +404,21 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         gatkPanel.add(jLabel8, gridBagConstraints);
-
-        gatkGenomeUrlTextField2.setText("jTextField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        gatkPanel.add(gatkGenomeUrlTextField2, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 34, 10, 10);
+        gatkPanel.add(gatk1000genomesFileTextField, gridBagConstraints);
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jButton4.setText("Browse");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -422,6 +426,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         gatkPanel.add(jButton4, gridBagConstraints);
 
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jButton5.setText("Cancel");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -430,7 +435,13 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         gatkPanel.add(jButton5, gridBagConstraints);
 
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jButton6.setText("Browse");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -438,6 +449,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         gatkPanel.add(jButton6, gridBagConstraints);
 
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jButton7.setText("Cancel");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -463,13 +475,10 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
 
         jLabel9.setText("mirbase version:  ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mirnaPanel.add(jLabel9, gridBagConstraints);
-
-        mirbaseVersionTextField.setText("jTextField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
@@ -481,13 +490,10 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weighty = 2.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mirnaPanel.add(jLabel10, gridBagConstraints);
-
-        mirnaSpecieTextField.setText("jTextField2");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -495,7 +501,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        mirnaPanel.add(mirnaSpecieTextField, gridBagConstraints);
+        mirnaPanel.add(mirbaseSpecieTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -514,53 +520,44 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
 
         jLabel11.setText("RC db version: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ncrnaPanel.add(jLabel11, gridBagConstraints);
-
-        crnaVersionTextField.setText("jTextField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ncrnaPanel.add(crnaVersionTextField, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 27, 10, 10);
+        ncrnaPanel.add(ncrnaVersionTextField, gridBagConstraints);
 
         jLabel12.setText("species:  ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ncrnaPanel.add(jLabel12, gridBagConstraints);
-
-        crnaSpecieTextField.setText("jTextField2");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ncrnaPanel.add(crnaSpecieTextField, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 27, 10, 10);
+        ncrnaPanel.add(ncrnaSpecieTextField, gridBagConstraints);
 
         jLabel13.setText("length:  ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ncrnaPanel.add(jLabel13, gridBagConstraints);
-
-        lengthThresholdTextField.setText("jTextField1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ncrnaPanel.add(lengthThresholdTextField, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(10, 27, 10, 10);
+        ncrnaPanel.add(ncLengthThresholdTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -577,35 +574,57 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        mirnaQuantificPanel.add(modePanel, gridBagConstraints);
+        mirnaIndexingPanel.add(modePanel, gridBagConstraints);
 
-        executeFormMiRNAQuantificationButton.setText("Execute");
+        executeFormMiRNAIndexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        executeFormMiRNAIndexingButton.setText("Execute");
+        executeFormMiRNAIndexingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                executeFormMiRNAIndexingButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        mirnaQuantificPanel.add(executeFormMiRNAQuantificationButton, gridBagConstraints);
+        mirnaIndexingPanel.add(executeFormMiRNAIndexingButton, gridBagConstraints);
 
-        resetFormMiRNAQuantificationButton.setText("Reset");
+        resetFormMiRNAIndexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
+        resetFormMiRNAIndexingButton.setText("Reset");
+        resetFormMiRNAIndexingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetFormMiRNAIndexingButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        mirnaQuantificPanel.add(resetFormMiRNAQuantificationButton, gridBagConstraints);
+        mirnaIndexingPanel.add(resetFormMiRNAIndexingButton, gridBagConstraints);
 
-        closeFormMiRNAQuantificationButton.setText("Close");
+        closeFormMiRNAIndexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        closeFormMiRNAIndexingButton.setText("Close");
+        closeFormMiRNAIndexingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeFormMiRNAIndexingButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weighty = 50.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        mirnaQuantificPanel.add(closeFormMiRNAQuantificationButton, gridBagConstraints);
+        mirnaIndexingPanel.add(closeFormMiRNAIndexingButton, gridBagConstraints);
 
-        add(mirnaQuantificPanel, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        add(mirnaIndexingPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SudoRadioButtonActionPerformed
@@ -632,6 +651,250 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         changeCard("ncrna");
     }//GEN-LAST:event_modeNcRNAButtonActionPerformed
 
+    private void closeFormMiRNAIndexingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormMiRNAIndexingButtonActionPerformed
+        MainFrame.setCard(null);
+    }//GEN-LAST:event_closeFormMiRNAIndexingButtonActionPerformed
+
+    private void resetFormMiRNAIndexingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormMiRNAIndexingButtonActionPerformed
+        genomeFolderTextField.setText("");
+        scratchFolderTextField.setText("");
+        generalGenomeUrlTextField.setText("");
+        gatkGenomeUrlTextField.setText("");
+        gatkDbsnpFileTextField.setText("");
+        gatk1000genomesFileTextField.setText("");
+        mirbaseVersionTextField.setText("");
+        mirbaseSpecieTextField.setText("");
+        ncrnaVersionTextField.setText("");
+        ncrnaSpecieTextField.setText("");
+        ncLengthThresholdTextField.setText("");
+    }//GEN-LAST:event_resetFormMiRNAIndexingButtonActionPerformed
+
+    private void browseGenomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseGenomeButtonActionPerformed
+        JFileChooser openDir = new JFileChooser();
+
+        if (!genomeFolderTextField.getText().isEmpty()){
+            File file =new File(genomeFolderTextField.getText());
+            if (file.isDirectory())
+            openDir.setCurrentDirectory(file);
+        }
+        else {
+            String curDir = MainFrame.getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
+        }
+
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
+            File f = openDir.getSelectedFile();
+            genomeFolderTextField.setText(String.valueOf(f));
+        }
+        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_browseGenomeButtonActionPerformed
+
+    private void browseScratchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchButtonActionPerformed
+        JFileChooser openDir = new JFileChooser();
+
+        if (!scratchFolderTextField.getText().isEmpty()){
+            File file = new File(scratchFolderTextField.getText());
+            if (file.isDirectory())
+            openDir.setCurrentDirectory(file);
+        }
+        else {
+            String curDir = MainFrame.getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
+        }
+
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
+            File f = openDir.getSelectedFile();
+            scratchFolderTextField.setText(String.valueOf(f));
+        }
+        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_browseScratchButtonActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        JFileChooser openDir = new JFileChooser();
+
+        if (!gatkDbsnpFileTextField.getText().isEmpty()){
+            File file = new File(gatkDbsnpFileTextField.getText());
+            if (file.isDirectory())
+            openDir.setCurrentDirectory(file);
+        }
+        else {
+            String curDir = MainFrame.getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
+        }
+
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
+            File f = openDir.getSelectedFile();
+            gatkDbsnpFileTextField.setText(String.valueOf(f));
+        }
+        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        JFileChooser openDir = new JFileChooser();
+
+        if (!gatk1000genomesFileTextField.getText().isEmpty()){
+            File file = new File(gatk1000genomesFileTextField.getText());
+            if (file.isDirectory())
+            openDir.setCurrentDirectory(file);
+        }
+        else {
+            String curDir = MainFrame.getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
+        }
+
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
+            File f = openDir.getSelectedFile();
+            gatk1000genomesFileTextField.setText(String.valueOf(f));
+        }
+        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void scratchFolderTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scratchFolderTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_scratchFolderTextFieldActionPerformed
+
+    private void executeFormMiRNAIndexingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeFormMiRNAIndexingButtonActionPerformed
+        String group = DockerRadioButton.isSelected() ? "docker" : "sudo"; 
+        String genomeFolder = genomeFolderTextField.getText(), 
+               scratchFolder = scratchFolderTextField.getText(), 
+               generalGenomeURL = generalGenomeUrlTextField.getText(), 
+               gatkGenomeURL = gatkGenomeUrlTextField.getText(), 
+               gatkDbsnpFile = gatkDbsnpFileTextField.getText(), 
+               gatk1000GFile = gatk1000genomesFileTextField.getText(), 
+               mirbaseVersion = mirbaseVersionTextField.getText(), 
+               mirbaseSpecies = mirbaseSpecieTextField.getText(), 
+               ncrnaVersion = ncrnaVersionTextField.getText(), 
+               ncrnaSpecies = ncrnaSpecieTextField.getText();
+        String selectedMode = /* I <3 ternary operator */
+            modeGeneralButton.isSelected() ? "General" :
+                modeGATKButton.isSelected() ? "GATK" : 
+                    modeMiRNAButton.isSelected() ? "miRNA" : "ncRNA"; 
+        int ncrnaLength = 0; 
+        
+        if (genomeFolder.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "You have to specify the genome folder.",
+                "Error: genome folder", 
+                JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        if (scratchFolder.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "You have to specify the scratch folder.",
+                "Error: scratch folder", 
+                JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
+        String specificArgs = null; 
+        
+        switch (selectedMode) {
+            case "General":
+                if (generalGenomeURL.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the genome URL.",
+                        "Error: genome URL", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return; 
+                }
+                
+                specificArgs = String.format("genome.url='%s'", generalGenomeURL);
+                break;
+            case "GATK":
+                if (gatkGenomeURL.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the genome URL.",
+                        "Error: genome URL", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return; 
+                }
+                if (gatkDbsnpFile.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the variant file from dbsnp.",
+                        "Error: dbsnp file", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                if (gatk1000GFile.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the 1000g file.",
+                        "Error: 1000g file", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return; 
+                }
+                
+                specificArgs = String.format("genome.url='%s' dbsnp.file='%s' g1000.file='%s'",
+                        gatkGenomeURL, gatkDbsnpFile, gatk1000GFile);
+                break;
+            case "miRNA":
+                if (mirbaseVersion.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the mirbase version.",
+                        "Error: mirbase version", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return; 
+                }
+                if (mirbaseSpecies.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the mirbase species.",
+                        "Error: mirbase species", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return; 
+                }
+                
+                specificArgs = String.format("mb.version='%s' mb.species='%s'",
+                        mirbaseVersion, mirbaseSpecies);
+                break;
+            case "ncRNA":
+                if (ncrnaVersion.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the RNA central db version.",
+                        "Error: version info", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return; 
+                }
+                if (ncrnaSpecies.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the RNA central species.",
+                        "Error: species info", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return; 
+                }
+                
+                try {
+                    ncrnaLength = Integer.parseInt(ncLengthThresholdTextField.getText());
+                    
+                    if (ncrnaLength <= 0) 
+                        throw new NumberFormatException();
+                }
+                catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, 
+                        "You have to specify the mirbase species.",
+                        "Error: mirbase species", 
+                        JOptionPane.ERROR_MESSAGE);
+                    return; 
+                }
+                
+                specificArgs = String.format("rc.version='%s' rc.species='%s' length=%d",
+                        ncrnaVersion, ncrnaSpecies, ncrnaLength);
+                break;
+        }
+        
+        String command = String.format(
+            "group='%s' mode='%s' genome.folder='%s' %s", group, selectedMode, genomeFolder, specificArgs)
+                .replace("'", "\\\""); 
+        
+        MainFrame.execCommand(this, "miRNA genome indexing", "execMiRNAIndexing.sh", command, genomeFolder);
+    }//GEN-LAST:event_executeFormMiRNAIndexingButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton DockerRadioButton;
@@ -641,13 +904,12 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
     private javax.swing.JButton browseScratchButton;
     private javax.swing.JButton cancelGenomeButton;
     private javax.swing.JButton cancelScratchButton;
-    private javax.swing.JButton closeFormMiRNAQuantificationButton;
-    private javax.swing.JTextField crnaSpecieTextField;
-    private javax.swing.JTextField crnaVersionTextField;
-    private javax.swing.JButton executeFormMiRNAQuantificationButton;
+    private javax.swing.JButton closeFormMiRNAIndexingButton;
+    private javax.swing.JButton executeFormMiRNAIndexingButton;
+    private javax.swing.ButtonGroup executionGroup;
+    private javax.swing.JTextField gatk1000genomesFileTextField;
+    private javax.swing.JTextField gatkDbsnpFileTextField;
     private javax.swing.JTextField gatkGenomeUrlTextField;
-    private javax.swing.JTextField gatkGenomeUrlTextField1;
-    private javax.swing.JTextField gatkGenomeUrlTextField2;
     private javax.swing.JPanel gatkModePanel;
     private javax.swing.JPanel gatkPanel;
     private javax.swing.JTextField generalGenomeUrlTextField;
@@ -670,26 +932,26 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField lengthThresholdTextField;
+    private javax.swing.JTextField mirbaseSpecieTextField;
     private javax.swing.JTextField mirbaseVersionTextField;
+    private javax.swing.JPanel mirnaIndexingPanel;
     private javax.swing.JPanel mirnaModePanel;
     private javax.swing.JPanel mirnaPanel;
-    private javax.swing.JPanel mirnaQuantificPanel;
-    private javax.swing.JTextField mirnaSpecieTextField;
     private javax.swing.JRadioButton modeGATKButton;
     private javax.swing.JRadioButton modeGeneralButton;
     private javax.swing.JRadioButton modeMiRNAButton;
     private javax.swing.JRadioButton modeNcRNAButton;
     private javax.swing.JPanel modePanel;
+    private javax.swing.JTextField ncLengthThresholdTextField;
     private javax.swing.JPanel ncrnaModePanel;
     private javax.swing.JPanel ncrnaPanel;
-    private javax.swing.JTextField numThreadsTextField;
-    private javax.swing.JButton resetFormMiRNAQuantificationButton;
+    private javax.swing.JTextField ncrnaSpecieTextField;
+    private javax.swing.JTextField ncrnaVersionTextField;
+    private javax.swing.JButton resetFormMiRNAIndexingButton;
     private javax.swing.JTextField scratchFolderTextField;
     // End of variables declaration//GEN-END:variables
 }

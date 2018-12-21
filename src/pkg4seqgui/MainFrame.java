@@ -195,7 +195,7 @@ public class MainFrame extends javax.swing.JFrame {
         countingSalmon.setViewportView(CTS);
         IndexingSalmon IS = new IndexingSalmon();
         indexingSalmon.setViewportView(IS);
-            IndexingStarRSEM ISR = new IndexingStarRSEM();
+        IndexingStarRSEM ISR = new IndexingStarRSEM();
         indexingStarRSEM.setViewportView(ISR);      
         MRNAPanel MRNAP = new MRNAPanel();
         mRNA.setViewportView(MRNAP);
@@ -232,7 +232,7 @@ public class MainFrame extends javax.swing.JFrame {
         S_FilterZeros FZ = new S_FilterZeros();
         S_filterZeros.setViewportView(FZ);
         
-              S_GenesUmi GU = new S_GenesUmi();
+        S_GenesUmi GU = new S_GenesUmi();
         S_genesUmi.setViewportView(GU);
         
         S_TopX TPX = new S_TopX();
@@ -292,8 +292,8 @@ public class MainFrame extends javax.swing.JFrame {
         S_GenesPrioritization GPR = new S_GenesPrioritization();
         S_genesPrioritization.setViewportView(GPR);
         
-        S_GenesSelection GS = new S_GenesSelection();
-        S_genesSelection.setViewportView(GS);
+        S_GenesSelection _GS = new S_GenesSelection();
+        S_genesSelection.setViewportView(_GS);
         
         S_SeuratPrior SP= new S_SeuratPrior();
         S_seuratPrior.setViewportView(SP);
@@ -309,7 +309,9 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_starChimeric.setViewportView(new CircRNAStarChimeric());
         circRNA_prepareExonIsoformFiles.setViewportView(new CircRNADownloadData());
         circRNA_mergeCiri2Samples.setViewportView(new CircRNAMergeSamples());
-        bonusScrollPane.setViewportView(new MiRNAGenomeIndexing());
+        
+        mirnaGenomeIndexing.setViewportView(new MiRNAGenomeIndexing());
+        mirnaQuantification.setViewportView(new MiRNAQuantification());
 //ADDING PANEL
 
         
@@ -572,7 +574,8 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_starChimeric = new javax.swing.JScrollPane();
         circRNA_prepareExonIsoformFiles = new javax.swing.JScrollPane();
         circRNA_mergeCiri2Samples = new javax.swing.JScrollPane();
-        bonusScrollPane = new javax.swing.JScrollPane();
+        mirnaGenomeIndexing = new javax.swing.JScrollPane();
+        mirnaQuantification = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -599,6 +602,7 @@ public class MainFrame extends javax.swing.JFrame {
         ExpPowerButton1 = new javax.swing.JButton();
         DeseqButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         ChipSeqScrollPanel = new javax.swing.JScrollPane();
         ChipSeqPanel = new javax.swing.JPanel();
         indexingBButton = new javax.swing.JButton();
@@ -1420,7 +1424,8 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(circRNA_starChimeric, "circrnaStarChimeric");
         MainPanel.add(circRNA_prepareExonIsoformFiles, "circrnaPrepareFilesCard");
         MainPanel.add(circRNA_mergeCiri2Samples, "circrnaMergeCiri2ResultsCard");
-        MainPanel.add(bonusScrollPane, "bonus");
+        MainPanel.add(mirnaGenomeIndexing, "mirnaIndex");
+        MainPanel.add(mirnaQuantification, "mirnaQuantific");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -1675,7 +1680,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
@@ -1691,7 +1696,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
@@ -1708,7 +1713,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
@@ -1724,7 +1729,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
@@ -1740,18 +1745,35 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         miRNAPanel.add(DeseqButton2, gridBagConstraints);
 
+        jButton3.setText("Indexing");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        miRNAPanel.add(jButton3, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        miRNAPanel.add(jButton3, gridBagConstraints);
+
+        jButton4.setText("Quantification");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        miRNAPanel.add(jButton4, gridBagConstraints);
 
         miRNAScrollPanel.setViewportView(miRNAPanel);
 
@@ -2806,8 +2828,8 @@ public class MainFrame extends javax.swing.JFrame {
         public static final Pattern miRBase = Pattern.compile("[a-zA-Z0-9]{3,3}"
 );
         
-        
-                
+    
+                  
     private void DownloadMenuItemActionPerformed(java.awt.event.ActionEvent evt){
         
         DownloadFrame.pack();
@@ -4396,342 +4418,231 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_indexingBButtonActionPerformed
 
     private void DeseqButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeseqButton2ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "DES");
-        CurrentLayout="DES";
+        setCard("DES");
     }//GEN-LAST:event_DeseqButton2ActionPerformed
 
     private void ExpPowerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpPowerButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "ExperimentPower");
-        CurrentLayout="ExperimentPower";
+        setCard("ExperimentPower");
     }//GEN-LAST:event_ExpPowerButton1ActionPerformed
 
     private void SampleSizeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleSizeButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "SampleSize");
-        CurrentLayout="SampleSize";
+        setCard("SampleSize");
     }//GEN-LAST:event_SampleSizeButton1ActionPerformed
 
     private void CountButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "filtercounts");
-        CurrentLayout="filtercounts";
+        setCard("filtercounts");
     }//GEN-LAST:event_CountButton1ActionPerformed
 
     private void PCAButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PCAButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "PCA");
-        CurrentLayout="PCA";
+        setCard("PCA");
     }//GEN-LAST:event_PCAButton1ActionPerformed
 
     private void jButton60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton60ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "AddingCovmRNA");
-        CurrentLayout="AddingCovmRNA";
+        setCard("AddingCovmRNA");
     }//GEN-LAST:event_jButton60ActionPerformed
 
     private void jButton59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton59ActionPerformed
-
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "mRNA");
-        CurrentLayout="mRNA";
+        setCard("mRNA");
     }//GEN-LAST:event_jButton59ActionPerformed
 
     private void DeseqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeseqButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "DES");
-        CurrentLayout="DES";
+        setCard("DES");
     }//GEN-LAST:event_DeseqButtonActionPerformed
 
     private void ExpPowerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpPowerButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "ExperimentPower");
-        CurrentLayout="ExperimentPower";
+        setCard("ExperimentPower");
     }//GEN-LAST:event_ExpPowerButtonActionPerformed
 
     private void SampleSizeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleSizeButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "SampleSize");
-        CurrentLayout="SampleSize";
+        setCard("SampleSize");
     }//GEN-LAST:event_SampleSizeButtonActionPerformed
 
     private void CountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "filtercounts");
-        CurrentLayout="filtercounts";
+        setCard("filtercounts");
     }//GEN-LAST:event_CountButtonActionPerformed
 
     private void SampleExpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleExpButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "FPKMCounting");
-        CurrentLayout="FPKMCounting";
+        setCard("FPKMCounting");
     }//GEN-LAST:event_SampleExpButtonActionPerformed
 
     private void countingSalmonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countingSalmonButtonActionPerformed
         CountingSalmon.cThreadText.setText(Integer.toString(GS.getDefaultThread()));
         CountingSalmon.cAdapter5Text.setText(GS.getDefaultAdapter5());
         CountingSalmon.cAdapter3Text.setText(GS.getDefaultAdapter3());
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "countingSalmon");
-        CurrentLayout="countingSalmon";
+        setCard("countingSalmon");
     }//GEN-LAST:event_countingSalmonButtonActionPerformed
 
     private void PCAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PCAButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "PCA");
-        CurrentLayout="PCA";
+        setCard("PCA");
     }//GEN-LAST:event_PCAButtonActionPerformed
 
     private void mRNAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mRNAButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
         vThreadText.setText(Integer.toString(GS.getDefaultThread()));
         vAdapter5Text.setText(GS.getDefaultAdapter5());
         vAdapter3Text.setText(GS.getDefaultAdapter3());
-        card.show(MainPanel, "vmRNA");
-        CurrentLayout="vmRNA";
+        setCard("vmRNA");
     }//GEN-LAST:event_mRNAButtonActionPerformed
 
     private void vmRNAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vmRNAButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
         iThreadText.setText(Integer.toString(GS.getDefaultThread()));
-        card.show(MainPanel, "indexing");
-        CurrentLayout="indexing";
+        setCard("indexing");
     }//GEN-LAST:event_vmRNAButtonActionPerformed
 
     private void SalmonIndexingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalmonIndexingButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
         IndexingSalmon.iThreadSText.setText(Integer.toString(GS.getDefaultThread()));
-        card.show(MainPanel, "indexingSalmon");
-        CurrentLayout="indexingSalmon";
+        setCard("indexingSalmon");
     }//GEN-LAST:event_SalmonIndexingButtonActionPerformed
 
     private void HeatmapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HeatmapButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "heatmap");
-        CurrentLayout="heatmap";
+        setCard("heatmap");
     }//GEN-LAST:event_HeatmapButtonActionPerformed
 
     private void ANOVAlikeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ANOVAlikeButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "NOVAlike");
-        CurrentLayout="NOVAlike";
+        setCard("NOVAlike");
     }//GEN-LAST:event_ANOVAlikeButtonActionPerformed
 
     private void Ciri2PredictionButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ciri2PredictionButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "wrapperCiriCard");
-        CurrentLayout="wrapperCiriCard";
+        setCard("wrapperCiriCard");
     }//GEN-LAST:event_Ciri2PredictionButton1ActionPerformed
 
     private void Ciri2MergeResultsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ciri2MergeResultsButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "circrnaMergeCiri2ResultsCard");
-        CurrentLayout="circrnaMergeCiri2ResultsCard";     
+        setCard("circrnaMergeCiri2ResultsCard");
     }//GEN-LAST:event_Ciri2MergeResultsButton1ActionPerformed
 
     private void StarChimericButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StarChimericButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "circrnaStarChimeric");
-        CurrentLayout="circrnaStarChimeric";
+        setCard("circrnaStarChimeric");
     }//GEN-LAST:event_StarChimericButton1ActionPerformed
 
     private void StarchipCircleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StarchipCircleButton1ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "circrnaStarPrediction");
-        CurrentLayout="circrnaStarPrediction";
+        setCard("circrnaStarPrediction");
     }//GEN-LAST:event_StarchipCircleButton1ActionPerformed
 
     private void CirchunterClassificButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CirchunterClassificButton2ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "circRNA_ppCard");
-        CurrentLayout="circRNA_ppCard";
+        setCard("circRNA_ppCard");
     }//GEN-LAST:event_CirchunterClassificButton2ActionPerformed
 
     private void circRNAAnnotationButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circRNAAnnotationButton2ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "circrnaAnnotationCard");
-        CurrentLayout="circrnaAnnotationCard";
+        setCard("circrnaAnnotationCard");
     }//GEN-LAST:event_circRNAAnnotationButton2ActionPerformed
 
     private void downloadExonIsoformDataButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downloadExonIsoformDataButton2ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "circrnaPrepareFilesCard");
-        CurrentLayout="circrnaPrepareFilesCard";     
+        setCard("circrnaPrepareFilesCard");
     }//GEN-LAST:event_downloadExonIsoformDataButton2ActionPerformed
 
     private void BSJunctionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSJunctionsButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "bsjunctionsCard");
-        CurrentLayout="bsjunctionsCard";
+        setCard("bsjunctionsCard");
     }//GEN-LAST:event_BSJunctionsButtonActionPerformed
 
     private void CircRNAStructurePredictionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CircRNAStructurePredictionButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "circrnaStructureCard");
-        CurrentLayout="circrnaStructureCard";
+        setCard("circrnaStructureCard");
     }//GEN-LAST:event_CircRNAStructurePredictionButtonActionPerformed
 
     private void CircRNAQuantificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CircRNAQuantificationButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "circrnaquantifCard");
-        CurrentLayout="circrnaquantifCard";
+        setCard("circrnaquantifCard");
     }//GEN-LAST:event_CircRNAQuantificationButtonActionPerformed
 
     private void SC_IndropIndexButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_IndropIndexButtonActionPerformed
-        CardLayout card = (CardLayout) MainPanel.getLayout();
-        card.show(MainPanel, "S_indropIndexCard");
-        CurrentLayout="S_indropIndexCard";
+        setCard("S_indropIndexCard");
     }//GEN-LAST:event_SC_IndropIndexButtonActionPerformed
 
     private void SC_IndropCountsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_IndropCountsButtonActionPerformed
-        CardLayout card = (CardLayout) MainPanel.getLayout();
-        card.show(MainPanel, "S_indropCountsCard");
-        CurrentLayout="S_indropCountsCard";
+        setCard("S_indropCountsCard");
     }//GEN-LAST:event_SC_IndropCountsButtonActionPerformed
 
     private void SC_CellRangerCountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_CellRangerCountButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_cellRangerCard");
-        CurrentLayout="S_cellRangerCard";
+        setCard("S_cellRangerCard");
     }//GEN-LAST:event_SC_CellRangerCountButtonActionPerformed
 
     private void SC_ScannoByGtfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ScannoByGtfButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_scannoByGtfCard");
-        CurrentLayout="S_scannoByGtfCard";
+        setCard("S_scannoByGtfCard");
     }//GEN-LAST:event_SC_ScannoByGtfButtonActionPerformed
 
     private void SC_TopXButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_TopXButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_topXCard");
-        CurrentLayout="S_topXCard";
+        setCard("S_topXCard");
     }//GEN-LAST:event_SC_TopXButtonActionPerformed
 
     private void SC_GenesUmiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_GenesUmiButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_genesUmiCard");
-        CurrentLayout="S_genesUmiCard";
+        setCard("S_genesUmiCard");
     }//GEN-LAST:event_SC_GenesUmiButtonActionPerformed
 
     private void SC_LorenzFilterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_LorenzFilterButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_lorenzFilterCard");
-        CurrentLayout="S_lorenzFilterCard";
+        setCard("S_lorenzFilterCard");
     }//GEN-LAST:event_SC_LorenzFilterButtonActionPerformed
 
     private void SC_SCNormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_SCNormButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_scnormCard");
-        CurrentLayout="S_scnormCard";
+        setCard("S_scnormCard");
     }//GEN-LAST:event_SC_SCNormButtonActionPerformed
 
     private void SC_UmiNormButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_UmiNormButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_umiNormCard");
-        CurrentLayout="S_umiNormCard";
+        setCard("S_umiNormCard");
     }//GEN-LAST:event_SC_UmiNormButtonActionPerformed
 
     private void SC_CountDepthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_CountDepthButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_countDepthCard");
-        CurrentLayout="S_countDepthCard";
+        setCard("S_countDepthCard");
     }//GEN-LAST:event_SC_CountDepthButtonActionPerformed
 
     private void SC_FilterZerosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_FilterZerosButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_filterZerosCard");
-        CurrentLayout="S_filterZerosCard";
+        setCard("S_filterZerosCard");
     }//GEN-LAST:event_SC_FilterZerosButtonActionPerformed
 
     private void SC_Counts2LogButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_Counts2LogButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_counts2LogCard");
-        CurrentLayout="S_counts2LogCard";
+        setCard("S_counts2LogCard");
     }//GEN-LAST:event_SC_Counts2LogButtonActionPerformed
 
     private void SC_RecatPredictionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_RecatPredictionButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_recatPredictionCard");
-        CurrentLayout="S_recatPredictionCard";
+        setCard("S_recatPredictionCard");
     }//GEN-LAST:event_SC_RecatPredictionButtonActionPerformed
 
     private void SC_CCRemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_CCRemoveButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_ccRemoveCard");
-        CurrentLayout="S_ccRemoveCard";
+        setCard("S_ccRemoveCard");
     }//GEN-LAST:event_SC_CCRemoveButtonActionPerformed
 
     private void SC_ClusteringNgriphButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ClusteringNgriphButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "clusterNgriphCard");
-        CurrentLayout="clusterNgriphCard";
+        setCard("clusterNgriphCard");
     }//GEN-LAST:event_SC_ClusteringNgriphButtonActionPerformed
 
     private void SC_SimlrBootstrapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_SimlrBootstrapButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "simlrBootstrapCard");
-        CurrentLayout="simlrBootstrapCard";
+        setCard("simlrBootstrapCard");
     }//GEN-LAST:event_SC_SimlrBootstrapButtonActionPerformed
 
     private void SC_SeuratPCAEvalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_SeuratPCAEvalButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_seuratPCAEvalCard");
-        CurrentLayout="S_seuratPCAEvalCard";
+        setCard("S_seuratPCAEvalCard");
     }//GEN-LAST:event_SC_SeuratPCAEvalButtonActionPerformed
 
     private void SC_SeuratBootstrapButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_SeuratBootstrapButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_seuratBootstrapCard");
-        CurrentLayout="S_seuratBootstrapCard";
+        setCard("S_seuratBootstrapCard");
     }//GEN-LAST:event_SC_SeuratBootstrapButtonActionPerformed
 
     private void SC_TsneBootstrapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_TsneBootstrapActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_tsneBootstrapCard");
-        CurrentLayout="S_tsneBootstrapCard";
+        setCard("S_tsneBootstrapCard");
     }//GEN-LAST:event_SC_TsneBootstrapActionPerformed
 
     private void SC_BootstrapVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_BootstrapVideoButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_bootstrapsVideoCard");
-        CurrentLayout="S_bootstrapsVideoCard";
+        setCard("S_bootstrapsVideoCard");
     }//GEN-LAST:event_SC_BootstrapVideoButtonActionPerformed
 
     private void SC_AnovaLikeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_AnovaLikeButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_anovaLikeCard");
-        CurrentLayout="S_anovaLikeCard";
+        setCard("S_anovaLikeCard");
     }//GEN-LAST:event_SC_AnovaLikeButtonActionPerformed
 
     private void SC_ClustersFeaturesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ClustersFeaturesButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_clustersFeaturesCard");
-        CurrentLayout="S_clustersFeaturesCard";
+        setCard("S_clustersFeaturesCard");
     }//GEN-LAST:event_SC_ClustersFeaturesButtonActionPerformed
 
     private void SC_HFCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_HFCButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_hfcCard");
-        CurrentLayout="S_hfcCard";
+        setCard("S_hfcCard");
     }//GEN-LAST:event_SC_HFCButtonActionPerformed
 
     private void SC_SeuratPriorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_SeuratPriorButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_seuratPriorCard");
-        CurrentLayout="S_seuratPriorCard";
+        setCard("S_seuratPriorCard");
     }//GEN-LAST:event_SC_SeuratPriorButtonActionPerformed
 
     private void SC_GenesPrioritizSIMLRButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_GenesPrioritizSIMLRButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_genesPrioritizationCard");
-        CurrentLayout="S_genesPrioritizationCard";
+        setCard("S_genesPrioritizationCard");
     }//GEN-LAST:event_SC_GenesPrioritizSIMLRButtonActionPerformed
 
     private void SC_GenesSelectionSIMLRButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_GenesSelectionSIMLRButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "S_genesSelectionCard");
-        CurrentLayout="S_genesSelectionCard";
+        setCard("S_genesSelectionCard");
     }//GEN-LAST:event_SC_GenesSelectionSIMLRButtonActionPerformed
 
     private void ConfigureTabsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfigureTabsButtonActionPerformed
@@ -4786,10 +4697,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "bonus");
-        CurrentLayout="bonus";
+        setCard("mirnaIndex");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        setCard("mirnaQuantific");
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -4968,7 +4881,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane ToolScrollPanel;
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.JPanel YouHaveToChooseABetterNamePanel;
-    private javax.swing.JScrollPane bonusScrollPane;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chipseqTabChecker;
     private javax.swing.JButton circRNAAnnotationButton2;
@@ -5010,6 +4922,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton9;
@@ -5064,6 +4977,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel miRNAPanel;
     private javax.swing.JScrollPane miRNAScrollPanel;
     private javax.swing.JCheckBox miRNATabChecker;
+    private javax.swing.JScrollPane mirnaGenomeIndexing;
+    private javax.swing.JScrollPane mirnaQuantification;
     private javax.swing.JScrollPane pCAPanel;
     private javax.swing.JCheckBox rnaSeqTabChecker;
     private javax.swing.JScrollPane sampleSizePanel;
@@ -5690,5 +5605,11 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         JOptionPane.showMessageDialog(stuff, String.format("%s task was scheduled", commandName),"Confermation",JOptionPane.INFORMATION_MESSAGE);
     }   
     
-    
+    public static void setCard(String cardName) {
+        cardName = cardName == null ? "Empty" : cardName;
+        
+        CardLayout card = (CardLayout) MainPanel.getLayout();
+        card.show(MainPanel, cardName);
+        CurrentLayout = cardName;
+    }
 }

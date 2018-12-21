@@ -6,10 +6,7 @@
 package pkg4seqgui;
 
 import java.awt.CardLayout;
-import java.awt.Dimension;
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
