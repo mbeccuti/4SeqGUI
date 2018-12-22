@@ -498,6 +498,7 @@ public class MainFrame extends javax.swing.JFrame {
         circRNATabChecker = new javax.swing.JCheckBox();
         rnaSeqTabChecker = new javax.swing.JCheckBox();
         chipseqTabChecker = new javax.swing.JCheckBox();
+        miRNA2TabChecker = new javax.swing.JCheckBox();
         YouHaveToChooseABetterNamePanel = new javax.swing.JPanel();
         deleteContainersChecker = new javax.swing.JCheckBox();
         confermConfigureTabButton = new javax.swing.JButton();
@@ -601,8 +602,6 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizeButton1 = new javax.swing.JButton();
         ExpPowerButton1 = new javax.swing.JButton();
         DeseqButton2 = new javax.swing.JButton();
-        mirnaindexingButton = new javax.swing.JButton();
-        mirnaQuantificationButton = new javax.swing.JButton();
         ChipSeqScrollPanel = new javax.swing.JScrollPane();
         ChipSeqPanel = new javax.swing.JPanel();
         indexingBButton = new javax.swing.JButton();
@@ -669,6 +668,10 @@ public class MainFrame extends javax.swing.JFrame {
         ToolPanel = new javax.swing.JPanel();
         MultiQCButton = new javax.swing.JButton();
         HeatmapButton = new javax.swing.JButton();
+        miRNA2ScrollPane = new javax.swing.JScrollPane();
+        miRNA2Panel = new javax.swing.JPanel();
+        mirnaQuantificationButton = new javax.swing.JButton();
+        mirnaindexingButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1112,6 +1115,16 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         enableTabsPanel.add(chipseqTabChecker, gridBagConstraints);
+
+        miRNA2TabChecker.setSelected(true);
+        miRNA2TabChecker.setText("miRNA2");
+        miRNA2TabChecker.setName("mirna2"); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        enableTabsPanel.add(miRNA2TabChecker, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1750,28 +1763,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         miRNAPanel.add(DeseqButton2, gridBagConstraints);
-
-        mirnaindexingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mirnaindexingButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        miRNAPanel.add(mirnaindexingButton, gridBagConstraints);
-
-        mirnaQuantificationButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mirnaQuantificationButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        miRNAPanel.add(mirnaQuantificationButton, gridBagConstraints);
 
         miRNAScrollPanel.setViewportView(miRNAPanel);
 
@@ -2643,7 +2634,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1197, Short.MAX_VALUE)
+            .addGap(0, 1285, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2703,6 +2694,52 @@ public class MainFrame extends javax.swing.JFrame {
         ToolScrollPanel.setViewportView(ToolPanel);
 
         jTabbedPane1.addTab("Tools", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/tooltab.png")), ToolScrollPanel); // NOI18N
+
+        miRNA2ScrollPane.setBackground(new java.awt.Color(255, 255, 255));
+        miRNA2ScrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
+        miRNA2ScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        miRNA2ScrollPane.setName("mirna2"); // NOI18N
+
+        miRNA2Panel.setBackground(new java.awt.Color(255, 255, 255));
+        miRNA2Panel.setLayout(new java.awt.GridBagLayout());
+
+        mirnaQuantificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        mirnaQuantificationButton.setText("Quantification  ");
+        mirnaQuantificationButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        mirnaQuantificationButton.setBorderPainted(false);
+        mirnaQuantificationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mirnaQuantificationButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 2.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        miRNA2Panel.add(mirnaQuantificationButton, gridBagConstraints);
+
+        mirnaindexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        mirnaindexingButton.setText("Genome Indexing  ");
+        mirnaindexingButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        mirnaindexingButton.setBorderPainted(false);
+        mirnaindexingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mirnaindexingButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        miRNA2Panel.add(mirnaindexingButton, gridBagConstraints);
+
+        miRNA2ScrollPane.setViewportView(miRNA2Panel);
+
+        jTabbedPane1.addTab("miRNA2", miRNA2ScrollPane);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -4970,6 +5007,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane mRNA;
     private javax.swing.JScrollPane mRNABatchPanel;
     private javax.swing.JButton mRNAButton;
+    private javax.swing.JPanel miRNA2Panel;
+    private javax.swing.JScrollPane miRNA2ScrollPane;
+    private javax.swing.JCheckBox miRNA2TabChecker;
     private javax.swing.JPanel miRNAPanel;
     private javax.swing.JScrollPane miRNAScrollPanel;
     private javax.swing.JCheckBox miRNATabChecker;
