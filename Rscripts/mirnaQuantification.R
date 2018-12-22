@@ -17,6 +17,11 @@ if(length(args)==0) {
 
 library(docker4seq)
 
-sncRNA(group=group, fastq.folder=fastq.folder, scratch.folder=scratch.folder,
-    mode=mode, reference=reference, threads=threads,
-    mb.version=mb.version, mb.species=mb.species)
+if (mode == "miRNA") {
+    sncRNA(group=group, fastq.folder=fastq.folder, scratch.folder=scratch.folder,
+        mode=mode, reference=reference, threads=threads,
+        mb.version=mb.version, mb.species=mb.species)
+} else if (mode == "ncRNA") {
+    sncRNA(group=group, fastq.folder=fastq.folder, scratch.folder=scratch.folder,
+        mode=mode, reference=reference, threads=threads)
+}

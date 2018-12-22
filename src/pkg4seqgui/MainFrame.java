@@ -601,8 +601,8 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizeButton1 = new javax.swing.JButton();
         ExpPowerButton1 = new javax.swing.JButton();
         DeseqButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        mirnaindexingButton = new javax.swing.JButton();
+        mirnaQuantificationButton = new javax.swing.JButton();
         ChipSeqScrollPanel = new javax.swing.JScrollPane();
         ChipSeqPanel = new javax.swing.JPanel();
         indexingBButton = new javax.swing.JButton();
@@ -1751,29 +1751,27 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         miRNAPanel.add(DeseqButton2, gridBagConstraints);
 
-        jButton3.setText("Indexing");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        mirnaindexingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                mirnaindexingButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        miRNAPanel.add(jButton3, gridBagConstraints);
+        miRNAPanel.add(mirnaindexingButton, gridBagConstraints);
 
-        jButton4.setText("Quantification");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        mirnaQuantificationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                mirnaQuantificationButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        miRNAPanel.add(jButton4, gridBagConstraints);
+        miRNAPanel.add(mirnaQuantificationButton, gridBagConstraints);
 
         miRNAScrollPanel.setViewportView(miRNAPanel);
 
@@ -4696,13 +4694,13 @@ public class MainFrame extends javax.swing.JFrame {
         ConfigureTabsButtonActionPerformed(evt);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void mirnaindexingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mirnaindexingButtonActionPerformed
         setCard("mirnaIndex");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_mirnaindexingButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void mirnaQuantificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mirnaQuantificationButtonActionPerformed
         setCard("mirnaQuantific");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_mirnaQuantificationButtonActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -4915,14 +4913,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton9;
@@ -4979,6 +4975,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox miRNATabChecker;
     private javax.swing.JScrollPane mirnaGenomeIndexing;
     private javax.swing.JScrollPane mirnaQuantification;
+    private javax.swing.JButton mirnaQuantificationButton;
+    private javax.swing.JButton mirnaindexingButton;
     private javax.swing.JScrollPane pCAPanel;
     private javax.swing.JCheckBox rnaSeqTabChecker;
     private javax.swing.JScrollPane sampleSizePanel;

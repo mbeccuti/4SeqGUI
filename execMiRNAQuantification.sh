@@ -1,12 +1,22 @@
 #!/bin/bash
 
-# group=$1
-# scratchfolder=$2
-# circrnafile=$3
-# exonfile=$4
-# isoformfile=$5
-# assembly=$6
-# outputdir=$7
+group=$1
+fastqfolder=$2
+scratchfolder=$3
+reference=$4
+mode=$5
+numthreads=$6
+
+if [ $mode == "miRNA" ]; then
+    mbversion=$7
+    mbspecies=$8
+    outputdir=$9
+elif [ $mode == "ncRNA" ]; then
+    outputdir=$7
+else
+    echo "INVALID MODE ARGUMENT"
+    exit 1
+fi
 
 echo
 echo "======================================================="
@@ -15,10 +25,12 @@ echo "======================================================="
 echo
 echo "Group:	$group"
 echo "Scratch Folder:     $scratchfolder"
-echo "CircRNA file:        $circrnafile"
-echo "Exon file:        $exonfile"
-echo "Isoform file:     $isoformfile"
-echo "Assembly version:	$assembly"
+echo "Fastq folder:        $fastqfolder"
+echo "Reference file:       $reference"
+echo "Mode:     $mode"
+echo "Number of threads:    $numthreads"
+echo "Argument 1:       $mbversion"
+echo "Argument 2:       $mbspecies"
 echo
 echo "======================================================="
 echo
@@ -26,7 +38,7 @@ echo " Current folder: ${PWD}"
 echo
 echo "Executing R script"
 
-#args="R CMD BATCH --no-save --no-restore  '--args   $group $scratchfolder $circrnafile $exonfile $isoformfile $assembly ' ./Rscripts/mirnaQuantification.R  $outputdir/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args $group $scratchfolder $fastqfolder $reference $mode $numthreads $mbversion $mbspecies ' ./Rscripts/mirnaQuantification.R  $outputdir/Routput.Rout"
 
 echo $args
 

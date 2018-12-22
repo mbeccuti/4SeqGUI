@@ -17,8 +17,16 @@ if(length(args)==0) {
 
 library(docker4seq)
 
-bwaIndex(group=group, mode=mode,
-        genome.folder=genome.folder, genome.url=genome.url,
-        dbsnp.file=dbsnp.file, g1000.file=g1000.file,
-        mb.version=mb.version, mb.species=mb.species,
-        rc.version=rc.version, rc.species=rc.species, length=length)
+if (mode == "General") {
+    bwaIndex(group=group, mode=mode, genome.folder=genome.folder,
+        genome.url=genome.url)
+} else if (mode == "GATK") {
+    bwaIndex(group=group, mode=mode, genome.folder=genome.folder,
+        genome.url=genome.url, dbsnp.file=dbsnp.file, g1000.file=g1000.file)
+} else if (mode == "miRNA") {
+    bwaIndex(group=group, mode=mode, genome.folder=genome.folder,
+        mb.version=mb.version, mb.species=mb.species)
+} else if (mode == "ncRNA") {
+    bwaIndex(group=group, mode=mode, genome.folder=genome.folder,
+            rc.version=rc.version, rc.species=rc.species, length=length)
+}
