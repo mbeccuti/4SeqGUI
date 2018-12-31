@@ -2400,7 +2400,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SubPredictionPanel.add(Ciri2MergeResultsButton1, gridBagConstraints);
 
-        StarChimericButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/star.png"))); // NOI18N
+        StarChimericButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_starchimeric.png"))); // NOI18N
         StarChimericButton1.setText("STAR Chimeric  ");
         StarChimericButton1.setBorderPainted(false);
         StarChimericButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -2415,7 +2415,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SubPredictionPanel.add(StarChimericButton1, gridBagConstraints);
 
-        StarchipCircleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/star2.png"))); // NOI18N
+        StarchipCircleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_starchip.png"))); // NOI18N
         StarchipCircleButton1.setText("STARchip Circle  ");
         StarchipCircleButton1.setBorderPainted(false);
         StarchipCircleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -2634,7 +2634,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1201, Short.MAX_VALUE)
+            .addGap(0, 1232, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
