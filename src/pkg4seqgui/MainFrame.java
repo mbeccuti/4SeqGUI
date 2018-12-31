@@ -918,7 +918,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -2456,7 +2456,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubClassificationPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         SubClassificationPanel.setLayout(new java.awt.GridBagLayout());
 
-        CircRNAQuantificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86.png"))); // NOI18N
+        CircRNAQuantificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_quantification.png"))); // NOI18N
         CircRNAQuantificationButton.setText("Quantification  ");
         CircRNAQuantificationButton.setBorderPainted(false);
         CircRNAQuantificationButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2498,7 +2498,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubSequencePanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         SubSequencePanel.setLayout(new java.awt.GridBagLayout());
 
-        CirchunterClassificButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86.png"))); // NOI18N
+        CirchunterClassificButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_classification.png"))); // NOI18N
         CirchunterClassificButton2.setText("CircHunter classification  ");
         CirchunterClassificButton2.setBorderPainted(false);
         CirchunterClassificButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -2513,7 +2513,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SubSequencePanel.add(CirchunterClassificButton2, gridBagConstraints);
 
-        circRNAAnnotationButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86.png"))); // NOI18N
+        circRNAAnnotationButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_annotation.png"))); // NOI18N
         circRNAAnnotationButton2.setText("Annotation  ");
         circRNAAnnotationButton2.setBorderPainted(false);
         circRNAAnnotationButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -2530,7 +2530,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SubSequencePanel.add(circRNAAnnotationButton2, gridBagConstraints);
 
-        downloadExonIsoformDataButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86.png"))); // NOI18N
+        downloadExonIsoformDataButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_ref_preparation.png"))); // NOI18N
         downloadExonIsoformDataButton2.setText("Download Exon and Isoform Data  ");
         downloadExonIsoformDataButton2.setBorderPainted(false);
         downloadExonIsoformDataButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -2634,7 +2634,7 @@ public class MainFrame extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1285, Short.MAX_VALUE)
+            .addGap(0, 1201, Short.MAX_VALUE)
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
