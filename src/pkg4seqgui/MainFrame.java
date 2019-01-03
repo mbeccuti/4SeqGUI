@@ -2571,7 +2571,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubClassificationPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         SubClassificationPanel1.setLayout(new java.awt.GridBagLayout());
 
-        BSJunctionsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86.png"))); // NOI18N
+        BSJunctionsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_seq.png"))); // NOI18N
         BSJunctionsButton.setText("Back-splicing Junctions  ");
         BSJunctionsButton.setBorderPainted(false);
         BSJunctionsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2586,7 +2586,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SubClassificationPanel1.add(BSJunctionsButton, gridBagConstraints);
 
-        CircRNAStructurePredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86.png"))); // NOI18N
+        CircRNAStructurePredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_cirias.png"))); // NOI18N
         CircRNAStructurePredictionButton.setText("Predict Structure  ");
         CircRNAStructurePredictionButton.setBorderPainted(false);
         CircRNAStructurePredictionButton.addActionListener(new java.awt.event.ActionListener() {
