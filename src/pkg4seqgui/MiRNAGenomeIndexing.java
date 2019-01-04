@@ -670,91 +670,19 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
     }//GEN-LAST:event_resetFormMiRNAIndexingButtonActionPerformed
 
     private void browseGenomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseGenomeButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!genomeFolderTextField.getText().isEmpty()){
-            File file =new File(genomeFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            genomeFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, genomeFolderTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseGenomeButtonActionPerformed
 
     private void browseScratchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!scratchFolderTextField.getText().isEmpty()){
-            File file = new File(scratchFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            scratchFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseScratchButtonActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!gatkDbsnpFileTextField.getText().isEmpty()){
-            File file = new File(gatkDbsnpFileTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            gatkDbsnpFileTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, gatkDbsnpFileTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!gatk1000genomesFileTextField.getText().isEmpty()){
-            File file = new File(gatk1000genomesFileTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            gatk1000genomesFileTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, gatk1000genomesFileTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void scratchFolderTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scratchFolderTextFieldActionPerformed

@@ -425,47 +425,11 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void browseExonDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseExonDataButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        
-        if (!(exonDataTextField.getText().equals(""))){
-            File file =new File(exonDataTextField.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            exonDataTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, exonDataTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseExonDataButtonActionPerformed
 
     private void browseIsoformDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseIsoformDataButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        
-        if (!(isoformDataTextField.getText().equals(""))){
-            File file =new File(isoformDataTextField.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            isoformDataTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, isoformDataTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseIsoformDataButtonActionPerformed
 
     private void cancelIsoformDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelIsoformDataButtonActionPerformed
@@ -477,25 +441,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelExonDataButtonActionPerformed
 
     private void browseCircrnaDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseCircrnaDataButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        
-        if (!(circrnaDataTextField.getText().equals(""))){
-            File file =new File(circrnaDataTextField.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            circrnaDataTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, circrnaDataTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseCircrnaDataButtonActionPerformed
 
     private void cancelCircrnaDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelCircrnaDataButtonActionPerformed
@@ -511,10 +457,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
     private void closeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormPostProcessingButtonActionPerformed
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
-        
+        MainFrame.setCard(null);        
         resetFormPostProcessingButtonActionPerformed(evt);
     }//GEN-LAST:event_closeFormPostProcessingButtonActionPerformed
 
@@ -592,25 +535,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_DockerRadioButtonActionPerformed
 
     private void browseScratchFolderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchFolderButton1ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(scratchFolderTextField.getText().equals(""))){
-            File file =new File(scratchFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            scratchFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseScratchFolderButton1ActionPerformed
 
     private void cancelScratchFolderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchFolderButton1ActionPerformed

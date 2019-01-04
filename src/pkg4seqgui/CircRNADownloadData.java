@@ -327,10 +327,7 @@ public class CircRNADownloadData extends javax.swing.JPanel {
     }//GEN-LAST:event_DockerRadioButtonActionPerformed
 
     private void closeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormPostProcessingButtonActionPerformed
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
-
+        MainFrame.setCard(null);
         resetFormPostProcessingButtonActionPerformed(evt);
     }//GEN-LAST:event_closeFormPostProcessingButtonActionPerformed
 
@@ -382,25 +379,7 @@ public class CircRNADownloadData extends javax.swing.JPanel {
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
     private void browseOutputFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseOutputFolderButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(outputFolderTextField.getText().equals(""))){
-            File file =new File(outputFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            outputFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, outputFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseOutputFolderButtonActionPerformed
 
     private void cancelOutputFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOutputFolderButtonActionPerformed
@@ -408,25 +387,7 @@ public class CircRNADownloadData extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelOutputFolderButtonActionPerformed
 
     private void browseScratchFolderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchFolderButton1ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(scratchFolderTextField.getText().equals(""))){
-            File file =new File(scratchFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            scratchFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseScratchFolderButton1ActionPerformed
 
     private void cancelScratchFolderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchFolderButton1ActionPerformed

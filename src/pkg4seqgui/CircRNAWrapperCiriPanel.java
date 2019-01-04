@@ -7,11 +7,8 @@ package pkg4seqgui;
 
 import java.awt.CardLayout;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -616,25 +613,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_genomePathTextFieldActionPerformed
 
     private void browseGenomePathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseGenomePathButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        
-        if (!(genomePathTextField.getText().equals(""))){
-            File file =new File(genomePathTextField.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            genomePathTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, genomePathTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseGenomePathButtonActionPerformed
 
     private void cancelGenomePathButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelGenomePathButtonActionPerformed
@@ -643,10 +622,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelGenomePathButtonActionPerformed
 
     private void closeFormWrapperCiriButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormWrapperCiriButtonActionPerformed
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
-        
+        MainFrame.setCard(null);
         resetFormWrapperCiriButtonActionPerformed(evt);
     }//GEN-LAST:event_closeFormWrapperCiriButtonActionPerformed
 
@@ -775,53 +751,14 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelFastqFolderButtonActionPerformed
 
     private void browseScratchFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchFolderButtonActionPerformed
-        // TODO add your handling code here:
-        JFileChooser openDir = new JFileChooser();
-        
-        if (!(scratchFolderTextField.getText().equals(""))){
-            File file =new File(scratchFolderTextField.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            scratchFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
-        
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);        
     }//GEN-LAST:event_browseScratchFolderButtonActionPerformed
 
     private void browseFastqFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseFastqFolderButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        
-        if (!(fastqPathTextField.getText().equals(""))){
-            File file =new File(fastqPathTextField.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            fastqPathTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, fastqPathTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseFastqFolderButtonActionPerformed
 
     private void cancelScratchFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchFolderButtonActionPerformed
-        // TODO add your handling code here:
         scratchFolderTextField.setText("");
     }//GEN-LAST:event_cancelScratchFolderButtonActionPerformed
 
@@ -830,25 +767,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelAnnotationButtonActionPerformed
 
     private void browseAnnotationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseAnnotationButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        
-        if (!(annotationFilepathTextField.getText().equals(""))){
-            File file =new File(annotationFilepathTextField.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            annotationFilepathTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, annotationFilepathTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseAnnotationButtonActionPerformed
 
     private void resetFormWrapperCiriButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormWrapperCiriButtonActionPerformed

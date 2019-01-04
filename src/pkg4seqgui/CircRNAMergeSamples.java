@@ -563,19 +563,12 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
              execution, scratchFolder, samplesFolder, samples, covariates, 
              min_reads, min_reps, min_avg)
                 .replace("'", "\\\""); 
-
-        /*
-        Path p = Paths.get(outputFolder);
-        Path folder = p.getParent();*/
         
         MainFrame.execCommand(this, "CircRNA merge CIRI2 files", "execCircMergeSamples.sh", command, outputFolder);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void closeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormPostProcessingButtonActionPerformed
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
-
+        MainFrame.setCard(null);
         resetFormPostProcessingButtonActionPerformed(evt);
     }//GEN-LAST:event_closeFormPostProcessingButtonActionPerformed
 
@@ -589,49 +582,12 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void browseSamplesFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseSamplesFolderButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!samplesFolderTextField.getText().isEmpty()){
-            File file =new File(samplesFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            samplesFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
-        
+        MainFrame.browseTextFieldContent(this, samplesFolderTextField, JFileChooser.DIRECTORIES_ONLY);  
         fillSamplesGroupsTable(samplesFolderTextField.getText());
     }//GEN-LAST:event_browseSamplesFolderButtonActionPerformed
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(outputFolderTextField.getText().equals(""))){
-            File file =new File(outputFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            outputFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, outputFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void minAverageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minAverageTextFieldActionPerformed
@@ -639,25 +595,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     }//GEN-LAST:event_minAverageTextFieldActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(scratchFolderTextField.getText().equals(""))){
-            File file =new File(scratchFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            scratchFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

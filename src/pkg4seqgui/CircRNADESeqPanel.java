@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author Nicola Licheri
  */
 public class CircRNADESeqPanel extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 9778212341L;
     /**
      * Creates new form CircRNADESeqPanel
      */
@@ -280,10 +280,6 @@ public class CircRNADESeqPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
     private void closeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormPostProcessingButtonActionPerformed
-   /*     CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";/*/
-        
         MainFrame.setCard(null);
 
         resetFormPostProcessingButtonActionPerformed(evt);

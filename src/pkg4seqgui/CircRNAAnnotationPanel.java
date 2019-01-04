@@ -378,25 +378,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void browseCircrnaDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseCircrnaDataButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(circrnaDataTextField.getText().equals(""))){
-            File file =new File(circrnaDataTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            circrnaDataTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, circrnaDataTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseCircrnaDataButtonActionPerformed
 
     private void cancelCircrnaDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelCircrnaDataButtonActionPerformed
@@ -488,25 +470,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_DockerRadioButtonActionPerformed
 
     private void browseScratchFolderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchFolderButton1ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(scratchFolderTextField.getText().equals(""))){
-            File file =new File(scratchFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            scratchFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseScratchFolderButton1ActionPerformed
 
     private void cancelScratchFolderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchFolderButton1ActionPerformed

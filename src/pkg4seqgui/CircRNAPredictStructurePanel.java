@@ -433,25 +433,7 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void browseAlignmentDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseAlignmentDataButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(alignmentDataTextField.getText().equals(""))){
-            File file =new File(alignmentDataTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            alignmentDataTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, alignmentDataTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseAlignmentDataButtonActionPerformed
 
     private void cancelAlignmentDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAlignmentDataButtonActionPerformed
@@ -459,25 +441,7 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelAlignmentDataButtonActionPerformed
 
     private void browseReferenceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseReferenceButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(referencePathTextField.getText().equals(""))){
-            File file =new File(referencePathTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            referencePathTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, referencePathTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseReferenceButtonActionPerformed
 
     private void cancelReferenceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelReferenceButtonActionPerformed
@@ -485,25 +449,7 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelReferenceButtonActionPerformed
 
     private void browseCircrnaDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseCircrnaDataButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(circrnaDataTextField.getText().equals(""))){
-            File file =new File(circrnaDataTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            circrnaDataTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, circrnaDataTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseCircrnaDataButtonActionPerformed
 
     private void cancelCircrnaDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelCircrnaDataButtonActionPerformed
@@ -511,10 +457,7 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelCircrnaDataButtonActionPerformed
 
     private void closeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormPostProcessingButtonActionPerformed
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
-
+        MainFrame.setCard(null);
         resetFormPostProcessingButtonActionPerformed(evt);
     }//GEN-LAST:event_closeFormPostProcessingButtonActionPerformed
 
@@ -606,25 +549,7 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_DockerRadioButtonActionPerformed
 
     private void browseAnnotationFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseAnnotationFileButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(annotationDataTextField.getText().equals(""))){
-            File file =new File(annotationDataTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            annotationDataTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, annotationDataTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseAnnotationFileButtonActionPerformed
 
     private void cancelAnnotationFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelAnnotationFileButtonActionPerformed
@@ -632,25 +557,7 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelAnnotationFileButtonActionPerformed
 
     private void browseScratchFolderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchFolderButton1ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-
-        if (!(scratchFolderTextField.getText().equals(""))){
-            File file =new File(scratchFolderTextField.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION) {
-            File f = openDir.getSelectedFile();
-            scratchFolderTextField.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseScratchFolderButton1ActionPerformed
 
     private void cancelScratchFolderButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchFolderButton1ActionPerformed
