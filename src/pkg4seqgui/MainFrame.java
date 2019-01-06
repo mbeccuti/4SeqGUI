@@ -2490,7 +2490,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         ExpressionAnalysisPanel.add(jLabel2, gridBagConstraints);
 
-        circRNADESeqButton.setText("Differential expression  ");
+        circRNADESeqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
+        circRNADESeqButton.setText("Differential expression using DESeq");
         circRNADESeqButton.setBorderPainted(false);
         circRNADESeqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
