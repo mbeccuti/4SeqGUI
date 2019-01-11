@@ -11,6 +11,7 @@ import java.util.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import pkg4seqgui.MainFrame.MyTask;
 /**
  *
@@ -471,22 +472,22 @@ public class DESPanel extends javax.swing.JPanel {
         dOutputFolderText.setText("");
         dBatchesTrue.setSelected(true);
         //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //   AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton3ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        String inputFilepath = dFPKMfileText.getText(), 
+               outputFolderpath = dOutputFolderText.getText();
         //Field check
 
-        if (dFPKMfileText.getText().isEmpty()){
+        if (inputFilepath.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (dOutputFolderText.getText().isEmpty()){
+        if (outputFolderpath.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -521,72 +522,29 @@ public class DESPanel extends javax.swing.JPanel {
             return;
         }
 
-        Runtime rt = Runtime.getRuntime();
-        //execute code
-
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execDES.sh "};
-            cmd[2]+= " experiment.table=\\\""+ dFPKMfileText.getText() +"\\\"";
-            if (dIsoformRadioButton.isSelected())
-            cmd[2]+= " type=\\\"isoform\\\"";
-            else
-            if (dGeneRadioButton.isSelected())
-            cmd[2]+= " type=\\\"gene\\\"";
-            else
-            cmd[2]+= " type=\\\"mirna\\\"";
-            cmd[2]+= " log2fc="+dLog2fcText.getText()+" fdr="+dFDRText.getText();
-            cmd[2]+= " ref.covar=\\\""+dCovComboBox.getSelectedItem().toString()+"\\\"";
-            cmd[2]+= " output.folder=\\\""+ dOutputFolderText.getText() +"\\\"";
-            if (dBatchesTrue.isSelected())
-            cmd[2]+= " batch=\\\"TRUE\\\"";
-            else
-            cmd[2]+= " batch=\\\"FALSE\\\"";
-            cmd[2]+=" "+ dOutputFolderText.getText()+" >& "+dOutputFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println(cmd[2]);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("DESeq2 analysis ", dOutputFolderText.getText() ,pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("DESeq2 analysis ", dOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "DESeq2 analysis task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        String command = String.format(
+            "experiment.table='%s' type='%s' log2fc=%s fdr=%s ref.covar='%s' batch='%s' output.folder='%s'", 
+            inputFilepath, 
+            dIsoformRadioButton.isSelected() ? "isoform" : (dGeneRadioButton.isSelected() ? "gene" : "mirna"), 
+            dLog2fcText.getText(), 
+            dFDRText.getText(), 
+            dCovComboBox.getSelectedItem().toString(),
+            dBatchesTrue.isSelected() ? "TRUE" : "FALSE", 
+            outputFolderpath
+        ).replace("'", "\\\"");
+        
+        MainFrame.execCommand(this, "DESeq2 analysis", "execDES.sh", command, outputFolderpath);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        if (dIsoformRadioButton.isEnabled())
+            dIsoformRadioButton.setSelected(true);
         dCovComboBox.setSelectedIndex(0);
-        dIsoformRadioButton.setSelected(true);
         dFPKMfileText.setText("");
         dLog2fcText.setText("");
         dFDRText.setText("");
         dOutputFolderText.setText("");
-        dBatchesTrue.setSelected(true);
+        DBatchesFalse.setSelected(true);
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
@@ -598,24 +556,8 @@ public class DESPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_dFPKMfileTextActionPerformed
 
     private void jToggleButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton14ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(dFPKMfileText.getText().equals(""))){
-            File file =new File(dOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            dFPKMfileText.setText(String.valueOf(f));
-            dOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        JFileChooser openDir = MainFrame.browseTextFieldContent(this, dFPKMfileText, JFileChooser.FILES_ONLY); 
+        dOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jToggleButton14ActionPerformed
 
     private void fCancelButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton2ActionPerformed
@@ -628,24 +570,7 @@ public class DESPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_dOutputFolderTextActionPerformed
 
     private void jToggleButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton17ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(dOutputFolderText.getText().equals(""))){
-            File file =new File(dOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            dOutputFolderText.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
-
+        MainFrame.browseTextFieldContent(this, dOutputFolderText, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_jToggleButton17ActionPerformed
 
     private static final long serialVersionUID = 5778212335L;

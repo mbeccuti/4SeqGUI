@@ -207,8 +207,8 @@ public class MainFrame extends javax.swing.JFrame {
         vmRNA.setViewportView(VMR);
         PCAPanel PP = new PCAPanel();
         pCAPanel.setViewportView(PP);
-        DESPanel DP = new DESPanel();
-        dESPanel.setViewportView(DP);
+        DESPanel deseq = new DESPanel();
+        dESPanel.setViewportView(deseq);
         IndexingBWAPanel IBWAP = new IndexingBWAPanel();
         indexingBWAPanel.setViewportView(IBWAP);
         MACSPanel MACSP = new MACSPanel();
@@ -219,8 +219,8 @@ public class MainFrame extends javax.swing.JFrame {
         ExperimentPowerPanel EPP = new ExperimentPowerPanel();
         experimentPowerPanel.setViewportView(EPP);
         
-        MRNABatchPanel MBP = new MRNABatchPanel();
-        mRNABatchPanel.setViewportView(MBP);
+        MRNABatchPanel samples2batches = new MRNABatchPanel();
+        mRNABatchPanel.setViewportView(samples2batches);
         
         S_IndropIndex SII = new S_IndropIndex();
         S_indropIndex.setViewportView(SII);
@@ -311,7 +311,10 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_starChimeric.setViewportView(new CircRNAStarChimeric());
         circRNA_prepareExonIsoformFiles.setViewportView(new CircRNADownloadData());
         circRNA_mergeCiri2Samples.setViewportView(new CircRNAMergeSamples());
-        circRNA_DESeq.setViewportView(new CircRNADESeqPanel());
+  //      circRNA_DESeq.setViewportView(deseq);
+  //      circRNA_Samples2Batches.setViewportView(samples2batches);
+//        circRNA_DESeq.setViewportView(new CircRNADESeqPanel());
+//        circRNA_Samples2Batches.setViewportView(new CircRNABatchPanel());
         
         mirnaGenomeIndexing.setViewportView(new MiRNAGenomeIndexing());
         mirnaQuantification.setViewportView(new MiRNAQuantification());
@@ -581,6 +584,7 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaGenomeIndexing = new javax.swing.JScrollPane();
         mirnaQuantification = new javax.swing.JScrollPane();
         circRNA_DESeq = new javax.swing.JScrollPane();
+        circRNA_Samples2Batches = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -659,6 +663,7 @@ public class MainFrame extends javax.swing.JFrame {
         CircRNAQuantificationButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         circRNADESeqButton = new javax.swing.JButton();
+        circRNAddingCovarsButtonButton = new javax.swing.JButton();
         ClassificationAnnotationPanel = new javax.swing.JPanel();
         CirchunterClassificButton2 = new javax.swing.JButton();
         circRNAAnnotationButton2 = new javax.swing.JButton();
@@ -1445,6 +1450,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(mirnaGenomeIndexing, "mirnaIndex");
         MainPanel.add(mirnaQuantification, "mirnaQuantific");
         MainPanel.add(circRNA_DESeq, "circrnaDESeq");
+        MainPanel.add(circRNA_Samples2Batches, "circrnaSamples2Batches");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2491,7 +2497,7 @@ public class MainFrame extends javax.swing.JFrame {
         ExpressionAnalysisPanel.add(jLabel2, gridBagConstraints);
 
         circRNADESeqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
-        circRNADESeqButton.setText("Differential expression using DESeq");
+        circRNADESeqButton.setText("DESeq2 analysis  ");
         circRNADESeqButton.setBorderPainted(false);
         circRNADESeqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2500,12 +2506,27 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExpressionAnalysisPanel.add(circRNADESeqButton, gridBagConstraints);
+
+        circRNAddingCovarsButtonButton.setText("Adding covariates and batches");
+        circRNAddingCovarsButtonButton.setBorderPainted(false);
+        circRNAddingCovarsButtonButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                circRNAddingCovarsButtonButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ExpressionAnalysisPanel.add(circRNAddingCovarsButtonButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -4451,15 +4472,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_DlogButtonActionPerformed
 
     private void MultiQCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiQCButtonActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "multiqc");
-        CurrentLayout="multiqc";
+        setCard("multiqc");
     }//GEN-LAST:event_MultiQCButtonActionPerformed
 
     private void CountButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountButton2ActionPerformed
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "MACS");
-        CurrentLayout="MACS";
+        setCard("MACS");
         MThreadText.setText(Integer.toString(GS.getDefaultThread()));
         MAdapter5Text.setText(GS.getDefaultAdapter5());
         MAdapter3Text.setText(GS.getDefaultAdapter3());
@@ -4469,13 +4486,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void indexingBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexingBButtonActionPerformed
         iThreadBText.setText(Integer.toString(GS.getDefaultThread()));
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "indexingB");
-        CurrentLayout="indexingB";    // TODO add your handling code here:
+        setCard("indexingB");
     }//GEN-LAST:event_indexingBButtonActionPerformed
 
     private void DeseqButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeseqButton2ActionPerformed
         setCard("DES");
+        DESPanel.dGeneRadioButton.setEnabled(true);
+        DESPanel.dIsoformRadioButton.setEnabled(true);
+        DESPanel.dmiRNARadioButton.setEnabled(true);
     }//GEN-LAST:event_DeseqButton2ActionPerformed
 
     private void ExpPowerButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpPowerButton1ActionPerformed
@@ -4762,8 +4780,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_mirnaQuantificationButtonActionPerformed
 
     private void circRNADESeqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circRNADESeqButtonActionPerformed
-        setCard("circrnaDESeq");
+        setCard("DES");
+        DESPanel.dGeneRadioButton.setSelected(true);
+        DESPanel.dGeneRadioButton.setEnabled(false);
+        DESPanel.dIsoformRadioButton.setEnabled(false);
+        DESPanel.dmiRNARadioButton.setEnabled(false);
     }//GEN-LAST:event_circRNADESeqButtonActionPerformed
+
+    private void circRNAddingCovarsButtonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circRNAddingCovarsButtonButtonActionPerformed
+        setCard("AddingCovmRNA");
+    }//GEN-LAST:event_circRNAddingCovarsButtonButtonActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -4949,6 +4975,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox circRNATabChecker;
     private javax.swing.JScrollPane circRNA_BSJunctions;
     private javax.swing.JScrollPane circRNA_DESeq;
+    private javax.swing.JScrollPane circRNA_Samples2Batches;
     private javax.swing.JScrollPane circRNA_annotation;
     private javax.swing.JScrollPane circRNA_ciri2;
     private javax.swing.JScrollPane circRNA_mergeCiri2Samples;
@@ -4958,6 +4985,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane circRNA_starChimeric;
     private javax.swing.JScrollPane circRNA_starPrediction;
     private javax.swing.JScrollPane circRNA_structure;
+    private javax.swing.JButton circRNAddingCovarsButtonButton;
     private javax.swing.JButton closeConfigureTabButton;
     private javax.swing.JButton confermConfigureTabButton;
     private javax.swing.JScrollPane countingSalmon;
@@ -5679,7 +5707,7 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         CurrentLayout = cardName;
     }
     
-    public static void browseTextFieldContent(JPanel caller, JTextField textfield, int mode) {
+    public static JFileChooser browseTextFieldContent(JPanel caller, JTextField textfield, int mode) {
         /** mode = {JFileChooser.FILES_ONLY, JFileChooser.DIRECTORIES_ONLY, JFileChooser.FILES_AND_DIRECTORIES} */
         JFileChooser openDir = new JFileChooser();
 
@@ -5700,5 +5728,7 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
             textfield.setText(String.valueOf(f));
         }
         MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        
+        return openDir;
     }
 }
