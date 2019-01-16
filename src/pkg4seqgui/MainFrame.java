@@ -23,7 +23,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -162,8 +165,144 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
-    private final TabBarController tabsController; 
+    private class DockerImageManager {
+        private final String configurationFilename = ".imdocker";
+        private final javax.swing.JTable dockerTable; 
+        public ArrayList<DockerImageDescription> images; 
+        
+        public class DockerImageDescription {
+            //describe a docker image record 
+            public final String url, repository, name; 
+
+            /** 
+             * Describe a docker image record. 
+             * @param url dockerhub url
+             */
+            public DockerImageDescription(String url) {
+                String tokens[] = url.split("/");
+                /* accessing the array starting from the end, 
+                 * we take into account both parsed and unparsed docker url:
+                 * case a: docker.io/repository/image
+                 * case b: repository/image */
+                this.name = tokens[tokens.length - 1]; //last token
+                this.repository = tokens[tokens.length - 2]; 
+                this.url = String.format("%s/%s", repository, name); 
+            }
+        }
+        
+        /**
+         * Initialize the docker manager. 
+         * 
+         * @param dockerTable Table component in GUI responsible to visualize and 
+         * manage docker images. 
+         */   
+        public DockerImageManager(javax.swing.JTable dockerTable) {
+            /* read configuration file and initialize the list */
+            this.dockerTable = dockerTable;
+            this.images = new ArrayList<>();
+            
+            try {
+                Files.lines(Paths.get(configurationFilename)).forEach((line) -> {
+                    this.images.add(new DockerImageDescription(line));
+                });
+            }
+            catch (IOException e) {
+                System.out.println("Cannot initialize Docker manager from .imdocker file");
+            }
+        }
+        
+        /**
+         * Add new docker images to the system. 
+         * 
+         * @param imageListFile name of the file containing the list of docker 
+         * images needed to execute all the possible pipelines present in docker4seq
+         */
+        public void addImages(String imageListFile) {
+            try {   
+                Files.lines(Paths.get(imageListFile)).forEach((String line) -> {
+                    DockerImageDescription curr = new DockerImageDescription(line);
+                    
+                    if (getIndexOf(curr.url) == -1)
+                        images.add(curr);
+                });
+            } catch (IOException ex) {
+                System.out.println("IOException during " + imageListFile + " reading");
+            }
+         
+            writeConfigurationFile();
+        }
+        
+        /**
+         * Show docker images in the apposite jtable. 
+         */
+        public void updateGUI() {
+            DefaultTableModel model = (DefaultTableModel) dockerImagesTable.getModel();
+            model.setRowCount(0);
+        
+            dockerManager.images.forEach((img) -> {
+                model.addRow(new Object[]{true, img.url, 123});
+            });
+        }
+        
+        /**
+         * Remove the selected images from the system. Docker images whose checkbox 
+         * is deselected are removed from the system 
+         */
+        public void removeImages() {
+            DefaultTableModel model = (DefaultTableModel) dockerTable.getModel();
+
+            for (int i = 0; i < model.getRowCount();) {
+                if (!(boolean) model.getValueAt(i, 0)) {
+                    removeImageRecord((String) model.getValueAt(i, 1));
+                    model.removeRow(i);
+                }
+                else {
+                    i++; 
+                }
+            }
+            
+            writeConfigurationFile();
+        }
+        
+        
+        private int getIndexOf(String imageUrl) {
+            for (int i = 0; i < this.images.size(); i++) 
+                if (this.images.get(i).url.equals(imageUrl))
+                    return i; 
+            return -1; 
+        }
+        
+        private boolean removeImageRecord(String imageId) {
+            int index = getIndexOf(imageId); 
+            boolean removed; 
+            
+            if (removed = (index != -1)) 
+                this.images.remove(index);
+            
+            return removed;
+        }
+        
+        private void writeConfigurationFile() {
+            File file = new File(configurationFilename); 
+            
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                for (DockerImageDescription img: this.images) {
+                    writer.write(String.format("%s\n", img.url));
+                }
+            }
+            catch (IOException e) {
+                System.err.println("Cannot write on file " + configurationFilename);
+            }
+        }
+        
+    }
     
+    
+    
+    
+    private final TabBarController tabsController; 
+    private final DockerImageManager dockerManager; 
+  
     
     /**
      * Creates new form MainFrame
@@ -172,6 +311,7 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         
         tabsController = new TabBarController(jTabbedPane1).refreshTabs();
+        dockerManager = new DockerImageManager(dockerImagesTable);
         
         java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/dna.png");
         ImageIcon image = new ImageIcon(imgURL);
@@ -505,15 +645,20 @@ public class MainFrame extends javax.swing.JFrame {
         rnaSeqTabChecker = new javax.swing.JCheckBox();
         chipseqTabChecker = new javax.swing.JCheckBox();
         miRNA2TabChecker = new javax.swing.JCheckBox();
-        YouHaveToChooseABetterNamePanel = new javax.swing.JPanel();
-        deleteContainersChecker = new javax.swing.JCheckBox();
         confermConfigureTabButton = new javax.swing.JButton();
         closeConfigureTabButton = new javax.swing.JButton();
+        dockerImagesManager = new javax.swing.JFrame();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        dockerImagesTable = new javax.swing.JTable();
+        commandsPanel = new javax.swing.JPanel();
+        addImagesButton = new javax.swing.JButton();
+        removeImagesButton = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jToggleButton11 = new javax.swing.JToggleButton();
+        jButton3 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        manageDockerImagesButton = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
         ConfigureTabsButton = new javax.swing.JButton();
         jButton35 = new javax.swing.JButton();
@@ -673,7 +818,6 @@ public class MainFrame extends javax.swing.JFrame {
         BSJunctionsButton = new javax.swing.JButton();
         CircRNAStructurePredictionButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         ToolScrollPanel = new javax.swing.JScrollPane();
         ToolPanel = new javax.swing.JPanel();
         MultiQCButton = new javax.swing.JButton();
@@ -1146,27 +1290,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ConfigureTabsFrame.getContentPane().add(enableTabsPanel, gridBagConstraints);
 
-        YouHaveToChooseABetterNamePanel.setBackground(new java.awt.Color(248, 248, 248));
-        YouHaveToChooseABetterNamePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        YouHaveToChooseABetterNamePanel.setLayout(new java.awt.GridBagLayout());
-
-        deleteContainersChecker.setText("Delete Containers");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.weightx = 0.2;
-        YouHaveToChooseABetterNamePanel.add(deleteContainersChecker, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 2.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ConfigureTabsFrame.getContentPane().add(YouHaveToChooseABetterNamePanel, gridBagConstraints);
-
         confermConfigureTabButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/end.png"))); // NOI18N
         confermConfigureTabButton.setText("Conferm");
         confermConfigureTabButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1176,8 +1299,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_TRAILING;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 3.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -1192,11 +1315,73 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.ABOVE_BASELINE_LEADING;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weighty = 3.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ConfigureTabsFrame.getContentPane().add(closeConfigureTabButton, gridBagConstraints);
+
+        dockerImagesManager.getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        dockerImagesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Flag", "Image name", "Size"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        dockerImagesTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(dockerImagesTable);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        dockerImagesManager.getContentPane().add(jScrollPane1, gridBagConstraints);
+
+        commandsPanel.setLayout(new java.awt.GridBagLayout());
+
+        addImagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        addImagesButton.setText("Add");
+        addImagesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addImagesButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        commandsPanel.add(addImagesButton, gridBagConstraints);
+
+        removeImagesButton.setText("Remove");
+        removeImagesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeImagesButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
+        gridBagConstraints.weighty = 1.0;
+        commandsPanel.add(removeImagesButton, gridBagConstraints);
+
+        dockerImagesManager.getContentPane().add(commandsPanel, new java.awt.GridBagConstraints());
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("4SeqGUI");
@@ -1236,18 +1421,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jToolBar1.add(jButton2);
 
-        jToggleButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/preference.png"))); // NOI18N
-        jToggleButton11.setToolTipText("Configure 4SeqGUI");
-        jToggleButton11.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        jToggleButton11.setFocusable(false);
-        jToggleButton11.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jToggleButton11.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToggleButton11.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/preference.png"))); // NOI18N
+        jButton3.setToolTipText("Configure 4SeqGUI");
+        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        jButton3.setFocusable(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton11ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        jToolBar1.add(jToggleButton11);
+        jToolBar1.add(jButton3);
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/docker.png"))); // NOI18N
         jButton9.setToolTipText("Remove docker containers");
@@ -1261,6 +1446,18 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton9);
+
+        manageDockerImagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/manage_docker.png"))); // NOI18N
+        manageDockerImagesButton.setToolTipText("Manage Docker images");
+        manageDockerImagesButton.setFocusable(false);
+        manageDockerImagesButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        manageDockerImagesButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        manageDockerImagesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageDockerImagesButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(manageDockerImagesButton);
 
         jButton26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
         jButton26.setToolTipText("Download docker images");
@@ -1278,6 +1475,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         ConfigureTabsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/tab.png"))); // NOI18N
         ConfigureTabsButton.setToolTipText("Configure Tabs");
+        ConfigureTabsButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         ConfigureTabsButton.setFocusable(false);
         ConfigureTabsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         ConfigureTabsButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -2460,6 +2658,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 10.0;
         CircRNAPanel.add(PredictionPanel, gridBagConstraints);
@@ -2532,6 +2731,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
@@ -2605,8 +2805,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         CircRNAPanel.add(ClassificationAnnotationPanel, gridBagConstraints);
 
@@ -2662,31 +2862,10 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         CircRNAPanel.add(SequenceAnalysisPanel, gridBagConstraints);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 932, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1232, Short.MAX_VALUE)
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weighty = 60.0;
-        CircRNAPanel.add(jPanel2, gridBagConstraints);
 
         CircRNAScrollPanel.setViewportView(CircRNAPanel);
 
@@ -2936,12 +3115,16 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
      private void  removeDockerContainer(java.awt.event.ActionEvent evt){
-        
-        String[] cmd = {"/bin/bash","-c"," docker rm $(docker ps -q -f status=exited); docker rm $(docker ps -q -f status=dead)"}; 
-        try{
+        String[] cmd = {
+            "/bin/bash",
+            "-c",
+            " docker rm $(docker ps -q -f status=exited);" + 
+            " docker rm $(docker ps -q -f status=dead)"
+        }; 
+        try {
             Runtime.getRuntime().exec(cmd);
             JOptionPane.showMessageDialog(this, "All docker containers were removed!!","Confermation",JOptionPane.INFORMATION_MESSAGE);
-            }
+        }
         catch (IOException e){
             System.out.println("Docker containers were not removed\n");
         } 
@@ -4260,10 +4443,6 @@ public class MainFrame extends javax.swing.JFrame {
         GL.setAvoidProcListValueChanged(0);
     }//GEN-LAST:event_RemoveOutputActionPerformed
 
-    private void jToggleButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton11ActionPerformed
-         configurationMenuItemActionPerformed(evt);
-    }//GEN-LAST:event_jToggleButton11ActionPerformed
-
     private void ConfCancellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfCancellActionPerformed
         ConfigurationFrame.setVisible(false);
     }//GEN-LAST:event_ConfCancellActionPerformed
@@ -4279,12 +4458,10 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-
         ParallelTextField.setText(Integer.toString(GS.getMaxSizelistProcRunning()));
         ThreadTextField.setText(Integer.toString(GS.getDefaultThread()));
         Adapter5TextField.setText(GS.getDefaultAdapter5());
         Adapter3TextField.setText(GS.getDefaultAdapter3());
-        
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -4300,7 +4477,6 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-    
         formWindowClosing(null);    
         setVisible(false);
         dispose();
@@ -4340,86 +4516,31 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
-      Downloadtext.setText("");
+        Downloadtext.setText("");
     }//GEN-LAST:event_jButton33ActionPerformed
 
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(Downloadtext.getText().equals(""))){
-            File file =new File(Downloadtext.getText());
-            if (file.isDirectory())
-                openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
-        }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            Downloadtext.setText(String.valueOf(f));
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        browseTextFieldContent(this, Downloadtext, JFileChooser.FILES_ONLY);
+        
         DownloadFrame.toFront();
         DownloadFrame.requestFocus();
     }//GEN-LAST:event_jButton34ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        String containerListFile = Downloadtext.getText();
+        String commandArgs = String.format("containers.list=%s", 
+                containerListFile.isEmpty() ? "NULL" : "'" + containerListFile + "'")
+                .replace("'", "\\\"");
         //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execDownloadImage.sh "};
-            
-            if (!(Downloadtext.getText().equals(""))){
-                 cmd[2]+= "containers.file=\\\""+Downloadtext.getText()+"\\\"";
-            }
-            else{
-                 cmd[2]+= "containers.file=NULL";
-            }
-            cmd[2]+= " "+System.getProperty("user.dir") +" >& "+System.getProperty("user.dir")+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (listProcRunning.size()<GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd); 
-                System.out.println("Runing PID:"+ getPidOfProcess(pr)+"\n");
-                
-                ElProcRunning tmp= new ElProcRunning("Download Docker images ", System.getProperty("user.dir"),pr,listModel.getSize());
-                listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                GL.setAvoidProcListValueChanged(-1);
-                listModel.addElement(new ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                GL.setAvoidProcListValueChanged(0);
-                if(listProcRunning.size()==1){
-                    t=new Timer();
-                    t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                    }
-                }         
-                else{
-                    ElProcWaiting tmp= new ElProcWaiting("Download Docker images ", System.getProperty("user.dir"),cmd,listModel.getSize());
-                    listProcWaiting.add(tmp);
-                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                    ImageIcon image2 = new ImageIcon(imgURL);
-                    GL.setAvoidProcListValueChanged(-1);
-                    listModel.addElement(new ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                    GL.setAvoidProcListValueChanged(0);
-                    }  
-                GL.setAvoidProcListValueChanged(-1);
-                ProcList.setModel(listModel);
-                ProcList.setCellRenderer(new ListEntryCellRenderer()); 
-                GL.setAvoidProcListValueChanged(0);
-            } 
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-            }
-                    
+        execCommand(this, "Download Docker images", "execDownloadImage.sh", commandArgs, System.getProperty("user.dir"));
         
-        JOptionPane.showMessageDialog(this, "Download Docker image task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
         DownloadFrame.setVisible(false);
         Downloadtext.setText("");
         getPreferences().put("4SeqGUI_WindowDownloadWidth", Integer.toString(DownloadFrame.getWidth()));
         getPreferences().put("4SeqGUI_WindowDownloadHeight", Integer.toString(DownloadFrame.getHeight())); 
+        
+        dockerManager.addImages(containerListFile);
+        dockerManager.updateGUI(); 
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -4755,10 +4876,6 @@ public class MainFrame extends javax.swing.JFrame {
         
         tabsController.refreshTabs();
         
-        if (deleteContainersChecker.isSelected()) {
-            //do stuff using disabledTabs values
-        }
-        
        // visualizeTabs();
         ConfigureTabsFrame.setVisible(false);
     }//GEN-LAST:event_confermConfigureTabButtonActionPerformed
@@ -4790,6 +4907,29 @@ public class MainFrame extends javax.swing.JFrame {
     private void circRNAddingCovarsButtonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circRNAddingCovarsButtonButtonActionPerformed
         setCard("AddingCovmRNA");
     }//GEN-LAST:event_circRNAddingCovarsButtonButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        configurationMenuItemActionPerformed(evt);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void manageDockerImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDockerImagesButtonActionPerformed
+        dockerImagesManager.pack();
+        dockerImagesManager.setLocationRelativeTo(null);
+        dockerImagesManager.setVisible(true);               
+  
+        dockerManager.updateGUI();
+    }//GEN-LAST:event_manageDockerImagesButtonActionPerformed
+
+
+    
+    
+    private void addImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImagesButtonActionPerformed
+        DownloadMenuItemActionPerformed(evt);
+    }//GEN-LAST:event_addImagesButtonActionPerformed
+
+    private void removeImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeImagesButtonActionPerformed
+        dockerManager.removeImages();
+    }//GEN-LAST:event_removeImagesButtonActionPerformed
     
     
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
@@ -4806,24 +4946,25 @@ public class MainFrame extends javax.swing.JFrame {
         //Anti-aliasing code
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext", "true");
-        boolean nofound=true;
-      try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+        
+        try {
+            //set default look and feel 
+            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName()); 
+            //set GTK look and feel, if it is present 
+            for (javax.swing.UIManager.LookAndFeelInfo info: javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeels".equals(info.getClassName())) {   
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    nofound=false;
-                     break;
-                } 
-                if (nofound=true)
-                    javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName()); 
-        }
+                    break;
+                }
+            } 
+            
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
   
         
         try{
-        Thread.sleep(800L);
+           Thread.sleep(800L);
         }
         catch ( InterruptedException e ) { } 
         /* Create and display the form */
@@ -4967,7 +5108,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ToolPanel;
     private javax.swing.JScrollPane ToolScrollPanel;
     private javax.swing.JSplitPane VerticalSplitPanel;
-    private javax.swing.JPanel YouHaveToChooseABetterNamePanel;
+    private javax.swing.JButton addImagesButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chipseqTabChecker;
     private javax.swing.JButton circRNAAnnotationButton2;
@@ -4987,11 +5128,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane circRNA_structure;
     private javax.swing.JButton circRNAddingCovarsButtonButton;
     private javax.swing.JButton closeConfigureTabButton;
+    private javax.swing.JPanel commandsPanel;
     private javax.swing.JButton confermConfigureTabButton;
     private javax.swing.JScrollPane countingSalmon;
     private javax.swing.JButton countingSalmonButton;
     private javax.swing.JScrollPane dESPanel;
-    private javax.swing.JCheckBox deleteContainersChecker;
+    private javax.swing.JFrame dockerImagesManager;
+    private javax.swing.JTable dockerImagesTable;
     private javax.swing.JButton downloadExonIsoformDataButton2;
     private javax.swing.JPanel enableTabsPanel;
     private javax.swing.JScrollPane experimentPowerPanel;
@@ -5006,6 +5149,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
@@ -5050,19 +5194,19 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JToggleButton jToggleButton11;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JScrollPane mACSPanel;
     private javax.swing.JScrollPane mRNA;
     private javax.swing.JScrollPane mRNABatchPanel;
     private javax.swing.JButton mRNAButton;
+    private javax.swing.JButton manageDockerImagesButton;
     private javax.swing.JPanel miRNA2Panel;
     private javax.swing.JScrollPane miRNA2ScrollPane;
     private javax.swing.JCheckBox miRNA2TabChecker;
@@ -5074,6 +5218,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton mirnaQuantificationButton;
     private javax.swing.JButton mirnaindexingButton;
     private javax.swing.JScrollPane pCAPanel;
+    private javax.swing.JButton removeImagesButton;
     private javax.swing.JCheckBox rnaSeqTabChecker;
     private javax.swing.JScrollPane sampleSizePanel;
     private javax.swing.JCheckBox singleCellTabChecker;
@@ -5242,11 +5387,11 @@ static public class GlobalSetting{
     }
     
     int getDefaultThread(){
-    return DefaultThread;
+        return DefaultThread;
     }
     
     String getDefaultAdapter5(){
-    return DefaultAdapter5;
+        return DefaultAdapter5;
     }
     
     String getDefaultAdapter3(){
@@ -5254,24 +5399,24 @@ static public class GlobalSetting{
     }
     
     int getMaxSizelistProcRunning(){
-    return MaxSizelistProcRunning;
+        return MaxSizelistProcRunning;
     }
     
     
     void  setDefaultThread(int DefaultThread){
-    this.DefaultThread=DefaultThread;
+        this.DefaultThread=DefaultThread;
     }
     
     void setDefaultAdapter5(String DefaultAdapter5){
-    this.DefaultAdapter5=DefaultAdapter5;
+        this.DefaultAdapter5=DefaultAdapter5;
     }
     
     void setDefaultAdapter3(String DefaultAdapter3){
-    this.DefaultAdapter3=DefaultAdapter3;
+        this.DefaultAdapter3=DefaultAdapter3;
     }
     
     void setMaxSizelistProcRunning(int MaxSizelistProcRunning){
-    this.MaxSizelistProcRunning=MaxSizelistProcRunning;
+        this.MaxSizelistProcRunning=MaxSizelistProcRunning;
     }
 }
 
@@ -5707,7 +5852,7 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         CurrentLayout = cardName;
     }
     
-    public static JFileChooser browseTextFieldContent(JPanel caller, JTextField textfield, int mode) {
+    public static JFileChooser browseTextFieldContent(Component caller, JTextField textfield, int mode) {
         /** mode = {JFileChooser.FILES_ONLY, JFileChooser.DIRECTORIES_ONLY, JFileChooser.FILES_AND_DIRECTORIES} */
         JFileChooser openDir = new JFileChooser();
 
