@@ -1985,6 +1985,9 @@
                             <EmptyBorder bottom="7" left="5" right="5" top="7"/>
                           </Border>
                         </Property>
+                        <Property name="horizontalScrollBar" type="javax.swing.JScrollBar" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="null"/>
+                        </Property>
                         <Property name="name" type="java.lang.String" value="rnaseq" noResource="true"/>
                       </Properties>
                       <Constraints>
@@ -2005,210 +2008,307 @@
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
+                            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                                <EmptyBorder bottom="0" left="0" right="0" top="0"/>
+                              </Border>
+                            </Property>
                             <Property name="name" type="java.lang.String" value="rnaseq" noResource="true"/>
                           </Properties>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JButton" name="SalmonIndexingButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/salmon.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Trans. pseudo-reference building (Salmon)  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalmonIndexingButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="vmRNAButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/DNAtab.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Genome indexing STAR-RSEM  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vmRNAButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="mRNAButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/DNAtab.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Genes, isoforms counting RSEM  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mRNAButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="PCAButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/PCA.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value=" PCA  analysis"/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PCAButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="countingSalmonButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/salmon.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Trans. and genes counting (Salmon)  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countingSalmonButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="SampleExpButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/sample.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="From samples to experiment  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SampleExpButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="CountButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/filter.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Count Filter  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CountButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="11" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="1.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="SampleSizeButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/size.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Sample size estimator  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SampleSizeButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="ExpPowerButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/power.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Experiment statistical  Power  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExpPowerButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="DeseqButton">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/Deseq2.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="DESeq2 analysis  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeseqButtonActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="9" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JSeparator" name="jSeparator1">
+                            <Container class="javax.swing.JPanel" name="RNAseqPanelSub1">
                               <Properties>
                                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="33" green="ff" red="33" type="rgb"/>
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                               </Properties>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="23" weightX="0.0" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="ANOVAlikeButton">
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="jLabelRNAseq1">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Dialog" size="14" style="1"/>
+                                    </Property>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/RNAtabB.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Count table generation"/>
+                                    <Property name="opaque" type="boolean" value="true"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelRNAseq1MouseClicked"/>
+                                  </Events>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="1.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Container class="javax.swing.JPanel" name="RNAseqPanelSub1M">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="23" weightX="0.0" weightY="1.0"/>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JButton" name="vmRNAButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/DNAtab.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Genome indexing STAR-RSEM  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vmRNAButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="mRNAButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/DNAtab.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Genes, isoforms counting RSEM  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mRNAButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="1" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="SalmonIndexingButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/salmon.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Trans. pseudo-reference building (Salmon)  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SalmonIndexingButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="countingSalmonButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/salmon.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Trans. and genes counting (Salmon)  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countingSalmonButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="3" gridWidth="3" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="RNAseqPanelSub2">
                               <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/anovaLike.png"/>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="ANOVA-like  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ANOVAlikeButtonActionPerformed"/>
-                              </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="10" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="23" weightX="1.0" weightY="1.0"/>
                                 </Constraint>
                               </Constraints>
-                            </Component>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="jLabelRNAseq2">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Dialog" size="14" style="1"/>
+                                    </Property>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/RNAtabB.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Count table post-processes"/>
+                                    <Property name="opaque" type="boolean" value="true"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelRNAseq2MouseClicked"/>
+                                  </Events>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="320" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="1.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Container class="javax.swing.JPanel" name="RNAseqPanelSub2M">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="23" weightX="0.0" weightY="1.0"/>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JButton" name="SampleExpButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/sample.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="From samples to experiment  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SampleExpButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="PCAButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/PCA.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value=" PCA  analysis"/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PCAButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="SampleSizeButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/size.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Sample size estimator  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SampleSizeButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="ExpPowerButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/power.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Experiment statistical  Power  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExpPowerButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="DeseqButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/Deseq2.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="DESeq2 analysis  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeseqButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="ANOVAlikeButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/anovaLike.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="ANOVA-like  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ANOVAlikeButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="CountButton">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/filter.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Count Filter  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CountButtonActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="1.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -2248,125 +2348,229 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JButton" name="jButton59">
+                            <Container class="javax.swing.JPanel" name="miRNApanelSub1">
                               <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/miRNAcount.png"/>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value=" miRNA counting  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton59ActionPerformed"/>
-                              </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="-1" gridY="-1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="0.0" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="jButton60">
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="jLabelmiRNA1">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Dialog" size="14" style="1"/>
+                                    </Property>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/miRNAtabB.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Count table generation"/>
+                                    <Property name="opaque" type="boolean" value="true"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelmiRNA1MouseClicked"/>
+                                  </Events>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="1.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Container class="javax.swing.JPanel" name="miRNApanelSub1M">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JButton" name="jButton59">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/miRNAcount.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value=" miRNA counting  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton59ActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
+                            <Container class="javax.swing.JPanel" name="miRNApanelSub2">
                               <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/miRNAcov.png"/>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
-                                <Property name="text" type="java.lang.String" value="Adding covariates and batchs  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
                               </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton60ActionPerformed"/>
-                              </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="23" weightX="1.0" weightY="1.0"/>
                                 </Constraint>
                               </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="PCAButton1">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/PCA.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value=" PCA  analysis"/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PCAButton1ActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="CountButton1">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/filter.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Count Filter  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CountButton1ActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="1.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="SampleSizeButton1">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/size.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Sample size estimator  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SampleSizeButton1ActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="ExpPowerButton1">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/power.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="Experiment statistical  Power  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExpPowerButton1ActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="DeseqButton2">
-                              <Properties>
-                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/Deseq2.png"/>
-                                </Property>
-                                <Property name="text" type="java.lang.String" value="DESeq2 analysis  "/>
-                                <Property name="borderPainted" type="boolean" value="false"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeseqButton2ActionPerformed"/>
-                              </Events>
-                              <Constraints>
-                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
-                                </Constraint>
-                              </Constraints>
-                            </Component>
+
+                              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                              <SubComponents>
+                                <Component class="javax.swing.JLabel" name="jLabelmiRNA2">
+                                  <Properties>
+                                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                      <Font name="Dialog" size="14" style="1"/>
+                                    </Property>
+                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                      <Image iconType="3" name="/pkg4seqgui/images/miRNAtabB.png"/>
+                                    </Property>
+                                    <Property name="text" type="java.lang.String" value="Count table post-processes"/>
+                                    <Property name="opaque" type="boolean" value="true"/>
+                                  </Properties>
+                                  <Events>
+                                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabelmiRNA2MouseClicked"/>
+                                  </Events>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="1" ipadX="320" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="18" weightX="1.0" weightY="0.0"/>
+                                    </Constraint>
+                                  </Constraints>
+                                </Component>
+                                <Container class="javax.swing.JPanel" name="miRNApanelSub2M">
+                                  <Properties>
+                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                                    </Property>
+                                  </Properties>
+                                  <Constraints>
+                                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                      <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="1" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="23" weightX="1.0" weightY="1.0"/>
+                                    </Constraint>
+                                  </Constraints>
+
+                                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+                                  <SubComponents>
+                                    <Component class="javax.swing.JButton" name="jButton60">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/miRNAcov.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Adding covariates and batchs  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton60ActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="PCAButton1">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/PCA.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value=" PCA  analysis"/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PCAButton1ActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="CountButton1">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/filter.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Count Filter  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CountButton1ActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="1.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="SampleSizeButton1">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/size.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Sample size estimator  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SampleSizeButton1ActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="ExpPowerButton1">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/power.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Experiment statistical  Power  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExpPowerButton1ActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="DeseqButton2">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/Deseq2.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="DESeq2 analysis  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DeseqButton2ActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                  </SubComponents>
+                                </Container>
+                              </SubComponents>
+                            </Container>
                           </SubComponents>
                         </Container>
                       </SubComponents>
@@ -2562,7 +2766,7 @@
                                       <Font name="Dialog" size="14" style="1"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                      <Image iconType="3" name="/pkg4seqgui/images/download.png"/>
+                                      <Image iconType="3" name="/pkg4seqgui/images/SingleCellB.png"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Counts Generation"/>
                                     <Property name="opaque" type="boolean" value="true"/>
@@ -2787,7 +2991,7 @@
                                       <Font name="Dialog" size="14" style="1"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                      <Image iconType="3" name="/pkg4seqgui/images/download.png"/>
+                                      <Image iconType="3" name="/pkg4seqgui/images/SingleCellB.png"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Counts Manipulation"/>
                                     <Property name="opaque" type="boolean" value="true"/>
@@ -2925,9 +3129,6 @@
                                   <Properties>
                                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                       <Font name="Dialog" size="14" style="1"/>
-                                    </Property>
-                                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                      <Image iconType="3" name="/pkg4seqgui/images/download.png"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Clustering"/>
                                     <Property name="opaque" type="boolean" value="true"/>
@@ -3067,7 +3268,7 @@
                                       <Font name="Dialog" size="14" style="1"/>
                                     </Property>
                                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                      <Image iconType="3" name="/pkg4seqgui/images/download.png"/>
+                                      <Image iconType="3" name="/pkg4seqgui/images/SingleCellB.png"/>
                                     </Property>
                                     <Property name="text" type="java.lang.String" value="Feature Selection"/>
                                     <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -3259,7 +3460,7 @@
                                   </Properties>
                                   <Constraints>
                                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                      <GridBagConstraints gridX="0" gridY="0" gridWidth="2" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+                                      <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="2" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
                                     </Constraint>
                                   </Constraints>
                                 </Component>
