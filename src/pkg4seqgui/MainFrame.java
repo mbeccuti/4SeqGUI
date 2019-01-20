@@ -26,6 +26,8 @@ import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
@@ -128,7 +130,6 @@ public class MainFrame extends javax.swing.JFrame {
             
             public void setVisibility() {
                 String varname = String.format("4SeqGUI_EnableTab%s", this.name);
-                
                 this.state = getPreferences().get(varname, "true").equals("true"); 
             }
             
@@ -168,7 +169,7 @@ public class MainFrame extends javax.swing.JFrame {
     private class DockerImageManager {
         private final String configurationFilename = ".imdocker";
         private final javax.swing.JTable dockerTable; 
-        public ArrayList<DockerImageDescription> images; 
+        private final Map<String, DockerImageDescription> dockerImages;
         
         public class DockerImageDescription {
             //describe a docker image record 
@@ -188,6 +189,30 @@ public class MainFrame extends javax.swing.JFrame {
                 this.repository = tokens[tokens.length - 2]; 
                 this.url = String.format("%s/%s", repository, name); 
             }
+
+            @Override
+            public int hashCode() {
+                int hash = 7;
+                hash = 83 * hash + Objects.hashCode(this.url);
+                return hash;
+            }
+
+            @Override
+            public boolean equals(Object obj) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj == null) {
+                    return false;
+                }
+                if (getClass() != obj.getClass()) {
+                    return false;
+                }
+                final DockerImageDescription other = (DockerImageDescription) obj;
+                return Objects.equals(this.url, other.url);
+            }
+            
+            
         }
         
         /**
@@ -199,17 +224,19 @@ public class MainFrame extends javax.swing.JFrame {
         public DockerImageManager(javax.swing.JTable dockerTable) {
             /* read configuration file and initialize the list */
             this.dockerTable = dockerTable;
-            this.images = new ArrayList<>();
+            this.dockerImages = new HashMap<>();
             
             try {
                 Files.lines(Paths.get(configurationFilename)).forEach((line) -> {
-                    this.images.add(new DockerImageDescription(line));
+                    DockerImageDescription curr = new DockerImageDescription(line); 
+                    this.dockerImages.put(curr.url, curr);
                 });
             }
             catch (IOException e) {
                 System.out.println("Cannot initialize Docker manager from .imdocker file");
             }
         }
+        
         
         /**
          * Add new docker images to the system. 
@@ -222,8 +249,8 @@ public class MainFrame extends javax.swing.JFrame {
                 Files.lines(Paths.get(imageListFile)).forEach((String line) -> {
                     DockerImageDescription curr = new DockerImageDescription(line);
                     
-                    if (getIndexOf(curr.url) == -1)
-                        images.add(curr);
+                    if (dockerImages.get(curr.url) == null) 
+                        dockerImages.put(curr.url, curr);
                 });
             } catch (IOException ex) {
                 System.out.println("IOException during " + imageListFile + " reading");
@@ -238,9 +265,9 @@ public class MainFrame extends javax.swing.JFrame {
         public void updateGUI() {
             DefaultTableModel model = (DefaultTableModel) dockerImagesTable.getModel();
             model.setRowCount(0);
-        
-            dockerManager.images.forEach((img) -> {
-                model.addRow(new Object[]{true, img.url, 123});
+            
+            dockerImages.entrySet().forEach((entry) -> {
+                model.addRow(new Object[]{true, entry.getValue().url, 112233});
             });
         }
         
@@ -249,46 +276,36 @@ public class MainFrame extends javax.swing.JFrame {
          * is deselected are removed from the system 
          */
         public void removeImages() {
-            DefaultTableModel model = (DefaultTableModel) dockerTable.getModel();
-
-            for (int i = 0; i < model.getRowCount();) {
-                if (!(boolean) model.getValueAt(i, 0)) {
-                    removeImageRecord((String) model.getValueAt(i, 1));
-                    model.removeRow(i);
-                }
-                else {
-                    i++; 
-                }
-            }
+            getRecords(false).forEach((imageId) -> {
+                dockerImages.remove(imageId);
+            });
             
+            updateGUI();
             writeConfigurationFile();
         }
         
-        
-        private int getIndexOf(String imageUrl) {
-            for (int i = 0; i < this.images.size(); i++) 
-                if (this.images.get(i).url.equals(imageUrl))
-                    return i; 
-            return -1; 
+        /**
+         * Return the list of docker images (un)selected. 
+         * @param selected_flag  
+         */
+        private ArrayList<String> getRecords(boolean selected_flag) {
+            ArrayList<String> records = new ArrayList<>();
+            DefaultTableModel model = (DefaultTableModel) dockerTable.getModel();
+            
+            for (int i = 0; i < model.getRowCount(); i++)  
+                if (((boolean) model.getValueAt(i, 0)) == selected_flag) 
+                    records.add((String) model.getValueAt(i,1));
+            
+            return records; 
         }
         
-        private boolean removeImageRecord(String imageId) {
-            int index = getIndexOf(imageId); 
-            boolean removed; 
-            
-            if (removed = (index != -1)) 
-                this.images.remove(index);
-            
-            return removed;
-        }
         
         private void writeConfigurationFile() {
             File file = new File(configurationFilename); 
             
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                for (DockerImageDescription img: this.images) {
-                    writer.write(String.format("%s\n", img.url));
-                }
+                for (Map.Entry<String, DockerImageDescription> entry: dockerImages.entrySet())
+                    writer.write(String.format("%s\n", entry.getValue().url));
             }
             catch (IOException e) {
                 System.err.println("Cannot write on file " + configurationFilename);
@@ -296,9 +313,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
     }
-    
-    
-    
+        
     
     private final TabBarController tabsController; 
     private final DockerImageManager dockerManager; 
@@ -653,6 +668,7 @@ public class MainFrame extends javax.swing.JFrame {
         commandsPanel = new javax.swing.JPanel();
         addImagesButton = new javax.swing.JButton();
         removeImagesButton = new javax.swing.JButton();
+        pullImagesButton = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -1350,6 +1366,8 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(dockerImagesTable);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1366,6 +1384,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         commandsPanel.add(addImagesButton, gridBagConstraints);
 
         removeImagesButton.setText("Remove");
@@ -1375,11 +1394,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         commandsPanel.add(removeImagesButton, gridBagConstraints);
+
+        pullImagesButton.setText("Update");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        commandsPanel.add(pullImagesButton, gridBagConstraints);
 
         dockerImagesManager.getContentPane().add(commandsPanel, new java.awt.GridBagConstraints());
 
@@ -5218,6 +5245,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton mirnaQuantificationButton;
     private javax.swing.JButton mirnaindexingButton;
     private javax.swing.JScrollPane pCAPanel;
+    private javax.swing.JButton pullImagesButton;
     private javax.swing.JButton removeImagesButton;
     private javax.swing.JCheckBox rnaSeqTabChecker;
     private javax.swing.JScrollPane sampleSizePanel;
