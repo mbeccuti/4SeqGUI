@@ -230,7 +230,7 @@ public class MainFrame extends javax.swing.JFrame {
                 });
             }
             catch (IOException e) {
-                System.out.println("Cannot initialize Docker manager from .imdocker file");
+                System.out.println("Warning: Cannot initialize Docker manager from .imdocker file");
             }
         }
         
