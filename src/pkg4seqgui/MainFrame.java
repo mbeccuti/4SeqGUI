@@ -108,46 +108,46 @@ import static pkg4seqgui.PCAPanel.pComponent2Text;
  * @author beccuti
  */
 public class MainFrame extends javax.swing.JFrame {
-    
-    private class TabBarController {        
+
+    private class TabBarController {
         private class SingleTabInfo {
-            public final int numTab; 
+            public final int numTab;
             public final Icon icon;
             public final String text, name;
-            public final JScrollPane content; 
+            public final JScrollPane content;
             private boolean state; //true: visible, false: hidden
 
             public SingleTabInfo(int index, JTabbedPane tabbedPane) {
-                this.numTab = index; 
-                this.icon = tabbedPane.getIconAt(index); 
-                this.text = tabbedPane.getTitleAt(index); 
-                this.content = (JScrollPane) tabbedPane.getComponentAt(index); 
+                this.numTab = index;
+                this.icon = tabbedPane.getIconAt(index);
+                this.text = tabbedPane.getTitleAt(index);
+                this.content = (JScrollPane) tabbedPane.getComponentAt(index);
                 this.name = this.content.getName();
             }
-            
+
             public void setVisibility() {
                 String varname = String.format("4SeqGUI_EnableTab%s", this.name);
-                this.state = getPreferences().get(varname, "true").equals("true"); 
+                this.state = getPreferences().get(varname, "true").equals("true");
             }
-            
+
             public boolean getVisibility() {
                 return this.state;
             }
         }
-        
+
         private final JTabbedPane myJTabbedPane;
         private final ArrayList<SingleTabInfo> tabList;
-        
+
         public TabBarController(JTabbedPane myTab) {
             this.tabList = new ArrayList<>();
             this.myJTabbedPane = myTab;
-            
+
             //store all tabs in the list
-            for (int i = 0, count = myTab.getTabCount(); i < count; i++) 
-                this.tabList.add(new SingleTabInfo(i, myTab)); 
-            
+            for (int i = 0, count = myTab.getTabCount(); i < count; i++)
+                this.tabList.add(new SingleTabInfo(i, myTab));
+
         }
-        
+
         public TabBarController refreshTabs() {
             // remove all tabs
             for (SingleTabInfo tab: this.tabList) {
@@ -155,37 +155,37 @@ public class MainFrame extends javax.swing.JFrame {
                 tab.setVisibility();
             }
             // add those tabs that are not hidden
-            for (SingleTabInfo tab: this.tabList) 
-                if (tab.getVisibility()) 
+            for (SingleTabInfo tab: this.tabList)
+                if (tab.getVisibility())
                     this.myJTabbedPane.addTab(tab.text, tab.icon, tab.content);
-                
-            return this; 
+
+            return this;
         }
     }
-    
+
     private class DockerImageManager {
         private final String countDockerImagesVariable = "4SeqGUI_numDockerImages";
         private final String prefixDockerVariable = "4SeqGUI_dockerImage_";
-        private final javax.swing.JTable dockerTable; 
+        private final javax.swing.JTable dockerTable;
         private final Map<String, DockerImageDescription> dockerImages;
-        
-        public class DockerImageDescription {
-            //describe a docker image record 
-            public final String url, repository, name; 
 
-            /** 
-             * Describe a docker image record. 
+        public class DockerImageDescription {
+            //describe a docker image record
+            public final String url, repository, name;
+
+            /**
+             * Describe a docker image record.
              * @param url dockerhub url
              */
             public DockerImageDescription(String url) {
                 String tokens[] = url.split("/");
-                /* accessing the array starting from the end, 
+                /* accessing the array starting from the end,
                  * we take into account both parsed and unparsed docker url:
                  * case a: docker.io/repository/image
                  * case b: repository/image */
                 this.name = tokens[tokens.length - 1]; //last token
-                this.repository = tokens[tokens.length - 2]; 
-                this.url = String.format("%s/%s", repository, name); 
+                this.repository = tokens[tokens.length - 2];
+                this.url = String.format("%s/%s", repository, name);
             }
 
             @Override
@@ -209,146 +209,146 @@ public class MainFrame extends javax.swing.JFrame {
                 final DockerImageDescription other = (DockerImageDescription) obj;
                 return Objects.equals(this.url, other.url);
             }
-            
-            
+
+
         }
-        
+
         /**
-         * Initialize the docker manager. 
-         * 
-         * @param dockerTable Table component in GUI responsible to visualize and 
-         * manage docker images. 
-         */   
+         * Initialize the docker manager.
+         *
+         * @param dockerTable Table component in GUI responsible to visualize and
+         * manage docker images.
+         */
         public DockerImageManager(javax.swing.JTable dockerTable) {
             this.dockerTable = dockerTable;
             this.dockerImages = new HashMap<>();
-            
+
             loadConfiguration();
         }
-        
-        
-        
+
+
+
         /**
-         * Add new docker images to the system. 
-         * 
-         * @param imageListFile name of the file containing the list of docker 
+         * Add new docker images to the system.
+         *
+         * @param imageListFile name of the file containing the list of docker
          * images needed to execute all the possible pipelines present in docker4seq
          */
         public void addImages(String imageListFile) {
-            try {   
+            try {
                 Files.lines(Paths.get(imageListFile)).forEach((String line) -> {
                     DockerImageDescription curr = new DockerImageDescription(line);
-                    
-                    if (dockerImages.get(curr.url) == null) 
+
+                    if (dockerImages.get(curr.url) == null)
                         dockerImages.put(curr.url, curr);
                 });
             } catch (IOException ex) {
                 System.out.println("IOException during " + imageListFile + " reading");
             }
-  
+
             writeConfiguration();
         }
-        
+
         /**
-         * Show docker images in the apposite jtable. 
+         * Show docker images in the apposite jtable.
          */
         public void updateGUI() {
             DefaultTableModel model = (DefaultTableModel) dockerImagesTable.getModel();
             model.setRowCount(0);
-            
+
             dockerImages.entrySet().forEach((entry) -> {
                 model.addRow(new Object[]{true, entry.getValue().url, 112233});
             });
         }
-        
+
         /**
-         * Remove the selected images from the system. Docker images whose checkbox 
-         * is deselected are removed from the system 
+         * Remove the selected images from the system. Docker images whose checkbox
+         * is deselected are removed from the system
          */
         public void removeImages() {
             getRecords(false).forEach((imageId) -> {
                 dockerImages.remove(imageId);
             });
-            
+
             updateGUI();
             writeConfiguration();
         }
-        
+
         /**
-         * Return the list of docker images (un)selected. 
-         * @param selected_flag  
+         * Return the list of docker images (un)selected.
+         * @param selected_flag
          */
         private ArrayList<String> getRecords(boolean selected_flag) {
             ArrayList<String> records = new ArrayList<>();
             DefaultTableModel model = (DefaultTableModel) dockerTable.getModel();
-            
-            for (int i = 0; i < model.getRowCount(); i++)  
-                if (((boolean) model.getValueAt(i, 0)) == selected_flag) 
+
+            for (int i = 0; i < model.getRowCount(); i++)
+                if (((boolean) model.getValueAt(i, 0)) == selected_flag)
                     records.add((String) model.getValueAt(i,1));
-            
-            return records; 
+
+            return records;
         }
-        
-        /** 
+
+        /**
          * Instantiate dockerImages map loading docker images' names from Preferences
          * values */
         private void loadConfiguration() {
             int numImages = getPreferences().getInt(countDockerImagesVariable, 0);
-            
+
             dockerImages.clear();
-            
+
             for (int i = 0; i < numImages; i++) {
-                String varName = String.format("%s%d", prefixDockerVariable, i); 
-                String varValue = getPreferences().get(varName, null); 
-                
-                if (varValue != null)  
-                    dockerImages.put(varValue, new DockerImageDescription(varValue)); 
+                String varName = String.format("%s%d", prefixDockerVariable, i);
+                String varValue = getPreferences().get(varName, null);
+
+                if (varValue != null)
+                    dockerImages.put(varValue, new DockerImageDescription(varValue));
             }
         }
-        
+
         /**
-         * 
+         *
          */
         private void writeConfiguration() {
-            //save number of images 
-            int numImages = dockerImages.size(); 
-            int index = 0; 
-            
+            //save number of images
+            int numImages = dockerImages.size();
+            int index = 0;
+
             getPreferences().putInt(countDockerImagesVariable, numImages);
-            
+
             for (String imageUrl: dockerImages.keySet()) {
-                String varName = String.format("%s%d", prefixDockerVariable, index); 
+                String varName = String.format("%s%d", prefixDockerVariable, index);
                 getPreferences().put(varName, imageUrl);
-                index++; 
+                index++;
             }
         }
-        
+
     }
-        
-    
-    private final TabBarController tabsController; 
-    private final DockerImageManager dockerManager; 
-  
-   
+
+
+    private final TabBarController tabsController;
+    private final DockerImageManager dockerManager;
+
+
     /**
      * Creates new form MainFrame
      */
-    public MainFrame() {       
+    public MainFrame() {
         initComponents();
-        
+
         tabsController = new TabBarController(jTabbedPane1).refreshTabs();
         dockerManager = new DockerImageManager(dockerImagesTable);
-        
+
         java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/dna.png");
         ImageIcon image = new ImageIcon(imgURL);
-        
+
         //DefaultTreeCellRenderer renderer =(DefaultTreeCellRenderer) AnalysisTree.getCellRenderer();
         //renderer.setLeafIcon(image);
         //imgURL = getClass().getResource("/pkg4seqgui/images/dna2.png");
        // ImageIcon image2 = new ImageIcon(imgURL);
         //renderer.setOpenIcon(image2);
        // expandAllNodes(AnalysisTree, 0, AnalysisTree.getRowCount());
-                
+
 
         //ADDING PANEL
         MultiQC MQC= new MultiQC();
@@ -364,7 +364,7 @@ public class MainFrame extends javax.swing.JFrame {
         IndexingSalmon IS = new IndexingSalmon();
         indexingSalmon.setViewportView(IS);
         IndexingStarRSEM ISR = new IndexingStarRSEM();
-        indexingStarRSEM.setViewportView(ISR);      
+        indexingStarRSEM.setViewportView(ISR);
         MRNAPanel MRNAP = new MRNAPanel();
         mRNA.setViewportView(MRNAP);
         FPKMPanel FPKM = new FPKMPanel();
@@ -381,88 +381,88 @@ public class MainFrame extends javax.swing.JFrame {
         mACSPanel.setViewportView(MACSP);
         SampleSizePanel SSP = new SampleSizePanel();
         sampleSizePanel.setViewportView(SSP);
-        
+
         ExperimentPowerPanel EPP = new ExperimentPowerPanel();
         experimentPowerPanel.setViewportView(EPP);
-        
+
         MRNABatchPanel samples2batches = new MRNABatchPanel();
         mRNABatchPanel.setViewportView(samples2batches);
-        
+
         S_IndropIndex SII = new S_IndropIndex();
         S_indropIndex.setViewportView(SII);
-        
+
         S_IndropCounts SIC = new S_IndropCounts();
         S_indropCounts.setViewportView(SIC);
-        
+
         S_CellRanger CR = new S_CellRanger();
         S_cellRanger.setViewportView(CR);
-        
+
         S_FilterZeros FZ = new S_FilterZeros();
         S_filterZeros.setViewportView(FZ);
-        
+
         S_GenesUmi GU = new S_GenesUmi();
         S_genesUmi.setViewportView(GU);
-        
+
         S_TopX TPX = new S_TopX();
         S_topX.setViewportView(TPX);
-        
+
         S_LorenzFilter LF = new S_LorenzFilter();
         S_lorenzFilter.setViewportView(LF);
-        
+
         S_ScannoByGtf SBG = new S_ScannoByGtf();
         S_scannoByGtf.setViewportView(SBG);
-        
+
         S_CountDepth CD = new S_CountDepth();
         S_countDepth.setViewportView(CD);
-        
+
         S_Scnorm Scn = new S_Scnorm();
         S_scnorm.setViewportView(Scn);
-        
+
         S_UmiNorm UN= new S_UmiNorm();
         S_umiNorm.setViewportView(UN);
-        
+
         S_Counts2Log C2L = new S_Counts2Log();
         S_counts2Log.setViewportView(C2L);
-        
+
         S_RecatPrediction RP = new S_RecatPrediction();
         S_recatPrediction.setViewportView(RP);
-        
+
         S_CcRemove CRV = new S_CcRemove();
         S_ccRemove.setViewportView(CRV);
-        
+
         S_ClusterNgriph CNG = new S_ClusterNgriph();
         S_clusterNgriph.setViewportView(CNG);
 
         S_SimlrBootstrap SBTS = new S_SimlrBootstrap();
         S_simlrBootstrap.setViewportView(SBTS);
-        
+
         S_BootstrapsVideo BV = new S_BootstrapsVideo();
         S_bootstrapsVideo.setViewportView(BV);
-        
+
         S_SeuratPCAEval SPE = new S_SeuratPCAEval();
         S_seuratPCAEval.setViewportView(SPE);
-        
+
         S_SeuratBootstrap SBT = new S_SeuratBootstrap();
         S_seuratBootstrap.setViewportView(SBT);
-        
+
         S_TsneBootstrap TB = new S_TsneBootstrap();
         S_tsneBootstrap.setViewportView(TB);
 
         S_AnovaLike AL = new S_AnovaLike();
         S_anovaLike.setViewportView(AL);
-        
+
         S_ClustersFeatures CF = new S_ClustersFeatures();
         S_clustersFeatures.setViewportView(CF);
-        
+
         S_Hfc HFC = new S_Hfc();
         S_hfc.setViewportView(HFC);
-        
+
         S_GenesPrioritization GPR = new S_GenesPrioritization();
         S_genesPrioritization.setViewportView(GPR);
-        
+
         S_GenesSelection _GS = new S_GenesSelection();
         S_genesSelection.setViewportView(_GS);
-        
+
         S_SeuratPrior SP= new S_SeuratPrior();
         S_seuratPrior.setViewportView(SP);
 
@@ -481,14 +481,14 @@ public class MainFrame extends javax.swing.JFrame {
   //      circRNA_Samples2Batches.setViewportView(samples2batches);
 //        circRNA_DESeq.setViewportView(new CircRNADESeqPanel());
 //        circRNA_Samples2Batches.setViewportView(new CircRNABatchPanel());
-        
+
         mirnaGenomeIndexing.setViewportView(new MiRNAGenomeIndexing());
         mirnaQuantification.setViewportView(new MiRNAQuantification());
 //ADDING PANEL
 
-        
+
         //adding here all the textarea that must be maneged with right button mouse
-        
+
         //vRNAPanel
         contextMenu.add(vThreadText);
         contextMenu.add(vAdapter5Text);
@@ -501,10 +501,10 @@ public class MainFrame extends javax.swing.JFrame {
         contextMenu.add(mmiRBaseText);
         //PCA
          contextMenu.add(pComponent1Text);
-         contextMenu.add(pComponent2Text);  
+         contextMenu.add(pComponent2Text);
         //DES
         contextMenu.add(dLog2fcText);
-        contextMenu.add(dFDRText);  
+        contextMenu.add(dFDRText);
         //indexingBW
         contextMenu.add(iThreadBText);
         contextMenu.add(iGenomeURLBText);
@@ -516,22 +516,22 @@ public class MainFrame extends javax.swing.JFrame {
         //Configuration
         contextMenu.add(Adapter3TextField);
         contextMenu.add(Adapter5TextField);
-        
-      
+
+
         FPKMFileTable.getColumn("Folder").setPreferredWidth(1000);
 
-        
-        
+
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        
+
         String HorSplPan = getPreferences().get("4SeqGUI_HorizontalSplitPanel", null);
         if (HorSplPan!=null){
-         HorizontalSplitPanel.setDividerLocation(Integer.valueOf(HorSplPan));   
+         HorizontalSplitPanel.setDividerLocation(Integer.valueOf(HorSplPan));
         }
         else{
-         HorizontalSplitPanel.setDividerLocation(screenSize.height*3/10);   
+         HorizontalSplitPanel.setDividerLocation(screenSize.height*3/10);
         }
-  
+
         String VerSplPan = getPreferences().get("4SeqGUI_VerticalSplitPanel", null);
         if (VerSplPan!=null){
             VerticalSplitPanel.setDividerLocation(Integer.valueOf(VerSplPan));
@@ -539,11 +539,11 @@ public class MainFrame extends javax.swing.JFrame {
         else {
         VerticalSplitPanel.setDividerLocation(screenSize.height*7/10);
         }
-        
+
         String  WindowWidth= getPreferences().get("4SeqGUI_WindowWidth", null);
-        String  WindowHeight= getPreferences().get("4SeqGUI_WindowHeight", null); 
+        String  WindowHeight= getPreferences().get("4SeqGUI_WindowHeight", null);
         if ((WindowWidth!=null)&&(WindowHeight!=null)){
-            setSize(Integer.valueOf(WindowWidth),Integer.valueOf(WindowHeight));  
+            setSize(Integer.valueOf(WindowWidth),Integer.valueOf(WindowHeight));
         }
         else{
             setSize(screenSize.width*95/100,screenSize.height*95/100);
@@ -552,24 +552,24 @@ public class MainFrame extends javax.swing.JFrame {
         //OUTPUT FRAME
         int OutputframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputWidth", "0"));
         int OutputframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputHeight", "0"));
-        
+
         if ((OutputframeWidth==0)||(OutputframeHeight==0)){
               OutputframeWidth=screenSize.width*4/100;
               OutputframeHeight=screenSize.height*5/100;
         }
 
         OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
-        
-        
+
+
         int DownloadframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadWidth", "0"));
-        int DownloadframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadHeight", "0")); 
+        int DownloadframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadHeight", "0"));
         if ((DownloadframeWidth==0)||(DownloadframeHeight==0)){
               DownloadframeWidth=screenSize.width*4/100;
               DownloadframeHeight=screenSize.height*5/100;
         }
 
         DownloadFrame.setSize(DownloadframeWidth,DownloadframeHeight);
-        
+
         String WidthGroup = getPreferences().get("4SeqGUI_GroupCellWidth", null);
         String WidthBatch = getPreferences().get("4SeqGUI_BatchCellWidth", null);
         String WidthFolder = getPreferences().get("4SeqGUI_FolderCellWidth", null);
@@ -577,12 +577,12 @@ public class MainFrame extends javax.swing.JFrame {
              FPKMFileTable.getColumnModel().getColumn(1).setPreferredWidth(Integer.valueOf(WidthGroup));
              FPKMFileTable.getColumnModel().getColumn(2).setPreferredWidth(Integer.valueOf(WidthBatch));
              FPKMFileTable.getColumnModel().getColumn(0).setPreferredWidth(Integer.valueOf(WidthFolder));
-        }    
+        }
         else
             FPKMFileTable.getColumnModel().getColumn(1).setPreferredWidth(FPKMFileTable.getWidth()*10/100);
-        
-        
-        
+
+
+
         String WidthGroup1 = getPreferences().get("4SeqGUI_Group1CellWidth", null);
         String WidthBatch1 = getPreferences().get("4SeqGUI_Batch1CellWidth", null);
         String WidthHeader = getPreferences().get("4SeqGUI_HeaderCellWidth", null);
@@ -590,23 +590,23 @@ public class MainFrame extends javax.swing.JFrame {
              CCountHeaderTable.getColumnModel().getColumn(1).setPreferredWidth(Integer.valueOf(WidthGroup1));
              CCountHeaderTable.getColumnModel().getColumn(2).setPreferredWidth(Integer.valueOf(WidthBatch1));
              CCountHeaderTable.getColumnModel().getColumn(0).setPreferredWidth(Integer.valueOf(WidthHeader));
-        }    
+        }
         else
             CCountHeaderTable.getColumnModel().getColumn(1).setPreferredWidth(CCountHeaderTable.getWidth()*10/100);
-        
- 
+
+
 
 
         setLocationRelativeTo(null);
         invalidate();
         doLayout();
-        
-        
-        
+
+
+
     }
     private static final long serialVersionUID = 5778212334L;
-    
-    
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -3278,35 +3278,35 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
+
         public static final Pattern adapter = Pattern.compile("[acgtACGT]+"
 );
-        
+
         public static final Pattern org = Pattern.compile("[a-zA-Z0-9]+"
 );
-    
+
         public static final Pattern miRBase = Pattern.compile("[a-zA-Z0-9]{3,3}"
 );
-        
-    
-                  
+
+
+
     private void DownloadMenuItemActionPerformed(java.awt.event.ActionEvent evt){
-        
+
         DownloadFrame.pack();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int DownloadframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadWidth", "0"));
-        int DownloadframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadHeight", "0")); 
+        int DownloadframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowDownloadHeight", "0"));
         if ((DownloadframeWidth==0)||(DownloadframeHeight==0)){
               DownloadframeWidth=screenSize.width*50/100;
               DownloadframeHeight=screenSize.height*20/100;
         }
 
         DownloadFrame.setSize(DownloadframeWidth,DownloadframeHeight);
-        
+
         DownloadFrame.setVisible(true);
     }
-    
-    
+
+
     private void configurationMenuItemActionPerformed(java.awt.event.ActionEvent evt){
         ConfigurationFrame.pack();
         ConfigurationFrame.setVisible(true);
@@ -3314,30 +3314,30 @@ public class MainFrame extends javax.swing.JFrame {
         ThreadTextField.setText(Integer.toString(GS.getDefaultThread()));
         Adapter5TextField.setText(GS.getDefaultAdapter5());
         Adapter3TextField.setText(GS.getDefaultAdapter3());
-        
+
     }
-    
+
      private void  removeDockerContainer(java.awt.event.ActionEvent evt){
         String[] cmd = {
             "/bin/bash",
             "-c",
-            " docker rm $(docker ps -q -f status=exited);" + 
+            " docker rm $(docker ps -q -f status=exited);" +
             " docker rm $(docker ps -q -f status=dead)"
-        }; 
+        };
         try {
             Runtime.getRuntime().exec(cmd);
             JOptionPane.showMessageDialog(this, "All docker containers were removed!!","Confermation",JOptionPane.INFORMATION_MESSAGE);
         }
         catch (IOException e){
             System.out.println("Docker containers were not removed\n");
-        } 
+        }
      }
-    
-    
-      public void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
-      
-         
-        if (!"Empty".equals(CurrentLayout)){ 
+
+
+      public void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
+
+
+        if (!"Empty".equals(CurrentLayout)){
             JFileChooser openFile = new JFileChooser();
             String curDir = getPreferences().get("saved-file", null);
             openFile.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
@@ -3366,7 +3366,7 @@ public class MainFrame extends javax.swing.JFrame {
                                         break;
                                     case 2:
                                         vOutputFolderText.setText(x);
-                                        break;  
+                                        break;
                                     case 3:
                                         vAdapter5Text.setText(x);
                                         break;
@@ -3412,7 +3412,7 @@ public class MainFrame extends javax.swing.JFrame {
                                         break;
                                     default:
                                         System.out.print("Too much lines\n");
-                                        throw(new NumberFormatException());                                
+                                        throw(new NumberFormatException());
                                 }
                                 line++;
                             }
@@ -3514,7 +3514,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                     break;
                                                 default:
                                                     DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
-                                                    String col2 = br.readLine();                                
+                                                    String col2 = br.readLine();
                                                     String col3 = br.readLine();
                                                     if (col2==null)
                                                         col2="Cov.1";
@@ -3548,7 +3548,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                             case "Counts":
                                                                 pCountsRadioButton.setSelected(true);
                                                                 break;
-                                                            case "FPKM": 
+                                                            case "FPKM":
                                                                 pFPKMRadioButton.setSelected(true);
                                                                 break;
                                                             default:
@@ -3640,13 +3640,13 @@ public class MainFrame extends javax.swing.JFrame {
                                                                 break;
                                                             case 2:
                                                                 iThreadBText.setText(x);
-                                                                break; 
+                                                                break;
                                                             case 3:
                                                                 iGenomeURLBText.setText(x);
-                                                                break;  
+                                                                break;
                                                             case 4:
                                                                 if (x.equals("true"))
-                                                                    iBTrueRadioButton.setSelected(true); 
+                                                                    iBTrueRadioButton.setSelected(true);
                                                                 else
                                                                     iBFalseRadioButton.setSelected(true);
                                                                 break;
@@ -3660,7 +3660,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                                 throw(new NumberFormatException());
                                                         }
                                                         line++;
-                                                    } 
+                                                    }
                                                 */}
                                                 else
                                                     if ("MACS".equals(CurrentLayout)){
@@ -3782,14 +3782,14 @@ public class MainFrame extends javax.swing.JFrame {
                                                                         throw(new NumberFormatException());
                                                                 }
                                                                 line++;
-                                                                
+
                                                             }
-                                                        
+
                                                         */}
                                                         else
                                                             if("ExperimentPower".equals(CurrentLayout)){/*
-                                                                
-                                                                
+
+
                                                                 //chekc right file
                                                                 if (!br.readLine().equals("ExperimentPower")){
                                                                     throw(new NumberFormatException());
@@ -3819,7 +3819,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                                             throw(new NumberFormatException());
                                                                     }
                                                                     line++;
-                                                                    
+
                                                                 }
                                                                 */
                                                             }
@@ -3889,7 +3889,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                                     }
                                                                     else
                                                                         if ("countingSalmon".equals(CurrentLayout)){/*
-                                                                            
+
                                                                             //chekc right file
                                                                             String y=br.readLine();
                                                                             if (!y.equals("countingSalmon")){
@@ -3993,17 +3993,17 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
         }
-    } 
-    
+    }
+
     public void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
-        if (!"Empty".equals(CurrentLayout)){  
-            JFileChooser saveFile = new JFileChooser(); 
+        if (!"Empty".equals(CurrentLayout)){
+            JFileChooser saveFile = new JFileChooser();
             String curDir = getPreferences().get("saved-file", null);
-            saveFile.setCurrentDirectory(curDir!=null ? new File(curDir) : null);   
+            saveFile.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
             if (saveFile.showSaveDialog(this)==JFileChooser.APPROVE_OPTION){
-                try        
-                {               
-                    File f = saveFile.getSelectedFile();              
+                try
+                {
+                    File f = saveFile.getSelectedFile();
                     if (!f.exists()) {
                         f.createNewFile();
                     }
@@ -4013,7 +4013,7 @@ public class MainFrame extends javax.swing.JFrame {
                             bw.write("vmRNA\n");
                             if (vSudoRadioButton.isSelected()){
                                 bw.write("sudo\n");
-                            }                    
+                            }
                             else{
                                 bw.write("docker\n");
                             }
@@ -4044,7 +4044,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     bw.write("forward\n");
                                 else
                                     bw.write("reverse\n");
-                            
+
                             if (vBAMnoLRadioButton.isSelected())
                                 bw.write("gtfENSEMBL\n");
                             else
@@ -4056,7 +4056,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 bw.write("mRNA\n");
                                 if (mSudoRadioButton.isSelected()){
                                     bw.write("sudo\n");
-                                }                
+                                }
                                 else{
                                     bw.write("docker\n");
                                 }
@@ -4094,7 +4094,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     else{
                                         bw.write("docker\n");
                                     }
-                                    
+
                                     bw.write(iGenomeFolderText.getText());
                                     bw.write("\n");
                                     bw.write(iThreadText.getText());
@@ -4305,7 +4305,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                                     if ("indexingSalmon".equals(CurrentLayout)){/*
                                                                         bw.write("indexingSalmon\n");
                                                                         if (iSudoRadioSButton.isSelected()){
-                                                                          
+
                                                                             bw.write("sudo\n");
                                                                         }
                                                                         else{
@@ -4357,7 +4357,7 @@ public class MainFrame extends javax.swing.JFrame {
                                                                                     bw.write("forward\n");
                                                                                 else
                                                                                     bw.write("reverse\n");
-                                                                        */    
+                                                                        */
                                                                         }
                                                                         else
                                                                             if("filtercounts".equals(CurrentLayout)){/*
@@ -4379,18 +4379,18 @@ public class MainFrame extends javax.swing.JFrame {
                             }
                     }
                     JOptionPane.showMessageDialog(this,"File "+f.getName()+" saved","Save",JOptionPane.INFORMATION_MESSAGE);
-                    getPreferences().put("saved-file",saveFile.getCurrentDirectory().getAbsolutePath());                                          
+                    getPreferences().put("saved-file",saveFile.getCurrentDirectory().getAbsolutePath());
                 }
-             
+
                 catch (IOException e) {
                     JOptionPane.showMessageDialog(this, "Error saving file","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
-                
-    }   
-    
-    
+
+    }
+
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         saveAsMenuItemActionPerformed(evt);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -4401,10 +4401,10 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ProcListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ProcListValueChanged
-        
-      
+
+
         if (!evt.getValueIsAdjusting()){
-            
+
         //System.out.println("****Open ProcListValueChanged : \n"+GL.getAvoidProcListValueChanged()+" "+GL.getListProcStatuSelection()+" "+evt.getLastIndex());
         if ((GL.getAvoidProcListValueChanged()==-1)){
            // GL.setAvoidProcListValueChanged(0);
@@ -4413,33 +4413,33 @@ public class MainFrame extends javax.swing.JFrame {
         //if (evt.getLastIndex()<0 ||evt.getLastIndex()>=listModel.getSize()){
         //    return;
         //}
-  
+
         if ((evt!=null)){
         OutputFrame.pack();
          Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int OutputframeWidth= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputWidth", "0"));
-        int OutputframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputHeight", "0")); 
-        
+        int OutputframeHeight= Integer.valueOf(getPreferences().get("4SeqGUI_WindowOutputHeight", "0"));
+
         if ((OutputframeWidth==0)||(OutputframeHeight==0)){
               OutputframeWidth=screenSize.width*40/100;
               OutputframeHeight=screenSize.height*50/100;
         }
-        
+
         OutputFrame.setSize(OutputframeWidth,OutputframeHeight);
 //automatically update file
 
-     
-            
-        OutputFrame.setLocationRelativeTo(null);   
+
+
+        OutputFrame.setLocationRelativeTo(null);
         OutputFrame.setVisible(true);
         OutputFrame.setAlwaysOnTop(true);
-        
+
         //System.out.println("QUII->-Inizio\n"+listModel.getSize()+" "+evt.getLastIndex()+"\n"+evt.getSource());
         ListEntry tmpListEntry;
         if ((evt.getLastIndex()!=GL.getListProcStatuSelection()&& (evt.getLastIndex()>=0 && evt.getLastIndex()<listModel.getSize())) ){
                 tmpListEntry=  listModel.get(evt.getLastIndex());
                 GL.setListProcStatuSelection(evt.getLastIndex());
-                
+
                    //System.out.println("\t------- Selected Last\n");
         }
         else    {
@@ -4451,8 +4451,8 @@ public class MainFrame extends javax.swing.JFrame {
                 else
                     return;
         }
-        
-        if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")|| tmpListEntry.status.equals("Error")){ 
+
+        if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")|| tmpListEntry.status.equals("Error")){
             //System.out.println("\tQUII->-RUNNING\n");
             String text="";
             OutputText.setEnabled(true);
@@ -4473,7 +4473,7 @@ public class MainFrame extends javax.swing.JFrame {
             OutputText.setText(text);
            if (tmpListEntry.status.equals("Running")){
                 outputTime=new Timer();
-                outputTime.scheduleAtFixedRate(new MyFileUpdate(), 5000, 5000);  
+                outputTime.scheduleAtFixedRate(new MyFileUpdate(), 5000, 5000);
             }
            else{
             DlogButton.setEnabled(true);
@@ -4481,7 +4481,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         else
         {
-          OutputText.setEnabled(false);  
+          OutputText.setEnabled(false);
           //System.out.println("\tQUIFINE WAITING\n");
         }
         //System.out.println("QUIFINE\n");
@@ -4493,7 +4493,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ProcListValueChanged
 
     private void CloseOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseOutputActionPerformed
-    OutputFrame.setVisible(false);        
+    OutputFrame.setVisible(false);
     OutputText.setText("");
     OutputText.setEnabled(true);
     DlogButton.setEnabled(false);
@@ -4501,7 +4501,7 @@ public class MainFrame extends javax.swing.JFrame {
     ProcList.clearSelection();
     GL.setAvoidProcListValueChanged(0);
     getPreferences().put("4SeqGUI_WindowOutputWidth", Integer.toString(OutputFrame.getWidth()));
-    getPreferences().put("4SeqGUI_WindowOutputHeight", Integer.toString(OutputFrame.getHeight())); 
+    getPreferences().put("4SeqGUI_WindowOutputHeight", Integer.toString(OutputFrame.getHeight()));
     //System.out.println("@@@@@@@@@@@@Close: \n");
     outputTime.cancel();
     }//GEN-LAST:event_CloseOutputActionPerformed
@@ -4511,7 +4511,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ProcListMouseClicked
 
     private void ReloadOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReloadOutputActionPerformed
-       
+
          ListEntry tmpListEntry =  listModel.get(GL.getListProcStatuSelection());
         //
         if (tmpListEntry.status.equals("Running") || tmpListEntry.status.equals("Finished")|| tmpListEntry.status.equals("Error")){
@@ -4524,7 +4524,7 @@ public class MainFrame extends javax.swing.JFrame {
                      //Read File Line By Line
                      while ((strLine = reader.readLine()) != null)   {
                          text+="\n"+strLine;
-                     }}    
+                     }}
             }
             catch (IOException e){//Catch exception if any
                 System.err.println("Error: " + e.getMessage());
@@ -4535,14 +4535,14 @@ public class MainFrame extends javax.swing.JFrame {
         ReloadOutput.setSelected(false);
     }//GEN-LAST:event_ReloadOutputActionPerformed
 
-    
+
     private void RemoveOutputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveOutputActionPerformed
-       
+
         int pos=GL.getListProcStatuSelection();
         //System.out.println("Pos:"+pos+"\n");
         int tmpPos=-1;
         for(int i=0;i<listProcRunning.size();i++){
-           
+
             if (listProcRunning.get(i).pos>pos){
                 listProcRunning.get(i).pos--;
             }
@@ -4559,38 +4559,38 @@ public class MainFrame extends javax.swing.JFrame {
                     File file = new File(listProcRunning.get(tmpPos).path+"/dockerID");
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     String dockerID = reader.readLine();
-                    cmd[2]="docker kill " +dockerID +" ; rm " + listProcRunning.get(tmpPos).path+"/dockerID"; 
+                    cmd[2]="docker kill " +dockerID +" ; rm " + listProcRunning.get(tmpPos).path+"/dockerID";
                     Runtime.getRuntime().exec(cmd);
-                }    
+                }
                 }
             catch (IOException e){//Catch exception if any
                 System.out.println("No docker running \n");
-                } 
+                }
             long pID=getPidOfProcess(listProcRunning.get(tmpPos).pr);
-            //System.out.println("lanciato PID:"+pID +"\n");  
+            //System.out.println("lanciato PID:"+pID +"\n");
             if (pID!=-1){
                 try{
-                   cmd[2]="kill $(./list_descendants.sh " +Long.toString(pID)+")"; 
+                   cmd[2]="kill $(./list_descendants.sh " +Long.toString(pID)+")";
                    Runtime.getRuntime().exec(cmd);
                 }
                 catch(IOException e){
                     System.err.println("Error in Killing the process children:" + e);
                 }
-                
+
             }
             try{
                     File file = new File(listProcRunning.get(tmpPos).path+"/tempFolderID");
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     String tempFolderID = reader.readLine();
                     if (!(tempFolderID.equals(""))){
-                        cmd[2]="rm -R " + tempFolderID +" ; rm " + listProcRunning.get(tmpPos).path+"/tempFolderID"; 
+                        cmd[2]="rm -R " + tempFolderID +" ; rm " + listProcRunning.get(tmpPos).path+"/tempFolderID";
                         Runtime.getRuntime().exec(cmd);
                     }
-                }    
-                }    
+                }
+                }
             catch (IOException e){//Catch exception if any
                 System.out.println("No temporary folder\n");
-                } 
+                }
             //listProcRunning.get(tmpPos).pr.destroy();
            // listProcRunning.get(tmpPos).pr.waitFor();
             //}
@@ -4621,15 +4621,15 @@ public class MainFrame extends javax.swing.JFrame {
             listProcRunning.remove(tmpPos);
             tmpPos=-1;
         }
-        
+
         for(int i=0;i<listProcWaiting.size();i++){
             if (listProcWaiting.get(i).pos>pos){
-                listProcWaiting.get(i).pos--;    
+                listProcWaiting.get(i).pos--;
             }
             else
                 if (listProcWaiting.get(i).pos==pos){
                     tmpPos=i;
-                } 
+                }
         }
          if (tmpPos!=-1){
             listProcWaiting.remove(tmpPos);
@@ -4651,7 +4651,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfCancellActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-       
+
         GS.setMaxSizelistProcRunning(Integer.valueOf(ParallelTextField.getText()));
         GS.setDefaultAdapter5(Adapter5TextField.getText());
         GS.setDefaultAdapter3(Adapter3TextField.getText());
@@ -4680,14 +4680,14 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        formWindowClosing(null);    
+        formWindowClosing(null);
         setVisible(false);
         dispose();
         System.exit(0);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        saveAsMenuItemActionPerformed(evt);   
+        saveAsMenuItemActionPerformed(evt);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
@@ -4700,11 +4700,11 @@ public class MainFrame extends javax.swing.JFrame {
        getPreferences().put("4SeqGUI_WindowWidth", Integer.toString(getSize().width));
        getPreferences().put("4SeqGUI_WindowHeight",Integer.toString(getSize().height));
        getPreferences().put("4SeqGUI_GroupCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(1).getWidth()));
-       getPreferences().put("4SeqGUI_BatchCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(2).getWidth())); 
-       getPreferences().put("4SeqGUI_FolderCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(0).getWidth())); 
+       getPreferences().put("4SeqGUI_BatchCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(2).getWidth()));
+       getPreferences().put("4SeqGUI_FolderCellWidth",Integer.toString(FPKMFileTable.getColumnModel().getColumn(0).getWidth()));
        getPreferences().put("4SeqGUI_Group1CellWidth",Integer.toString(CCountHeaderTable.getColumnModel().getColumn(1).getWidth()));
-       getPreferences().put("4SeqGUI_Batch1CellWidth",Integer.toString(CCountHeaderTable.getColumnModel().getColumn(2).getWidth())); 
-       getPreferences().put("4SeqGUI_HeaderCellWidth",Integer.toString(CCountHeaderTable.getColumnModel().getColumn(0).getWidth())); 
+       getPreferences().put("4SeqGUI_Batch1CellWidth",Integer.toString(CCountHeaderTable.getColumnModel().getColumn(2).getWidth()));
+       getPreferences().put("4SeqGUI_HeaderCellWidth",Integer.toString(CCountHeaderTable.getColumnModel().getColumn(0).getWidth()));
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
@@ -4715,7 +4715,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.setVisible(false);
         Downloadtext.setText("");
         getPreferences().put("4SeqGUI_WindowDownloadWidth", Integer.toString(DownloadFrame.getWidth()));
-        getPreferences().put("4SeqGUI_WindowDownloadHeight", Integer.toString(DownloadFrame.getHeight())); 
+        getPreferences().put("4SeqGUI_WindowDownloadHeight", Integer.toString(DownloadFrame.getHeight()));
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
@@ -4724,26 +4724,26 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
         browseTextFieldContent(this, Downloadtext, JFileChooser.FILES_ONLY);
-        
+
         DownloadFrame.toFront();
         DownloadFrame.requestFocus();
     }//GEN-LAST:event_jButton34ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
         String containerListFile = Downloadtext.getText();
-        String commandArgs = String.format("containers.list=%s", 
+        String commandArgs = String.format("containers.list=%s",
                 containerListFile.isEmpty() ? "NULL" : "'" + containerListFile + "'")
                 .replace("'", "\\\"");
         //execute code
         execCommand(this, "Download Docker images", "execDownloadImage.sh", commandArgs, System.getProperty("user.dir"));
-        
+
         DownloadFrame.setVisible(false);
         Downloadtext.setText("");
         getPreferences().put("4SeqGUI_WindowDownloadWidth", Integer.toString(DownloadFrame.getWidth()));
-        getPreferences().put("4SeqGUI_WindowDownloadHeight", Integer.toString(DownloadFrame.getHeight())); 
-        
+        getPreferences().put("4SeqGUI_WindowDownloadHeight", Integer.toString(DownloadFrame.getHeight()));
+
         dockerManager.addImages(containerListFile);
-        dockerManager.updateGUI(); 
+        dockerManager.updateGUI();
     }//GEN-LAST:event_jButton32ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -4773,7 +4773,7 @@ public class MainFrame extends javax.swing.JFrame {
     FileNameExtensionFilter filter = new FileNameExtensionFilter("LOG FILES", "log", "text");
     openFile.setFileFilter(filter);
     if (openFile.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-        
+
         try{
             File file = openFile.getSelectedFile();
             String text;
@@ -4792,7 +4792,7 @@ public class MainFrame extends javax.swing.JFrame {
                     //JOptionPane.showMessageDialog(this, "Error reading R output file","Error",JOptionPane.ERROR_MESSAGE);
                 }
         }
-    
+
     }//GEN-LAST:event_DlogButtonActionPerformed
 
     private void MultiQCButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MultiQCButtonActionPerformed
@@ -5048,13 +5048,13 @@ public class MainFrame extends javax.swing.JFrame {
         ConfigureTabsFrame.pack();
         ConfigureTabsFrame.setLocationRelativeTo(null);
         ConfigureTabsFrame.setVisible(true);
- 
+
         //enable and disable checkboxes based on saved preferences
         for (Component c: enableTabsPanel.getComponents()) {
-            JCheckBox cb = (JCheckBox) c; 
-            String varname = String.format("4SeqGUI_EnableTab%s", cb.getName()); 
+            JCheckBox cb = (JCheckBox) c;
+            String varname = String.format("4SeqGUI_EnableTab%s", cb.getName());
             String varvalue = getPreferences().get(varname, "true");
-            
+
             cb.setSelected(varvalue.equals("true"));
         }
     }//GEN-LAST:event_ConfigureTabsButtonActionPerformed
@@ -5065,20 +5065,20 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void confermConfigureTabButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confermConfigureTabButtonActionPerformed
         ArrayList<String> disabledTabs = new ArrayList<>();
-        
-        //for each tab, set a variable to show/hide it 
+
+        //for each tab, set a variable to show/hide it
         for (Component c: enableTabsPanel.getComponents()) {
-            JCheckBox cb = (JCheckBox) c; 
-            String varname = String.format("4SeqGUI_EnableTab%s", cb.getName()); 
-            
+            JCheckBox cb = (JCheckBox) c;
+            String varname = String.format("4SeqGUI_EnableTab%s", cb.getName());
+
             getPreferences().put(varname, String.valueOf(cb.isSelected()));
-            
-            if (!cb.isSelected()) 
+
+            if (!cb.isSelected())
                 disabledTabs.add(c.getName());
         }
-        
+
         tabsController.refreshTabs();
-        
+
        // visualizeTabs();
         ConfigureTabsFrame.setVisible(false);
     }//GEN-LAST:event_confermConfigureTabButtonActionPerformed
@@ -5118,14 +5118,14 @@ public class MainFrame extends javax.swing.JFrame {
     private void manageDockerImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDockerImagesButtonActionPerformed
         dockerImagesManager.pack();
         dockerImagesManager.setLocationRelativeTo(null);
-        dockerImagesManager.setVisible(true);               
-  
+        dockerImagesManager.setVisible(true);
+
         dockerManager.updateGUI();
     }//GEN-LAST:event_manageDockerImagesButtonActionPerformed
 
 
-    
-    
+
+
     private void addImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addImagesButtonActionPerformed
         DownloadMenuItemActionPerformed(evt);
     }//GEN-LAST:event_addImagesButtonActionPerformed
@@ -5143,7 +5143,7 @@ public class MainFrame extends javax.swing.JFrame {
         RNAseqPanelSub1M.setVisible(true);
      }
      else{
-        ImageIcon imageUP = new ImageIcon(imgURLUP); 
+        ImageIcon imageUP = new ImageIcon(imgURLUP);
         jLabelRNAseq1.setIcon(imageUP);
         RNAseqPanelSub1M.setVisible(false);
      }
@@ -5158,7 +5158,7 @@ public class MainFrame extends javax.swing.JFrame {
         RNAseqPanelSub2M.setVisible(true);
      }
      else{
-        ImageIcon imageUP = new ImageIcon(imgURLUP); 
+        ImageIcon imageUP = new ImageIcon(imgURLUP);
         jLabelRNAseq2.setIcon(imageUP);
         RNAseqPanelSub2M.setVisible(false);
      }
@@ -5173,7 +5173,7 @@ public class MainFrame extends javax.swing.JFrame {
         miRNApanelSub1M.setVisible(true);
      }
      else{
-        ImageIcon imageUP = new ImageIcon(imgURLUP); 
+        ImageIcon imageUP = new ImageIcon(imgURLUP);
         jLabelmiRNA1.setIcon(imageUP);
         miRNApanelSub1M.setVisible(false);
      }
@@ -5188,48 +5188,51 @@ public class MainFrame extends javax.swing.JFrame {
         miRNApanelSub2M.setVisible(true);
      }
      else{
-        ImageIcon imageUP = new ImageIcon(imgURLUP); 
+        ImageIcon imageUP = new ImageIcon(imgURLUP);
         jLabelmiRNA2.setIcon(imageUP);
         miRNApanelSub2M.setVisible(false);
      }
     }//GEN-LAST:event_jLabelmiRNA2MouseClicked
-    
-    
-    private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {  
-        About4SeqGUIFrame.pack(); 
-        About4SeqGUIFrame.setLocationRelativeTo(null);                                       
+
+
+    private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
+        About4SeqGUIFrame.pack();
+        About4SeqGUIFrame.setLocationRelativeTo(null);
         About4SeqGUIFrame.setVisible(true);
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         //Anti-aliasing code
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext", "true");
-        
+
         try {
-            //set default look and feel 
-            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName()); 
-            //set GTK look and feel, if it is present 
+            //set default look and feel
+           javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+            //set GTK look and feel, if it is present
             for (javax.swing.UIManager.LookAndFeelInfo info: javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeels".equals(info.getClassName())) {   
+                if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeel".equals(info.getClassName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
+
                     break;
                 }
-            } 
-            
+            }
+
+
+
+  //javax.swing.UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-  
-        
+
         try{
            Thread.sleep(800L);
         }
-        catch ( InterruptedException e ) { } 
+        catch ( InterruptedException e ) { }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -5238,8 +5241,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
 
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ANOVAlike;
     private javax.swing.JButton ANOVAlikeButton;
@@ -5503,7 +5506,7 @@ public class MainFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-        
+
 
 
 static public class ElProcRunning {
@@ -5548,7 +5551,7 @@ static public class GlobalStatus{
      ListProcStatusSelection=-1;
      AvoidProcListValueChanged=0;
  }
- 
+
  public int getListProcStatuSelection(){
      return ListProcStatusSelection;
  }
@@ -5556,7 +5559,7 @@ static public class GlobalStatus{
      //System.out.print("Updating..."+ListProcStatusSelection+"\n");
      this.ListProcStatusSelection=ListProcStatusSelection;
  }
- 
+
  public int getAvoidProcListValueChanged(){
      return AvoidProcListValueChanged;
  }
@@ -5578,22 +5581,22 @@ static public class ListEntry
       this.status=status;
       this.path=path;
    }
-  
+
    public String getValue() {
       return value;
    }
-  
+
    public ImageIcon getIcon() {
       return icon;
    }
    public String getStatus() {
       return status;
    }
-  
+
    public String getPath() {
       return path;
    }
-   
+
    public String toString() {
       return value;
    }
@@ -5604,9 +5607,9 @@ static public class GlobalSetting{
     private int MaxSizelistProcRunning=1;
     private String DefaultAdapter5="";
     private String DefaultAdapter3="";
-    
+
     public GlobalSetting(){
-    boolean findFile=false;    
+    boolean findFile=false;
     try{
                 File file = new File(".4SeqGUI");
                 BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -5616,88 +5619,88 @@ static public class GlobalSetting{
                                 switch (line){
                                     case 0:
                                         DefaultThread=Integer.valueOf(x);
-                                        if (DefaultThread<=0){ 
-                                            throw(new NumberFormatException()); 
+                                        if (DefaultThread<=0){
+                                            throw(new NumberFormatException());
                                         }
                                     break;
                                     case 1:
                                        MaxSizelistProcRunning=Integer.valueOf(x);
-                                        if (MaxSizelistProcRunning<=0){ 
-                                            throw(new NumberFormatException()); 
+                                        if (MaxSizelistProcRunning<=0){
+                                            throw(new NumberFormatException());
                                         }
                                     break;
                                     case 2:
                                         DefaultAdapter5=x;
-                                    break;  
+                                    break;
                                     case 3:
                                         DefaultAdapter3=x;
                                     break;
                                     default:
-                                        throw(new NumberFormatException()); 
-                                }                                
+                                        throw(new NumberFormatException());
+                                }
                                 line++;
                             }
-                reader.close();    
+                reader.close();
         }
     catch (Exception e){//Catch exception if any
                 //System.err.println("Error: " + e.getMessage());
             return;
-            }    
+            }
     }
-    
+
     public void save(){
-        
+
         try{
             FileWriter fw = new FileWriter(".4SeqGUI");
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(DefaultThread+"\n");
-            bw.write(MaxSizelistProcRunning+"\n"); 
+            bw.write(MaxSizelistProcRunning+"\n");
             bw.write(DefaultAdapter5+"\n");
-            bw.write(DefaultAdapter3+"\n"); 
-            bw.close();    
+            bw.write(DefaultAdapter3+"\n");
+            bw.close();
         }
         catch (IOException e) {
             JOptionPane.showMessageDialog(ConfigurationFrame, "Error saving file","Error",JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     int getDefaultThread(){
         return DefaultThread;
     }
-    
+
     String getDefaultAdapter5(){
         return DefaultAdapter5;
     }
-    
+
     String getDefaultAdapter3(){
     return DefaultAdapter3;
     }
-    
+
     int getMaxSizelistProcRunning(){
         return MaxSizelistProcRunning;
     }
-    
-    
+
+
     void  setDefaultThread(int DefaultThread){
         this.DefaultThread=DefaultThread;
     }
-    
+
     void setDefaultAdapter5(String DefaultAdapter5){
         this.DefaultAdapter5=DefaultAdapter5;
     }
-    
+
     void setDefaultAdapter3(String DefaultAdapter3){
         this.DefaultAdapter3=DefaultAdapter3;
     }
-    
+
     void setMaxSizelistProcRunning(int MaxSizelistProcRunning){
         this.MaxSizelistProcRunning=MaxSizelistProcRunning;
     }
 }
 
-  
+
 static public class ListEntryCellRenderer
-extends JLabel implements ListCellRenderer<Object> 
+extends JLabel implements ListCellRenderer<Object>
 {
    private JLabel label;
    private static final long serialVersionUID = 5778212331L;
@@ -5705,10 +5708,10 @@ extends JLabel implements ListCellRenderer<Object>
                                                  int index, boolean isSelected,
                                                  boolean cellHasFocus) {
       ListEntry entry = (ListEntry) value;
-  
+
       setText(value.toString());
       setIcon(entry.getIcon());
-   
+
       if (isSelected) {
          setBackground(list.getSelectionBackground());
          setForeground(list.getSelectionForeground());
@@ -5717,16 +5720,16 @@ extends JLabel implements ListCellRenderer<Object>
          setBackground(list.getBackground());
          setForeground(list.getForeground());
       }
-  
+
       setEnabled(list.isEnabled());
       setFont(list.getFont());
       setOpaque(true);
-  
+
       return this;
    }
 }
 static    String CurrentLayout="Empty";
-    
+
 
  static public  Timer t,outputTime=new Timer();
 
@@ -5746,7 +5749,7 @@ static    String CurrentLayout="Empty";
                 while ((strLine = reader.readLine()) != null)   {
                     text+="\n"+strLine;
                 }
-                reader.close();    
+                reader.close();
             }
             catch (Exception e){//Catch exception if any
                 //To avoid to recall infinitelly this error
@@ -5756,19 +5759,19 @@ static    String CurrentLayout="Empty";
                 }
             OutputText.setText(text);
             }
-        ReloadOutput.setSelected(false);   
+        ReloadOutput.setSelected(false);
        }
     }
   }
  static public class MyTask extends TimerTask {
-      
+
         public void run() {
 
             //System.out.format("Checking running !%n");
             for (int i=0;i<listProcRunning.size();i++){
                 if (listProcRunning.get(i).pr.isAlive()){
                     //System.out.format("TRUE\n");
-                }                    
+                }
                 else
                 {
                     //System.out.format("False\n");
@@ -5794,19 +5797,19 @@ static    String CurrentLayout="Empty";
                        System.out.print(listProcRunning.get(i).path);
                        error=true;
                     }
-                    
+
                     if (error)
                         listModel.set(index,new ListEntry(" [Error]   " + listProcRunning.get(i).toString(), "Error",listProcRunning.get(i).path,image3));
                     else
                         listModel.set(index,new ListEntry(" [Finished]   " + listProcRunning.get(i).toString(), "Finished",listProcRunning.get(i).path,image2));
-                    listProcRunning.remove(i);        
+                    listProcRunning.remove(i);
                 }
             }
-            //System.out.format("End Check!\n");    
+            //System.out.format("End Check!\n");
             //System.out.format("Checking waiting !%n");
             while ((listProcRunning.size()<GS.getMaxSizelistProcRunning())&&(listProcWaiting.size()>0)){
                 try{
-                
+
                     Runtime rt = Runtime.getRuntime();
                     Process pr = rt.exec(listProcWaiting.get(0).cmd);
                     ElProcRunning tmp= new ElProcRunning(listProcWaiting.get(0).type,listProcWaiting.get(0).path,pr,listProcWaiting.get(0).pos);
@@ -5818,22 +5821,22 @@ static    String CurrentLayout="Empty";
                     listModel.set(listProcWaiting.get(0).pos,new ListEntry(" [Running]   " +  listProcWaiting.get(0).toString(),"Running", listProcWaiting.get(0).path,image2));
                     listProcWaiting.remove(0);
                     //System.out.format("Size:"+listProcRunning.size()+"\n");
-                } 
+                }
                 catch(IOException e) {
                     JOptionPane.showMessageDialog(BottomPanel, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
                     System.out.println(e.toString());
                 }
             }
-            //System.out.format("End Check!\n"); 
+            //System.out.format("End Check!\n");
             if (listProcRunning.isEmpty()){
                  //System.out.format("End TimerTask\n");
                  t.cancel();
             }
-                
+
         }
     }
-  
-  
+
+
 private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
     for(int i=startingIndex;i<rowCount;++i){
         tree.expandRow(i);
@@ -5842,8 +5845,8 @@ private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
     if(tree.getRowCount()!=rowCount){
         expandAllNodes(tree, rowCount, tree.getRowCount());
     }
-}  
-  
+}
+
 
  public static synchronized long getPidOfProcess(Process p) {
     long pid = -1;
@@ -5861,13 +5864,13 @@ private void expandAllNodes(JTree tree, int startingIndex, int rowCount){
     return pid;
   }
 
- 
+
 static public ArrayList <ElProcRunning> listProcRunning =  new  ArrayList <ElProcRunning> ();
 static public ArrayList <ElProcWaiting> listProcWaiting = new  ArrayList <ElProcWaiting> ();
 static public DefaultListModel<ListEntry> listModel= new DefaultListModel <ListEntry> ();
 
 
-//int MaxSizelistProcRunning=1; 
+//int MaxSizelistProcRunning=1;
 static public GlobalStatus GL =new GlobalStatus();
 //String DefaultThread="8";
 static public GlobalSetting GS =new GlobalSetting();
@@ -5891,11 +5894,11 @@ static public class DefaultContextMenu extends JPopupMenu
 
     private JTextComponent jTextComponent;
     private static final long serialVersionUID = 5778212333L;
-    
+
     public DefaultContextMenu()
     {
         java.net.URL imgURL;
-        
+
         undoManager = new UndoManager();
         clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         undo = new JMenuItem("Undo");
@@ -6071,18 +6074,18 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         assert prefRootNode != null;
         Preferences root = Preferences.userRoot();
         return root.node(prefRootNode);
-    } 
+    }
 
-    
-    
-    
-    public static void execCommand(Component stuff, String commandName, String script, String commandArgs, String outputFolder) {        
+
+
+
+    public static void execCommand(Component stuff, String commandName, String script, String commandArgs, String outputFolder) {
         //bash ./nomescript argList outputFolder >& outputFolder/outputExecution
         String bashString = String.format(
             "bash ./%s %s %s >& %s/outputExecution", script, commandArgs, outputFolder, outputFolder);
         String[] cmd = {"/bin/bash","-c", bashString};
         Runtime rt = Runtime.getRuntime();
-        
+
         try {
             if (MainFrame.listProcRunning.size() < MainFrame.GS.getMaxSizelistProcRunning()) {
                 Process pr = rt.exec(cmd);
@@ -6117,16 +6120,16 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
             System.out.println(e.toString());
         }
         JOptionPane.showMessageDialog(stuff, String.format("%s task was scheduled", commandName),"Confermation",JOptionPane.INFORMATION_MESSAGE);
-    }   
-    
+    }
+
     public static void setCard(String cardName) {
         cardName = cardName == null ? "Empty" : cardName;
-        
+
         CardLayout card = (CardLayout) MainPanel.getLayout();
         card.show(MainPanel, cardName);
         CurrentLayout = cardName;
     }
-    
+
     public static JFileChooser browseTextFieldContent(Component caller, JTextField textfield, int mode) {
         /** mode = {JFileChooser.FILES_ONLY, JFileChooser.DIRECTORIES_ONLY, JFileChooser.FILES_AND_DIRECTORIES} */
         JFileChooser openDir = new JFileChooser();
@@ -6148,7 +6151,7 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
             textfield.setText(String.valueOf(f));
         }
         MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
-        
+
         return openDir;
     }
 }
