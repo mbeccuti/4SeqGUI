@@ -164,7 +164,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private class DockerImageManager {
-        private final String configurationFilename = ".imdocker";
+        private final String countDockerImagesVariable = "4SeqGUI_numDockerImages";
+        private final String prefixDockerVariable = "4SeqGUI_dockerImage_";
         private final javax.swing.JTable dockerTable; 
         private final Map<String, DockerImageDescription> dockerImages;
         
@@ -219,20 +220,12 @@ public class MainFrame extends javax.swing.JFrame {
          * manage docker images. 
          */   
         public DockerImageManager(javax.swing.JTable dockerTable) {
-            /* read configuration file and initialize the list */
             this.dockerTable = dockerTable;
             this.dockerImages = new HashMap<>();
             
-            try {
-                Files.lines(Paths.get(configurationFilename)).forEach((line) -> {
-                    DockerImageDescription curr = new DockerImageDescription(line); 
-                    this.dockerImages.put(curr.url, curr);
-                });
-            }
-            catch (IOException e) {
-                System.out.println("Cannot initialize Docker manager from .imdocker file");
-            }
+            loadConfiguration();
         }
+        
         
         
         /**
@@ -252,8 +245,8 @@ public class MainFrame extends javax.swing.JFrame {
             } catch (IOException ex) {
                 System.out.println("IOException during " + imageListFile + " reading");
             }
-         
-            writeConfigurationFile();
+  
+            writeConfiguration();
         }
         
         /**
@@ -278,7 +271,7 @@ public class MainFrame extends javax.swing.JFrame {
             });
             
             updateGUI();
-            writeConfigurationFile();
+            writeConfiguration();
         }
         
         /**
@@ -296,16 +289,37 @@ public class MainFrame extends javax.swing.JFrame {
             return records; 
         }
         
-        
-        private void writeConfigurationFile() {
-            File file = new File(configurationFilename); 
+        /** 
+         * Instantiate dockerImages map loading docker images' names from Preferences
+         * values */
+        private void loadConfiguration() {
+            int numImages = getPreferences().getInt(countDockerImagesVariable, 0);
             
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-                for (Map.Entry<String, DockerImageDescription> entry: dockerImages.entrySet())
-                    writer.write(String.format("%s\n", entry.getValue().url));
+            dockerImages.clear();
+            
+            for (int i = 0; i < numImages; i++) {
+                String varName = String.format("%s%d", prefixDockerVariable, i); 
+                String varValue = getPreferences().get(varName, null); 
+                
+                if (varValue != null)  
+                    dockerImages.put(varValue, new DockerImageDescription(varValue)); 
             }
-            catch (IOException e) {
-                System.err.println("Cannot write on file " + configurationFilename);
+        }
+        
+        /**
+         * 
+         */
+        private void writeConfiguration() {
+            //save number of images 
+            int numImages = dockerImages.size(); 
+            int index = 0; 
+            
+            getPreferences().putInt(countDockerImagesVariable, numImages);
+            
+            for (String imageUrl: dockerImages.keySet()) {
+                String varName = String.format("%s%d", prefixDockerVariable, index); 
+                getPreferences().put(varName, imageUrl);
+                index++; 
             }
         }
         
@@ -1096,7 +1110,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1375,7 +1389,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -1416,7 +1430,11 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         commandsPanel.add(pullImagesButton, gridBagConstraints);
 
-        dockerImagesManager.getContentPane().add(commandsPanel, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        dockerImagesManager.getContentPane().add(commandsPanel, gridBagConstraints);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("4SeqGUI");
