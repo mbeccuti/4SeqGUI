@@ -734,10 +734,12 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
       
         String command = String.format(
             "group='%s' scratch.folder='%s' data.folder='%s' genome.file='%s' " + 
-            "seq.type='%s' sample.id='%s' threads='%d' annotation.file='%s' " + 
+            "seq.type='%s' sample.id='%s' threads='%d' annotation.file=%s " + 
             "max.span='%d' strigency.value='%s' quality.threshold='%d'", 
              execution, scratchFolder, fastqPath, genomePath, sequencingMode, 
-             sampleId, nthreads, annotationPath, spanningDistance, strigency, qualityThreshold)
+             sampleId, nthreads,
+             annotationPath.isEmpty() ? "NA" : String.format("'%s'", annotationPath),
+             spanningDistance, strigency, qualityThreshold)
                 .replace("'", "\\\"");
                 
         Path p = Paths.get(fastqPath);
