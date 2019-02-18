@@ -267,7 +267,9 @@ public class MainFrame extends javax.swing.JFrame {
          */
         public void removeImages() {
             getRecords(false).forEach((imageId) -> {
-                dockerImages.remove(imageId);
+                if (removeDockerImage(imageId)) {
+                    dockerImages.remove(imageId);
+                }           
             });
 
             updateGUI();
@@ -3317,7 +3319,29 @@ public class MainFrame extends javax.swing.JFrame {
 
     }
 
-     private void  removeDockerContainer(java.awt.event.ActionEvent evt){
+    private boolean  removeDockerImage(String imageName){
+        boolean returnValue = false; 
+        String[] cmd = {
+            "/bin/bash",
+            "-c",
+            " docker rmi " + imageName
+        };
+        
+        try {
+            Runtime.getRuntime().exec(cmd);
+            JOptionPane.showMessageDialog(this, 
+                "Docker image " + imageName + " has been removed.",
+                "Confermation",
+                JOptionPane.INFORMATION_MESSAGE);
+            returnValue = true;
+        }
+        catch (IOException e){
+            System.out.println("Docker image has not been removed\n");
+        }
+        return returnValue;
+    }
+    
+    private void  removeDockerContainer(java.awt.event.ActionEvent evt){
         String[] cmd = {
             "/bin/bash",
             "-c",
@@ -3331,9 +3355,9 @@ public class MainFrame extends javax.swing.JFrame {
         catch (IOException e){
             System.out.println("Docker containers were not removed\n");
         }
-     }
-
-
+    }
+     
+     
       public void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
 
 
@@ -6075,7 +6099,6 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         Preferences root = Preferences.userRoot();
         return root.node(prefRootNode);
     }
-
 
 
 
