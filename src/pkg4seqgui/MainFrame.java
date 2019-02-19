@@ -1112,7 +1112,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1330,7 +1330,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ConfigureTabsFrame.getContentPane().add(enableTabsPanel, gridBagConstraints);
 
-        confermConfigureTabButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/end.png"))); // NOI18N
+        confermConfigureTabButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
         confermConfigureTabButton.setText("Conferm");
         confermConfigureTabButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1346,7 +1346,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ConfigureTabsFrame.getContentPane().add(confermConfigureTabButton, gridBagConstraints);
 
-        closeConfigureTabButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
+        closeConfigureTabButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         closeConfigureTabButton.setText("Close");
         closeConfigureTabButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1399,7 +1399,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         commandsPanel.setLayout(new java.awt.GridBagLayout());
 
-        addImagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        addImagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/downloadb.png"))); // NOI18N
         addImagesButton.setText("Add");
         addImagesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1411,6 +1411,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         commandsPanel.add(addImagesButton, gridBagConstraints);
 
+        removeImagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         removeImagesButton.setText("Remove");
         removeImagesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1426,6 +1427,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         commandsPanel.add(removeImagesButton, gridBagConstraints);
 
+        pullImagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         pullImagesButton.setText("Update");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -1984,6 +1986,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         miRNAScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         miRNAScrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
+        miRNAScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         miRNAScrollPanel.setName("mirna"); // NOI18N
 
         miRNAPanel.setBackground(new java.awt.Color(255, 255, 255));
