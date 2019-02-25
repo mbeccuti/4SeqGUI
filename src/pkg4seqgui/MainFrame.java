@@ -1311,7 +1311,7 @@ public class MainFrame extends javax.swing.JFrame {
         enableTabsPanel.add(chipseqTabChecker, gridBagConstraints);
 
         miRNA2TabChecker.setSelected(true);
-        miRNA2TabChecker.setText("miRNA2");
+        miRNA2TabChecker.setText("ncRNA");
         miRNA2TabChecker.setName("mirna2"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3166,7 +3166,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         miRNA2ScrollPane.setViewportView(miRNA2Panel);
 
-        jTabbedPane1.addTab("miRNA2", miRNA2ScrollPane);
+        jTabbedPane1.addTab("ncRNA", miRNA2ScrollPane);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
