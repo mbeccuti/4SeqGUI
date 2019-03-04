@@ -622,12 +622,12 @@ public class S_TsneBootstrap extends javax.swing.JPanel {
             cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
             cmd[2]+=" nPerm=\\\""+S_nPerm.getText()+"\\\"";
             cmd[2]+=" permAtTime=\\\""+S_permAtTime.getText()+"\\\"";
-            cmd[2]+=" percent=\\\""+S_Sp.getText()+"\\\"";
+            cmd[2]+=" percent=\\\""+S_percent.getText()+"\\\"";
             cmd[2]+=" range1=\\\""+S_range1.getText()+"\\\"";
             cmd[2]+=" range2=\\\""+S_range2.getText()+"\\\"";
             cmd[2]+=" separator=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
             cmd[2]+=" logTen=\\\""+(S_logTen.getSelectedItem().equals("true") ? "1" : "0")+"\\\"";
-            cmd[2]+=" seed=\\\""+S_range1.getText()+"\\\"";
+            cmd[2]+=" seed=\\\""+S_seed.getText()+"\\\"";
             cmd[2]+=" sp=\\\""+S_Sp.getText()+"\\\"";
             cmd[2]+=" perplexity=\\\""+S_perplexity.getText()+"\\\"";
 
