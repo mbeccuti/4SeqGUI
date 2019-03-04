@@ -17,16 +17,6 @@ if(length(args)==0){
 library(rCASC)
 
 
-if(ribo.proteins=="TRUE"){
-ribo.proteins=TRUE
-}else{ribo.proteins=FALSE}
+cellrangerCount(group=group, transcriptome.folder=transcriptome.folder, fastq.folder=fastq.folder, sample=NULL, expect.cells=expect.cells, force.cells=NULL, nosecondary=TRUE, chemistry=NULL, r1.length=NULL, r2.length=NULL, lanes=NULL, localcores=NULL, localmem=NULL, scratch.folder=scratch.folder, version="3")
 
-if(mt=="TRUE"){
-mt=TRUE
-}else{mt=FALSE}
-
-
-   scannobyGtf(group=group, file=file,
-                    gtf.name=gtf.name,
- biotype=biotype, mt=mt, ribo.proteins=ribo.proteins,umiXgene=as.numeric(umiXgene),riboStart.percentage=R1,riboEnd.percentage=R2,mitoStart.percentage=R3,mitoEnd.percentage=R4)
 

@@ -4,8 +4,7 @@ group=$1
  fastqfolder=$3
 transcriptomefolder=$4
 expectcells=$5
-nosecondary=$6
-output=$7
+output=$6
 path=${PWD}                   
 
 
@@ -23,7 +22,6 @@ echo "Scratch Folder:     $scratchfolder"
 echo "fastq folder:        $fastqfolder"
 echo "transcriptome folder:	$transcriptomefolder"
 echo "expect cells:	$expectcells"
-echo "no secondary:	$nosecondary"
 echo 
 echo "======================================================="
 
@@ -34,7 +32,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $transcriptomefolder $fastqfolder $expectcells $nosecondary $scratchfolder' ./Rscripts/indropCounts.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $transcriptomefolder $fastqfolder $expectcells $scratchfolder' ./Rscripts/cellRanger.R  $output/Routput.Rout"
 
 echo "$args"
 

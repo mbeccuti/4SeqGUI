@@ -699,7 +699,7 @@
         <Component class="javax.swing.JButton" name="confermConfigureTabButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/pkg4seqgui/images/end.png"/>
+              <Image iconType="3" name="/pkg4seqgui/images/exec.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Conferm"/>
           </Properties>
@@ -715,7 +715,7 @@
         <Component class="javax.swing.JButton" name="closeConfigureTabButton">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/pkg4seqgui/images/close.png"/>
+              <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Close"/>
           </Properties>
@@ -793,7 +793,7 @@
             <Component class="javax.swing.JButton" name="addImagesButton">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/pkg4seqgui/images/download.png"/>
+                  <Image iconType="3" name="/pkg4seqgui/images/downloadb.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Add"/>
               </Properties>
@@ -808,6 +808,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="removeImagesButton">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/pkg4seqgui/images/33b.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Remove"/>
               </Properties>
               <Events>
@@ -821,6 +824,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="pullImagesButton">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/pkg4seqgui/images/reset.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Update"/>
               </Properties>
               <Constraints>
@@ -2333,6 +2339,7 @@
                             <EmptyBorder bottom="7" left="5" right="5" top="7"/>
                           </Border>
                         </Property>
+                        <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
                         <Property name="name" type="java.lang.String" value="mirna" noResource="true"/>
                       </Properties>
                       <Constraints>
