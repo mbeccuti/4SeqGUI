@@ -473,7 +473,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         mirnaPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         mirnaPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel9.setText("mirbase version:  ");
+        jLabel9.setText("miRBase version:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weighty = 0.1;
@@ -486,7 +486,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mirnaPanel.add(mirbaseVersionTextField, gridBagConstraints);
 
-        jLabel10.setText("species:  ");
+        jLabel10.setText("miRBase species:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -518,7 +518,8 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         ncrnaPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         ncrnaPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel11.setText("RC db version: ");
+        jLabel11.setText("RC version:       ");
+        jLabel11.setToolTipText("RNAcentral version");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -529,7 +530,8 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 27, 10, 10);
         ncrnaPanel.add(ncrnaVersionTextField, gridBagConstraints);
 
-        jLabel12.setText("species:  ");
+        jLabel12.setText("RC species:");
+        jLabel12.setToolTipText("RNAcentral species");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -544,7 +546,7 @@ public class MiRNAGenomeIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 27, 10, 10);
         ncrnaPanel.add(ncrnaSpecieTextField, gridBagConstraints);
 
-        jLabel13.setText("length:  ");
+        jLabel13.setText("Length:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;

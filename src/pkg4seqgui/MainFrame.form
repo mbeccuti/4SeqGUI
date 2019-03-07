@@ -3832,8 +3832,8 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                          <JTabbedPaneConstraints tabName="ncRNA">
-                            <Property name="tabTitle" type="java.lang.String" value="ncRNA"/>
+                          <JTabbedPaneConstraints tabName="sncRNA">
+                            <Property name="tabTitle" type="java.lang.String" value="sncRNA"/>
                           </JTabbedPaneConstraints>
                         </Constraint>
                       </Constraints>

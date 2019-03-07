@@ -376,7 +376,7 @@ public class MiRNAQuantification extends javax.swing.JPanel {
         mirnaParametersPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         mirnaParametersPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setText("MB version:");
+        jLabel4.setText("miRBase version:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -384,26 +384,28 @@ public class MiRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mirnaParametersPanel.add(jLabel4, gridBagConstraints);
 
-        jLabel6.setText("Species:");
+        jLabel6.setText("miRBase species:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         mirnaParametersPanel.add(jLabel6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 33, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
         mirnaParametersPanel.add(mirbaseVersionTextField, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
         mirnaParametersPanel.add(mirbaseSpeciesTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
