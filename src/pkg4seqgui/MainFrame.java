@@ -3103,6 +3103,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ExpressionAnalysisPanel.add(circRNADESeqButton, gridBagConstraints);
 
+        circRNAddingCovarsButtonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/circRNA_covariates.png"))); // NOI18N
         circRNAddingCovarsButtonButton.setText("Adding covariates and batches");
         circRNAddingCovarsButtonButton.setBorderPainted(false);
         circRNAddingCovarsButtonButton.addActionListener(new java.awt.event.ActionListener() {
