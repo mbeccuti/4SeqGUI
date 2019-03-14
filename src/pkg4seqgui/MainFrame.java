@@ -3230,7 +3230,7 @@ public class MainFrame extends javax.swing.JFrame {
         srnaFirstStep.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         srnaFirstStep.setLayout(new java.awt.GridBagLayout());
 
-        mirnaQuantificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        mirnaQuantificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sncRNA_count.png"))); // NOI18N
         mirnaQuantificationButton.setText("Quantification  ");
         mirnaQuantificationButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         mirnaQuantificationButton.setBorderPainted(false);
@@ -3296,7 +3296,7 @@ public class MainFrame extends javax.swing.JFrame {
         srnaPreprocessCounts.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         srnaPreprocessCounts.setLayout(new java.awt.GridBagLayout());
 
-        jButton61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/miRNAcov.png"))); // NOI18N
+        jButton61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sncRNA_covariate.png"))); // NOI18N
         jButton61.setText("Adding covariates and batchs  ");
         jButton61.setBorderPainted(false);
         jButton61.addActionListener(new java.awt.event.ActionListener() {
@@ -3441,7 +3441,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         sncRNAScrollPane.setViewportView(sncRNAPanel);
 
-        jTabbedPane1.addTab("sncRNA", sncRNAScrollPane);
+        jTabbedPane1.addTab("sncRNA", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sncRNA.png")), sncRNAScrollPane); // NOI18N
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;

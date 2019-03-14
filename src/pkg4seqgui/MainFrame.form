@@ -3872,6 +3872,9 @@
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                           <JTabbedPaneConstraints tabName="sncRNA">
                             <Property name="tabTitle" type="java.lang.String" value="sncRNA"/>
+                            <Property name="tabIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                              <Image iconType="3" name="/pkg4seqgui/images/sncRNA.png"/>
+                            </Property>
                           </JTabbedPaneConstraints>
                         </Constraint>
                       </Constraints>
@@ -3937,7 +3940,7 @@
                                     <Component class="javax.swing.JButton" name="mirnaQuantificationButton">
                                       <Properties>
                                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                          <Image iconType="3" name="/pkg4seqgui/images/download.png"/>
+                                          <Image iconType="3" name="/pkg4seqgui/images/sncRNA_count.png"/>
                                         </Property>
                                         <Property name="text" type="java.lang.String" value="Quantification  "/>
                                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -4027,7 +4030,7 @@
                                     <Component class="javax.swing.JButton" name="jButton61">
                                       <Properties>
                                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                          <Image iconType="3" name="/pkg4seqgui/images/miRNAcov.png"/>
+                                          <Image iconType="3" name="/pkg4seqgui/images/sncRNA_covariate.png"/>
                                         </Property>
                                         <Property name="text" type="java.lang.String" value="Adding covariates and batchs  "/>
                                         <Property name="borderPainted" type="boolean" value="false"/>
