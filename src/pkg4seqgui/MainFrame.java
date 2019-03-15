@@ -1129,7 +1129,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -3248,7 +3248,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         srnaFirstStep.add(mirnaQuantificationButton, gridBagConstraints);
 
-        mirnaindexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        mirnaindexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
         mirnaindexingButton.setText("Genome Indexing  ");
         mirnaindexingButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         mirnaindexingButton.setBorderPainted(false);
