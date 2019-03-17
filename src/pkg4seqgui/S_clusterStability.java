@@ -291,7 +291,7 @@ public class S_clusterStability extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel122, gridBagConstraints);
 
-        S_range1.setText("111");
+        S_range1.setText("3");
         S_range1.setToolTipText(null);
         S_range1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -340,7 +340,7 @@ public class S_clusterStability extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_nPerm, gridBagConstraints);
 
-        S_range2.setText("111");
+        S_range2.setText("3");
         S_range2.setToolTipText(null);
         S_range2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -398,7 +398,7 @@ public class S_clusterStability extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel125, gridBagConstraints);
 
-        S_pcaDimensions.setText("111");
+        S_pcaDimensions.setText("3");
         S_pcaDimensions.setToolTipText(null);
         S_pcaDimensions.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -418,7 +418,7 @@ public class S_clusterStability extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_pcaDimensions, gridBagConstraints);
 
-        S_perplexity.setText("111");
+        S_perplexity.setText("10");
         S_perplexity.setToolTipText(null);
         S_perplexity.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
