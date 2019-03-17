@@ -24,4 +24,4 @@ separator="\t"
 
 
 
-clusterStability(group=group,scratch.folder=scratch.folder,file=file,nPerm=nPerm,permAtTime=permAtTime,percent=percent,range1=range1,range2=range2,separator=separator,logTen=logTen,seed=seed,clustering=clustering,pcaDimensions=pcaDimensions,perplexity=perplexity)
+clusterStability(group=group,scratch.folder=scratch.folder,file=file,nPerm=nPerm,range1=range1,range2=range2,separator=separator,logTen=logTen,seed=seed,clustering=clustering,pcaDimensions=pcaDimensions,perplexity=perplexity)

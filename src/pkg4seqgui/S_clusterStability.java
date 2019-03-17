@@ -53,16 +53,12 @@ public class S_clusterStability extends javax.swing.JPanel {
         jToggleButton34 = new javax.swing.JToggleButton();
         jToggleButton35 = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
-        jLabel120 = new javax.swing.JLabel();
-        S_permAtTime = new javax.swing.JTextField();
         S_logTen = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         S_sep = new javax.swing.JComboBox<>();
         jLabel122 = new javax.swing.JLabel();
         S_range1 = new javax.swing.JTextField();
-        jLabel121 = new javax.swing.JLabel();
-        S_percent = new javax.swing.JTextField();
         jLabel123 = new javax.swing.JLabel();
         S_nPerm = new javax.swing.JTextField();
         S_range2 = new javax.swing.JTextField();
@@ -252,35 +248,6 @@ public class S_clusterStability extends javax.swing.JPanel {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("Permutations group:");
-        jLabel120.setToolTipText(null);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel4.add(jLabel120, gridBagConstraints);
-
-        S_permAtTime.setText("8");
-        S_permAtTime.setToolTipText(null);
-        S_permAtTime.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                S_permAtTimeFocusLost(evt);
-            }
-        });
-        S_permAtTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_permAtTimeActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel4.add(S_permAtTime, gridBagConstraints);
-
         S_logTen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "false", "true" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -319,7 +286,7 @@ public class S_clusterStability extends javax.swing.JPanel {
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel122, gridBagConstraints);
@@ -343,35 +310,6 @@ public class S_clusterStability extends javax.swing.JPanel {
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_range1, gridBagConstraints);
-
-        jLabel121.setText("% of removed cells:");
-        jLabel121.setToolTipText(null);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel4.add(jLabel121, gridBagConstraints);
-
-        S_percent.setText("10");
-        S_percent.setToolTipText(null);
-        S_percent.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                S_percentFocusLost(evt);
-            }
-        });
-        S_percent.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_percentActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel4.add(S_percent, gridBagConstraints);
 
         jLabel123.setText("# of permutations:");
         jLabel123.setToolTipText(null);
@@ -474,7 +412,7 @@ public class S_clusterStability extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -494,7 +432,7 @@ public class S_clusterStability extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -503,8 +441,8 @@ public class S_clusterStability extends javax.swing.JPanel {
         jLabel126.setText("Clustering:");
         jLabel126.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel126, gridBagConstraints);
@@ -513,7 +451,7 @@ public class S_clusterStability extends javax.swing.JPanel {
         jLabel127.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(jLabel127, gridBagConstraints);
@@ -534,8 +472,8 @@ public class S_clusterStability extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -744,14 +682,6 @@ public class S_clusterStability extends javax.swing.JPanel {
         sScratchFolder.setText("");
     }//GEN-LAST:event_jToggleButton35ActionPerformed
 
-    private void S_permAtTimeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_permAtTimeFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_S_permAtTimeFocusLost
-
-    private void S_permAtTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_permAtTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_S_permAtTimeActionPerformed
-
     private void S_range1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_range1FocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_S_range1FocusLost
@@ -759,14 +689,6 @@ public class S_clusterStability extends javax.swing.JPanel {
     private void S_range1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_range1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_S_range1ActionPerformed
-
-    private void S_percentFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_percentFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_S_percentFocusLost
-
-    private void S_percentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_percentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_S_percentActionPerformed
 
     private void S_nPermFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_nPermFocusLost
         // TODO add your handling code here:
@@ -825,8 +747,6 @@ public class S_clusterStability extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> S_logTen;
     public static javax.swing.JTextField S_nPerm;
     public static javax.swing.JTextField S_pcaDimensions;
-    public static javax.swing.JTextField S_percent;
-    public static javax.swing.JTextField S_permAtTime;
     public static javax.swing.JTextField S_perplexity;
     public static javax.swing.JTextField S_range1;
     public static javax.swing.JTextField S_range2;
@@ -839,8 +759,6 @@ public class S_clusterStability extends javax.swing.JPanel {
     private javax.swing.JButton jButton40;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel113;
-    private javax.swing.JLabel jLabel120;
-    private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel124;
