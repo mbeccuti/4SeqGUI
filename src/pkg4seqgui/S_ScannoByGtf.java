@@ -67,6 +67,8 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         S_R3 = new javax.swing.JTextField();
         jLabel126 = new javax.swing.JLabel();
         S_R4 = new javax.swing.JTextField();
+        S_R5 = new javax.swing.JTextField();
+        jLabel127 = new javax.swing.JLabel();
         jPanel31 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
         cSudoRadioButton = new javax.swing.JRadioButton();
@@ -392,11 +394,11 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 21, 10, 10);
         jPanel2.add(S_R3, gridBagConstraints);
 
-        jLabel126.setText("Mitochondrial % End:");
+        jLabel126.setText("Genes Threshold");
         jLabel126.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel126, gridBagConstraints);
 
@@ -418,6 +420,33 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(S_R4, gridBagConstraints);
+
+        S_R5.setText("250");
+        S_R5.setToolTipText(null);
+        S_R5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                S_R5FocusLost(evt);
+            }
+        });
+        S_R5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_R5ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel2.add(S_R5, gridBagConstraints);
+
+        jLabel127.setText("Mitochondrial % End:");
+        jLabel127.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel2.add(jLabel127, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -525,6 +554,8 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
             cmd[2]+=" R2=\\\""+S_R2.getText()+"\\\"";
             cmd[2]+=" R3=\\\""+S_R3.getText()+"\\\"";
             cmd[2]+=" R4=\\\""+S_R4.getText()+"\\\"";
+            cmd[2]+=" thresholdGenes=\\\""+S_R5.getText()+"\\\"";
+
 
             Path p = Paths.get(S_countTable.getText());
             Path folder = p.getParent();
@@ -664,6 +695,14 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_S_R4ActionPerformed
 
+    private void S_R5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R5FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R5FocusLost
+
+    private void S_R5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_R5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel S_LorenzFilterPanel;
@@ -673,6 +712,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
     public static javax.swing.JTextField S_R2;
     public static javax.swing.JTextField S_R3;
     public static javax.swing.JTextField S_R4;
+    public static javax.swing.JTextField S_R5;
     public static javax.swing.JTextField S_biotype;
     private javax.swing.JTextField S_countTable;
     public static javax.swing.JTextField S_gtfname;
@@ -691,6 +731,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel124;
     private javax.swing.JLabel jLabel125;
     private javax.swing.JLabel jLabel126;
+    private javax.swing.JLabel jLabel127;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
