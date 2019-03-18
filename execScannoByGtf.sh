@@ -11,7 +11,8 @@ R1=$8
 R2=$9
 R3=${10}
 R4=${11}
-output=${12}
+R5=${12}
+output=${13}
 path=${PWD}                   
 
 
@@ -32,6 +33,7 @@ echo "R1	$R1"
 echo "R2	$R2"
 echo "R3	$R3"
 echo "R4	$R4"
+echo "genes Threshold	$R5"
 echo 
 echo "======================================================="
 
@@ -42,7 +44,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args  $group $file $gtfname $biotype $mt $riboprotein $umiXgene $R1 $R2 $R3 $R4' ./Rscripts/scannoByGtf.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args  $group $file $gtfname $biotype $mt $riboprotein $umiXgene $R1 $R2 $R3 $R4 $R5' ./Rscripts/scannoByGtf.R  $output/Routput.Rout"
 
 echo "$args"
 

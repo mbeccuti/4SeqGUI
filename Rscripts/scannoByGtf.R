@@ -28,5 +28,5 @@ mt=TRUE
 
    scannobyGtf(group=group, file=file,
                     gtf.name=gtf.name,
- biotype=biotype, mt=mt, ribo.proteins=ribo.proteins,umiXgene=as.numeric(umiXgene),riboStart.percentage=R1,riboEnd.percentage=R2,mitoStart.percentage=R3,mitoEnd.percentage=R4)
+ biotype=biotype, mt=mt, ribo.proteins=ribo.proteins,umiXgene=as.numeric(umiXgene),riboStart.percentage=R1,riboEnd.percentage=R2,mitoStart.percentage=R3,mitoEnd.percentage=R4,thresholdGenes=thresholdGenes)
 

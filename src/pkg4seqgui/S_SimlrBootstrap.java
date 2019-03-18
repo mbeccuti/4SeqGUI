@@ -555,7 +555,7 @@ public class S_SimlrBootstrap extends javax.swing.JPanel {
             cmd[2]+=" range2=\\\""+S_range2.getText()+"\\\"";
             cmd[2]+=" separator=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
             cmd[2]+=" logTen=\\\""+(S_logTen.getSelectedItem().equals("true") ? "1" : "0") +"\\\"";
-            cmd[2]+=" seed=\\\""+S_range1.getText()+"\\\"";
+            cmd[2]+=" seed=\\\""+S_seed.getText()+"\\\"";
 
             Path p = Paths.get(S_countTable.getText());
             Path folder = p.getParent();

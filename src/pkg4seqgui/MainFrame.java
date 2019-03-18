@@ -468,7 +468,12 @@ public class MainFrame extends javax.swing.JFrame {
         S_SeuratPrior SP= new S_SeuratPrior();
         S_seuratPrior.setViewportView(SP);
 
-
+        S_dim Sd= new S_dim();
+        S_dim.setViewportView(Sd);
+        
+              S_clusterStability SCS= new S_clusterStability();
+        S_clusterStability.setViewportView(SCS);
+        
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
         circRNA_BSJunctions.setViewportView(new CircRNABSJunctionsPanel());
@@ -757,6 +762,8 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_mergeCiri2Samples = new javax.swing.JScrollPane();
         mirnaGenomeIndexing = new javax.swing.JScrollPane();
         mirnaQuantification = new javax.swing.JScrollPane();
+        S_dim = new javax.swing.JScrollPane();
+        S_clusterStability = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -815,6 +822,7 @@ public class MainFrame extends javax.swing.JFrame {
         SC_TopXButton = new javax.swing.JButton();
         SC_CountDepthButton = new javax.swing.JButton();
         SC_LorenzFilterButton = new javax.swing.JButton();
+        SC_dimensions = new javax.swing.JButton();
         SC_Counts2LogButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         SubClusteringPanel = new javax.swing.JPanel();
@@ -825,6 +833,7 @@ public class MainFrame extends javax.swing.JFrame {
         SC_SeuratPCAEvalButton = new javax.swing.JButton();
         SC_TsneBootstrap = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        SC_ClusterStabilityButton = new javax.swing.JButton();
         SubFeatureSelectionPanel = new javax.swing.JPanel();
         SC_GenesSelectionSIMLRButton = new javax.swing.JButton();
         SC_HFCButton = new javax.swing.JButton();
@@ -1718,6 +1727,8 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(circRNA_mergeCiri2Samples, "circrnaMergeCiri2ResultsCard");
         MainPanel.add(mirnaGenomeIndexing, "mirnaIndex");
         MainPanel.add(mirnaQuantification, "mirnaQuantific");
+        MainPanel.add(S_dim, "S_dim");
+        MainPanel.add(S_clusterStability, "S_clusterStability");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2338,7 +2349,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2370,7 +2381,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2418,7 +2429,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2434,7 +2445,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2466,7 +2477,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2487,6 +2498,22 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SubCountManipulationPanel.add(SC_LorenzFilterButton, gridBagConstraints);
+
+        SC_dimensions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
+        SC_dimensions.setText("Matrix Dimensions");
+        SC_dimensions.setBorderPainted(false);
+        SC_dimensions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_dimensionsActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SubCountManipulationPanel.add(SC_dimensions, gridBagConstraints);
 
         SC_Counts2LogButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/log.png"))); // NOI18N
         SC_Counts2LogButton.setText("Counts to log counts");
@@ -2536,7 +2563,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -2569,7 +2596,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2601,7 +2628,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2617,7 +2644,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 2.0;
@@ -2630,6 +2657,22 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         SubClusteringPanel.add(jLabel8, gridBagConstraints);
+
+        SC_ClusterStabilityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/gene_UMI.png"))); // NOI18N
+        SC_ClusterStabilityButton.setText("Estimating Cluster Stability");
+        SC_ClusterStabilityButton.setBorderPainted(false);
+        SC_ClusterStabilityButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_ClusterStabilityButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SubClusteringPanel.add(SC_ClusterStabilityButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3199,7 +3242,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         srnaFirstStep.add(mirnaQuantificationButton, gridBagConstraints);
 
-        mirnaindexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
+        mirnaindexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
         mirnaindexingButton.setText("Genome Indexing  ");
         mirnaindexingButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         mirnaindexingButton.setBorderPainted(false);
@@ -5463,6 +5506,16 @@ public class MainFrame extends javax.swing.JFrame {
         toggleMenu(SequenceAnalysisPanel, crnaSequenceLabel, getClass().getResource("/pkg4seqgui/images/cRNAtab.png"));
     }//GEN-LAST:event_crnaSequenceLabelMouseClicked
 
+    private void SC_dimensionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_dimensionsActionPerformed
+                    setCard("S_dim");
+
+
+    }//GEN-LAST:event_SC_dimensionsActionPerformed
+
+    private void SC_ClusterStabilityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ClusterStabilityButtonActionPerformed
+                    setCard("S_clusterStability");
+    }//GEN-LAST:event_SC_ClusterStabilityButtonActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -5584,6 +5637,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SC_BootstrapVideoButton;
     private javax.swing.JButton SC_CCRemoveButton;
     private javax.swing.JButton SC_CellRangerCountButton;
+    private javax.swing.JButton SC_ClusterStabilityButton;
     private javax.swing.JButton SC_ClusteringNgriphButton;
     private javax.swing.JButton SC_ClustersFeaturesButton;
     private javax.swing.JButton SC_CountDepthButton;
@@ -5606,14 +5660,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SC_TopXButton;
     private javax.swing.JButton SC_TsneBootstrap;
     private javax.swing.JButton SC_UmiNormButton;
+    private javax.swing.JButton SC_dimensions;
     private javax.swing.JScrollPane S_anovaLike;
     private javax.swing.JScrollPane S_bootstrapsVideo;
     private javax.swing.JScrollPane S_ccRemove;
     private javax.swing.JScrollPane S_cellRanger;
     private javax.swing.JScrollPane S_clusterNgriph;
+    private javax.swing.JScrollPane S_clusterStability;
     private javax.swing.JScrollPane S_clustersFeatures;
     private javax.swing.JScrollPane S_countDepth;
     private javax.swing.JScrollPane S_counts2Log;
+    private javax.swing.JScrollPane S_dim;
     private javax.swing.JScrollPane S_filterZeros;
     private javax.swing.JScrollPane S_genesPrioritization;
     private javax.swing.JScrollPane S_genesSelection;
