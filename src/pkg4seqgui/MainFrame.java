@@ -872,19 +872,22 @@ public class MainFrame extends javax.swing.JFrame {
         sncRNAScrollPane = new javax.swing.JScrollPane();
         sncRNAPanel = new javax.swing.JPanel();
         srnaP1 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        sncrnaReferenceLabel = new javax.swing.JLabel();
         srnaFirstStep = new javax.swing.JPanel();
         mirnaQuantificationButton = new javax.swing.JButton();
         mirnaindexingButton = new javax.swing.JButton();
         srnaP2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        sncrnaPostProcessingLabel = new javax.swing.JLabel();
         srnaPreprocessCounts = new javax.swing.JPanel();
         jButton61 = new javax.swing.JButton();
         PCAButton2 = new javax.swing.JButton();
-        CountButton3 = new javax.swing.JButton();
         SampleSizeButton2 = new javax.swing.JButton();
         ExpPowerButton2 = new javax.swing.JButton();
+        srnaP3 = new javax.swing.JPanel();
+        srnaExpression = new javax.swing.JPanel();
         DeseqButton3 = new javax.swing.JButton();
+        CountButton3 = new javax.swing.JButton();
+        sncrnaExpressionAnaLabel = new javax.swing.JLabel();
         ToolScrollPanel = new javax.swing.JScrollPane();
         ToolPanel = new javax.swing.JPanel();
         MultiQCButton = new javax.swing.JButton();
@@ -2652,6 +2655,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubClusteringPanel.add(SC_TsneBootstrap, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/SingleCellB.png"))); // NOI18N
         jLabel8.setText("Clustering");
         jLabel8.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -3212,14 +3216,20 @@ public class MainFrame extends javax.swing.JFrame {
 
         srnaP1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel10.setText("Reference definition and sRNA quantification");
-        jLabel10.setOpaque(true);
+        sncrnaReferenceLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        sncrnaReferenceLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sncRNA.png"))); // NOI18N
+        sncrnaReferenceLabel.setText("Reference definition and sRNA quantification");
+        sncrnaReferenceLabel.setOpaque(true);
+        sncrnaReferenceLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sncrnaReferenceLabelMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
-        srnaP1.add(jLabel10, gridBagConstraints);
+        srnaP1.add(sncrnaReferenceLabel, gridBagConstraints);
 
         srnaFirstStep.setBackground(new java.awt.Color(255, 255, 255));
         srnaFirstStep.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -3271,13 +3281,20 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         sncRNAPanel.add(srnaP1, gridBagConstraints);
 
         srnaP2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel9.setText("Count table post-processes");
-        jLabel9.setOpaque(true);
+        sncrnaPostProcessingLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        sncrnaPostProcessingLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sncRNA.png"))); // NOI18N
+        sncrnaPostProcessingLabel.setText("Count table post-processes");
+        sncrnaPostProcessingLabel.setOpaque(true);
+        sncrnaPostProcessingLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sncrnaPostProcessingLabelMouseClicked(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -3285,7 +3302,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 0.1;
-        srnaP2.add(jLabel9, gridBagConstraints);
+        srnaP2.add(sncrnaPostProcessingLabel, gridBagConstraints);
 
         srnaPreprocessCounts.setBackground(new java.awt.Color(255, 255, 255));
         srnaPreprocessCounts.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -3321,22 +3338,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         srnaPreprocessCounts.add(PCAButton2, gridBagConstraints);
 
-        CountButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
-        CountButton3.setText("Count Filter  ");
-        CountButton3.setBorderPainted(false);
-        CountButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CountButton3ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weighty = 2.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        srnaPreprocessCounts.add(CountButton3, gridBagConstraints);
-
         SampleSizeButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
         SampleSizeButton2.setText("Sample size estimator  ");
         SampleSizeButton2.setBorderPainted(false);
@@ -3366,23 +3367,9 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         srnaPreprocessCounts.add(ExpPowerButton2, gridBagConstraints);
-
-        DeseqButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
-        DeseqButton3.setText("DESeq2 analysis  ");
-        DeseqButton3.setBorderPainted(false);
-        DeseqButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeseqButton3ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        srnaPreprocessCounts.add(DeseqButton3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3398,8 +3385,79 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 2.0;
-        gridBagConstraints.weighty = 2.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         sncRNAPanel.add(srnaP2, gridBagConstraints);
+
+        srnaP3.setLayout(new java.awt.GridBagLayout());
+
+        srnaExpression.setBackground(new java.awt.Color(255, 255, 255));
+        srnaExpression.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        srnaExpression.setLayout(new java.awt.GridBagLayout());
+
+        DeseqButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
+        DeseqButton3.setText("DESeq2 analysis  ");
+        DeseqButton3.setBorderPainted(false);
+        DeseqButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeseqButton3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        srnaExpression.add(DeseqButton3, gridBagConstraints);
+
+        CountButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
+        CountButton3.setText("Count Filter  ");
+        CountButton3.setBorderPainted(false);
+        CountButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CountButton3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 2.0;
+        gridBagConstraints.weighty = 2.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        srnaExpression.add(CountButton3, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        srnaP3.add(srnaExpression, gridBagConstraints);
+
+        sncrnaExpressionAnaLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        sncrnaExpressionAnaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sncRNA.png"))); // NOI18N
+        sncrnaExpressionAnaLabel.setText("Expression Analysis");
+        sncrnaExpressionAnaLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sncrnaExpressionAnaLabelMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        srnaP3.add(sncrnaExpressionAnaLabel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 2.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        sncRNAPanel.add(srnaP3, gridBagConstraints);
 
         sncRNAScrollPane.setViewportView(sncRNAPanel);
 
@@ -5457,6 +5515,12 @@ public class MainFrame extends javax.swing.JFrame {
         toggleMenu(miRNApanelSub2M, jLabelmiRNA2, getClass().getResource("/pkg4seqgui/images/miRNAtabB.png"));
     }//GEN-LAST:event_jLabelmiRNA2MouseClicked
 
+    /** 
+     * Toggle menu panel
+     * @param panel Panel to toggle
+     * @param label Label associated to the click event 
+     * @param img Icon to put when the panel is visible 
+     */
     private void toggleMenu(javax.swing.JPanel panel, javax.swing.JLabel label, java.net.URL img) {
         java.net.URL imgURLUP = getClass().getResource("/pkg4seqgui/images/download.png"); 
         boolean is_visible = panel.isVisible(); 
@@ -5508,13 +5572,23 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void SC_dimensionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_dimensionsActionPerformed
                     setCard("S_dim");
-
-
     }//GEN-LAST:event_SC_dimensionsActionPerformed
 
     private void SC_ClusterStabilityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ClusterStabilityButtonActionPerformed
                     setCard("S_clusterStability");
     }//GEN-LAST:event_SC_ClusterStabilityButtonActionPerformed
+
+    private void sncrnaReferenceLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sncrnaReferenceLabelMouseClicked
+        toggleMenu(srnaFirstStep, sncrnaReferenceLabel, getClass().getResource("/pkg4seqgui/images/sncRNA.png"));
+    }//GEN-LAST:event_sncrnaReferenceLabelMouseClicked
+
+    private void sncrnaPostProcessingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sncrnaPostProcessingLabelMouseClicked
+        toggleMenu(srnaPreprocessCounts, sncrnaPostProcessingLabel, getClass().getResource("/pkg4seqgui/images/sncRNA.png"));
+    }//GEN-LAST:event_sncrnaPostProcessingLabelMouseClicked
+
+    private void sncrnaExpressionAnaLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sncrnaExpressionAnaLabelMouseClicked
+        toggleMenu(srnaExpression, sncrnaExpressionAnaLabel, getClass().getResource("/pkg4seqgui/images/sncRNA.png"));
+    }//GEN-LAST:event_sncrnaExpressionAnaLabelMouseClicked
 
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
@@ -5767,7 +5841,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel102;
@@ -5781,7 +5854,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel99;
     private javax.swing.JLabel jLabelRNAseq1;
@@ -5836,9 +5908,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox singleCellTabChecker;
     private javax.swing.JPanel sncRNAPanel;
     private javax.swing.JScrollPane sncRNAScrollPane;
+    private javax.swing.JLabel sncrnaExpressionAnaLabel;
+    private javax.swing.JLabel sncrnaPostProcessingLabel;
+    private javax.swing.JLabel sncrnaReferenceLabel;
+    private javax.swing.JPanel srnaExpression;
     private javax.swing.JPanel srnaFirstStep;
     private javax.swing.JPanel srnaP1;
     private javax.swing.JPanel srnaP2;
+    private javax.swing.JPanel srnaP3;
     private javax.swing.JPanel srnaPreprocessCounts;
     private javax.swing.JCheckBox toolsTabChecker;
     private javax.swing.JScrollPane vmRNA;
