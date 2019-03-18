@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author Nicola Licheri
  */
-public class MiRNAQuantification extends javax.swing.JPanel {
+public class SncRNAQuantification extends javax.swing.JPanel {
     private static final long serialVersionUID = 9778212351L;
 
     /**
      * Creates new form MiRNAIndexing
      */
-    public MiRNAQuantification() {
+    public SncRNAQuantification() {
         initComponents();
     }
 
@@ -434,11 +434,15 @@ public class MiRNAQuantification extends javax.swing.JPanel {
     private void modeMiRNAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeMiRNAButtonActionPerformed
         mirbaseSpeciesTextField.setEnabled(true);
         mirbaseVersionTextField.setEnabled(true);
+        
+        mirnaParametersPanel.setVisible(true);
     }//GEN-LAST:event_modeMiRNAButtonActionPerformed
 
     private void modeNcRNAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeNcRNAButtonActionPerformed
         mirbaseSpeciesTextField.setEnabled(false);
         mirbaseVersionTextField.setEnabled(false);
+        
+        mirnaParametersPanel.setVisible(false);
         
     }//GEN-LAST:event_modeNcRNAButtonActionPerformed
 

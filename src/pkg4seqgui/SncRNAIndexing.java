@@ -14,14 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author Nicola Licheri
  */
-public class MiRNAGenomeIndexing extends javax.swing.JPanel {
+public class SncRNAIndexing extends javax.swing.JPanel {
     private static final long serialVersionUID = 9778212350L;
     private String mode; 
 
     /**
      * Creates new form MiRNAQuantification
      */
-    public MiRNAGenomeIndexing() {
+    public SncRNAIndexing() {
         initComponents();
         this.mode = "general";
     }
