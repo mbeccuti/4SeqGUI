@@ -672,7 +672,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
     }//GEN-LAST:event_resetFormMiRNAIndexingButtonActionPerformed
 
     private void browseGenomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseGenomeButtonActionPerformed
-        MainFrame.browseTextFieldContent(this, genomeFolderTextField, JFileChooser.FILES_ONLY);
+        MainFrame.browseTextFieldContent(this, genomeFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseGenomeButtonActionPerformed
 
     private void browseScratchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchButtonActionPerformed
