@@ -219,7 +219,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         inputPanel.add(jLabel2, gridBagConstraints);
 
-        browseGenomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        browseGenomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         browseGenomeButton.setText("Browse");
         browseGenomeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -271,7 +271,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         inputPanel.add(cancelScratchButton, gridBagConstraints);
 
-        jLabel14.setText("Genome folder:");
+        jLabel14.setText("Genome file:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -475,7 +475,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
     }//GEN-LAST:event_browseFastqFolderButtonActionPerformed
 
     private void browseGenomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseGenomeButtonActionPerformed
-        MainFrame.browseTextFieldContent(this, genomeFolderTextField, JFileChooser.DIRECTORIES_ONLY);
+        MainFrame.browseTextFieldContent(this, genomeFolderTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseGenomeButtonActionPerformed
 
     private void browseScratchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchButtonActionPerformed
