@@ -709,6 +709,8 @@ public class SncRNAIndexing extends javax.swing.JPanel {
                     modeMiRNAButton.isSelected() ? "miRNA" : "ncRNA"; 
         int ncrnaLength = 0; 
         
+        
+        
         if (genomeFolder.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
                 "You have to specify the genome folder.",
@@ -819,7 +821,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         }
         
         String command = String.format(
-            "group='%s' mode='%s' genome.folder='%s' %s", group, selectedMode, genomeFolder, specificArgs)
+            "group='%s' mode='%s'  genome.folder='%s' %s", group, selectedMode, genomeFolder, specificArgs)
                 .replace("'", "\\\""); 
         
         MainFrame.execCommand(this, "miRNA genome indexing", "execMiRNAIndexing.sh", command, genomeFolder);

@@ -7,11 +7,11 @@ reference=$4
 mode=$5
 numthreads=$6
 
-if [ $mode == "miRNA" ]; then
+if [ $mode == "mode=\"miRNA\"" ]; then
     mbversion=$7
     mbspecies=$8
     outputdir=$9
-elif [ $mode == "ncRNA" ]; then
+elif [ $mode == "mode=\"ncRNA\"" ]; then
     outputdir=$7
 else
     echo "INVALID MODE ARGUMENT"
