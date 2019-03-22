@@ -21,6 +21,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
      */
     public SncRNAQuantification() {
         initComponents();
+        numThreadsTextField.setText(String.format("%d", MainFrame.GS.getDefaultThread()));
     }
 
     /**
