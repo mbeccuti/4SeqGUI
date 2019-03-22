@@ -35,6 +35,8 @@ public class SncRNAQuantification extends javax.swing.JPanel {
 
         executionGroup = new javax.swing.ButtonGroup();
         modeGroup = new javax.swing.ButtonGroup();
+        adapterGroup = new javax.swing.ButtonGroup();
+        keepTrimmedGroup = new javax.swing.ButtonGroup();
         mirnaQuantificationPanel = new javax.swing.JPanel();
         ExecutionPanel = new javax.swing.JPanel();
         jLabel144 = new javax.swing.JLabel();
@@ -59,6 +61,12 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         fastqFolderTextField = new javax.swing.JTextField();
         browseFastqFolderButton = new javax.swing.JButton();
         cancelFastqFolderButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        adapterIlluminaButton = new javax.swing.JRadioButton();
+        adapterNebButton = new javax.swing.JRadioButton();
+        jLabel9 = new javax.swing.JLabel();
+        keepTrimmedTrueButton = new javax.swing.JRadioButton();
+        keepTrimmedFalseButton = new javax.swing.JRadioButton();
         executeFormMiRNAQuantificationButton = new javax.swing.JButton();
         resetFormMiRNAQuantificationButton = new javax.swing.JButton();
         closeFormMiRNAQuantificationButton = new javax.swing.JButton();
@@ -320,6 +328,62 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         inputPanel.add(cancelFastqFolderButton, gridBagConstraints);
 
+        jLabel8.setText("Adapter type:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        inputPanel.add(jLabel8, gridBagConstraints);
+
+        adapterGroup.add(adapterIlluminaButton);
+        adapterIlluminaButton.setSelected(true);
+        adapterIlluminaButton.setText("ILLUMINA");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        inputPanel.add(adapterIlluminaButton, gridBagConstraints);
+
+        adapterGroup.add(adapterNebButton);
+        adapterNebButton.setText("NEB");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        inputPanel.add(adapterNebButton, gridBagConstraints);
+
+        jLabel9.setText("Keep trimmed:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        inputPanel.add(jLabel9, gridBagConstraints);
+
+        keepTrimmedGroup.add(keepTrimmedTrueButton);
+        keepTrimmedTrueButton.setSelected(true);
+        keepTrimmedTrueButton.setText("YES");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        inputPanel.add(keepTrimmedTrueButton, gridBagConstraints);
+
+        keepTrimmedGroup.add(keepTrimmedFalseButton);
+        keepTrimmedFalseButton.setText("NO");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        inputPanel.add(keepTrimmedFalseButton, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -464,6 +528,12 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         scratchFolderTextField.setText("");
         mirbaseSpeciesTextField.setText("");
         mirbaseVersionTextField.setText("");
+        numThreadsTextField.setText("");
+        DockerRadioButton.setSelected(true);
+        adapterIlluminaButton.setSelected(true);
+        keepTrimmedTrueButton.setSelected(true);
+        modeMiRNAButton.setSelected(true);
+        mirnaParametersPanel.setVisible(true);
     }//GEN-LAST:event_resetFormMiRNAQuantificationButtonActionPerformed
 
     private void closeFormMiRNAQuantificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormMiRNAQuantificationButtonActionPerformed
@@ -485,6 +555,8 @@ public class SncRNAQuantification extends javax.swing.JPanel {
     private void executeFormMiRNAQuantificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeFormMiRNAQuantificationButtonActionPerformed
         String group = DockerRadioButton.isSelected() ? "docker" : "sudo";
         String mode = modeMiRNAButton.isSelected() ? "miRNA" : "ncRNA";
+        String adapters = adapterIlluminaButton.isSelected() ? "ILLUMINA" : "NEB"; 
+        String keepTrimmed = keepTrimmedTrueButton.isSelected() ? "TRUE" : "FALSE";
         int nthreads = 0; 
         String fastqFolder = fastqFolderTextField.getText(), 
                genomeFile = genomeFolderTextField.getText(), 
@@ -544,13 +616,16 @@ public class SncRNAQuantification extends javax.swing.JPanel {
             }
         }
         
+        //they are optional arguments 
         String mirnaArgs = mode.equals("miRNA") ? 
             String.format("mb.version='%s' mb.species='%s'", mbVersion, mbSpecies) : "";
         
+        //optional arguments are the last ones (?) 
         String command = String.format(
             "group='%s' fastq.folder='%s' scratch.folder='%s' reference='%s' " + 
-            "mode='%s' threads=%d %s", 
-            group, fastqFolder, scratchFolder, genomeFile, mode, nthreads, mirnaArgs)
+            "mode='%s' threads=%d adapter.type='%s' trimmed.fastq=%s %s", 
+            group, fastqFolder, scratchFolder, genomeFile, 
+            mode, nthreads, adapters, keepTrimmed, mirnaArgs)
                 .replace("'", "\\\"");
         
         MainFrame.execCommand(this, "miRNA quantification", "execMiRNAQuantification.sh", command, fastqFolder);
@@ -561,6 +636,9 @@ public class SncRNAQuantification extends javax.swing.JPanel {
     private javax.swing.JRadioButton DockerRadioButton;
     private javax.swing.JPanel ExecutionPanel;
     private javax.swing.JRadioButton SudoRadioButton;
+    private javax.swing.ButtonGroup adapterGroup;
+    private javax.swing.JRadioButton adapterIlluminaButton;
+    private javax.swing.JRadioButton adapterNebButton;
     private javax.swing.JButton browseFastqFolderButton;
     private javax.swing.JButton browseGenomeButton;
     private javax.swing.JButton browseScratchButton;
@@ -582,6 +660,11 @@ public class SncRNAQuantification extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JRadioButton keepTrimmedFalseButton;
+    private javax.swing.ButtonGroup keepTrimmedGroup;
+    private javax.swing.JRadioButton keepTrimmedTrueButton;
     private javax.swing.JTextField mirbaseSpeciesTextField;
     private javax.swing.JTextField mirbaseVersionTextField;
     private javax.swing.JPanel mirnaParametersPanel;

@@ -1,26 +1,26 @@
 #!/bin/bash
 
-group=$1
-mode=$2
-genomefolder=$3
+group="$1"
+mode="$2"
+genomefolder="$3"
 
 if [ $mode == "mode=\"General\"" ]; then
-    arg1=$4         #genome url
-    outputdir=$5
+    arg1="$4"         #genome url
+    outputdir="$5"
 elif [ $mode == "mode=\"GATK\"" ]; then
-    arg1=$4         #genome url
-    arg2=$5         #dbsnp file
-    arg3=$6         #1000g file
-    outputdir=$7
+    arg1="$4"         #genome url
+    arg2="$5"         #dbsnp file
+    arg3="$6"         #1000g file
+    outputdir="$7"
 elif [ $mode == "mode=\"miRNA\"" ]; then
-    arg1=$4         #mirbase version
-    arg2=$5         #mirbase species
-    outputdir=$6
+    arg1="$4"         #mirbase version
+    arg2="$5"         #mirbase species
+    outputdir="$6"
 elif [ $mode == "mode=\"ncRNA\"" ]; then
-    arg1=$4         #RNA central version
-    arg2=$5         #RNA central species
-    arg3=$6         #max RNA length
-    outputdir=$7
+    arg1="$4"         #RNA central version
+    arg2="$5"         #RNA central species
+    arg3="$6"         #max RNA length
+    outputdir="$7"
 else
     echo "INVALID MODE ARGUMENT"
     exit 1
