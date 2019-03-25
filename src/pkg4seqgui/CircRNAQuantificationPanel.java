@@ -23,6 +23,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
      */
     public CircRNAQuantificationPanel() {
         initComponents();
+        numThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
     }
 
     /**
@@ -532,6 +533,7 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
         bsjunctionsDataTextField.setText("");
         rnaseqDataTextField.setText("");
         scratchFolderTextField.setText("");
+        numThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
     private void executeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeFormPostProcessingButtonActionPerformed

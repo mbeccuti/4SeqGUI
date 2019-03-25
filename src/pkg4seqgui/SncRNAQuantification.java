@@ -21,7 +21,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
      */
     public SncRNAQuantification() {
         initComponents();
-        numThreadsTextField.setText(String.format("%d", MainFrame.GS.getDefaultThread()));
+        numThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
     }
 
     /**
@@ -497,18 +497,11 @@ public class SncRNAQuantification extends javax.swing.JPanel {
     }//GEN-LAST:event_DockerRadioButtonActionPerformed
 
     private void modeMiRNAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeMiRNAButtonActionPerformed
-        mirbaseSpeciesTextField.setEnabled(true);
-        mirbaseVersionTextField.setEnabled(true);
-        
         mirnaParametersPanel.setVisible(true);
     }//GEN-LAST:event_modeMiRNAButtonActionPerformed
 
     private void modeNcRNAButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeNcRNAButtonActionPerformed
-        mirbaseSpeciesTextField.setEnabled(false);
-        mirbaseVersionTextField.setEnabled(false);
-        
-        mirnaParametersPanel.setVisible(false);
-        
+        mirnaParametersPanel.setVisible(false);        
     }//GEN-LAST:event_modeNcRNAButtonActionPerformed
 
     private void cancelFastqFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelFastqFolderButtonActionPerformed
@@ -529,7 +522,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         scratchFolderTextField.setText("");
         mirbaseSpeciesTextField.setText("");
         mirbaseVersionTextField.setText("");
-        numThreadsTextField.setText("");
+        numThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
         DockerRadioButton.setSelected(true);
         adapterIlluminaButton.setSelected(true);
         keepTrimmedTrueButton.setSelected(true);

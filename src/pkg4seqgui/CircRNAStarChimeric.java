@@ -23,6 +23,7 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
      */
     public CircRNAStarChimeric() {
         initComponents();
+        numThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
     }
 
     /**
@@ -509,7 +510,7 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
         scratchFolderTextField.setText("");
         minLenOverlapTextField.setText("");
         minOverhangTextField.setText("");
-        numThreadsTextField.setText("");
+        numThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
         DockerRadioButton.setSelected(true);
     }//GEN-LAST:event_resetFormCircRNAStarChimericButtonActionPerformed
 

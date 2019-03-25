@@ -23,6 +23,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
      */
     public CircRNAStarPrediction() {
         initComponents();
+        numThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
     }
 
     /**
@@ -586,7 +587,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
 
     private void resetFormCircRNAStarChimericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormCircRNAStarChimericButtonActionPerformed
         DockerRadioButton.setSelected(true);
-        numThreadsTextField.setText("");
+        numThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
         samplesFolderTextField.setText("");
         genomeFolderTextField.setText("");
         scratchFolderTextField.setText("");

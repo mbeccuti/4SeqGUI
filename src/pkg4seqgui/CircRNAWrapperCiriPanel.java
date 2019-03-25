@@ -23,6 +23,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
      */
     public CircRNAWrapperCiriPanel() {
         initComponents();
+        nThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
     }
     private static final long serialVersionUID = 9778212331L;
     /**
@@ -780,6 +781,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
         maxSpanningTextField.setText("");
         qualityThresholdTextField.setText("");
         highStrigencyRadioButton.setSelected(true);
+        nThreadsTextField.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
     }//GEN-LAST:event_resetFormWrapperCiriButtonActionPerformed
 
     private void genomePathTextFieldPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_genomePathTextFieldPropertyChange
