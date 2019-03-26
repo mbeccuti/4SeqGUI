@@ -817,7 +817,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
                 
                 specificArgs = String.format("rc.version='%s' rc.species='%s' length=%d",
                         ncrnaVersion, 
-                        ncrnaSpecies.replace(" ", "\\ "), //to allow spaces 
+                        ncrnaSpecies.replace(" ", "_"), //to allow spaces 
                         ncrnaLength);
                 break;
         }
