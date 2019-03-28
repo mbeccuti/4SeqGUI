@@ -63,6 +63,7 @@ private static final long serialVersionUID = 57782123317L;
 
         jPanel4.setBackground(new java.awt.Color(248, 248, 248));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel4.setToolTipText(null);
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
         FPKMFileTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -81,6 +82,7 @@ private static final long serialVersionUID = 57782123317L;
                 return types [columnIndex];
             }
         });
+        FPKMFileTable.setToolTipText(null);
         FPKMFileTable.setColumnSelectionAllowed(true);
         FPKMFileTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane6.setViewportView(FPKMFileTable);
@@ -98,7 +100,7 @@ private static final long serialVersionUID = 57782123317L;
 
         FAddFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         FAddFile.setText("Add");
-        FAddFile.setToolTipText("");
+        FAddFile.setToolTipText(null);
         FAddFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FAddFileActionPerformed(evt);
@@ -115,6 +117,7 @@ private static final long serialVersionUID = 57782123317L;
 
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/remove.png"))); // NOI18N
         jButton13.setText("Remove");
+        jButton13.setToolTipText(null);
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -128,6 +131,7 @@ private static final long serialVersionUID = 57782123317L;
         jPanel4.add(jButton13, gridBagConstraints);
 
         jLabel26.setText("Biological Types:");
+        jLabel26.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -153,6 +157,7 @@ private static final long serialVersionUID = 57782123317L;
         jPanel4.add(FtypesComboBox, gridBagConstraints);
 
         jLabel27.setText("Output Folder:");
+        jLabel27.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -173,7 +178,7 @@ private static final long serialVersionUID = 57782123317L;
 
         Fbrowes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         Fbrowes.setText("Browse");
-        Fbrowes.setToolTipText("");
+        Fbrowes.setToolTipText(null);
         Fbrowes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FbrowesActionPerformed(evt);
@@ -189,7 +194,7 @@ private static final long serialVersionUID = 57782123317L;
 
         Fcancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         Fcancel.setText("Cancel");
-        Fcancel.setToolTipText("");
+        Fcancel.setToolTipText(null);
         Fcancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FcancelActionPerformed(evt);
@@ -230,6 +235,7 @@ private static final long serialVersionUID = 57782123317L;
 
         FSaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86b.png"))); // NOI18N
         FSaveButton.setText("Save conf.");
+        FSaveButton.setToolTipText(null);
         FSaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FSaveButtonActionPerformed(evt);
@@ -244,6 +250,7 @@ private static final long serialVersionUID = 57782123317L;
 
         FResetButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         FResetButton.setText("Reset");
+        FResetButton.setToolTipText(null);
         FResetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FResetButtonActionPerformed(evt);
@@ -258,7 +265,7 @@ private static final long serialVersionUID = 57782123317L;
 
         FCloseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         FCloseButton.setText("Close");
-        FCloseButton.setToolTipText("");
+        FCloseButton.setToolTipText(null);
         FCloseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FCloseButtonActionPerformed(evt);
