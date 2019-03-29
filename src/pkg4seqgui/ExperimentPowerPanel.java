@@ -67,9 +67,11 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
 
         jPanel25.setBackground(new java.awt.Color(247, 248, 248));
         jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel25.setToolTipText(null);
         jPanel25.setLayout(new java.awt.GridBagLayout());
 
         jLabel88.setText("Output Folder:");
+        jLabel88.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -78,6 +80,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
         jPanel25.add(jLabel88, gridBagConstraints);
 
         EPOutputFolderText.setEditable(false);
+        EPOutputFolderText.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -122,6 +125,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
         jPanel25.add(jLabel89, new java.awt.GridBagConstraints());
 
         jLabel90.setText("Count table file:");
+        jLabel90.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -129,6 +133,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
         jPanel25.add(jLabel90, gridBagConstraints);
 
         EPCountTableText.setEditable(false);
+        EPCountTableText.setToolTipText(null);
         EPCountTableText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EPCountTableTextActionPerformed(evt);
@@ -144,6 +149,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
 
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jButton29.setText("Browse");
+        jButton29.setToolTipText(null);
         jButton29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton29ActionPerformed(evt);
@@ -157,6 +163,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
 
         jButton30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         jButton30.setText("Cancel");
+        jButton30.setToolTipText(null);
         jButton30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton30ActionPerformed(evt);
@@ -238,9 +245,11 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
 
         jPanel26.setBackground(new java.awt.Color(247, 248, 248));
         jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel26.setToolTipText(null);
         jPanel26.setLayout(new java.awt.GridBagLayout());
 
         jLabel91.setText("Log2 fold change:");
+        jLabel91.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -250,6 +259,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
         jPanel26.add(jLabel91, gridBagConstraints);
 
         jLabel92.setText("#gene for dispertion:");
+        jLabel92.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -259,6 +269,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
         jPanel26.add(jLabel93, new java.awt.GridBagConstraints());
 
         jLabel94.setText("Number of samples:");
+        jLabel94.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -308,6 +319,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
         jPanel26.add(EPlog2Text, gridBagConstraints);
 
         jLabel95.setText("False discovery rate:");
+        jLabel95.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
