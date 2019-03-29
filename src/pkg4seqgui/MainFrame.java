@@ -6588,7 +6588,59 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         return root.node(prefRootNode);
     }
 
-
+    /**
+     * @param stuff Component object calling the method
+     * @param commandName Name of the task we are going to execute. It will appears in the process status panel
+     * @param script ScriptCaller object containing parameters and so on
+     */
+    public static void execCommand(Component stuff, String commandName, ScriptCaller script) {
+        String command = ""; 
+        try {
+            command = script.getCommandLineString();
+        } catch (IOException e) {
+            System.out.println("Unable to create the temporary script");
+            return;
+        }
+        
+        String outputFolder = script.outputFolder; 
+        String[] cmd = {"/bin/bash","-c", String.format("%s >& %s/outputExecution", command, outputFolder)};
+        Runtime rt = Runtime.getRuntime();
+        
+        try {
+            if (MainFrame.listProcRunning.size() < MainFrame.GS.getMaxSizelistProcRunning()) {
+                Process pr = rt.exec(cmd);
+                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning(commandName, outputFolder,pr,MainFrame.listModel.getSize());
+                MainFrame.listProcRunning.add(tmp);
+                java.net.URL imgURL = MainFrame.class.getResource("/pkg4seqgui/images/running.png");
+                ImageIcon image2 = new ImageIcon(imgURL);
+                MainFrame.GL.setAvoidProcListValueChanged(-1);
+                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                MainFrame.GL.setAvoidProcListValueChanged(0);
+                if (MainFrame.listProcRunning.size() == 1) {
+                    MainFrame.t=new Timer();
+                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
+                }
+            }
+            else {
+                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting(commandName, outputFolder, cmd,MainFrame.listModel.getSize());
+                MainFrame.listProcWaiting.add(tmp);
+                java.net.URL imgURL = MainFrame.class.getResource("/pkg4seqgui/images/waiting.png");
+                ImageIcon image2 = new ImageIcon(imgURL);
+                MainFrame.GL.setAvoidProcListValueChanged(-1);
+                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                MainFrame.GL.setAvoidProcListValueChanged(0);
+            }
+            MainFrame.GL.setAvoidProcListValueChanged(-1);
+            MainFrame.ProcList.setModel(MainFrame.listModel);
+            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
+            MainFrame.GL.setAvoidProcListValueChanged(0);
+        }
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(stuff, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.toString());
+        }
+        JOptionPane.showMessageDialog(stuff, String.format("%s task was scheduled", commandName),"Confermation",JOptionPane.INFORMATION_MESSAGE);
+    }
 
     public static void execCommand(Component stuff, String commandName, String script, String commandArgs, String outputFolder) {
         //bash ./nomescript argList outputFolder >& outputFolder/outputExecution

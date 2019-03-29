@@ -7,9 +7,11 @@ package pkg4seqgui;
 
 import java.awt.CardLayout;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -454,6 +456,16 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         Path p = Paths.get(circrnaPath);
         Path folder = p.getParent();
         
+        /* da decommentare prima o poi
+        ScriptCaller command2 = new ScriptCaller("CircAnnotation.R", folder.toString())
+            .addArg("group", execution)
+            .addArg("scratch.folder", scratchFolder)
+            .addArg("ciri.file", circrnaPath)
+            .addArg("genome.version", assembly); 
+        
+    
+        MainFrame.execCommand(this, "CircRNA annotation", command2);*/
+
         MainFrame.execCommand(this, 
             "CircRNA annotation", 
             "execCircAnnotation.sh", 

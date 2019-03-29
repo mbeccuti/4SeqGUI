@@ -493,7 +493,7 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
         
         String command = String.format(
             "group='%s' scratch.folder='%s' genome.folder='%s' " + 
-            "fastq.folder='%s' threads='%d' chimSegmentMin='%d' chimJunctionOverhangMin='%d'", 
+            "fastq.folder='%s' threads=%d chimSegmentMin=%d chimJunctionOverhangMin=%d", 
             execution, scratchFolder, genomePath, 
             fastqPath, nthreads, chimSegmentMin, chimJunctionOverhangMin)
                 .replace("'", "\\\"");

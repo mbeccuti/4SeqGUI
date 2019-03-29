@@ -479,8 +479,8 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
                scratchFolder = scratchFolderTextField.getText();
         int readsCutoff, minSubject, subjCPMCutoff, nthreads; 
         float cpmCutoff; 
-        String do_splice = doSpliceCheckBox.isSelected() ? "True" : "False", 
-                annotation = annotationCheckBox.isSelected() ? "true" : "false"; 
+        String do_splice = doSpliceCheckBox.isSelected() ? "TRUE" : "FALSE", 
+                annotation = annotationCheckBox.isSelected() ? "TRUE" : "FALSE"; 
 
         if (genomePath.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
@@ -573,8 +573,8 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         
         
         String command = String.format("group='%s' scratch.folder='%s' genome.folder='%s' " + 
-            "samples.folder='%s' reads.cutoff='%d' min.subject.limit='%d' threads='%d' " +
-            "do.splice='%s' cpm.cutoff='%f' subjectCPM.cutoff='%d' annotation='%s'", 
+            "samples.folder='%s' reads.cutoff=%d min.subject.limit=%d threads=%d " +
+            "do.splice=%s cpm.cutoff=%f subjectCPM.cutoff=%d annotation=%s", 
              execution, scratchFolder, genomePath, samplesPath, readsCutoff, minSubject, 
              nthreads, do_splice, cpmCutoff, subjCPMCutoff, annotation)
                 .replace("'", "\\\"");
