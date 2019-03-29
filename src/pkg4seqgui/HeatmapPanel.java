@@ -258,7 +258,7 @@ public class HeatmapPanel extends javax.swing.JPanel {
         HStatus1RadioButton.setBackground(new java.awt.Color(248, 248, 248));
         heatmapBaseGroup.add(HStatus1RadioButton);
         HStatus1RadioButton.setSelected(true);
-        HStatus1RadioButton.setText("row count");
+        HStatus1RadioButton.setText("raw count");
         HStatus1RadioButton.setActionCommand("raw count");
         HStatus1RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

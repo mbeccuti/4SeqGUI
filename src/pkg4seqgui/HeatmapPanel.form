@@ -281,7 +281,7 @@
                   <ComponentRef name="heatmapBaseGroup"/>
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="row count"/>
+                <Property name="text" type="java.lang.String" value="raw count"/>
                 <Property name="actionCommand" type="java.lang.String" value="raw count"/>
               </Properties>
               <Events>
