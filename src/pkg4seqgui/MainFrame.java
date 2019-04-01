@@ -474,6 +474,13 @@ public class MainFrame extends javax.swing.JFrame {
               S_clusterStability SCS= new S_clusterStability();
         S_clusterStability.setViewportView(SCS);
         
+        MergeMatrix MM= new MergeMatrix();
+        mergeMatrix.setViewportView(MM);
+        
+          S_CrossLabel CS= new S_CrossLabel();
+        crossLabel.setViewportView(CS);
+        
+        
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
         circRNA_BSJunctions.setViewportView(new CircRNABSJunctionsPanel());
@@ -764,6 +771,8 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaQuantification = new javax.swing.JScrollPane();
         S_dim = new javax.swing.JScrollPane();
         S_clusterStability = new javax.swing.JScrollPane();
+        mergeMatrix = new javax.swing.JScrollPane();
+        crossLabel = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -837,6 +846,7 @@ public class MainFrame extends javax.swing.JFrame {
         SC_SeuratPCAEvalButton = new javax.swing.JButton();
         SC_TsneBootstrap = new javax.swing.JButton();
         SC_ClusterStabilityButton = new javax.swing.JButton();
+        S_crossLabelButton1 = new javax.swing.JButton();
         SubFeatureSelectionPanel = new javax.swing.JPanel();
         sc_FeatureSelectionLabel = new javax.swing.JLabel();
         sc_innerPanel4 = new javax.swing.JPanel();
@@ -896,6 +906,7 @@ public class MainFrame extends javax.swing.JFrame {
         ToolPanel = new javax.swing.JPanel();
         MultiQCButton = new javax.swing.JButton();
         HeatmapButton = new javax.swing.JButton();
+        MergeMatrixButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1142,7 +1153,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1736,6 +1747,8 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(mirnaQuantification, "mirnaQuantific");
         MainPanel.add(S_dim, "S_dim");
         MainPanel.add(S_clusterStability, "S_clusterStability");
+        MainPanel.add(mergeMatrix, "mergeMatrix");
+        MainPanel.add(crossLabel, "crossLabel");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2624,7 +2637,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -2712,7 +2725,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel3.add(SC_TsneBootstrap, gridBagConstraints);
 
-        SC_ClusterStabilityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/gene_UMI.png"))); // NOI18N
+        SC_ClusterStabilityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/hierarchical-structure.jpg"))); // NOI18N
         SC_ClusterStabilityButton.setText("Estimating Cluster Stability");
         SC_ClusterStabilityButton.setBorderPainted(false);
         SC_ClusterStabilityButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2727,6 +2740,22 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel3.add(SC_ClusterStabilityButton, gridBagConstraints);
+
+        S_crossLabelButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Indrop.jpg"))); // NOI18N
+        S_crossLabelButton1.setText("Cross Label");
+        S_crossLabelButton1.setBorderPainted(false);
+        S_crossLabelButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_crossLabelButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel3.add(S_crossLabelButton1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3573,12 +3602,29 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(HeatmapButton, gridBagConstraints);
+
+        MergeMatrixButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cutmenu.png"))); // NOI18N
+        MergeMatrixButton.setText("Merge Matrix");
+        MergeMatrixButton.setToolTipText("");
+        MergeMatrixButton.setBorderPainted(false);
+        MergeMatrixButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MergeMatrixButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(MergeMatrixButton, gridBagConstraints);
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -5681,6 +5727,17 @@ public class MainFrame extends javax.swing.JFrame {
         toggleMenu(sc_innerPanel4, sc_FeatureSelectionLabel, getClass().getResource("/pkg4seqgui/images/SingleCellB.png"));
     }//GEN-LAST:event_sc_FeatureSelectionLabelMouseClicked
 
+    private void MergeMatrixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MergeMatrixButtonActionPerformed
+
+                            setCard("mergeMatrix");
+
+
+    }//GEN-LAST:event_MergeMatrixButtonActionPerformed
+
+    private void S_crossLabelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_crossLabelButton1ActionPerformed
+                            setCard("crossLabel");
+    }//GEN-LAST:event_S_crossLabelButton1ActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -5779,6 +5836,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup MRemoveDuplicates;
     private javax.swing.ButtonGroup MSeq;
     public static javax.swing.JPanel MainPanel;
+    private javax.swing.JButton MergeMatrixButton;
     private javax.swing.JScrollPane MultiQC;
     private javax.swing.JButton MultiQCButton;
     public static javax.swing.JFrame OutputFrame;
@@ -5835,6 +5893,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane S_clustersFeatures;
     private javax.swing.JScrollPane S_countDepth;
     private javax.swing.JScrollPane S_counts2Log;
+    private javax.swing.JButton S_crossLabelButton1;
     private javax.swing.JScrollPane S_dim;
     private javax.swing.JScrollPane S_filterZeros;
     private javax.swing.JScrollPane S_genesPrioritization;
@@ -5904,6 +5963,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel crnaP4;
     private javax.swing.JLabel crnaPredictionLabel;
     private javax.swing.JLabel crnaSequenceLabel;
+    private javax.swing.JScrollPane crossLabel;
     private javax.swing.JScrollPane dESPanel;
     private javax.swing.JFrame dockerImagesManager;
     private javax.swing.JTable dockerImagesTable;
@@ -5975,6 +6035,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane mRNABatchPanel;
     private javax.swing.JButton mRNAButton;
     private javax.swing.JButton manageDockerImagesButton;
+    private javax.swing.JScrollPane mergeMatrix;
     private javax.swing.JCheckBox miRNA2TabChecker;
     private javax.swing.JPanel miRNAPanel;
     private javax.swing.JScrollPane miRNAScrollPanel;
