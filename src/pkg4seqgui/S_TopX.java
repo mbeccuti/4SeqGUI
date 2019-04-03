@@ -49,6 +49,10 @@ public class S_TopX extends javax.swing.JPanel {
         jButton30 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         S_countTable = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        S_Type = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        S_separator = new javax.swing.JComboBox<>();
         jPanel31 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
         cSudoRadioButton = new javax.swing.JRadioButton();
@@ -56,7 +60,7 @@ public class S_TopX extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_GenesUmiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Select by expression", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_GenesUmiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "topX", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_GenesUmiPanel.setToolTipText(null);
         S_GenesUmiPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -117,8 +121,8 @@ public class S_TopX extends javax.swing.JPanel {
         jLabel120.setText("Top expressed genes:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel120, gridBagConstraints);
@@ -136,8 +140,8 @@ public class S_TopX extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_Threshold, gridBagConstraints);
@@ -151,7 +155,7 @@ public class S_TopX extends javax.swing.JPanel {
         S_Logged.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TRUE", "FALSE" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_Logged, gridBagConstraints);
 
@@ -184,7 +188,7 @@ public class S_TopX extends javax.swing.JPanel {
         jLabel3.setText("Logged:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel3, gridBagConstraints);
@@ -203,6 +207,36 @@ public class S_TopX extends javax.swing.JPanel {
         gridBagConstraints.weightx = 10.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
+
+        jLabel4.setText("Type");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel4, gridBagConstraints);
+
+        S_Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "variance", "expression" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(S_Type, gridBagConstraints);
+
+        jLabel5.setText("separator");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jLabel5, gridBagConstraints);
+
+        S_separator.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TAB", "comma" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(S_separator, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -230,7 +264,6 @@ public class S_TopX extends javax.swing.JPanel {
         cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
         cSudoRadioButton.setText("sudo");
         cSudoRadioButton.setToolTipText(null);
-        cSudoRadioButton.setEnabled(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -243,7 +276,6 @@ public class S_TopX extends javax.swing.JPanel {
         cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
         cDockerRadioButton.setToolTipText(null);
-        cDockerRadioButton.setEnabled(false);
         cDockerRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cDockerRadioButtonActionPerformed(evt);
@@ -300,10 +332,19 @@ public class S_TopX extends javax.swing.JPanel {
         Runtime rt = Runtime.getRuntime();
         try{
             String[] cmd = {"/bin/bash","-c"," bash ./execTopX.sh "};
-
+    if (cSudoRadioButton.isSelected()){
+                cmd[2]+= "group=\\\"sudo\\\"";
+            }
+            else{
+                cmd[2]+= "group=\\\"docker\\\"";
+            }
+    
+    
             cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
             cmd[2]+=" threshold=\\\""+S_Threshold.getText()+"\\\"";
+            cmd[2]+=" separator=\\\""+S_separator.getSelectedItem().toString()+"\\\"";
             cmd[2]+=" logged=\\\""+S_Logged.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" type=\\\""+S_Type.getSelectedItem().toString()+"\\\"";
 
             Path p = Paths.get(S_countTable.getText());
             Path folder = p.getParent();
@@ -402,7 +443,9 @@ public class S_TopX extends javax.swing.JPanel {
     private javax.swing.JPanel S_GenesUmiPanel;
     private javax.swing.JComboBox<String> S_Logged;
     public static javax.swing.JTextField S_Threshold;
+    private javax.swing.JComboBox<String> S_Type;
     private javax.swing.JTextField S_countTable;
+    private javax.swing.JComboBox<String> S_separator;
     private javax.swing.JRadioButton cDockerRadioButton;
     private javax.swing.JRadioButton cSudoRadioButton;
     private javax.swing.JButton jButton29;
@@ -413,6 +456,8 @@ public class S_TopX extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
     private javax.swing.JButton vCloseButton5;

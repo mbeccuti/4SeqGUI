@@ -480,6 +480,10 @@ public class MainFrame extends javax.swing.JFrame {
           S_CrossLabel CS= new S_CrossLabel();
         crossLabel.setViewportView(CS);
         
+           S_10XGenomics_index TXG= new S_10XGenomics_index();
+        tenXIndexing.setViewportView(TXG);
+        
+        
         
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
@@ -773,6 +777,7 @@ public class MainFrame extends javax.swing.JFrame {
         S_clusterStability = new javax.swing.JScrollPane();
         mergeMatrix = new javax.swing.JScrollPane();
         crossLabel = new javax.swing.JScrollPane();
+        tenXIndexing = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -821,6 +826,7 @@ public class MainFrame extends javax.swing.JFrame {
         SC_IndropIndexButton = new javax.swing.JButton();
         SC_IndropCountsButton = new javax.swing.JButton();
         SC_CellRangerCountButton = new javax.swing.JButton();
+        SC_IndropCountsButton1 = new javax.swing.JButton();
         SubCountManipulationPanel = new javax.swing.JPanel();
         sc_countsManipulationLabel = new javax.swing.JLabel();
         sc_innerPanel2 = new javax.swing.JPanel();
@@ -1749,6 +1755,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(S_clusterStability, "S_clusterStability");
         MainPanel.add(mergeMatrix, "mergeMatrix");
         MainPanel.add(crossLabel, "crossLabel");
+        MainPanel.add(tenXIndexing, "tenXGenomics");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2351,12 +2358,28 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel1.add(SC_CellRangerCountButton, gridBagConstraints);
+
+        SC_IndropCountsButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cellranger_count.png"))); // NOI18N
+        SC_IndropCountsButton1.setText("10XGenomics Index");
+        SC_IndropCountsButton1.setBorderPainted(false);
+        SC_IndropCountsButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_IndropCountsButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel1.add(SC_IndropCountsButton1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -5738,6 +5761,10 @@ public class MainFrame extends javax.swing.JFrame {
                             setCard("crossLabel");
     }//GEN-LAST:event_S_crossLabelButton1ActionPerformed
 
+    private void SC_IndropCountsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_IndropCountsButton1ActionPerformed
+        setCard("tenXGenomics");
+    }//GEN-LAST:event_SC_IndropCountsButton1ActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -5871,6 +5898,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SC_GenesUmiButton;
     private javax.swing.JButton SC_HFCButton;
     private javax.swing.JButton SC_IndropCountsButton;
+    private javax.swing.JButton SC_IndropCountsButton1;
     private javax.swing.JButton SC_IndropIndexButton;
     private javax.swing.JButton SC_LorenzFilterButton;
     private javax.swing.JButton SC_RecatPredictionButton;
@@ -6073,6 +6101,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel srnaP2;
     private javax.swing.JPanel srnaP3;
     private javax.swing.JPanel srnaPreprocessCounts;
+    private javax.swing.JScrollPane tenXIndexing;
     private javax.swing.JCheckBox toolsTabChecker;
     private javax.swing.JScrollPane vmRNA;
     private javax.swing.JButton vmRNAButton;

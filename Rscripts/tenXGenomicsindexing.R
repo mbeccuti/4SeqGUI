@@ -15,13 +15,12 @@ if(length(args)==0){
 }
 
 library(rCASC)
+
+
+
 if(separator=="TAB"){
 separator="\t"
 }else{separator=","}
 
 
-if(logged=="TRUE"){
-logged=TRUE
-}else{logged=FALSE}
-topx(group=group,file=file,separator=separator, threshold=threshold,logged=logged,type=type)
-
+cellrangerIndexing(group=group,scratch.folder=scratch.folder,genomeFolder=genomeFolder,gtf.url=gtf.url,fasta.url=fasta.url,bio.type=bio.type,nThreads=nThreads)

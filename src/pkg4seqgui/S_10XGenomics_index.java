@@ -7,6 +7,8 @@ package pkg4seqgui;
 import java.awt.CardLayout;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Timer;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -16,12 +18,12 @@ import pkg4seqgui.MainFrame.MyTask;
  *
  * @author user
  */
-public class S_IndropIndex extends javax.swing.JPanel {
+public class S_10XGenomics_index extends javax.swing.JPanel {
 
     /**
      * Creates new form S_IndropIndex
      */
-    public S_IndropIndex() {
+    public S_10XGenomics_index() {
         initComponents();
     }
     private static final long serialVersionUID = 67756333334L;
@@ -50,6 +52,14 @@ public class S_IndropIndex extends javax.swing.JPanel {
         jLabel105 = new javax.swing.JLabel();
         S_indropIndex_GTFUrl = new javax.swing.JTextField();
         jLabel109 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
+        S_IndropIndex_scratchFolder = new javax.swing.JTextField();
+        jToggleButton32 = new javax.swing.JToggleButton();
+        jToggleButton33 = new javax.swing.JToggleButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel108 = new javax.swing.JLabel();
+        nThreads = new javax.swing.JTextField();
+        jLabel110 = new javax.swing.JLabel();
         jPanel29 = new javax.swing.JPanel();
         jLabel106 = new javax.swing.JLabel();
         iSudoRadioSButton = new javax.swing.JRadioButton();
@@ -57,7 +67,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_indropIndexPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Indrop Index", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_indropIndexPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "10X Genomics indexing", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
         S_indropIndexPanel.setToolTipText(null);
         S_indropIndexPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -115,17 +125,18 @@ public class S_IndropIndex extends javax.swing.JPanel {
         jPanel28.setToolTipText(null);
         jPanel28.setLayout(new java.awt.GridBagLayout());
 
-        jLabel103.setText("Index Folder:");
+        jLabel103.setText("Genome Folder");
         jLabel103.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(jLabel103, gridBagConstraints);
 
         S_IndropIndex_indexFolder.setEditable(false);
         S_IndropIndex_indexFolder.setToolTipText(null);
+        S_IndropIndex_indexFolder.setSelectionColor(new java.awt.Color(0, 0, 0));
         S_IndropIndex_indexFolder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 S_IndropIndex_indexFolderActionPerformed(evt);
@@ -133,7 +144,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.2;
@@ -150,7 +161,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(jToggleButton30, gridBagConstraints);
@@ -165,7 +176,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(jToggleButton31, gridBagConstraints);
@@ -174,7 +185,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         jLabel104.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(jLabel104, gridBagConstraints);
@@ -182,7 +193,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         S_indropIndex_EnsembleGenomeUrl.setToolTipText("The URL which will be used to download the genome");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
@@ -190,11 +201,11 @@ public class S_IndropIndex extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(S_indropIndex_EnsembleGenomeUrl, gridBagConstraints);
 
-        jLabel105.setText("GTF url:");
+        jLabel105.setText("nThreads");
         jLabel105.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(jLabel105, gridBagConstraints);
@@ -202,7 +213,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
         S_indropIndex_GTFUrl.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
@@ -215,6 +226,102 @@ public class S_IndropIndex extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.2;
         jPanel28.add(jLabel109, gridBagConstraints);
+
+        jLabel107.setText("Scratch Folder");
+        jLabel107.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jLabel107, gridBagConstraints);
+
+        S_IndropIndex_scratchFolder.setEditable(false);
+        S_IndropIndex_scratchFolder.setToolTipText(null);
+        S_IndropIndex_scratchFolder.setSelectionColor(new java.awt.Color(0, 0, 0));
+        S_IndropIndex_scratchFolder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                S_IndropIndex_scratchFolderActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(S_IndropIndex_scratchFolder, gridBagConstraints);
+
+        jToggleButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        jToggleButton32.setText("Browse");
+        jToggleButton32.setToolTipText(null);
+        jToggleButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton32ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jToggleButton32, gridBagConstraints);
+
+        jToggleButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jToggleButton33.setText("Cancel");
+        jToggleButton33.setToolTipText(null);
+        jToggleButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton33ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jToggleButton33, gridBagConstraints);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "protein_coding", "unitary_pseudogene", "unprocessed_pseudogene", "processed_pseudogene", "transcribed_unprocessed_pseudogene", "processed_transcript", "antisense", "transcribed_unitary_pseudogene", "polymorphic_pseudogene", "lincRNA", "sense_intronic", "transcribed_processed_pseudogene", "sense_overlapping", "IG_V_pseudogene", "pseudogene", "TR_V_gene", "3prime_overlapping_ncRNA", "IG_V_gene", "bidirectional_promoter_lncRNA", "snRNA", "miRNA", "misc_RNA", "snoRNA", "rRna", "IG_C_gene", "IG_J_gene", "TR_J_gene", "TR_C_gene", "TR_V_pseudogene", "TR_J_pseudogene", "IG_D_gene", "ribozyme", "IG_C_pseudogene", "TR_D_gene", "TEC", "IG_J_pseudogene", "scRNA", "scaRNA", "vaultRNA", "sRNA", "macro_lncRNA", "non_coding", "IG_pseudogene" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        jPanel28.add(jComboBox1, gridBagConstraints);
+
+        jLabel108.setText("GTF url:");
+        jLabel108.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jLabel108, gridBagConstraints);
+
+        nThreads.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridwidth = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(nThreads, gridBagConstraints);
+
+        jLabel110.setText("Bio type");
+        jLabel110.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel28.add(jLabel110, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -324,21 +431,32 @@ public class S_IndropIndex extends javax.swing.JPanel {
         //execute code
        Runtime rt = Runtime.getRuntime();
         try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execIndropIndex.sh "};
+            String[] cmd = {"/bin/bash","-c"," bash ./execTenXGenomics.sh "};
             if (iSudoRadioSButton.isSelected()){
                 cmd[2]+= "group=\\\"sudo\\\"";
             }
             else{
                 cmd[2]+= "group=\\\"docker\\\"";
             }
-            cmd[2]+= " index.folder=\\\""+S_IndropIndex_indexFolder.getText()+"\\\" ensembl.urltranscriptome=\\\""+S_indropIndex_EnsembleGenomeUrl.getText()+"\\\" ensembl.urlgtf=\\\""+S_indropIndex_GTFUrl.getText()+"\\\"";
-            cmd[2]+= " "+S_IndropIndex_indexFolder.getText() + " >& "+S_IndropIndex_indexFolder.getText()+"/outputExecution ";
+                cmd[2]+=" scratch.folder=\\\""+S_IndropIndex_scratchFolder.getText()+"\\\"";
+            cmd[2]+=" genomeFolder=\\\""+S_IndropIndex_indexFolder.getText()+"\\\"";
+                        cmd[2]+=" fasta.url=\\\""+S_indropIndex_EnsembleGenomeUrl.getText()+"\\\"";
+                        cmd[2]+=" gtf.url=\\\""+S_indropIndex_GTFUrl.getText()+"\\\"";
+                    cmd[2]+=" bio.type=\\\""+jComboBox1.getSelectedItem().toString()+"\\\"";
+                        cmd[2]+=" nThreads=\\\""+nThreads.getText()+"\\\"";
+                        
+
+  Path p = Paths.get(S_IndropIndex_indexFolder.getText());
+            Path folder = p.getParent();
+
+            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
+
             //ProcessStatus.setText(pr.toString());
             if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
                 Process pr = rt.exec(cmd);
                 System.out.println("Runing PID:"+ MainFrame.getPidOfProcess(pr)+"\n");
 
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Pseudo-reference building Salmon ", S_IndropIndex_indexFolder.getText(),pr,MainFrame.listModel.getSize());
+                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("TenXGenomics indexing ", S_IndropIndex_indexFolder.getText(),pr,MainFrame.listModel.getSize());
                 MainFrame.listProcRunning.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -351,7 +469,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
                 }
             }
             else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Pseudo-reference building Salmon  ",S_IndropIndex_indexFolder.getText(),cmd,MainFrame.listModel.getSize());
+                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("TenXGenomics indexing   ",S_IndropIndex_indexFolder.getText(),cmd,MainFrame.listModel.getSize());
                 MainFrame.listProcWaiting.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -369,7 +487,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
             System.out.println(e.toString());
         }
 
-        JOptionPane.showMessageDialog(this, "IndropIndex task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "TenXGenomics indexing  task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton37ActionPerformed
 
     private void iResetButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iResetButton2ActionPerformed
@@ -411,9 +529,41 @@ public class S_IndropIndex extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_iDockerRadioSButtonActionPerformed
 
+    private void S_IndropIndex_scratchFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_IndropIndex_scratchFolderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_S_IndropIndex_scratchFolderActionPerformed
+
+    private void jToggleButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton32ActionPerformed
+  JFileChooser openDir = new JFileChooser();
+        if (!(S_IndropIndex_scratchFolder.getText().equals(""))){
+            File file =new File(S_IndropIndex_scratchFolder.getText());
+            if (file.isDirectory())
+            openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = MainFrame.getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
+        }
+        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            S_IndropIndex_scratchFolder.setText(String.valueOf(f));
+        }
+        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());    }//GEN-LAST:event_jToggleButton32ActionPerformed
+
+    private void jToggleButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton33ActionPerformed
+        S_IndropIndex_scratchFolder.setText("");
+    }//GEN-LAST:event_jToggleButton33ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField S_IndropIndex_indexFolder;
+    private javax.swing.JTextField S_IndropIndex_scratchFolder;
     private javax.swing.JPanel S_indropIndexPanel;
     private javax.swing.JTextField S_indropIndex_EnsembleGenomeUrl;
     private javax.swing.JTextField S_indropIndex_GTFUrl;
@@ -422,15 +572,22 @@ public class S_IndropIndex extends javax.swing.JPanel {
     private javax.swing.JButton iResetButton2;
     private javax.swing.JRadioButton iSudoRadioSButton;
     private javax.swing.JButton jButton37;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
     private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
+    private javax.swing.JLabel jLabel110;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel29;
     private javax.swing.JToggleButton jToggleButton30;
     private javax.swing.JToggleButton jToggleButton31;
+    private javax.swing.JToggleButton jToggleButton32;
+    private javax.swing.JToggleButton jToggleButton33;
     private javax.swing.ButtonGroup mExecution;
+    private javax.swing.JTextField nThreads;
     // End of variables declaration//GEN-END:variables
 }
