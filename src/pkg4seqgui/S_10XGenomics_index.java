@@ -446,8 +446,8 @@ public class S_10XGenomics_index extends javax.swing.JPanel {
                         cmd[2]+=" nThreads=\\\""+nThreads.getText()+"\\\"";
                         
 
-  Path p = Paths.get(S_IndropIndex_indexFolder.getText());
-            Path folder = p.getParent();
+  Path folder = Paths.get(S_IndropIndex_indexFolder.getText());
+         //   Path folder = p.getParent();
 
             cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
 

@@ -18,9 +18,4 @@ library(rCASC)
 
 
 
-if(separator=="TAB"){
-separator="\t"
-}else{separator=","}
-
-
 cellrangerIndexing(group=group,scratch.folder=scratch.folder,genomeFolder=genomeFolder,gtf.url=gtf.url,fasta.url=fasta.url,bio.type=bio.type,nThreads=nThreads)
