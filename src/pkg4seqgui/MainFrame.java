@@ -483,7 +483,8 @@ public class MainFrame extends javax.swing.JFrame {
            S_10XGenomics_index TXG= new S_10XGenomics_index();
         tenXIndexing.setViewportView(TXG);
         
-        
+         subSetCells SSC = new subSetCells();
+        subsetcells.setViewportView(SSC);
         
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
@@ -778,6 +779,7 @@ public class MainFrame extends javax.swing.JFrame {
         mergeMatrix = new javax.swing.JScrollPane();
         crossLabel = new javax.swing.JScrollPane();
         tenXIndexing = new javax.swing.JScrollPane();
+        subsetcells = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -913,6 +915,7 @@ public class MainFrame extends javax.swing.JFrame {
         MultiQCButton = new javax.swing.JButton();
         HeatmapButton = new javax.swing.JButton();
         MergeMatrixButton = new javax.swing.JButton();
+        subSetMatrixButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1756,6 +1759,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(mergeMatrix, "mergeMatrix");
         MainPanel.add(crossLabel, "crossLabel");
         MainPanel.add(tenXIndexing, "tenXGenomics");
+        MainPanel.add(subsetcells, "subsetCells");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -3625,7 +3629,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
@@ -3643,11 +3647,28 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(MergeMatrixButton, gridBagConstraints);
+
+        subSetMatrixButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
+        subSetMatrixButton1.setText("subSet Matrix");
+        subSetMatrixButton1.setToolTipText("");
+        subSetMatrixButton1.setBorderPainted(false);
+        subSetMatrixButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subSetMatrixButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(subSetMatrixButton1, gridBagConstraints);
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -5765,6 +5786,10 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("tenXGenomics");
     }//GEN-LAST:event_SC_IndropCountsButton1ActionPerformed
 
+    private void subSetMatrixButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subSetMatrixButton1ActionPerformed
+        setCard("subsetCells");
+    }//GEN-LAST:event_subSetMatrixButton1ActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -6101,6 +6126,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel srnaP2;
     private javax.swing.JPanel srnaP3;
     private javax.swing.JPanel srnaPreprocessCounts;
+    private javax.swing.JButton subSetMatrixButton1;
+    private javax.swing.JScrollPane subsetcells;
     private javax.swing.JScrollPane tenXIndexing;
     private javax.swing.JCheckBox toolsTabChecker;
     private javax.swing.JScrollPane vmRNA;
