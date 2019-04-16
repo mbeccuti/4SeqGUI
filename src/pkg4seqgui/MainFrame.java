@@ -429,7 +429,7 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaGenomeIndexing.setViewportView(new SncRNAIndexing());
         mirnaQuantification.setViewportView(new SncRNAQuantification());
 
-        aaaPanel.setViewportView(new WebBrowser());
+   //     aaaPanel.setViewportView(new WebBrowser());
 //ADDING PANEL
 
 
@@ -703,14 +703,10 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaQuantification = new javax.swing.JScrollPane();
         S_dim = new javax.swing.JScrollPane();
         S_clusterStability = new javax.swing.JScrollPane();
-<<<<<<< HEAD
-        aaaPanel = new javax.swing.JScrollPane();
-=======
         mergeMatrix = new javax.swing.JScrollPane();
         crossLabel = new javax.swing.JScrollPane();
         tenXIndexing = new javax.swing.JScrollPane();
         subsetcells = new javax.swing.JScrollPane();
->>>>>>> 75b9f60590fad7e9187a28f0f8f9995f740dd579
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -845,12 +841,8 @@ public class MainFrame extends javax.swing.JFrame {
         ToolPanel = new javax.swing.JPanel();
         MultiQCButton = new javax.swing.JButton();
         HeatmapButton = new javax.swing.JButton();
-<<<<<<< HEAD
-        jButton4 = new javax.swing.JButton();
-=======
         MergeMatrixButton = new javax.swing.JButton();
         subSetMatrixButton1 = new javax.swing.JButton();
->>>>>>> 75b9f60590fad7e9187a28f0f8f9995f740dd579
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1097,7 +1089,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1691,14 +1683,10 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(mirnaQuantification, "mirnaQuantific");
         MainPanel.add(S_dim, "S_dim");
         MainPanel.add(S_clusterStability, "S_clusterStability");
-<<<<<<< HEAD
-        MainPanel.add(aaaPanel, "aaa");
-=======
         MainPanel.add(mergeMatrix, "mergeMatrix");
         MainPanel.add(crossLabel, "crossLabel");
         MainPanel.add(tenXIndexing, "tenXGenomics");
         MainPanel.add(subsetcells, "subsetCells");
->>>>>>> 75b9f60590fad7e9187a28f0f8f9995f740dd579
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -3575,12 +3563,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(HeatmapButton, gridBagConstraints);
 
-<<<<<<< HEAD
-        jButton4.setText("webView");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-=======
         MergeMatrixButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cutmenu.png"))); // NOI18N
         MergeMatrixButton.setText("Merge Matrix");
         MergeMatrixButton.setToolTipText("");
@@ -3588,16 +3570,10 @@ public class MainFrame extends javax.swing.JFrame {
         MergeMatrixButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MergeMatrixButtonActionPerformed(evt);
->>>>>>> 75b9f60590fad7e9187a28f0f8f9995f740dd579
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-<<<<<<< HEAD
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        ToolPanel.add(jButton4, gridBagConstraints);
-=======
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
@@ -3620,7 +3596,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(subSetMatrixButton1, gridBagConstraints);
->>>>>>> 75b9f60590fad7e9187a28f0f8f9995f740dd579
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -5938,7 +5913,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ToolPanel;
     private javax.swing.JScrollPane ToolScrollPanel;
     private javax.swing.JSplitPane VerticalSplitPanel;
-    private javax.swing.JScrollPane aaaPanel;
     private javax.swing.JButton addImagesButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chipseqTabChecker;
@@ -5994,7 +5968,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
