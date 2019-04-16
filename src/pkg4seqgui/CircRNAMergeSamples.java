@@ -5,7 +5,6 @@
  */
 package pkg4seqgui;
 
-import java.awt.CardLayout;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;

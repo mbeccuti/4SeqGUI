@@ -7,9 +7,23 @@ package pkg4seqgui;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 
 import javafx.scene.web.WebView;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+
+
+import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Worker;
+import javafx.scene.Scene;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebEvent;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+
 
 /**
  *
@@ -37,60 +51,302 @@ public class WebBrowser extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        executionMode = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        sudoRadioButton = new javax.swing.JRadioButton();
+        dockerRadioButton = new javax.swing.JRadioButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        inputFileTextField = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        outputFolderTextField = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setLayout(new java.awt.GridBagLayout());
 
-        jToggleButton1.setText("jToggleButton1");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Heatmap stuff", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(16, 5, 134))); // NOI18N
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jButton1.setText("Visualize");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jButton1, gridBagConstraints);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jToggleButton1)
-                .addContainerGap(225, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jToggleButton1)
-                .addContainerGap(229, Short.MAX_VALUE))
-        );
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setText("Execution: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel2.add(jLabel1, gridBagConstraints);
+
+        executionMode.add(sudoRadioButton);
+        sudoRadioButton.setText("sudo");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel2.add(sudoRadioButton, gridBagConstraints);
+
+        executionMode.add(dockerRadioButton);
+        dockerRadioButton.setSelected(true);
+        dockerRadioButton.setText("docker");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel2.add(dockerRadioButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jPanel2, gridBagConstraints);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        jLabel2.setText("Input file:  ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jLabel2, gridBagConstraints);
+
+        inputFileTextField.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(inputFileTextField, gridBagConstraints);
+
+        jButton4.setText("Browse");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jButton4, gridBagConstraints);
+
+        jButton5.setText("Cancel");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jButton5, gridBagConstraints);
+
+        jLabel3.setText("Output folder:  ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jLabel3, gridBagConstraints);
+
+        outputFolderTextField.setEditable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(outputFolderTextField, gridBagConstraints);
+
+        jButton6.setText("Browse");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jButton6, gridBagConstraints);
+
+        jButton7.setText("Cancel");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jButton7, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jPanel3, gridBagConstraints);
+
+        jButton2.setText("Reset");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jButton2, gridBagConstraints);
+
+        jButton3.setText("Close");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jButton3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 0.1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         add(jPanel1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        JFrame Frame1 = new JFrame("Swing and JavaFX");
-        JFXPanel fxPanel = new JFXPanel();
-        Frame1.add(fxPanel);
-        Frame1.setSize(300, 200);
-        Frame1.setVisible(true);
-        Frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Platform.runLater(() -> {
-        WebView webView = new WebView();
-        fxPanel.setScene(new Scene(webView));
-          webView.getEngine().load("file:///home/beccuti/prova.html");
-      
-});    // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String group = dockerRadioButton.isSelected() ? "docker" : "sudo"; 
+        String inputFolder = inputFileTextField.getText(); 
+        String outputFolder = outputFolderTextField.getText();
 
+        openWebBrowser();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        MainFrame.browseTextFieldContent(this, inputFileTextField, JFileChooser.FILES_ONLY);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        inputFileTextField.setText("");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        MainFrame.browseTextFieldContent(this, outputFolderTextField, JFileChooser.DIRECTORIES_ONLY);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        outputFolderTextField.setText("");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        MainFrame.setCard(null);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        inputFileTextField.setText("");
+        outputFolderTextField.setText("");
+        dockerRadioButton.setSelected(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void openWebBrowser() {
+        JFrame jframe = new JFrame("Work in progress");
+        JFXPanel fxPanel = new JFXPanel();
+        jframe.add(fxPanel);
+  //      jframe.setSize(900, 600);
+        jframe.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    //    jframe.setUndecorated(true);
+        jframe.setVisible(true);
+        jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        Platform.runLater(() -> {
+            VBox root = new VBox();
+            WebView webView = new WebView();    
+            root.getChildren().add(webView);
+            root.setStyle("-fx-padding: 10;-fx-border-style: solid inside;-fx-border-color: blue;" +
+                "-fx-border-width: 2;-fx-border-insets: 5;-fx-border-radius: 5;" 
+            );
+            
+            WebEngine webEngine = webView.getEngine();
+            
+            webEngine.locationProperty().addListener(new ChangeListener<String>() {
+                @Override public void changed(ObservableValue<? extends String> observableValue, String oldLoc, String newLoc) {
+                    System.out.println("TEST");
+                }
+            });
+            
+            webEngine.setOnAlert((WebEvent<String> wEvent) -> {
+                System.out.println("TEST");
+            });
+            /*
+                webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
+                if (Worker.State.SUCCEEDED == newValue) {
+                    System.out.println("something happened");*/
+    /*
+    // set an interface object named 'javaConnector' in the web engine's page
+                    JSObject window = (JSObject) webEngine.executeScript("window");
+                    window.setMember("javaConnector", javaConnector);
+
+                    // get the Javascript connector object. 
+                    javascriptConnector = (JSObject) webEngine.executeScript("getJsConnector()");
+    
+                }
+            System.out.println("random!");
+            System.out.println(newValue);
+            
+        });*/
+            
+            fxPanel.setScene(new Scene(root));
+            webEngine.load("file:///home/nico/Documenti/docker/plotly/heat/forheatmap.html");
+        });    
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton dockerRadioButton;
+    private javax.swing.ButtonGroup executionMode;
+    private javax.swing.JTextField inputFileTextField;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField outputFolderTextField;
+    private javax.swing.JRadioButton sudoRadioButton;
     // End of variables declaration//GEN-END:variables
 }

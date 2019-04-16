@@ -6,7 +6,6 @@
 package pkg4seqgui;
 
 import java.awt.CardLayout;
-import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -235,6 +234,8 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(jLabel1, gridBagConstraints);
+
+        genomeFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -244,6 +245,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 15, 10, 10);
         genomePanel.add(genomeFolderTextField, gridBagConstraints);
 
+        scratchFolderTextField.setEditable(false);
         scratchFolderTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 scratchFolderTextFieldActionPerformed(evt);

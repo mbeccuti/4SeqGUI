@@ -341,8 +341,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabsController = new TabBarController(jTabbedPane1).refreshTabs();
         dockerManager = new DockerImageManager(dockerImagesTable);
 
-        java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/dna.png");
-        ImageIcon image = new ImageIcon(imgURL);
+        ImageIcon image = new ImageIcon(getClass().getResource("/pkg4seqgui/images/dna.png"));
 
         //DefaultTreeCellRenderer renderer =(DefaultTreeCellRenderer) AnalysisTree.getCellRenderer();
         //renderer.setLeafIcon(image);
@@ -353,126 +352,52 @@ public class MainFrame extends javax.swing.JFrame {
 
 
         //ADDING PANEL
-        MultiQC MQC= new MultiQC();
-        MultiQC.setViewportView(MQC);
-        HeatmapPanel HPP= new HeatmapPanel();
-        Heatmap.setViewportView(HPP);
-        ANOVApanel ANV= new ANOVApanel();
-        ANOVAlike.setViewportView(ANV);
-        FilterCountsPanel FCT= new FilterCountsPanel();
-        filterCounts.setViewportView(FCT);
-        CountingSalmon CTS= new CountingSalmon();
-        countingSalmon.setViewportView(CTS);
-        IndexingSalmon IS = new IndexingSalmon();
-        indexingSalmon.setViewportView(IS);
-        IndexingStarRSEM ISR = new IndexingStarRSEM();
-        indexingStarRSEM.setViewportView(ISR);
-        MRNAPanel MRNAP = new MRNAPanel();
-        mRNA.setViewportView(MRNAP);
-        FPKMPanel FPKM = new FPKMPanel();
-        fPKMPanel.setViewportView(FPKM);
-        VmRNA VMR = new VmRNA();
-        vmRNA.setViewportView(VMR);
-        PCAPanel PP = new PCAPanel();
-        pCAPanel.setViewportView(PP);
-        DESPanel deseq = new DESPanel();
-        dESPanel.setViewportView(deseq);
-        IndexingBWAPanel IBWAP = new IndexingBWAPanel();
-        indexingBWAPanel.setViewportView(IBWAP);
-        MACSPanel MACSP = new MACSPanel();
-        mACSPanel.setViewportView(MACSP);
-        SampleSizePanel SSP = new SampleSizePanel();
-        sampleSizePanel.setViewportView(SSP);
-
-        ExperimentPowerPanel EPP = new ExperimentPowerPanel();
-        experimentPowerPanel.setViewportView(EPP);
-
-        MRNABatchPanel samples2batches = new MRNABatchPanel();
-        mRNABatchPanel.setViewportView(samples2batches);
-
-        S_IndropIndex SII = new S_IndropIndex();
-        S_indropIndex.setViewportView(SII);
-
-        S_IndropCounts SIC = new S_IndropCounts();
-        S_indropCounts.setViewportView(SIC);
-
-        S_CellRanger CR = new S_CellRanger();
-        S_cellRanger.setViewportView(CR);
-
-        S_FilterZeros FZ = new S_FilterZeros();
-        S_filterZeros.setViewportView(FZ);
-
-        S_GenesUmi GU = new S_GenesUmi();
-        S_genesUmi.setViewportView(GU);
-
-        S_TopX TPX = new S_TopX();
-        S_topX.setViewportView(TPX);
-
-        S_LorenzFilter LF = new S_LorenzFilter();
-        S_lorenzFilter.setViewportView(LF);
-
-        S_ScannoByGtf SBG = new S_ScannoByGtf();
-        S_scannoByGtf.setViewportView(SBG);
-
-        S_CountDepth CD = new S_CountDepth();
-        S_countDepth.setViewportView(CD);
-
-        S_Scnorm Scn = new S_Scnorm();
-        S_scnorm.setViewportView(Scn);
-
-        S_UmiNorm UN= new S_UmiNorm();
-        S_umiNorm.setViewportView(UN);
-
-        S_Counts2Log C2L = new S_Counts2Log();
-        S_counts2Log.setViewportView(C2L);
-
-        S_RecatPrediction RP = new S_RecatPrediction();
-        S_recatPrediction.setViewportView(RP);
-
-        S_CcRemove CRV = new S_CcRemove();
-        S_ccRemove.setViewportView(CRV);
-
-        S_ClusterNgriph CNG = new S_ClusterNgriph();
-        S_clusterNgriph.setViewportView(CNG);
-
-        S_SimlrBootstrap SBTS = new S_SimlrBootstrap();
-        S_simlrBootstrap.setViewportView(SBTS);
-
-        S_BootstrapsVideo BV = new S_BootstrapsVideo();
-        S_bootstrapsVideo.setViewportView(BV);
-
-        S_SeuratPCAEval SPE = new S_SeuratPCAEval();
-        S_seuratPCAEval.setViewportView(SPE);
-
-        S_SeuratBootstrap SBT = new S_SeuratBootstrap();
-        S_seuratBootstrap.setViewportView(SBT);
-
-        S_TsneBootstrap TB = new S_TsneBootstrap();
-        S_tsneBootstrap.setViewportView(TB);
-
-        S_AnovaLike AL = new S_AnovaLike();
-        S_anovaLike.setViewportView(AL);
-
-        S_ClustersFeatures CF = new S_ClustersFeatures();
-        S_clustersFeatures.setViewportView(CF);
-
-        S_Hfc HFC = new S_Hfc();
-        S_hfc.setViewportView(HFC);
-
-        S_GenesPrioritization GPR = new S_GenesPrioritization();
-        S_genesPrioritization.setViewportView(GPR);
-
-        S_GenesSelection _GS = new S_GenesSelection();
-        S_genesSelection.setViewportView(_GS);
-
-        S_SeuratPrior SP= new S_SeuratPrior();
-        S_seuratPrior.setViewportView(SP);
-
-        S_dim Sd= new S_dim();
-        S_dim.setViewportView(Sd);
+        MultiQC.setViewportView(new MultiQC());
+        Heatmap.setViewportView(new HeatmapPanel());
+        ANOVAlike.setViewportView(new ANOVApanel());
+        filterCounts.setViewportView(new FilterCountsPanel());
+        countingSalmon.setViewportView(new CountingSalmon());
+        indexingSalmon.setViewportView(new IndexingSalmon());
+        indexingStarRSEM.setViewportView(new IndexingStarRSEM());
+        mRNA.setViewportView(new MRNAPanel());
+        fPKMPanel.setViewportView(new FPKMPanel());
+        vmRNA.setViewportView(new VmRNA());
+        pCAPanel.setViewportView(new PCAPanel());
         
-              S_clusterStability SCS= new S_clusterStability();
-        S_clusterStability.setViewportView(SCS);
+        dESPanel.setViewportView(new DESPanel());
+        indexingBWAPanel.setViewportView(new IndexingBWAPanel());
+        mACSPanel.setViewportView(new MACSPanel());
+        sampleSizePanel.setViewportView(new SampleSizePanel());
+        experimentPowerPanel.setViewportView(new ExperimentPowerPanel());
+        mRNABatchPanel.setViewportView(new MRNABatchPanel());
+        S_indropIndex.setViewportView(new S_IndropIndex());
+        S_indropCounts.setViewportView(new S_IndropCounts());
+        S_cellRanger.setViewportView(new S_CellRanger());
+        S_filterZeros.setViewportView(new S_FilterZeros());
+        S_genesUmi.setViewportView(new S_GenesUmi());
+        S_topX.setViewportView(new S_TopX());
+        S_lorenzFilter.setViewportView(new S_LorenzFilter());
+        S_scannoByGtf.setViewportView(new S_ScannoByGtf());
+        S_countDepth.setViewportView(new S_CountDepth());
+        S_scnorm.setViewportView(new S_Scnorm());
+        S_umiNorm.setViewportView(new S_UmiNorm());
+        S_counts2Log.setViewportView(new S_Counts2Log());
+        S_recatPrediction.setViewportView(new S_RecatPrediction());
+        S_ccRemove.setViewportView(new S_CcRemove());
+        S_clusterNgriph.setViewportView(new S_ClusterNgriph());
+        S_simlrBootstrap.setViewportView(new S_SimlrBootstrap());
+        S_bootstrapsVideo.setViewportView(new S_BootstrapsVideo());
+        S_seuratPCAEval.setViewportView(new S_SeuratPCAEval());
+        S_seuratBootstrap.setViewportView(new S_SeuratBootstrap());
+        S_tsneBootstrap.setViewportView(new S_TsneBootstrap());
+        S_anovaLike.setViewportView(new S_AnovaLike());
+        S_clustersFeatures.setViewportView(new S_ClustersFeatures());
+        S_hfc.setViewportView(new S_Hfc());
+        S_genesPrioritization.setViewportView(new S_GenesPrioritization());
+        S_genesSelection.setViewportView(new S_GenesSelection());
+        S_seuratPrior.setViewportView(new S_SeuratPrior());
+        S_dim.setViewportView(new S_dim());
+        S_clusterStability.setViewportView(new S_clusterStability());
         
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
@@ -491,6 +416,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         mirnaGenomeIndexing.setViewportView(new SncRNAIndexing());
         mirnaQuantification.setViewportView(new SncRNAQuantification());
+        
+        aaaPanel.setViewportView(new WebBrowser());
 //ADDING PANEL
 
 
@@ -764,6 +691,7 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaQuantification = new javax.swing.JScrollPane();
         S_dim = new javax.swing.JScrollPane();
         S_clusterStability = new javax.swing.JScrollPane();
+        aaaPanel = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -896,6 +824,7 @@ public class MainFrame extends javax.swing.JFrame {
         ToolPanel = new javax.swing.JPanel();
         MultiQCButton = new javax.swing.JButton();
         HeatmapButton = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1736,6 +1665,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(mirnaQuantification, "mirnaQuantific");
         MainPanel.add(S_dim, "S_dim");
         MainPanel.add(S_clusterStability, "S_clusterStability");
+        MainPanel.add(aaaPanel, "aaa");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -3579,6 +3509,18 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(HeatmapButton, gridBagConstraints);
+
+        jButton4.setText("webView");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        ToolPanel.add(jButton4, gridBagConstraints);
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -5681,6 +5623,10 @@ public class MainFrame extends javax.swing.JFrame {
         toggleMenu(sc_innerPanel4, sc_FeatureSelectionLabel, getClass().getResource("/pkg4seqgui/images/SingleCellB.png"));
     }//GEN-LAST:event_sc_FeatureSelectionLabelMouseClicked
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        setCard("aaa");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -5874,6 +5820,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ToolPanel;
     private javax.swing.JScrollPane ToolScrollPanel;
     private javax.swing.JSplitPane VerticalSplitPanel;
+    private javax.swing.JScrollPane aaaPanel;
     private javax.swing.JButton addImagesButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox chipseqTabChecker;
@@ -5928,6 +5875,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
