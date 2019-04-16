@@ -17,15 +17,15 @@ import javax.swing.JOptionPane;
  *
  * @author user
  */
-public class S_TopX extends javax.swing.JPanel {
+public class MergeMatrix extends javax.swing.JPanel {
 
     /**
-     * Creates new form S_TopX
+     * Creates new form S_AnovaLike
      */
-    public S_TopX() {
+    public MergeMatrix() {
         initComponents();
     }
-    private static final long serialVersionUID = 67756333346L;
+    private static final long serialVersionUID = 67756333321L;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,23 +36,29 @@ public class S_TopX extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        S_GenesUmiPanel = new javax.swing.JPanel();
+        mExecution = new javax.swing.ButtonGroup();
+        S_AnovaLikePanel = new javax.swing.JPanel();
         vCloseButton5 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
+        S_AnovaLike_jButton = new javax.swing.JButton();
         jButton40 = new javax.swing.JButton();
         jPanel30 = new javax.swing.JPanel();
-        jLabel120 = new javax.swing.JLabel();
-        S_Threshold = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        S_Logged = new javax.swing.JComboBox<>();
+        jlabe = new javax.swing.JLabel();
         jButton29 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
+        File1 = new javax.swing.JTextField();
+        jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
+        file2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        S_countTable = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        S_Type = new javax.swing.JComboBox<>();
+        sep1 = new javax.swing.JComboBox<>();
+        jLabel121 = new javax.swing.JLabel();
+        Name2 = new javax.swing.JTextField();
+        jLabel123 = new javax.swing.JLabel();
+        Name1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        S_separator = new javax.swing.JComboBox<>();
+        sep2 = new javax.swing.JComboBox<>();
         jPanel31 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
         cSudoRadioButton = new javax.swing.JRadioButton();
@@ -60,9 +66,9 @@ public class S_TopX extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_GenesUmiPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "topX", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
-        S_GenesUmiPanel.setToolTipText(null);
-        S_GenesUmiPanel.setLayout(new java.awt.GridBagLayout());
+        S_AnovaLikePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Merge Matrix", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 102, 102))); // NOI18N
+        S_AnovaLikePanel.setToolTipText(null);
+        S_AnovaLikePanel.setLayout(new java.awt.GridBagLayout());
 
         vCloseButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"))); // NOI18N
         vCloseButton5.setText("Close");
@@ -74,28 +80,28 @@ public class S_TopX extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_GenesUmiPanel.add(vCloseButton5, gridBagConstraints);
+        S_AnovaLikePanel.add(vCloseButton5, gridBagConstraints);
 
-        jButton39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
-        jButton39.setText("Execute");
-        jButton39.setToolTipText(null);
-        jButton39.addActionListener(new java.awt.event.ActionListener() {
+        S_AnovaLike_jButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
+        S_AnovaLike_jButton.setText("Execute");
+        S_AnovaLike_jButton.setToolTipText(null);
+        S_AnovaLike_jButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton39ActionPerformed(evt);
+                S_AnovaLike_jButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_GenesUmiPanel.add(jButton39, gridBagConstraints);
+        S_AnovaLikePanel.add(S_AnovaLike_jButton, gridBagConstraints);
 
         jButton40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         jButton40.setText("Reset");
@@ -107,57 +113,22 @@ public class S_TopX extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_GenesUmiPanel.add(jButton40, gridBagConstraints);
+        S_AnovaLikePanel.add(jButton40, gridBagConstraints);
 
         jPanel30.setBackground(new java.awt.Color(248, 248, 248));
         jPanel30.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("Top expressed genes:");
-        jLabel120.setToolTipText(null);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(jLabel120, gridBagConstraints);
-
-        S_Threshold.setText("10000");
-        S_Threshold.setToolTipText(null);
-        S_Threshold.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                S_ThresholdFocusLost(evt);
-            }
-        });
-        S_Threshold.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_ThresholdActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(S_Threshold, gridBagConstraints);
-
-        jLabel2.setText("Counts table:");
+        jlabe.setText("File1");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(jLabel2, gridBagConstraints);
-
-        S_Logged.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TRUE", "FALSE" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(S_Logged, gridBagConstraints);
+        jPanel30.add(jlabe, gridBagConstraints);
 
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
         jButton29.setText("Browse");
@@ -167,8 +138,9 @@ public class S_TopX extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton29, gridBagConstraints);
 
@@ -180,72 +152,193 @@ public class S_TopX extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jButton30, gridBagConstraints);
 
-        jLabel3.setText("Logged:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(jLabel3, gridBagConstraints);
-
-        S_countTable.setEditable(false);
-        S_countTable.addActionListener(new java.awt.event.ActionListener() {
+        File1.setEditable(false);
+        File1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_countTableActionPerformed(evt);
+                File1ActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 10.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(S_countTable, gridBagConstraints);
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 60, 10, 10);
+        jPanel30.add(File1, gridBagConstraints);
 
-        jLabel4.setText("Type");
+        jButton31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/fileb.png"))); // NOI18N
+        jButton31.setText("Browse");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(jLabel4, gridBagConstraints);
+        jPanel30.add(jButton31, gridBagConstraints);
 
-        S_Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "variance", "expression" }));
+        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        jButton32.setText("Cancel");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel30.add(jButton32, gridBagConstraints);
+
+        file2.setEditable(false);
+        file2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                file2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(S_Type, gridBagConstraints);
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 60, 10, 10);
+        jPanel30.add(file2, gridBagConstraints);
 
-        jLabel5.setText("separator");
+        jLabel3.setText("File2");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(jLabel5, gridBagConstraints);
-
-        S_separator.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TAB", "comma" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel30.add(S_separator, gridBagConstraints);
+        jPanel30.add(jLabel3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_GenesUmiPanel.add(jPanel30, gridBagConstraints);
+        S_AnovaLikePanel.add(jPanel30, gridBagConstraints);
+
+        jPanel5.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel5.setLayout(new java.awt.GridBagLayout());
+
+        jLabel4.setText("Sep1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel5.add(jLabel4, gridBagConstraints);
+
+        sep1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TAB", "COMMA" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel5.add(sep1, gridBagConstraints);
+
+        jLabel121.setText("Name2");
+        jLabel121.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel5.add(jLabel121, gridBagConstraints);
+
+        Name2.setToolTipText(null);
+        Name2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                Name2FocusLost(evt);
+            }
+        });
+        Name2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 17, 10, 10);
+        jPanel5.add(Name2, gridBagConstraints);
+
+        jLabel123.setText("Name1");
+        jLabel123.setToolTipText(null);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel5.add(jLabel123, gridBagConstraints);
+
+        Name1.setToolTipText(null);
+        Name1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                Name1FocusLost(evt);
+            }
+        });
+        Name1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Name1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 17, 10, 10);
+        jPanel5.add(Name1, gridBagConstraints);
+
+        jLabel5.setText("Sep2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel5.add(jLabel5, gridBagConstraints);
+
+        sep2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TAB", "COMMA" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel5.add(sep2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        S_AnovaLikePanel.add(jPanel5, gridBagConstraints);
 
         jPanel31.setBackground(new java.awt.Color(248, 248, 248));
         jPanel31.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -262,17 +355,18 @@ public class S_TopX extends javax.swing.JPanel {
         jPanel31.add(jLabel113, gridBagConstraints);
 
         cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        mExecution.add(cSudoRadioButton);
         cSudoRadioButton.setText("sudo");
         cSudoRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 82, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 75, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        mExecution.add(cDockerRadioButton);
         cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
         cDockerRadioButton.setToolTipText(null);
@@ -296,27 +390,21 @@ public class S_TopX extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        S_GenesUmiPanel.add(jPanel31, gridBagConstraints);
+        S_AnovaLikePanel.add(jPanel31, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 280;
-        gridBagConstraints.ipady = 395;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        add(S_GenesUmiPanel, gridBagConstraints);
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
+        add(S_AnovaLikePanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
-        S_countTable.setText("");
-        S_Threshold.setText("0");
-        S_Logged.setSelectedIndex(0);
         //RESET FIELDS
-        
         CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
         card.show(MainFrame.MainPanel, "Empty");
         MainFrame.CurrentLayout="Empty";
@@ -324,29 +412,27 @@ public class S_TopX extends javax.swing.JPanel {
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
-    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
-
-        //Field check
+    private void S_AnovaLike_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_AnovaLike_jButtonActionPerformed
 
         //execute code
         Runtime rt = Runtime.getRuntime();
         try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execTopX.sh "};
-    if (cSudoRadioButton.isSelected()){
+            String[] cmd = {"/bin/bash","-c"," bash ./execMergeMatrix.sh "};
+            if (cSudoRadioButton.isSelected()){
                 cmd[2]+= "group=\\\"sudo\\\"";
             }
             else{
                 cmd[2]+= "group=\\\"docker\\\"";
             }
-    
-    
-            cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" threshold=\\\""+S_Threshold.getText()+"\\\"";
-            cmd[2]+=" separator=\\\""+S_separator.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" logged=\\\""+S_Logged.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" type=\\\""+S_Type.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" file1=\\\""+File1.getText()+"\\\"";
+                        cmd[2]+=" file2=\\\""+file2.getText()+"\\\"";
 
-            Path p = Paths.get(S_countTable.getText());
+            cmd[2]+=" sep1=\\\""+sep1.getSelectedItem().toString()+"\\\"";
+                        cmd[2]+=" sep2=\\\""+sep2.getSelectedItem().toString()+"\\\"";
+            cmd[2]+=" name1=\\\""+Name1.getText()+"\\\"";
+            cmd[2]+=" name2=\\\""+Name2.getText()+"\\\"";
+
+            Path p = Paths.get(File1.getText());
             Path folder = p.getParent();
 
             cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
@@ -354,7 +440,7 @@ public class S_TopX extends javax.swing.JPanel {
             //ProcessStatus.setText(pr.toString());
             if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
                 Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("TopX ", folder.toString(),pr,MainFrame.listModel.getSize());
+                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("MergeMatrix ", folder.toString(),pr,MainFrame.listModel.getSize());
                 MainFrame.listProcRunning.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -367,7 +453,7 @@ public class S_TopX extends javax.swing.JPanel {
                 }
             }
             else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("TopX ",folder.toString(),cmd,MainFrame.listModel.getSize());
+                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("MergeMatrix ",folder.toString(),cmd,MainFrame.listModel.getSize());
                 MainFrame.listProcWaiting.add(tmp);
                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
@@ -384,31 +470,21 @@ public class S_TopX extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
             System.out.println(e.toString());
         }
-        JOptionPane.showMessageDialog(this, "TopX task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "MergeMatrix task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
 
         //execute code
-    }//GEN-LAST:event_jButton39ActionPerformed
+    }//GEN-LAST:event_S_AnovaLike_jButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
-        S_countTable.setText("");
-        S_Threshold.setText("10000");
-        S_Logged.setSelectedIndex(0);
+        File1.setText("");
     }//GEN-LAST:event_jButton40ActionPerformed
 
-    private void S_ThresholdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_ThresholdFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_S_ThresholdFocusLost
-
-    private void S_ThresholdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_ThresholdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_S_ThresholdActionPerformed
-
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        Path p = Paths.get(S_countTable.getText());
+        Path p = Paths.get(File1.getText());
         Path folder = p.getParent();
 
         JFileChooser openDir = new JFileChooser();
-        if (!(S_countTable.getText().equals(""))){
+        if (!(File1.getText().equals(""))){
             File file =new File(folder.toString());
             if (file.isDirectory())
             openDir.setCurrentDirectory(file);
@@ -421,45 +497,98 @@ public class S_TopX extends javax.swing.JPanel {
         openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
         if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
             File f = openDir.getSelectedFile();
-            S_countTable.setText(String.valueOf(f));
+            File1.setText(String.valueOf(f));
         }
         MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
-        S_countTable.setText("");
+        File1.setText("");
     }//GEN-LAST:event_jButton30ActionPerformed
 
-    private void S_countTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_countTableActionPerformed
+    private void File1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_File1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_countTableActionPerformed
+    }//GEN-LAST:event_File1ActionPerformed
+
+    private void Name2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Name2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name2FocusLost
+
+    private void Name2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name2ActionPerformed
+
+    private void Name1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_Name1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name1FocusLost
+
+    private void Name1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Name1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Name1ActionPerformed
 
     private void cDockerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cDockerRadioButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cDockerRadioButtonActionPerformed
 
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+ Path p = Paths.get(file2.getText());
+        Path folder = p.getParent();
+
+        JFileChooser openDir = new JFileChooser();
+        if (!(file2.getText().equals(""))){
+            File file =new File(folder.toString());
+            if (file.isDirectory())
+            openDir.setCurrentDirectory(file);
+        }
+        else
+        {
+            String curDir = MainFrame.getPreferences().get("open-dir", null);
+            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
+        }
+        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            File f = openDir.getSelectedFile();
+            file2.setText(String.valueOf(f));
+        }
+        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton32ActionPerformed
+
+    private void file2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_file2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_file2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel S_GenesUmiPanel;
-    private javax.swing.JComboBox<String> S_Logged;
-    public static javax.swing.JTextField S_Threshold;
-    private javax.swing.JComboBox<String> S_Type;
-    private javax.swing.JTextField S_countTable;
-    private javax.swing.JComboBox<String> S_separator;
+    private javax.swing.JTextField File1;
+    public static javax.swing.JTextField Name1;
+    public static javax.swing.JTextField Name2;
+    private javax.swing.JPanel S_AnovaLikePanel;
+    private javax.swing.JButton S_AnovaLike_jButton;
     private javax.swing.JRadioButton cDockerRadioButton;
     private javax.swing.JRadioButton cSudoRadioButton;
+    private javax.swing.JTextField file2;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton39;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton40;
     private javax.swing.JLabel jLabel113;
-    private javax.swing.JLabel jLabel120;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel jlabe;
+    private javax.swing.ButtonGroup mExecution;
+    private javax.swing.JComboBox<String> sep1;
+    private javax.swing.JComboBox<String> sep2;
     private javax.swing.JButton vCloseButton5;
     // End of variables declaration//GEN-END:variables
 }

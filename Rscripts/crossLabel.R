@@ -15,13 +15,12 @@ if(length(args)==0){
 }
 
 library(rCASC)
+
+
+
 if(separator=="TAB"){
 separator="\t"
 }else{separator=","}
 
 
-if(logged=="TRUE"){
-logged=TRUE
-}else{logged=FALSE}
-topx(group=group,file=file,separator=separator, threshold=threshold,logged=logged,type=type)
-
+crossLabel(group=group, scratch.folder=scratch.folder,file=file,nCluster,separator=separator,finalName=finalName)

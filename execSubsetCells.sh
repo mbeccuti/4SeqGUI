@@ -1,15 +1,12 @@
 #!/bin/sh
 
 
- group=$1
- file=$2
- threshold=$3
-separator=$4
-logged=$5
-type=$6
-output=${7}
-path=${PWD}                   
-
+group=$1
+file=$2
+sep=$3
+cellsnumber=$4
+output=${5}
+path=${PWD}
 
 
 echo
@@ -17,12 +14,11 @@ echo "======================================================="
 echo "			  INPUT PARAMETERS"
 echo "======================================================="
 echo
-echo "group:    $group"
+echo "Group:             $group"
 echo "file:        $file"
-echo "threshold:	$threshold"
-echo "separator:    $separator"
-echo "logged:	$logged"
-echo "type:     $type"
+echo "sep:	$sep"
+echo "cells number:    $cellsnumber"
+echo "Output:            $output"
 echo 
 echo "======================================================="
 
@@ -33,7 +29,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   $group $file $threshold $separator $logged $type' ./Rscripts/topX.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $file $sep $cellsnumber ' ./Rscripts/subSetCells.R  $output/Routput.Rout"
 
 echo "$args"
 

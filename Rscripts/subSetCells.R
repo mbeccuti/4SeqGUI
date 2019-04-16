@@ -14,14 +14,15 @@ if(length(args)==0){
   }
 }
 
-library(rCASC)
+
 if(separator=="TAB"){
 separator="\t"
 }else{separator=","}
 
 
-if(logged=="TRUE"){
-logged=TRUE
-}else{logged=FALSE}
-topx(group=group,file=file,separator=separator, threshold=threshold,logged=logged,type=type)
+library(rCASC)
+setwd(dirname(file))
 
+
+scratch.folder=getwd()
+subSetCell(group=group, scratch.folder=scratch.folder, file=file,separator=separator,cells.number=cells.number)

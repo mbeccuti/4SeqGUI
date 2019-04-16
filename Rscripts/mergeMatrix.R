@@ -14,14 +14,18 @@ if(length(args)==0){
   }
 }
 
+
+if(sep1=="TAB"){
+separator1="\t"
+}else{separator1=","}
+
+if(sep2=="TAB"){
+separator2="\t"
+}else{separator2=","}
+
 library(rCASC)
-if(separator=="TAB"){
-separator="\t"
-}else{separator=","}
+setwd(dirname(file1))
 
 
-if(logged=="TRUE"){
-logged=TRUE
-}else{logged=FALSE}
-topx(group=group,file=file,separator=separator, threshold=threshold,logged=logged,type=type)
-
+scratch.folder=getwd()
+mergeMatrix(group=group, scratch.folder=scratch.folder, file1=file1,file2=file2, separator1=separator1,separator2=separator2,name1=name1,name2=name2)
