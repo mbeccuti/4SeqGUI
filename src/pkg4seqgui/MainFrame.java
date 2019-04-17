@@ -408,9 +408,16 @@ public class MainFrame extends javax.swing.JFrame {
            S_10XGenomics_index TXG= new S_10XGenomics_index();
         tenXIndexing.setViewportView(TXG);
 
+           S_DeTwoGroups DTG= new S_DeTwoGroups();
+        S_detwogroups.setViewportView(DTG);
+        
          subSetCells SSC = new subSetCells();
         subsetcells.setViewportView(SSC);
-
+        S_SplitClusters SCS = new S_SplitClusters();
+        S_splitclusters.setViewportView(SCS);
+                S_UnstableFiltering UF = new S_UnstableFiltering();
+        S_unstablefiltering.setViewportView(UF);
+        
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
         circRNA_BSJunctions.setViewportView(new CircRNABSJunctionsPanel());
@@ -707,6 +714,9 @@ public class MainFrame extends javax.swing.JFrame {
         crossLabel = new javax.swing.JScrollPane();
         tenXIndexing = new javax.swing.JScrollPane();
         subsetcells = new javax.swing.JScrollPane();
+        S_splitclusters = new javax.swing.JScrollPane();
+        S_unstablefiltering = new javax.swing.JScrollPane();
+        S_detwogroups = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -769,7 +779,6 @@ public class MainFrame extends javax.swing.JFrame {
         SC_TopXButton = new javax.swing.JButton();
         SC_CountDepthButton = new javax.swing.JButton();
         SC_LorenzFilterButton = new javax.swing.JButton();
-        SC_dimensions = new javax.swing.JButton();
         SC_Counts2LogButton = new javax.swing.JButton();
         SubClusteringPanel = new javax.swing.JPanel();
         sc_clusteringLabel = new javax.swing.JLabel();
@@ -782,6 +791,8 @@ public class MainFrame extends javax.swing.JFrame {
         SC_TsneBootstrap = new javax.swing.JButton();
         SC_ClusterStabilityButton = new javax.swing.JButton();
         S_crossLabelButton1 = new javax.swing.JButton();
+        SC_unstableFilteringButton = new javax.swing.JButton();
+        SC_ClusterSplit = new javax.swing.JButton();
         SubFeatureSelectionPanel = new javax.swing.JPanel();
         sc_FeatureSelectionLabel = new javax.swing.JLabel();
         sc_innerPanel4 = new javax.swing.JPanel();
@@ -791,6 +802,7 @@ public class MainFrame extends javax.swing.JFrame {
         SC_SeuratPriorButton = new javax.swing.JButton();
         SC_ClustersFeaturesButton = new javax.swing.JButton();
         SC_GenesPrioritizSIMLRButton = new javax.swing.JButton();
+        SC_DeTwoGroupsButton = new javax.swing.JButton();
         SubBottomPanel = new javax.swing.JPanel();
         CircRNAScrollPanel = new javax.swing.JScrollPane();
         CircRNAPanel = new javax.swing.JPanel();
@@ -843,6 +855,7 @@ public class MainFrame extends javax.swing.JFrame {
         HeatmapButton = new javax.swing.JButton();
         MergeMatrixButton = new javax.swing.JButton();
         subSetMatrixButton1 = new javax.swing.JButton();
+        SC_dimension = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1089,7 +1102,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1687,6 +1700,9 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(crossLabel, "crossLabel");
         MainPanel.add(tenXIndexing, "tenXGenomics");
         MainPanel.add(subsetcells, "subsetCells");
+        MainPanel.add(S_splitclusters, "splitclusters");
+        MainPanel.add(S_unstablefiltering, "unstablefiltering");
+        MainPanel.add(S_detwogroups, "detwogroups");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2510,22 +2526,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel2.add(SC_LorenzFilterButton, gridBagConstraints);
 
-        SC_dimensions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
-        SC_dimensions.setText("Matrix Dimensions");
-        SC_dimensions.setBorderPainted(false);
-        SC_dimensions.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SC_dimensionsActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        sc_innerPanel2.add(SC_dimensions, gridBagConstraints);
-
         SC_Counts2LogButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/log.png"))); // NOI18N
         SC_Counts2LogButton.setText("Counts to log counts");
         SC_Counts2LogButton.setBorderPainted(false);
@@ -2591,7 +2591,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -2705,11 +2705,43 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel3.add(S_crossLabelButton1, gridBagConstraints);
+
+        SC_unstableFilteringButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
+        SC_unstableFilteringButton.setText("UnstableFiltering");
+        SC_unstableFilteringButton.setBorderPainted(false);
+        SC_unstableFilteringButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_unstableFilteringButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel3.add(SC_unstableFilteringButton, gridBagConstraints);
+
+        SC_ClusterSplit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
+        SC_ClusterSplit.setText("Split in Clusters");
+        SC_ClusterSplit.setBorderPainted(false);
+        SC_ClusterSplit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_ClusterSplitActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel3.add(SC_ClusterSplit, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -2761,7 +2793,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -2778,7 +2810,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2794,7 +2826,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2810,7 +2842,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2826,7 +2858,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2842,11 +2874,27 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel4.add(SC_GenesPrioritizSIMLRButton, gridBagConstraints);
+
+        SC_DeTwoGroupsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anlovalike.png"))); // NOI18N
+        SC_DeTwoGroupsButton.setText("De Two groups");
+        SC_DeTwoGroupsButton.setBorderPainted(false);
+        SC_DeTwoGroupsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_DeTwoGroupsButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel4.add(SC_DeTwoGroupsButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3556,7 +3604,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
@@ -3574,7 +3622,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3596,6 +3644,23 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(subSetMatrixButton1, gridBagConstraints);
+
+        SC_dimension.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
+        SC_dimension.setText("Matrix Dimension");
+        SC_dimension.setToolTipText("");
+        SC_dimension.setBorderPainted(false);
+        SC_dimension.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_dimensionActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(SC_dimension, gridBagConstraints);
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -5662,10 +5727,6 @@ public class MainFrame extends javax.swing.JFrame {
         toggleMenu(SequenceAnalysisPanel, crnaSequenceLabel, getClass().getResource("/pkg4seqgui/images/cRNAtab.png"));
     }//GEN-LAST:event_crnaSequenceLabelMouseClicked
 
-    private void SC_dimensionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_dimensionsActionPerformed
-                    setCard("S_dim");
-    }//GEN-LAST:event_SC_dimensionsActionPerformed
-
     private void SC_ClusterStabilityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ClusterStabilityButtonActionPerformed
                     setCard("S_clusterStability");
     }//GEN-LAST:event_SC_ClusterStabilityButtonActionPerformed
@@ -5716,6 +5777,22 @@ public class MainFrame extends javax.swing.JFrame {
     private void subSetMatrixButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subSetMatrixButton1ActionPerformed
         setCard("subsetCells");
     }//GEN-LAST:event_subSetMatrixButton1ActionPerformed
+
+    private void SC_dimensionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_dimensionActionPerformed
+                    setCard("S_dim");
+    }//GEN-LAST:event_SC_dimensionActionPerformed
+
+    private void SC_ClusterSplitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ClusterSplitActionPerformed
+                    setCard("splitclusters");
+    }//GEN-LAST:event_SC_ClusterSplitActionPerformed
+
+    private void SC_unstableFilteringButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_unstableFilteringButtonActionPerformed
+                    setCard("unstablefiltering");
+    }//GEN-LAST:event_SC_unstableFilteringButtonActionPerformed
+
+    private void SC_DeTwoGroupsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_DeTwoGroupsButtonActionPerformed
+                    setCard("detwogroups");
+    }//GEN-LAST:event_SC_DeTwoGroupsButtonActionPerformed
 
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
@@ -5839,11 +5916,13 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SC_BootstrapVideoButton;
     private javax.swing.JButton SC_CCRemoveButton;
     private javax.swing.JButton SC_CellRangerCountButton;
+    private javax.swing.JButton SC_ClusterSplit;
     private javax.swing.JButton SC_ClusterStabilityButton;
     private javax.swing.JButton SC_ClusteringNgriphButton;
     private javax.swing.JButton SC_ClustersFeaturesButton;
     private javax.swing.JButton SC_CountDepthButton;
     private javax.swing.JButton SC_Counts2LogButton;
+    private javax.swing.JButton SC_DeTwoGroupsButton;
     private javax.swing.JButton SC_FilterZerosButton;
     private javax.swing.JButton SC_GenesPrioritizSIMLRButton;
     private javax.swing.JButton SC_GenesSelectionSIMLRButton;
@@ -5863,7 +5942,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SC_TopXButton;
     private javax.swing.JButton SC_TsneBootstrap;
     private javax.swing.JButton SC_UmiNormButton;
-    private javax.swing.JButton SC_dimensions;
+    private javax.swing.JButton SC_dimension;
+    private javax.swing.JButton SC_unstableFilteringButton;
     private javax.swing.JScrollPane S_anovaLike;
     private javax.swing.JScrollPane S_bootstrapsVideo;
     private javax.swing.JScrollPane S_ccRemove;
@@ -5874,6 +5954,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane S_countDepth;
     private javax.swing.JScrollPane S_counts2Log;
     private javax.swing.JButton S_crossLabelButton1;
+    private javax.swing.JScrollPane S_detwogroups;
     private javax.swing.JScrollPane S_dim;
     private javax.swing.JScrollPane S_filterZeros;
     private javax.swing.JScrollPane S_genesPrioritization;
@@ -5890,9 +5971,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane S_seuratPCAEval;
     private javax.swing.JScrollPane S_seuratPrior;
     private javax.swing.JScrollPane S_simlrBootstrap;
+    private javax.swing.JScrollPane S_splitclusters;
     private javax.swing.JScrollPane S_topX;
     private javax.swing.JScrollPane S_tsneBootstrap;
     private javax.swing.JScrollPane S_umiNorm;
+    private javax.swing.JScrollPane S_unstablefiltering;
     private javax.swing.JButton SalmonIndexingButton;
     private javax.swing.JButton SampleExpButton;
     private javax.swing.JButton SampleSizeButton;
