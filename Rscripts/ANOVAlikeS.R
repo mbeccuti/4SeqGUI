@@ -23,6 +23,6 @@ if(plot=="TRUE"){plot=TRUE}else{plot=FALSE}
 library(rCASC)
 setwd(dirname(file))
 
-anovaLike(group=group,file=file,sep=separator,cluster.file=cluster.file,ref.cluster=ref.cluster,logFC.threshold=logFC.threshold,FDR.threshold=FDR.threshold,logCPM.threshold=logCPM.threshold,plot=plot) 
+anovaLike(group=group,file=file,sep=separator,cluster.file=cluster.file,ref.cluster=as.numeric(ref.cluster),logFC.threshold=as.numeric(logFC.threshold),FDR.threshold=as.numeric(FDR.threshold),logCPM.threshold=as.numeric(logCPM.threshold),plot=plot) 
 
 
