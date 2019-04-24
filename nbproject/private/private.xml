@@ -3,9 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/nico/gitgud/4SeqGUI/src/pkg4seqgui/WebBrowser.java</file>
-            <file>file:/home/nico/gitgud/4SeqGUI/src/pkg4seqgui/SncRNAIndexing.java</file>
-            <file>file:/home/nico/gitgud/4SeqGUI/src/pkg4seqgui/MainFrame.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_clusterStability.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_dim.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/CircRNAStarChimeric.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_CcRemove.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/MainFrame.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/IndexingSalmon.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_BootstrapsVideo.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_SplitClusters.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/DESPanel.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/MergeMatrix.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_AnovaLike.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/ANOVApanel.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/subSetCells.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_SimlrBootstrap.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/CountingSalmon.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_UnstableFiltering.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_10XGenomics_index.java</file>
+            <file>file:/home/lucastormreig/4SeqGUI/src/pkg4seqgui/S_DeTwoGroups.java</file>
         </group>
     </open-files>
 </project-private>

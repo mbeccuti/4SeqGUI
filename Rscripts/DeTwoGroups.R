@@ -15,14 +15,9 @@ if(length(args)==0){
 }
 
 
-if(sep=="TAB"){
-separator="\t"
-}else{separator=","}
-
-if(plot=="TRUE"){plot=TRUE}else{plot=FALSE}
 library(rCASC)
 setwd(dirname(file))
 
-anovaLike(group=group,file=file,sep=separator,cluster.file=cluster.file,ref.cluster=as.numeric(ref.cluster),logFC.threshold=as.numeric(logFC.threshold),FDR.threshold=as.numeric(FDR.threshold),logCPM.threshold=as.numeric(logCPM.threshold),plot=plot) 
+deTwoGroups(group=group,file=file) 
 
 
