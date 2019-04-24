@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pkg4seqgui;
+
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
@@ -23,6 +24,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -52,6 +54,7 @@ public class WebBrowser extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         executionMode = new javax.swing.ButtonGroup();
+        statusGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -60,13 +63,26 @@ public class WebBrowser extends javax.swing.JPanel {
         dockerRadioButton = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        inputFileTextField = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        countTableTextField = new javax.swing.JTextField();
+        browseCountTable = new javax.swing.JButton();
+        cancelCountTable = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         outputFolderTextField = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        browseOutputFolder = new javax.swing.JButton();
+        cancelOutputFolder = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        geneListTextField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        separatorField = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        statusLogRadioButton = new javax.swing.JRadioButton();
+        statusRawRadioButton = new javax.swing.JRadioButton();
+        browseFilterFile = new javax.swing.JButton();
+        cancelFilterFile = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        browseScratch = new javax.swing.JButton();
+        cancelScratch = new javax.swing.JButton();
+        scratchFolderTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
@@ -125,77 +141,205 @@ public class WebBrowser extends javax.swing.JPanel {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setText("Input file:  ");
+        jLabel2.setText("Count table:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel2, gridBagConstraints);
 
-        inputFileTextField.setEditable(false);
+        countTableTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel3.add(inputFileTextField, gridBagConstraints);
+        jPanel3.add(countTableTextField, gridBagConstraints);
 
-        jButton4.setText("Browse");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        browseCountTable.setText("Browse");
+        browseCountTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                browseCountTableActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel3.add(jButton4, gridBagConstraints);
+        jPanel3.add(browseCountTable, gridBagConstraints);
 
-        jButton5.setText("Cancel");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        cancelCountTable.setText("Cancel");
+        cancelCountTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                cancelCountTableActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel3.add(jButton5, gridBagConstraints);
+        jPanel3.add(cancelCountTable, gridBagConstraints);
 
         jLabel3.setText("Output folder:  ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel3, gridBagConstraints);
 
         outputFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(outputFolderTextField, gridBagConstraints);
 
-        jButton6.setText("Browse");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        browseOutputFolder.setText("Browse");
+        browseOutputFolder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                browseOutputFolderActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(browseOutputFolder, gridBagConstraints);
+
+        cancelOutputFolder.setText("Cancel");
+        cancelOutputFolder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelOutputFolderActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(cancelOutputFolder, gridBagConstraints);
+
+        jLabel4.setText("Gene list:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jLabel4, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(geneListTextField, gridBagConstraints);
+
+        jLabel5.setText("Separator:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jLabel5, gridBagConstraints);
+
+        separatorField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TAB", "COMMA", "SPACE" }));
+        separatorField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                separatorFieldActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(separatorField, gridBagConstraints);
+
+        jLabel6.setText("Status:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jLabel6, gridBagConstraints);
+
+        statusGroup.add(statusLogRadioButton);
+        statusLogRadioButton.setSelected(true);
+        statusLogRadioButton.setText("Log ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(statusLogRadioButton, gridBagConstraints);
+
+        statusGroup.add(statusRawRadioButton);
+        statusRawRadioButton.setText("Raw counts");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(statusRawRadioButton, gridBagConstraints);
+
+        browseFilterFile.setText("Browse");
+        browseFilterFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseFilterFileActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel3.add(jButton6, gridBagConstraints);
+        jPanel3.add(browseFilterFile, gridBagConstraints);
 
-        jButton7.setText("Cancel");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        cancelFilterFile.setText("Cancel");
+        cancelFilterFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                cancelFilterFileActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel3.add(jButton7, gridBagConstraints);
+        jPanel3.add(cancelFilterFile, gridBagConstraints);
+
+        jLabel7.setText("Scratch folder:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(jLabel7, gridBagConstraints);
+
+        browseScratch.setText("Browse");
+        browseScratch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseScratchActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(browseScratch, gridBagConstraints);
+
+        cancelScratch.setText("Cancel");
+        cancelScratch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelScratchActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(cancelScratch, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(scratchFolderTextField, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -244,37 +388,104 @@ public class WebBrowser extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String group = dockerRadioButton.isSelected() ? "docker" : "sudo"; 
-        String inputFolder = inputFileTextField.getText(); 
-        String outputFolder = outputFolderTextField.getText();
-
-        openWebBrowser();
+        String countTableFile = countTableTextField.getText().trim(); 
+        String geneListFile = geneListTextField.getText().trim();
+        String outputFolder = outputFolderTextField.getText().trim();
+        boolean logStatus = statusLogRadioButton.isSelected();
+        String separator = (String) separatorField.getSelectedItem(); 
+        String scratchFolder = scratchFolderTextField.getText().trim(); 
+        
+        if (countTableFile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "You have to specify the count table file.",
+                "Error: count table file", 
+                JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        if (geneListFile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "You have to specify the gene list file .",
+                "Error: gene list file", 
+                JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        if (outputFolder.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "You have to specify the output folder.",
+                "Error: output folder", 
+                JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        if (scratchFolder.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "You have to specify the scratch folder.",
+                "Error: scratch folder", 
+                JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
+        ScriptCaller parameters = new ScriptCaller("nomescript.R", outputFolder)
+                .addArg("count.table", countTableFile)
+                .addArg("gene.list", geneListFile)
+                .addArg("output.folder", outputFolder)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("status", logStatus ? "LOG" : "RAW")
+                .addArg("separator", separator); 
+        
+        MainFrame.execCommand(this, "Heatmaply generation", parameters);
+        
+//        openWebBrowser();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        MainFrame.browseTextFieldContent(this, inputFileTextField, JFileChooser.FILES_ONLY);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void browseCountTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseCountTableActionPerformed
+        MainFrame.browseTextFieldContent(this, countTableTextField, JFileChooser.FILES_ONLY);
+    }//GEN-LAST:event_browseCountTableActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        inputFileTextField.setText("");
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void cancelCountTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelCountTableActionPerformed
+        countTableTextField.setText("");
+    }//GEN-LAST:event_cancelCountTableActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void browseOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseOutputFolderActionPerformed
         MainFrame.browseTextFieldContent(this, outputFolderTextField, JFileChooser.DIRECTORIES_ONLY);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_browseOutputFolderActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void cancelOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOutputFolderActionPerformed
         outputFolderTextField.setText("");
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_cancelOutputFolderActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         MainFrame.setCard(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        inputFileTextField.setText("");
+        countTableTextField.setText("");
         outputFolderTextField.setText("");
+        scratchFolderTextField.setText("");
+        geneListTextField.setText("");
+        separatorField.setSelectedItem("TAB");
         dockerRadioButton.setSelected(true);
+        statusLogRadioButton.setSelected(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void separatorFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_separatorFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_separatorFieldActionPerformed
+
+    private void browseFilterFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseFilterFileActionPerformed
+        MainFrame.browseTextFieldContent(this, geneListTextField, JFileChooser.FILES_ONLY);
+    }//GEN-LAST:event_browseFilterFileActionPerformed
+
+    private void cancelFilterFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelFilterFileActionPerformed
+        geneListTextField.setText("");
+    }//GEN-LAST:event_cancelFilterFileActionPerformed
+
+    private void browseScratchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchActionPerformed
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
+    }//GEN-LAST:event_browseScratchActionPerformed
+
+    private void cancelScratchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchActionPerformed
+        scratchFolderTextField.setText("");
+    }//GEN-LAST:event_cancelScratchActionPerformed
 
     private void openWebBrowser() {
         JFrame jframe = new JFrame("Work in progress");
@@ -330,23 +541,37 @@ public class WebBrowser extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton browseCountTable;
+    private javax.swing.JButton browseFilterFile;
+    private javax.swing.JButton browseOutputFolder;
+    private javax.swing.JButton browseScratch;
+    private javax.swing.JButton cancelCountTable;
+    private javax.swing.JButton cancelFilterFile;
+    private javax.swing.JButton cancelOutputFolder;
+    private javax.swing.JButton cancelScratch;
+    private javax.swing.JTextField countTableTextField;
     private javax.swing.JRadioButton dockerRadioButton;
     private javax.swing.ButtonGroup executionMode;
-    private javax.swing.JTextField inputFileTextField;
+    private javax.swing.JTextField geneListTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField outputFolderTextField;
+    private javax.swing.JTextField scratchFolderTextField;
+    private javax.swing.JComboBox<String> separatorField;
+    private javax.swing.ButtonGroup statusGroup;
+    private javax.swing.JRadioButton statusLogRadioButton;
+    private javax.swing.JRadioButton statusRawRadioButton;
     private javax.swing.JRadioButton sudoRadioButton;
     // End of variables declaration//GEN-END:variables
 }

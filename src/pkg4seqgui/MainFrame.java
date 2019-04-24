@@ -428,15 +428,11 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_starChimeric.setViewportView(new CircRNAStarChimeric());
         circRNA_prepareExonIsoformFiles.setViewportView(new CircRNADownloadData());
         circRNA_mergeCiri2Samples.setViewportView(new CircRNAMergeSamples());
-  //      circRNA_DESeq.setViewportView(deseq);
-  //      circRNA_Samples2Batches.setViewportView(samples2batches);
-//        circRNA_DESeq.setViewportView(new CircRNADESeqPanel());
-//        circRNA_Samples2Batches.setViewportView(new CircRNABatchPanel());
-
+        
         mirnaGenomeIndexing.setViewportView(new SncRNAIndexing());
         mirnaQuantification.setViewportView(new SncRNAQuantification());
 
-   //     aaaPanel.setViewportView(new WebBrowser());
+        heatmaply.setViewportView(new WebBrowser());
 //ADDING PANEL
 
 
@@ -717,6 +713,7 @@ public class MainFrame extends javax.swing.JFrame {
         S_splitclusters = new javax.swing.JScrollPane();
         S_unstablefiltering = new javax.swing.JScrollPane();
         S_detwogroups = new javax.swing.JScrollPane();
+        heatmaply = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -856,6 +853,7 @@ public class MainFrame extends javax.swing.JFrame {
         MergeMatrixButton = new javax.swing.JButton();
         subSetMatrixButton1 = new javax.swing.JButton();
         SC_dimension = new javax.swing.JButton();
+        heatmaplyButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1102,7 +1100,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1703,6 +1701,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(S_splitclusters, "splitclusters");
         MainPanel.add(S_unstablefiltering, "unstablefiltering");
         MainPanel.add(S_detwogroups, "detwogroups");
+        MainPanel.add(heatmaply, "heatmaply");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -3661,6 +3660,19 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(SC_dimension, gridBagConstraints);
+
+        heatmaplyButton.setText("Heatmaply");
+        heatmaplyButton.setBorderPainted(false);
+        heatmaplyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                heatmaplyButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(heatmaplyButton, gridBagConstraints);
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -5728,7 +5740,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_crnaSequenceLabelMouseClicked
 
     private void SC_ClusterStabilityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ClusterStabilityButtonActionPerformed
-                    setCard("S_clusterStability");
+        setCard("S_clusterStability");
     }//GEN-LAST:event_SC_ClusterStabilityButtonActionPerformed
 
     private void sncrnaReferenceLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sncrnaReferenceLabelMouseClicked
@@ -5760,14 +5772,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sc_FeatureSelectionLabelMouseClicked
 
     private void MergeMatrixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MergeMatrixButtonActionPerformed
-
-                            setCard("mergeMatrix");
-
-
+        setCard("mergeMatrix");
     }//GEN-LAST:event_MergeMatrixButtonActionPerformed
 
     private void S_crossLabelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_crossLabelButton1ActionPerformed
-                            setCard("crossLabel");
+        setCard("crossLabel");
     }//GEN-LAST:event_S_crossLabelButton1ActionPerformed
 
     private void SC_IndropCountsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_IndropCountsButton1ActionPerformed
@@ -5779,20 +5788,24 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_subSetMatrixButton1ActionPerformed
 
     private void SC_dimensionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_dimensionActionPerformed
-                    setCard("S_dim");
+        setCard("S_dim");
     }//GEN-LAST:event_SC_dimensionActionPerformed
 
     private void SC_ClusterSplitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ClusterSplitActionPerformed
-                    setCard("splitclusters");
+        setCard("splitclusters");
     }//GEN-LAST:event_SC_ClusterSplitActionPerformed
 
     private void SC_unstableFilteringButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_unstableFilteringButtonActionPerformed
-                    setCard("unstablefiltering");
+        setCard("unstablefiltering");
     }//GEN-LAST:event_SC_unstableFilteringButtonActionPerformed
 
     private void SC_DeTwoGroupsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_DeTwoGroupsButtonActionPerformed
-                    setCard("detwogroups");
+        setCard("detwogroups");
     }//GEN-LAST:event_SC_DeTwoGroupsButtonActionPerformed
+
+    private void heatmaplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_heatmaplyButtonActionPerformed
+        setCard("heatmaply");
+    }//GEN-LAST:event_heatmaplyButtonActionPerformed
 
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
@@ -6035,6 +6048,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane experimentPowerPanel;
     private javax.swing.JScrollPane fPKMPanel;
     private javax.swing.JScrollPane filterCounts;
+    private javax.swing.JScrollPane heatmaply;
+    private javax.swing.JButton heatmaplyButton;
     private javax.swing.JButton indexingBButton;
     private javax.swing.JScrollPane indexingBWAPanel;
     private javax.swing.JScrollPane indexingSalmon;
