@@ -5,35 +5,19 @@
  */
 package pkg4seqgui;
 
-import java.nio.file.Paths;
+
+import java.io.File;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
-
-import javafx.scene.web.WebView;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-
-
-import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Worker;
-import javafx.concurrent.Worker.State;
 import javafx.scene.Scene;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-import javax.swing.text.Document;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-/**
- *
- * @author beccuti
- */
 public class WebBrowser extends javax.swing.JPanel {
 
     /**
@@ -64,6 +48,7 @@ public class WebBrowser extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         sudoRadioButton = new javax.swing.JRadioButton();
         dockerRadioButton = new javax.swing.JRadioButton();
+        jLabel8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         countTableTextField = new javax.swing.JTextField();
@@ -103,9 +88,9 @@ public class WebBrowser extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jButton1, gridBagConstraints);
 
@@ -115,23 +100,36 @@ public class WebBrowser extends javax.swing.JPanel {
 
         jLabel1.setText("Execution: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel1, gridBagConstraints);
 
         executionMode.add(sudoRadioButton);
         sudoRadioButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
         jPanel2.add(sudoRadioButton, gridBagConstraints);
 
         executionMode.add(dockerRadioButton);
         dockerRadioButton.setSelected(true);
         dockerRadioButton.setText("docker");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(dockerRadioButton, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        jPanel2.add(jLabel8, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -395,9 +393,9 @@ public class WebBrowser extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jButton2, gridBagConstraints);
 
@@ -409,10 +407,9 @@ public class WebBrowser extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jButton3, gridBagConstraints);
@@ -424,8 +421,11 @@ public class WebBrowser extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jButton4, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -538,80 +538,46 @@ public class WebBrowser extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelScratchActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String outputFolder = outputFolderTextField.getText().trim();
-        String countTable = Paths.get(countTableTextField.getText()).getFileName().toString();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("HTML FILES", "html", "htm");
+        String htmlfile = MainFrame.browsePath(this, JFileChooser.FILES_ONLY, filter);
         
-        if (countTable.contains(".")) 
-            countTable = countTable.substring(0, countTable.lastIndexOf("."));
-        //else esplode?
-        
-        String htmlFile = String.format("%s/%s.html", outputFolder, countTable);
-        
-        openWebBrowser(htmlFile);
+        if (htmlfile != null) {
+            if (!htmlfile.endsWith(".html")) {
+                JOptionPane.showMessageDialog(this, 
+                    "You have to specify a HTML file to visualize.",
+                    "Error: unsupported file format", 
+                    JOptionPane.ERROR_MESSAGE);
+                return; 
+            }
+            
+            openWebBrowser(htmlfile);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void openWebBrowser(String htmlFile) {
-        JFrame jframe = new JFrame("...");
+        JFrame jframe = new JFrame("Visualizing " + new File(htmlFile).getName());
         JFXPanel fxPanel = new JFXPanel();
         jframe.add(fxPanel);
-  //      jframe.setSize(900, 600);
+        
         jframe.setExtendedState(JFrame.MAXIMIZED_BOTH);
-    //    jframe.setUndecorated(true);
         jframe.setVisible(true);
         jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
+        Platform.setImplicitExit(false); 
         Platform.runLater(() -> {
             VBox root = new VBox();
-            WebView webView = new WebView();    
+            WebView webView = new WebView(); 
+            
             root.getChildren().add(webView);
-            root.setStyle("-fx-padding: 10;-fx-border-style: solid inside;-fx-border-color: blue;" +
-                "-fx-border-width: 2;-fx-border-insets: 5;-fx-border-radius: 5;" 
+            root.setStyle(
+              "-fx-padding: 10;-fx-border-style: solid inside;-fx-border-color: blue;" +
+              "-fx-border-width: 2;-fx-border-insets: 5;-fx-border-radius: 5;" 
             );
-            
-            WebEngine webEngine = webView.getEngine();
-            /*
-            webEngine.locationProperty().addListener(new ChangeListener<String>() {
-                @Override public void changed(ObservableValue<? extends String> observableValue, String oldLoc, String newLoc) {
-                    System.out.println("TEST");
-                }
-            });
-            
-            webEngine.setOnAlert((WebEvent<String> wEvent) -> {
-                System.out.println("TEST");
-            });*/
-            /*
-                webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
-                if (Worker.State.SUCCEEDED == newValue) {
-                    System.out.println("something happened");*/
-    /*
-    // set an interface object named 'javaConnector' in the web engine's page
-                    JSObject window = (JSObject) webEngine.executeScript("window");
-                    window.setMember("javaConnector", javaConnector);
-
-                    // get the Javascript connector object. 
-                    javascriptConnector = (JSObject) webEngine.executeScript("getJsConnector()");
-    
-                }
-            System.out.println("random!");
-            System.out.println(newValue);
-            
-        });*/
-            
             fxPanel.setScene(new Scene(root));
-            /*
-            webEngine.getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
-              //  public void changed(ObservableValue ov, State oldState, State newState) {
-                    if (newState == State.SUCCEEDED) {
-                        Document doc = (Document) webEngine.getDocument();
-                        System.out.println("I'M DeAD MAN...");
-                    }
-                }
-            ); */
             
-            webEngine.load(String.format("file:///%s", htmlFile)); 
-        });    
+            webView.getEngine().load(String.format("file:///%s", htmlFile));
+        }); 
     }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton browseCountTable;
@@ -637,6 +603,7 @@ public class WebBrowser extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

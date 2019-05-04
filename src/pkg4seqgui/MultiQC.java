@@ -206,7 +206,7 @@ public class MultiQC extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 85, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 60, 10, 10);
         jPanel37.add(QSudoRadioButton, gridBagConstraints);
 
         QDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

@@ -3578,7 +3578,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         MultiQCButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/MultiQC.png"))); // NOI18N
         MultiQCButton.setText("MultiQC analysis  ");
-        MultiQCButton.setToolTipText("");
         MultiQCButton.setBorderPainted(false);
         MultiQCButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3603,7 +3602,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
@@ -3612,7 +3611,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         MergeMatrixButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cutmenu.png"))); // NOI18N
         MergeMatrixButton.setText("Merge Matrix");
-        MergeMatrixButton.setToolTipText("");
         MergeMatrixButton.setBorderPainted(false);
         MergeMatrixButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3629,7 +3627,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         subSetMatrixButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
         subSetMatrixButton1.setText("subSet Matrix");
-        subSetMatrixButton1.setToolTipText("");
         subSetMatrixButton1.setBorderPainted(false);
         subSetMatrixButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3646,7 +3643,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         SC_dimension.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
         SC_dimension.setText("Matrix Dimension");
-        SC_dimension.setToolTipText("");
         SC_dimension.setBorderPainted(false);
         SC_dimension.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3661,7 +3657,8 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(SC_dimension, gridBagConstraints);
 
-        heatmaplyButton.setText("Heatmaply");
+        heatmaplyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/heatmap.png"))); // NOI18N
+        heatmaplyButton.setText("Heatmaply  ");
         heatmaplyButton.setBorderPainted(false);
         heatmaplyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3669,6 +3666,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -6835,12 +6834,32 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         CurrentLayout = cardName;
     }
 
+    public static String browsePath(Component caller, int mode, FileNameExtensionFilter filter) {
+        JFileChooser chooser = new JFileChooser();
+        String selectedPath = null; 
+        
+        if (filter != null) 
+            chooser.setFileFilter(filter);
+        
+        chooser.setFileSelectionMode(mode);
+        
+        String current = MainFrame.getPreferences().get("open-dir", null);
+        chooser.setCurrentDirectory(current != null ? new File(current) : null);
+        
+        if (chooser.showOpenDialog(caller) == JFileChooser.APPROVE_OPTION) {
+            File f = chooser.getSelectedFile();
+            MainFrame.getPreferences().put("open-dir", f.getParent());
+            selectedPath = String.valueOf(f);
+        }
+        return selectedPath; 
+    }
+    
     public static JFileChooser browseTextFieldContent(Component caller, JTextField textfield, int mode) {
         /** mode = {JFileChooser.FILES_ONLY, JFileChooser.DIRECTORIES_ONLY, JFileChooser.FILES_AND_DIRECTORIES} */
         JFileChooser openDir = new JFileChooser();
 
         if (!textfield.getText().isEmpty()){
-            File file =new File(textfield.getText());
+            File file = new File(textfield.getText());
             if (file.isDirectory())
                 openDir.setCurrentDirectory(file);
         }

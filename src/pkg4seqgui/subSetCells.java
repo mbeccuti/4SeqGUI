@@ -162,7 +162,7 @@ public class subSetCells extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 60, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
         jPanel30.add(File1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -193,7 +193,7 @@ public class subSetCells extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 17, 10, 10);
         jPanel5.add(sep1, gridBagConstraints);
 
         jLabel121.setText("Cells number");
@@ -257,7 +257,7 @@ public class subSetCells extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 75, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 33, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -421,7 +421,7 @@ public class subSetCells extends javax.swing.JPanel {
     private javax.swing.JButton S_AnovaLike_jButton;
     private javax.swing.JRadioButton cDockerRadioButton;
     private javax.swing.JRadioButton cSudoRadioButton;
-    private javax.swing.JTextField cellsNumber;
+    public static javax.swing.JTextField cellsNumber;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton40;

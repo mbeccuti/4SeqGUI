@@ -281,7 +281,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 17, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 44, 10, 10);
         jPanel5.add(Name2, gridBagConstraints);
 
         jLabel123.setText("Name1");
@@ -310,7 +310,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 17, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 44, 10, 10);
         jPanel5.add(Name1, gridBagConstraints);
 
         jLabel5.setText("Sep2");
@@ -362,7 +362,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 75, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 25, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
