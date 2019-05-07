@@ -6,7 +6,7 @@ args=(commandArgs(TRUE))
 if(length(args)==0) {
   print("No arguments supplied.")
   ##supply default values
-  
+
 } else {
   for(i in 1:length(args)) {
     eval(parse(text=args[[i]]))
@@ -15,7 +15,7 @@ if(length(args)==0) {
 
 
 library(docker4seq)
-#source("/home/nico/gitgud/docker4seq/R/heatmaply.R")
+source("/home/nico/gitgud/docker4seq/R/heatmaply.R")
 
 heatmaply(
   group=group,
@@ -24,5 +24,7 @@ heatmaply(
   count.table=count.table,
   gene.list=gene.list,
   separator=separator,
-  status=status
+  status=status,
+  lower.range=lower.range,
+  upper.range=upper.range
 )

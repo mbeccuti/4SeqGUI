@@ -71,9 +71,14 @@ public class WebBrowser extends javax.swing.JPanel {
         browseScratch = new javax.swing.JButton();
         cancelScratch = new javax.swing.JButton();
         scratchFolderTextField = new javax.swing.JTextField();
+        lowerRangeLabel = new javax.swing.JLabel();
+        lowerRangeSignal = new javax.swing.JTextField();
+        upperRAngeLabel = new javax.swing.JLabel();
+        upperRangeSignal = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -89,7 +94,7 @@ public class WebBrowser extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jButton1, gridBagConstraints);
@@ -146,6 +151,8 @@ public class WebBrowser extends javax.swing.JPanel {
 
         jLabel2.setText("Count table:");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel2, gridBagConstraints);
@@ -376,6 +383,38 @@ public class WebBrowser extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(scratchFolderTextField, gridBagConstraints);
 
+        lowerRangeLabel.setText("Lower range:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(lowerRangeLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(lowerRangeSignal, gridBagConstraints);
+
+        upperRAngeLabel.setText("Upper range:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(upperRAngeLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel3.add(upperRangeSignal, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -394,7 +433,7 @@ public class WebBrowser extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jButton2, gridBagConstraints);
@@ -408,7 +447,7 @@ public class WebBrowser extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -422,11 +461,20 @@ public class WebBrowser extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jButton4, gridBagConstraints);
+
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        jPanel1.add(jPanel4, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -444,6 +492,7 @@ public class WebBrowser extends javax.swing.JPanel {
         boolean logStatus = statusLogRadioButton.isSelected();
         String separator = (String) separatorField.getSelectedItem(); 
         String scratchFolder = scratchFolderTextField.getText().trim(); 
+        float []ranges = new float[]{0, 0}; 
         
         if (countTableFile.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
@@ -474,6 +523,25 @@ public class WebBrowser extends javax.swing.JPanel {
             return; 
         }
         
+        try {
+            String[] heatmapRanges = new String[]{
+                lowerRangeSignal.getText(), 
+                upperRangeSignal.getText()
+            }; 
+            
+            for (int i = 0; i < 2; i++) {
+                String temp = heatmapRanges[i].trim(); 
+                ranges[i] = temp.isEmpty() ? 0 : Float.valueOf(heatmapRanges[i]); 
+            }
+            
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                "You have to specify numeric values for lower and upper range heatmap signals.",
+                "Error: lower and upper range heatmap signals", 
+                JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
         ScriptCaller parameters = new ScriptCaller("heatmaply.R", outputFolder)
                 .addArg("group", group)
                 .addArg("count.table", countTableFile)
@@ -481,7 +549,9 @@ public class WebBrowser extends javax.swing.JPanel {
                 .addArg("output.folder", outputFolder)
                 .addArg("scratch.folder", scratchFolder)
                 .addArg("status", logStatus ? "log" : "raw")
-                .addArg("separator", separator); 
+                .addArg("separator", separator)
+                .addArg("lower.range", ranges[0])
+                .addArg("upper.range", ranges[1]);
         
         MainFrame.execCommand(this, "Heatmaply generation", parameters);
         
@@ -607,6 +677,9 @@ public class WebBrowser extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lowerRangeLabel;
+    private javax.swing.JTextField lowerRangeSignal;
     private javax.swing.JTextField outputFolderTextField;
     private javax.swing.JTextField scratchFolderTextField;
     private javax.swing.JComboBox<String> separatorField;
@@ -614,5 +687,7 @@ public class WebBrowser extends javax.swing.JPanel {
     private javax.swing.JRadioButton statusLogRadioButton;
     private javax.swing.JRadioButton statusRawRadioButton;
     private javax.swing.JRadioButton sudoRadioButton;
+    private javax.swing.JLabel upperRAngeLabel;
+    private javax.swing.JTextField upperRangeSignal;
     // End of variables declaration//GEN-END:variables
 }
