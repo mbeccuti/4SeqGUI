@@ -6,6 +6,7 @@
 package pkg4seqgui;
 
 
+import java.awt.Dimension;
 import java.io.File;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -414,7 +415,9 @@ public class WebBrowser extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(jButton3, gridBagConstraints);
 
-        jButton4.setText("Show");
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/plot.png"))); // NOI18N
+        jButton4.setText("Show plot");
+        jButton4.setToolTipText(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -553,21 +556,24 @@ public class WebBrowser extends javax.swing.JPanel {
             openWebBrowser(htmlfile);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    static int height=0;
+    
     private void openWebBrowser(String htmlFile) {
+        
+        
         JFrame jframe = new JFrame("Visualizing " + new File(htmlFile).getName());
         JFXPanel fxPanel = new JFXPanel();
         jframe.add(fxPanel);
         
         jframe.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
         jframe.setVisible(true);
         jframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
+  
         Platform.setImplicitExit(false); 
         Platform.runLater(() -> {
             VBox root = new VBox();
             WebView webView = new WebView(); 
-            
             root.getChildren().add(webView);
             root.setStyle(
               "-fx-padding: 10;-fx-border-style: solid inside;-fx-border-color: blue;" +
@@ -575,7 +581,16 @@ public class WebBrowser extends javax.swing.JPanel {
             );
             fxPanel.setScene(new Scene(root));
             
+           
+            if (height==0){
+                height=jframe.getSize().height; 
+                webView.setPrefHeight(jframe.getHeight());
+            }
+            else
+                webView.setPrefHeight(height); 
             webView.getEngine().load(String.format("file:///%s", htmlFile));
+            
+            //webView.setPrefWidth(jframe.getWidth());
         }); 
     }
 
