@@ -76,6 +76,7 @@ public class WebBrowser extends javax.swing.JPanel {
         lowerRangeSignal = new javax.swing.JTextField();
         upperRAngeLabel = new javax.swing.JLabel();
         upperRangeSignal = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -112,6 +113,7 @@ public class WebBrowser extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel1, gridBagConstraints);
 
+        sudoRadioButton.setBackground(new java.awt.Color(255, 255, 255));
         executionMode.add(sudoRadioButton);
         sudoRadioButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -122,6 +124,7 @@ public class WebBrowser extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
         jPanel2.add(sudoRadioButton, gridBagConstraints);
 
+        dockerRadioButton.setBackground(new java.awt.Color(255, 255, 255));
         executionMode.add(dockerRadioButton);
         dockerRadioButton.setSelected(true);
         dockerRadioButton.setText("docker");
@@ -289,6 +292,7 @@ public class WebBrowser extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel6, gridBagConstraints);
 
+        statusLogRadioButton.setBackground(new java.awt.Color(255, 255, 255));
         statusGroup.add(statusLogRadioButton);
         statusLogRadioButton.setSelected(true);
         statusLogRadioButton.setText("Log ");
@@ -300,6 +304,7 @@ public class WebBrowser extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(statusLogRadioButton, gridBagConstraints);
 
+        statusRawRadioButton.setBackground(new java.awt.Color(255, 255, 255));
         statusGroup.add(statusRawRadioButton);
         statusRawRadioButton.setText("Raw counts");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -415,6 +420,13 @@ public class WebBrowser extends javax.swing.JPanel {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(upperRangeSignal, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 3.0;
+        jPanel3.add(jLabel9, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -689,6 +701,7 @@ public class WebBrowser extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

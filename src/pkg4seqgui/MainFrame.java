@@ -3609,7 +3609,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(HeatmapButton, gridBagConstraints);
 
-        MergeMatrixButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cutmenu.png"))); // NOI18N
+        MergeMatrixButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/merge.png"))); // NOI18N
         MergeMatrixButton.setText("Merge Matrix");
         MergeMatrixButton.setBorderPainted(false);
         MergeMatrixButton.addActionListener(new java.awt.event.ActionListener() {
