@@ -25,7 +25,7 @@ public class S_DeTwoGroups extends javax.swing.JPanel {
     public S_DeTwoGroups() {
         initComponents();
     }
-    private static final long serialVersionUID = 67756333321L;
+    private static final long serialVersionUID = 67756333320L;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

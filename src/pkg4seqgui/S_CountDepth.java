@@ -25,7 +25,7 @@ public class S_CountDepth extends javax.swing.JPanel {
     public S_CountDepth() {
         initComponents();
     }
-    private static final long serialVersionUID = 67756333326L;
+    private static final long serialVersionUID = 67756333316L;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

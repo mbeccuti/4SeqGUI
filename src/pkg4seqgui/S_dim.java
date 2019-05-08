@@ -23,6 +23,7 @@ import static pkg4seqgui.MainFrame.getPreferences;
  */
 public class S_dim extends javax.swing.JPanel {
 
+    private static final long serialVersionUID = 67756333314L;
     /** Creates new form S_dim */
     public S_dim() {
         initComponents();

@@ -22,6 +22,7 @@ import static pkg4seqgui.MainFrame.getPreferences;
  */
 public class S_clusterStability extends javax.swing.JPanel {
 
+    private static final long serialVersionUID = 67756333313L;
     /**
      * Creates new form S_clusterStability
      */

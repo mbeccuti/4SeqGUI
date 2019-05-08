@@ -24,7 +24,7 @@ public class S_IndropIndex extends javax.swing.JPanel {
     public S_IndropIndex() {
         initComponents();
     }
-    private static final long serialVersionUID = 67756333334L;
+    private static final long serialVersionUID = 67756333315L;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
