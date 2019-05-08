@@ -4472,7 +4472,7 @@
                             <Component class="javax.swing.JButton" name="MergeMatrixButton">
                               <Properties>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/cutmenu.png"/>
+                                  <Image iconType="3" name="/pkg4seqgui/images/merge.png"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Merge Matrix"/>
                                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -4523,7 +4523,7 @@
                             <Component class="javax.swing.JButton" name="heatmaplyButton">
                               <Properties>
                                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                  <Image iconType="3" name="/pkg4seqgui/images/heatmap.png"/>
+                                  <Image iconType="3" name="/pkg4seqgui/images/heatmap1.png"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Heatmaply  "/>
                                 <Property name="borderPainted" type="boolean" value="false"/>
