@@ -15,7 +15,7 @@ if(length(args)==0) {
 
 
 library(docker4seq)
-#source("/home/nico/gitgud/docker4seq/R/heatmaply.R")
+source("/home/nico/gitgud/docker4seq/R/heatmaply.R")
 
 heatmaply(
   group=group,
