@@ -27,7 +27,7 @@ if (mode == "General") {
     bwaIndex(group=group, mode=mode, genome.folder=genome.folder,
         mb.version=mb.version, mb.species=mb.species)
 } else if (mode == "ncRNA") {
-    rc.species <- gsub(pattern="_", replacement=" ", x=rc.species)
+    rc.species <- gsub(pattern="^", replacement=" ", x=rc.species)
     
     bwaIndex(group=group, mode=mode, genome.folder=genome.folder,
             rc.version=rc.version, rc.species=rc.species, length=length)

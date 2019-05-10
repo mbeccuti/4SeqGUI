@@ -487,19 +487,16 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
             return; 
         }
         
-        
-        
-        String command = String.format(
-            "group='%s' scratch.folder='%s' genome.folder='%s' " + 
-            "fastq.folder='%s' threads=%d chimSegmentMin=%d chimJunctionOverhangMin=%d", 
-            execution, scratchFolder, genomePath, 
-            fastqPath, nthreads, chimSegmentMin, chimJunctionOverhangMin)
-                .replace("'", "\\\"");
-        
-        Path p = Paths.get(fastqPath);
-        Path folder = p.getParent();
-
-        MainFrame.execCommand(this, "CircRNA STAR chimeric", "execCircSTARChimeric.sh", command, folder.toString());
+        String outputFolder = Paths.get(fastqPath).getParent().toString();
+        ScriptCaller parameters = new ScriptCaller("CircSTARChimeric.R", outputFolder)
+                .addArg("group", execution)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("genome.folder", genomePath)
+                .addArg("fastq.folder", fastqPath)
+                .addArg("threads", nthreads)
+                .addArg("chimSegmentMin", chimSegmentMin)
+                .addArg("chimJunctionOverhangMin", chimJunctionOverhangMin);
+        MainFrame.execCommand(this, "CircRNA STAR chimeric", parameters);
     }//GEN-LAST:event_executeFormCircRNAStarChimericButtonActionPerformed
 
     private void resetFormCircRNAStarChimericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormCircRNAStarChimericButtonActionPerformed

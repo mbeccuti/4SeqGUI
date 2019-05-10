@@ -730,21 +730,23 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
             return; 
         }
         
-      
-        String command = String.format(
-            "group='%s' scratch.folder='%s' data.folder='%s' genome.file='%s' " + 
-            "seq.type='%s' sample.id='%s' threads='%d' annotation.file=%s " + 
-            "max.span='%d' strigency.value='%s' quality.threshold='%d'", 
-             execution, scratchFolder, fastqPath, genomePath, sequencingMode, 
-             sampleId, nthreads,
-             annotationPath.isEmpty() ? "NA" : String.format("'%s'", annotationPath),
-             spanningDistance, strigency, qualityThreshold)
-                .replace("'", "\\\"");
-                
-        Path p = Paths.get(fastqPath);
-        Path folder = p.getParent();
+        if (annotationPath.isEmpty())
+            annotationPath = "NA";
         
-        MainFrame.execCommand(this, "CircRNA CIRI2 prediction", "execWrapperCiri.sh", command, folder.toString());
+        String outputFolder = Paths.get(fastqPath).getParent().toString();
+        ScriptCaller parameters = new ScriptCaller("CircCIRI2.R", outputFolder)
+                .addArg("group", execution)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("genome.file", genomePath)
+                .addArg("data.folder", fastqPath)
+                .addArg("threads", nthreads)
+                .addArg("seq.type", sequencingMode)
+                .addArg("sample.id", sampleId)
+                .addArg("annotation.file", annotationPath)
+                .addArg("max.span", spanningDistance)
+                .addArg("strigency.value", strigency)
+                .addArg("quality.threshold", qualityThreshold);
+        MainFrame.execCommand(this, "CircRNA prediction using CIRI2", parameters);
     }//GEN-LAST:event_executeWrapperCiriButtonActionPerformed
 
     private void cancelFastqFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelFastqFolderButtonActionPerformed

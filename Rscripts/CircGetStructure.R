@@ -15,5 +15,7 @@ if(length(args)==0) {
   }
 }
 
+library(docker4seq)
+
 ciriAS(group=group, scratch.folder=scratch.folder, sam.file=sam.file,
     ciri.file=ciri.file, genome.file=genome.file, annotation.file=annotation.file)

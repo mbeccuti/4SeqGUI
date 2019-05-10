@@ -497,31 +497,18 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         }
         
         assembly = "hg19"; 
+        if (!buttonAssembly_hg19.isSelected())
+            assembly =  buttonAssembly_hg18.isSelected() ? "hg18" : "hg38";
         
-        if (buttonAssembly_hg18.isSelected()) 
-            assembly = "hg18";
-        else if (buttonAssembly_hg38.isSelected()) 
-            assembly = "hg38";
-        
-        
-        
-        String command = String.format(
-            "group='%s' scratch.folder='%s' circrna.data='%s' " + 
-            "exon.data='%s' isoform.data='%s' assembly='%s'", 
-            execution, scratchFolder, circrnaPath, 
-            exonPath, isoformPath, assembly)
-                .replace("'", "\\\""); 
-        
-        
-        Path p = Paths.get(circrnaPath);
-        Path folder = p.getParent();
-        
-        MainFrame.execCommand(this, 
-            "CircRNA classification", 
-            "execCircRNAClassification.sh", 
-            command, 
-            folder.toString());
-        
+        String outputFolder = Paths.get(circrnaPath).getParent().toString();
+        ScriptCaller parameters = new ScriptCaller("CircClassification.R", outputFolder)
+                .addArg("group", execution)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("circrna.data", circrnaPath)
+                .addArg("exon.data", exonPath)
+                .addArg("isoform.data", isoformPath)
+                .addArg("assembly", assembly); 
+        MainFrame.execCommand(this, "CircRNA classification", parameters);            
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void SudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SudoRadioButtonActionPerformed

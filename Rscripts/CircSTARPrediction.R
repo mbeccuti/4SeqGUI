@@ -15,6 +15,7 @@ if(length(args)==0) {
   }
 }
 
+library(docker4seq)
 
 starChipCircle(group=group, scratch.folder=scratch.folder, genome.folder=genome.folder,
     samples.folder=samples.folder, reads.cutoff=reads.cutoff,

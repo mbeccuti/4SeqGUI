@@ -452,7 +452,6 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         outputFolderTextField.setText("");
         samplesFolderTextField.setText("");
         scratchFolderTextField.setText("");
-//        hg19AssemblyButton.setSelected(true);
         DockerRadioButton.setSelected(true);
         clearSamplesGroupsTable();
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
@@ -481,7 +480,6 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
             return;
         }
         
-        
         if (scratchFolder.isEmpty()) {
             JOptionPane.showMessageDialog(this,
                 "You have to specify the scratch folder.",
@@ -489,7 +487,6 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
         
         try {
             min_reads = Integer.parseInt(minReadsTextField.getText()); 
@@ -532,12 +529,10 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
             return; 
         }
-     
 
         String samples = ""; 
         String covariates = ""; 
         int counter = 0; 
-        
         
         for (TableEntry te: getDataFromTable()) 
             if (te.group != 0) {
@@ -555,15 +550,16 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
             return;
         }
         
- 
-        String command = String.format(
-            "group='%s' scratch.folder='%s' data.folder='%s' " + 
-            "samples='%s' covariates='%s' min_reads=%d min_reps=%d min_avg=%d", 
-             execution, scratchFolder, samplesFolder, samples, covariates, 
-             min_reads, min_reps, min_avg)
-                .replace("'", "\\\""); 
-        
-        MainFrame.execCommand(this, "CircRNA merge CIRI2 files", "execCircMergeSamples.sh", command, outputFolder);
+        ScriptCaller parameters = new ScriptCaller("CircMergeSamples.R", outputFolder)
+                .addArg("group", execution)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("data.folder", samplesFolder)
+                .addArg("samples", samples)
+                .addArg("covariates", covariates)
+                .addArg("min_reads", min_reads)
+                .addArg("min_reps", min_reps)
+                .addArg("min_avg", min_avg); 
+        MainFrame.execCommand(this, "CircRNA merge CIRI2 output files", parameters);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void closeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormPostProcessingButtonActionPerformed

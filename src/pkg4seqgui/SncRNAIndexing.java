@@ -701,17 +701,15 @@ public class SncRNAIndexing extends javax.swing.JPanel {
                gatkGenomeURL = gatkGenomeUrlTextField.getText(), 
                gatkDbsnpFile = gatkDbsnpFileTextField.getText(), 
                gatk1000GFile = gatk1000genomesFileTextField.getText(), 
-               mirbaseVersion = mirbaseVersionTextField.getText(), 
-               mirbaseSpecies = mirbaseSpecieTextField.getText(), 
-               ncrnaVersion = ncrnaVersionTextField.getText(), 
-               ncrnaSpecies = ncrnaSpecieTextField.getText();
+               mirbaseVersion = mirbaseVersionTextField.getText().trim(), 
+               mirbaseSpecies = mirbaseSpecieTextField.getText().trim(), 
+               ncrnaVersion = ncrnaVersionTextField.getText().trim(), 
+               ncrnaSpecies = ncrnaSpecieTextField.getText().trim();
         String selectedMode = /* I <3 ternary operator */
             modeGeneralButton.isSelected() ? "General" :
                 modeGATKButton.isSelected() ? "GATK" : 
                     modeMiRNAButton.isSelected() ? "miRNA" : "ncRNA"; 
-        int ncrnaLength = 0; 
-        
-        
+        int ncrnaLength = 0;          
         
         if (genomeFolder.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
@@ -727,23 +725,19 @@ public class SncRNAIndexing extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
             return; 
         }
-        
-        String specificArgs = null; 
-        
+        //input check, elvis's back
         switch (selectedMode) {
             case "General":
-                if (generalGenomeURL.trim().isEmpty()) {
+                if (generalGenomeURL.isEmpty()) {
                     JOptionPane.showMessageDialog(this, 
                         "You have to specify the genome URL.",
                         "Error: genome URL", 
                         JOptionPane.ERROR_MESSAGE);
                     return; 
                 }
-                
-                specificArgs = String.format("genome.url='%s'", generalGenomeURL);
                 break;
             case "GATK":
-                if (gatkGenomeURL.trim().isEmpty()) {
+                if (gatkGenomeURL.isEmpty()) {
                     JOptionPane.showMessageDialog(this, 
                         "You have to specify the genome URL.",
                         "Error: genome URL", 
@@ -764,45 +758,38 @@ public class SncRNAIndexing extends javax.swing.JPanel {
                         JOptionPane.ERROR_MESSAGE);
                     return; 
                 }
-                
-                specificArgs = String.format("genome.url='%s' dbsnp.file='%s' g1000.file='%s'",
-                        gatkGenomeURL, gatkDbsnpFile, gatk1000GFile);
                 break;
             case "miRNA":
-                if (mirbaseVersion.trim().isEmpty()) {
+                if (mirbaseVersion.isEmpty()) {
                     JOptionPane.showMessageDialog(this, 
                         "You have to specify the mirbase version.",
                         "Error: mirbase version", 
                         JOptionPane.ERROR_MESSAGE);
                     return; 
                 }
-                if (mirbaseSpecies.trim().isEmpty()) {
+                if (mirbaseSpecies.isEmpty()) {
                     JOptionPane.showMessageDialog(this, 
                         "You have to specify the mirbase species.",
                         "Error: mirbase species", 
                         JOptionPane.ERROR_MESSAGE);
                     return; 
                 }
-                
-                specificArgs = String.format("mb.version='%s' mb.species='%s'",
-                        mirbaseVersion, mirbaseSpecies);
                 break;
             case "ncRNA":
-                if (ncrnaVersion.trim().isEmpty()) {
+                if (ncrnaVersion.isEmpty()) {
                     JOptionPane.showMessageDialog(this, 
                         "You have to specify the RNA central db version.",
                         "Error: version info", 
                         JOptionPane.ERROR_MESSAGE);
                     return; 
                 }
-                if (ncrnaSpecies.trim().isEmpty()) {
+                if (ncrnaSpecies.isEmpty()) {
                     JOptionPane.showMessageDialog(this, 
                         "You have to specify the RNA central species.",
                         "Error: species info", 
                         JOptionPane.ERROR_MESSAGE);
                     return; 
                 }
-                
                 try {
                     ncrnaLength = Integer.parseInt(ncLengthThresholdTextField.getText());
                     
@@ -816,19 +803,35 @@ public class SncRNAIndexing extends javax.swing.JPanel {
                         JOptionPane.ERROR_MESSAGE);
                     return; 
                 }
-                
-                specificArgs = String.format("rc.version='%s' rc.species='%s' length=%d",
-                        ncrnaVersion, 
-                        ncrnaSpecies.replace(" ", "_"), //to allow spaces 
-                        ncrnaLength);
                 break;
         }
         
-        String command = String.format(
-            "group='%s' mode='%s'  genome.folder='%s' %s", group, selectedMode, genomeFolder, specificArgs)
-                .replace("'", "\\\""); 
+        ScriptCaller params = new ScriptCaller("sncrnaQuantification.", genomeFolder)
+                .addArg("group", group)
+                .addArg("mode", selectedMode)
+                .addArg("genome.folder", genomeFolder);
         
-        MainFrame.execCommand(this, "miRNA genome indexing", "execMiRNAIndexing.sh", command, genomeFolder);
+        switch (selectedMode) {
+            case "General":                
+                params.addArg("genome.url", generalGenomeURL); 
+                break;
+            case "GATK":
+                params.addArg("genome.url", gatkGenomeURL)
+                        .addArg("dbsnp.file", gatkDbsnpFile)
+                        .addArg("g1000.file", gatk1000GFile);
+                break;
+            case "miRNA":
+                params.addArg("mb.version", mirbaseVersion)
+                        .addArg("mb.species", mirbaseSpecies); 
+                break;
+            case "ncRNA":
+                params.addArg("rc.version", ncrnaVersion)
+                        //to allow spaces 
+                        .addArg("rc.species", ncrnaSpecies.replace(" ", "^"))
+                        .addArg("length", ncrnaLength); 
+                break;
+        }
+        MainFrame.execCommand(this, "miRNA genome indexing", params);
     }//GEN-LAST:event_executeFormMiRNAIndexingButtonActionPerformed
 
 

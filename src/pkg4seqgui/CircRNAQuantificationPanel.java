@@ -594,18 +594,19 @@ public class CircRNAQuantificationPanel extends javax.swing.JPanel {
             return; 
         }
         
-        
-        String command = String.format(
-            "group='%s' scratch.folder='%s' rnaseq.data='%s' backsplicing_junctions.data='%s' " + 
-            "hcp1=%d hcp2=%d hcp3=%d hcp4=%d hcp5=%d hcp6=%d", 
-            execution, scratchFolder, rnaseqPath, junctionsPath, 
-            kmerSize, numThreads, hashtableSize, collisionListSize, numMatchingKmers, numPerfectKmers)
-                .replace("'", "\\\"");
-      
-        Path p = Paths.get(circrnaPath);
-        Path folder = p.getParent();
-        
-        MainFrame.execCommand(this, "CircRNA quantification", "execCircRNAQuantification.sh", command, folder.toString());
+        String outputFolder = Paths.get(rnaseqPath).getParent().toString();
+        ScriptCaller parameters = new ScriptCaller("CircQuantify.R", outputFolder)
+                .addArg("group", execution)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("rnaseq.data", rnaseqPath)
+                .addArg("backsplicing_junctions.data", junctionsPath)
+                .addArg("hcp1", kmerSize)
+                .addArg("hcp2", numThreads)
+                .addArg("hcp3", hashtableSize)
+                .addArg("hcp4", collisionListSize)
+                .addArg("hcp5", numMatchingKmers)
+                .addArg("hcp6", numPerfectKmers);
+        MainFrame.execCommand(this, "CircRNA quantification", parameters);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void SudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SudoRadioButtonActionPerformed

@@ -627,22 +627,18 @@ public class WebBrowser extends javax.swing.JPanel {
         String htmlfile = MainFrame.browsePath(this, JFileChooser.FILES_ONLY, filter);
         
         if (htmlfile != null) {
-            if (!htmlfile.endsWith(".html")) {
+            if (!htmlfile.endsWith(".html") && !htmlfile.endsWith(".htm")) {
                 JOptionPane.showMessageDialog(this, 
                     "You have to specify a HTML file to visualize.",
                     "Error: unsupported file format", 
                     JOptionPane.ERROR_MESSAGE);
                 return; 
             }
-            
             openWebBrowser(htmlfile);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
-    static int height=0;
     
     private void openWebBrowser(String htmlFile) {
-        
-        
         JFrame jframe = new JFrame("Visualizing " + new File(htmlFile).getName());
         JFXPanel fxPanel = new JFXPanel();
         jframe.add(fxPanel);
@@ -663,16 +659,9 @@ public class WebBrowser extends javax.swing.JPanel {
             );
             fxPanel.setScene(new Scene(root));
             
-           
-            if (height==0){
-                height=jframe.getSize().height; 
-                webView.setPrefHeight(jframe.getHeight());
-            }
-            else
-                webView.setPrefHeight(height); 
-            webView.getEngine().load(String.format("file:///%s", htmlFile));
-            
+            webView.setPrefHeight(jframe.getHeight());
             //webView.setPrefWidth(jframe.getWidth());
+            webView.getEngine().load(String.format("file:///%s", htmlFile));
         }); 
     }
 

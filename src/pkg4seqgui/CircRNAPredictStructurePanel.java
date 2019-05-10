@@ -469,11 +469,11 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
 
     private void executeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeFormPostProcessingButtonActionPerformed
         String execution = DockerRadioButton.isSelected() ? "docker" : "sudo";
-        String alignmentPath = alignmentDataTextField.getText(), 
-               circrnaPath = circrnaDataTextField.getText(), 
-               referencePath = referencePathTextField.getText(), 
-               scratchFolder = scratchFolderTextField.getText(), 
-               annotationPath = annotationDataTextField.getText();
+        String alignmentPath = alignmentDataTextField.getText().trim(), 
+               circrnaPath = circrnaDataTextField.getText().trim(), 
+               referencePath = referencePathTextField.getText().trim(), 
+               scratchFolder = scratchFolderTextField.getText().trim(), 
+               annotationPath = annotationDataTextField.getText().trim();
         
         if (alignmentPath.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
@@ -519,7 +519,20 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
             return; 
         }
               
+        if (annotationPath.isEmpty())
+            annotationPath = "NA"; 
         
+        String outputFolder = Paths.get(circrnaPath).getParent().toString();
+        ScriptCaller parameters = new ScriptCaller("CircGetStructure.R", outputFolder)
+                .addArg("group", execution)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("sam.file", alignmentPath)
+                .addArg("ciri.file", circrnaPath)
+                .addArg("genome.file", referencePath)
+                .addArg("annotation.file", annotationPath);
+        MainFrame.execCommand(this, "CircRNA structure prediction", parameters);
+                
+        /*
         String annotation = annotationPath.isEmpty() ? "NA" : String.format("'%s'", annotationPath);
         String command = String.format(
             "group='%s' scratch.folder='%s' sam.file='%s' " + 
@@ -535,7 +548,7 @@ public class CircRNAPredictStructurePanel extends javax.swing.JPanel {
             "CircRNA structure prediction", 
             "execCircRNAStructure.sh", 
             command, 
-            folder.toString());        
+            folder.toString());    */    
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void SudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SudoRadioButtonActionPerformed

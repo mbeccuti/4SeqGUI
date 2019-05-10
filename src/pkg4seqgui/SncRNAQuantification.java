@@ -549,13 +549,12 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         String group = DockerRadioButton.isSelected() ? "docker" : "sudo";
         String mode = modeMiRNAButton.isSelected() ? "miRNA" : "ncRNA";
         String adapters = adapterIlluminaButton.isSelected() ? "ILLUMINA" : "NEB"; 
-        String keepTrimmed = keepTrimmedTrueButton.isSelected() ? "TRUE" : "FALSE";
-        int nthreads = 0; 
         String fastqFolder = fastqFolderTextField.getText(), 
                genomeFile = genomeFolderTextField.getText(), 
                scratchFolder = scratchFolderTextField.getText();
-        String mbVersion = mirbaseVersionTextField.getText(), 
-               mbSpecies = mirbaseSpeciesTextField.getText();
+        String mbVersion = mirbaseVersionTextField.getText().trim(), 
+               mbSpecies = mirbaseSpeciesTextField.getText().trim();
+        int nthreads = 0; 
         
         try {
             nthreads = Integer.parseInt(numThreadsTextField.getText());
@@ -593,14 +592,14 @@ public class SncRNAQuantification extends javax.swing.JPanel {
             return;
         }
         if (mode.equals("miRNA")) {
-            if (mbVersion.trim().isEmpty()) {
+            if (mbVersion.isEmpty()) {
                 JOptionPane.showMessageDialog(this, 
                     "You have to specify the mirbase version.",
                     "Error: mirbase version", 
                     JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            if (mbSpecies.trim().isEmpty()) {
+            if (mbSpecies.isEmpty()) {
                 JOptionPane.showMessageDialog(this, 
                     "You have to specify the mirbase species.",
                     "Error: mirbase species", 
@@ -609,19 +608,19 @@ public class SncRNAQuantification extends javax.swing.JPanel {
             }
         }
         
-        //they are optional arguments 
-        String mirnaArgs = mode.equals("miRNA") ? 
-            String.format("mb.version='%s' mb.species='%s'", mbVersion, mbSpecies) : "";
-        
-        //optional arguments are the last ones (?) 
-        String command = String.format(
-            "group='%s' fastq.folder='%s' scratch.folder='%s' reference='%s' " + 
-            "mode='%s' threads=%d adapter.type='%s' trimmed.fastq=%s %s", 
-            group, fastqFolder, scratchFolder, genomeFile, 
-            mode, nthreads, adapters, keepTrimmed, mirnaArgs)
-                .replace("'", "\\\"");
-        
-        MainFrame.execCommand(this, "miRNA quantification", "execMiRNAQuantification.sh", command, fastqFolder);
+        ScriptCaller params = new ScriptCaller("sncrnaQuantification.", fastqFolder)
+                .addArg("group", group)
+                .addArg("mode", mode)
+                .addArg("fastq.folder", fastqFolder)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("reference", genomeFile)
+                .addArg("threads", nthreads)
+                .addArg("adapter.type", adapters)
+                .addArg("trimmed.fastq", keepTrimmedTrueButton.isSelected());
+        //adding specific arguments for miRNA mode 
+        if (mode.equals("miRNA")) 
+            params.addArg("mb.version", mbVersion).addArg("mb.species", mbSpecies);
+        MainFrame.execCommand(this, "Small non coding RNA quantification", params);
     }//GEN-LAST:event_executeFormMiRNAQuantificationButtonActionPerformed
 
 

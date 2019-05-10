@@ -15,5 +15,8 @@ if(length(args)==0) {
   }
 }
 
+library(docker4seq)
+#source("/home/nico/gitgud/docker4seq/R/circrnaClassification.R")
+
 circrnaClassification(group=group, scratch.folder=scratch.folder, circrna.data=circrna.data,
     exon.data=exon.data, isoform.data=isoform.data, assembly=assembly)

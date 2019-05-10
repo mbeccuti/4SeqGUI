@@ -15,4 +15,6 @@ if(length(args)==0) {
   }
 }
 
-CircAnnotation(group=group, scratch.folder=scratch.folder, data.folder=data.folder, assembly=assembly)
+library(docker4seq)
+
+circrnaPrepareFiles(group=group, scratch.folder=scratch.folder, data.folder=data.folder, assembly=assembly)

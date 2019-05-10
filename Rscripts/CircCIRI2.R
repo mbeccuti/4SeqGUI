@@ -15,6 +15,8 @@ if(length(args)==0) {
   }
 }
 
+library(docker4seq)
+
 wrapperCiri(group=group, scratch.folder=scratch.folder, data.folder=data.folder,
     genome.file=genome.file, seq.type=seq.type, sample.id=sample.id, threads=threads,
     annotation.file=annotation.file, max.span=max.span, strigency=strigency,

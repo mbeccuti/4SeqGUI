@@ -13,6 +13,7 @@ if(length(args)==0) {
   }
 }
 
+library(docker4seq)
 
 ciri2Merge(group=group, scratch.folder=scratch.folder, data.folder=data.folder,
     samples=samples, covariates=covariates, min_reads=min_reads,

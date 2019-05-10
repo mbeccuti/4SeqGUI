@@ -477,8 +477,6 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
                scratchFolder = scratchFolderTextField.getText();
         int readsCutoff, minSubject, subjCPMCutoff, nthreads; 
         float cpmCutoff; 
-        String do_splice = doSpliceCheckBox.isSelected() ? "TRUE" : "FALSE", 
-                annotation = annotationCheckBox.isSelected() ? "TRUE" : "FALSE"; 
 
         if (genomePath.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
@@ -570,6 +568,23 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         }
         
         
+        String outputFolder = Paths.get(samplesPath).getParent().toString();
+        ScriptCaller parameters = new ScriptCaller("CircSTARPrediction.R", outputFolder)
+                .addArg("group", execution)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("genome.folder", genomePath)
+                .addArg("samples.folder", samplesPath)
+                .addArg("threads", nthreads)
+                .addArg("reads.cutoff", readsCutoff)
+                .addArg("min.subject.limit", minSubject)
+                .addArg("cpm.cutoff", cpmCutoff)
+                .addArg("subjectCPM.cutoff", subjCPMCutoff)
+                .addArg("do.splice", doSpliceCheckBox.isSelected())
+                .addArg("annotation", annotationCheckBox.isSelected()); 
+        MainFrame.execCommand(this, "CircRNA STAR prediction", parameters);
+        
+        /*
+        
         String command = String.format("group='%s' scratch.folder='%s' genome.folder='%s' " + 
             "samples.folder='%s' reads.cutoff=%d min.subject.limit=%d threads=%d " +
             "do.splice=%s cpm.cutoff=%f subjectCPM.cutoff=%d annotation=%s", 
@@ -580,7 +595,7 @@ public class CircRNAStarPrediction extends javax.swing.JPanel {
         Path p = Paths.get(samplesPath);
         Path folder = p.getParent();
 
-        MainFrame.execCommand(this, "CircRNA STAR prediction", "execCircSTARPrediction.sh", command, folder.toString());
+        MainFrame.execCommand(this, "CircRNA STAR prediction", "execCircSTARPrediction.sh", command, folder.toString());*/
     }//GEN-LAST:event_executeFormCircRNAStarChimericButtonActionPerformed
 
     private void resetFormCircRNAStarChimericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormCircRNAStarChimericButtonActionPerformed

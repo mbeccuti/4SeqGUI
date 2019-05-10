@@ -13,7 +13,11 @@ if(length(args)==0) {
   }
 }
 
+library(docker4seq)
+#source("/home/nico/gitgud/docker4seq/R/circrnaQuantification.R")
+
 circrnaQuantification(group=group, scratch.folder=scratch.folder,
     rnaseq.data=rnaseq.data,
     backsplicing_junctions.data=backsplicing_junctions.data,
-    hc.params=c(hcp1, hcp2, hcp3, hcp4, hcp5, hcp6))
+    hc.params=c(hcp1, hcp2, hcp3, hcp4, hcp5, hcp6), 
+    )

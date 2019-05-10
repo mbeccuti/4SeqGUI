@@ -422,12 +422,8 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         }
         
         assembly = "hg19"; 
-        
-        if (buttonAssembly_hg18.isSelected()) 
-            assembly = "hg18";
-        else if (buttonAssembly_hg38.isSelected()) 
-            assembly = "hg38";
-       
+        if (!buttonAssembly_hg19.isSelected())
+            assembly = buttonAssembly_hg18.isSelected() ? "hg18" : "hg38";
         
         if (circbaseCheckBox.isSelected())
             annotationSources.add("circbase"); 
@@ -445,29 +441,13 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         }
         
         
-        String command = String.format(
-            "group='%s' scratch.folder='%s' ciri.file='%s' genome.version='%s' ", 
-            execution, scratchFolder, circrnaPath, assembly)
-                .replace("'", "\\\""); 
-        
-        Path p = Paths.get(circrnaPath);
-        Path folder = p.getParent();
-        
-        /* da decommentare prima o poi
-        ScriptCaller command2 = new ScriptCaller("CircAnnotation.R", folder.toString())
+        String outputFolder = Paths.get(circrnaPath).getParent().toString();
+        ScriptCaller parameters = new ScriptCaller("CircAnnotation.R", outputFolder)
             .addArg("group", execution)
             .addArg("scratch.folder", scratchFolder)
             .addArg("ciri.file", circrnaPath)
             .addArg("genome.version", assembly); 
-        
-    
-        MainFrame.execCommand(this, "CircRNA annotation", command2);*/
-
-        MainFrame.execCommand(this, 
-            "CircRNA annotation", 
-            "execCircAnnotation.sh", 
-            command, 
-            folder.toString());
+        MainFrame.execCommand(this, "CircRNA annotation", parameters);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void SudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SudoRadioButtonActionPerformed

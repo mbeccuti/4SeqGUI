@@ -113,7 +113,8 @@ class ScriptParameter {
     
     public ScriptParameter(String name, String value) {
         this.name = name; 
-        this.value = String.format("'%s'", value).replace("'", "\\\""); 
+        this.value = value.equals("NA") ? "NA" : String.format("'%s'", value).replace("'", "\\\"");
+//        this.value = String.format("'%s'", value).replace("'", "\\\""); 
     }
     
     public ScriptParameter(String name, int value) {

@@ -350,23 +350,16 @@ public class CircRNADownloadData extends javax.swing.JPanel {
             return; 
         }
         
-        
         String assembly = "hg19"; 
-        
         if (!hg19AssemblyButton.isSelected()) 
             assembly = hg19AssemblyButton.isSelected() ? "hg18" : "hg38"; 
         
-        
-        String command = String.format(
-            "group='%s' scratch.folder='%s' data.folder='%s' assembly='%s'", 
-            execution, scratchFolder, outputFolder, assembly)
-                .replace("'", "\\\"");  
-
-        Path p = Paths.get(outputFolder);
-        Path folder = p.getParent();
-
-        MainFrame.execCommand(this, "CircRNA prepare files", "execCircDownloadData.sh", command, folder.toString());
-        
+        ScriptCaller parameters = new ScriptCaller("CircDownloadData.R", outputFolder)
+                .addArg("group", execution)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("data.folder", outputFolder)
+                .addArg("assembly", assembly); 
+        MainFrame.execCommand(this, "CircRNA prepare files", parameters);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void resetFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormPostProcessingButtonActionPerformed

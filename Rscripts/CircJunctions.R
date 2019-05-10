@@ -15,5 +15,8 @@ if(length(args)==0) {
   }
 }
 
+library(docker4seq)
+#source("/home/nico/gitgud/docker4seq/R/circrnaBSJunctions.R")
+
 circrnaBSJunctions(group=group, scratch.folder=scratch.folder,
     circrna.data=circrna.data, exon.data=exon.data, assembly=assembly)
