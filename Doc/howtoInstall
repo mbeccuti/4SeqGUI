@@ -34,6 +34,7 @@ library(devtools)
 install_github("kendomaniac/docker4seq")
 
 
+
 utente docker:
 sudo groupadd docker
 sudo gpasswd -a $USER docker
@@ -41,6 +42,9 @@ newgrp docker
 
 fare partire il demone:
 sudo systemctl start docker
+
+path docker images:
+/var/lib/docker
 
 installare i docker:
 
