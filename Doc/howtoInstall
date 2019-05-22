@@ -7,6 +7,8 @@ git,
 openssl-devel
 libcurl-devel
 gcc g++
+X rstudio
+compact-openssl10
 
 Xgnome
 gnome-tweak-tool
