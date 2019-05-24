@@ -9,19 +9,31 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * The class ScriptCaller executes a R function passing it a list of arguments 
  * @author Nicola Licheri
  */
 public class ScriptCaller {
     private final String scriptToExecute; 
     private final List<ScriptParameter> scriptArguments;
     public final String outputFolder; 
-    
+   
+    /**
+     * Initialize a script caller to execute a command running a Docker container
+     * @param script R script to execute: it has to be in ./Rscript folder 
+     * @param outputFolder Path of the folder where to save log files 
+     */
     public ScriptCaller(String script, String outputFolder) {
         this.scriptToExecute = script; 
         this.outputFolder = outputFolder;
         this.scriptArguments = new LinkedList<>();
     }
     
+    /**
+     * Add a parameter 
+     * @param argName Name of a parameter of the R script which call the Docker container
+     * @param argValue Value of the parameter 
+     * @return the updated ScriptCaller object
+     */
     public ScriptCaller addArg(String argName, String argValue) {
         scriptArguments.add(new ScriptParameter(argName, argValue));
         return this;
@@ -62,6 +74,11 @@ public class ScriptCaller {
         return String.format("bash %s %s", script.toString(), getArgs()); 
     }
     
+    /**
+     * Generate a bash script to execute the current command 
+     * @return
+     * @throws IOException 
+     */
     private File getScript() throws IOException{
         File tempScript = File.createTempFile("scriptname", null); 
         
@@ -107,14 +124,23 @@ public class ScriptCaller {
 
 }
 
-
+/**
+ * The class ScriptParameter describes a single script parameter,
+ * which is a pair name parameter : value parameter 
+ * String, integer, float and boolean types are supported
+ * @author Nicola Licheri
+ */
 class ScriptParameter {
     public final String name, value; 
     
+    /**
+     * Describe a parameter of type String
+     * @param name Parameter name 
+     * @param value Parameter value; it may be NA 
+     */
     public ScriptParameter(String name, String value) {
         this.name = name; 
         this.value = value.equals("NA") ? "NA" : String.format("'%s'", value).replace("'", "\\\"");
-//        this.value = String.format("'%s'", value).replace("'", "\\\""); 
     }
     
     public ScriptParameter(String name, int value) {

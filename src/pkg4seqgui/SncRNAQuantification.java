@@ -608,7 +608,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
             }
         }
         
-        ScriptCaller params = new ScriptCaller("sncrnaQuantification.", fastqFolder)
+        ScriptCaller params = new ScriptCaller("sncrnaQuantification.R", fastqFolder)
                 .addArg("group", group)
                 .addArg("mode", mode)
                 .addArg("fastq.folder", fastqFolder)

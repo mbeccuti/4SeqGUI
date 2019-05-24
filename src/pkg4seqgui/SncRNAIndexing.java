@@ -806,7 +806,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
                 break;
         }
         
-        ScriptCaller params = new ScriptCaller("sncrnaQuantification.", genomeFolder)
+        ScriptCaller params = new ScriptCaller("sncrnaGenomeIndexing.R", genomeFolder)
                 .addArg("group", group)
                 .addArg("mode", selectedMode)
                 .addArg("genome.folder", genomeFolder);
