@@ -22,5 +22,6 @@ if(separator=="TAB"){
 separator="\t"
 }else{separator=","}
 
+if(sparse=="true"){sparse=TRUE}else{sparse=FALSE}
 
-seuratPCAEval(group=group,scratch.folder=scratch.folder,file=file,separator=separator,logTen=logTen,seed=seed)
+seuratPCAEval(group=group,scratch.folder=scratch.folder,file=file,separator=separator,logTen=logTen,seed=seed,sparse=sparse,format=format)

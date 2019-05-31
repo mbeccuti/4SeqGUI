@@ -8,11 +8,12 @@ seed=${6}
 pcaDimensions=${7}
 geneNumber=$8
 nCluster=$9
+sparse=${10}
+format=${11}
 
 
 
-
-output=${10}
+output=${12}
 path=${PWD}                   
 
 
@@ -34,6 +35,8 @@ echo "seed:	$seed"
 echo "pcaDimensions:	$pcaDimensions"
 echo "geneNumber:	$geneNumber"
 echo "nCluster:	$nCluster"
+echo "sparse:   $sparse"
+echo "format:   $format"
 echo 
 echo "======================================================="
 
@@ -44,7 +47,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $scratchfolder $file $separator $logTen $seed $pcaDimensions $geneNumber $nCluster' ./Rscripts/SeuratPrior.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $scratchfolder $file $separator $logTen $seed $pcaDimensions $geneNumber $nCluster $sparse $format' ./Rscripts/SeuratPrior.R  $output/Routput.Rout"
 
 echo "$args"
 

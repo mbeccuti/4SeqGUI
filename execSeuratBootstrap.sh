@@ -9,7 +9,9 @@ separator=$7
 logTen=${8}
 pcaDimensions=${9}
 seed=${10}
-output=${11}
+sparse=${11}
+format=${12}
+output=${13}
 path=${PWD}                   
 
 
@@ -32,6 +34,8 @@ echo "separator:	$separator"
 echo "logTen:	$logTen"
 echo "Pca Dimensions:	$pcaDimensions"
 echo "seed:	$seed"
+echo "sparse:	$sparse"
+echo "format:	$format"
 echo 
 echo "======================================================="
 
@@ -42,7 +46,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $scratchfolder $file $nPerm $permAtTime $percent $separator $logTen $pcaDimensions $seed' ./Rscripts/SeuratBootstrap.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $scratchfolder $file $nPerm $permAtTime $percent $separator $logTen $pcaDimensions $seed $sparse $format' ./Rscripts/SeuratBootstrap.R  $output/Routput.Rout"
 
 echo "$args"
 

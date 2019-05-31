@@ -412,6 +412,12 @@ public class MainFrame extends javax.swing.JFrame {
            S_DeTwoGroups DTG= new S_DeTwoGroups();
         S_detwogroups.setViewportView(DTG);
         
+           S_SparseToDense STD= new S_SparseToDense();
+        S_sparsetodense.setViewportView(STD);
+        
+              S_DenseToSparse DTS= new S_DenseToSparse();
+        S_densetosparse.setViewportView(DTS);
+        
          subSetCells SSC = new subSetCells();
         subsetcells.setViewportView(SSC);
         S_SplitClusters SCS = new S_SplitClusters();
@@ -716,6 +722,8 @@ public class MainFrame extends javax.swing.JFrame {
         S_detwogroups = new javax.swing.JScrollPane();
         heatmaply = new javax.swing.JScrollPane();
         S_clusterNgriph1 = new javax.swing.JScrollPane();
+        S_densetosparse = new javax.swing.JScrollPane();
+        S_sparsetodense = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -809,6 +817,8 @@ public class MainFrame extends javax.swing.JFrame {
         subSetMatrixButton1 = new javax.swing.JButton();
         SC_dimension = new javax.swing.JButton();
         heatmaplyButton = new javax.swing.JButton();
+        SparseToDense = new javax.swing.JButton();
+        DenseToSparse = new javax.swing.JButton();
         SingleCellScrollPanel = new javax.swing.JScrollPane();
         SingleCellPanel = new javax.swing.JPanel();
         SubCountGenerationPanel = new javax.swing.JPanel();
@@ -1706,6 +1716,8 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(S_detwogroups, "detwogroups");
         MainPanel.add(heatmaply, "heatmaply");
         MainPanel.add(S_clusterNgriph1, "griphclustering");
+        MainPanel.add(S_densetosparse, "densetosparse");
+        MainPanel.add(S_sparsetodense, "sparsetodense");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2897,7 +2909,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
@@ -2914,7 +2926,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2930,7 +2942,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2946,7 +2958,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -2962,11 +2974,43 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(heatmaplyButton, gridBagConstraints);
+
+        SparseToDense.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
+        SparseToDense.setText("Sparse To Dense");
+        SparseToDense.setBorderPainted(false);
+        SparseToDense.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SparseToDenseActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(SparseToDense, gridBagConstraints);
+
+        DenseToSparse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
+        DenseToSparse.setText("Dense To Sparse");
+        DenseToSparse.setBorderPainted(false);
+        DenseToSparse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DenseToSparseActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(DenseToSparse, gridBagConstraints);
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -5830,6 +5874,14 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("griphclustering");
     }//GEN-LAST:event_SC_ClusteringNgriphButton1ActionPerformed
 
+    private void SparseToDenseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SparseToDenseActionPerformed
+        setCard("sparsetodense");
+    }//GEN-LAST:event_SparseToDenseActionPerformed
+
+    private void DenseToSparseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DenseToSparseActionPerformed
+        setCard("densetosparse");
+    }//GEN-LAST:event_DenseToSparseActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -5908,6 +5960,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton CountButton2;
     private javax.swing.JButton CountButton3;
     private javax.swing.JComboBox<String> CovComboBox;
+    private javax.swing.JButton DenseToSparse;
     private javax.swing.JButton DeseqButton;
     private javax.swing.JButton DeseqButton2;
     private javax.swing.JButton DeseqButton3;
@@ -5992,6 +6045,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane S_countDepth;
     private javax.swing.JScrollPane S_counts2Log;
     private javax.swing.JButton S_crossLabelButton1;
+    private javax.swing.JScrollPane S_densetosparse;
     private javax.swing.JScrollPane S_detwogroups;
     private javax.swing.JScrollPane S_dim;
     private javax.swing.JScrollPane S_filterZeros;
@@ -6009,6 +6063,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane S_seuratPCAEval;
     private javax.swing.JScrollPane S_seuratPrior;
     private javax.swing.JScrollPane S_simlrBootstrap;
+    private javax.swing.JScrollPane S_sparsetodense;
     private javax.swing.JScrollPane S_splitclusters;
     private javax.swing.JScrollPane S_topX;
     private javax.swing.JScrollPane S_tsneBootstrap;
@@ -6022,6 +6077,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel SequenceAnalysisPanel;
     private javax.swing.JPanel SingleCellPanel;
     private javax.swing.JScrollPane SingleCellScrollPanel;
+    private javax.swing.JButton SparseToDense;
     private javax.swing.JButton StarChimericButton1;
     private javax.swing.JButton StarchipCircleButton1;
     private javax.swing.JPanel SubBottomPanel;

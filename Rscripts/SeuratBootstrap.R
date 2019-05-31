@@ -22,5 +22,6 @@ if(separator=="TAB"){
 separator="\t"
 }else{separator=","}
 
+if(sparse=="true"){sparse=TRUE}else{sparse=FALSE}
 
-seuratBootstrap(group=group,scratch.folder=scratch.folder,file=file,nPerm=nPerm,permAtTime=permAtTime,percent=percent,separator=separator,logTen=logTen,pcaDimensions=pcaDimensions,seed=seed)
+seuratBootstrap(group=group,scratch.folder=scratch.folder,file=file,nPerm=nPerm,permAtTime=permAtTime,percent=percent,separator=separator,logTen=logTen,pcaDimensions=pcaDimensions,seed=seed,sparse=sparse,format=format)

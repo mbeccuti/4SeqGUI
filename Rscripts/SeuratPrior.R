@@ -23,5 +23,6 @@ separator="\t"
 }else{separator=","}
 
 setwd(dirname(file))
+if(sparse=="true"){sparse=TRUE}else{sparse=FALSE}
 
-seuratPrior(group=group,scratch.folder=scratch.folder,file=file,separator=separator,logTen=logTen,seed=seed,PCADim=PcaDimensions,geneNumber=geneNumber,nCluster=nCluster)
+seuratPrior(group=group,scratch.folder=scratch.folder,file=file,separator=separator,logTen=logTen,seed=seed,PCADim=PcaDimensions,geneNumber=geneNumber,nCluster=nCluster,sparse=sparse,format=format)

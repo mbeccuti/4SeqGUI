@@ -5,7 +5,9 @@ group=$1
 separator=$4
 logTen=${5}
 seed=${6}
-output=${7}
+sparse=${7}
+format=${8}
+output=${9}
 path=${PWD}                   
 
 
@@ -24,6 +26,9 @@ echo "file:        $file"
 echo "separator:	$separator"
 echo "logTen:	$logTen"
 echo "seed:	$seed"
+echo "sparse:	$sparse"
+echo "format:	$format"
+
 echo 
 echo "======================================================="
 
@@ -34,7 +39,7 @@ echo " Current folder: ${PWD}"
 echo " "
 echo "Executing R script"
 
-args="R CMD BATCH --no-save --no-restore  '--args   ${group} $scratchfolder $file $separator $logTen $seed' ./Rscripts/seuratPCAEval.R  $output/Routput.Rout"
+args="R CMD BATCH --no-save --no-restore  '--args   ${group} $scratchfolder $file $separator $logTen $seed $sparse $format' ./Rscripts/seuratPCAEval.R  $output/Routput.Rout"
 
 echo "$args"
 
