@@ -59,12 +59,8 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         modeNcRNAButton = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         genomeFolderTextField = new javax.swing.JTextField();
-        scratchFolderTextField = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         browseGenomeButton = new javax.swing.JButton();
         cancelGenomeButton = new javax.swing.JButton();
-        browseScratchButton = new javax.swing.JButton();
-        cancelScratchButton = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         modePanel = new javax.swing.JPanel();
         generalModePanel = new javax.swing.JPanel();
@@ -245,29 +241,6 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 15, 10, 10);
         genomePanel.add(genomeFolderTextField, gridBagConstraints);
 
-        scratchFolderTextField.setEditable(false);
-        scratchFolderTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scratchFolderTextFieldActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 15, 10, 10);
-        genomePanel.add(scratchFolderTextField, gridBagConstraints);
-
-        jLabel2.setText("Scratch folder: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        genomePanel.add(jLabel2, gridBagConstraints);
-
         browseGenomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseGenomeButton.setText("Browse");
         browseGenomeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -288,27 +261,6 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(cancelGenomeButton, gridBagConstraints);
-
-        browseScratchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
-        browseScratchButton.setText("Browse");
-        browseScratchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                browseScratchButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        genomePanel.add(browseScratchButton, gridBagConstraints);
-
-        cancelScratchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
-        cancelScratchButton.setText("Cancel");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        genomePanel.add(cancelScratchButton, gridBagConstraints);
 
         jLabel14.setText("Genome folder:  ");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -661,7 +613,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
 
     private void resetFormMiRNAIndexingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormMiRNAIndexingButtonActionPerformed
         genomeFolderTextField.setText("");
-        scratchFolderTextField.setText("");
+        //scratchFolderTextField.setText("");
         generalGenomeUrlTextField.setText("");
         gatkGenomeUrlTextField.setText("");
         gatkDbsnpFileTextField.setText("");
@@ -677,10 +629,6 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         MainFrame.browseTextFieldContent(this, genomeFolderTextField, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_browseGenomeButtonActionPerformed
 
-    private void browseScratchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchButtonActionPerformed
-        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
-    }//GEN-LAST:event_browseScratchButtonActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         MainFrame.browseTextFieldContent(this, gatkDbsnpFileTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -689,14 +637,10 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         MainFrame.browseTextFieldContent(this, gatk1000genomesFileTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void scratchFolderTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scratchFolderTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_scratchFolderTextFieldActionPerformed
-
     private void executeFormMiRNAIndexingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeFormMiRNAIndexingButtonActionPerformed
         String group = DockerRadioButton.isSelected() ? "docker" : "sudo"; 
         String genomeFolder = genomeFolderTextField.getText(), 
-               scratchFolder = scratchFolderTextField.getText(), 
+               //scratchFolder = scratchFolderTextField.getText(), 
                generalGenomeURL = generalGenomeUrlTextField.getText(), 
                gatkGenomeURL = gatkGenomeUrlTextField.getText(), 
                gatkDbsnpFile = gatkDbsnpFileTextField.getText(), 
@@ -718,13 +662,13 @@ public class SncRNAIndexing extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
             return; 
         }
-        if (scratchFolder.isEmpty()) {
+        /*if (scratchFolder.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
                 "You have to specify the scratch folder.",
                 "Error: scratch folder", 
                 JOptionPane.ERROR_MESSAGE);
             return; 
-        }
+        }*/
         //input check, elvis's back
         switch (selectedMode) {
             case "General":
@@ -840,9 +784,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
     private javax.swing.JPanel ExecutionPanel;
     private javax.swing.JRadioButton SudoRadioButton;
     private javax.swing.JButton browseGenomeButton;
-    private javax.swing.JButton browseScratchButton;
     private javax.swing.JButton cancelGenomeButton;
-    private javax.swing.JButton cancelScratchButton;
     private javax.swing.JButton closeFormMiRNAIndexingButton;
     private javax.swing.JButton executeFormMiRNAIndexingButton;
     private javax.swing.ButtonGroup executionGroup;
@@ -868,7 +810,6 @@ public class SncRNAIndexing extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel144;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
@@ -891,6 +832,5 @@ public class SncRNAIndexing extends javax.swing.JPanel {
     private javax.swing.JTextField ncrnaSpecieTextField;
     private javax.swing.JTextField ncrnaVersionTextField;
     private javax.swing.JButton resetFormMiRNAIndexingButton;
-    private javax.swing.JTextField scratchFolderTextField;
     // End of variables declaration//GEN-END:variables
 }
