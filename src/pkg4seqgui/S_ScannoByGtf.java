@@ -335,7 +335,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 4.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 21, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 13, 10, 10);
         jPanel2.add(S_R1, gridBagConstraints);
 
         jLabel124.setText("Ribosomal % End:");
@@ -391,14 +391,15 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 21, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 13, 10, 10);
         jPanel2.add(S_R3, gridBagConstraints);
 
-        jLabel126.setText("Genes Threshold");
+        jLabel126.setText("Genes Threshold:");
         jLabel126.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel126, gridBagConstraints);
 
@@ -437,7 +438,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 13, 10, 10);
         jPanel2.add(S_R5, gridBagConstraints);
 
         jLabel127.setText("Mitochondrial % End:");

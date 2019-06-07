@@ -261,7 +261,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_geneNameControl, gridBagConstraints);
 
-        jLabel5.setText("Gene name format: ENSEMBL ID:Symbol");
+        jLabel5.setText("Gene name format(ENSEMBLID:Symbol):");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -430,7 +430,7 @@ public class S_Hfc extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 200, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 209, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

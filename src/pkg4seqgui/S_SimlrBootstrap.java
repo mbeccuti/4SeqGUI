@@ -177,7 +177,7 @@ public class S_SimlrBootstrap extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 33, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 37, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
         jLabel111.setText("Scratch folder:");
@@ -199,7 +199,7 @@ public class S_SimlrBootstrap extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 33, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 37, 10, 10);
         jPanel30.add(sScratchFolder, gridBagConstraints);
 
         jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -484,7 +484,7 @@ public class S_SimlrBootstrap extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 56, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 60, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

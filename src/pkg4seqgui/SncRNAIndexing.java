@@ -164,6 +164,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         genomePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         genomePanel.setLayout(new java.awt.GridBagLayout());
 
+        modeGeneralButton.setBackground(new java.awt.Color(248, 248, 248));
         indexModeGroup.add(modeGeneralButton);
         modeGeneralButton.setSelected(true);
         modeGeneralButton.setText("General");
@@ -179,6 +180,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 15, 10, 10);
         genomePanel.add(modeGeneralButton, gridBagConstraints);
 
+        modeGATKButton.setBackground(new java.awt.Color(248, 248, 248));
         indexModeGroup.add(modeGATKButton);
         modeGATKButton.setText("GATK");
         modeGATKButton.setName("gatk"); // NOI18N
@@ -193,6 +195,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(modeGATKButton, gridBagConstraints);
 
+        modeMiRNAButton.setBackground(new java.awt.Color(248, 248, 248));
         indexModeGroup.add(modeMiRNAButton);
         modeMiRNAButton.setText("miRNA");
         modeMiRNAButton.setName("mirna"); // NOI18N
@@ -207,6 +210,7 @@ public class SncRNAIndexing extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         genomePanel.add(modeMiRNAButton, gridBagConstraints);
 
+        modeNcRNAButton.setBackground(new java.awt.Color(248, 248, 248));
         indexModeGroup.add(modeNcRNAButton);
         modeNcRNAButton.setText("ncRNA");
         modeNcRNAButton.setName("ncrna"); // NOI18N

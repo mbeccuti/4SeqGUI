@@ -126,7 +126,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jlabe">
               <Properties>
-                <Property name="text" type="java.lang.String" value="File1"/>
+                <Property name="text" type="java.lang.String" value="File 1:"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -226,7 +226,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="File2"/>
+                <Property name="text" type="java.lang.String" value="File 2:"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -257,7 +257,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sep1"/>
+                <Property name="text" type="java.lang.String" value="Sep 1:"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -285,7 +285,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel121">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Name2"/>
+                <Property name="text" type="java.lang.String" value="Name 2:"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="null" type="code"/>
                 </Property>
@@ -317,7 +317,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel123">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Name1"/>
+                <Property name="text" type="java.lang.String" value="Name 1:"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="null" type="code"/>
                 </Property>
@@ -349,7 +349,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Sep2"/>
+                <Property name="text" type="java.lang.String" value="Sep 2:"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">

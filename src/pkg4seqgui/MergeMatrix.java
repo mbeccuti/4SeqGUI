@@ -124,7 +124,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jlabe.setText("File1");
+        jlabe.setText("File 1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -216,7 +216,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 60, 10, 10);
         jPanel30.add(file2, gridBagConstraints);
 
-        jLabel3.setText("File2");
+        jLabel3.setText("File 2:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -237,7 +237,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setText("Sep1");
+        jLabel4.setText("Sep 1:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -255,7 +255,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel5.add(sep1, gridBagConstraints);
 
-        jLabel121.setText("Name2");
+        jLabel121.setText("Name 2:");
         jLabel121.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -284,7 +284,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 44, 10, 10);
         jPanel5.add(Name2, gridBagConstraints);
 
-        jLabel123.setText("Name1");
+        jLabel123.setText("Name 1:");
         jLabel123.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -313,7 +313,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 44, 10, 10);
         jPanel5.add(Name1, gridBagConstraints);
 
-        jLabel5.setText("Sep2");
+        jLabel5.setText("Sep 2:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;

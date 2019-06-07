@@ -169,7 +169,7 @@ public class S_UnstableFiltering extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 52, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
         jLabel111.setText("Scratch folder:");
@@ -191,7 +191,7 @@ public class S_UnstableFiltering extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 52, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(sScratchFolder, gridBagConstraints);
 
         jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -254,7 +254,7 @@ public class S_UnstableFiltering extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_sep, gridBagConstraints);
 
-        jLabel121.setText("nCluster");
+        jLabel121.setText("nCluster:");
         jLabel121.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -303,7 +303,7 @@ public class S_UnstableFiltering extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 27, 10, 10);
         jPanel4.add(S_framePP1, gridBagConstraints);
 
-        jLabel122.setText("sThreshold");
+        jLabel122.setText("sThreshold:");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -343,7 +343,7 @@ public class S_UnstableFiltering extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 37, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

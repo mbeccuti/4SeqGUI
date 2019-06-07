@@ -279,7 +279,7 @@ public class S_ClustersFeatures extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(10, 137, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 150, 10, 10);
         jPanel5.add(S_delta, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -313,7 +313,7 @@ public class S_ClustersFeatures extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 105, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 118, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

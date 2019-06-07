@@ -169,7 +169,7 @@ public class S_CrossLabel extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 52, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
         jLabel111.setText("Scratch folder:");
@@ -191,7 +191,7 @@ public class S_CrossLabel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 52, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(sScratchFolder, gridBagConstraints);
 
         jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -237,7 +237,7 @@ public class S_CrossLabel extends javax.swing.JPanel {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel4.setLayout(new java.awt.GridBagLayout());
 
-        jLabel120.setText("Final Name");
+        jLabel120.setText("Final Name:");
         jLabel120.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -282,7 +282,7 @@ public class S_CrossLabel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_sep, gridBagConstraints);
 
-        jLabel123.setText("nCluster");
+        jLabel123.setText("nCluster:");
         jLabel123.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -307,7 +307,7 @@ public class S_CrossLabel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(10, 27, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 49, 10, 10);
         jPanel4.add(S_clusterNumber, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -341,7 +341,7 @@ public class S_CrossLabel extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 37, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

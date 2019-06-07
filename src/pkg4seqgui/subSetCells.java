@@ -116,7 +116,7 @@ public class subSetCells extends javax.swing.JPanel {
         jPanel30.setToolTipText(null);
         jPanel30.setLayout(new java.awt.GridBagLayout());
 
-        jlabe.setText("File1");
+        jlabe.setText("Input File:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -162,7 +162,7 @@ public class subSetCells extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
         jPanel30.add(File1, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -178,7 +178,7 @@ public class subSetCells extends javax.swing.JPanel {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel5.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setText("Sep1");
+        jLabel4.setText("File separator:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -196,7 +196,7 @@ public class subSetCells extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 17, 10, 10);
         jPanel5.add(sep1, gridBagConstraints);
 
-        jLabel121.setText("Cells number");
+        jLabel121.setText("Cells number:");
         jLabel121.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -257,7 +257,7 @@ public class subSetCells extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 33, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 41, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

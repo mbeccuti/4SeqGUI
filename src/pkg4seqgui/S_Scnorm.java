@@ -248,7 +248,7 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(S_filterCellnum, gridBagConstraints);
 
-        jLabel122.setText("Med non-zero expr. threshold ");
+        jLabel122.setText("Med non-zero expr. threshold: ");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -381,7 +381,7 @@ public class S_Scnorm extends javax.swing.JPanel {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 135, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 150, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

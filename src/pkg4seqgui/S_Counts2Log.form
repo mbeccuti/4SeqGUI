@@ -126,7 +126,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel120">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Log Base"/>
+                <Property name="text" type="java.lang.String" value="Log Base:"/>
                 <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="null" type="code"/>
                 </Property>

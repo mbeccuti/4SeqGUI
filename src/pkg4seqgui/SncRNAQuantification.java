@@ -160,6 +160,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         inputPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         inputPanel.setLayout(new java.awt.GridBagLayout());
 
+        modeMiRNAButton.setBackground(new java.awt.Color(248, 248, 248));
         modeGroup.add(modeMiRNAButton);
         modeMiRNAButton.setSelected(true);
         modeMiRNAButton.setText("miRNA");
@@ -176,6 +177,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         inputPanel.add(modeMiRNAButton, gridBagConstraints);
 
+        modeNcRNAButton.setBackground(new java.awt.Color(248, 248, 248));
         modeGroup.add(modeNcRNAButton);
         modeNcRNAButton.setText("ncRNA");
         modeNcRNAButton.setName("ncrna"); // NOI18N
@@ -336,6 +338,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         inputPanel.add(jLabel8, gridBagConstraints);
 
+        adapterIlluminaButton.setBackground(new java.awt.Color(248, 248, 248));
         adapterGroup.add(adapterIlluminaButton);
         adapterIlluminaButton.setSelected(true);
         adapterIlluminaButton.setText("ILLUMINA");
@@ -346,6 +349,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         inputPanel.add(adapterIlluminaButton, gridBagConstraints);
 
+        adapterNebButton.setBackground(new java.awt.Color(248, 248, 248));
         adapterGroup.add(adapterNebButton);
         adapterNebButton.setText("NEB");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -364,6 +368,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         inputPanel.add(jLabel9, gridBagConstraints);
 
+        keepTrimmedTrueButton.setBackground(new java.awt.Color(248, 248, 248));
         keepTrimmedGroup.add(keepTrimmedTrueButton);
         keepTrimmedTrueButton.setSelected(true);
         keepTrimmedTrueButton.setText("YES");
@@ -374,6 +379,7 @@ public class SncRNAQuantification extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         inputPanel.add(keepTrimmedTrueButton, gridBagConstraints);
 
+        keepTrimmedFalseButton.setBackground(new java.awt.Color(248, 248, 248));
         keepTrimmedGroup.add(keepTrimmedFalseButton);
         keepTrimmedFalseButton.setText("NO");
         gridBagConstraints = new java.awt.GridBagConstraints();

@@ -175,7 +175,7 @@ public class S_GenesSelection extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 104, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
         jPanel30.add(S_countTable, gridBagConstraints);
 
         jLabel111.setText("Scratch folder:");
@@ -197,7 +197,7 @@ public class S_GenesSelection extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 104, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 70, 10, 10);
         jPanel30.add(sScratchFolder, gridBagConstraints);
 
         jToggleButton34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
@@ -260,7 +260,7 @@ public class S_GenesSelection extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel4.add(S_sep, gridBagConstraints);
 
-        jLabel122.setText("# of clusters to be inspected:");
+        jLabel122.setText("# of clusters inspected:");
         jLabel122.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -464,7 +464,7 @@ public class S_GenesSelection extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 130, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 94, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

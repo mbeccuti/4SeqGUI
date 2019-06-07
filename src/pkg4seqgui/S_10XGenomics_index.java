@@ -125,7 +125,7 @@ public class S_10XGenomics_index extends javax.swing.JPanel {
         jPanel28.setToolTipText(null);
         jPanel28.setLayout(new java.awt.GridBagLayout());
 
-        jLabel103.setText("Genome Folder");
+        jLabel103.setText("Genome Folder:");
         jLabel103.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -201,7 +201,7 @@ public class S_10XGenomics_index extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(S_indropIndex_EnsembleGenomeUrl, gridBagConstraints);
 
-        jLabel105.setText("nThreads");
+        jLabel105.setText("nThreads:");
         jLabel105.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -227,7 +227,7 @@ public class S_10XGenomics_index extends javax.swing.JPanel {
         gridBagConstraints.weightx = 0.2;
         jPanel28.add(jLabel109, gridBagConstraints);
 
-        jLabel107.setText("Scratch Folder");
+        jLabel107.setText("Scratch Folder:");
         jLabel107.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -292,6 +292,7 @@ public class S_10XGenomics_index extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(jComboBox1, gridBagConstraints);
 
         jLabel108.setText("GTF url:");
@@ -314,7 +315,7 @@ public class S_10XGenomics_index extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel28.add(nThreads, gridBagConstraints);
 
-        jLabel110.setText("Bio type");
+        jLabel110.setText("Bio type:");
         jLabel110.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

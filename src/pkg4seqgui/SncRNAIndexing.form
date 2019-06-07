@@ -154,6 +154,9 @@
           <SubComponents>
             <Component class="javax.swing.JRadioButton" name="modeGeneralButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                </Property>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="indexModeGroup"/>
                 </Property>
@@ -172,6 +175,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="modeGATKButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                </Property>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="indexModeGroup"/>
                 </Property>
@@ -189,6 +195,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="modeMiRNAButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                </Property>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="indexModeGroup"/>
                 </Property>
@@ -206,6 +215,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="modeNcRNAButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f8" green="f8" red="f8" type="rgb"/>
+                </Property>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="indexModeGroup"/>
                 </Property>

@@ -368,7 +368,7 @@ public class S_CellRanger extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.2;
         gridBagConstraints.weighty = 0.2;
-        gridBagConstraints.insets = new java.awt.Insets(10, 50, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 58, 10, 10);
         jPanel32.add(S_ExpectCells, gridBagConstraints);
 
         jLabel120.setText("Expected cells:");

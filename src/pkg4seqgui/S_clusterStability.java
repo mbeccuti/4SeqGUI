@@ -544,6 +544,8 @@ public class S_clusterStability extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 0.1;
         add(S_SimlrBootstrapPanel, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
