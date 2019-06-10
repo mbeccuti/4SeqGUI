@@ -25,6 +25,4 @@ heatmaply(
   gene.list=gene.list,
   separator=separator,
   status=status,
-  lower.range=lower.range,
-  upper.range=upper.range
-)
+  color.palette=color.palette)

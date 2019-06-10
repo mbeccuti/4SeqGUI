@@ -1113,7 +1113,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1312,7 +1312,7 @@ public class MainFrame extends javax.swing.JFrame {
         enableTabsPanel.add(chipseqTabChecker, gridBagConstraints);
 
         miRNA2TabChecker.setSelected(true);
-        miRNA2TabChecker.setText("ncRNA");
+        miRNA2TabChecker.setText("sncRNA");
         miRNA2TabChecker.setName("mirna2"); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -1332,7 +1332,7 @@ public class MainFrame extends javax.swing.JFrame {
         ConfigureTabsFrame.getContentPane().add(enableTabsPanel, gridBagConstraints);
 
         confermConfigureTabButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/exec.png"))); // NOI18N
-        confermConfigureTabButton.setText("Conferm");
+        confermConfigureTabButton.setText("Confirm");
         confermConfigureTabButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confermConfigureTabButtonActionPerformed(evt);
