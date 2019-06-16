@@ -1430,6 +1430,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         pullImagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/reset.png"))); // NOI18N
         pullImagesButton.setText("Update");
+        pullImagesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pullImagesButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -5881,6 +5886,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void DenseToSparseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DenseToSparseActionPerformed
         setCard("densetosparse");
     }//GEN-LAST:event_DenseToSparseActionPerformed
+
+    private void pullImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pullImagesButtonActionPerformed
+        
+    }//GEN-LAST:event_pullImagesButtonActionPerformed
 
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
