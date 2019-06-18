@@ -808,6 +808,7 @@ public class MainFrame extends javax.swing.JFrame {
         srnaExpression = new javax.swing.JPanel();
         DeseqButton3 = new javax.swing.JButton();
         CountButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         sncrnaExpressionAnaLabel = new javax.swing.JLabel();
         ToolScrollPanel = new javax.swing.JScrollPane();
         ToolPanel = new javax.swing.JPanel();
@@ -2821,7 +2822,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         srnaExpression.add(DeseqButton3, gridBagConstraints);
@@ -2836,12 +2837,27 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 2.0;
         gridBagConstraints.weighty = 2.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         srnaExpression.add(CountButton3, gridBagConstraints);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anlovalike.png"))); // NOI18N
+        jButton4.setText("Anova Like  ");
+        jButton4.setBorderPainted(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        srnaExpression.add(jButton4, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -5890,8 +5906,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_DenseToSparseActionPerformed
 
     private void pullImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pullImagesButtonActionPerformed
-        
+        //TODO
     }//GEN-LAST:event_pullImagesButtonActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        setCard("S_anovaLikeCard");
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
@@ -6158,6 +6178,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
