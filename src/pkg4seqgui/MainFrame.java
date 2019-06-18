@@ -5059,7 +5059,8 @@ public class MainFrame extends javax.swing.JFrame {
             String text="";
             OutputText.setEnabled(true);
             try{
-                File file = new File( tmpListEntry.path+"/Routput.Rout");
+                File file = new File(String.format("%s/%s", tmpListEntry.path, tmpListEntry.logfile));
+           //     File file = new File( tmpListEntry.path+"/Routput.Rout");
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     String strLine;
                     //Read File Line By Line
@@ -5120,13 +5121,14 @@ public class MainFrame extends javax.swing.JFrame {
              OutputText.setEnabled(true);
             String text="";
             try{
-                File file = new File( tmpListEntry.path+"/Routput.Rout");
-                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            //    File file = new File( tmpListEntry.path+"/Routput.Rout");
+                File file = new File(String.format("%s/%s", tmpListEntry.path, tmpListEntry.logfile));
+                try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                      String strLine;
                      //Read File Line By Line
-                     while ((strLine = reader.readLine()) != null)   {
+                     while ((strLine = reader.readLine()) != null)  
                          text+="\n"+strLine;
-                     }}
+                }
             }
             catch (IOException e){//Catch exception if any
                 System.err.println("Error: " + e.getMessage());
@@ -6256,32 +6258,55 @@ public class MainFrame extends javax.swing.JFrame {
 static public class ElProcRunning {
     public String type;
     public String path;
+    public String logfilename; 
     public Process pr;
     public int  pos;
     //constructor
-    public ElProcRunning(String type,String path, Process pr,int i) {
+    public ElProcRunning(String type, String path, String logfile, Process pr, int i) {
         this.type = type;
         this.path = path;
+        this.logfilename = logfile; 
         this.pr = pr;
-        pos=i;
+        pos = i;
     }
-   public String toString() {
+    
+    public ElProcRunning(String type, String path, Process pr, int i) {
+        this.type = type;
+        this.path = path;
+        this.logfilename = "Routput.Rout"; 
+        this.pr = pr;
+        pos = i;
+    }
+    
+    public String toString() {
       return new String(type+" ( data: "+path+" )");
-   }
+    }
 }
 
 static public class ElProcWaiting {
     public String type;
     public String path;
+    public String logfilename; 
     public String[] cmd;
     public int  pos;
     //constructor
-    public ElProcWaiting(String type, String path, String[] cmd, int i) {
+    public ElProcWaiting(String type, String path, String logfile, String[] cmd, int i) {
         this.type = type;
-        this.path =path;
+        this.path = path;
+        this.logfilename = logfile; 
         this.cmd = cmd;
         pos=i;
     }
+    
+    public ElProcWaiting(String type, String path, String[] cmd, int i) {
+        this.type = type;
+        this.path = path;
+        this.logfilename = "Routput.Rout"; 
+        this.cmd = cmd;
+        pos=i;
+    }
+    
+    
     public String toString() {
       return new String(type+" ( data: "+path+")");
    }
@@ -6318,13 +6343,27 @@ static public class ListEntry
    private final ImageIcon icon;
    private  String status;
    private  String path;
+   private  String logfile; 
+   
    private static final long serialVersionUID = 57782123311L;
-   public ListEntry(String value, String status,String path, ImageIcon icon) {
+   
+   public ListEntry(String value, String status, String path, String logfile, ImageIcon icon) {
       this.value = value;
       this.icon = icon;
       this.status=status;
       this.path=path;
+      this.logfile = logfile; 
    }
+   
+   public ListEntry(String value, String status, String path, ImageIcon icon) {
+      this.value = value;
+      this.icon = icon;
+      this.status=status;
+      this.path=path;
+      this.logfile = "Routput.out"; 
+   }
+   
+   
 
    public String getValue() {
       return value;
@@ -6339,6 +6378,10 @@ static public class ListEntry
 
    public String getPath() {
       return path;
+   }
+   
+   public String getLogfilename() {
+       return logfile;
    }
 
    public String toString() {
@@ -6486,7 +6529,7 @@ static    String CurrentLayout="Empty";
              OutputText.setEnabled(true);
             String text="";
             try{
-                File file = new File( tmpListEntry.path+"/Routput.Rout");
+                File file = new File(String.format("%s/%s", tmpListEntry.path, tmpListEntry.logfile));
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 String strLine;
                 //Read File Line By Line
@@ -6519,7 +6562,8 @@ static    String CurrentLayout="Empty";
                 else
                 {
                     //System.out.format("False\n");
-                    int index=listProcRunning.get(i).pos;
+                    ElProcRunning procToRun = listProcRunning.get(i); 
+                    int index = procToRun.pos;
                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/end.png");
                     ImageIcon image2 = new ImageIcon(imgURL);
                     ImageIcon image3 = new ImageIcon(getClass().getResource("/pkg4seqgui/images/close.png"));
@@ -6527,25 +6571,25 @@ static    String CurrentLayout="Empty";
                     //GL.setAvoidProcListValueChanged(-1);
                     boolean error=false;
                     try{
-                        File f = new File(listProcRunning.get(i).path+"/ExitStatusFile");
+                        File f = new File(procToRun.path+"/ExitStatusFile");
                          System.out.print("file:"+ f.getAbsoluteFile().toString() );
                         FileReader fw = new FileReader(f.getAbsoluteFile());
                         BufferedReader br = new BufferedReader(fw);
                         String ExitStatus=br.readLine();
-                        System.out.print("br: "+ExitStatus+" "+listProcRunning.get(i).path);
+                        System.out.print("br: "+ExitStatus + " " + procToRun.path);
                         if (!(ExitStatus.equals("0"))){
                             error=true;
                         }
                     }
                     catch(IOException | NumberFormatException e) {
-                       System.out.print(listProcRunning.get(i).path);
+                       System.out.print(procToRun.path);
                        error=true;
                     }
 
                     if (error)
-                        listModel.set(index,new ListEntry(" [Error]   " + listProcRunning.get(i).toString(), "Error",listProcRunning.get(i).path,image3));
+                        listModel.set(index,new ListEntry(" [Error]   " + procToRun.toString(), "Error", procToRun.path, procToRun.logfilename, image3));
                     else
-                        listModel.set(index,new ListEntry(" [Finished]   " + listProcRunning.get(i).toString(), "Finished",listProcRunning.get(i).path,image2));
+                        listModel.set(index,new ListEntry(" [Finished]   " + procToRun.toString(), "Finished", procToRun.path, procToRun.logfilename, image2));
                     listProcRunning.remove(i);
                 }
             }
@@ -6553,16 +6597,17 @@ static    String CurrentLayout="Empty";
             //System.out.format("Checking waiting !%n");
             while ((listProcRunning.size()<GS.getMaxSizelistProcRunning())&&(listProcWaiting.size()>0)){
                 try{
-
+                    ElProcWaiting procToRun = listProcWaiting.get(0);
+                    
                     Runtime rt = Runtime.getRuntime();
-                    Process pr = rt.exec(listProcWaiting.get(0).cmd);
-                    ElProcRunning tmp= new ElProcRunning(listProcWaiting.get(0).type,listProcWaiting.get(0).path,pr,listProcWaiting.get(0).pos);
-                    listProcRunning.add(tmp);
+                    Process pr = rt.exec(procToRun.cmd);
+                     
+                    listProcRunning.add(new ElProcRunning(procToRun.type, procToRun.path, procToRun.logfilename, pr, procToRun.pos));
                     java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
                     ImageIcon image2 = new ImageIcon(imgURL);
-                    //listModel.remove(listProcWaiting.get(0).pos);
+                    //listModel.remove(procToRun.pos);
                     //GL.setAvoidProcListValueChanged(-1);
-                    listModel.set(listProcWaiting.get(0).pos,new ListEntry(" [Running]   " +  listProcWaiting.get(0).toString(),"Running", listProcWaiting.get(0).path,image2));
+                    listModel.set(procToRun.pos, new ListEntry(" [Running]   " +  procToRun.toString(),"Running", procToRun.path, procToRun.logfilename, image2));
                     listProcWaiting.remove(0);
                     //System.out.format("Size:"+listProcRunning.size()+"\n");
                 }
@@ -6835,18 +6880,18 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         }
 
         String outputFolder = script.outputFolder;
-        String[] cmd = {"/bin/bash","-c", String.format("%s >& %s/outputExecution_%s", command, outputFolder, script.callingTime)};
+        String[] cmd = {"/bin/bash","-c", String.format("%s >& %s/%s", command, outputFolder, script.logfile_outputExec)};
         Runtime rt = Runtime.getRuntime();
 
         try {
             if (MainFrame.listProcRunning.size() < MainFrame.GS.getMaxSizelistProcRunning()) {
                 Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning(commandName, outputFolder,pr,MainFrame.listModel.getSize());
+                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning(commandName, outputFolder, script.logfile_R, pr,MainFrame.listModel.getSize());
                 MainFrame.listProcRunning.add(tmp);
                 java.net.URL imgURL = MainFrame.class.getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
                 MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(), "Running", tmp.path, tmp.logfilename, image2 ));
                 MainFrame.GL.setAvoidProcListValueChanged(0);
                 if (MainFrame.listProcRunning.size() == 1) {
                     MainFrame.t=new Timer();
@@ -6854,12 +6899,12 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
                 }
             }
             else {
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting(commandName, outputFolder, cmd,MainFrame.listModel.getSize());
+                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting(commandName, outputFolder, script.logfile_R, cmd,MainFrame.listModel.getSize());
                 MainFrame.listProcWaiting.add(tmp);
                 java.net.URL imgURL = MainFrame.class.getResource("/pkg4seqgui/images/waiting.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
                 MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(), "Waiting", tmp.path, tmp.logfilename, image2));
                 MainFrame.GL.setAvoidProcListValueChanged(0);
             }
             MainFrame.GL.setAvoidProcListValueChanged(-1);
@@ -6884,12 +6929,13 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         try {
             if (MainFrame.listProcRunning.size() < MainFrame.GS.getMaxSizelistProcRunning()) {
                 Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning(commandName, outputFolder,pr,MainFrame.listModel.getSize());
+                //TO FIX: logfile_R name 
+                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning(commandName, outputFolder, "Routput.Rout", pr,MainFrame.listModel.getSize());
                 MainFrame.listProcRunning.add(tmp);
                 java.net.URL imgURL = MainFrame.class.getResource("/pkg4seqgui/images/running.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
                 MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
+                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(), "Running", tmp.path, tmp.logfilename, image2 ));
                 MainFrame.GL.setAvoidProcListValueChanged(0);
                 if (MainFrame.listProcRunning.size() == 1) {
                     MainFrame.t=new Timer();
@@ -6897,12 +6943,12 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
                 }
             }
             else {
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting(commandName, outputFolder, cmd,MainFrame.listModel.getSize());
+                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting(commandName, outputFolder, "Routput.Rout", cmd,MainFrame.listModel.getSize());
                 MainFrame.listProcWaiting.add(tmp);
                 java.net.URL imgURL = MainFrame.class.getResource("/pkg4seqgui/images/waiting.png");
                 ImageIcon image2 = new ImageIcon(imgURL);
                 MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
+                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(), "Waiting", tmp.path, tmp.logfilename, image2));
                 MainFrame.GL.setAvoidProcListValueChanged(0);
             }
             MainFrame.GL.setAvoidProcListValueChanged(-1);

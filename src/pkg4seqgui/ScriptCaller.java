@@ -20,6 +20,7 @@ public class ScriptCaller {
     private final List<ScriptParameter> scriptArguments;
     public final String outputFolder; 
     public final String callingTime; 
+    public final String logfile_R, logfile_outputExec; 
    
     /**
      * Initialize a script caller to execute a command running a Docker container
@@ -33,6 +34,9 @@ public class ScriptCaller {
             
         DateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss"); 
         this.callingTime = dateFormat.format(new Date()); 
+        
+        this.logfile_R = String.format("Routput_%s.Rout", this.callingTime);
+        this.logfile_outputExec = String.format("outputExecution_%s", this.callingTime); 
         
 //        System.out.println("Data prodotta: " + this.callingTime); 
     }
@@ -90,7 +94,7 @@ public class ScriptCaller {
      */
     private File getScript() throws IOException{
         File tempScript = File.createTempFile("scriptname", null); 
-        String routputFile = "$output/Routput_" + this.callingTime + ".Rout";// $output/Routput.Rout
+        String routputFile = String.format("$output/%s", this.logfile_R);  //"$output/Routput_" + this.callingTime + ".Rout";// $output/Routput.Rout
         
         try (PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(tempScript)))) {
             printWriter.println("#!/bin/bash\n");
