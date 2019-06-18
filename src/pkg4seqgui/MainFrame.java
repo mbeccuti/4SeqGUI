@@ -6835,7 +6835,7 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
         }
 
         String outputFolder = script.outputFolder;
-        String[] cmd = {"/bin/bash","-c", String.format("%s >& %s/outputExecution", command, outputFolder)};
+        String[] cmd = {"/bin/bash","-c", String.format("%s >& %s/outputExecution_%s", command, outputFolder, script.callingTime)};
         Runtime rt = Runtime.getRuntime();
 
         try {

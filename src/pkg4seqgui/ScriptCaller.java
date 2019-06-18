@@ -5,6 +5,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,6 +19,7 @@ public class ScriptCaller {
     private final String scriptToExecute; 
     private final List<ScriptParameter> scriptArguments;
     public final String outputFolder; 
+    public final String callingTime; 
    
     /**
      * Initialize a script caller to execute a command running a Docker container
@@ -26,6 +30,11 @@ public class ScriptCaller {
         this.scriptToExecute = script; 
         this.outputFolder = outputFolder;
         this.scriptArguments = new LinkedList<>();
+            
+        DateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss"); 
+        this.callingTime = dateFormat.format(new Date()); 
+        
+//        System.out.println("Data prodotta: " + this.callingTime); 
     }
     
     /**
@@ -81,6 +90,7 @@ public class ScriptCaller {
      */
     private File getScript() throws IOException{
         File tempScript = File.createTempFile("scriptname", null); 
+        String routputFile = "$output/Routput_" + this.callingTime + ".Rout";// $output/Routput.Rout
         
         try (PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(tempScript)))) {
             printWriter.println("#!/bin/bash\n");
@@ -110,7 +120,10 @@ public class ScriptCaller {
             printWriter.println("echo \"=======================================================\n\"");
             printWriter.println("echo \" Current folder: ${PWD}\n\"");
             printWriter.println("echo \"Executing R script\n\"");
-            printWriter.println("args=\"R CMD BATCH --no-save --no-restore  '--args " + arguments + " ' ./Rscripts/" + scriptToExecute + " $output/Routput.Rout\"");
+            printWriter.println("args=\"R CMD BATCH --no-save --no-restore  '--args " + 
+                                arguments + 
+                                " ' ./Rscripts/" + scriptToExecute + " " +
+                                routputFile + "\"");//   " $output/Routput.Rout\"");
             printWriter.println("echo \"$args\"");
             printWriter.println("eval \"$args\"");
             
