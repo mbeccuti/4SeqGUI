@@ -44,10 +44,10 @@ fare partire il demone:
 sudo systemctl start docker
 
 path docker images:
-/var/lib/docker
+/var/lib/docker spostare  in /home/ e poi creare il link simbolico
 
 installare i docker:
-
+--------------------------------------------OLD-----------------------------------
 sudo docker pull docker.io/rcaloger/annotate.2017.01 
 sudo docker pull docker.io/rcaloger/bwa.2017.01 
 sudo docker pull docker.io/rcaloger/chipseq.2017.01
