@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -39,6 +40,7 @@ import javax.swing.ListCellRenderer;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.prefs.Preferences;
+import javax.print.Doc;
 import javax.swing.Icon;
 import javax.swing.JCheckBox;
 import javax.swing.JMenuItem;
@@ -171,7 +173,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         public class DockerImageDescription {
             //describe a docker image record
-            public final String url, repository, name;
+            public final String url, repository, name, tag;
+            private String size = "", age = "", img_hash = "";
 
             /**
              * Describe a docker image record.
@@ -183,11 +186,36 @@ public class MainFrame extends javax.swing.JFrame {
                  * we take into account both parsed and unparsed docker url:
                  * case a: docker.io/repository/image
                  * case b: repository/image */
-                this.name = tokens[tokens.length - 1]; //last token
-                this.repository = tokens[tokens.length - 2];
-                this.url = String.format("%s/%s", repository, name);
+                String token_name = tokens[tokens.length - 1]; 
+                String []name_tag = token_name.split(":"); 
+                this.tag = name_tag.length == 1 ? "latest" : name_tag[name_tag.length - 1]; 
+                this.name = name_tag[0]; 
+                this.repository = tokens.length > 1 ? tokens[tokens.length - 2] : null;
+                
+                this.url = this.repository != null ? 
+                    String.format("%s/%s:%s", repository, name, tag) :
+                    String.format("%s:%s", name, tag);
             }
-
+            
+            public DockerImageDescription setSize(String size) { 
+                this.size = size; 
+                return this; 
+            }
+            
+            public DockerImageDescription setAge(String age) {
+                this.age = age; 
+                return this; 
+            }
+            
+            public DockerImageDescription setHash(String hash) {
+                this.img_hash = hash; 
+                return this; 
+            }
+            
+            public String getSize() {   return this.size; }
+            public String getAge() {    return this.age; }
+            public String getHash() {   return this.img_hash; }
+            
             @Override
             public int hashCode() {
                 int hash = 7;
@@ -220,10 +248,64 @@ public class MainFrame extends javax.swing.JFrame {
          * manage docker images.
          */
         public DockerImageManager(javax.swing.JTable dockerTable) {
-            this.dockerTable = dockerTable;
             this.dockerImages = new HashMap<>();
-
+            this.dockerTable = dockerTable;
+     
+    //        resetConfiguration();
             loadConfiguration();
+            loadDockerInfo(); 
+        }
+        
+        void loadDockerInfo() {
+            try {
+                Runtime rt = Runtime.getRuntime(); 
+                Process pr = rt.exec("docker images"); 
+                
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(pr.getInputStream()))) {
+                    String img_name = "", img_tag = "", img_hash = "", img_age = "", img_size = ""; 
+                    String line = br.readLine();  //skip header
+                    
+                    for (line = br.readLine(); line != null; line = br.readLine()) {
+                        int i = 0;
+
+                        for (String s: line.split(" ")) {
+                            if ((s = s.trim()).length() > 0) {
+                                switch (i) {
+                                    case 0: 
+                                        img_name = s; 
+                                        break; 
+                                    case 1: 
+                                        img_tag = s; 
+                                        break; 
+                                    case 2:
+                                        img_hash = s; 
+                                        break; 
+                                    case 3:
+                                    case 4:
+                                        img_age += s + " "; 
+                                        break;
+                                    case 5:
+                                        img_age += s;
+                                        break; 
+                                    case 6:
+                                        img_size = s; 
+                                        break; 
+                                    default:
+                                        break;
+                                }
+                                i++;
+                            }
+                        }
+
+                        String img_fullname = String.format("%s:%s", img_name, img_tag);
+                        DockerImageDescription curr = dockerImages.get(new DockerImageDescription(img_fullname).url); 
+                        if (curr != null)
+                            curr.setSize(img_size).setAge(img_age).setHash(img_hash); 
+                    }
+                }  
+            } catch (IOException e) {
+                System.err.println("Cannot exec 'docker images' command!"); 
+            }
         }
 
 
@@ -243,9 +325,10 @@ public class MainFrame extends javax.swing.JFrame {
                         dockerImages.put(curr.url, curr);
                 });
             } catch (IOException ex) {
-                System.out.println("IOException during " + imageListFile + " reading");
+                System.err.println("IOException during " + imageListFile + " reading");
             }
 
+            loadDockerInfo();
             writeConfiguration();
         }
 
@@ -257,24 +340,42 @@ public class MainFrame extends javax.swing.JFrame {
             model.setRowCount(0);
 
             dockerImages.entrySet().forEach((entry) -> {
-                model.addRow(new Object[]{true, entry.getValue().url, 112233});
+                DockerImageDescription tmp = entry.getValue();
+                model.addRow(new Object[]{false, tmp.url, tmp.getSize()});
             });
         }
 
         /**
          * Remove the selected images from the system. Docker images whose checkbox
-         * is deselected are removed from the system
+         * are selected are removed from the system
          */
         public void removeImages() {
-            getRecords(false).forEach((imageId) -> {
+            getRecords(true).forEach((imageId) -> {
+                if (dockerImages.get(imageId) != null)
+                    dockerImages.remove(imageId); 
+                removeDockerImage(imageId); 
+                /*
                 if (removeDockerImage(imageId)) {
                     dockerImages.remove(imageId);
-                }
+                } */
             });
 
             updateGUI();
             writeConfiguration();
         }
+        
+        /**
+         * Update the selected images at the last version available. Docker images
+         * whose checkbox is selected are pulled from Docker Hub. 
+         */
+        public void updateImages() {
+            getRecords(true).forEach((imageId) -> { 
+                updateDockerImage(imageId); 
+            });
+            
+        }
+        
+        
 
         /**
          * Return the list of docker images (un)selected.
@@ -291,6 +392,17 @@ public class MainFrame extends javax.swing.JFrame {
             return records;
         }
 
+        private void resetConfiguration() {
+            int numImages = getPreferences().getInt(countDockerImagesVariable, 0);
+            
+            for (int i = 0; i < numImages; i++) {
+                String varName = String.format("%s%d", prefixDockerVariable, i);
+                getPreferences().put(varName, null);
+
+            }
+            getPreferences().putInt(countDockerImagesVariable, 0);
+        }
+        
         /**
          * Instantiate dockerImages map loading docker images' names from Preferences
          * values */
@@ -302,9 +414,11 @@ public class MainFrame extends javax.swing.JFrame {
             for (int i = 0; i < numImages; i++) {
                 String varName = String.format("%s%d", prefixDockerVariable, i);
                 String varValue = getPreferences().get(varName, null);
-
-                if (varValue != null)
-                    dockerImages.put(varValue, new DockerImageDescription(varValue));
+       
+                if (varValue != null) {
+                    DockerImageDescription tmp = new DockerImageDescription(varValue);
+                    dockerImages.put(tmp.url, tmp);
+                }
             }
         }
 
@@ -604,7 +718,7 @@ public class MainFrame extends javax.swing.JFrame {
         BatchComboBox = new javax.swing.JComboBox<>();
         DownloadFrame = new javax.swing.JFrame();
         jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
+        downloadDockerImagesButton = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jButton33 = new javax.swing.JButton();
@@ -808,7 +922,7 @@ public class MainFrame extends javax.swing.JFrame {
         srnaExpression = new javax.swing.JPanel();
         DeseqButton3 = new javax.swing.JButton();
         CountButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        NovaLikeButton3 = new javax.swing.JButton();
         sncrnaExpressionAnaLabel = new javax.swing.JLabel();
         ToolScrollPanel = new javax.swing.JScrollPane();
         ToolPanel = new javax.swing.JPanel();
@@ -1097,11 +1211,11 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 8);
         DownloadFrame.getContentPane().add(jButton31, gridBagConstraints);
 
-        jButton32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/downloadb.png"))); // NOI18N
-        jButton32.setText("Download");
-        jButton32.addActionListener(new java.awt.event.ActionListener() {
+        downloadDockerImagesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/downloadb.png"))); // NOI18N
+        downloadDockerImagesButton.setText("Download");
+        downloadDockerImagesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton32ActionPerformed(evt);
+                downloadDockerImagesButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -1111,7 +1225,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        DownloadFrame.getContentPane().add(jButton32, gridBagConstraints);
+        DownloadFrame.getContentPane().add(downloadDockerImagesButton, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
@@ -1370,14 +1484,14 @@ public class MainFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Flag", "Image name", "Size"
+                "Flag", "Image", "Size"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.Boolean.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, true
+                true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -2844,12 +2958,12 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         srnaExpression.add(CountButton3, gridBagConstraints);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anlovalike.png"))); // NOI18N
-        jButton4.setText("Anova Like  ");
-        jButton4.setBorderPainted(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        NovaLikeButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anovaLike.png"))); // NOI18N
+        NovaLikeButton3.setText("Anova Like  ");
+        NovaLikeButton3.setBorderPainted(false);
+        NovaLikeButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                NovaLikeButton3ActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2857,7 +2971,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        srnaExpression.add(jButton4, gridBagConstraints);
+        srnaExpression.add(NovaLikeButton3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -3913,24 +4027,71 @@ public class MainFrame extends javax.swing.JFrame {
 
     }
 
-    private boolean  removeDockerImage(String imageName){
+    private boolean updateDockerImage(String imageName) {
+        boolean returnValue = false; 
+        String[] cmd = {"/bin/bash", "-c", String.format("docker pull %s", imageName)};
+        
+        try {
+            Process pr = Runtime.getRuntime().exec(cmd);
+            pr.waitFor(); 
+            
+            if (pr.exitValue() == 0) {
+                JOptionPane.showMessageDialog(this,
+                    "Docker image " + imageName + " has been updated.",
+                    "Confermation",
+                    JOptionPane.INFORMATION_MESSAGE);
+                returnValue = true;
+            }
+            else {
+                JOptionPane.showMessageDialog(this, 
+                "Docker image " + imageName + " has not been updated", 
+                "Error: Image update", 
+                JOptionPane.ERROR_MESSAGE); 
+            }
+        } 
+        catch (InterruptedException e) {
+            //System.out.println("esploso per interruptedexc");
+        }
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(this, 
+                "Docker image " + imageName + " has not been updated", 
+                "Error: Image update", 
+                JOptionPane.ERROR_MESSAGE); 
+        }
+        
+        return returnValue;
+    }
+    
+    
+    private boolean  removeDockerImage(String imageName) {
         boolean returnValue = false;
-        String[] cmd = {
-            "/bin/bash",
-            "-c",
-            " docker rmi " + imageName
-        };
+        String[] cmd = {"/bin/bash", "-c", String.format("docker rmi %s", imageName)};
 
         try {
-            Runtime.getRuntime().exec(cmd);
-            JOptionPane.showMessageDialog(this,
-                "Docker image " + imageName + " has been removed.",
-                "Confermation",
-                JOptionPane.INFORMATION_MESSAGE);
-            returnValue = true;
+            Process pr = Runtime.getRuntime().exec(cmd);
+            pr.waitFor(); 
+            
+            if (pr.exitValue() == 0) {
+                JOptionPane.showMessageDialog(this,
+                    "Docker image " + imageName + " has been removed.",
+                    "Confermation",
+                    JOptionPane.INFORMATION_MESSAGE);
+                returnValue = true;
+            } else {
+                JOptionPane.showMessageDialog(this, 
+                    "Docker image " + imageName + " has not been removed", 
+                    "Error: Image deletion", 
+                    JOptionPane.ERROR_MESSAGE); 
+            }
+        }
+        catch (InterruptedException e) {
+            //System.out.println("esploso per interruptedexc");
         }
         catch (IOException e){
-            System.out.println("Docker image has not been removed\n");
+            JOptionPane.showMessageDialog(this, 
+                "Docker image " + imageName + " has not been removed", 
+                "Error: Image deletion", 
+                JOptionPane.ERROR_MESSAGE); 
         }
         return returnValue;
     }
@@ -5349,14 +5510,22 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.requestFocus();
     }//GEN-LAST:event_jButton34ActionPerformed
 
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+    private void downloadDockerImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_downloadDockerImagesButtonActionPerformed
         String containerListFile = Downloadtext.getText();
-        String commandArgs = String.format("containers.list=%s",
-                containerListFile.isEmpty() ? "NULL" : "'" + containerListFile + "'")
-                .replace("'", "\\\"");
-        //execute code
-        execCommand(this, "Download Docker images", "execDownloadImage.sh", commandArgs, System.getProperty("user.dir"));
-
+       
+        if (containerListFile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "You have to select the container list file.",
+                "Error: Container list file", 
+                JOptionPane.ERROR_MESSAGE);
+            return; 
+        }
+        
+        String outputFolder = Paths.get(containerListFile).getParent().toString();
+        ScriptCaller params = new ScriptCaller("DownloadImage.R", outputFolder)
+                .addArg("containers.file", containerListFile); 
+        execCommand(this, "Download Docker images", params);
+        
         DownloadFrame.setVisible(false);
         Downloadtext.setText("");
         getPreferences().put("4SeqGUI_WindowDownloadWidth", Integer.toString(DownloadFrame.getWidth()));
@@ -5364,7 +5533,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         dockerManager.addImages(containerListFile);
         dockerManager.updateGUI();
-    }//GEN-LAST:event_jButton32ActionPerformed
+    }//GEN-LAST:event_downloadDockerImagesButtonActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         openAbout4SeqGUI(evt);
@@ -5906,12 +6075,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_DenseToSparseActionPerformed
 
     private void pullImagesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pullImagesButtonActionPerformed
-        //TODO
+        dockerManager.updateImages(); 
     }//GEN-LAST:event_pullImagesButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        setCard("S_anovaLikeCard");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void NovaLikeButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovaLikeButton3ActionPerformed
+        setCard("NOVAlike");
+    }//GEN-LAST:event_NovaLikeButton3ActionPerformed
 
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
@@ -6015,6 +6184,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton MergeMatrixButton;
     private javax.swing.JScrollPane MultiQC;
     private javax.swing.JButton MultiQCButton;
+    private javax.swing.JButton NovaLikeButton3;
     public static javax.swing.JFrame OutputFrame;
     public static javax.swing.JTextArea OutputText;
     private javax.swing.JButton PCAButton;
@@ -6155,6 +6325,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane dESPanel;
     private javax.swing.JFrame dockerImagesManager;
     private javax.swing.JTable dockerImagesTable;
+    private javax.swing.JButton downloadDockerImagesButton;
     private javax.swing.JButton downloadExonIsoformDataButton2;
     private javax.swing.JPanel enableTabsPanel;
     private javax.swing.JScrollPane experimentPowerPanel;
@@ -6173,12 +6344,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;

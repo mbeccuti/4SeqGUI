@@ -359,17 +359,8 @@ public class IndexingSalmon extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iCloseButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iCloseButton2ActionPerformed
-        iDockerRadioSButton.setSelected(true);
-        iGenomeFolderSText.setText("");
-        iThreadSText.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
-        iGenomeURLSText.setText("");
-        iGTFURLSText.setText("");
-        iKmerSText.setText("31");
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
-        //    AnalysisTree.clearSelection();
+        iResetButton2ActionPerformed(evt); 
+        MainFrame.setCard(null);
     }//GEN-LAST:event_iCloseButton2ActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
@@ -393,8 +384,7 @@ public class IndexingSalmon extends javax.swing.JPanel {
             iThreadSText.requestFocusInWindow();
             return;
         }
-        try
-        {
+        try {
             Integer x = Integer.valueOf(iThreadSText.getText());
             if (x<=0){
                 JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);

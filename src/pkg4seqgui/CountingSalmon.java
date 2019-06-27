@@ -8,6 +8,7 @@ package pkg4seqgui;
 import java.awt.CardLayout;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Timer;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
@@ -664,36 +665,43 @@ public class CountingSalmon extends javax.swing.JPanel {
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
-
         //Field check
+        String fastqFolder = cFastQFolderText.getText(); 
+        String scratchFolder = cOutputFolderText.getText();
+        String genomeFolder = cGenomeFolderText.getText();
+        String nThreadsStr = cThreadText.getText().trim(), 
+               minLengthStr = cMinLengthText.getText().trim(); 
+        String adapter3 = cAdapter3Text.getText().trim(), 
+               adapter5 = cAdapter5Text.getText().trim();
+        int nthreads = 0, minLength = 0;
+        
 
-        if (cFastQFolderText.getText().isEmpty()){
+        if (fastqFolder.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified an input folder","Error: FastQ  folder",JOptionPane.ERROR_MESSAGE);
             //vFastQFolderText.requestFocusInWindow();
             return;
         }
-        else
-        if (cOutputFolderText.getText().isEmpty()){
+        
+        if (scratchFolder.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified an output folder","Error: Output folder",JOptionPane.ERROR_MESSAGE);
             //vOutputFolderText.requestFocusInWindow();
             return;
         }
-        else
-        if (cGenomeFolderText.getText().isEmpty()){
+        
+        if (genomeFolder.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified an genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
             //vGenomeFolderText.requestFocusInWindow();
             return;
         }
-        else
-        if (cThreadText.getText().isEmpty()){
+        
+        if (nThreadsStr.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
             cThreadText.requestFocusInWindow();
             return;
         }
-        try
-        {
-            Integer x = Integer.valueOf(cThreadText.getText());
-            if (x<=0){
+        try {
+            nthreads = Integer.valueOf(nThreadsStr);
+            if (nthreads <= 0){
                 JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
                 cThreadText.requestFocusInWindow();
                 return;
@@ -705,104 +713,50 @@ public class CountingSalmon extends javax.swing.JPanel {
             return;
         }
 
-        if ((!cAdapter5Text.getText().isEmpty())&&(!adapter.matcher(cAdapter5Text.getText()).matches())){
+        if ((!adapter5.isEmpty()) && (!adapter.matcher(adapter5).matches())){
             JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 5'",JOptionPane.ERROR_MESSAGE);
             cAdapter5Text.requestFocusInWindow();
+            return; 
         }
-        else{
-            if ((!cAdapter3Text.getText().isEmpty())&&(!adapter.matcher(cAdapter3Text.getText()).matches())){
-                JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 3'",JOptionPane.ERROR_MESSAGE);
-                cAdapter3Text.requestFocusInWindow();
-            }
-            else{
-                if (cMinLengthText.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "You have to specified a value for the minimum lenght.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                    cMinLengthText.requestFocusInWindow();
-                    return;
-                }
-                try{
-                    Integer x = Integer.valueOf(cMinLengthText.getText());
-                    if (x<0){
-                        JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                        cMinLengthText.requestFocusInWindow();
-                        return;
-                    }
-                }
-                catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                    cMinLengthText.requestFocusInWindow();
-                    return;
-                }
-
-                //execute code
-                Runtime rt = Runtime.getRuntime();
-                try{
-                    String[] cmd = {"/bin/bash","-c"," bash ./execSalmon.sh "};
-
-                    if (cSudoRadioButton.isSelected()){
-                        cmd[2]+= "group=\\\"sudo\\\"";
-                    }
-                    else{
-                        cmd[2]+= "group=\\\"docker\\\"";
-                    }
-                    cmd[2]+= " fastq.folder=\\\""+cFastQFolderText.getText()+"\\\" scratch.folder=\\\""+cOutputFolderText.getText()+"\\\" adapter5=\\\""+cAdapter5Text.getText()+"\\\" adapter3=\\\""+cAdapter3Text.getText()+"\\\"";
-
-                    if (cPeRadioButton.isSelected()){
-                        cmd[2]+= " seq.type=\\\"pe\\\"";
-                    }
-                    else{
-                        cmd[2]+= " seq.type=\\\"se\\\"";
-                    }
-                    cmd[2]+= " threads="+cThreadText.getText()+" min.length="+cMinLengthText.getText()+"  index.folder=\\\""+cGenomeFolderText.getText()+"\\\"";
-
-                    if (cSNoneRadioButton.isSelected())
-                    cmd[2]+= " strandness=\\\"none\\\"";
-                    else
-                    if (cSForwardRadioButton.isSelected())
-                    cmd[2]+= " strandness=\\\"forward\\\"";
-                    else
-                    cmd[2]+= " strandness=\\\"reverse\\\"";
-
-                    cmd[2]+=" "+cFastQFolderText.getText() +" >& "+cFastQFolderText.getText()+"/outputExecution ";
-
-                    //ProcessStatus.setText(pr.toString());
-                    if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                        Process pr = rt.exec(cmd);
-                        MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Transcripts and genes counting with Salmon ", cFastQFolderText.getText(),pr,MainFrame.listModel.getSize());
-                        MainFrame.listProcRunning.add(tmp);
-                        java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                        ImageIcon image2 = new ImageIcon(imgURL);
-                        MainFrame.GL.setAvoidProcListValueChanged(-1);
-                        MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                        MainFrame.GL.setAvoidProcListValueChanged(0);
-                        //addElement("RNAseq counting workflow (data input: "+vFastQFolderText.getText()+")            [Runnig]");
-                        if(MainFrame.listProcRunning.size()==1){
-                            MainFrame.t=new Timer();
-                            MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                        }
-                    }
-                    else{
-                        MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Transcripts and genes counting with Salmon ",cFastQFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                        MainFrame.listProcWaiting.add(tmp);
-                        java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                        ImageIcon image2 = new ImageIcon(imgURL);
-                        MainFrame.GL.setAvoidProcListValueChanged(-1);
-                        MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                        MainFrame.GL.setAvoidProcListValueChanged(0);
-                    }
-                    MainFrame.GL.setAvoidProcListValueChanged(-1);
-                    MainFrame.ProcList.setModel(MainFrame.listModel);
-                    MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-                    MainFrame.GL.setAvoidProcListValueChanged(0);
-                }
-                catch(IOException e) {
-                    JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-                    System.out.println(e.toString());
-                }
-                JOptionPane.showMessageDialog(this, "Transcripts and genes counting Salmon task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-            }
-            //execute code
+        if ((!adapter3.isEmpty()) && (!adapter.matcher(adapter3).matches())){
+            JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 3'",JOptionPane.ERROR_MESSAGE);
+            cAdapter3Text.requestFocusInWindow();
+            return; 
         }
+        if (minLengthStr.isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified a value for the minimum lenght.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+            cMinLengthText.requestFocusInWindow();
+            return;
+        }
+        try{
+            minLength = Integer.valueOf(minLengthStr);
+            if (minLength < 0){
+                JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+                cMinLengthText.requestFocusInWindow();
+                return;
+            }
+        }
+        catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
+            cMinLengthText.requestFocusInWindow();
+            return;
+        }
+
+        //execute code
+        String outputFolder = Paths.get(fastqFolder).getParent().toString();
+        ScriptCaller params = new ScriptCaller("wrapperSalmon.R", outputFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("fastq.folder", fastqFolder)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("index.folder", genomeFolder)
+                .addArg("adapter5", adapter5)
+                .addArg("adapter3", adapter3)
+                .addArg("threads", nthreads)
+                .addArg("min.length", minLength)
+                .addArg("seq.type", cPeRadioButton.isSelected() ? "pe" : "se")
+                .addArg("strandness", cSNoneRadioButton.isSelected() ? "none" : 
+                            (cSForwardRadioButton.isSelected() ? "forward" : "reverse")); 
+        MainFrame.execCommand(this, "Transcripts and genes counting with Salmon", params);
     }//GEN-LAST:event_jButton39ActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
