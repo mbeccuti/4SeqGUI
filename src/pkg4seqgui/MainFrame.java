@@ -520,6 +520,10 @@ public class MainFrame extends javax.swing.JFrame {
           S_CrossLabel CS= new S_CrossLabel();
         crossLabel.setViewportView(CS);
 
+         S_ScanpyBootstrap SB= new S_ScanpyBootstrap();
+        S_scanpybootstrap.setViewportView(SB);
+        
+        
            S_10XGenomics_index TXG= new S_10XGenomics_index();
         tenXIndexing.setViewportView(TXG);
 
@@ -838,6 +842,7 @@ public class MainFrame extends javax.swing.JFrame {
         S_clusterNgriph1 = new javax.swing.JScrollPane();
         S_densetosparse = new javax.swing.JScrollPane();
         S_sparsetodense = new javax.swing.JScrollPane();
+        S_scanpybootstrap = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -971,6 +976,7 @@ public class MainFrame extends javax.swing.JFrame {
         SC_unstableFilteringButton = new javax.swing.JButton();
         SC_ClusterSplit = new javax.swing.JButton();
         SC_ClusteringNgriphButton1 = new javax.swing.JButton();
+        SC_ScanpyBootstrap = new javax.swing.JButton();
         SubFeatureSelectionPanel = new javax.swing.JPanel();
         sc_FeatureSelectionLabel = new javax.swing.JLabel();
         sc_innerPanel4 = new javax.swing.JPanel();
@@ -1228,7 +1234,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(downloadDockerImagesButton, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1838,6 +1844,8 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(S_clusterNgriph1, "griphclustering");
         MainPanel.add(S_densetosparse, "densetosparse");
         MainPanel.add(S_sparsetodense, "sparsetodense");
+        MainPanel.add(S_scanpybootstrap, "scanpybootstrap");
+        S_scanpybootstrap.getAccessibleContext().setAccessibleName("");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -3511,7 +3519,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
@@ -3592,7 +3600,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 2.0;
@@ -3625,7 +3633,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 11;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3641,7 +3649,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3657,7 +3665,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3678,6 +3686,23 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel3.add(SC_ClusteringNgriphButton1, gridBagConstraints);
+
+        SC_ScanpyBootstrap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/clusteringNgriph.png"))); // NOI18N
+        SC_ScanpyBootstrap.setText("Clustering with Scanpy");
+        SC_ScanpyBootstrap.setBorderPainted(false);
+        SC_ScanpyBootstrap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_ScanpyBootstrapActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 2.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel3.add(SC_ScanpyBootstrap, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -6082,6 +6107,10 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("NOVAlike");
     }//GEN-LAST:event_NovaLikeButton3ActionPerformed
 
+    private void SC_ScanpyBootstrapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ScanpyBootstrapActionPerformed
+                setCard("scanpybootstrap");
+    }//GEN-LAST:event_SC_ScanpyBootstrapActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -6226,6 +6255,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SC_RecatPredictionButton;
     private javax.swing.JButton SC_SCNormButton;
     private javax.swing.JButton SC_ScannoByGtfButton;
+    private javax.swing.JButton SC_ScanpyBootstrap;
     private javax.swing.JButton SC_SeuratBootstrapButton;
     private javax.swing.JButton SC_SeuratPCAEvalButton;
     private javax.swing.JButton SC_SeuratPriorButton;
@@ -6259,6 +6289,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane S_lorenzFilter;
     private javax.swing.JScrollPane S_recatPrediction;
     private javax.swing.JScrollPane S_scannoByGtf;
+    private javax.swing.JScrollPane S_scanpybootstrap;
     private javax.swing.JScrollPane S_scnorm;
     private javax.swing.JScrollPane S_seuratBootstrap;
     private javax.swing.JScrollPane S_seuratPCAEval;
