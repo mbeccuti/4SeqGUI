@@ -248,62 +248,21 @@ public class MultiQC extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
-
-        if (QdataFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input folder","Error: Data  folder",JOptionPane.ERROR_MESSAGE);
-            //mFastQFolderText.requestFocusInWindow();
+        String dataFolder = QdataFolderText.getText(); 
+        
+        if (dataFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input folder",
+                    "Error: Data  folder",
+                    JOptionPane.ERROR_MESSAGE);
+            return; 
         }
-        else
-        {
-            //execute code
-            Runtime rt = Runtime.getRuntime();
-            try{
-                String[] cmd = {"/bin/bash","-c"," bash ./execmultiqc.sh "};
-                if (QSudoRadioButton.isSelected()){
-                    cmd[2]+= "group=\\\"sudo\\\"";
-                }
-                else{
-                    cmd[2]+= "group=\\\"docker\\\"";
-                }
-                cmd[2]+= " data.folder=\\\""+QdataFolderText.getText()+"\\\"";
-
-                cmd[2]+=" "+QdataFolderText.getText() +" >& "+QdataFolderText.getText()+"/outputExecution ";
-
-                if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                    Process pr = rt.exec(cmd);
-                    MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("MultiQC  ", QdataFolderText.getText(),pr,MainFrame.listModel.getSize());
-                    MainFrame.listProcRunning.add(tmp);
-                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                    ImageIcon image2 = new ImageIcon(imgURL);
-                    MainFrame.GL.setAvoidProcListValueChanged(-1);
-                    MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                    MainFrame.GL.setAvoidProcListValueChanged(0);
-                    if(MainFrame.listProcRunning.size()==1){
-                        MainFrame.t=new Timer();
-                        MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                    }
-                }
-                else{
-                    MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("MultiQC", QdataFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                    MainFrame.listProcWaiting.add(tmp);
-                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                    ImageIcon image2 = new ImageIcon(imgURL);
-                    MainFrame.GL.setAvoidProcListValueChanged(-1);
-                    MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                    MainFrame.GL.setAvoidProcListValueChanged(0);
-                }
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.ProcList.setModel(MainFrame.listModel);
-                MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            catch(IOException e) {
-                JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-                System.out.println(e.toString());
-            }
-            JOptionPane.showMessageDialog(this, "MultiQC task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-        }
-        //execute code
+        
+        //execute code 
+        ScriptCaller params = new ScriptCaller("multiQC.R", dataFolder)
+                .addArg("group", QSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("data.folder", QdataFolderText.getText()); 
+        MainFrame.execCommand(this, "MultiQC", params);
     }//GEN-LAST:event_jButton45ActionPerformed
 
     private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
@@ -312,12 +271,8 @@ public class MultiQC extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void vCloseButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton7ActionPerformed
-        QDockerRadioButton.setSelected(true);
-        QdataFolderText.setText("");
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton47ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton7ActionPerformed
 
@@ -326,23 +281,7 @@ public class MultiQC extends javax.swing.JPanel {
     }//GEN-LAST:event_QdataFolderTextActionPerformed
 
     private void jToggleButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton40ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(QdataFolderText.getText().equals(""))){
-            File file =new File(QdataFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            QdataFolderText.setText(String.valueOf(f));
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, QdataFolderText, JFileChooser.DIRECTORIES_ONLY); 
     }//GEN-LAST:event_jToggleButton40ActionPerformed
 
     private void jToggleButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton41ActionPerformed

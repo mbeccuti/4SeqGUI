@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package pkg4seqgui;
-import java.awt.CardLayout;
-import java.io.File;
-import java.io.IOException;
-import java.util.Timer;
-import javax.swing.ImageIcon;
+
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
@@ -356,23 +352,7 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SSbrowes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSbrowes1ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(EPOutputFolderText.getText().equals(""))){
-            File file =new File(EPOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            EPOutputFolderText.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, EPOutputFolderText, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_SSbrowes1ActionPerformed
 
     private void SScancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SScancel1ActionPerformed
@@ -384,24 +364,8 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_EPCountTableTextActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(EPCountTableText.getText().equals(""))){
-            File file =new File(EPOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            EPCountTableText.setText(String.valueOf(f));
-            EPOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        JFileChooser openDir = MainFrame.browseTextFieldContent(this, EPCountTableText, JFileChooser.FILES_ONLY);
+        EPOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
@@ -410,124 +374,112 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton30ActionPerformed
 
     private void EPExecuteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPExecuteButton1ActionPerformed
-        if (EPCountTableText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
+        String countTable = EPCountTableText.getText();
+        String outputFolder = EPOutputFolderText.getText(); 
+        int num_reps = 0, ngenes = 0; 
+        float foldchange = 0, fdr = 0; 
+                
+        if (countTable.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input file",
+                    "Error: input file",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (EPOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
+        if (outputFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an output folder",
+                    "Error: output folder",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         try
         {
-            Float x = Float.valueOf(EPSampleText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error:  number of samples used in each group",JOptionPane.ERROR_MESSAGE);
+            num_reps = Integer.valueOf(EPSampleText.getText().trim());
+            if (num_reps <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error:  number of samples used in each group",
+                        JOptionPane.ERROR_MESSAGE);
                 EPSampleText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified  a value for Log2fc threashold.","Error: number of samples used in each group",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified  a value for Log2fc threashold.",
+                    "Error: number of samples used in each group",
+                    JOptionPane.ERROR_MESSAGE);
             EPSampleText.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(EPFDRtext.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+        try {
+            fdr = Float.valueOf(EPFDRtext.getText().trim());
+            if (fdr <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: FDR threashold",
+                        JOptionPane.ERROR_MESSAGE);
                 EPFDRtext.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for the FDR threashold",
+                    "Error: FDR threashold",
+                    JOptionPane.ERROR_MESSAGE);
             EPFDRtext.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(EPGeneText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: #gene for dispertion",JOptionPane.ERROR_MESSAGE);
+        try {
+            ngenes = Integer.valueOf(EPGeneText.getText().trim());
+            if (ngenes <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: #gene for dispertion",
+                        JOptionPane.ERROR_MESSAGE);
                 EPGeneText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: #gene for dispertion",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for the FDR threashold",
+                    "Error: #gene for dispertion",
+                    JOptionPane.ERROR_MESSAGE);
             EPGeneText.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(EPlog2Text.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Log2 fold change",JOptionPane.ERROR_MESSAGE);
+        try {
+            foldchange = Float.valueOf(EPlog2Text.getText().trim());
+            if (foldchange <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: Log2 fold change",
+                        JOptionPane.ERROR_MESSAGE);
                 EPlog2Text.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: Log2 fold change",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for the FDR threashold",
+                    "Error: Log2 fold change",
+                    JOptionPane.ERROR_MESSAGE);
             EPlog2Text.requestFocusInWindow();
             return;
         }
 
-        Runtime rt = Runtime.getRuntime();
-        //execute code
-
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execExperimentPower.sh "};
-
-            cmd[2]+= " filename=\\\""+ EPCountTableText.getText() +"\\\"";
-            cmd[2]+= " replicatesXgroup="+ EPSampleText.getText();
-            cmd[2]+= " FDR="+ EPFDRtext.getText();
-            cmd[2]+= " genes4dispersion="+ EPGeneText.getText();
-            cmd[2]+= " log2fold.change="+ EPlog2Text.getText();
-            cmd[2]+= " output.folder=\\\""+ EPOutputFolderText.getText() +"\\\"";
-            cmd[2]+=" "+ EPOutputFolderText.getText()+" >& "+EPOutputFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println(cmd[2]);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Experiment Stat. Power ", EPOutputFolderText.getText() ,pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Experiment Stat. Power  ", EPOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "Experiment Stat. Power task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        ScriptCaller params = new ScriptCaller("ExperimentPower.R", outputFolder)
+                .addArg("filename", countTable)
+                .addArg("replicatesXgroup", num_reps)
+                .addArg("FDR", fdr)
+                .addArg("genes4dispersion", ngenes)
+                .addArg("log2fold.change", foldchange)
+                .addArg("output.folder", outputFolder); 
+        MainFrame.execCommand(this, "Experiment Stat. Power", params);
     }//GEN-LAST:event_EPExecuteButton1ActionPerformed
 
     private void EPSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPSaveButtonActionPerformed
@@ -544,16 +496,8 @@ public class ExperimentPowerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_EPResetButtonActionPerformed
 
     private void EPCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPCloseButtonActionPerformed
-        EPCountTableText.setText("");
-        EPFDRtext.setText("0.1");
-        EPGeneText.setText("200");
-        EPOutputFolderText.setText("");
-        EPSampleText.setText("3");
-        EPlog2Text.setText("1");
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
-        //  AnalysisTree.clearSelection();
+        EPResetButtonActionPerformed(evt); 
+        MainFrame.setCard(null);
     }//GEN-LAST:event_EPCloseButtonActionPerformed
 
     private void EPGeneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EPGeneTextActionPerformed

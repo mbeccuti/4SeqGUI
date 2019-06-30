@@ -337,43 +337,33 @@ public class IndexingStarRSEM extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iCloseButtonActionPerformed
-        iDockerRadioButton.setSelected(true);
-        iGenomeFolderText.setText("");
-        iThreadText.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
-        iGenomeURLText.setText("");
-        iGTFURLText.setText("");
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        iResetButtonActionPerformed(evt);
+        MainFrame.setCard(null);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_iCloseButtonActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        if (iGenomeFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an Genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
+        String genomeFolder = iGenomeFolderText.getText(), 
+               genomeURL = iGenomeURLText.getText(), 
+               gtfURL = iGTFURLText.getText();
+        int nthreads = 0; 
+        
+        if (genomeFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified a Genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (iGenomeURLText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an Genome URL ","Error: Genome URL",JOptionPane.ERROR_MESSAGE);
+        if (genomeURL.isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified a Genome URL ","Error: Genome URL",JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (iGTFURLText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an GTF URL ","Error: GTF URL",JOptionPane.ERROR_MESSAGE);
+        if (gtfURL.isEmpty()){
+            JOptionPane.showMessageDialog(this, "You have to specified a GTF URL ","Error: GTF URL",JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (iThreadText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
-            iThreadText.requestFocusInWindow();
-            return;
-        }
-        try
-        {
-            Integer x = Integer.valueOf(iThreadText.getText());
-            if (x<=0){
+        
+        try {
+            nthreads = Integer.valueOf(iThreadText.getText());
+            if (nthreads <= 0){
                 JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
                 iThreadText.requestFocusInWindow();
                 return;
@@ -385,56 +375,13 @@ public class IndexingStarRSEM extends javax.swing.JPanel {
             return;
         }
 
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execIndexingSTAR.sh "};
-            if (iSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+= " genome.folder=\\\""+iGenomeFolderText.getText()+"\\\" ensembl.urlgenome=\\\""+iGenomeURLText.getText()+"\\\" ensembl.urlgtf=\\\""+iGTFURLText.getText()+"\\\"";
-            cmd[2]+= " threads="+iThreadText.getText()+ " "+iGenomeFolderText.getText() + " >& "+iGenomeFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println("Runing PID:"+ MainFrame.getPidOfProcess(pr)+"\n");
-
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Genome indexing STAR-RSEM ", iGenomeFolderText.getText(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Genome indexing STAR-RSEM ",iGenomeFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-
-        JOptionPane.showMessageDialog(this, "Genome indexing STAR-RSEM task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
+        ScriptCaller params = new ScriptCaller("indexingSTAR.R", genomeFolder)
+                .addArg("group", iSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("genome.folder", genomeFolder)
+                .addArg("ensembl.urlgenome", genomeURL)
+                .addArg("ensembl.urlgtf", gtfURL)
+                .addArg("threads", nthreads);
+        MainFrame.execCommand(this, "Genome indexing STAR-RSEM", params);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void iResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iResetButtonActionPerformed

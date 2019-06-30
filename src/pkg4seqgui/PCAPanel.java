@@ -4,12 +4,7 @@
  * and open the template in the editor.
  */
 package pkg4seqgui;
-import java.awt.CardLayout;
 import java.awt.Color;
-import java.io.File;
-import java.io.IOException;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
@@ -457,126 +452,85 @@ public class PCAPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton2ActionPerformed
-
         //RESET FIELDS
-        pLegendComboBox.setSelectedIndex(1);
-        pCovYesRadioButton.setSelected(true);
-        pFPKMRadioButton.setSelected(true);
-        pFPKMfileText.setText("");
-        pComponent1Text.setText("");
-        pComponent2Text.setText("");
-        pOutputFolderText.setText("");
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton16ActionPerformed(evt);
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         // AnalysisTree.clearSelection();
-
     }//GEN-LAST:event_vCloseButton2ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-
+        String inputFile = pFPKMfileText.getText(), 
+               outputFolder = pOutputFolderText.getText(); 
+        int pca1 = 0, pca2 = 0; 
         //Field check
 
-        if (pFPKMfileText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
+        if (inputFile.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input file",
+                    "Error: input file",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (pOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
+        if (outputFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an output folder",
+                    "Error: output folder",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        try
-        {
-            Integer x = Integer.valueOf(pComponent1Text.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Component 1 number",JOptionPane.ERROR_MESSAGE);
+        try {
+            pca1 = Integer.valueOf(pComponent1Text.getText().trim());
+            if (pca1 <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: Component 1 number",
+                        JOptionPane.ERROR_MESSAGE);
                 pComponent1Text.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number of component 1.","Error: Component 1 number",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the number of component 1.",
+                    "Error: Component 1 number",
+                    JOptionPane.ERROR_MESSAGE);
             pComponent1Text.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Integer x = Integer.valueOf(pComponent2Text.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Component 2 number",JOptionPane.ERROR_MESSAGE);
+        try {
+            pca2 = Integer.valueOf(pComponent2Text.getText().trim());
+            if (pca2 <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: Component 2 number",
+                        JOptionPane.ERROR_MESSAGE);
                 pComponent2Text.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number of component 2.","Error: Component 2 number",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the number of component 2.",
+                    "Error: Component 2 number",
+                    JOptionPane.ERROR_MESSAGE);
             pComponent2Text.requestFocusInWindow();
             return;
         }
-
-        Runtime rt = Runtime.getRuntime();
-        //execute code
-
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execPCA.sh "};
-            cmd[2]+= " experiment.table=\\\""+ pFPKMfileText.getText() +"\\\"";
-            if (pFPKMRadioButton.isSelected())
-            cmd[2]+= " type=\\\"FPKM\\\"";
-            else
-            if (pTPMRadioButton.isSelected())
-            cmd[2]+= " type=\\\"TPM\\\"";
-            else
-            cmd[2]+= " type=\\\"counts\\\"";
-            if (pCovYesRadioButton.isSelected())
-            cmd[2]+= " covariatesInNames=\\\"TRUE\\\"";
-            else
-            cmd[2]+= " covariatesInNames=\\\"FALSE\\\"";
-            cmd[2]+= " principal.components=c\\("+pComponent1Text.getText()+","+pComponent2Text.getText()+"\\)";
-            cmd[2]+= " legend.position=\\\""+pLegendComboBox.getSelectedItem().toString()+"\\\"";
-            cmd[2]+= " output.folder=\\\""+ pOutputFolderText.getText() +"\\\"";
-            // File outputFolder= new File(pFPKMfileText.getText());
-            // String output= outputFolder.getAbsolutePath().substring(0,outputFolder.getAbsolutePath().lastIndexOf(File.separator));
-            cmd[2]+=" "+ pOutputFolderText.getText()+" >& "+pOutputFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println(cmd[2]);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("PCA ", pOutputFolderText.getText() ,pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("PCA ", pOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "A PCA task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        
+        String type = "FPKM";
+        if (!pFPKMRadioButton.isSelected())
+            type = pTPMRadioButton.isSelected() ? "TPM" : "counts"; 
+        
+        ScriptCaller params = new ScriptCaller("PCA.R", outputFolder)
+                .addArg("experiment.table", inputFile)
+                .addArg("output.folder", outputFolder)
+                .addArg("type", type)
+                .addArg("covariatesInNames", pCovYesRadioButton.isSelected())
+                .addArgAsVector("principal.components", String.valueOf(pca1), String.valueOf(pca2)) 
+                .addArg("legend.position", pLegendComboBox.getSelectedItem().toString());
+        MainFrame.execCommand(this, "PCA", params);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
@@ -600,25 +554,8 @@ public class PCAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_pFPKMfileTextActionPerformed
 
     private void jToggleButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton12ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(pFPKMfileText.getText().equals(""))){
-            File file =new File(pOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            pFPKMfileText.setText(String.valueOf(f));
-            //UPDATE TO REMOVE OUTPUT FOLDER
-            pOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        JFileChooser openDir = MainFrame.browseTextFieldContent(this, pFPKMfileText, JFileChooser.FILES_ONLY); 
+        pOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jToggleButton12ActionPerformed
 
     private void fCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButtonActionPerformed
@@ -632,23 +569,7 @@ public class PCAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_pOutputFolderTextActionPerformed
 
     private void jToggleButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton13ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(pOutputFolderText.getText().equals(""))){
-            File file =new File(pOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            pOutputFolderText.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, pOutputFolderText, JFileChooser.DIRECTORIES_ONLY); 
     }//GEN-LAST:event_jToggleButton13ActionPerformed
 
     private void fCancelButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton1ActionPerformed
@@ -657,16 +578,14 @@ public class PCAPanel extends javax.swing.JPanel {
 
     private void pComponent1TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pComponent1TextFocusLost
         if (pComponent1Text.getText().isEmpty())
-        return;
+            return;
         pComponent1Text.setForeground(Color.black);
-        try
-        {
+        
+        try {
             Integer x = Integer.valueOf(pComponent1Text.getText());
-            if (x<=0){
+            if (x <= 0)
                 pComponent1Text.setForeground(Color.red);
-            }
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             pComponent1Text.setForeground(Color.red);
             //pComponent1Text.setText("");
             //return;
@@ -680,16 +599,14 @@ public class PCAPanel extends javax.swing.JPanel {
     private void pComponent2TextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pComponent2TextFocusLost
 
         if (pComponent2Text.getText().isEmpty())
-        return;
+            return;
         pComponent2Text.setForeground(Color.black);
-        try
-        {
+        
+        try {
             Integer x = Integer.valueOf(pComponent2Text.getText());
-            if (x<=0){
+            if (x <= 0)
                 pComponent2Text.setForeground(Color.red);
-            }
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             pComponent2Text.setForeground(Color.red);
             //pComponent2Text.setText("");
             //return;

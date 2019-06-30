@@ -4,15 +4,8 @@
  * and open the template in the editor.
  */
 package pkg4seqgui;
-import java.awt.CardLayout;
-import java.io.File;
-import java.io.IOException;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import pkg4seqgui.MainFrame.MyTask;
 /**
  *
  * @author user
@@ -480,60 +473,75 @@ public class DESPanel extends javax.swing.JPanel {
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         String inputFilepath = dFPKMfileText.getText(), 
                outputFolderpath = dOutputFolderText.getText();
+        float log2fc = 0, fdr = 0;
+        
         //Field check
-
         if (inputFilepath.isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input file",
+                    "Error: input file",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (outputFolderpath.isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an output folder",
+                    "Error: output folder",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(dLog2fcText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Log2fc threashold",JOptionPane.ERROR_MESSAGE);
+        try {
+            log2fc = Float.valueOf(dLog2fcText.getText().trim());
+            if (log2fc <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: Log2fc threashold",
+                        JOptionPane.ERROR_MESSAGE);
                 dLog2fcText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified  a value for Log2fc threashold.","Error: Log2fc threashold",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for Log2fc threashold.",
+                    "Error: Log2fc threashold",
+                    JOptionPane.ERROR_MESSAGE);
             dLog2fcText.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(dFDRText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+        try {
+            fdr = Float.valueOf(dFDRText.getText().trim());
+            if (fdr <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: FDR threashold",
+                        JOptionPane.ERROR_MESSAGE);
                 dFDRText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for the FDR threashold",
+                    "Error: FDR threashold",
+                    JOptionPane.ERROR_MESSAGE);
             dFDRText.requestFocusInWindow();
             return;
         }
 
-        String command = String.format(
-            "experiment.table='%s' type='%s' log2fc=%s fdr=%s ref.covar='%s' batch='%s' output.folder='%s'", 
-            inputFilepath, 
-            dIsoformRadioButton.isSelected() ? "isoform" : (dGeneRadioButton.isSelected() ? "gene" : "mirna"), 
-            dLog2fcText.getText(), 
-            dFDRText.getText(), 
-            dCovComboBox.getSelectedItem().toString(),
-            dBatchesTrue.isSelected() ? "TRUE" : "FALSE", 
-            outputFolderpath
-        ).replace("'", "\\\"");
-        
-        MainFrame.execCommand(this, "DESeq2 analysis", "execDES.sh", command, outputFolderpath);
+        String type = "isoform"; 
+        if (!dIsoformRadioButton.isSelected())
+            type = dGeneRadioButton.isSelected() ? "gene" : "mirna"; 
+        ScriptCaller params = new ScriptCaller("DES.R", outputFolderpath)
+                .addArg("experiment.table", inputFilepath)
+                .addArg("type", type)
+                .addArg("log2fc", log2fc)
+                .addArg("fdr", fdr)
+                .addArg("batch", dBatchesTrue.isSelected() ? "TRUE" : "FALSE")
+                .addArg("ref.covar", dCovComboBox.getSelectedItem().toString())
+                .addArg("output.folder", inputFilepath);
+        MainFrame.execCommand(this, "DESeq2 analysis", params);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed

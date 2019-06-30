@@ -490,88 +490,44 @@ public class MRNAPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
-        if (mFastQFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input folder","Error: FastQ  folder",JOptionPane.ERROR_MESSAGE);
-            //mFastQFolderText.requestFocusInWindow();
-            //return;
+        String fastqFolder = mFastQFolderText.getText(), 
+               scratchFolder = mOutputFolderText.getText(), 
+               organism = mmiRBaseText.getText().trim(), 
+               adapters = mANEBRadioButton.isSelected() ? "NEB" : "ILLUMINA"; 
+        
+        if (fastqFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input folder",
+                    "Error: FastQ  folder",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        else
-        if (mOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output folder","Error: Output folder",JOptionPane.ERROR_MESSAGE);
-            //mOutputFolderText.requestFocusInWindow();
-            //return;
+        if (scratchFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a scratch folder",
+                    "Error: Scratch folder",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        else
-        if (!MainFrame.miRBase.matcher(mmiRBaseText.getText()).matches()){
-            JOptionPane.showMessageDialog(this, "The specified miRBase  id is not valid.","Error: miRBase",JOptionPane.ERROR_MESSAGE);
+        if (!MainFrame.miRBase.matcher(organism).matches()){
+            JOptionPane.showMessageDialog(this, 
+                    "The specified miRBase  id is not valid.",
+                    "Error: miRBase",
+                    JOptionPane.ERROR_MESSAGE);
             mmiRBaseText.requestFocusInWindow();
+            return;
         }
-        else
-        {
-            //execute code
-            Runtime rt = Runtime.getRuntime();
-            try{
-                String[] cmd = {"/bin/bash","-c"," bash ./execmirna.sh "};
-                if (mSudoRadioButton.isSelected()){
-                    cmd[2]+= "group=\\\"sudo\\\"";
-                }
-                else{
-                    cmd[2]+= "group=\\\"docker\\\"";
-                }
-                cmd[2]+= " fastq.folder=\\\""+mFastQFolderText.getText()+"\\\" scratch.folder=\\\""+mOutputFolderText.getText()+"\\\" mirbase.id=\\\""+mmiRBaseText.getText()+"\\\"";
-                if (mDTrueRadioButton.isSelected()){
-                    cmd[2]+= " download.status=TRUE";
-                }
-                else{
-                    cmd[2]+= " download.status=FALSE";
-                }
-                if (mANEBRadioButton.isSelected())
-                cmd[2]+= " adapter.type=\\\"NEB\\\"";
-                else
-                cmd[2]+= " adapter.type=\\\"ILLUMINA\\\"";
-                if (mTTrueRadioButton.isSelected())
-                cmd[2]+= " trimmed.fastq=TRUE";
-                else
-                cmd[2]+= " trimmed.fastq=FALSE";
-
-                cmd[2]+=" "+mFastQFolderText.getText() +" >& "+mFastQFolderText.getText()+"/outputExecution ";
-
-                if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                    Process pr = rt.exec(cmd);
-                    MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("miRNA counting ", mFastQFolderText.getText(),pr,MainFrame.listModel.getSize());
-                    MainFrame.listProcRunning.add(tmp);
-                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                    ImageIcon image2 = new ImageIcon(imgURL);
-                    MainFrame.GL.setAvoidProcListValueChanged(-1);
-                    MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                    MainFrame.GL.setAvoidProcListValueChanged(0);
-                    if(MainFrame.listProcRunning.size()==1){
-                        MainFrame.t=new Timer();
-                        MainFrame.t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                    }
-                }
-                else{
-                    MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("miRNA counting", mFastQFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                    MainFrame.listProcWaiting.add(tmp);
-                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                    ImageIcon image2 = new ImageIcon(imgURL);
-                    MainFrame.GL.setAvoidProcListValueChanged(-1);
-                    MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                    MainFrame.GL.setAvoidProcListValueChanged(0);
-                }
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.ProcList.setModel(MainFrame.listModel);
-                MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            catch(IOException e) {
-                JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-                System.out.println(e.toString());
-            }
-            JOptionPane.showMessageDialog(this, "miRNA counting task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-        }
+        
         //execute code
+        ScriptCaller params = new ScriptCaller("mirnaCounts.R", fastqFolder)
+                .addArg("group", mSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("fastq.folder", fastqFolder)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("mirbase.id", organism)
+                .addArg("download.status", mDTrueRadioButton.isSelected())
+                .addArg("adapter.type", adapters)
+                .addArg("trimmed.fastq", mTTrueRadioButton.isSelected());
+        MainFrame.execCommand(this, "miRNA counting", params);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -589,28 +545,17 @@ public class MRNAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void vCloseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton1ActionPerformed
-        mDockerRadioButton.setSelected(true);
-        mFastQFolderText.setText("");
-        mOutputFolderText.setText("");
-        mmiRBaseText.setText("hsa");
-        mDFalseRadioButton.setSelected(true);
-        mAILLUMINARadioButton.setSelected(true);
-        mTFalseRadioButton.setSelected(true);
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton7ActionPerformed(evt); //reset        
+        MainFrame.setCard(null);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton1ActionPerformed
 
     private void mmiRBaseTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mmiRBaseTextFocusLost
         if (mmiRBaseText.getText().isEmpty())
-        return;
+            return;
         mmiRBaseText.setForeground(Color.black);
-        if (!MainFrame.miRBase.matcher(mmiRBaseText.getText()).matches()){
+        if (!MainFrame.miRBase.matcher(mmiRBaseText.getText().trim()).matches())
             mmiRBaseText.setForeground(Color.red);
-            
-        }
     }//GEN-LAST:event_mmiRBaseTextFocusLost
 
     private void mmiRBaseTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mmiRBaseTextActionPerformed
@@ -642,23 +587,7 @@ public class MRNAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_mFastQFolderTextActionPerformed
 
     private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(mFastQFolderText.getText().equals(""))){
-            File file =new File(mFastQFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            mFastQFolderText.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, mFastQFolderText, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_jToggleButton8ActionPerformed
 
     private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
@@ -670,23 +599,7 @@ public class MRNAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jToggleButton9ActionPerformed
 
     private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(mOutputFolderText.getText().equals(""))){
-            File file =new File(mOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            mOutputFolderText.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, mOutputFolderText, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_jToggleButton10ActionPerformed
 
     private void mSudoRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSudoRadioButtonActionPerformed

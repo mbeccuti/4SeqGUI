@@ -398,124 +398,110 @@ public class SampleSizePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void SSExecuteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSExecuteButtonActionPerformed
-        if (SSCountTableText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
+        String inputFile = SSCountTableText.getText(),
+               outputfolder = SSOutputFolderText.getText(); 
+        float fdr = 0, power = 0, foldchange = 0, ngenes = 0; 
+        
+        if (inputFile.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input file",
+                    "Error: input file",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (outputfolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an output folder",
+                    "Error: output folder",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        if (SSOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        try
-        {
-            Float x = Float.valueOf(SSPowerText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error:  Statistical power",JOptionPane.ERROR_MESSAGE);
+        try {
+            power = Float.valueOf(SSPowerText.getText().trim());
+            if (power <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error:  Statistical power",
+                        JOptionPane.ERROR_MESSAGE);
                 SSPowerText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified  a value for Log2fc threashold.","Error: Statistical power",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for statistical power.",
+                    "Error: Statistical power",
+                    JOptionPane.ERROR_MESSAGE);
             SSPowerText.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(SSFDRtext.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+        try {
+            fdr = Float.valueOf(SSFDRtext.getText().trim());
+            if (fdr <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: FDR threashold",
+                        JOptionPane.ERROR_MESSAGE);
                 SSFDRtext.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: FDR threashold",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for the FDR threshold",
+                    "Error: FDR threashold",
+                    JOptionPane.ERROR_MESSAGE);
             SSFDRtext.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(SSGeneText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: #gene for dispertion",JOptionPane.ERROR_MESSAGE);
+        try {
+            ngenes = Float.valueOf(SSGeneText.getText());
+            if (ngenes <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: #gene for dispertion",
+                        JOptionPane.ERROR_MESSAGE);
                 SSGeneText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: #gene for dispertion",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for the FDR threshold",
+                    "Error: #gene for dispertion",
+                    JOptionPane.ERROR_MESSAGE);
             SSGeneText.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(SSlog2Text.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Log2 fold change",JOptionPane.ERROR_MESSAGE);
+        try {
+            foldchange = Float.valueOf(SSlog2Text.getText());
+            if (foldchange <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: Log2 fold change",
+                        JOptionPane.ERROR_MESSAGE);
                 SSlog2Text.requestFocusInWindow();
                 return;
             }
         }
         catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a value for the FDR threashold","Error: Log2 fold change",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value for the FDR threshold",
+                    "Error: Log2 fold change",
+                    JOptionPane.ERROR_MESSAGE);
             SSlog2Text.requestFocusInWindow();
             return;
         }
-
-        Runtime rt = Runtime.getRuntime();
-        //execute code
-
-        try{
-            String[] cmd = {"/bin/bash","-c","   bash ./execSampleSize.sh "};
-
-            cmd[2]+= " filename=\\\""+ SSCountTableText.getText() +"\\\"";
-            cmd[2]+= " power="+ SSPowerText.getText();
-            cmd[2]+= " FDR="+ SSFDRtext.getText();
-            cmd[2]+= " genes4dispersion="+ SSGeneText.getText();
-            cmd[2]+= " log2fold.change="+ SSlog2Text.getText();
-            cmd[2]+= " output.folder=\\\""+ SSOutputFolderText.getText() +"\\\"";
-            cmd[2]+=" "+ SSOutputFolderText.getText()+" >& "+SSOutputFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println(cmd[2]);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Sample Size Estimator ", SSOutputFolderText.getText() ,pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Sample Size Estimator  ", SSOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "Sample Size Estimator task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        
+        ScriptCaller params = new ScriptCaller("SampleSize.R", outputfolder)
+                .addArg("filename", inputFile)
+                .addArg("output.folder", outputfolder)
+                .addArg("power", power)
+                .addArg("FDR", fdr)
+                .addArg("genes4dispersion", ngenes)
+                .addArg("log2fold.change", foldchange);
+        MainFrame.execCommand(this, "Sample Size Estimator", params);
     }//GEN-LAST:event_SSExecuteButtonActionPerformed
 
     private void SSSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSSaveButtonActionPerformed
@@ -532,15 +518,8 @@ public class SampleSizePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_SSResetButtonActionPerformed
 
     private void SSCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SSCloseButtonActionPerformed
-        SSCountTableText.setText("");
-        SSFDRtext.setText("0.1");
-        SSGeneText.setText("200");
-        SSOutputFolderText.setText("");
-        SSPowerText.setText("0.8");
-        SSlog2Text.setText("1");
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        SSResetButtonActionPerformed(evt); 
+        MainFrame.setCard(null);
         // AnalysisTree.clearSelection();
     }//GEN-LAST:event_SSCloseButtonActionPerformed
 

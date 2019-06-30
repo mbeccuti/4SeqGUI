@@ -5,17 +5,11 @@
  */
 package pkg4seqgui;
 
-import java.awt.CardLayout;
-import java.io.File;
-import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.Timer;
 import java.util.regex.Pattern;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import static pkg4seqgui.MainFrame.contextMenu;
-import static pkg4seqgui.MainFrame.getPreferences;
 
 /**
  *
@@ -645,23 +639,8 @@ public class CountingSalmon extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
-        //RESET FIELDS
-        cDockerRadioButton.setSelected(true);
-        cFastQFolderText.setText("");
-        cOutputFolderText.setText("");
-        cThreadText.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
-        cAdapter5Text.setText(MainFrame.GS.getDefaultAdapter5());
-        cAdapter3Text.setText(MainFrame.GS.getDefaultAdapter3());
-        cSeRadioButton.setSelected(true);
-        cMinLengthText.setText("40");
-        cGenomeFolderText.setText("");
-        cSNoneRadioButton.setSelected(true);
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
-        //GL.setAvoidProcListValueChanged(-1);
-        //        AnalysisTree.clearSelection();
+        jButton40ActionPerformed(evt); 
+        MainFrame.setCard(null);
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
@@ -782,23 +761,7 @@ public class CountingSalmon extends javax.swing.JPanel {
     }//GEN-LAST:event_cFastQFolderTextActionPerformed
 
     private void jToggleButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton32ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(cFastQFolderText.getText().equals(""))){
-            File file =new File(cFastQFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            cFastQFolderText.setText(String.valueOf(f));
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, cFastQFolderText, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_jToggleButton32ActionPerformed
 
     private void jToggleButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton33ActionPerformed
@@ -806,23 +769,7 @@ public class CountingSalmon extends javax.swing.JPanel {
     }//GEN-LAST:event_jToggleButton33ActionPerformed
 
     private void jToggleButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton34ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(cOutputFolderText.getText().equals(""))){
-            File file =new File(cOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            cOutputFolderText.setText(String.valueOf(f));
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, cOutputFolderText, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_jToggleButton34ActionPerformed
 
     private void jToggleButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton35ActionPerformed
@@ -830,23 +777,7 @@ public class CountingSalmon extends javax.swing.JPanel {
     }//GEN-LAST:event_jToggleButton35ActionPerformed
 
     private void jToggleButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton36ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(cGenomeFolderText.getText().equals(""))){
-            File file =new File(cGenomeFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            cGenomeFolderText.setText(String.valueOf(f));
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, cGenomeFolderText, JFileChooser.DIRECTORIES_ONLY);
     }//GEN-LAST:event_jToggleButton36ActionPerformed
 
     private void jToggleButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton37ActionPerformed

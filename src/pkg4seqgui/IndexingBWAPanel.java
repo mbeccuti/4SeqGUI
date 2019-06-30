@@ -462,118 +462,77 @@ public class IndexingBWAPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iCloseButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iCloseButton1ActionPerformed
-        iBFalseRadioButton.setSelected(true);
-        i1000GenomeText.setText("");
-        idbSPNText.setText("");
-        iGenomeFolderBText.setText("");
-        iDockerRadioButton.setSelected(true);
-        iGenomeURLBText.setText("");
-        iThreadBText.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        iResetButton1ActionPerformed(evt);
+        MainFrame.setCard(null);
         // AnalysisTree.clearSelection();
     }//GEN-LAST:event_iCloseButton1ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        if (iGenomeFolderBText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an Genome folder","Error: Genome  folder",JOptionPane.ERROR_MESSAGE);
+        String genomeFolder = iGenomeFolderBText.getText(), 
+               genomeURL = iGenomeURLBText.getText(), 
+               vcf1000genomes = i1000GenomeText.getText(), 
+               dbsnpfile = idbSPNText.getText(); 
+        int nthreads = 0;
+        
+        if (genomeFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an Genome folder",
+                    "Error: Genome  folder",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (iGenomeURLBText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an Genome URL ","Error: Genome URL",JOptionPane.ERROR_MESSAGE);
+        if (genomeURL.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an Genome URL ",
+                    "Error: Genome URL",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (iBTrueRadioButton.isSelected()&&(i1000GenomeText.getText().isEmpty())){
-            JOptionPane.showMessageDialog(this, "You have to specified the 1000 Genome file  ","Error: 1000 Genome file",JOptionPane.ERROR_MESSAGE);
-            return;
-        }else
-        if (iBTrueRadioButton.isSelected()&&(idbSPNText.getText().isEmpty())){
-            JOptionPane.showMessageDialog(this, "You have to specified the dbSPN file  ","Error: dbSPN file",JOptionPane.ERROR_MESSAGE);
+        if (iBTrueRadioButton.isSelected() && vcf1000genomes.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the 1000 Genome file",
+                    "Error: 1000 Genome file",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (iThreadBText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
-            iThreadText.requestFocusInWindow();
+        if (iBTrueRadioButton.isSelected() && dbsnpfile.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the dbSPN file",
+                    "Error: dbSPN file",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        try
-        {
-            Integer x = Integer.valueOf(iThreadBText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+        try {
+            nthreads = Integer.valueOf(iThreadBText.getText().trim());
+            if (nthreads <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: Thread  number",
+                        JOptionPane.ERROR_MESSAGE);
                 iThreadBText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the number of threads that will be used.",
+                    "Error: Thread  number",
+                    JOptionPane.ERROR_MESSAGE);
             iThreadBText.requestFocusInWindow();
             return;
         }
-
+        
         //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execIndexingBWA.sh "};
-            if (iSudoBRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+= " genome.folder=\\\""+iGenomeFolderBText.getText()+"\\\" uscs.urlgenome=\\\""+iGenomeURLBText.getText() +"\\\"";
-            if (iBTrueRadioButton.isSelected()){
-                cmd[2]+= " gatk=TRUE";
-                cmd[2]+= " dbsnp.file=\\\""+idbSPNText.getText()+"\\\"  g1000.file=\\\""+i1000GenomeText.getText()+"\\\"";
-            }
-            else{
-                cmd[2]+= " gatk=FALSE";
-                cmd[2]+= " dbsnp.file=NULL  g1000.file=NULL";
-            }
-
-            cmd[2]+= " threads="+iThreadBText.getText()+ " "+iGenomeFolderBText.getText() + " >& "+iGenomeFolderBText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println("Runing PID:"+ MainFrame.getPidOfProcess(pr)+"\n");
-                System.out.println(cmd[2]);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Genome indexing BWA ", iGenomeFolderBText.getText(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Genome indexing BWA ",iGenomeFolderBText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-
-        JOptionPane.showMessageDialog(this, "Genome indexing BWA task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
+        boolean gatk_flag = iBTrueRadioButton.isSelected();
+        
+        ScriptCaller params = new ScriptCaller("indexingBWA.R", genomeFolder)
+                .addArg("group", iSudoBRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("genome.folder", genomeFolder)
+                .addArg("uscs.urlgenome", genomeURL)
+                .addArg("gatk", gatk_flag)
+                .addArg("threads", nthreads)
+                .addArg("dbsnp.file", gatk_flag ? dbsnpfile : "NULL")
+                .addArg("g1000.file", gatk_flag ? vcf1000genomes : "NULL"); 
+        MainFrame.execCommand(this, "Genome indexing BWA", params);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void iResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iResetButton1ActionPerformed
@@ -595,23 +554,7 @@ public class IndexingBWAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_iGenomeFolderBTextActionPerformed
 
     private void jToggleButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton18ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(iGenomeFolderBText.getText().equals(""))){
-            File file =new File(iGenomeFolderBText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            iGenomeFolderBText.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, iGenomeFolderBText, JFileChooser.DIRECTORIES_ONLY); 
     }//GEN-LAST:event_jToggleButton18ActionPerformed
 
     private void jToggleButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton19ActionPerformed
@@ -623,20 +566,12 @@ public class IndexingBWAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_iBTrueRadioButtonActionPerformed
 
     private void iBFalseRadioButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_iBFalseRadioButtonStateChanged
-        if (iBFalseRadioButton.isSelected())
-        {
-            i1000BrowseButton.setEnabled(false);
-            i1000CancelButton.setEnabled(false);
-            idbSPNBrowseButton.setEnabled(false);
-            idbSPNCancelButton.setEnabled(false);
-        }
-        else
-        {
-            i1000BrowseButton.setEnabled(true);
-            i1000CancelButton.setEnabled(true);
-            idbSPNBrowseButton.setEnabled(true);
-            idbSPNCancelButton.setEnabled(true);
-        }
+        boolean flag = iBTrueRadioButton.isSelected();
+        
+        i1000BrowseButton.setEnabled(flag);
+        i1000CancelButton.setEnabled(flag);
+        idbSPNBrowseButton.setEnabled(flag);
+        idbSPNCancelButton.setEnabled(flag);
     }//GEN-LAST:event_iBFalseRadioButtonStateChanged
 
     private void iBFalseRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iBFalseRadioButtonActionPerformed
@@ -644,23 +579,7 @@ public class IndexingBWAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_iBFalseRadioButtonActionPerformed
 
     private void i1000BrowseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i1000BrowseButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(i1000GenomeText.getText().equals(""))){
-            File file =new File(i1000GenomeText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            i1000GenomeText.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, i1000GenomeText, JFileChooser.FILES_ONLY); 
     }//GEN-LAST:event_i1000BrowseButtonActionPerformed
 
     private void i1000CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_i1000CancelButtonActionPerformed
@@ -668,23 +587,7 @@ public class IndexingBWAPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_i1000CancelButtonActionPerformed
 
     private void idbSPNBrowseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idbSPNBrowseButtonActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(idbSPNText.getText().equals(""))){
-            File file =new File(idbSPNText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = MainFrame.getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            idbSPNText.setText(String.valueOf(f));
-        }
-        MainFrame.getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, idbSPNText, JFileChooser.FILES_ONLY); 
     }//GEN-LAST:event_idbSPNBrowseButtonActionPerformed
 
     private void idbSPNCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idbSPNCancelButtonActionPerformed

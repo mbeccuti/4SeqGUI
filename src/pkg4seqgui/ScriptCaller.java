@@ -37,8 +37,6 @@ public class ScriptCaller {
         
         this.logfile_R = String.format("Routput_%s.Rout", this.callingTime);
         this.logfile_outputExec = String.format("outputExecution_%s", this.callingTime); 
-        
-//        System.out.println("Data prodotta: " + this.callingTime); 
     }
     
     /**
@@ -65,6 +63,12 @@ public class ScriptCaller {
     public ScriptCaller addArg(String argName, boolean argValue) {
         scriptArguments.add(new ScriptParameter(argName, argValue));
         return this;
+    }
+    
+    /* encode an R vectors */ 
+    public ScriptCaller addArgAsVector(String argName, String ... args) {
+        scriptArguments.add(new ScriptParameter(argName, args)); 
+        return this; 
     }
 
     /**
@@ -157,7 +161,15 @@ class ScriptParameter {
      */
     public ScriptParameter(String name, String value) {
         this.name = name; 
-        this.value = value.equals("NA") ? "NA" : String.format("'%s'", value.trim()).replace("'", "\\\"");
+        
+        switch (value.trim()) {
+            case "NA":
+            case "NULL":
+                this.value = value; 
+                break; 
+            default:
+                this.value = String.format("'%s'", value.trim()).replace("'", "\\\"");
+        }
     }
     
     public ScriptParameter(String name, int value) {
@@ -173,6 +185,11 @@ class ScriptParameter {
     public ScriptParameter(String name, boolean value) {
         this.name = name; 
         this.value = value ? "TRUE" : "FALSE"; 
+    }
+    
+    public ScriptParameter(String name, String ... args) {
+        this.name = name; 
+        this.value = String.format("c\\(%s\\)", String.join(",", args)); 
     }
     
     @Override

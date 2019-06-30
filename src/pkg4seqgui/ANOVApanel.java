@@ -5,14 +5,9 @@
  */
 package pkg4seqgui;
 
-import java.awt.CardLayout;
-import java.io.File;
-import java.io.IOException;
-import java.util.Timer;
-import javax.swing.ImageIcon;
+
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import static pkg4seqgui.MainFrame.getPreferences;
 
 /**
  *
@@ -467,104 +462,71 @@ public class ANOVApanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton9ActionPerformed
-        ANinputfileText.setText("");
-        ANOutputFolderText.setText("");
-        ANLog2fcText.setText("1.0");
-        ANLogCPMText.setText("4.0");
-        ANadjPText.setText("0.1");
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton50ActionPerformed(evt);
+        MainFrame.setCard(null); 
     }//GEN-LAST:event_vCloseButton9ActionPerformed
 
     private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
-        if (ANinputfileText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: Data  input file ",JOptionPane.ERROR_MESSAGE);
+        String inputFile = ANinputfileText.getText(); 
+        String outputFolder = ANOutputFolderText.getText(); 
+        float logfc = 0, fdr = 0, cpm = 0; 
+        
+        if (inputFile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input file",
+                    "Error: Data input file ",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        try
-        {
-            Float x = Float.valueOf(ANLog2fcText.getText());
+        
+        try {
+            logfc = Float.valueOf(ANLog2fcText.getText().trim());
         }
         catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a number for LogFG threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
-            ///HLowerRangeText.requestFocusInWindow();
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a number for LogFG threshold.",
+                    "Error: bound  number",
+                    JOptionPane.ERROR_MESSAGE);
+            ANLog2fcText.requestFocusInWindow();
             return;
         }
-
+        
         try
         {
-            Float x = Float.valueOf(ANLogCPMText.getText());
+            cpm = Float.valueOf(ANLogCPMText.getText());
         }
         catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a number for LogCPM threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
-            ///HLowerRangeText.requestFocusInWindow();
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a number for LogCPM threshold.",
+                    "Error: bound  number",
+                    JOptionPane.ERROR_MESSAGE);
+            ANLogCPMText.requestFocusInWindow();
             return;
         }
 
-        try
-        {
-            Float x = Float.valueOf(ANadjPText.getText());
+        try {
+            fdr = Float.valueOf(ANadjPText.getText());
         }
         catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified a number for  Adj. p-value threshold.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
-            ///HLowerRangeText.requestFocusInWindow();
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a number for  Adj. p-value threshold.",
+                    "Error: bound  number",
+                    JOptionPane.ERROR_MESSAGE);
+            ANadjPText.requestFocusInWindow();
             return;
         }
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execANOVAlike.sh "};
-            if (ANSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+= " file=\\\""+ANinputfileText.getText()+"\\\""+" logFC.threshold="+ANLog2fcText.getText();
-            cmd[2]+= " FDR.threshold="+ANadjPText.getText()+" logCPM.threshold="+ANLogCPMText.getText();
-            cmd[2]+=" "+ANOutputFolderText.getText() +" >& "+ANOutputFolderText.getText()+"/outputExecution ";
-
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("ANOVA-like  ", ANOutputFolderText.getText(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("ANOVA-like", ANOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "ANOVA-lie task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
+        
+        
+        ScriptCaller params = new ScriptCaller("ANOVAlike.R", outputFolder)
+                .addArg("group", ANSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("file", inputFile)
+                .addArg("logFC.threshold", logfc)
+                .addArg("logCPM.threshold", cpm)
+                .addArg("FDR.threshold", fdr); 
+        MainFrame.execCommand(this, "ANOVA-like", params);
     }//GEN-LAST:event_jButton49ActionPerformed
 
     private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
-
         ANinputfileText.setText("");
         ANOutputFolderText.setText("");
         ANLog2fcText.setText("1.0");
@@ -581,24 +543,8 @@ public class ANOVApanel extends javax.swing.JPanel {
     }//GEN-LAST:event_ANinputfileTextActionPerformed
 
     private void jToggleButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton48ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(ANinputfileText.getText().equals(""))){
-            File file =new File(ANOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            ANinputfileText.setText(String.valueOf(f));
-            ANOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        JFileChooser openDir = MainFrame.browseTextFieldContent(this, ANinputfileText, JFileChooser.FILES_ONLY); 
+        ANOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jToggleButton48ActionPerformed
 
     private void fCancelButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton6ActionPerformed

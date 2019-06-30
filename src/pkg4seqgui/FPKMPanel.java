@@ -319,23 +319,7 @@ private static final long serialVersionUID = 57782123317L;
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void FbrowesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FbrowesActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(FOutputFolderText.getText().equals(""))){
-            File file =new File(FOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            FOutputFolderText.setText(String.valueOf(f));
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, FOutputFolderText, JFileChooser.DIRECTORIES_ONLY); 
     }//GEN-LAST:event_FbrowesActionPerformed
 
     private void FcancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FcancelActionPerformed

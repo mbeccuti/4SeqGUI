@@ -5,15 +5,9 @@
  */
 package pkg4seqgui;
 
-import java.awt.CardLayout;
-import java.io.File;
-import java.io.IOException;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 //import static pkg4seqgui.MainFrame.contextMenu;
-import static pkg4seqgui.MainFrame.getPreferences;
 
 /**
  *
@@ -350,86 +344,34 @@ public class FilterCountsPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton6ActionPerformed
-
-        //RESET FIELDS
-        fisoformRadioButton.setSelected(true);
-        fFPKMfileText.setText("");
-        fOutputFolderText.setText("");
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton43ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton6ActionPerformed
 
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
-
         //Field check
-
-        if (fFPKMfileText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
+        String dataFolder = fFPKMfileText.getText(); 
+        
+        if (dataFolder.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input file",
+                    "Error: input file",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        if (fOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        Runtime rt = Runtime.getRuntime();
-        //execute code
-
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execFilterCounts.sh "};
-            cmd[2]+= " data.folder=\\\""+ fFPKMfileText.getText() +"\\\"";
-            if (fisoformRadioButton.isSelected())
-                cmd[2]+= " type=\\\"isoform\\\"";
-            else
-                if (fmirnaRadioButton.isSelected())
-                    cmd[2]+= " type=\\\"mirna\\\"";
-                else
-                    cmd[2]+= " type=\\\"gene\\\"";
-            cmd[2]+= " output.folder=\\\""+ fOutputFolderText.getText() +"\\\"";
-            // File outputFolder= new File(pFPKMfileText.getText());
-            // String output= outputFolder.getAbsolutePath().substring(0,outputFolder.getAbsolutePath().lastIndexOf(File.separator));
-            cmd[2]+=" "+ fOutputFolderText.getText()+" >& "+fOutputFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println(cmd[2]);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Count Filter ", fOutputFolderText.getText() ,pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Count filter ", fOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "A count filter task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
+        
+        
+        String type = "isoform"; 
+        if (!fisoformRadioButton.isSelected())
+            type = fmirnaRadioButton.isSelected() ? "mirna" : "gene"; 
+        
+        ScriptCaller params = new ScriptCaller("FilterCounts.R", dataFolder)
+                .addArg("data.folder", dataFolder)
+                .addArg("output.folder", dataFolder)
+                .addArg("type", type); 
+        MainFrame.execCommand(this, "Count filter", params);
     }//GEN-LAST:event_jButton42ActionPerformed
 
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
@@ -447,25 +389,9 @@ public class FilterCountsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_fFPKMfileTextActionPerformed
 
     private void jToggleButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton38ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(fFPKMfileText.getText().equals(""))){
-            File file =new File(fOutputFolderText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            fFPKMfileText.setText(String.valueOf(f));
-            //UPDATE TO REMOVE OUTPUT FOLDER
-            fOutputFolderText.setText(String.valueOf(f));
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        JFileChooser openDir = MainFrame.browseTextFieldContent(this, fFPKMfileText, JFileChooser.DIRECTORIES_ONLY);
+        //UPDATE TO REMOVE OUTPUT FOLDER
+        fOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jToggleButton38ActionPerformed
 
     private void fCancelButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton4ActionPerformed

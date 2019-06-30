@@ -4,12 +4,8 @@
  * and open the template in the editor.
  */
 package pkg4seqgui;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.io.File;
-import java.io.IOException;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
@@ -686,187 +682,133 @@ public class VmRNA extends javax.swing.JPanel {
     private void vCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButtonActionPerformed
 
         //RESET FIELDS
-        vDockerRadioButton.setSelected(true);
-        vFastQFolderText.setText("");
-        vOutputFolderText.setText("");
-        vThreadText.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
-        vAdapter5Text.setText(MainFrame.GS.getDefaultAdapter5());
-        vAdapter3Text.setText(MainFrame.GS.getDefaultAdapter3());
-        vSeRadioButton.setSelected(true);
-        vMinLengthText.setText("40");
-        vGenomeFolderText.setText("");
-        vSNoneRadioButton.setSelected(true);
-        vOrganismText.setText("hg38");
-        vBAMyesRadioButton.setSelected(true);
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton5ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         // AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButtonActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        String fastqFolder = vFastQFolderText.getText(), 
+               scratchFolder = vOutputFolderText.getText(), 
+               genomeFolder = vGenomeFolderText.getText();
+        String organism = vOrganismText.getText().trim(), 
+               adapter3 = vAdapter3Text.getText().trim(), 
+               adapter5 = vAdapter5Text.getText().trim();
+        int nthreads = 0, minlength = 0; 
+        
         //Field check
-
-        if (vFastQFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input folder","Error: FastQ  folder",JOptionPane.ERROR_MESSAGE);
+        if (fastqFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an input folder",
+                    "Error: FastQ folder",
+                    JOptionPane.ERROR_MESSAGE);
             //vFastQFolderText.requestFocusInWindow();
             return;
         }
-        else
-        if (vOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output folder","Error: Output folder",JOptionPane.ERROR_MESSAGE);
+        if (scratchFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a scratch folder",
+                    "Error: Scratch folder",
+                    JOptionPane.ERROR_MESSAGE);
             //vOutputFolderText.requestFocusInWindow();
             return;
         }
-        else
-        if (vGenomeFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
+        if (genomeFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an genome folder",
+                    "Error: Genome folder",
+                    JOptionPane.ERROR_MESSAGE);
             //vGenomeFolderText.requestFocusInWindow();
             return;
         }
-        else
-        if (vThreadText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+        
+        try {
+            nthreads = Integer.valueOf(vThreadText.getText());
+            if (nthreads <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: Thread  number",
+                        JOptionPane.ERROR_MESSAGE);
+                vThreadText.requestFocusInWindow();
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the number of threads that will be used.",
+                    "Error: Thread  number",
+                    JOptionPane.ERROR_MESSAGE);
             vThreadText.requestFocusInWindow();
             return;
         }
-        try
-        {
-            Integer x = Integer.valueOf(vThreadText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
-                vThreadText.requestFocusInWindow();
+
+        if (!adapter5.isEmpty() && !MainFrame.adapter.matcher(adapter5).matches()){
+            JOptionPane.showMessageDialog(this, 
+                    "The specified Adapter format is not valid.",
+                    "Error: Adapter 5'",
+                    JOptionPane.ERROR_MESSAGE);
+            vAdapter5Text.requestFocusInWindow();
+            return; 
+        }
+        if (!adapter3.isEmpty() && !MainFrame.adapter.matcher(adapter3).matches()){
+            JOptionPane.showMessageDialog(this, 
+                    "The specified Adapter format is not valid.",
+                    "Error: Adapter 3'",
+                    JOptionPane.ERROR_MESSAGE);
+            vAdapter3Text.requestFocusInWindow();
+            return;
+        }
+        try{
+            minlength = Integer.valueOf(vMinLengthText.getText());
+            if (minlength < 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a positive value.",
+                        "Error: Minimum read length",
+                        JOptionPane.ERROR_MESSAGE);
+                vMinLengthText.requestFocusInWindow();
                 return;
             }
         }
         catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
-            vThreadText.requestFocusInWindow();
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a positive value.",
+                    "Error: Minimum read length",
+                    JOptionPane.ERROR_MESSAGE);
+            vMinLengthText.requestFocusInWindow();
+            return;
+        }
+        if (!MainFrame.org.matcher(organism).matches()){
+            JOptionPane.showMessageDialog(this, 
+                    "The specified organism is not valid.",
+                    "Error: Organism",
+                    JOptionPane.ERROR_MESSAGE);
+            vOrganismText.requestFocusInWindow();
             return;
         }
 
-        if ((!vAdapter5Text.getText().isEmpty())&&(!MainFrame.adapter.matcher(vAdapter5Text.getText()).matches())){
-            JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 5'",JOptionPane.ERROR_MESSAGE);
-            vAdapter5Text.requestFocusInWindow();
-        }
-        else{
-            if ((!vAdapter3Text.getText().isEmpty())&&(!MainFrame.adapter.matcher(vAdapter3Text.getText()).matches())){
-                JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 3'",JOptionPane.ERROR_MESSAGE);
-                vAdapter3Text.requestFocusInWindow();
-            }
-            else{
-                if (vMinLengthText.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "You have to specified a value for the minimum lenght.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                    vMinLengthText.requestFocusInWindow();
-                    return;
-                }
-                try{
-                    Integer x = Integer.valueOf(vMinLengthText.getText());
-                    if (x<0){
-                        JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                        vMinLengthText.requestFocusInWindow();
-                        return;
-                    }
-                }
-                catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                    vMinLengthText.requestFocusInWindow();
-                    return;
-                }
-                if (!MainFrame.org.matcher(vOrganismText.getText()).matches()){
-                    JOptionPane.showMessageDialog(this, "The specified organism is not valid.","Error: Organism",JOptionPane.ERROR_MESSAGE);
-                    vOrganismText.requestFocusInWindow();
-                }
-                else{
-                    //execute code
-                    Runtime rt = Runtime.getRuntime();
-                    try{
-                        String[] cmd = {"/bin/bash","-c"," bash ./execRNA.sh "};
+        //execute code
+        String strandness = "none"; 
+        if (!vSNoneRadioButton.isSelected())
+            strandness = vSForwardRadioButton.isSelected() ? "forward" : "reverse"; 
 
-                        if (vSudoRadioButton.isSelected()){
-                            cmd[2]+= "group=\\\"sudo\\\"";
-                        }
-                        else{
-                            cmd[2]+= "group=\\\"docker\\\"";
-                        }
-                        cmd[2]+= " fastq.folder=\\\""+vFastQFolderText.getText()+"\\\" scratch.folder=\\\""+vOutputFolderText.getText()+"\\\" adapter5=\\\""+vAdapter5Text.getText()+"\\\" adapter3=\\\""+vAdapter3Text.getText()+"\\\"";
-
-                        if (vPeRadioButton.isSelected()){
-                            cmd[2]+= " seq.type=\\\"pe\\\"";
-                        }
-                        else{
-                            cmd[2]+= " seq.type=\\\"se\\\"";
-                        }
-                        cmd[2]+= " threads="+vThreadText.getText()+" min.length="+vMinLengthText.getText()+" genome.folder=\\\""+vGenomeFolderText.getText()+"\\\"";
-
-                        if (vSNoneRadioButton.isSelected())
-                        cmd[2]+= " strandness=\\\"none\\\"";
-                        else
-                        if (vSForwardRadioButton.isSelected())
-                        cmd[2]+= " strandness=\\\"forward\\\"";
-                        else
-                        cmd[2]+= " strandness=\\\"reverse\\\"";
-
-                        cmd[2]+= " annotation.type=\\\"gtfENSEMBL\\\"";
-
-                        if (vBAMyesRadioButton.isSelected())
-                        cmd[2]+= " save.bam=TRUE";
-                        else
-                        cmd[2]+= " save.bam=FALSE";
-
-                        cmd[2]+=" org=\\\""+vOrganismText.getText()+"\\\"";
-
-                        cmd[2]+=" "+vFastQFolderText.getText() +" >& "+vFastQFolderText.getText()+"/outputExecution ";
-
-                        //ProcessStatus.setText(pr.toString());
-                        if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                            Process pr = rt.exec(cmd);
-                            //System.out.println("lanciato "+pr);
-                            MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Genes, isoforms counting RSEM ", vFastQFolderText.getText(),pr,MainFrame.listModel.getSize());
-                            MainFrame.listProcRunning.add(tmp);
-                            java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                            ImageIcon image2 = new ImageIcon(imgURL);
-                            MainFrame.GL.setAvoidProcListValueChanged(-1);
-                            MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                            MainFrame.GL.setAvoidProcListValueChanged(0);
-                            //addElement("RNAseq counting workflow (data input: "+vFastQFolderText.getText()+")            [Runnig]");
-                            if(MainFrame.listProcRunning.size()==1){
-                                MainFrame.t=new Timer();
-                                MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                            }
-                        }
-
-                        else{
-                            MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Genes, isoforms counting RSEM ",vFastQFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                            MainFrame.listProcWaiting.add(tmp);
-                            java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                            ImageIcon image2 = new ImageIcon(imgURL);
-                            MainFrame.GL.setAvoidProcListValueChanged(-1);
-                            MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                            MainFrame.GL.setAvoidProcListValueChanged(0);
-
-                        }
-                        MainFrame.GL.setAvoidProcListValueChanged(-1);
-                        MainFrame.ProcList.setModel(MainFrame.listModel);
-                        MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-                        MainFrame.GL.setAvoidProcListValueChanged(0);
-                    }
-                    catch(IOException e) {
-                        JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-                        System.out.println(e.toString());
-                    }
-                    JOptionPane.showMessageDialog(this, "Genes, isoforms counting RSEM task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-                }
-                //execute code
-            }
-        }
+        ScriptCaller params = new ScriptCaller("rnaseqCounts.R", fastqFolder)
+                .addArg("group", vSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("fastq.folder", fastqFolder)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("genome.folder", genomeFolder)
+                .addArg("adapter3", adapter3)
+                .addArg("adapter5", adapter5)
+                .addArg("seq.type", vPeRadioButton.isSelected() ? "pe" : "se")
+                .addArg("min.length", minlength)
+                .addArg("threads", nthreads)
+                .addArg("strandness", strandness)
+                .addArg("save.bam", vBAMyesRadioButton.isSelected())
+                .addArg("annotation.type", "gtfENSEMBL")
+                .addArg("org", organism);
+        MainFrame.execCommand(this, "Genes, isoforms counting RSEM", params);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
         vDockerRadioButton.setSelected(true);
         vFastQFolderText.setText("");
         vOutputFolderText.setText("");

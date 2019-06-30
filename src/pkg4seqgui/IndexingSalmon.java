@@ -4,16 +4,10 @@
  * and open the template in the editor.
  */
 package pkg4seqgui;
-import java.awt.CardLayout;
-import java.io.File;
-import java.io.IOException;
-import java.util.Timer;
-import javax.swing.ImageIcon;
+
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import pkg4seqgui.MainFrame.MyTask;
 import static pkg4seqgui.MainFrame.contextMenu;
-import static pkg4seqgui.MainFrame.getPreferences;
 /**
  *
  * @author user
@@ -364,110 +358,104 @@ public class IndexingSalmon extends javax.swing.JPanel {
     }//GEN-LAST:event_iCloseButton2ActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
-        if (iGenomeFolderSText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an Genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
+        //Field check 
+        String genomeFolder = iGenomeFolderSText.getText(), 
+               genomeURL = iGenomeURLSText.getText(), 
+               gtfURL = iGTFURLSText.getText(); 
+        int nthreads = 0, kmersize = 0; 
+        
+
+        if (genomeFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an Genome folder",
+                    "Error: Genome folder",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (iGenomeURLSText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an Genome URL ","Error: Genome URL",JOptionPane.ERROR_MESSAGE);
+        
+        if (genomeURL.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an Genome URL ",
+                    "Error: Genome URL",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (iGTFURLSText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an GTF URL ","Error: GTF URL",JOptionPane.ERROR_MESSAGE);
+        
+        if (gtfURL.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an GTF URL ",
+                    "Error: GTF URL",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
+        
         if (iThreadSText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the number of threads that will be used.",
+                    "Error: Thread  number",
+                    JOptionPane.ERROR_MESSAGE);
             iThreadSText.requestFocusInWindow();
             return;
         }
+        
+        if (iKmerSText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the k-mer size that will be used.",
+                    "Error: k-mer  number",
+                    JOptionPane.ERROR_MESSAGE);
+            iKmerSText.requestFocusInWindow();
+            return;
+        }
+        
         try {
-            Integer x = Integer.valueOf(iThreadSText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            nthreads = Integer.valueOf(iThreadSText.getText().trim());
+            if (nthreads <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: Thread  number",
+                        JOptionPane.ERROR_MESSAGE);
                 iThreadSText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the number of threads that will be used.",
+                    "Error: Thread  number",
+                    JOptionPane.ERROR_MESSAGE);
             iThreadSText.requestFocusInWindow();
             return;
         }
 
-        if (iKmerSText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the k-mer size that will be used.","Error: k-mer  number",JOptionPane.ERROR_MESSAGE);
-            iKmerSText.requestFocusInWindow();
-            return;
-        }
-        try
-        {
-            Integer x = Integer.valueOf(iKmerSText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: k-mer  number",JOptionPane.ERROR_MESSAGE);
+        
+        try {
+            kmersize = Integer.valueOf(iKmerSText.getText().trim());
+            if (kmersize <= 0){
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specified a value greater than 0.",
+                        "Error: k-mer  number",
+                        JOptionPane.ERROR_MESSAGE);
                 iKmerSText.requestFocusInWindow();
                 return;
             }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the k-mer size that will be used.","Error: k-mer number",JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the k-mer size that will be used.",
+                    "Error: k-mer number",
+                    JOptionPane.ERROR_MESSAGE);
             iKmerSText.requestFocusInWindow();
             return;
         }
 
         //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execIndexingSalmon.sh "};
-            if (iSudoRadioSButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+= " index.folder=\\\""+iGenomeFolderSText.getText()+"\\\" ensembl.urltranscriptome=\\\""+iGenomeURLSText.getText()+"\\\" ensembl.urlgtf=\\\""+iGTFURLSText.getText()+"\\\"";
-            cmd[2]+= " threads="+iThreadSText.getText()+ " k="+iKmerSText.getText()+" "+iGenomeFolderSText.getText() + " >& "+iGenomeFolderSText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println("Runing PID:"+ MainFrame.getPidOfProcess(pr)+"\n");
-
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Pseudo-reference building Salmon ", iGenomeFolderSText.getText(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Pseudo-reference building Salmon  ",iGenomeFolderSText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-
-        JOptionPane.showMessageDialog(this, "Transcriptome pseudo-reference Salmon task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
+        ScriptCaller params = new ScriptCaller("indexingSalmon.R", genomeFolder)
+                .addArg("group", iSudoRadioSButton.isSelected() ? "sudo" : "docker")
+                .addArg("index.folder", genomeFolder)
+                .addArg("ensembl.urltranscriptome", genomeURL)
+                .addArg("ensembl.urlgtf", gtfURL)
+                .addArg("threads", nthreads)
+                .addArg("k", kmersize);
+        
+        MainFrame.execCommand(this, "Transcriptome pseudo-reference Salmon", params);
     }//GEN-LAST:event_jButton37ActionPerformed
 
     private void iResetButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iResetButton2ActionPerformed
@@ -488,23 +476,7 @@ public class IndexingSalmon extends javax.swing.JPanel {
     }//GEN-LAST:event_iGenomeFolderSTextActionPerformed
 
     private void jToggleButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton30ActionPerformed
-        JFileChooser openDir = new JFileChooser();
-        if (!(iGenomeFolderSText.getText().equals(""))){
-            File file =new File(iGenomeFolderSText.getText());
-            if (file.isDirectory())
-            openDir.setCurrentDirectory(file);
-        }
-        else
-        {
-            String curDir = getPreferences().get("open-dir", null);
-            openDir.setCurrentDirectory(curDir!=null ? new File(curDir) : null);
-        }
-        openDir.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        if (openDir.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
-            File f = openDir.getSelectedFile();
-            iGenomeFolderSText.setText(String.valueOf(f));
-        }
-        getPreferences().put("open-dir",openDir.getCurrentDirectory().getAbsolutePath());
+        MainFrame.browseTextFieldContent(this, iGenomeFolderSText, JFileChooser.DIRECTORIES_ONLY); 
     }//GEN-LAST:event_jToggleButton30ActionPerformed
 
     private void jToggleButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton31ActionPerformed
