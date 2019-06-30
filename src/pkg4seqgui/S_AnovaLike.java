@@ -469,76 +469,82 @@ public class S_AnovaLike extends javax.swing.JPanel {
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton40ActionPerformed(evt);
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_AnovaLike_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_AnovaLike_jButtonActionPerformed
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execAnovaLikeS.sh "};
-            if (cSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" sep=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" cluster.file=\\\""+S_countTable1.getText()+"\\\"";
-            cmd[2]+=" ref.cluster=\\\""+ref_cluster.getText()+"\\\"";
-            cmd[2]+=" logFC.threshold=\\\""+S_logFCThreshold.getText()+"\\\"";
-            cmd[2]+=" FDR.threshold=\\\""+S_FDRThreshold.getText()+"\\\"";
-            cmd[2]+=" logCPM.threshold=\\\""+S_logCpmThreshold.getText()+"\\\"";
-            cmd[2]+=" plot=\\\""+S_plot.getSelectedItem().toString()+"\\\"";
-
-            Path p = Paths.get(S_countTable.getText());
-            Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Anova Like ", folder.toString(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Anova Like ",folder.toString(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
+        String countsFile = S_countTable.getText(), 
+               clusterFile = S_countTable1.getText(); 
+        int refcluster = 0, logfc = 0, logcpm = 0; 
+        float fdr = 0; 
+        
+        if (countsFile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the counts table file",
+                    "Error: Counts table file",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
+        if (clusterFile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the cluster file",
+                    "Error: Cluster file",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        JOptionPane.showMessageDialog(this, "Anova Like task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
-        //execute code
+        try {
+            refcluster = Integer.valueOf(ref_cluster.getText().trim()); 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the reference cluster",
+                    "Error: Reference cluster",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            logfc = Integer.valueOf(S_logFCThreshold.getText().trim()); 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the logFC threshold cluster",
+                    "Error: logFC threshold",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            logcpm = Integer.valueOf(S_logCpmThreshold.getText().trim()); 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the logCPM threshold cluster",
+                    "Error: logCPM threshold",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        try {
+            fdr = Float.valueOf(S_FDRThreshold.getText().trim()); 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the FDR threshold",
+                    "Error: FDR threshold",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        String outputFolder = Paths.get(S_countTable.getText()).getParent().toString();
+        ScriptCaller params = new ScriptCaller("ANOVAlikeS.R", outputFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("file", countsFile)
+                .addArg("sep", S_sep.getSelectedItem().toString())
+                .addArg("cluster.file", clusterFile)
+                .addArg("ref.cluster", refcluster)
+                .addArg("logFC.threshold", logfc)
+                .addArg("FDR.threshold", fdr)
+                .addArg("logCPM.threshold", logcpm)
+                .addArg("plot", S_plot.getSelectedItem().toString().equals("TRUE"));
+                
+        MainFrame.execCommand(this, "Anova Like", params);
     }//GEN-LAST:event_S_AnovaLike_jButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed

@@ -6,13 +6,9 @@
 package pkg4seqgui;
 import java.awt.CardLayout;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 /**
  *
  * @author user
@@ -404,79 +400,40 @@ public class MergeMatrix extends javax.swing.JPanel {
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton40ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_AnovaLike_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_AnovaLike_jButtonActionPerformed
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execMergeMatrix.sh "};
-            if (cSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+=" file1=\\\""+File1.getText()+"\\\"";
-                        cmd[2]+=" file2=\\\""+file2.getText()+"\\\"";
-
-            cmd[2]+=" sep1=\\\""+sep1.getSelectedItem().toString()+"\\\"";
-                        cmd[2]+=" sep2=\\\""+sep2.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" name1=\\\""+Name1.getText()+"\\\"";
-            cmd[2]+=" name2=\\\""+Name2.getText()+"\\\"";
-
-            Path p = Paths.get(File1.getText());
-            Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("MergeMatrix ", folder.toString(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("MergeMatrix ",folder.toString(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "MergeMatrix task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
-        //execute code
+        String inputfile1 = File1.getText(), 
+               inputfile2 = file2.getText();
+        String name1 = Name1.getText().trim(), 
+               name2 = Name2.getText().trim(); 
+        String sepf1 = sep1.getSelectedItem().toString(), 
+               sepf2 = sep2.getSelectedItem().toString(); 
+        
+        String outputFolder = Paths.get(File1.getText()).getParent().toString(); 
+        
+        ScriptCaller params = new ScriptCaller("mergeMatrix.R", outputFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("file1", inputfile1)
+                .addArg("file2", inputfile2)
+                .addArg("sep1", sepf1)
+                .addArg("sep2", sepf2)
+                .addArg("name1", name1)
+                .addArg("name2", name2); 
+        MainFrame.execCommand(this, "MergeMatrix", params);
     }//GEN-LAST:event_S_AnovaLike_jButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
         File1.setText("");
+        file2.setText("");
+        Name1.setText("");
+        Name2.setText("");
+        sep1.setSelectedIndex(0);
+        sep2.setSelectedIndex(0);
     }//GEN-LAST:event_jButton40ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
@@ -531,7 +488,7 @@ public class MergeMatrix extends javax.swing.JPanel {
     }//GEN-LAST:event_cDockerRadioButtonActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
- Path p = Paths.get(file2.getText());
+        Path p = Paths.get(file2.getText());
         Path folder = p.getParent();
 
         JFileChooser openDir = new JFileChooser();

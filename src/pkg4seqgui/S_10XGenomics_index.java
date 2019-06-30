@@ -363,6 +363,7 @@ public class S_10XGenomics_index extends javax.swing.JPanel {
 
         iDockerRadioSButton.setBackground(new java.awt.Color(248, 248, 248));
         mExecution.add(iDockerRadioSButton);
+        iDockerRadioSButton.setSelected(true);
         iDockerRadioSButton.setText("docker");
         iDockerRadioSButton.setToolTipText(null);
         iDockerRadioSButton.addActionListener(new java.awt.event.ActionListener() {
@@ -400,95 +401,54 @@ public class S_10XGenomics_index extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iCloseButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iCloseButton2ActionPerformed
-        iDockerRadioSButton.setSelected(true);
-        S_IndropIndex_indexFolder.setText("");
-        S_indropIndex_EnsembleGenomeUrl.setText("");
-        S_indropIndex_GTFUrl.setText("");
+        iResetButton2ActionPerformed(evt); 
         //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        MainFrame.setCard(null);
         //    AnalysisTree.clearSelection();
     }//GEN-LAST:event_iCloseButton2ActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
-        if (S_IndropIndex_indexFolder.getText().isEmpty()){
+        String scratchFolder = S_IndropIndex_scratchFolder.getText(), 
+               genomeFolder = S_IndropIndex_indexFolder.getText(); 
+        String genomeURL = S_indropIndex_EnsembleGenomeUrl.getText().trim(), 
+               gtfURL = S_indropIndex_GTFUrl.getText().trim();
+        int nthreads; 
+        
+        if (genomeFolder.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified an Genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (S_indropIndex_EnsembleGenomeUrl.getText().isEmpty()){
+        if (genomeURL.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified an Genome URL ","Error: Genome URL",JOptionPane.ERROR_MESSAGE);
             return;
         }
-        else
-        if (S_indropIndex_GTFUrl.getText().isEmpty()){
+        if (gtfURL.isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified an GTF URL ","Error: GTF URL",JOptionPane.ERROR_MESSAGE);
             return;
         }
-  
-   
-
-        //execute code
-       Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execTenXGenomics.sh "};
-            if (iSudoRadioSButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
+        
+        try {
+            nthreads = Integer.valueOf(nThreads.getText().trim()); 
+            if (nthreads <= 0) {
+                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+                nThreads.requestFocusInWindow();
+                return;
             }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-                cmd[2]+=" scratch.folder=\\\""+S_IndropIndex_scratchFolder.getText()+"\\\"";
-            cmd[2]+=" genomeFolder=\\\""+S_IndropIndex_indexFolder.getText()+"\\\"";
-                        cmd[2]+=" fasta.url=\\\""+S_indropIndex_EnsembleGenomeUrl.getText()+"\\\"";
-                        cmd[2]+=" gtf.url=\\\""+S_indropIndex_GTFUrl.getText()+"\\\"";
-                    cmd[2]+=" bio.type=\\\""+jComboBox1.getSelectedItem().toString()+"\\\"";
-                        cmd[2]+=" nThreads=\\\""+nThreads.getText()+"\\\"";
-                        
-
-  Path folder = Paths.get(S_IndropIndex_indexFolder.getText());
-         //   Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println("Runing PID:"+ MainFrame.getPidOfProcess(pr)+"\n");
-
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("TenXGenomics indexing ", S_IndropIndex_indexFolder.getText(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("TenXGenomics indexing   ",S_IndropIndex_indexFolder.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
+            nThreads.requestFocusInWindow();
+            return;
         }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-
-        JOptionPane.showMessageDialog(this, "TenXGenomics indexing  task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
+        
+        ScriptCaller params = new ScriptCaller("tenXGenomicsindexing.R", genomeFolder)
+                .addArg("group", iSudoRadioSButton.isSelected() ? "sudo" : "docker")
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("genomeFolder", genomeFolder)
+                .addArg("fasta.url", genomeURL)
+                .addArg("gtf.url", gtfURL)
+                .addArg("bio.type", jComboBox1.getSelectedItem().toString())
+                .addArg("nThreads", nthreads);
+        MainFrame.execCommand(this, "TenXGenomics indexing", params);
     }//GEN-LAST:event_jButton37ActionPerformed
 
     private void iResetButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iResetButton2ActionPerformed

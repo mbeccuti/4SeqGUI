@@ -13,6 +13,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.Timer;
+import javax.swing.table.TableModel;
 import static pkg4seqgui.MainFrame.getPreferences;
 
 /**
@@ -327,79 +328,43 @@ private static final long serialVersionUID = 57782123317L;
     }//GEN-LAST:event_FcancelActionPerformed
 
     private void FExecuteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FExecuteButtonActionPerformed
-        if (FPKMFileTable.getRowCount()<2){
-            JOptionPane.showMessageDialog(this, "You have to specified at least two folders","Error: Data  folders",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        String outputFolder = FOutputFolderText.getText(); 
+        int nrows = FPKMFileTable.getRowCount(); 
+        
         if (FOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output folders","Error: Output folder",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an output folders",
+                    "Error: Output folder",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execFPKM.sh "};
-            cmd[2]+="sample.folders=c\\(\\\"";
-            cmd[2]+=FPKMFileTable.getModel().getValueAt(0,0).toString();
-            for (int i = 1; i <  FPKMFileTable.getRowCount(); i++){
-                cmd[2]+="\\\",\\\""+FPKMFileTable.getModel().getValueAt(i,0).toString();
-            }
-            cmd[2]+= "\\\"\\)";
-            cmd[2]+=" covariates=c\\(\\\"";
-            cmd[2]+=FPKMFileTable.getModel().getValueAt(0,1).toString();
-            for (int i = 1; i <  FPKMFileTable.getRowCount(); i++){
-                cmd[2]+="\\\",\\\""+FPKMFileTable.getModel().getValueAt(i,1).toString();
-            }
-            cmd[2]+= "\\\"\\)";
-
-            cmd[2]+=" batch=c\\(\\\"";
-            cmd[2]+=FPKMFileTable.getModel().getValueAt(0,2).toString();
-            for (int i = 1; i <  FPKMFileTable.getRowCount(); i++){
-                cmd[2]+="\\\",\\\""+FPKMFileTable.getModel().getValueAt(i,2).toString();
-            }
-            cmd[2]+= "\\\"\\)";
-
-            cmd[2]+="  bio.type=\\\""+FtypesComboBox.getSelectedItem().toString()+"\\\"";
-            cmd[2]+="  output.prefix=\\\""+FOutputFolderText.getText() + "\\\" " + FOutputFolderText.getText() +">& "+FOutputFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println("Running PID:"+ MainFrame.getPidOfProcess(pr)+"\n");
-                //System.out.println(cmd[2]+"\n");
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("From samples to experiment ", FOutputFolderText.getText(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("From samples to experiment ",FOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
+        
+        if (nrows < 2){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified at least two folders",
+                    "Error: Data folders",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
         }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
+        
+        TableModel table = FPKMFileTable.getModel(); 
+        String[] folders = new String[nrows], 
+                 covariates = new String[nrows], 
+                 batches = new String[nrows]; 
+        
+        for (int i = 0; i < nrows; i++) {
+            folders[i] = String.format("'%s'", table.getValueAt(i, 0).toString()).replace("'", "\\\"");
+            covariates[i] = String.format("'%s'", table.getValueAt(i, 1).toString()).replace("'", "\\\"");
+            batches[i] = String.format("'%s'", table.getValueAt(i, 2).toString()).replace("'", "\\\"");
         }
-
-        JOptionPane.showMessageDialog(this, "From samples to experiment task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
+        
+        ScriptCaller params = new ScriptCaller("FPKMCounts.R", outputFolder)
+                .addArgAsVector("sample.folders", folders)
+                .addArgAsVector("covariates", covariates)
+                .addArgAsVector("batch", batches)
+                .addArg("bio.type", FtypesComboBox.getSelectedItem().toString())
+                .addArg("output.prefix", outputFolder); 
+        MainFrame.execCommand(this, "From samples to experiment", params);
     }//GEN-LAST:event_FExecuteButtonActionPerformed
 
     private void FSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FSaveButtonActionPerformed
@@ -416,17 +381,8 @@ private static final long serialVersionUID = 57782123317L;
     }//GEN-LAST:event_FResetButtonActionPerformed
 
     private void FCloseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FCloseButtonActionPerformed
-
-        FtypesComboBox.setSelectedIndex(0);
-        while( FPKMFileTable.getRowCount()!=0){
-            DefaultTableModel model = (DefaultTableModel) FPKMFileTable.getModel();
-            model.removeRow(0);
-        }
-        FOutputFolderText.setText("");
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        FResetButtonActionPerformed(evt); 
+        MainFrame.setCard(null);
         //   AnalysisTree.clearSelection();
     }//GEN-LAST:event_FCloseButtonActionPerformed
 

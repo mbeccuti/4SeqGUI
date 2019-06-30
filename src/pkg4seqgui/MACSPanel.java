@@ -1029,38 +1029,42 @@ public class MACSPanel extends javax.swing.JPanel {
 
     private void vCloseButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton4ActionPerformed
         //RESET FIELDS
-        MDockerRadioButton.setSelected(true);
-        MOutputFolderText.setText("");
-        MScratchFolderText.setText("");
-        MGenomeFolderText.setText("");
-        MTestFolderText.setText("");
-        MMockFolderText.setText("");
-        MThreadText.setText(Integer.toString(MainFrame.GS.getDefaultThread()));
-        MAdapter5Text.setText(MainFrame.GS.getDefaultAdapter3());
-        MAdapter3Text.setText(MainFrame.GS.getDefaultAdapter3());
-        MMinLengthText.setText("30");
-        MOrgComboBox.setSelectedIndex(0);
-        MRnoRadioButton.setSelected(true);
-        MMaxUpstreamText.setText("10000");
-        MTTSText.setText("0");
-        MMinmfoldText.setText("10");
-        MMpvalueText.setText("1e-5");
-        MMaxmfoldText.setText("30");
-        MSWindowsText.setText("200");
-        MSgsizeText.setText("200");
-        MSFDRText.setText("0.1");
-        MReadLengthTextField.setText("50");
-        MToolComboBox.setSelectedIndex(0);
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton24ActionPerformed(evt); 
+        
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton4ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        //Field check
+        String outputFolder = MOutputFolderText.getText(), 
+               scratchFolder = MScratchFolderText.getText(), 
+               genomeFolder = MGenomeFolderText.getText(), 
+               testFolder = MTestFolderText.getText(), 
+               mockFolder = MMockFolderText.getText(); 
+        String adapter3 = MAdapter3Text.getText().trim(), 
+               adapter5 = MAdapter5Text.getText().trim(); 
+        String organism = (String) MOrgComboBox.getSelectedItem(), 
+               tool = (String) MToolComboBox.getSelectedItem(); 
+        int minlength = 0, readlength = 0, nthreads = 0, maxdistance = 0, 
+            ttsdistance = 0, min_mfold = 0, max_mfold = 0; 
+        float pvalue = 0; 
+
+        
+        System.out.println(organism); 
+        System.out.println(tool); 
+        
+        try {
+            pvalue = Float.valueOf(MMpvalueText.getText().trim()); 
+            System.out.println(pvalue);
+        } catch (NumberFormatException e) {
+            return; 
+        }
+        
+        if (true)
+            return; 
+        
+//Field check
         if (MReadLengthTextField.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "You have to specified a read length value","Error: read length  value",JOptionPane.ERROR_MESSAGE);
             return;

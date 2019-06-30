@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 /**
  *
  * @author user
@@ -343,73 +344,39 @@ public class MRNABatchPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_CoutcancelActionPerformed
 
     private void FExecuteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FExecuteButton1ActionPerformed
-
-        if (CCovInputFileText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the count file","Error: Input file",JOptionPane.ERROR_MESSAGE);
+        String inputFile = CCovInputFileText.getText(), 
+               outputFolder = COutputFolderText.getText(); 
+        
+        if (inputFile.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified the count file",
+                    "Error: Input file",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (COutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output folders","Error: Output folder",JOptionPane.ERROR_MESSAGE);
+        if (outputFolder.isEmpty()){
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified an output folders",
+                    "Error: Output folder",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-        File f =new File(CCovInputFileText.getText());
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execmiRNACovar.sh "};
-            cmd[2]+="experiment.folder=\\\""+ f.getAbsolutePath()+"\\\"";
-            cmd[2]+=" covariates=c\\(\\\"";
-            cmd[2]+=CCountHeaderTable.getModel().getValueAt(0,1).toString();
-            for (int i = 1; i <  CCountHeaderTable.getRowCount(); i++){
-                cmd[2]+="\\\",\\\""+CCountHeaderTable.getModel().getValueAt(i,1).toString();
-            }
-            cmd[2]+= "\\\"\\)";
-            cmd[2]+=" batch=c\\(\\\"";
-            cmd[2]+=CCountHeaderTable.getModel().getValueAt(0,2).toString();
-            for (int i = 1; i <  CCountHeaderTable.getRowCount(); i++){
-                cmd[2]+="\\\",\\\""+CCountHeaderTable.getModel().getValueAt(i,2).toString();
-            }
-            cmd[2]+= "\\\"\\)";
-            cmd[2]+="  output.folder=\\\""+COutputFolderText.getText() + "\\\" " + COutputFolderText.getText() +">& "+COutputFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                System.out.println("Running PID:"+ MainFrame.getPidOfProcess(pr)+"\n");
-                //System.out.println(cmd[2]+"\n");
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Adding covariates and batch information ", COutputFolderText.getText(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Adding covariates and batch information",COutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
+        
+        TableModel table = CCountHeaderTable.getModel(); 
+        int nrows = CCountHeaderTable.getRowCount();
+        String[] covariates = new String[nrows], batches = new String[nrows]; 
+        
+        for (int i = 0; i < nrows; i++) {
+            covariates[i] = String.format("'%s'", table.getValueAt(i, 1).toString()).replace("'", "\\\"");
+            batches[i] = String.format("'%s'", table.getValueAt(i, 2).toString()).replace("'", "\\\"");
         }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-
-        JOptionPane.showMessageDialog(this, "Adding covariates and batch information task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
+        
+        ScriptCaller params = new ScriptCaller("miRNACovar.R", outputFolder)
+                .addArg("experiment.folder", inputFile)
+                .addArg("output.folder", outputFolder)
+                .addArgAsVector("covariates", covariates)
+                .addArgAsVector("batch", batches);
+        MainFrame.execCommand(this, "Adding covariates and batch information", params);
     }//GEN-LAST:event_FExecuteButton1ActionPerformed
 
     private void FSaveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FSaveButton1ActionPerformed
