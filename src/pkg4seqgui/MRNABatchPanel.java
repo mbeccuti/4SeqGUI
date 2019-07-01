@@ -367,15 +367,15 @@ public class MRNABatchPanel extends javax.swing.JPanel {
         String[] covariates = new String[nrows], batches = new String[nrows]; 
         
         for (int i = 0; i < nrows; i++) {
-            covariates[i] = String.format("'%s'", table.getValueAt(i, 1).toString()).replace("'", "\\\"");
-            batches[i] = String.format("'%s'", table.getValueAt(i, 2).toString()).replace("'", "\\\"");
+            covariates[i] = table.getValueAt(i, 1).toString();
+            batches[i] = table.getValueAt(i, 2).toString();
         }
         
         ScriptCaller params = new ScriptCaller("miRNACovar.R", outputFolder)
                 .addArg("experiment.folder", inputFile)
                 .addArg("output.folder", outputFolder)
-                .addArgAsVector("covariates", covariates)
-                .addArgAsVector("batch", batches);
+                .addArgAsVector("covariates", true, covariates)
+                .addArgAsVector("batch", true, batches);
         MainFrame.execCommand(this, "Adding covariates and batch information", params);
     }//GEN-LAST:event_FExecuteButton1ActionPerformed
 

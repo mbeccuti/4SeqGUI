@@ -70,6 +70,14 @@ public class ScriptCaller {
         scriptArguments.add(new ScriptParameter(argName, args)); 
         return this; 
     }
+    
+    public ScriptCaller addArgAsVector(String argName, boolean true_string, String ... args) {
+        if (true_string) 
+            for (int i = 0; i < args.length; i++)
+                args[i] = String.format("'%s'", args[i]).replace("'", "\\\"");
+        
+        return addArgAsVector(argName, args);
+    }
 
     /**
      * @return a string containing the passed parameters. The last parameter is the 

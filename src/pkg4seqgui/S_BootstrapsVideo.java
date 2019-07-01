@@ -415,74 +415,100 @@ public class S_BootstrapsVideo extends javax.swing.JPanel {
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton40ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_BootstrapVideo_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_BootstrapVideo_jButtonActionPerformed
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execBootstrapVideo.sh "};
-            if (cSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+=" scratch.folder=\\\""+sScratchFolder.getText()+"\\\"";
-            cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" nCluster=\\\""+S_nCluster.getText()+"\\\"";
-            cmd[2]+=" separator=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" framePP=\\\""+S_framePP.getText()+"\\\"";
-            cmd[2]+=" permutationNumber=\\\""+S_permutationNumber.getText()+"\\\"";
-
-            Path p = Paths.get(S_countTable.getText());
-            Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Bootstrap video", folder.toString(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Bootstrap video",folder.toString(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
+        String inputFile = S_countTable.getText(), 
+               scratchFolder = sScratchFolder.getText(); 
+        int nperm = 0, ncluster = 0, framepp = 0; 
+        
+        if (inputFile.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the counts table file",
+                    "Error: Counts table file",
+                    JOptionPane.ERROR_MESSAGE);
+            return; 
         }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
+        if (scratchFolder.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the scratch folder",
+                    "Error: Scratch folder",
+                    JOptionPane.ERROR_MESSAGE);
+            return; 
         }
-        JOptionPane.showMessageDialog(this, "Bootstrap Video task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
-        //execute code
+        
+        try {
+            nperm = Integer.valueOf(S_permutationNumber.getText().trim());
+            if (nperm < 0) {
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specify a value greater than 0.",
+                        "Error: Number of permutations",
+                        JOptionPane.ERROR_MESSAGE);
+                S_permutationNumber.requestFocusInWindow();
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the number of permutations that will be used.",
+                    "Error: Number of permutations",
+                    JOptionPane.ERROR_MESSAGE);
+            S_permutationNumber.requestFocusInWindow();
+            return;
+        }
+        
+        try {
+            ncluster = Integer.valueOf(S_nCluster.getText().trim());
+            if (ncluster < 0) {
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specify a value greater than 0.",
+                        "Error: Number of clusters to be inspected",
+                        JOptionPane.ERROR_MESSAGE);
+                S_nCluster.requestFocusInWindow();
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the number of clusters that will be used.",
+                    "Error: Number of clusters to be inspected",
+                    JOptionPane.ERROR_MESSAGE);
+            S_nCluster.requestFocusInWindow();
+            return;
+        }
+        
+        try {
+            framepp = Integer.valueOf(S_framePP.getText().trim());
+            if (framepp < 0) {
+                JOptionPane.showMessageDialog(this, 
+                        "You have to specify a value greater than 0.",
+                        "Error: FramePP value",
+                        JOptionPane.ERROR_MESSAGE);
+                S_framePP.requestFocusInWindow();
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specify the framePP value that will be used.",
+                    "Error: FramePP value",
+                    JOptionPane.ERROR_MESSAGE);
+            S_framePP.requestFocusInWindow();
+            return;
+        }
+        
+        String outputFolder = Paths.get(inputFile).getParent().toString();
+        ScriptCaller params = new ScriptCaller("BootstrapsVideo.R", outputFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("file", inputFile)
+                .addArg("nCluster", ncluster)
+                .addArg("separator", S_sep.getSelectedItem().toString())
+                .addArg("framePP", framepp)
+                .addArg("permutationNumber", nperm);                 
+        
+        MainFrame.execCommand(this, "Bootstrap video", params);
     }//GEN-LAST:event_S_BootstrapVideo_jButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed

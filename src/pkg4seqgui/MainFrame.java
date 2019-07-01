@@ -7236,4 +7236,44 @@ public static DefaultContextMenu contextMenu = new DefaultContextMenu();
 
         return openDir;
     }
+    
+    
+    public static boolean checkPath(Component caller, String path, String pathName) {
+        if (path.isEmpty()) {
+            JOptionPane.showMessageDialog(caller, 
+                "You have to specify the " + pathName,
+                "Error: " + pathName,
+                JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+        return false; 
+    }
+    
+    public static Integer checkIntValue(Component caller, String text, String varName) {
+        Integer value = null; 
+        try {
+            value = Integer.valueOf(text.trim()); 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(caller, 
+                    "You have to specify the " + varName + " that will be used.",
+                    "Error: " + varName,
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        return value;
+    }
+    
+    public static Float checkFloatValue(Component caller, String text, String varName) {
+        Float value = null; 
+        try {
+            value = Float.valueOf(text.trim()); 
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(caller, 
+                    "You have to specify the " + varName + " that will be used.",
+                    "Error: " + varName,
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        return value;
+    }
+    
+    
 }

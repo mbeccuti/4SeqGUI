@@ -355,72 +355,34 @@ public class S_ClustersFeatures extends javax.swing.JPanel {
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
+        jButton40ActionPerformed(evt); 
         //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_ClustersFeatures_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_ClustersFeatures_ButtonActionPerformed
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execClustersFeatures.sh "};
-            if (cSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+=" fileLogFC=\\\""+S_countTable1.getText()+"\\\"";
-            cmd[2]+=" fileCounts=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" delta=\\\""+S_delta.getText()+"\\\"";
-            cmd[2]+=" sep=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-
-            Path p = Paths.get(S_countTable.getText());
-            Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Clusters Features ", folder.toString(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Clusters Features ",folder.toString(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "Clusters Features task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
-        //execute code
+        String fileLog = S_countTable1.getText(), 
+               fileCounts = S_countTable.getText(); 
+        Float delta = MainFrame.checkFloatValue(this, S_delta.getText(), "delta"); 
+        
+        if (MainFrame.checkPath(this, fileCounts, "counts table file") ||
+            MainFrame.checkPath(this, fileLog, "Anova like filtered output file"))
+            return; 
+        
+        if (delta == null)
+            return; 
+        
+        String outputFolder = Paths.get(fileCounts).getParent().toString(); 
+        ScriptCaller params = new ScriptCaller("ClustersFeatures.R", outputFolder)
+                .addArg("group", "")
+                .addArg("fileLogFC", fileLog)
+                .addArg("fileCounts", fileCounts)
+                .addArg("delta", delta)
+                .addArg("sep", S_sep.getSelectedItem().toString());
+        
+        MainFrame.execCommand(this, "Clusters Features", params);
     }//GEN-LAST:event_S_ClustersFeatures_ButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed

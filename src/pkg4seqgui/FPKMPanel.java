@@ -353,15 +353,16 @@ private static final long serialVersionUID = 57782123317L;
                  batches = new String[nrows]; 
         
         for (int i = 0; i < nrows; i++) {
-            folders[i] = String.format("'%s'", table.getValueAt(i, 0).toString()).replace("'", "\\\"");
-            covariates[i] = String.format("'%s'", table.getValueAt(i, 1).toString()).replace("'", "\\\"");
-            batches[i] = String.format("'%s'", table.getValueAt(i, 2).toString()).replace("'", "\\\"");
+            folders[i] = table.getValueAt(i, 0).toString();
+            covariates[i] = table.getValueAt(i, 1).toString();
+            batches[i] = table.getValueAt(i, 2).toString();
         }
         
         ScriptCaller params = new ScriptCaller("FPKMCounts.R", outputFolder)
-                .addArgAsVector("sample.folders", folders)
-                .addArgAsVector("covariates", covariates)
-                .addArgAsVector("batch", batches)
+                //encode values as strings
+                .addArgAsVector("sample.folders", true, folders)
+                .addArgAsVector("covariates", true, covariates)
+                .addArgAsVector("batch", true, batches)
                 .addArg("bio.type", FtypesComboBox.getSelectedItem().toString())
                 .addArg("output.prefix", outputFolder); 
         MainFrame.execCommand(this, "From samples to experiment", params);
