@@ -105,7 +105,8 @@ public class ScriptCaller {
      * @throws IOException 
      */
     private File getScript() throws IOException{
-        File tempScript = File.createTempFile("scriptname", null); 
+        String scriptName = String.format("%s_%s", this.scriptToExecute.replace(".R", ""), this.callingTime); 
+        File tempScript = File.createTempFile(scriptName, "sh"); 
         String routputFile = String.format("$output/%s", this.logfile_R);  //"$output/Routput_" + this.callingTime + ".Rout";// $output/Routput.Rout
         
         try (PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(tempScript)))) {
@@ -165,18 +166,18 @@ class ScriptParameter {
     /**
      * Describe a parameter of type String
      * @param name Parameter name 
-     * @param value Parameter value; it may be NA 
+     * @param value Parameter value; it may be NA/NULL
      */
     public ScriptParameter(String name, String value) {
         this.name = name; 
         
-        switch (value.trim()) {
+        switch (value = value.trim()) {
             case "NA":
             case "NULL":
                 this.value = value; 
                 break; 
             default:
-                this.value = String.format("'%s'", value.trim()).replace("'", "\\\"");
+                this.value = String.format("'%s'", value).replace("'", "\\\"");
         }
     }
     
