@@ -380,7 +380,7 @@ public class S_CountDepth extends javax.swing.JPanel {
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
-        //RESET FIELDS
+        jButton40ActionPerformed(evt);
         MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
@@ -392,8 +392,7 @@ public class S_CountDepth extends javax.swing.JPanel {
         Float cellprop, threshold; 
         Integer threads; 
         
-        //Field check
-        
+        //Field check        
         if (MainFrame.checkPath(this, inputFile, "counts table file") || 
             MainFrame.checkPath(this, outputName, "output name"))
             return; 
