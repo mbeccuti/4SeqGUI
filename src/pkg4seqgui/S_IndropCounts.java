@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package pkg4seqgui;
-import java.awt.CardLayout;
 import java.io.File;
 import java.io.IOException;
 import java.util.Timer;
@@ -631,92 +630,51 @@ public class S_IndropCounts extends javax.swing.JPanel {
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
-        cDockerRadioButton.setSelected(true);
-        cFastQFolderText.setText("");
-        cOutputFolderText.setText("");
-        S_UT.setText(MainFrame.GS.getDefaultAdapter5());
-        S_SplitAffixes.setText(MainFrame.GS.getDefaultAdapter3());
-        cIndexFolderText.setText("");
-        S_LCM.setSelectedIndex(0);
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton40ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
-
-        //Field check
-
-  
-               
-                //execute code
-                Runtime rt = Runtime.getRuntime();
-                try{
-                    String[] cmd = {"/bin/bash","-c"," bash ./execIndropCounts.sh "};
-
-                    if (cSudoRadioButton.isSelected()){
-                        cmd[2]+= "group=\\\"sudo\\\"";
-                    }
-                    else{
-                        cmd[2]+= "group=\\\"docker\\\"";
-                    }
-                    cmd[2]+=" scratch.folder=\\\""+cOutputFolderText.getText()+"\\\"";
-                    cmd[2]+=" fastq.folder=\\\""+cFastQFolderText.getText()+"\\\"";
-                    cmd[2]+=" index.folder=\\\""+cIndexFolderText.getText()+"\\\"";
-                    cmd[2]+=" sample.name=\\\""+S_SampleName4.getText()+"\\\"";
-                    cmd[2]+=" split.affixes=\\\""+S_SplitAffixes.getText()+"\\\"";
-                    cmd[2]+=" bowtie.index.prefix=\\\""+S_BIP1.getText()+"\\\"";
-                    cmd[2]+=" M=\\\""+S_M.getText()+"\\\"";
-                    cmd[2]+=" U=\\\""+S_U.getText()+"\\\"";
-                    cmd[2]+=" D=\\\""+S_D.getText()+"\\\"";
-                    cmd[2]+=" low.complexity.mask=\\\""+S_LCM.getSelectedItem().toString()+"\\\"";
-                    cmd[2]+=" umi.threshold=\\\""+S_UT.getText()+"\\\"";
-                    cmd[2]+=" "+ cFastQFolderText.getText()+" >& "+cFastQFolderText.getText()+"/outputExecution ";
-
-
-                  
-                  
-                    //ProcessStatus.setText(pr.toString());
-                    if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                        Process pr = rt.exec(cmd);
-                        MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Indrop Counts ", cFastQFolderText.getText(),pr,MainFrame.listModel.getSize());
-                        MainFrame.listProcRunning.add(tmp);
-                        java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                        ImageIcon image2 = new ImageIcon(imgURL);
-                        MainFrame.GL.setAvoidProcListValueChanged(-1);
-                        MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                        MainFrame.GL.setAvoidProcListValueChanged(0);
-                        //addElement("RNAseq counting workflow (data input: "+vFastQFolderText.getText()+")            [Runnig]");
-                        if(MainFrame.listProcRunning.size()==1){
-                            MainFrame.t=new Timer();
-                            MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                        }
-                    }
-                    else{
-                        MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Transcripts and genes counting with Salmon ",cFastQFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                        MainFrame.listProcWaiting.add(tmp);
-                        java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                        ImageIcon image2 = new ImageIcon(imgURL);
-                        MainFrame.GL.setAvoidProcListValueChanged(-1);
-                        MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                        MainFrame.GL.setAvoidProcListValueChanged(0);
-                    }
-                    MainFrame.GL.setAvoidProcListValueChanged(-1);
-                    MainFrame.ProcList.setModel(MainFrame.listModel);
-                    MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-                    MainFrame.GL.setAvoidProcListValueChanged(0);
-                }
-                catch(IOException e) {
-                    JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-                    System.out.println(e.toString());
-                }
-                JOptionPane.showMessageDialog(this, "Transcripts and genes counting Salmon task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-            
-            //execute code
+        String fastqFolder = cFastQFolderText.getText(), 
+               scratchFolder = cOutputFolderText.getText(), 
+               genomeFolder = cIndexFolderText.getText(); 
+        String sampleName = S_SampleName4.getText(), 
+               bowtiePrefix = S_BIP1.getText();
+        Integer m, u, d; 
         
+        if (MainFrame.checkPath(this, fastqFolder, "FASTQ folder") ||
+            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
+            MainFrame.checkPath(this, genomeFolder, "index folder") ||
+            MainFrame.checkPath(this, sampleName, "sample name") ||
+            MainFrame.checkPath(this, bowtiePrefix, "Bowtie index prefix"))
+            return; 
+       
+        Integer umithreshold = MainFrame.checkIntValue(this, S_UT.getText(), "umi threshold"); 
+        if (umithreshold == null)
+            return; 
+        
+        if ((m = MainFrame.checkIntValue(this, S_M.getText(), "M value")) == null ||
+            (u = MainFrame.checkIntValue(this, S_U.getText(), "U value")) == null ||
+            (d = MainFrame.checkIntValue(this, S_D.getText(), "D value")) == null)
+            return; 
+        
+        ScriptCaller params = new ScriptCaller("indropCounts.R", fastqFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("fastq.folder", fastqFolder)
+                .addArg("index.folder", genomeFolder)
+                .addArg("sample.name", sampleName)
+                .addArg("split.affixes", S_SplitAffixes.getText())
+                .addArg("M", m)
+                .addArg("U", u)
+                .addArg("D", d)
+                .addArg("bowtie.index.prefix", bowtiePrefix)
+                .addArg("low.complexity.mask", S_LCM.getSelectedItem().toString().equals("TRUE"))
+                .addArg("umi.threshold", umithreshold);
+        
+        MainFrame.execCommand(this, "Indrop Counts", params);
     }//GEN-LAST:event_jButton39ActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed

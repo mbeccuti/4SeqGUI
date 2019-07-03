@@ -506,77 +506,45 @@ public class S_GenesSelection extends javax.swing.JPanel {
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton40ActionPerformed(evt);
+        MainFrame.setCard(null);    
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_GenesSelectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_GenesSelectionButtonActionPerformed
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execGenesSelection.sh "};
-            if (cSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+=" scratch.folder=\\\""+sScratchFolder.getText()+"\\\"";
-            cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" nCluster=\\\""+S_nCluster.getText()+"\\\"";
-            cmd[2]+=" separator=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" seed=\\\""+S_nCluster.getText()+"\\\"";
-            cmd[2]+=" sp=\\\""+S_sp.getText()+"\\\"";
-            cmd[2]+=" clusterPermErr=\\\""+S_clusterPermErr.getText()+"\\\"";
-            cmd[2]+=" maxDeltaConfidence=\\\""+S_maxDeltaConfidence.getText()+"\\\"";
-            cmd[2]+=" minLogMean=\\\""+S_minLogMean.getText()+"\\\"";
-
-            Path p = Paths.get(S_countTable.getText());
-            Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Genes Selection SIMLR ", folder.toString(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Genes selection SIMLR ",folder.toString(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "Genes Selection SIMLR task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
-        //execute code
+        String countsFile = S_countTable.getText(), 
+               scratchFolder = sScratchFolder.getText(); 
+        Integer seed, ncluster;
+        Float sp, cpe, max_delta, min_mean;
+        
+        if (MainFrame.checkPath(this, countsFile, "counts table file") ||
+            MainFrame.checkPath(this, scratchFolder, "scratch folder"))
+            return; 
+        
+        if ((seed = MainFrame.checkIntValue(this, S_seed.getText(), "seed")) == null ||
+            (ncluster = MainFrame.checkIntValue(this, S_nCluster.getText(), "number of clusters")) == null) 
+            return; 
+        
+        if ((sp = MainFrame.checkFloatValue(this, S_sp.getText(), "sp")) == null || 
+            (cpe = MainFrame.checkFloatValue(this, S_clusterPermErr.getText(), "cluster permutation error")) == null ||
+            (max_delta = MainFrame.checkFloatValue(this, S_maxDeltaConfidence.getText(), "max delta confidence")) == null ||
+            (min_mean = MainFrame.checkFloatValue(this, S_minLogMean.getText(), "min log mean")) == null)
+            return; 
+        
+        String outputFolder = Paths.get(countsFile).getParent().toString(); 
+        ScriptCaller params = new ScriptCaller("GenesSelection.R", outputFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("file", countsFile)
+                .addArg("nCluster", ncluster)
+                .addArg("separator", S_sep.getSelectedItem().toString())
+                .addArg("seed", seed)
+                .addArg("sp", sp)
+                .addArg("clusterPermErr", cpe)
+                .addArg("maxDeltaConfidence", max_delta)
+                .addArg("minLogMean", min_mean);
+        MainFrame.execCommand(this, "Genes Selection SIMLR", params);
     }//GEN-LAST:event_S_GenesSelectionButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
