@@ -6,7 +6,7 @@ How to setup
 3. type "sudo systemctl start  vncserver1" one shoot
 4. type "sudo systemctl enable  vncserver1" for every reboot
 
-GNOME
+GNOME (tigervnc)
 1. select GNOME orgX11
 2. autologin enable
 3. copy vnc-run.sh in /home/user
@@ -16,3 +16,19 @@ GNOME
 # Uncoment the line below to force the login screen to use Xorg
 #WaylandEnable=false
 DefaultSession=gnome-xorg.desktop
+
+GNOME (xrdp --> two user are needed!!)
+1. select GNOME orgX11
+2. autologin enable
+3. copy xrdp.sh in /home/user
+4. copy xrdp.desktop in /usr/share/applications
+5. using  startup applications in   Tweak-tool adding xrdp.desktop
+6. vi /etc/gdm/custom.conf
+# Uncoment the line below to force the login screen to use Xorg
+#WaylandEnable=false
+DefaultSession=gnome-xorg.desktop
+7. user must sudo without password
+8. set color resolution 24bit in other case java GUI does not work
+
+---
+Client x xrdp in linux remmina
