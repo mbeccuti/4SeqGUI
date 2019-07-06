@@ -531,79 +531,43 @@ public class S_ScanpyBootstrap extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
-        //RESET FIELDS
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton40ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_SeuratBootstrap_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_SeuratBootstrap_jButtonActionPerformed
+        String countsFile = S_countTable.getText(), 
+               scratchFolder = sScratchFolder.getText();
+        Integer perplexity, pca_dim, nperm, seed, perm_group, perc; 
 
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execScanpyBootstrap.sh "};
-            if (cSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+=" scratch.folder=\\\""+sScratchFolder.getText()+"\\\"";
-            cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" nPerm=\\\""+S_nPerm.getText()+"\\\"";
-            cmd[2]+=" permAtTime=\\\""+S_permAtTime.getText()+"\\\"";
-            cmd[2]+=" percent=\\\""+S_percent.getText()+"\\\"";
-            cmd[2]+=" separator=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" pcaDimensions=\\\""+S_PcaDimensions.getText()+"\\\"";
-            cmd[2]+=" seed=\\\""+S_seed.getText()+"\\\"";
-            cmd[2]+=" perplexity=\\\""+S_Perplexity.getText()+"\\\"";
-            cmd[2]+=" format=\\\""+S_format.getSelectedItem().toString()+"\\\"";
-
-            Path p = Paths.get(S_countTable.getText());
-            Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Scanpy Bootstrap ", folder.toString(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Scanpy Bootstrap ",folder.toString(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "Scanpy Bootstrap task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
-        //execute code
+        if (MainFrame.checkPath(this, countsFile, "counts table file") ||
+            MainFrame.checkPath(this, scratchFolder, "scratch folder"))
+            return; 
+        
+        if ((perplexity = MainFrame.checkIntValue(this, S_Perplexity.getText(), "perplexity value for tsne projection")) == null ||
+            (pca_dim = MainFrame.checkIntValue(this, S_PcaDimensions.getText(), "PCA dimensions")) == null ||
+            (nperm = MainFrame.checkIntValue(this, S_nPerm.getText(), "number of permutations")) == null ||
+            (seed = MainFrame.checkIntValue(this, S_seed.getText(), "seed value")) == null ||
+            (perm_group = MainFrame.checkIntValue(this, S_permAtTime.getText(), "number of permutations computed in parallel")) == null ||
+            (perc = MainFrame.checkIntValue(this, S_percent.getText(), "percentage of randomly selected cells")) == null)
+            return;             
+        
+        String outputFolder = Paths.get(countsFile).getParent().toString();
+        ScriptCaller params = new ScriptCaller("ScanpyBootstrap.R", outputFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("file", countsFile)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("nPerm", nperm)
+                .addArg("permAtTime", perm_group)
+                .addArg("percent", perc)
+                .addArg("separator", S_sep.getSelectedItem().toString())
+                .addArg("pcaDimensions", pca_dim)
+                .addArg("seed", seed)
+                .addArg("perplexity", perplexity)
+                .addArg("format", S_format.getSelectedItem().toString());
+        MainFrame.execCommand(this, "Scanpy Bootstrap", params);
     }//GEN-LAST:event_S_SeuratBootstrap_jButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed

@@ -60,14 +60,14 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         S_biotype = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel123 = new javax.swing.JLabel();
-        S_R1 = new javax.swing.JTextField();
+        S_ribostart = new javax.swing.JTextField();
         jLabel124 = new javax.swing.JLabel();
-        S_R2 = new javax.swing.JTextField();
+        S_riboend = new javax.swing.JTextField();
         jLabel125 = new javax.swing.JLabel();
-        S_R3 = new javax.swing.JTextField();
+        S_mitostart = new javax.swing.JTextField();
         jLabel126 = new javax.swing.JLabel();
-        S_R4 = new javax.swing.JTextField();
-        S_R5 = new javax.swing.JTextField();
+        S_mitoend = new javax.swing.JTextField();
+        S_genethreshold = new javax.swing.JTextField();
         jLabel127 = new javax.swing.JLabel();
         jPanel31 = new javax.swing.JPanel();
         jLabel113 = new javax.swing.JLabel();
@@ -318,16 +318,16 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel123, gridBagConstraints);
 
-        S_R1.setText("20");
-        S_R1.setToolTipText(null);
-        S_R1.addFocusListener(new java.awt.event.FocusAdapter() {
+        S_ribostart.setText("20");
+        S_ribostart.setToolTipText(null);
+        S_ribostart.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                S_R1FocusLost(evt);
+                S_ribostartFocusLost(evt);
             }
         });
-        S_R1.addActionListener(new java.awt.event.ActionListener() {
+        S_ribostart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_R1ActionPerformed(evt);
+                S_ribostartActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -336,7 +336,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 4.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 13, 10, 10);
-        jPanel2.add(S_R1, gridBagConstraints);
+        jPanel2.add(S_ribostart, gridBagConstraints);
 
         jLabel124.setText("Ribosomal % End:");
         jLabel124.setToolTipText(null);
@@ -347,16 +347,16 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel124, gridBagConstraints);
 
-        S_R2.setText("70");
-        S_R2.setToolTipText(null);
-        S_R2.addFocusListener(new java.awt.event.FocusAdapter() {
+        S_riboend.setText("70");
+        S_riboend.setToolTipText(null);
+        S_riboend.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                S_R2FocusLost(evt);
+                S_riboendFocusLost(evt);
             }
         });
-        S_R2.addActionListener(new java.awt.event.ActionListener() {
+        S_riboend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_R2ActionPerformed(evt);
+                S_riboendActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -365,7 +365,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 4.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel2.add(S_R2, gridBagConstraints);
+        jPanel2.add(S_riboend, gridBagConstraints);
 
         jLabel125.setText("Mitochondrial % Start:");
         jLabel125.setToolTipText(null);
@@ -375,16 +375,16 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel125, gridBagConstraints);
 
-        S_R3.setText("1");
-        S_R3.setToolTipText(null);
-        S_R3.addFocusListener(new java.awt.event.FocusAdapter() {
+        S_mitostart.setText("1");
+        S_mitostart.setToolTipText(null);
+        S_mitostart.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                S_R3FocusLost(evt);
+                S_mitostartFocusLost(evt);
             }
         });
-        S_R3.addActionListener(new java.awt.event.ActionListener() {
+        S_mitostart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_R3ActionPerformed(evt);
+                S_mitostartActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -392,7 +392,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 13, 10, 10);
-        jPanel2.add(S_R3, gridBagConstraints);
+        jPanel2.add(S_mitostart, gridBagConstraints);
 
         jLabel126.setText("Genes Threshold:");
         jLabel126.setToolTipText(null);
@@ -403,16 +403,16 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel126, gridBagConstraints);
 
-        S_R4.setText("100");
-        S_R4.setToolTipText(null);
-        S_R4.addFocusListener(new java.awt.event.FocusAdapter() {
+        S_mitoend.setText("100");
+        S_mitoend.setToolTipText(null);
+        S_mitoend.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                S_R4FocusLost(evt);
+                S_mitoendFocusLost(evt);
             }
         });
-        S_R4.addActionListener(new java.awt.event.ActionListener() {
+        S_mitoend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_R4ActionPerformed(evt);
+                S_mitoendActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -420,18 +420,18 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel2.add(S_R4, gridBagConstraints);
+        jPanel2.add(S_mitoend, gridBagConstraints);
 
-        S_R5.setText("250");
-        S_R5.setToolTipText(null);
-        S_R5.addFocusListener(new java.awt.event.FocusAdapter() {
+        S_genethreshold.setText("250");
+        S_genethreshold.setToolTipText(null);
+        S_genethreshold.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                S_R5FocusLost(evt);
+                S_genethresholdFocusLost(evt);
             }
         });
-        S_R5.addActionListener(new java.awt.event.ActionListener() {
+        S_genethreshold.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                S_R5ActionPerformed(evt);
+                S_genethresholdActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -439,7 +439,7 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 13, 10, 10);
-        jPanel2.add(S_R5, gridBagConstraints);
+        jPanel2.add(S_genethreshold, gridBagConstraints);
 
         jLabel127.setText("Mitochondrial % End:");
         jLabel127.setToolTipText(null);
@@ -521,84 +521,46 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
-        //RESET FIELDS
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton40ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_LorenzFilter_jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_LorenzFilter_jButton39ActionPerformed
-
-        //Field check
-
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execScannoByGtf.sh "};
-            if (cSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-
-            cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" gtf.name=\\\""+S_gtfname.getText()+"\\\"";
-            cmd[2]+=" biotype=\\\""+S_biotype.getText()+"\\\"";
-            cmd[2]+=" umiXgene=\\\""+S_umiXgene.getText()+"\\\"";
-            cmd[2]+=" ribo.proteins=\\\""+S_ribo.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" mt=\\\""+S_MT.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" R1=\\\""+S_R1.getText()+"\\\"";
-            cmd[2]+=" R2=\\\""+S_R2.getText()+"\\\"";
-            cmd[2]+=" R3=\\\""+S_R3.getText()+"\\\"";
-            cmd[2]+=" R4=\\\""+S_R4.getText()+"\\\"";
-            cmd[2]+=" thresholdGenes=\\\""+S_R5.getText()+"\\\"";
-
-
-            Path p = Paths.get(S_countTable.getText());
-            Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("ScannoByGtf ", folder.toString(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("ScannoByGtf ",folder.toString(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "ScannoByGtf task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
-        //execute code
+        String countsFile = S_countTable.getText(),
+               gtfName = S_gtfname.getText(), 
+               biotype = S_biotype.getText(); 
+        Integer umi, ribo_start, ribo_end, mito_start, mito_end, threshold; 
+        
+        if (MainFrame.checkPath(this, countsFile, "counts table file") ||
+            MainFrame.checkPath(this, gtfName, "GTF name") || 
+            MainFrame.checkPath(this, biotype, "biotype"))
+            return; 
+        
+        if ((umi = MainFrame.checkIntValue(this, S_umiXgene.getText(), "UMIs X gene")) == null ||
+            (ribo_start = MainFrame.checkIntValue(this, S_ribostart.getText(), "Ribosomal % start value")) == null ||
+            (ribo_end = MainFrame.checkIntValue(this, S_riboend.getText(), "Ribosomal % end value")) == null ||
+            (mito_start = MainFrame.checkIntValue(this, S_mitostart.getText(), "Mitochrondrial % start value")) == null ||
+            (mito_end = MainFrame.checkIntValue(this, S_mitoend.getText(), "Mitochrondrial % end value")) == null ||
+            (threshold = MainFrame.checkIntValue(this, S_genethreshold.getText(), "genes threshold")) == null)
+            return;             
+        
+        String outputFolder = Paths.get(countsFile).getParent().toString();
+        ScriptCaller params = new ScriptCaller("scannoByGtf.R", outputFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("file", countsFile)
+                .addArg("gtf.name", gtfName)
+                .addArg("biotype", biotype)
+                .addArg("umiXgene", umi)
+                .addArg("ribo.proteins", S_ribo.getSelectedItem().toString().equals("TRUE"))
+                .addArg("mt", S_MT.getSelectedItem().toString().equals("TRUE"))
+                .addArg("R1", ribo_start)
+                .addArg("R2", ribo_end)
+                .addArg("R3", mito_start)
+                .addArg("R4", mito_end)
+                .addArg("thresholdGenes", threshold);
+        MainFrame.execCommand(this, "ScannoByGtf", params);
     }//GEN-LAST:event_S_LorenzFilter_jButton39ActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
@@ -664,60 +626,60 @@ public class S_ScannoByGtf extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_S_biotypeActionPerformed
 
-    private void S_R1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R1FocusLost
+    private void S_ribostartFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_ribostartFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R1FocusLost
+    }//GEN-LAST:event_S_ribostartFocusLost
 
-    private void S_R1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R1ActionPerformed
+    private void S_ribostartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_ribostartActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R1ActionPerformed
+    }//GEN-LAST:event_S_ribostartActionPerformed
 
-    private void S_R2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R2FocusLost
+    private void S_riboendFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_riboendFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R2FocusLost
+    }//GEN-LAST:event_S_riboendFocusLost
 
-    private void S_R2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R2ActionPerformed
+    private void S_riboendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_riboendActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R2ActionPerformed
+    }//GEN-LAST:event_S_riboendActionPerformed
 
-    private void S_R3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R3FocusLost
+    private void S_mitostartFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_mitostartFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R3FocusLost
+    }//GEN-LAST:event_S_mitostartFocusLost
 
-    private void S_R3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R3ActionPerformed
+    private void S_mitostartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_mitostartActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R3ActionPerformed
+    }//GEN-LAST:event_S_mitostartActionPerformed
 
-    private void S_R4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R4FocusLost
+    private void S_mitoendFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_mitoendFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R4FocusLost
+    }//GEN-LAST:event_S_mitoendFocusLost
 
-    private void S_R4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R4ActionPerformed
+    private void S_mitoendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_mitoendActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R4ActionPerformed
+    }//GEN-LAST:event_S_mitoendActionPerformed
 
-    private void S_R5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_R5FocusLost
+    private void S_genethresholdFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_S_genethresholdFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R5FocusLost
+    }//GEN-LAST:event_S_genethresholdFocusLost
 
-    private void S_R5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_R5ActionPerformed
+    private void S_genethresholdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_genethresholdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_S_R5ActionPerformed
+    }//GEN-LAST:event_S_genethresholdActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel S_LorenzFilterPanel;
     private javax.swing.JButton S_LorenzFilter_jButton39;
     private javax.swing.JComboBox<String> S_MT;
-    public static javax.swing.JTextField S_R1;
-    public static javax.swing.JTextField S_R2;
-    public static javax.swing.JTextField S_R3;
-    public static javax.swing.JTextField S_R4;
-    public static javax.swing.JTextField S_R5;
     public static javax.swing.JTextField S_biotype;
     private javax.swing.JTextField S_countTable;
+    public static javax.swing.JTextField S_genethreshold;
     public static javax.swing.JTextField S_gtfname;
+    public static javax.swing.JTextField S_mitoend;
+    public static javax.swing.JTextField S_mitostart;
     private javax.swing.JComboBox<String> S_ribo;
+    public static javax.swing.JTextField S_riboend;
+    public static javax.swing.JTextField S_ribostart;
     public static javax.swing.JTextField S_umiXgene;
     private javax.swing.JRadioButton cDockerRadioButton;
     private javax.swing.JRadioButton cSudoRadioButton;

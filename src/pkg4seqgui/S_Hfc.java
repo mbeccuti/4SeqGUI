@@ -499,7 +499,7 @@ public class S_Hfc extends javax.swing.JPanel {
                 .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
                 .addArg("scratch.folder", scratchFolder)
                 .addArg("file", countsFile)
-                .addArg("separator", S_sep.getSelectedItem().toString())
+                .addArg("sep", S_sep.getSelectedItem().toString())
                 .addArg("nCluster", ncluster)
                 .addArg("geneNameControl", S_geneNameControl.getSelectedItem().equals("true") ? 0 : 1)
                 .addArg("status", S_Status.getSelectedItem().toString())

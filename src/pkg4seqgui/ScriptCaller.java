@@ -50,6 +50,12 @@ public class ScriptCaller {
         return this;
     }
     
+    //in order to escape NULL and NA values
+    public ScriptCaller addArg(String argName, String argValue, boolean force_string) {
+        scriptArguments.add(new ScriptParameter(argName, argValue, force_string));
+        return this;
+    }
+    
     public ScriptCaller addArg(String argName, int argValue) {
         scriptArguments.add(new ScriptParameter(argName, argValue));
         return this;
@@ -179,6 +185,12 @@ class ScriptParameter {
             default:
                 this.value = String.format("'%s'", value).replace("'", "\\\"");
         }
+    }
+    
+    //
+    public ScriptParameter(String name, String value, boolean force_string) {
+        this.name = name; 
+        this.value = String.format("'%s'", value).replace("'", "\\\"");            
     }
     
     public ScriptParameter(String name, int value) {
