@@ -4,15 +4,10 @@
  * and open the template in the editor.
  */
 package pkg4seqgui;
-import java.awt.CardLayout;
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import static pkg4seqgui.MainFrame.getPreferences;
 /**
  *
@@ -417,76 +412,35 @@ public class S_SeuratPCAEval extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
-        //RESET FIELDS
-        //RESET FIELDS
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        MainFrame.setCard(null); 
+        jButton40ActionPerformed(evt); 
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_SeuratPCAEval_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_SeuratPCAEval_jButtonActionPerformed
+        String countsFile = S_countTable.getText(), 
+               scratchFolder = sScratchFolder.getText();
 
-        //execute code
-        Runtime rt = Runtime.getRuntime();
-        try{
-            String[] cmd = {"/bin/bash","-c"," bash ./execSeuratPCAEval.sh "};
-            if (cSudoRadioButton.isSelected()){
-                cmd[2]+= "group=\\\"sudo\\\"";
-            }
-            else{
-                cmd[2]+= "group=\\\"docker\\\"";
-            }
-            cmd[2]+=" scratch.folder=\\\""+sScratchFolder.getText()+"\\\"";
-            cmd[2]+=" file=\\\""+S_countTable.getText()+"\\\"";
-            cmd[2]+=" separator=\\\""+S_sep.getSelectedItem().toString()+"\\\"";
-            cmd[2]+=" logTen=\\\""+(S_logTen.getSelectedItem().equals("true") ? "1" : "0")+"\\\"";
-            cmd[2]+=" seed=\\\""+S_seed.getText()+"\\\"";
-            cmd[2]+=" sparse=\\\""+S_sparse.getSelectedItem()+"\\\"";
-            cmd[2]+=" format=\\\""+S_format.getSelectedItem()+"\\\"";
-
-            Path p = Paths.get(S_countTable.getText());
-            Path folder = p.getParent();
-
-            cmd[2]+=" "+ folder.toString()+" >& "+folder.toString()+"/outputExecution ";
-
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd);
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Seurat PCA Eval ", folder.toString(),pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                }
-            }
-            else{
-                MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Seurat PCA Eval ",folder.toString(),cmd,MainFrame.listModel.getSize());
-                MainFrame.listProcWaiting.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-        }
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "Seurat PCA Eval task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
-        //execute code
+        if (MainFrame.checkPath(this, countsFile, "counts table file") ||
+            MainFrame.checkPath(this, scratchFolder, "scratch folder"))
+            return; 
+        
+        Integer seed = MainFrame.checkIntValue(this, countsFile, "seed value"); 
+        if (seed == null)
+            return; 
+        
+        String outputFolder = Paths.get(countsFile).getParent().toString();
+        ScriptCaller params = new ScriptCaller("seuratPCAEval.R", outputFolder)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("file", countsFile)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("separator", S_sep.getSelectedItem().toString())
+                .addArg("seed", seed)
+                .addArg("format", S_format.getSelectedItem().toString(), true) //force string
+                .addArg("sparse", S_sparse.getSelectedItem().toString().equals("true"))
+                .addArg("logTen", S_logTen.getSelectedItem().equals("true") ? 1 : 0);
+        MainFrame.execCommand(this, "Seurat PCA eval", params);
     }//GEN-LAST:event_S_SeuratPCAEval_jButtonActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed

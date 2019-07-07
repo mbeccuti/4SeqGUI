@@ -5,14 +5,9 @@
  */
 package pkg4seqgui;
 
-import java.awt.CardLayout;
 import java.io.File;
-import java.io.IOException;
-import java.util.Timer;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import pkg4seqgui.MainFrame.MyTask;
 import static pkg4seqgui.MainFrame.getPreferences;
 
 /**
@@ -259,7 +254,6 @@ public class HeatmapPanel extends javax.swing.JPanel {
         heatmapBaseGroup.add(HStatus1RadioButton);
         HStatus1RadioButton.setSelected(true);
         HStatus1RadioButton.setText("raw count");
-        HStatus1RadioButton.setActionCommand("raw count");
         HStatus1RadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HStatus1RadioButtonActionPerformed(evt);
@@ -476,100 +470,34 @@ public class HeatmapPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+        String countsFile = HdataFileText.getText(), 
+               scratchFolder = HscratchText.getText(); 
+        Float lower, upper; 
 
-        if (HLowerRangeText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the lower bound.","Error: lower bound",JOptionPane.ERROR_MESSAGE);
-            //HLowerRangeText.requestFocusInWindow();
+        if (MainFrame.checkPath(this, countsFile, "counts table file") ||
+            MainFrame.checkPath(this, scratchFolder, "scratch folder"))
+            return; 
+        
+        if ((lower = MainFrame.checkFloatValue(this, HLowerRangeText.getText(), "lower bound")) == null ||
+            (upper = MainFrame.checkFloatValue(this, HUpperRangeText.getText(), "upper bound")) == null)
+            return; 
+        
+        if (lower >= upper) {
+            JOptionPane.showMessageDialog(this, 
+                    "Upper bound must be greater than lower bound.",
+                    "Error: bounds",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        if (HUpperRangeText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the upper bound.","Error: upper bound",JOptionPane.ERROR_MESSAGE);
-            //HUpperRangeText.requestFocusInWindow();
-            return;
-        }
-
-        try
-        {
-            Float x = Float.valueOf(HLowerRangeText.getText());
-            Float y = Float.valueOf(HUpperRangeText.getText());
-            if (x>=y){
-                JOptionPane.showMessageDialog(this, "Upper bound must be greater than lower bound.","Error: bounds",JOptionPane.ERROR_MESSAGE);
-                //HLowerRangeText.requestFocusInWindow();
-                return;
-            }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number for the bounds.","Error: bound  number",JOptionPane.ERROR_MESSAGE);
-            ///HLowerRangeText.requestFocusInWindow();
-            return;
-        }
-
-        if (HdataFileText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: Data  input file ",JOptionPane.ERROR_MESSAGE);
-        }
-        else
-        if (HscratchText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified a scratch folder","Error: scratch folder ",JOptionPane.ERROR_MESSAGE);
-        }
-        else
-        {
-            //execute code
-            Runtime rt = Runtime.getRuntime();
-            try{
-                String[] cmd = {"/bin/bash","-c"," bash ./execHeatmap.sh "};
-                if (HSudoRadioButton.isSelected()){
-                    cmd[2]+= "group=\\\"sudo\\\"";
-                }
-                else{
-                    cmd[2]+= "group=\\\"docker\\\"";
-                }
-                cmd[2]+= " file=\\\""+HdataFileText.getText()+"\\\"";
-                cmd[2]+= " scratch.folder=\\\""+HscratchText.getText()+"\\\"";
-                if (HStatus1RadioButton.isSelected()){
-                    cmd[2]+= " status=0";
-                }
-                else{
-                    cmd[2]+= " status=1";
-                }
-                cmd[2]+= " lower.range="+HLowerRangeText.getText()+" upper.range="+HUpperRangeText.getText();
-                cmd[2]+=" "+HOutputFolderText.getText() +" >& "+HOutputFolderText.getText()+"/outputExecution ";
-
-                if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                    Process pr = rt.exec(cmd);
-                    MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("Heatmap  ", HOutputFolderText.getText(),pr,MainFrame.listModel.getSize());
-                    MainFrame.listProcRunning.add(tmp);
-                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                    ImageIcon image2 = new ImageIcon(imgURL);
-                    MainFrame.GL.setAvoidProcListValueChanged(-1);
-                    MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                    MainFrame.GL.setAvoidProcListValueChanged(0);
-                    if(MainFrame.listProcRunning.size()==1){
-                        MainFrame.t=new Timer();
-                        MainFrame.t.scheduleAtFixedRate(new MyTask(), 5000, 5000);
-                    }
-                }
-                else{
-                    MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("Heatmap", HOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                    MainFrame.listProcWaiting.add(tmp);
-                    java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                    ImageIcon image2 = new ImageIcon(imgURL);
-                    MainFrame.GL.setAvoidProcListValueChanged(-1);
-                    MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                    MainFrame.GL.setAvoidProcListValueChanged(0);
-                }
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.ProcList.setModel(MainFrame.listModel);
-                MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-            }
-            catch(IOException e) {
-                JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-                System.out.println(e.toString());
-            }
-            JOptionPane.showMessageDialog(this, "Heatmap task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-        }
-
+        
+        ScriptCaller params = new ScriptCaller("Heatmap.R", HOutputFolderText.getText())
+                    .addArg("group", HSudoRadioButton.isSelected() ? "sudo" : "docker")
+                    .addArg("file", countsFile)
+                    .addArg("scratch.folder", scratchFolder)
+                    .addArg("status", HStatus1RadioButton.isSelected() ? 0 : 1)
+                    .addArg("lower.range", lower)
+                    .addArg("upper.range", upper); 
+        MainFrame.execCommand(this, "Heatmap", params);
     }//GEN-LAST:event_jButton46ActionPerformed
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
@@ -583,16 +511,8 @@ public class HeatmapPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton48ActionPerformed
 
     private void vCloseButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton8ActionPerformed
-        HDockerRadioButton.setSelected(true);
-        HOutputFolderText.setText("");
-        HStatus1RadioButton.setSelected(true);
-        HdataFileText.setText("");
-        HscratchText.setText("");
-        HLowerRangeText.setText("-1");
-        HUpperRangeText.setText("1");
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton48ActionPerformed(evt); 
+        MainFrame.setCard(null);
     }//GEN-LAST:event_vCloseButton8ActionPerformed
 
     private void HscratchTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HscratchTextActionPerformed

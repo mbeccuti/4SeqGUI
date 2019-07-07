@@ -16,11 +16,6 @@ if(length(args)==0){
 
 library(rCASC)
 
-
-
-if(separator=="TAB"){
-separator="\t"
-}else{separator=","}
-
+separator = ifelse(separator == "TAB", "\t", ",")
 
 simlrBootstrap(group=group,scratch.folder=scratch.folder,file=file,nPerm=nPerm,permAtTime=permAtTime,percent=percent,range1=range1,range2=range2,separator=separator,logTen=logTen,seed=seed)

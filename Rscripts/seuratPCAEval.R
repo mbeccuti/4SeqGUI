@@ -17,11 +17,6 @@ if(length(args)==0){
 library(rCASC)
 
 
-
-if(separator=="TAB"){
-separator="\t"
-}else{separator=","}
-
-if(sparse=="true"){sparse=TRUE}else{sparse=FALSE}
+separator = ifelse(separator == "TAB", "\t", ",")
 
 seuratPCAEval(group=group,scratch.folder=scratch.folder,file=file,separator=separator,logTen=logTen,seed=seed,sparse=sparse,format=format)

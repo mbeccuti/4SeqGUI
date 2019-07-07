@@ -16,11 +16,6 @@ if(length(args)==0){
 
 library(rCASC)
 
-
-
-if(separator=="TAB"){
-separator="\t"
-}else{separator=","}
-
+separator = ifelse(separator == "TAB", "\t", ",")
 
 splitClusters(group=group,scratch.folder=scratch.folder,file=file,separator=separator,nCluster=nCluster)

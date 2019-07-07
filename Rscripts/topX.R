@@ -15,13 +15,8 @@ if(length(args)==0){
 }
 
 library(rCASC)
-if(separator=="TAB"){
-separator="\t"
-}else{separator=","}
 
+separator = ifelse(separator == "TAB", "\t", ",")
 
-if(logged=="TRUE"){
-logged=TRUE
-}else{logged=FALSE}
 topx(group=group,file=file,separator=separator, threshold=threshold,logged=logged,type=type)
 

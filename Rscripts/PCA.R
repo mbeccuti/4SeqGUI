@@ -16,4 +16,3 @@ if(length(args)==0){
 
 library(docker4seq)
 pca(experiment.table=experiment.table, type=type,  covariatesInNames=covariatesInNames, principal.components=principal.components, output.folder=output.folder, legend.position=legend.position)
-
