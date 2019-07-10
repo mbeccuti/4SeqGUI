@@ -1044,216 +1044,112 @@ public class MACSPanel extends javax.swing.JPanel {
                mockFolder = MMockFolderText.getText(); 
         String adapter3 = MAdapter3Text.getText().trim(), 
                adapter5 = MAdapter5Text.getText().trim(); 
-        String organism = (String) MOrgComboBox.getSelectedItem(), 
-               tool = (String) MToolComboBox.getSelectedItem(); 
-        int minlength = 0, readlength = 0, nthreads = 0, maxdistance = 0, 
-            ttsdistance = 0, min_mfold = 0, max_mfold = 0; 
-        float pvalue = 0; 
+        Integer minlength = 0, readlength = 0, nthreads = 0, max_up_distance = 0, 
+            ttsdistance = 0, min_mfold = 0, max_mfold = 0, wsize = 0, gsize = 0;
+        Float pvalue = 0f, fdr = 0f; 
 
-        
-        System.out.println(organism); 
-        System.out.println(tool); 
-        
-        try {
-            pvalue = Float.valueOf(MMpvalueText.getText().trim()); 
-            System.out.println(pvalue);
-        } catch (NumberFormatException e) {
-            return; 
-        }
-        
-        if (true)
+        //check folders
+        if (MainFrame.checkPath(this, outputFolder, "output folder") ||
+            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
+            MainFrame.checkPath(this, genomeFolder, "genome folder") ||
+            MainFrame.checkPath(this, testFolder, "test folder") ||
+            MainFrame.checkPath(this, mockFolder, "mock folder"))
             return; 
         
-//Field check
-        if (MReadLengthTextField.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified a read length value","Error: read length  value",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (MToolComboBox.getSelectedIndex()==0){
-            if (MMinmfoldText.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "You have to specified a MACS min. mfold  value","Error:  MACS min. mfold  value",JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            else
-            if (MMpvalueText.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "You have to specified a MACS p-value","Error: MACS p-velue",JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            else
-            if (MMaxmfoldText.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "You have to specified a MACS max. mfold value","Error: MACS max. mfold value",JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-        }
-        else
-        {
-            if (MSWindowsText.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "You have to specified a  SICER window  value","Error:  SICER window  value",JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            else
-            if (MSgsizeText.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "You have to specified a SICER g-size value","Error: SICER g-size  value",JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            else
-            if (MSFDRText.getText().isEmpty()){
-                JOptionPane.showMessageDialog(this, "You have to specified a SICER FDR value","Error: SICER FDR value",JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-        }
-        if (MTTSText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an MTTS   value","Error: MTTS   value",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else
-        if (MMaxUpstreamText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified a maximum upstream  value","Error: Max upstream   value",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else
-
-        if (MOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output folder","Error: Output  folder",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else
-        if (MScratchFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified a scratch folder","Error:  scratch folder",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else
-        if (MGenomeFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified a genome folder","Error: Genome folder",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else
-        if (MMockFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an Mock folder","Error: Mock folder",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else
-        if (MThreadText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
-            MThreadText.requestFocusInWindow();
-            return;
-        }
-        try
-        {
-            Integer x = Integer.valueOf(MThreadText.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
-                MThreadText.requestFocusInWindow();
-                return;
-            }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number of threads that will be used.","Error: Thread  number",JOptionPane.ERROR_MESSAGE);
-            MThreadText.requestFocusInWindow();
-            return;
-        }
-
-        if ((!MAdapter5Text.getText().isEmpty())&&(!MainFrame.adapter.matcher(MAdapter5Text.getText()).matches())){
-            JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 5'",JOptionPane.ERROR_MESSAGE);
+        //check adapters        
+        if (!adapter5.isEmpty() && !MainFrame.adapter.matcher(adapter5).matches()) {
+            JOptionPane.showMessageDialog(this, 
+                    "The specified Adapter format is not valid.",
+                    "Error: Adapter 5'",
+                    JOptionPane.ERROR_MESSAGE);
             MAdapter5Text.requestFocusInWindow();
+            return;
         }
-        else{
-            if ((!MAdapter3Text.getText().isEmpty())&&(!MainFrame.adapter.matcher(MAdapter3Text.getText()).matches())){
-                JOptionPane.showMessageDialog(this, "The specified Adapter format is not valid.","Error: Adapter 3'",JOptionPane.ERROR_MESSAGE);
-                MAdapter3Text.requestFocusInWindow();
-            }
-            else{
-                if (MMinLengthText.getText().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "You have to specified a value for the minimum lenght.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                    MMinLengthText.requestFocusInWindow();
-                    return;
-                }
-                try{
-                    Integer x = Integer.valueOf(MMinLengthText.getText());
-                    if (x<0){
-                        JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                        MMinLengthText.requestFocusInWindow();
-                        return;
-                    }
-                }
-                catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this, "You have to specified a positive value.","Error: Minimum read length",JOptionPane.ERROR_MESSAGE);
-                    MMinLengthText.requestFocusInWindow();
-                    return;
-                }
-
-                if (!MainFrame.org.matcher(vOrganismText.getText()).matches()){
-                    JOptionPane.showMessageDialog(this, "The specified organism is not valid.","Error: Organism",JOptionPane.ERROR_MESSAGE);
-                   vOrganismText.requestFocusInWindow();
-                }
-                else{
-                    //execute code
-                    Runtime rt = Runtime.getRuntime();
-                    try{
-                        String[] cmd = {"/bin/bash","-c","   bash ./execMACS-SICER.sh "};
-
-                        if (MSudoRadioButton.isSelected()){
-                            cmd[2]+= "group=\\\"sudo\\\"";
-                        }
-                        else{
-                            cmd[2]+= "group=\\\"docker\\\"";
-                        }
-                        cmd[2]+= " output.folder=\\\""+MOutputFolderText.getText()+"\\\" scratch.folder=\\\""+MScratchFolderText.getText()+"\\\" adapter5=\\\""+MAdapter5Text.getText()+"\\\" adapter3=\\\""+MAdapter3Text.getText()+"\\\"";
-                        cmd[2]+= " mock.folder=\\\""+MMockFolderText.getText()+"\\\" test.folder=\\\""+MTestFolderText.getText()+"\\\"";
-                        cmd[2]+= " seq.type=\\\"se\\\" threads="+vThreadText.getText()+" min.length="+MMinLengthText.getText()+" genome.folder=\\\""+MGenomeFolderText.getText()+"\\\"";
-                        cmd[2]+= " mock.id=\\\"igg\\\"  test.id=\\\"tf\\\" genome=\\\""+MOrgComboBox.getSelectedItem().toString()+"\\\" read.size="+MReadLengthTextField.getText();
-                        cmd[2]+= " tool=\\\""+MToolComboBox.getSelectedItem().toString()+"\\\" macs.min.mfold="+MMinmfoldText.getText()+" macs.max.mfold="+MMaxmfoldText.getText()+" macs.pval=\\\""+MMpvalueText.getText()+"\\\"";
-                        cmd[2]+= " sicer.wsize="+MSWindowsText.getText()+" sicer.gsize="+MSgsizeText.getText()+" sicer.fdr="+MSFDRText.getText()+ " tss.distance="+MTTSText.getText()+" max.upstream.distance="+MMaxUpstreamText.getText();
-                        if (MRyesRadioButton.isSelected())
-                        cmd[2]+= " remove.duplicates=\\\"Y\\\"";
-                        else
-                        cmd[2]+= " remove.duplicates=\\\"N\\\"";
-                        cmd[2]+=" "+MOutputFolderText.getText() +" >& "+MOutputFolderText.getText()+"/outputExecution ";
-
-                        //ProcessStatus.setText(pr.toString());
-                        if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                            Process pr = rt.exec(cmd);
-                            //System.out.println("lanciato "+pr);
-                            MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("MACS & SICER analysis", MOutputFolderText.getText(),pr,MainFrame.listModel.getSize());
-                            MainFrame.listProcRunning.add(tmp);
-                            java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                            ImageIcon image2 = new ImageIcon(imgURL);
-                            MainFrame.GL.setAvoidProcListValueChanged(-1);
-                            MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                            MainFrame.GL.setAvoidProcListValueChanged(0);
-                            //addElement("RNAseq counting workflow (data input: "+vFastQFolderText.getText()+")            [Runnig]");
-                            if(MainFrame.listProcRunning.size()==1){
-                                MainFrame.t=new Timer();
-                                MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                            }
-                        }
-
-                        else{
-                            MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("MACS & SICER analysis",MOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                            MainFrame.listProcWaiting.add(tmp);
-                            java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                            ImageIcon image2 = new ImageIcon(imgURL);
-                            MainFrame.GL.setAvoidProcListValueChanged(-1);
-                            MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                            MainFrame.GL.setAvoidProcListValueChanged(0);
-
-                        }
-                        MainFrame.GL.setAvoidProcListValueChanged(-1);
-                        MainFrame.ProcList.setModel(MainFrame.listModel);
-                        MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-                        MainFrame.GL.setAvoidProcListValueChanged(0);
-                    }
-                    catch(IOException e) {
-                        JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-                        System.out.println(e.toString());
-                    }
-                    JOptionPane.showMessageDialog(this, "MACS & SICER analysis task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-                }
-                //execute code
-            }
+        if (!adapter3.isEmpty() && !MainFrame.adapter.matcher(adapter3).matches()) {
+            JOptionPane.showMessageDialog(this, 
+                    "The specified Adapter format is not valid.",
+                    "Error: Adapter 3'",
+                    JOptionPane.ERROR_MESSAGE);
+            MAdapter3Text.requestFocusInWindow();
+            return; 
         }
+
+        if ((minlength = MainFrame.checkIntValue(this, MMinLengthText.getText(), "minimum read length")) == null ||
+            (readlength = MainFrame.checkIntValue(this, MReadLengthTextField.getText(), "read length")) == null ||
+            (max_up_distance = MainFrame.checkIntValue(this, MMaxUpstreamText.getText(), "maximum upstream value")) == null ||
+            (ttsdistance = MainFrame.checkIntValue(this, MTTSText.getText(), "MTTS value")) == null ||
+            (nthreads = MainFrame.checkIntValue(this, MThreadText.getText(), "number of threads")) == null)
+            return; 
+       
+        //some values check 
+        if (nthreads <= 0) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value greater than 0.",
+                    "Error: Thread  number",
+                    JOptionPane.ERROR_MESSAGE);
+            MThreadText.requestFocusInWindow();
+            return;
+        }
+        if (minlength < 0) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a positive value.",
+                    "Error: Minimum read length",
+                    JOptionPane.ERROR_MESSAGE);
+            MMinLengthText.requestFocusInWindow();
+            return;
+        }
+        
+        //check specific parameters 
+        switch (MToolComboBox.getSelectedIndex()) {
+            case 0: //MACS
+                if ((min_mfold = MainFrame.checkIntValue(this, MMinmfoldText.getText(), "MACS min. mfold value")) == null ||
+                    (max_mfold = MainFrame.checkIntValue(this, MMinmfoldText.getText(), "MACS max. mfold value")) == null ||
+                    (pvalue = MainFrame.checkFloatValue(this, MMinmfoldText.getText(), "MACS p-value")) == null)
+                return; 
+            case 1: //l'altro
+                if ((wsize = MainFrame.checkIntValue(this, MSWindowsText.getText(), "SICER window")) == null || 
+                    (gsize = MainFrame.checkIntValue(this, MSgsizeText.getText(), "SICER g-size")) == null || 
+                    (fdr = MainFrame.checkFloatValue(this, MSFDRText.getText(), "SICER FDR value")) == null)
+                    return; 
+                break;
+        }
+        
+        if (!MainFrame.org.matcher(vOrganismText.getText()).matches()){
+            JOptionPane.showMessageDialog(this, 
+                    "The specified organism is not valid.",
+                    "Error: Organism",
+                    JOptionPane.ERROR_MESSAGE);
+            vOrganismText.requestFocusInWindow();
+            return;
+        }
+        
+        ScriptCaller params = new ScriptCaller("chipseqCounts.R", outputFolder)
+                .addArg("group", MSudoRadioButton.isSelected() ? "sudo" : "docker")
+                .addArg("output.folder", outputFolder)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("genome.folder", genomeFolder)
+                .addArg("mock.folder", mockFolder)
+                .addArg("test.folder", testFolder)        
+                .addArg("adapter5", adapter5)
+                .addArg("adapter3", adapter3)
+                .addArg("seq.type", "se")
+                .addArg("threads", nthreads)
+                .addArg("min.length", minlength)
+                .addArg("mock.id", "igg")
+                .addArg("test.id", "tf")
+                .addArg("genome", MOrgComboBox.getSelectedItem().toString())
+                .addArg("read.size", readlength)
+                .addArg("tool", MToolComboBox.getSelectedItem().toString())
+                .addArg("macs.min.mfold", min_mfold)
+                .addArg("macs.max.mfold", max_mfold)
+                .addArg("macs.pval", pvalue)
+                .addArg("sicer.wsize", wsize)
+                .addArg("sicer.gsize", gsize)
+                .addArg("sicer.fdr", fdr)
+                .addArg("tss.distance", ttsdistance)
+                .addArg("max.upstream.distance", max_up_distance)
+                .addArg("remove.duplicates", MRyesRadioButton.isSelected() ? "Y" : "N");
+        MainFrame.execCommand(this, "MACS & SICER analysis", params);
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
