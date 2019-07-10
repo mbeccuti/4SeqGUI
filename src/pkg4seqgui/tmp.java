@@ -456,20 +456,9 @@ public class tmp extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton2ActionPerformed
-
         //RESET FIELDS
-        pLegendComboBox.setSelectedIndex(1);
-        pCovYesRadioButton.setSelected(true);
-        pFPKMRadioButton.setSelected(true);
-        pFPKMfileText.setText("");
-        pComponent1Text.setText("");
-        pComponent2Text.setText("");
-        pOutputFolderText.setText("");
-        //RESET FIELDS
-       
-        CardLayout card = (CardLayout)MainFrame.MainPanel.getLayout();
-        card.show(MainFrame.MainPanel, "Empty");
-        MainFrame.CurrentLayout="Empty";
+        jButton16ActionPerformed(evt); 
+        MainFrame.setCard(null);
         //MainFrame.GL.setAvoidProcListValueChanged(-1);
         // AnalysisTree.clearSelection();
 
@@ -530,108 +519,46 @@ public class tmp extends javax.swing.JPanel {
     
     
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-
-        if (pFPKMfileText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an input file","Error: input file",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        String inputFile = pFPKMfileText.getText(), outputFolder = pOutputFolderText.getText(); 
+        Integer pc1, pc2; 
         
+        if (MainFrame.checkPath(this, inputFile, "counts table file") || 
+            MainFrame.checkPath(this, outputFolder, "output folder"))
+            return; 
         
-        if (pOutputFolderText.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "You have to specified an output  folder","Error: output folder",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        if ((pc1 = MainFrame.checkIntValue(this, pComponent1Text.getText(), "principal component #1")) == null || 
+            (pc2 = MainFrame.checkIntValue(this, pComponent2Text.getText(), "principal component #2")) == null)
+            return; 
         
-        
-        try
-        {
-            Integer x = Integer.valueOf(pComponent1Text.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Component 1 number",JOptionPane.ERROR_MESSAGE);
-                pComponent1Text.requestFocusInWindow();
-                return;
-            }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number of component 1.","Error: Component 1 number",JOptionPane.ERROR_MESSAGE);
+        if (pc1 <= 0) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value greater than 0."
+                    ,"Error: Component 1 number",
+                    JOptionPane.ERROR_MESSAGE);
             pComponent1Text.requestFocusInWindow();
             return;
-        }
-        
-        try
-        {
-            Integer x = Integer.valueOf(pComponent2Text.getText());
-            if (x<=0){
-                JOptionPane.showMessageDialog(this, "You have to specified a value greater than 0.","Error: Component 2 number",JOptionPane.ERROR_MESSAGE);
-                pComponent2Text.requestFocusInWindow();
-                return;
-            }
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "You have to specified the number of component 2.","Error: Component 2 number",JOptionPane.ERROR_MESSAGE);
+        } else if (pc2 <= 0) {
+            JOptionPane.showMessageDialog(this, 
+                    "You have to specified a value greater than 0.",
+                    "Error: Component 2 number",
+                    JOptionPane.ERROR_MESSAGE);
             pComponent2Text.requestFocusInWindow();
             return;
         }
         
-        Runtime rt = Runtime.getRuntime();
-        //execute code
-            
-        try{
-            String[] cmd = {"/bin/bash","-c","  bash ./execPCA.sh "};
-            cmd[2]+= " experiment.table=\\\""+ pFPKMfileText.getText() +"\\\"";
-            if (pFPKMRadioButton.isSelected())
-                cmd[2]+= " type=\\\"FPKM\\\"";
-            else
-                 if (pTPMRadioButton.isSelected())
-                     cmd[2]+= " type=\\\"TPM\\\"";
-                 else
-                     cmd[2]+= " type=\\\"counts\\\"";
-            if (pCovYesRadioButton.isSelected())
-                cmd[2]+= " covariatesInNames=\\\"TRUE\\\"";
-            else
-                cmd[2]+= " covariatesInNames=\\\"FALSE\\\"";
-            cmd[2]+= " principal.components=c\\("+pComponent1Text.getText()+","+pComponent2Text.getText()+"\\)";
-            cmd[2]+= " legend.position=\\\""+pLegendComboBox.getSelectedItem().toString()+"\\\"";
-            cmd[2]+= " output.folder=\\\""+ pOutputFolderText.getText() +"\\\"";
-           // File outputFolder= new File(pFPKMfileText.getText());
-           // String output= outputFolder.getAbsolutePath().substring(0,outputFolder.getAbsolutePath().lastIndexOf(File.separator));
-            cmd[2]+=" "+ pOutputFolderText.getText()+" >& "+pOutputFolderText.getText()+"/outputExecution ";
-            //ProcessStatus.setText(pr.toString());
-            if (MainFrame.listProcRunning.size()<MainFrame.GS.getMaxSizelistProcRunning()){
-                Process pr = rt.exec(cmd); 
-                System.out.println(cmd[2]);                            
-                MainFrame.ElProcRunning tmp= new MainFrame.ElProcRunning("PCA ", pOutputFolderText.getText() ,pr,MainFrame.listModel.getSize());
-                MainFrame.listProcRunning.add(tmp);
-                java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/running.png");
-                ImageIcon image2 = new ImageIcon(imgURL);
-                MainFrame.GL.setAvoidProcListValueChanged(-1);
-                MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Running]   "+tmp.toString(),"Running",tmp.path, image2 ));
-                MainFrame.GL.setAvoidProcListValueChanged(0);
-                if(MainFrame.listProcRunning.size()==1){
-                    MainFrame.t=new Timer();
-                    MainFrame.t.scheduleAtFixedRate(new MainFrame.MyTask(), 5000, 5000);
-                    }
-            }             
-            else{
-                 MainFrame.ElProcWaiting tmp= new MainFrame.ElProcWaiting("PCA ", pOutputFolderText.getText(),cmd,MainFrame.listModel.getSize());
-                 MainFrame.listProcWaiting.add(tmp);
-                 java.net.URL imgURL = getClass().getResource("/pkg4seqgui/images/waiting.png");
-                 ImageIcon image2 = new ImageIcon(imgURL);
-                 MainFrame.GL.setAvoidProcListValueChanged(-1);
-                 MainFrame.listModel.addElement(new MainFrame.ListEntry(" [Waiting]   "+tmp.toString(),"Waiting",tmp.path,image2));
-                 MainFrame.GL.setAvoidProcListValueChanged(0);
-                }
-            MainFrame.GL.setAvoidProcListValueChanged(-1);
-            MainFrame.ProcList.setModel(MainFrame.listModel);
-            MainFrame.ProcList.setCellRenderer(new MainFrame.ListEntryCellRenderer());
-            MainFrame.GL.setAvoidProcListValueChanged(0);
-            } 
-        catch(IOException e) {
-            JOptionPane.showMessageDialog(this, e.toString(),"Error execution",JOptionPane.ERROR_MESSAGE);
-            System.out.println(e.toString());
-        }
-        JOptionPane.showMessageDialog(this, "A PCA task was scheduled","Confermation",JOptionPane.INFORMATION_MESSAGE);
-
+        String type = "FPKM"; 
+        if (!pFPKMRadioButton.isSelected())
+            type = pTPMRadioButton.isSelected() ? "TPM" : "counts"; 
+        
+        ScriptCaller params = new ScriptCaller("PCA.R", outputFolder)
+                .addArg("experiment.table", inputFile)
+                .addArg("output.folder", outputFolder)
+                .addArg("type", type)
+                .addArg("covariatesInNames", pCovYesRadioButton.isSelected())
+                .addArgAsVector("principal.components", String.valueOf(pc1), String.valueOf(pc2)) 
+                .addArg("legend.position", pLegendComboBox.getSelectedItem().toString());; 
+                
+        MainFrame.execCommand(this, "PCA", params);
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed

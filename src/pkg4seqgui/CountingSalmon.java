@@ -722,8 +722,7 @@ public class CountingSalmon extends javax.swing.JPanel {
         }
 
         //execute code
-        String outputFolder = Paths.get(fastqFolder).getParent().toString();
-        ScriptCaller params = new ScriptCaller("wrapperSalmon.R", outputFolder)
+        ScriptCaller params = new ScriptCaller("wrapperSalmon.R", fastqFolder)
                 .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
                 .addArg("fastq.folder", fastqFolder)
                 .addArg("scratch.folder", scratchFolder)

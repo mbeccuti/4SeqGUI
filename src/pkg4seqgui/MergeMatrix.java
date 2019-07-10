@@ -414,7 +414,7 @@ public class MergeMatrix extends javax.swing.JPanel {
         String sepf1 = sep1.getSelectedItem().toString(), 
                sepf2 = sep2.getSelectedItem().toString(); 
         
-        String outputFolder = Paths.get(File1.getText()).getParent().toString(); 
+        String outputFolder = Paths.get(inputfile1).getParent().toString(); 
         
         ScriptCaller params = new ScriptCaller("mergeMatrix.R", outputFolder)
                 .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
