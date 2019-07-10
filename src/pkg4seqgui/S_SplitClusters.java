@@ -348,31 +348,31 @@ public class S_SplitClusters extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
-        jButton40ActionPerformed(evt); 
+        jButton40ActionPerformed(evt);
         MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_BootstrapVideo_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_BootstrapVideo_jButtonActionPerformed
-        String countsFile = S_countTable.getText(), 
-               scratchFolder = sScratchFolder.getText(); 
-        
+        String countsFile = S_countTable.getText(),
+               scratchFolder = sScratchFolder.getText();
+
         if (MainFrame.checkPath(this, countsFile, "counts table file") ||
             MainFrame.checkPath(this, scratchFolder, "scratch folder"))
-            return; 
-        
-        Integer nclusters = MainFrame.checkIntValue(this, S_framePP.getText(), "number of clusters"); 
+            return;
+
+        Integer nclusters = MainFrame.checkIntValue(this, S_framePP.getText(), "number of clusters");
         if (nclusters == null)
-            return; 
-        
+            return;
+
         String outputFolder = Paths.get(countsFile).getParent().toString();
         ScriptCaller params = new ScriptCaller("splitClusters.R", outputFolder)
-                .addArg("group", countsFile)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
                 .addArg("scratch.folder", scratchFolder)
                 .addArg("file", countsFile)
                 .addArg("nCluster", nclusters)
-                .addArg("separator", S_sep.getSelectedItem().toString()); 
+                .addArg("separator", S_sep.getSelectedItem().toString());
         MainFrame.execCommand(this, "SplitClusters", params);
     }//GEN-LAST:event_S_BootstrapVideo_jButtonActionPerformed
 

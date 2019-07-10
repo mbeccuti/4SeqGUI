@@ -520,42 +520,43 @@ public class S_SimlrBootstrap extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
-        jButton40ActionPerformed(evt); 
+        jButton40ActionPerformed(evt);
         MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_SimlrBootstrap_jButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_SimlrBootstrap_jButtonActionPerformed
-        String countsFile = S_countTable.getText(), 
+        String countsFile = S_countTable.getText(),
                scratchFolder = sScratchFolder.getText();
-        Integer seed, nperm, perm_group, percent, range1, range2; 
+        Integer seed, nperm, perm_group, percent, range1, range2;
 
         if (MainFrame.checkPath(this, countsFile, "counts table file") ||
             MainFrame.checkPath(this, scratchFolder, "scratch folder"))
-            return; 
-        
+            return;
+
         if ((seed = MainFrame.checkIntValue(this, S_seed.getText(), "seed")) == null ||
             (nperm = MainFrame.checkIntValue(this, S_nPerm.getText(), "number of permutations")) == null ||
             (perm_group = MainFrame.checkIntValue(this, S_permAtTime.getText(), "permutation groups")) == null ||
             (percent = MainFrame.checkIntValue(this, S_percent.getText(), "percentage of removed cells")) == null ||
             (range1 = MainFrame.checkIntValue(this, S_range1.getText(), "range1")) == null ||
             (range2 = MainFrame.checkIntValue(this, S_range2.getText(), "range2")) == null)
-            return; 
-        
+            return;
+
         String outputFolder = Paths.get(countsFile).getParent().toString();
         ScriptCaller params = new ScriptCaller("simlrBootstrap.R", outputFolder)
                 .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
                 .addArg("scratch.folder", scratchFolder)
                 .addArg("file", countsFile)
                 .addArg("separator", S_sep.getSelectedItem().toString())
-                .addArg("logTen", S_logTen.getSelectedItem().equals("true") ? 1 : 0)
+                .addArg("logTen", S_logTen.getSelectedItem().toString().equals("true") ? 1 : 0)
                 .addArg("nPerm", nperm)
                 .addArg("permAtTime", perm_group)
                 .addArg("percent", percent)
                 .addArg("range1", range1)
-                .addArg("range2", range2);
-                
+                .addArg("range2", range2)
+                .addArg("seed", seed); 
+
         MainFrame.execCommand(this, "Simlr Bootstrap", params);
     }//GEN-LAST:event_S_SimlrBootstrap_jButtonActionPerformed
 

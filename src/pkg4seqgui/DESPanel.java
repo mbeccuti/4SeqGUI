@@ -471,13 +471,13 @@ public class DESPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_vCloseButton3ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        String inputFilepath = dFPKMfileText.getText(), 
+        String inputFilepath = dFPKMfileText.getText(),
                outputFolderpath = dOutputFolderText.getText();
         float log2fc = 0, fdr = 0;
-        
+
         //Field check
         if (inputFilepath.isEmpty()){
-            JOptionPane.showMessageDialog(this, 
+            JOptionPane.showMessageDialog(this,
                     "You have to specified an input file",
                     "Error: input file",
                     JOptionPane.ERROR_MESSAGE);
@@ -485,7 +485,7 @@ public class DESPanel extends javax.swing.JPanel {
         }
 
         if (outputFolderpath.isEmpty()){
-            JOptionPane.showMessageDialog(this, 
+            JOptionPane.showMessageDialog(this,
                     "You have to specified an output folder",
                     "Error: output folder",
                     JOptionPane.ERROR_MESSAGE);
@@ -495,7 +495,7 @@ public class DESPanel extends javax.swing.JPanel {
         try {
             log2fc = Float.valueOf(dLog2fcText.getText().trim());
             if (log2fc <= 0){
-                JOptionPane.showMessageDialog(this, 
+                JOptionPane.showMessageDialog(this,
                         "You have to specified a value greater than 0.",
                         "Error: Log2fc threashold",
                         JOptionPane.ERROR_MESSAGE);
@@ -503,7 +503,7 @@ public class DESPanel extends javax.swing.JPanel {
                 return;
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, 
+            JOptionPane.showMessageDialog(this,
                     "You have to specified a value for Log2fc threashold.",
                     "Error: Log2fc threashold",
                     JOptionPane.ERROR_MESSAGE);
@@ -514,7 +514,7 @@ public class DESPanel extends javax.swing.JPanel {
         try {
             fdr = Float.valueOf(dFDRText.getText().trim());
             if (fdr <= 0){
-                JOptionPane.showMessageDialog(this, 
+                JOptionPane.showMessageDialog(this,
                         "You have to specified a value greater than 0.",
                         "Error: FDR threashold",
                         JOptionPane.ERROR_MESSAGE);
@@ -522,7 +522,7 @@ public class DESPanel extends javax.swing.JPanel {
                 return;
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, 
+            JOptionPane.showMessageDialog(this,
                     "You have to specified a value for the FDR threashold",
                     "Error: FDR threashold",
                     JOptionPane.ERROR_MESSAGE);
@@ -530,9 +530,9 @@ public class DESPanel extends javax.swing.JPanel {
             return;
         }
 
-        String type = "isoform"; 
+        String type = "isoform";
         if (!dIsoformRadioButton.isSelected())
-            type = dGeneRadioButton.isSelected() ? "gene" : "mirna"; 
+            type = dGeneRadioButton.isSelected() ? "gene" : "mirna";
         ScriptCaller params = new ScriptCaller("DES.R", outputFolderpath)
                 .addArg("experiment.table", inputFilepath)
                 .addArg("type", type)
@@ -540,7 +540,7 @@ public class DESPanel extends javax.swing.JPanel {
                 .addArg("fdr", fdr)
                 .addArg("batch", dBatchesTrue.isSelected() ? "TRUE" : "FALSE")
                 .addArg("ref.covar", dCovComboBox.getSelectedItem().toString())
-                .addArg("output.folder", inputFilepath);
+                .addArg("output.folder", outputFolderpath);
         MainFrame.execCommand(this, "DESeq2 analysis", params);
     }//GEN-LAST:event_jButton18ActionPerformed
 
@@ -564,7 +564,7 @@ public class DESPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_dFPKMfileTextActionPerformed
 
     private void jToggleButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton14ActionPerformed
-        JFileChooser openDir = MainFrame.browseTextFieldContent(this, dFPKMfileText, JFileChooser.FILES_ONLY); 
+        JFileChooser openDir = MainFrame.browseTextFieldContent(this, dFPKMfileText, JFileChooser.FILES_ONLY);
         dOutputFolderText.setText(openDir.getCurrentDirectory().getAbsolutePath());
     }//GEN-LAST:event_jToggleButton14ActionPerformed
 
@@ -582,7 +582,7 @@ public class DESPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jToggleButton17ActionPerformed
 
     private static final long serialVersionUID = 5778212335L;
-     
+
     private void fCancelButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCancelButton3ActionPerformed
         dOutputFolderText.setText("");
     }//GEN-LAST:event_fCancelButton3ActionPerformed

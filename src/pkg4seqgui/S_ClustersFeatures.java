@@ -355,7 +355,7 @@ public class S_ClustersFeatures extends javax.swing.JPanel {
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
         //RESET FIELDS
-        jButton40ActionPerformed(evt); 
+        jButton40ActionPerformed(evt);
         //RESET FIELDS
         MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
@@ -363,25 +363,25 @@ public class S_ClustersFeatures extends javax.swing.JPanel {
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void S_ClustersFeatures_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_S_ClustersFeatures_ButtonActionPerformed
-        String fileLog = S_countTable1.getText(), 
-               fileCounts = S_countTable.getText(); 
-        Float delta = MainFrame.checkFloatValue(this, S_delta.getText(), "delta"); 
-        
+        String fileLog = S_countTable1.getText(),
+               fileCounts = S_countTable.getText();
+        Float delta = MainFrame.checkFloatValue(this, S_delta.getText(), "delta");
+
         if (MainFrame.checkPath(this, fileCounts, "counts table file") ||
             MainFrame.checkPath(this, fileLog, "Anova like filtered output file"))
-            return; 
-        
+            return;
+
         if (delta == null)
-            return; 
-        
-        String outputFolder = Paths.get(fileCounts).getParent().toString(); 
+            return;
+
+        String outputFolder = Paths.get(fileCounts).getParent().toString();
         ScriptCaller params = new ScriptCaller("ClustersFeatures.R", outputFolder)
-                .addArg("group", "")
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
                 .addArg("fileLogFC", fileLog)
                 .addArg("fileCounts", fileCounts)
                 .addArg("delta", delta)
                 .addArg("sep", S_sep.getSelectedItem().toString());
-        
+
         MainFrame.execCommand(this, "Clusters Features", params);
     }//GEN-LAST:event_S_ClustersFeatures_ButtonActionPerformed
 

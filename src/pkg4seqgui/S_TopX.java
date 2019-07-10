@@ -312,30 +312,30 @@ public class S_TopX extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void vCloseButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vCloseButton5ActionPerformed
-        jButton40ActionPerformed(evt); 
+        jButton40ActionPerformed(evt);
         MainFrame.setCard(null);
         //GL.setAvoidProcListValueChanged(-1);
         //        AnalysisTree.clearSelection();
     }//GEN-LAST:event_vCloseButton5ActionPerformed
 
     private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
-        String countsFile = S_countTable.getText(); 
-        
+        String countsFile = S_countTable.getText();
+
         if (MainFrame.checkPath(this, countsFile, "counts table file"))
-            return; 
-        
-        Integer ngenes = MainFrame.checkIntValue(this, S_Threshold.getText(), "number of top expressed genes"); 
+            return;
+
+        Integer ngenes = MainFrame.checkIntValue(this, S_Threshold.getText(), "number of top expressed genes");
         if (ngenes == null)
-            return; 
-        
+            return;
+
         String outputFolder = Paths.get(countsFile).getParent().toString();
         ScriptCaller params = new ScriptCaller("topX.R", outputFolder)
-                .addArg("group", countsFile)
+                .addArg("group", cSudoRadioButton.isSelected() ? "sudo" : "docker")
                 .addArg("file", countsFile)
                 .addArg("threshold", ngenes)
                 .addArg("separator", S_separator.getSelectedItem().toString())
                 .addArg("logged", S_Logged.getSelectedItem().toString().equals("TRUE"))
-                .addArg("type", S_Type.getSelectedItem().toString());                
+                .addArg("type", S_Type.getSelectedItem().toString());
         MainFrame.execCommand(this, "TopX", params);
     }//GEN-LAST:event_jButton39ActionPerformed
 
