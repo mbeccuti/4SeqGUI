@@ -514,34 +514,16 @@ public class MainFrame extends javax.swing.JFrame {
         S_dim.setViewportView(new S_dim());
         S_clusterStability.setViewportView(new S_clusterStability());
 
-        MergeMatrix MM= new MergeMatrix();
-        mergeMatrix.setViewportView(MM);
-
-          S_CrossLabel CS= new S_CrossLabel();
-        crossLabel.setViewportView(CS);
-
-         S_ScanpyBootstrap SB= new S_ScanpyBootstrap();
-        S_scanpybootstrap.setViewportView(SB);
-        
-        
-           S_10XGenomics_index TXG= new S_10XGenomics_index();
-        tenXIndexing.setViewportView(TXG);
-
-           S_DeTwoGroups DTG= new S_DeTwoGroups();
-        S_detwogroups.setViewportView(DTG);
-        
-           S_SparseToDense STD= new S_SparseToDense();
-        S_sparsetodense.setViewportView(STD);
-        
-              S_DenseToSparse DTS= new S_DenseToSparse();
-        S_densetosparse.setViewportView(DTS);
-        
-         subSetCells SSC = new subSetCells();
-        subsetcells.setViewportView(SSC);
-        S_SplitClusters SCS = new S_SplitClusters();
-        S_splitclusters.setViewportView(SCS);
-                S_UnstableFiltering UF = new S_UnstableFiltering();
-        S_unstablefiltering.setViewportView(UF);
+        mergeMatrix.setViewportView(new MergeMatrix());
+        crossLabel.setViewportView(new S_CrossLabel());
+        S_scanpybootstrap.setViewportView(new S_ScanpyBootstrap());
+        tenXIndexing.setViewportView(new S_10XGenomics_index());
+        S_detwogroups.setViewportView(new S_DeTwoGroups());
+        S_sparsetodense.setViewportView(new S_SparseToDense());
+        S_densetosparse.setViewportView(new S_DenseToSparse());
+        subsetcells.setViewportView(new subSetCells());
+        S_splitclusters.setViewportView(new S_SplitClusters());
+        S_unstablefiltering.setViewportView(new S_UnstableFiltering());
         
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
@@ -558,8 +540,10 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaQuantification.setViewportView(new SncRNAQuantification());
 
         heatmaply.setViewportView(new WebBrowser());
+        //chipseq stuff
         MACSv2.setViewportView(new MACSv2Panel());
         bwa.setViewportView(new BWAPanel());
+        bwaIndex.setViewportView(new BWAIndexPanel()); 
 //ADDING PANEL
 
 
@@ -847,6 +831,7 @@ public class MainFrame extends javax.swing.JFrame {
         S_scanpybootstrap = new javax.swing.JScrollPane();
         MACSv2 = new javax.swing.JScrollPane();
         bwa = new javax.swing.JScrollPane();
+        bwaIndex = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -889,6 +874,7 @@ public class MainFrame extends javax.swing.JFrame {
         CountButton2 = new javax.swing.JButton();
         Macs2Button = new javax.swing.JButton();
         chipseqbwaButton = new javax.swing.JButton();
+        bwaIndexChipseq = new javax.swing.JButton();
         CircRNAScrollPanel = new javax.swing.JScrollPane();
         CircRNAPanel = new javax.swing.JPanel();
         crnaP1 = new javax.swing.JPanel();
@@ -1855,6 +1841,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         MainPanel.add(MACSv2, "MACSv2");
         MainPanel.add(bwa, "bwa");
+        MainPanel.add(bwaIndex, "bwaIndex");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2388,13 +2375,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
         ChipSeqPanel.add(Macs2Button, gridBagConstraints);
 
+        chipseqbwaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
         chipseqbwaButton.setText("Alignment with BWA");
         chipseqbwaButton.setBorderPainted(false);
         chipseqbwaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2404,11 +2392,27 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChipSeqPanel.add(chipseqbwaButton, gridBagConstraints);
+
+        bwaIndexChipseq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
+        bwaIndexChipseq.setText("BWA index");
+        bwaIndexChipseq.setBorderPainted(false);
+        bwaIndexChipseq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bwaIndexChipseqActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ChipSeqPanel.add(bwaIndexChipseq, gridBagConstraints);
 
         ChipSeqScrollPanel.setViewportView(ChipSeqPanel);
 
@@ -6159,6 +6163,10 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("bwa");
     }//GEN-LAST:event_chipseqbwaButtonActionPerformed
 
+    private void bwaIndexChipseqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bwaIndexChipseqActionPerformed
+        setCard("bwaIndex");
+    }//GEN-LAST:event_bwaIndexChipseqActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -6375,6 +6383,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton addImagesButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JScrollPane bwa;
+    private javax.swing.JScrollPane bwaIndex;
+    private javax.swing.JButton bwaIndexChipseq;
     private javax.swing.JCheckBox chipseqTabChecker;
     private javax.swing.JButton chipseqbwaButton;
     private javax.swing.JButton circRNAAnnotationButton2;
