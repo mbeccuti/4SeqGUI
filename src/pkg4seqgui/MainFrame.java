@@ -558,6 +558,8 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaQuantification.setViewportView(new SncRNAQuantification());
 
         heatmaply.setViewportView(new WebBrowser());
+        MACSv2.setViewportView(new MACSv2Panel());
+        bwa.setViewportView(new BWAPanel());
 //ADDING PANEL
 
 
@@ -843,6 +845,8 @@ public class MainFrame extends javax.swing.JFrame {
         S_densetosparse = new javax.swing.JScrollPane();
         S_sparsetodense = new javax.swing.JScrollPane();
         S_scanpybootstrap = new javax.swing.JScrollPane();
+        MACSv2 = new javax.swing.JScrollPane();
+        bwa = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -883,6 +887,8 @@ public class MainFrame extends javax.swing.JFrame {
         ChipSeqPanel = new javax.swing.JPanel();
         indexingBButton = new javax.swing.JButton();
         CountButton2 = new javax.swing.JButton();
+        Macs2Button = new javax.swing.JButton();
+        chipseqbwaButton = new javax.swing.JButton();
         CircRNAScrollPanel = new javax.swing.JScrollPane();
         CircRNAPanel = new javax.swing.JPanel();
         crnaP1 = new javax.swing.JPanel();
@@ -1234,7 +1240,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(downloadDockerImagesButton, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1847,6 +1853,9 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(S_scanpybootstrap, "scanpybootstrap");
         S_scanpybootstrap.getAccessibleContext().setAccessibleName("");
 
+        MainPanel.add(MACSv2, "MACSv2");
+        MainPanel.add(bwa, "bwa");
+
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
         LeftPanel.setLayout(new java.awt.GridBagLayout());
@@ -2366,9 +2375,40 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ChipSeqPanel.add(CountButton2, gridBagConstraints);
+
+        Macs2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqAl.png"))); // NOI18N
+        Macs2Button.setText("MACS2  ");
+        Macs2Button.setBorderPainted(false);
+        Macs2Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Macs2ButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        ChipSeqPanel.add(CountButton2, gridBagConstraints);
+        ChipSeqPanel.add(Macs2Button, gridBagConstraints);
+
+        chipseqbwaButton.setText("Alignment with BWA");
+        chipseqbwaButton.setBorderPainted(false);
+        chipseqbwaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chipseqbwaButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ChipSeqPanel.add(chipseqbwaButton, gridBagConstraints);
 
         ChipSeqScrollPanel.setViewportView(ChipSeqPanel);
 
@@ -6108,8 +6148,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_NovaLikeButton3ActionPerformed
 
     private void SC_ScanpyBootstrapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_ScanpyBootstrapActionPerformed
-                setCard("scanpybootstrap");
+        setCard("scanpybootstrap");
     }//GEN-LAST:event_SC_ScanpyBootstrapActionPerformed
+
+    private void Macs2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Macs2ButtonActionPerformed
+        setCard("MACSv2");
+    }//GEN-LAST:event_Macs2ButtonActionPerformed
+
+    private void chipseqbwaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chipseqbwaButtonActionPerformed
+        setCard("bwa");
+    }//GEN-LAST:event_chipseqbwaButtonActionPerformed
 
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
@@ -6206,9 +6254,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton HeatmapButton;
     private javax.swing.JSplitPane HorizontalSplitPanel;
     private javax.swing.JPanel LeftPanel;
+    private javax.swing.JScrollPane MACSv2;
     private javax.swing.ButtonGroup MExecution;
     private javax.swing.ButtonGroup MRemoveDuplicates;
     private javax.swing.ButtonGroup MSeq;
+    private javax.swing.JButton Macs2Button;
     public static javax.swing.JPanel MainPanel;
     private javax.swing.JButton MergeMatrixButton;
     private javax.swing.JScrollPane MultiQC;
@@ -6324,7 +6374,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.JButton addImagesButton;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JScrollPane bwa;
     private javax.swing.JCheckBox chipseqTabChecker;
+    private javax.swing.JButton chipseqbwaButton;
     private javax.swing.JButton circRNAAnnotationButton2;
     private javax.swing.JButton circRNADESeqButton;
     private javax.swing.JCheckBox circRNATabChecker;
