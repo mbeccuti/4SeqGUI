@@ -544,6 +544,7 @@ public class MainFrame extends javax.swing.JFrame {
         MACSv2.setViewportView(new MACSv2Panel());
         bwa.setViewportView(new BWAPanel());
         bwaIndex.setViewportView(new BWAIndexPanel()); 
+        chipseqAnnotationPanel.setViewportView(new ChipseqAnnotation());
 //ADDING PANEL
 
 
@@ -832,6 +833,7 @@ public class MainFrame extends javax.swing.JFrame {
         MACSv2 = new javax.swing.JScrollPane();
         bwa = new javax.swing.JScrollPane();
         bwaIndex = new javax.swing.JScrollPane();
+        chipseqAnnotationPanel = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -875,6 +877,7 @@ public class MainFrame extends javax.swing.JFrame {
         Macs2Button = new javax.swing.JButton();
         chipseqbwaButton = new javax.swing.JButton();
         bwaIndexChipseq = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         CircRNAScrollPanel = new javax.swing.JScrollPane();
         CircRNAPanel = new javax.swing.JPanel();
         crnaP1 = new javax.swing.JPanel();
@@ -1842,6 +1845,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(MACSv2, "MACSv2");
         MainPanel.add(bwa, "bwa");
         MainPanel.add(bwaIndex, "bwaIndex");
+        MainPanel.add(chipseqAnnotationPanel, "chipseqGTFAnnotation");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2378,8 +2382,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChipSeqPanel.add(Macs2Button, gridBagConstraints);
 
         chipseqbwaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
@@ -2413,6 +2416,22 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChipSeqPanel.add(bwaIndexChipseq, gridBagConstraints);
+
+        jButton4.setText("Result annotation by GTF");
+        jButton4.setBorderPainted(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        ChipSeqPanel.add(jButton4, gridBagConstraints);
 
         ChipSeqScrollPanel.setViewportView(ChipSeqPanel);
 
@@ -6167,6 +6186,10 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("bwaIndex");
     }//GEN-LAST:event_bwaIndexChipseqActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        setCard("chipseqGTFAnnotation");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -6385,6 +6408,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane bwa;
     private javax.swing.JScrollPane bwaIndex;
     private javax.swing.JButton bwaIndexChipseq;
+    private javax.swing.JScrollPane chipseqAnnotationPanel;
     private javax.swing.JCheckBox chipseqTabChecker;
     private javax.swing.JButton chipseqbwaButton;
     private javax.swing.JButton circRNAAnnotationButton2;
@@ -6441,6 +6465,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
