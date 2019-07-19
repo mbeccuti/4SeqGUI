@@ -479,8 +479,6 @@ public class MainFrame extends javax.swing.JFrame {
         pCAPanel.setViewportView(new PCAPanel());
 
         dESPanel.setViewportView(new DESPanel());
-        indexingBWAPanel.setViewportView(new IndexingBWAPanel());
-        mACSPanel.setViewportView(new MACSPanel());
         sampleSizePanel.setViewportView(new SampleSizePanel());
         experimentPowerPanel.setViewportView(new ExperimentPowerPanel());
         mRNABatchPanel.setViewportView(new MRNABatchPanel());
@@ -545,6 +543,10 @@ public class MainFrame extends javax.swing.JFrame {
         bwa.setViewportView(new BWAPanel());
         bwaIndex.setViewportView(new BWAIndexPanel()); 
         chipseqAnnotationPanel.setViewportView(new ChipseqAnnotation());
+        /* *** deprecated - to remove *********/
+        indexingBWAPanel.setViewportView(new IndexingBWAPanel());
+        mACSPanel.setViewportView(new MACSPanel());
+        /* **********************************/
 //ADDING PANEL
 
 
@@ -872,8 +874,6 @@ public class MainFrame extends javax.swing.JFrame {
         DeseqButton2 = new javax.swing.JButton();
         ChipSeqScrollPanel = new javax.swing.JScrollPane();
         ChipSeqPanel = new javax.swing.JPanel();
-        indexingBButton = new javax.swing.JButton();
-        CountButton2 = new javax.swing.JButton();
         Macs2Button = new javax.swing.JButton();
         chipseqbwaButton = new javax.swing.JButton();
         bwaIndexChipseq = new javax.swing.JButton();
@@ -2336,38 +2336,6 @@ public class MainFrame extends javax.swing.JFrame {
         ChipSeqPanel.setBackground(new java.awt.Color(255, 255, 255));
         ChipSeqPanel.setName("chipseq"); // NOI18N
         ChipSeqPanel.setLayout(new java.awt.GridBagLayout());
-
-        indexingBButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqIndex.png"))); // NOI18N
-        indexingBButton.setText("Genome indexing BWA  ");
-        indexingBButton.setBorderPainted(false);
-        indexingBButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                indexingBButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ChipSeqPanel.add(indexingBButton, gridBagConstraints);
-
-        CountButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqAl.png"))); // NOI18N
-        CountButton2.setText("  MACS & SICER analysis");
-        CountButton2.setBorderPainted(false);
-        CountButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CountButton2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        ChipSeqPanel.add(CountButton2, gridBagConstraints);
 
         Macs2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqAl.png"))); // NOI18N
         Macs2Button.setText("MACS2  ");
@@ -5676,20 +5644,6 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("multiqc");
     }//GEN-LAST:event_MultiQCButtonActionPerformed
 
-    private void CountButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CountButton2ActionPerformed
-        setCard("MACS");
-        MThreadText.setText(Integer.toString(GS.getDefaultThread()));
-        MAdapter5Text.setText(GS.getDefaultAdapter5());
-        MAdapter3Text.setText(GS.getDefaultAdapter3());
-        CardLayout cardTool = (CardLayout)Tool.getLayout();
-        cardTool.show(Tool, "MACS");
-    }//GEN-LAST:event_CountButton2ActionPerformed
-
-    private void indexingBButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_indexingBButtonActionPerformed
-        iThreadBText.setText(Integer.toString(GS.getDefaultThread()));
-        setCard("indexingB");
-    }//GEN-LAST:event_indexingBButtonActionPerformed
-
     private void DeseqButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeseqButton2ActionPerformed
         setCard("DES");
         DESPanel.dGeneRadioButton.setEnabled(true);
@@ -6265,7 +6219,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JFrame ConfigureTabsFrame;
     private javax.swing.JButton CountButton;
     private javax.swing.JButton CountButton1;
-    private javax.swing.JButton CountButton2;
     private javax.swing.JButton CountButton3;
     private javax.swing.JComboBox<String> CovComboBox;
     private javax.swing.JButton DenseToSparse;
@@ -6450,7 +6403,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane filterCounts;
     private javax.swing.JScrollPane heatmaply;
     private javax.swing.JButton heatmaplyButton;
-    private javax.swing.JButton indexingBButton;
     private javax.swing.JScrollPane indexingBWAPanel;
     private javax.swing.JScrollPane indexingSalmon;
     private javax.swing.JScrollPane indexingStarRSEM;

@@ -21,7 +21,7 @@ public class ChipseqAnnotation extends javax.swing.JPanel {
         initComponents();
     }
     
-    private static final long serialVersionUID = 57744123321L;
+    private static final long serialVersionUID = 57744123325L;
 
     /**
      * This method is called from within the constructor to initialize the form.
