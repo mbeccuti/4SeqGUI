@@ -426,7 +426,7 @@ public class S_SeuratPCAEval extends javax.swing.JPanel {
             MainFrame.checkPath(this, scratchFolder, "scratch folder"))
             return; 
         
-        Integer seed = MainFrame.checkIntValue(this, countsFile, "seed value"); 
+        Integer seed = MainFrame.checkIntValue(this, S_seed.getText(), "seed value"); 
         if (seed == null)
             return; 
         
