@@ -414,6 +414,12 @@ public class MergeMatrix extends javax.swing.JPanel {
         String sepf1 = sep1.getSelectedItem().toString(), 
                sepf2 = sep2.getSelectedItem().toString(); 
         
+        if(name1.isEmpty()){
+            name1="NULL";
+        }
+        if(name2.isEmpty()){
+            name2="NULL";
+        }
         String outputFolder = Paths.get(inputfile1).getParent().toString(); 
         
         ScriptCaller params = new ScriptCaller("mergeMatrix.R", outputFolder)

@@ -28,4 +28,10 @@ setwd(dirname(file1))
 
 
 scratch.folder=getwd()
+if(is.null(name1)){
+name1="NULL"
+}
+if(is.null(name2)){
+name2="NULL"
+}
 mergeMatrix(group=group, scratch.folder=scratch.folder, file1=file1,file2=file2, separator1=separator1,separator2=separator2,name1=name1,name2=name2)
