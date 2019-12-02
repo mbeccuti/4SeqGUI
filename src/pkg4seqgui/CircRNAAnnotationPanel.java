@@ -447,6 +447,8 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         circrnaDataTextField.setText("");
         scratchFolderTextField.setText("");
         buttonAssembly_hg19.setSelected(true);
+        for (JCheckBox checkbox: getCheckboxes().values())
+            checkbox.setSelected(false);
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
     private void executeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeFormPostProcessingButtonActionPerformed
