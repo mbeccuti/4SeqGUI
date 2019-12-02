@@ -15,7 +15,13 @@ if(length(args)==0) {
   }
 }
 
-library(docker4seq)
-#source("/home/nico/gitgud/docker4seq/R/circAnnotations.R")
 
-circAnnotations(group=group, scratch.folder=scratch.folder, ciri.file=ciri.file, genome.version=genome.version)
+library(docker4seq)
+
+circAnnotations(
+  group=group, 
+  scratch.folder=scratch.folder, 
+  ciri.file=ciri.file, 
+  genome.version=genome.version, 
+  annotation.sources=annotation.sources
+)

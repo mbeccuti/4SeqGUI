@@ -9,7 +9,10 @@ import java.awt.CardLayout;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -58,6 +61,11 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         tscdCheckBox = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        cscdCheckBox = new javax.swing.JCheckBox();
+        exorbaseCheckBox = new javax.swing.JCheckBox();
+        circricCheckBox = new javax.swing.JCheckBox();
+        circ2diseaseCheckBox = new javax.swing.JCheckBox();
+        circfunbaseCheckBox = new javax.swing.JCheckBox();
         closeFormPostProcessingButton = new javax.swing.JButton();
         executeFormPostProcessingButton = new javax.swing.JButton();
         resetFormPostProcessingButton = new javax.swing.JButton();
@@ -244,7 +252,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 50);
         AnnotationSourcesPanel.add(jLabel1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
@@ -252,9 +260,52 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 0.1;
         AnnotationSourcesPanel.add(jLabel2, gridBagConstraints);
 
+        cscdCheckBox.setText("CSCD");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        AnnotationSourcesPanel.add(cscdCheckBox, gridBagConstraints);
+
+        exorbaseCheckBox.setText("exoRBase");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        AnnotationSourcesPanel.add(exorbaseCheckBox, gridBagConstraints);
+
+        circricCheckBox.setText("CircRic");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        AnnotationSourcesPanel.add(circricCheckBox, gridBagConstraints);
+
+        circ2diseaseCheckBox.setText("Circ2Disease");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        AnnotationSourcesPanel.add(circ2diseaseCheckBox, gridBagConstraints);
+
+        circfunbaseCheckBox.setText("CircFunBase");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        AnnotationSourcesPanel.add(circfunbaseCheckBox, gridBagConstraints);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -270,7 +321,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weighty = 2.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -285,7 +336,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 12.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -300,7 +351,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_END;
         gridBagConstraints.weightx = 0.1;
@@ -404,7 +455,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             scratchFolder = scratchFolderTextField.getText();
         String assembly; 
         
-        List<String> annotationSources = new ArrayList<String>(); 
+        List<String> annotationSources = new ArrayList<>(); 
         
         if (circrnaPath.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
@@ -425,12 +476,10 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         if (!buttonAssembly_hg19.isSelected())
             assembly = buttonAssembly_hg18.isSelected() ? "hg18" : "hg38";
         
-        if (circbaseCheckBox.isSelected())
-            annotationSources.add("circbase"); 
-        if (tscdCheckBox.isSelected())
-            annotationSources.add("tscd"); 
-/*        if (cscdCheckBox.isSelected())
-            annotationSources.add("cscd"); */
+        
+        for (Map.Entry<String, JCheckBox> entry: getCheckboxes().entrySet()) 
+            if (entry.getValue().isSelected())
+                annotationSources.add(entry.getKey()); 
         
         if (annotationSources.isEmpty()) {
             JOptionPane.showMessageDialog(this, 
@@ -440,13 +489,15 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
             return; 
         }
         
+        String[] sources = annotationSources.toArray(new String[annotationSources.size()]); 
         
         String outputFolder = Paths.get(circrnaPath).getParent().toString();
         ScriptCaller parameters = new ScriptCaller("CircAnnotation.R", outputFolder)
             .addArg("group", execution)
             .addArg("scratch.folder", scratchFolder)
             .addArg("ciri.file", circrnaPath)
-            .addArg("genome.version", assembly); 
+            .addArg("genome.version", assembly)
+            .addArgAsVector("annotation.sources", true, sources);
         MainFrame.execCommand(this, "CircRNA annotation", parameters);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
@@ -466,6 +517,18 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         scratchFolderTextField.setText("");
     }//GEN-LAST:event_cancelScratchFolderButton1ActionPerformed
 
+    private Map<String, JCheckBox> getCheckboxes() {
+        Map<String, JCheckBox> checkboxes = new HashMap<>(); 
+        checkboxes.put("circbase", circbaseCheckBox); 
+        checkboxes.put("tscd", tscdCheckBox); 
+        checkboxes.put("cscd", cscdCheckBox); 
+        checkboxes.put("exorbase", exorbaseCheckBox); 
+        checkboxes.put("circ2disease", circ2diseaseCheckBox); 
+        checkboxes.put("circfunbase", circfunbaseCheckBox); 
+        checkboxes.put("circric", circricCheckBox);         
+        return checkboxes;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AnnotationPanel;
@@ -482,11 +545,16 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton buttonAssembly_hg38;
     private javax.swing.JButton cancelCircrnaDataButton;
     private javax.swing.JButton cancelScratchFolderButton1;
+    private javax.swing.JCheckBox circ2diseaseCheckBox;
     private javax.swing.JCheckBox circbaseCheckBox;
+    private javax.swing.JCheckBox circfunbaseCheckBox;
+    private javax.swing.JCheckBox circricCheckBox;
     private javax.swing.JTextField circrnaDataTextField;
     private javax.swing.JButton closeFormPostProcessingButton;
+    private javax.swing.JCheckBox cscdCheckBox;
     private javax.swing.JButton executeFormPostProcessingButton;
     private javax.swing.ButtonGroup executionGroup;
+    private javax.swing.JCheckBox exorbaseCheckBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel144;
     private javax.swing.JLabel jLabel2;
