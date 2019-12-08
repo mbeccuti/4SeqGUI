@@ -17,5 +17,9 @@ if(length(args)==0) {
 
 library(docker4seq)
 
-circrnaBSJunctions(group=group, scratch.folder=scratch.folder,
-    circrna.data=circrna.data, exon.data=exon.data, assembly=assembly)
+circrnaReformat(
+    group=group, 
+    scratch.folder=scratch, 
+    input.folder=input, 
+    output.folder=output, 
+    tool=tool)

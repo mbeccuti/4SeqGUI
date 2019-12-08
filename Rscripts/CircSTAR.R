@@ -17,5 +17,16 @@ if(length(args)==0) {
 
 library(docker4seq)
 
-circrnaBSJunctions(group=group, scratch.folder=scratch.folder,
-    circrna.data=circrna.data, exon.data=exon.data, assembly=assembly)
+wrapperSTARChip(group=group, 
+    scratch.folder=scratch, 
+    genome.folder=genome, 
+    samples.folder=samples, 
+    nthreads=nthreads, 
+    chimSegmentMin=chim_segment, 
+    chimJunctionOverhangMin=chim_overhang, 
+    reads.cutoff=reads_cutoff, 
+    min.subject.limit=min_subjects, 
+    do.splice=do_plice, 
+    cpm.cutoff=cpm_cutoff, 
+    subjectCPM.cutoff=subject_cpm, 
+    annotation=annotation)
