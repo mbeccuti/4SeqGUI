@@ -533,6 +533,9 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_starChimeric.setViewportView(new CircRNAStarChimeric());
         circRNA_prepareExonIsoformFiles.setViewportView(new CircRNADownloadData());
         circRNA_mergeCiri2Samples.setViewportView(new CircRNAMergeSamples());
+        circRNA_wrapperSTAR.setViewportView(new CircRNAWrapperSTARChip());
+        circRNA_overlap.setViewportView(new CircRNAOverlapPredictions());
+        circRNA_reformat.setViewportView(new CircRNAReformatPredictions());
         
         mirnaGenomeIndexing.setViewportView(new SncRNAIndexing());
         mirnaQuantification.setViewportView(new SncRNAQuantification());
@@ -836,6 +839,9 @@ public class MainFrame extends javax.swing.JFrame {
         bwa = new javax.swing.JScrollPane();
         bwaIndex = new javax.swing.JScrollPane();
         chipseqAnnotationPanel = new javax.swing.JScrollPane();
+        circRNA_wrapperSTAR = new javax.swing.JScrollPane();
+        circRNA_overlap = new javax.swing.JScrollPane();
+        circRNA_reformat = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -882,10 +888,13 @@ public class MainFrame extends javax.swing.JFrame {
         CircRNAPanel = new javax.swing.JPanel();
         crnaP1 = new javax.swing.JPanel();
         PredictionPanel = new javax.swing.JPanel();
-        Ciri2PredictionButton1 = new javax.swing.JButton();
-        Ciri2MergeResultsButton1 = new javax.swing.JButton();
-        StarChimericButton1 = new javax.swing.JButton();
-        StarchipCircleButton1 = new javax.swing.JButton();
+        Ciri2PredictionButton = new javax.swing.JButton();
+        Ciri2MergeResultsButton = new javax.swing.JButton();
+        StarChimericButton = new javax.swing.JButton();
+        StarchipCircleButton = new javax.swing.JButton();
+        wrapperSTARChipButton = new javax.swing.JButton();
+        reformatPredictionButton = new javax.swing.JButton();
+        overlapPredictionButton = new javax.swing.JButton();
         crnaPredictionLabel = new javax.swing.JLabel();
         crnaP2 = new javax.swing.JPanel();
         ClassificationAnnotationPanel = new javax.swing.JPanel();
@@ -1846,6 +1855,9 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(bwa, "bwa");
         MainPanel.add(bwaIndex, "bwaIndex");
         MainPanel.add(chipseqAnnotationPanel, "chipseqGTFAnnotation");
+        MainPanel.add(circRNA_wrapperSTAR, "circRNA_wrapperSTAR");
+        MainPanel.add(circRNA_overlap, "circRNA_overlap");
+        MainPanel.add(circRNA_reformat, "circRNA_reformat");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -2421,12 +2433,12 @@ public class MainFrame extends javax.swing.JFrame {
         PredictionPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         PredictionPanel.setLayout(new java.awt.GridBagLayout());
 
-        Ciri2PredictionButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/bwa.png"))); // NOI18N
-        Ciri2PredictionButton1.setText(" BWA+CIRI2  ");
-        Ciri2PredictionButton1.setBorderPainted(false);
-        Ciri2PredictionButton1.addActionListener(new java.awt.event.ActionListener() {
+        Ciri2PredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/bwa.png"))); // NOI18N
+        Ciri2PredictionButton.setText(" BWA+CIRI2  ");
+        Ciri2PredictionButton.setBorderPainted(false);
+        Ciri2PredictionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ciri2PredictionButton1ActionPerformed(evt);
+                Ciri2PredictionButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2434,14 +2446,14 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        PredictionPanel.add(Ciri2PredictionButton1, gridBagConstraints);
+        PredictionPanel.add(Ciri2PredictionButton, gridBagConstraints);
 
-        Ciri2MergeResultsButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ciri.png"))); // NOI18N
-        Ciri2MergeResultsButton1.setText("Merge CIRI2 predictions");
-        Ciri2MergeResultsButton1.setBorderPainted(false);
-        Ciri2MergeResultsButton1.addActionListener(new java.awt.event.ActionListener() {
+        Ciri2MergeResultsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ciri.png"))); // NOI18N
+        Ciri2MergeResultsButton.setText("Merge predictions");
+        Ciri2MergeResultsButton.setBorderPainted(false);
+        Ciri2MergeResultsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ciri2MergeResultsButton1ActionPerformed(evt);
+                Ciri2MergeResultsButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2449,14 +2461,14 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        PredictionPanel.add(Ciri2MergeResultsButton1, gridBagConstraints);
+        PredictionPanel.add(Ciri2MergeResultsButton, gridBagConstraints);
 
-        StarChimericButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_starchimeric.png"))); // NOI18N
-        StarChimericButton1.setText("STAR Chimeric  ");
-        StarChimericButton1.setBorderPainted(false);
-        StarChimericButton1.addActionListener(new java.awt.event.ActionListener() {
+        StarChimericButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_starchimeric.png"))); // NOI18N
+        StarChimericButton.setText("STAR Chimeric  ");
+        StarChimericButton.setBorderPainted(false);
+        StarChimericButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StarChimericButton1ActionPerformed(evt);
+                StarChimericButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2464,24 +2476,69 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        PredictionPanel.add(StarChimericButton1, gridBagConstraints);
+        PredictionPanel.add(StarChimericButton, gridBagConstraints);
 
-        StarchipCircleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_starchip.png"))); // NOI18N
-        StarchipCircleButton1.setText("STARchip Circle  ");
-        StarchipCircleButton1.setBorderPainted(false);
-        StarchipCircleButton1.addActionListener(new java.awt.event.ActionListener() {
+        StarchipCircleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_starchip.png"))); // NOI18N
+        StarchipCircleButton.setText("STARchip Circle  ");
+        StarchipCircleButton.setBorderPainted(false);
+        StarchipCircleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StarchipCircleButton1ActionPerformed(evt);
+                StarchipCircleButtonActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        PredictionPanel.add(StarchipCircleButton, gridBagConstraints);
+
+        wrapperSTARChipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/bwa.png"))); // NOI18N
+        wrapperSTARChipButton.setText("STAR +  STARChip  ");
+        wrapperSTARChipButton.setBorderPainted(false);
+        wrapperSTARChipButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wrapperSTARChipButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        PredictionPanel.add(StarchipCircleButton1, gridBagConstraints);
+        PredictionPanel.add(wrapperSTARChipButton, gridBagConstraints);
+
+        reformatPredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_reformat.png"))); // NOI18N
+        reformatPredictionButton.setText("Reformat Predictions  ");
+        reformatPredictionButton.setBorderPainted(false);
+        reformatPredictionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reformatPredictionButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        PredictionPanel.add(reformatPredictionButton, gridBagConstraints);
+
+        overlapPredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_overlap.png"))); // NOI18N
+        overlapPredictionButton.setText("Overlap Predictions  ");
+        overlapPredictionButton.setBorderPainted(false);
+        overlapPredictionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                overlapPredictionButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        PredictionPanel.add(overlapPredictionButton, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -5731,21 +5788,21 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("NOVAlike");
     }//GEN-LAST:event_ANOVAlikeButtonActionPerformed
 
-    private void Ciri2PredictionButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ciri2PredictionButton1ActionPerformed
+    private void Ciri2PredictionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ciri2PredictionButtonActionPerformed
         setCard("wrapperCiriCard");
-    }//GEN-LAST:event_Ciri2PredictionButton1ActionPerformed
+    }//GEN-LAST:event_Ciri2PredictionButtonActionPerformed
 
-    private void Ciri2MergeResultsButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ciri2MergeResultsButton1ActionPerformed
+    private void Ciri2MergeResultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ciri2MergeResultsButtonActionPerformed
         setCard("circrnaMergeCiri2ResultsCard");
-    }//GEN-LAST:event_Ciri2MergeResultsButton1ActionPerformed
+    }//GEN-LAST:event_Ciri2MergeResultsButtonActionPerformed
 
-    private void StarChimericButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StarChimericButton1ActionPerformed
+    private void StarChimericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StarChimericButtonActionPerformed
         setCard("circrnaStarChimeric");
-    }//GEN-LAST:event_StarChimericButton1ActionPerformed
+    }//GEN-LAST:event_StarChimericButtonActionPerformed
 
-    private void StarchipCircleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StarchipCircleButton1ActionPerformed
+    private void StarchipCircleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StarchipCircleButtonActionPerformed
         setCard("circrnaStarPrediction");
-    }//GEN-LAST:event_StarchipCircleButton1ActionPerformed
+    }//GEN-LAST:event_StarchipCircleButtonActionPerformed
 
     private void CirchunterClassificButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CirchunterClassificButton2ActionPerformed
         setCard("circRNA_ppCard");
@@ -6144,6 +6201,18 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("chipseqGTFAnnotation");
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void wrapperSTARChipButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wrapperSTARChipButtonActionPerformed
+        setCard("circRNA_wrapperSTAR");
+    }//GEN-LAST:event_wrapperSTARChipButtonActionPerformed
+
+    private void reformatPredictionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reformatPredictionButtonActionPerformed
+        setCard("circRNA_reformat");
+    }//GEN-LAST:event_reformatPredictionButtonActionPerformed
+
+    private void overlapPredictionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_overlapPredictionButtonActionPerformed
+        setCard("circRNA_overlap");
+    }//GEN-LAST:event_overlapPredictionButtonActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -6209,8 +6278,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane CircRNAScrollPanel;
     private javax.swing.JButton CircRNAStructurePredictionButton;
     private javax.swing.JButton CirchunterClassificButton2;
-    private javax.swing.JButton Ciri2MergeResultsButton1;
-    private javax.swing.JButton Ciri2PredictionButton1;
+    private javax.swing.JButton Ciri2MergeResultsButton;
+    private javax.swing.JButton Ciri2PredictionButton;
     private javax.swing.JPanel ClassificationAnnotationPanel;
     private javax.swing.JToggleButton CloseOutput;
     private javax.swing.JButton ConfCancell;
@@ -6344,8 +6413,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel SingleCellPanel;
     private javax.swing.JScrollPane SingleCellScrollPanel;
     private javax.swing.JButton SparseToDense;
-    private javax.swing.JButton StarChimericButton1;
-    private javax.swing.JButton StarchipCircleButton1;
+    private javax.swing.JButton StarChimericButton;
+    private javax.swing.JButton StarchipCircleButton;
     private javax.swing.JPanel SubBottomPanel;
     private javax.swing.JPanel SubClusteringPanel;
     private javax.swing.JPanel SubCountGenerationPanel;
@@ -6371,12 +6440,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane circRNA_annotation;
     private javax.swing.JScrollPane circRNA_ciri2;
     private javax.swing.JScrollPane circRNA_mergeCiri2Samples;
+    private javax.swing.JScrollPane circRNA_overlap;
     private javax.swing.JScrollPane circRNA_postprocessing;
     private javax.swing.JScrollPane circRNA_prepareExonIsoformFiles;
     private javax.swing.JScrollPane circRNA_quantification;
+    private javax.swing.JScrollPane circRNA_reformat;
     private javax.swing.JScrollPane circRNA_starChimeric;
     private javax.swing.JScrollPane circRNA_starPrediction;
     private javax.swing.JScrollPane circRNA_structure;
+    private javax.swing.JScrollPane circRNA_wrapperSTAR;
     private javax.swing.JButton circRNAddingCovarsButtonButton;
     private javax.swing.JButton closeConfigureTabButton;
     private javax.swing.JPanel commandsPanel;
@@ -6478,8 +6550,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane mirnaQuantification;
     private javax.swing.JButton mirnaQuantificationButton;
     private javax.swing.JButton mirnaindexingButton;
+    private javax.swing.JButton overlapPredictionButton;
     private javax.swing.JScrollPane pCAPanel;
     private javax.swing.JButton pullImagesButton;
+    private javax.swing.JButton reformatPredictionButton;
     private javax.swing.JButton removeImagesButton;
     private javax.swing.JCheckBox rnaSeqTabChecker;
     private javax.swing.JScrollPane sampleSizePanel;
@@ -6509,6 +6583,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox toolsTabChecker;
     private javax.swing.JScrollPane vmRNA;
     private javax.swing.JButton vmRNAButton;
+    private javax.swing.JButton wrapperSTARChipButton;
     // End of variables declaration//GEN-END:variables
 
 

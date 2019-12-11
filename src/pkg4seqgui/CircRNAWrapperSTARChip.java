@@ -69,7 +69,7 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        wrapperSTARChipPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Overlap Prediction Files", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 19, 163))); // NOI18N
+        wrapperSTARChipPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "STAR Alignment & circRNA prediction using STARChip", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(51, 19, 163))); // NOI18N
         wrapperSTARChipPanel.setLayout(new java.awt.GridBagLayout());
 
         executionPanel.setBackground(new java.awt.Color(248, 248, 248));
@@ -276,8 +276,10 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         wrapperSTARChipPanel.add(resetFormPostProcessingButton, gridBagConstraints);
 
+        parametersPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         parametersPanel.setLayout(new java.awt.GridBagLayout());
 
+        jPanel2.setBackground(new java.awt.Color(248, 248, 248));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "STAR Chimeric parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(154, 24, 24))); // NOI18N
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -302,13 +304,16 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         jPanel2.add(min_overhang_TF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         parametersPanel.add(jPanel2, gridBagConstraints);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "STARChip Parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(154, 24, 24))); // NOI18N
+        jPanel3.setBackground(new java.awt.Color(248, 248, 248));
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "STARChip Parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(154, 24, 24))); // NOI18N
         jPanel3.setLayout(new java.awt.GridBagLayout());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -381,7 +386,7 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
@@ -423,6 +428,8 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         String samplesFolder = inputFolderTextField.getText();
         String genomeFolder = genomeTextField.getText();
 
+        if (true) return; //temporarily disabled
+        
         if (MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
             MainFrame.checkPath(this, genomeFolder, "genome folder") ||
             MainFrame.checkPath(this, samplesFolder, "samples folder"))
