@@ -66,13 +66,15 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         cancelSamplesFolderButton = new javax.swing.JButton();
         samplesFolderTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        browseOutputFolder = new javax.swing.JButton();
+        cancelOutputFolder = new javax.swing.JButton();
         outputFolderTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         scratchFolderTextField = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        cancelScratch = new javax.swing.JButton();
+        browseScratch = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        usedToolComboBox = new javax.swing.JComboBox<>();
         resetFormPostProcessingButton = new javax.swing.JButton();
         executeFormPostProcessingButton = new javax.swing.JButton();
         closeFormPostProcessingButton = new javax.swing.JButton();
@@ -86,7 +88,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        CircRNAMergePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Merge CIRI2 output files", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(58, 140, 44))); // NOI18N
+        CircRNAMergePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Merge circRNA prediction files", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(58, 140, 44))); // NOI18N
         CircRNAMergePanel.setLayout(new java.awt.GridBagLayout());
 
         ExecutionPanel.setBackground(new java.awt.Color(248, 248, 248));
@@ -183,7 +185,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
@@ -241,11 +243,11 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SamplesPanel.add(jLabel2, gridBagConstraints);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
-        jButton1.setText("Browse");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        browseOutputFolder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        browseOutputFolder.setText("Browse");
+        browseOutputFolder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                browseOutputFolderActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -253,13 +255,13 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        SamplesPanel.add(jButton1, gridBagConstraints);
+        SamplesPanel.add(browseOutputFolder, gridBagConstraints);
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
-        jButton2.setText("Cancel");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cancelOutputFolder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        cancelOutputFolder.setText("Cancel");
+        cancelOutputFolder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelOutputFolderActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -267,7 +269,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        SamplesPanel.add(jButton2, gridBagConstraints);
+        SamplesPanel.add(cancelOutputFolder, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -291,11 +293,11 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SamplesPanel.add(scratchFolderTextField, gridBagConstraints);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
-        jButton3.setText("Cancel");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        cancelScratch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
+        cancelScratch.setText("Cancel");
+        cancelScratch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                cancelScratchActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -303,13 +305,13 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        SamplesPanel.add(jButton3, gridBagConstraints);
+        SamplesPanel.add(cancelScratch, gridBagConstraints);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
-        jButton4.setText("Browse");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        browseScratch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
+        browseScratch.setText("Browse");
+        browseScratch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                browseScratchActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -317,7 +319,25 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        SamplesPanel.add(jButton4, gridBagConstraints);
+        SamplesPanel.add(browseScratch, gridBagConstraints);
+
+        jLabel7.setText("Prediction tool:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SamplesPanel.add(jLabel7, gridBagConstraints);
+
+        usedToolComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACFS", "CIRI", "CIRI2", "CIRCEXPLORER", "CIRCEXPLORER2", "CIRCRNAFINDER", "DCC", "FINDCIRC2", "KNIFE" }));
+        usedToolComboBox.setSelectedIndex(2);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        SamplesPanel.add(usedToolComboBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -374,7 +394,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         CircRNAMergePanel.add(closeFormPostProcessingButton, gridBagConstraints);
 
         FilterCircRNAsPanel.setBackground(new java.awt.Color(248, 248, 248));
-        FilterCircRNAsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Filter parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(77, 160, 73))); // NOI18N
+        FilterCircRNAsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Filter parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(77, 160, 73))); // NOI18N
         FilterCircRNAsPanel.setLayout(new java.awt.GridBagLayout());
 
         jLabel3.setText("min reads: ");
@@ -454,6 +474,10 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         scratchFolderTextField.setText("");
         DockerRadioButton.setSelected(true);
         clearSamplesGroupsTable();
+        minAverageTextField.setText("");
+        minReadsTextField.setText("");
+        minReplicatesTextField.setText("");
+        usedToolComboBox.setSelectedIndex(2);
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
     private void executeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeFormPostProcessingButtonActionPerformed
@@ -461,71 +485,23 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         String outputFolder = outputFolderTextField.getText(),
                samplesFolder = samplesFolderTextField.getText(), 
                scratchFolder = scratchFolderTextField.getText();
-        int min_reads, min_reps, min_avg; 
+        String used_tool = (String) usedToolComboBox.getSelectedItem();
+        Integer min_reads, min_reps, min_avg; 
         
-        
-        if (samplesFolder.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                "You have to specify the input folder.",
-                "Error: samples folder",
-                JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if (outputFolder.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                "You have to specify the output folder.",
-                "Error: output folder",
-                JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if (scratchFolder.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
-                "You have to specify the scratch folder.",
-                "Error: output folder",
-                JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        try {
-            min_reads = Integer.parseInt(minReadsTextField.getText()); 
-            
-            if (min_reads < 0)
-                throw new NumberFormatException();
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, 
-                "The minimum number of reads must be a positive integer value.",
-                "Error: min. number of reads", 
-                JOptionPane.ERROR_MESSAGE);
+        if (MainFrame.checkPath(this, outputFolder, "output folder") ||
+            MainFrame.checkPath(this, samplesFolder, "input folder") || 
+            MainFrame.checkPath(this, scratchFolder, "scratch folder"))
             return; 
-        }
         
-        try {
-            min_reps = Integer.parseInt(minReplicatesTextField.getText()); 
-            
-            if (min_reps < 0)
-                throw new NumberFormatException();
-        }
-        catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, 
-                "The minimum number of replicates must be a positive integer value.",
-                "Error: min. number of replicates", 
-                JOptionPane.ERROR_MESSAGE);
+        if ((min_reads = MainFrame.checkIntValue(this, minReadsTextField.getText(), "min. number of reads")) == null || 
+            (min_reps = MainFrame.checkIntValue(this, minReplicatesTextField.getText(), "min. number of replicates")) == null || 
+            (min_avg = MainFrame.checkIntValue(this, minAverageTextField.getText(), "min. average")) == null)
             return; 
-        }
         
-        try {
-            min_avg = Integer.parseInt(minAverageTextField.getText()); 
-            
-            if (min_avg < 0)
-                throw new NumberFormatException();
-        }
-        catch (NumberFormatException e) {
+        if (min_reads < 0 || min_reps < 0 || min_avg < 0) {
             JOptionPane.showMessageDialog(this, 
-                "The minimum average must be a positive integer value.",
-                "Error: min. average", 
+                "Filter parameters must be positive integer values.",
+                "Error: filter parameters", 
                 JOptionPane.ERROR_MESSAGE);
             return; 
         }
@@ -544,22 +520,24 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         
         if (counter == 0) {
             JOptionPane.showMessageDialog(this,
-                "You have to specify at least one sample.",
-                "Error: samples",
+                "You have to select a samples folder containing at least one sample.",
+                "Error: number of samples",
                 JOptionPane.ERROR_MESSAGE);
             return;
         }
         
         ScriptCaller parameters = new ScriptCaller("CircMergeSamples.R", outputFolder)
                 .addArg("group", execution)
-                .addArg("scratch.folder", scratchFolder)
-                .addArg("data.folder", samplesFolder)
+                .addArg("scratch_folder", scratchFolder)
+                .addArg("data_folder", samplesFolder)
                 .addArg("samples", samples)
                 .addArg("covariates", covariates)
                 .addArg("min_reads", min_reads)
                 .addArg("min_reps", min_reps)
-                .addArg("min_avg", min_avg); 
-        MainFrame.execCommand(this, "CircRNA merge CIRI2 output files", parameters);
+                .addArg("min_avg", min_avg)
+                .addArg("used_tool", used_tool); 
+        
+        MainFrame.execCommand(this, "CircRNA merge " + used_tool + " output files", parameters);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void closeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormPostProcessingButtonActionPerformed
@@ -572,33 +550,35 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         clearSamplesGroupsTable();
     }//GEN-LAST:event_cancelSamplesFolderButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOutputFolderActionPerformed
         outputFolderTextField.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelOutputFolderActionPerformed
 
     private void browseSamplesFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseSamplesFolderButtonActionPerformed
         MainFrame.browseTextFieldContent(this, samplesFolderTextField, JFileChooser.DIRECTORIES_ONLY);  
-        fillSamplesGroupsTable(samplesFolderTextField.getText());
+        String samplesPath = samplesFolderTextField.getText(); 
+        if (!samplesPath.isEmpty())
+            fillSamplesGroupsTable(samplesPath);
     }//GEN-LAST:event_browseSamplesFolderButtonActionPerformed
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void browseOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseOutputFolderActionPerformed
         MainFrame.browseTextFieldContent(this, outputFolderTextField, JFileChooser.DIRECTORIES_ONLY);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_browseOutputFolderActionPerformed
 
     private void minAverageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minAverageTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_minAverageTextFieldActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void browseScratchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchActionPerformed
         MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_browseScratchActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void cancelScratchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchActionPerformed
         scratchFolderTextField.setText("");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_cancelScratchActionPerformed
    
     private ArrayList<TableEntry> getDataFromTable() {
-        ArrayList<TableEntry> data = new ArrayList<TableEntry>();
+        ArrayList<TableEntry> data = new ArrayList<>();
         String sample; 
         int group; 
         
@@ -620,8 +600,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     }
     
     private void fillSamplesGroupsTable(String samplesFolderPath) {
-        DefaultTableModel model = (DefaultTableModel) samplesGroupsTable.getModel();
-        
+        DefaultTableModel model = (DefaultTableModel) samplesGroupsTable.getModel();        
         
         for (final File fileEntry: new File(samplesFolderPath).listFiles()) {
             if (fileEntry.isDirectory()) {
@@ -643,15 +622,15 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     private javax.swing.JPanel FilterCircRNAsPanel;
     private javax.swing.JPanel SamplesPanel;
     private javax.swing.JRadioButton SudoRadioButton;
+    private javax.swing.JButton browseOutputFolder;
     private javax.swing.JButton browseSamplesFolderButton;
+    private javax.swing.JButton browseScratch;
+    private javax.swing.JButton cancelOutputFolder;
     private javax.swing.JButton cancelSamplesFolderButton;
+    private javax.swing.JButton cancelScratch;
     private javax.swing.JButton closeFormPostProcessingButton;
     private javax.swing.JButton executeFormPostProcessingButton;
     private javax.swing.ButtonGroup executionGroup;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel2;
@@ -659,6 +638,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField minAverageTextField;
     private javax.swing.JTextField minReadsTextField;
@@ -668,5 +648,6 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     private javax.swing.JTextField samplesFolderTextField;
     private javax.swing.JTable samplesGroupsTable;
     private javax.swing.JTextField scratchFolderTextField;
+    private javax.swing.JComboBox<String> usedToolComboBox;
     // End of variables declaration//GEN-END:variables
 }

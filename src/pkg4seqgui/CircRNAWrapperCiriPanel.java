@@ -83,7 +83,7 @@ public class CircRNAWrapperCiriPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        wrapperCiriPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "BWA Alignment & circRNA Prediction", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 204, 153))); // NOI18N
+        wrapperCiriPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "BWA Alignment & circRNA Prediction using CIRI2", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(0, 204, 153))); // NOI18N
         wrapperCiriPanel.setToolTipText(null);
         wrapperCiriPanel.setMinimumSize(new java.awt.Dimension(417, 291));
         wrapperCiriPanel.setLayout(new java.awt.GridBagLayout());

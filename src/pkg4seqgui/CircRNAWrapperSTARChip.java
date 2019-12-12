@@ -33,6 +33,8 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         jLabel149 = new javax.swing.JLabel();
         SudoRadioButton = new javax.swing.JRadioButton();
         DockerRadioButton = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        numThreads_TF = new javax.swing.JTextField();
         IOPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         inputFolderTextField = new javax.swing.JTextField();
@@ -96,9 +98,8 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
-        gridBagConstraints.insets = new java.awt.Insets(10, 40, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 75, 10, 10);
         executionPanel.add(SudoRadioButton, gridBagConstraints);
 
         DockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
@@ -113,11 +114,27 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionPanel.add(DockerRadioButton, gridBagConstraints);
+
+        jLabel5.setText("Num. threads: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        executionPanel.add(jLabel5, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
+        gridBagConstraints.insets = new java.awt.Insets(10, 77, 10, 10);
+        executionPanel.add(numThreads_TF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -162,7 +179,7 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 70);
         IOPanel.add(jLabel2, gridBagConstraints);
 
         scratchFolderTextField.setEditable(false);
@@ -276,6 +293,7 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         wrapperSTARChipPanel.add(resetFormPostProcessingButton, gridBagConstraints);
 
+        parametersPanel.setBackground(new java.awt.Color(248, 248, 248));
         parametersPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         parametersPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -283,24 +301,32 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), "STAR Chimeric parameters", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(154, 24, 24))); // NOI18N
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel4.setText("min. overlap: ");
+        jLabel4.setText("Minimal length overlap: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel4, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(min_overlap_TF, gridBagConstraints);
 
-        jLabel6.setText("min. overhang: ");
+        jLabel6.setText("Minimum overhang: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jLabel6, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(min_overhang_TF, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -310,6 +336,7 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         parametersPanel.add(jPanel2, gridBagConstraints);
 
         jPanel3.setBackground(new java.awt.Color(248, 248, 248));
@@ -319,69 +346,79 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(min_subj_cpm_TF, gridBagConstraints);
 
         jLabel7.setText("min. subject limit: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel7, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(min_subj_limit_TF, gridBagConstraints);
 
         jLabel8.setText("min. subject CPM: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel8, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(cpm_cutoff_TF, gridBagConstraints);
 
         jLabel9.setText("CPM cutoff: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(jLabel9, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(reads_cutoff_TF, gridBagConstraints);
 
         jLabel10.setText("reads cutoff:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 80);
         jPanel3.add(jLabel10, gridBagConstraints);
 
-        annotationCheckBox.setText("circRNAs are provided w/ annot.");
+        annotationCheckBox.setText("circRNAs are provided w/ annotation");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(annotationCheckBox, gridBagConstraints);
 
         do_spliceCheckBox.setText("Do Splice");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel3.add(do_spliceCheckBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -391,6 +428,7 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         parametersPanel.add(jPanel3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -428,25 +466,22 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         String samplesFolder = inputFolderTextField.getText();
         String genomeFolder = genomeTextField.getText();
 
-        if (true) return; //temporarily disabled
-        
         if (MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
             MainFrame.checkPath(this, genomeFolder, "genome folder") ||
             MainFrame.checkPath(this, samplesFolder, "samples folder"))
-        return;
+            return;
         
-        Integer nthreads = 8; 
-        Integer chim_segment = MainFrame.checkIntValue(this, min_overlap_TF.getText(), "minimum length of the overlap");
-        Integer chim_overhang = MainFrame.checkIntValue(this, min_overhang_TF.getText(), "minimum overhang for a chimeric junction");
-        Integer reads_cutoff = MainFrame.checkIntValue(this, reads_cutoff_TF.getText(), "reads cutoff");
-        Integer subj_limit = MainFrame.checkIntValue(this, min_subj_limit_TF.getText(), "minimum #individuals with reads cutoff");
-        Integer subj_cpm = MainFrame.checkIntValue(this, min_subj_cpm_TF.getText(), "lower limit #individuals with cpm cutoff");
-        Float cpm_cutoff = MainFrame.checkFloatValue(this, cpm_cutoff_TF.getText(), "CPM cutoff");
+        Integer nthreads, chim_segment, chim_overhang, reads_cutoff, subj_limit, subj_cpm; 
+        Float cpm_cutoff; 
         
-        Object []asca = {nthreads, chim_segment, chim_overhang, reads_cutoff, subj_limit, subj_cpm, cpm_cutoff};
-        for (Object o: asca)
-            if (o == null) 
-                return;
+        if ((nthreads = MainFrame.checkIntValue(this, numThreads_TF.getText(), "number of threads")) == null ||
+             (chim_segment = MainFrame.checkIntValue(this, min_overlap_TF.getText(), "minimum length of the overlap")) == null || 
+             (chim_overhang = MainFrame.checkIntValue(this, min_overhang_TF.getText(), "minimum overhang for a chimeric junction")) == null || 
+             (reads_cutoff = MainFrame.checkIntValue(this, reads_cutoff_TF.getText(), "reads cutoff")) == null || 
+             (subj_limit = MainFrame.checkIntValue(this, min_subj_limit_TF.getText(), "minimum #individuals with reads cutoff")) == null ||
+             (subj_cpm = MainFrame.checkIntValue(this, min_subj_cpm_TF.getText(), "lower limit #individuals with cpm cutoff")) == null ||
+             (cpm_cutoff = MainFrame.checkFloatValue(this, cpm_cutoff_TF.getText(), "CPM cutoff")) == null) 
+            return; 
         
         ScriptCaller parameters = new ScriptCaller("CircSTAR.R", samplesFolder)
             .addArg("group", execution)
@@ -471,6 +506,15 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         DockerRadioButton.setSelected(true);
         scratchFolderTextField.setText("");
         inputFolderTextField.setText("");
+        annotationCheckBox.setSelected(false);
+        do_spliceCheckBox.setSelected(false);
+        numThreads_TF.setText("8"); 
+        min_overhang_TF.setText("");
+        min_overlap_TF.setText("");
+        reads_cutoff_TF.setText("");
+        cpm_cutoff_TF.setText("");
+        min_subj_cpm_TF.setText("");
+        min_subj_limit_TF.setText("");
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
 
@@ -498,6 +542,7 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -508,6 +553,7 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
     private javax.swing.JTextField min_overlap_TF;
     private javax.swing.JTextField min_subj_cpm_TF;
     private javax.swing.JTextField min_subj_limit_TF;
+    private javax.swing.JTextField numThreads_TF;
     private javax.swing.JPanel parametersPanel;
     private javax.swing.JTextField reads_cutoff_TF;
     private javax.swing.JButton resetFormPostProcessingButton;

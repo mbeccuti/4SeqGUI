@@ -28,7 +28,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="BWA Alignment &amp; circRNA Prediction">
+            <TitledBorder title="BWA Alignment &amp; circRNA Prediction using CIRI2">
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                 <EmptyBorder bottom="1" left="1" right="1" top="30"/>
               </Border>

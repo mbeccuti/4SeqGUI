@@ -348,7 +348,7 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jLabel3.setText("Minimum overhang");
+        jLabel3.setText("Minimum overhang:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -366,7 +366,7 @@ public class CircRNAStarChimeric extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel1.add(minOverhangTextField, gridBagConstraints);
 
-        jLabel4.setText("Minimal length overlap");
+        jLabel4.setText("Minimal length overlap:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
