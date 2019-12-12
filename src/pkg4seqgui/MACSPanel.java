@@ -1105,8 +1105,9 @@ public class MACSPanel extends javax.swing.JPanel {
                 if ((min_mfold = MainFrame.checkIntValue(this, MMinmfoldText.getText(), "MACS min. mfold value")) == null ||
                     (max_mfold = MainFrame.checkIntValue(this, MMinmfoldText.getText(), "MACS max. mfold value")) == null ||
                     (pvalue = MainFrame.checkFloatValue(this, MMinmfoldText.getText(), "MACS p-value")) == null)
-                return; 
-            case 1: //l'altro
+                    return; 
+                break;
+             case 1: //l'altro
                 if ((wsize = MainFrame.checkIntValue(this, MSWindowsText.getText(), "SICER window")) == null || 
                     (gsize = MainFrame.checkIntValue(this, MSgsizeText.getText(), "SICER g-size")) == null || 
                     (fdr = MainFrame.checkFloatValue(this, MSFDRText.getText(), "SICER FDR value")) == null)

@@ -17,6 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CircRNAMergeSamples extends javax.swing.JPanel {
     private static final long serialVersionUID = 9778212336L;
+    private String lastSelectedTool;
     
     private class TableEntry {
         public final String sample; 
@@ -40,6 +41,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
    //     samplesGroupsTable.setPreferredSize(d);
                 //setPreferredSize( 40, 60 );
         //.setSize(d);
+        lastSelectedTool = (String) usedToolComboBox.getSelectedItem();
     }
 
     /**
@@ -226,6 +228,8 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SamplesPanel.add(cancelSamplesFolderButton, gridBagConstraints);
+
+        samplesFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -270,6 +274,8 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_TRAILING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SamplesPanel.add(cancelOutputFolder, gridBagConstraints);
+
+        outputFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -285,6 +291,8 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.BASELINE_LEADING;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         SamplesPanel.add(jLabel6, gridBagConstraints);
+
+        scratchFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -331,6 +339,11 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
 
         usedToolComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACFS", "CIRI", "CIRI2", "CIRCEXPLORER", "CIRCEXPLORER2", "CIRCRNAFINDER", "DCC", "FINDCIRC2", "KNIFE" }));
         usedToolComboBox.setSelectedIndex(2);
+        usedToolComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usedToolComboBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -478,6 +491,7 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         minReadsTextField.setText("");
         minReplicatesTextField.setText("");
         usedToolComboBox.setSelectedIndex(2);
+        lastSelectedTool = (String) usedToolComboBox.getSelectedItem();
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
     private void executeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeFormPostProcessingButtonActionPerformed
@@ -557,8 +571,9 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     private void browseSamplesFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseSamplesFolderButtonActionPerformed
         MainFrame.browseTextFieldContent(this, samplesFolderTextField, JFileChooser.DIRECTORIES_ONLY);  
         String samplesPath = samplesFolderTextField.getText(); 
-        if (!samplesPath.isEmpty())
-            fillSamplesGroupsTable(samplesPath);
+        if (!samplesPath.isEmpty() ) 
+            fillSamplesGroupsTable();
+            
     }//GEN-LAST:event_browseSamplesFolderButtonActionPerformed
     
     private void browseOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseOutputFolderActionPerformed
@@ -576,6 +591,13 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
     private void cancelScratchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchActionPerformed
         scratchFolderTextField.setText("");
     }//GEN-LAST:event_cancelScratchActionPerformed
+
+    private void usedToolComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usedToolComboBoxActionPerformed
+        if (((String) usedToolComboBox.getSelectedItem()).equals(lastSelectedTool) == false) {
+            //update table only if the user set another prediction tool 
+            fillSamplesGroupsTable();
+        }
+    }//GEN-LAST:event_usedToolComboBoxActionPerformed
    
     private ArrayList<TableEntry> getDataFromTable() {
         ArrayList<TableEntry> data = new ArrayList<>();
@@ -599,13 +621,23 @@ public class CircRNAMergeSamples extends javax.swing.JPanel {
         model.setNumRows(0);
     }
     
-    private void fillSamplesGroupsTable(String samplesFolderPath) {
+    private void fillSamplesGroupsTable() {
+        String samplesFolderPath = samplesFolderTextField.getText();
+        
+        if (samplesFolderPath.isEmpty())
+            return; 
+        
+        clearSamplesGroupsTable();
+        
         DefaultTableModel model = (DefaultTableModel) samplesGroupsTable.getModel();        
+        lastSelectedTool = (String) usedToolComboBox.getSelectedItem(); 
+        String my_file_extension = "." + lastSelectedTool.toLowerCase();
         
         for (final File fileEntry: new File(samplesFolderPath).listFiles()) {
             if (fileEntry.isDirectory()) {
                 for (final File content: fileEntry.listFiles()) {
-                    if (content.getName().endsWith(".ciri")) {
+                    //filter by file extension 
+                    if (content.getName().toLowerCase().endsWith(my_file_extension)) {
                         String relpath = String.format("%s/%s", fileEntry.getName(), content.getName());
                         model.addRow(new Object[]{relpath, fileEntry.getName(), 0, 0});
 //                        model.addRow(new Object[]{content.getName(), 0, 0});

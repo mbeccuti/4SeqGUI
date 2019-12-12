@@ -5,12 +5,14 @@
  */
 package pkg4seqgui;
 
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author Nicola Licheri
  */
 public class CircRNAOverlapPredictions extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 9778212341L;
     /**
      * Creates new form CircRNAOverlapPredictions
      */
@@ -132,12 +134,22 @@ public class CircRNAOverlapPredictions extends javax.swing.JPanel {
 
         browseInputFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseInputFolderButton.setText("Browse");
+        browseInputFolderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseInputFolderButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         parametersPanel.add(browseInputFolderButton, gridBagConstraints);
 
         cancelInputFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelInputFolderButton.setText("Cancel");
+        cancelInputFolderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelInputFolderButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         parametersPanel.add(cancelInputFolderButton, gridBagConstraints);
@@ -161,6 +173,11 @@ public class CircRNAOverlapPredictions extends javax.swing.JPanel {
 
         browseOutputFolderTextField.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseOutputFolderTextField.setText("Browse");
+        browseOutputFolderTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseOutputFolderTextFieldActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -169,6 +186,11 @@ public class CircRNAOverlapPredictions extends javax.swing.JPanel {
 
         cancelOutputFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelOutputFolderButton.setText("Cancel");
+        cancelOutputFolderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelOutputFolderButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
@@ -208,6 +230,11 @@ public class CircRNAOverlapPredictions extends javax.swing.JPanel {
 
         browseScratchFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseScratchFolderButton.setText("Browse");
+        browseScratchFolderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseScratchFolderButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -216,6 +243,11 @@ public class CircRNAOverlapPredictions extends javax.swing.JPanel {
 
         cancelScratchFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelScratchFolderButton.setText("Cancel");
+        cancelScratchFolderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelScratchFolderButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -328,7 +360,32 @@ public class CircRNAOverlapPredictions extends javax.swing.JPanel {
         outputFolderTextField.setText("");
         inputFolderTextField.setText("");
         scratchFolderTextField.setText("");
+        thresholdTextField.setText("");
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
+
+    private void browseInputFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseInputFolderButtonActionPerformed
+        MainFrame.browseTextFieldContent(this, inputFolderTextField, JFileChooser.DIRECTORIES_ONLY);  
+    }//GEN-LAST:event_browseInputFolderButtonActionPerformed
+
+    private void browseScratchFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchFolderButtonActionPerformed
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);  
+    }//GEN-LAST:event_browseScratchFolderButtonActionPerformed
+
+    private void browseOutputFolderTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseOutputFolderTextFieldActionPerformed
+        MainFrame.browseTextFieldContent(this, outputFolderTextField, JFileChooser.DIRECTORIES_ONLY);          // TODO add your handling code here:
+    }//GEN-LAST:event_browseOutputFolderTextFieldActionPerformed
+
+    private void cancelInputFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelInputFolderButtonActionPerformed
+        inputFolderTextField.setText("");
+    }//GEN-LAST:event_cancelInputFolderButtonActionPerformed
+
+    private void cancelScratchFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchFolderButtonActionPerformed
+        scratchFolderTextField.setText("");
+    }//GEN-LAST:event_cancelScratchFolderButtonActionPerformed
+
+    private void cancelOutputFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOutputFolderButtonActionPerformed
+        outputFolderTextField.setText("");
+    }//GEN-LAST:event_cancelOutputFolderButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,11 +5,14 @@
  */
 package pkg4seqgui;
 
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author Nicola Licheri
  */
 public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
+    private static final long serialVersionUID = 9778212343L;
 
     /**
      * Creates new form CircRNAWrapperSTARChip
@@ -164,12 +167,22 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
 
         browseInputFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseInputFolderButton.setText("Browse");
+        browseInputFolderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseInputFolderButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IOPanel.add(browseInputFolderButton, gridBagConstraints);
 
         cancelInputFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelInputFolderButton.setText("Cancel");
+        cancelInputFolderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelInputFolderButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IOPanel.add(cancelInputFolderButton, gridBagConstraints);
@@ -193,6 +206,11 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
 
         browseGenomeFolder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseGenomeFolder.setText("Browse");
+        browseGenomeFolder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseGenomeFolderActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -201,11 +219,18 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
 
         cancelGenomeFolder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelGenomeFolder.setText("Cancel");
+        cancelGenomeFolder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelGenomeFolderActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         IOPanel.add(cancelGenomeFolder, gridBagConstraints);
+
+        genomeTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -223,6 +248,11 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
 
         browseScratchFolder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52b.png"))); // NOI18N
         browseScratchFolder.setText("Browse");
+        browseScratchFolder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                browseScratchFolderActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 1;
@@ -231,6 +261,11 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
 
         cancelScratchFolderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelScratchFolderButton.setText("Cancel");
+        cancelScratchFolderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelScratchFolderButtonActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 1;
@@ -336,7 +371,6 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         parametersPanel.add(jPanel2, gridBagConstraints);
 
         jPanel3.setBackground(new java.awt.Color(248, 248, 248));
@@ -428,7 +462,6 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         gridBagConstraints.ipadx = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         parametersPanel.add(jPanel3, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -516,6 +549,30 @@ public class CircRNAWrapperSTARChip extends javax.swing.JPanel {
         min_subj_cpm_TF.setText("");
         min_subj_limit_TF.setText("");
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
+
+    private void browseInputFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseInputFolderButtonActionPerformed
+        MainFrame.browseTextFieldContent(this, inputFolderTextField, JFileChooser.DIRECTORIES_ONLY);  
+    }//GEN-LAST:event_browseInputFolderButtonActionPerformed
+
+    private void cancelInputFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelInputFolderButtonActionPerformed
+        inputFolderTextField.setText("");
+    }//GEN-LAST:event_cancelInputFolderButtonActionPerformed
+
+    private void browseScratchFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchFolderActionPerformed
+        MainFrame.browseTextFieldContent(this, scratchFolderTextField, JFileChooser.DIRECTORIES_ONLY);  
+    }//GEN-LAST:event_browseScratchFolderActionPerformed
+
+    private void cancelScratchFolderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchFolderButtonActionPerformed
+        scratchFolderTextField.setText("");
+    }//GEN-LAST:event_cancelScratchFolderButtonActionPerformed
+
+    private void browseGenomeFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseGenomeFolderActionPerformed
+        MainFrame.browseTextFieldContent(this, genomeTextField, JFileChooser.DIRECTORIES_ONLY);  
+    }//GEN-LAST:event_browseGenomeFolderActionPerformed
+
+    private void cancelGenomeFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelGenomeFolderActionPerformed
+        genomeTextField.setText("");
+    }//GEN-LAST:event_cancelGenomeFolderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
