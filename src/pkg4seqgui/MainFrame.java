@@ -2449,7 +2449,7 @@ public class MainFrame extends javax.swing.JFrame {
         PredictionPanel.add(Ciri2PredictionButton, gridBagConstraints);
 
         Ciri2MergeResultsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ciri.png"))); // NOI18N
-        Ciri2MergeResultsButton.setText("Merge predictions");
+        Ciri2MergeResultsButton.setText("Merge predictions  ");
         Ciri2MergeResultsButton.setBorderPainted(false);
         Ciri2MergeResultsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

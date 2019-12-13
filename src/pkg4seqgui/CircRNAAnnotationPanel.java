@@ -48,14 +48,12 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         browseCircrnaDataButton = new javax.swing.JButton();
         cancelCircrnaDataButton = new javax.swing.JButton();
         circrnaDataTextField = new javax.swing.JTextField();
-        buttonAssembly_hg19 = new javax.swing.JRadioButton();
-        buttonAssembly_hg18 = new javax.swing.JRadioButton();
-        buttonAssembly_hg38 = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         scratchFolderTextField = new javax.swing.JTextField();
         browseScratchFolderButton1 = new javax.swing.JButton();
         cancelScratchFolderButton1 = new javax.swing.JButton();
+        assemblyComboBox = new javax.swing.JComboBox<>();
         AnnotationSourcesPanel = new javax.swing.JPanel();
         circbaseCheckBox = new javax.swing.JCheckBox();
         tscdCheckBox = new javax.swing.JCheckBox();
@@ -83,7 +81,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         DataPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         DataPanel.setLayout(new java.awt.GridBagLayout());
 
-        jLabel3.setText("Dati circRNA:");
+        jLabel3.setText("circRNA data:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -128,34 +126,6 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.weighty = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(circrnaDataTextField, gridBagConstraints);
-
-        buttonAssembly_hg19.setBackground(new java.awt.Color(248, 248, 248));
-        assemblyVersionGroupButton.add(buttonAssembly_hg19);
-        buttonAssembly_hg19.setSelected(true);
-        buttonAssembly_hg19.setText("hg19");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        DataPanel.add(buttonAssembly_hg19, gridBagConstraints);
-
-        buttonAssembly_hg18.setBackground(new java.awt.Color(248, 248, 248));
-        assemblyVersionGroupButton.add(buttonAssembly_hg18);
-        buttonAssembly_hg18.setText("hg18");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        DataPanel.add(buttonAssembly_hg18, gridBagConstraints);
-
-        buttonAssembly_hg38.setBackground(new java.awt.Color(248, 248, 248));
-        assemblyVersionGroupButton.add(buttonAssembly_hg38);
-        buttonAssembly_hg38.setText("hg38");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        DataPanel.add(buttonAssembly_hg38, gridBagConstraints);
 
         jLabel4.setText("Assembly:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -209,6 +179,16 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         DataPanel.add(cancelScratchFolderButton1, gridBagConstraints);
+
+        assemblyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "hg18", "hg19", "hg38", "mm9", "mm10" }));
+        assemblyComboBox.setSelectedIndex(1);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        DataPanel.add(assemblyComboBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -446,7 +426,8 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
     private void resetFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormPostProcessingButtonActionPerformed
         circrnaDataTextField.setText("");
         scratchFolderTextField.setText("");
-        buttonAssembly_hg19.setSelected(true);
+        assemblyComboBox.setSelectedIndex(1);
+        
         for (JCheckBox checkbox: getCheckboxes().values())
             checkbox.setSelected(false);
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
@@ -455,7 +436,7 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
         String execution = DockerRadioButton.isSelected() ? "docker" : "sudo";
         String circrnaPath = circrnaDataTextField.getText(),
             scratchFolder = scratchFolderTextField.getText();
-        String assembly; 
+        String assembly = (String) assemblyComboBox.getSelectedItem(); 
         
         List<String> annotationSources = new ArrayList<>(); 
         
@@ -473,11 +454,6 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
             return; 
         }
-        
-        assembly = "hg19"; 
-        if (!buttonAssembly_hg19.isSelected())
-            assembly = buttonAssembly_hg18.isSelected() ? "hg18" : "hg38";
-        
         
         for (Map.Entry<String, JCheckBox> entry: getCheckboxes().entrySet()) 
             if (entry.getValue().isSelected())
@@ -539,12 +515,10 @@ public class CircRNAAnnotationPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton DockerRadioButton;
     private javax.swing.JPanel ExecutionPanel;
     private javax.swing.JRadioButton SudoRadioButton;
+    private javax.swing.JComboBox<String> assemblyComboBox;
     private javax.swing.ButtonGroup assemblyVersionGroupButton;
     private javax.swing.JButton browseCircrnaDataButton;
     private javax.swing.JButton browseScratchFolderButton1;
-    private javax.swing.JRadioButton buttonAssembly_hg18;
-    private javax.swing.JRadioButton buttonAssembly_hg19;
-    private javax.swing.JRadioButton buttonAssembly_hg38;
     private javax.swing.JButton cancelCircrnaDataButton;
     private javax.swing.JButton cancelScratchFolderButton1;
     private javax.swing.JCheckBox circ2diseaseCheckBox;

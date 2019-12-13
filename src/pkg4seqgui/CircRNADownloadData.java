@@ -38,9 +38,6 @@ public class CircRNADownloadData extends javax.swing.JPanel {
         DownloadDataPanel = new javax.swing.JPanel();
         AssemblyPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        hg18AssemblyButton = new javax.swing.JRadioButton();
-        hg19AssemblyButton = new javax.swing.JRadioButton();
-        hg38AssemblyButton = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         outputFolderTextField = new javax.swing.JTextField();
         browseOutputFolderButton = new javax.swing.JButton();
@@ -49,6 +46,7 @@ public class CircRNADownloadData extends javax.swing.JPanel {
         scratchFolderTextField = new javax.swing.JTextField();
         browseScratchFolderButton1 = new javax.swing.JButton();
         cancelScratchFolderButton1 = new javax.swing.JButton();
+        assemblyComboBox = new javax.swing.JComboBox<>();
         ExecutionPanel = new javax.swing.JPanel();
         jLabel149 = new javax.swing.JLabel();
         SudoRadioButton = new javax.swing.JRadioButton();
@@ -73,34 +71,6 @@ public class CircRNADownloadData extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AssemblyPanel.add(jLabel1, gridBagConstraints);
-
-        assemblyVersion.add(hg18AssemblyButton);
-        hg18AssemblyButton.setText("hg18");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        AssemblyPanel.add(hg18AssemblyButton, gridBagConstraints);
-
-        assemblyVersion.add(hg19AssemblyButton);
-        hg19AssemblyButton.setSelected(true);
-        hg19AssemblyButton.setText("hg19");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        AssemblyPanel.add(hg19AssemblyButton, gridBagConstraints);
-
-        assemblyVersion.add(hg38AssemblyButton);
-        hg38AssemblyButton.setText("hg38");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        AssemblyPanel.add(hg38AssemblyButton, gridBagConstraints);
 
         jLabel2.setText("Output folder:");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -193,6 +163,17 @@ public class CircRNADownloadData extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         AssemblyPanel.add(cancelScratchFolderButton1, gridBagConstraints);
+
+        assemblyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "hg18", "hg19", "hg38", "mm9", "mm10", "rn6", "dm6", "ce11" }));
+        assemblyComboBox.setSelectedIndex(1);
+        assemblyComboBox.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        AssemblyPanel.add(assemblyComboBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -350,22 +331,18 @@ public class CircRNADownloadData extends javax.swing.JPanel {
             return; 
         }
         
-        String assembly = "hg19"; 
-        if (!hg19AssemblyButton.isSelected()) 
-            assembly = hg19AssemblyButton.isSelected() ? "hg18" : "hg38"; 
-        
         ScriptCaller parameters = new ScriptCaller("CircDownloadData.R", outputFolder)
                 .addArg("group", execution)
                 .addArg("scratch.folder", scratchFolder)
                 .addArg("data.folder", outputFolder)
-                .addArg("assembly", assembly); 
+                .addArg("assembly", (String) assemblyComboBox.getSelectedItem()); 
         MainFrame.execCommand(this, "CircRNA prepare files", parameters);
     }//GEN-LAST:event_executeFormPostProcessingButtonActionPerformed
 
     private void resetFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFormPostProcessingButtonActionPerformed
         outputFolderTextField.setText("");
         scratchFolderTextField.setText("");
-        hg19AssemblyButton.setSelected(true);
+        assemblyComboBox.setSelectedIndex(1);
         DockerRadioButton.setSelected(true);
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
@@ -392,6 +369,7 @@ public class CircRNADownloadData extends javax.swing.JPanel {
     private javax.swing.JPanel DownloadDataPanel;
     private javax.swing.JPanel ExecutionPanel;
     private javax.swing.JRadioButton SudoRadioButton;
+    private javax.swing.JComboBox<String> assemblyComboBox;
     private javax.swing.ButtonGroup assemblyVersion;
     private javax.swing.JButton browseOutputFolderButton;
     private javax.swing.JButton browseScratchFolderButton1;
@@ -400,9 +378,6 @@ public class CircRNADownloadData extends javax.swing.JPanel {
     private javax.swing.JButton closeFormPostProcessingButton;
     private javax.swing.JButton executeFormPostProcessingButton;
     private javax.swing.ButtonGroup executionGroup;
-    private javax.swing.JRadioButton hg18AssemblyButton;
-    private javax.swing.JRadioButton hg19AssemblyButton;
-    private javax.swing.JRadioButton hg38AssemblyButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel2;

@@ -49,14 +49,12 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         browseCircrnaDataButton = new javax.swing.JButton();
         cancelCircrnaDataButton = new javax.swing.JButton();
         circrnaDataTextField = new javax.swing.JTextField();
-        buttonAssembly_hg19 = new javax.swing.JRadioButton();
-        buttonAssembly_hg18 = new javax.swing.JRadioButton();
-        buttonAssembly_hg38 = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         scratchFolderTextField = new javax.swing.JTextField();
         browseScratchFolderButton1 = new javax.swing.JButton();
         cancelScratchFolderButton1 = new javax.swing.JButton();
+        assemblyComboBox = new javax.swing.JComboBox<>();
         executeFormPostProcessingButton = new javax.swing.JButton();
         resetFormPostProcessingButton = new javax.swing.JButton();
         closeFormPostProcessingButton = new javax.swing.JButton();
@@ -77,7 +75,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         PostCiriDataPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         java.awt.GridBagLayout PostCiriDataPanelLayout = new java.awt.GridBagLayout();
         PostCiriDataPanelLayout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
-        PostCiriDataPanelLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        PostCiriDataPanelLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         PostCiriDataPanel.setLayout(PostCiriDataPanelLayout);
 
         jLabel1.setText("Exon data:");
@@ -216,36 +214,6 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(circrnaDataTextField, gridBagConstraints);
 
-        buttonAssembly_hg19.setBackground(new java.awt.Color(248, 248, 248));
-        assemblyVersion.add(buttonAssembly_hg19);
-        buttonAssembly_hg19.setSelected(true);
-        buttonAssembly_hg19.setText("hg19");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        PostCiriDataPanel.add(buttonAssembly_hg19, gridBagConstraints);
-
-        buttonAssembly_hg18.setBackground(new java.awt.Color(248, 248, 248));
-        assemblyVersion.add(buttonAssembly_hg18);
-        buttonAssembly_hg18.setText("hg18");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        PostCiriDataPanel.add(buttonAssembly_hg18, gridBagConstraints);
-
-        buttonAssembly_hg38.setBackground(new java.awt.Color(248, 248, 248));
-        assemblyVersion.add(buttonAssembly_hg38);
-        buttonAssembly_hg38.setText("hg38");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        PostCiriDataPanel.add(buttonAssembly_hg38, gridBagConstraints);
-
         jLabel4.setText("Assembly:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -300,6 +268,17 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         PostCiriDataPanel.add(cancelScratchFolderButton1, gridBagConstraints);
+
+        assemblyComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "hg18", "hg19", "hg38", "mm9", "mm10", "rn6", "dm6", "ce11" }));
+        assemblyComboBox.setSelectedIndex(1);
+        assemblyComboBox.setToolTipText("");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        PostCiriDataPanel.add(assemblyComboBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -451,7 +430,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
         isoformDataTextField.setText("");
         exonDataTextField.setText("");
         scratchFolderTextField.setText("");
-        buttonAssembly_hg19.setSelected(true);
+        assemblyComboBox.setSelectedIndex(1);
     }//GEN-LAST:event_resetFormPostProcessingButtonActionPerformed
 
     private void closeFormPostProcessingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeFormPostProcessingButtonActionPerformed
@@ -465,7 +444,7 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
                isoformPath = isoformDataTextField.getText(), 
                circrnaPath = circrnaDataTextField.getText(), 
                scratchFolder = scratchFolderTextField.getText();
-        String assembly; 
+        String assembly = (String) assemblyComboBox.getSelectedItem(); 
         
         if (exonPath.equals("")) {
             JOptionPane.showMessageDialog(this, 
@@ -495,10 +474,6 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
                 JOptionPane.ERROR_MESSAGE);
             return; 
         }
-        
-        assembly = "hg19"; 
-        if (!buttonAssembly_hg19.isSelected())
-            assembly =  buttonAssembly_hg18.isSelected() ? "hg18" : "hg38";
         
         String outputFolder = Paths.get(circrnaPath).getParent().toString();
         ScriptCaller parameters = new ScriptCaller("CircClassification.R", outputFolder)
@@ -534,14 +509,12 @@ public class CircRNAClassificationPanel extends javax.swing.JPanel {
     private javax.swing.JPanel PPCircRNAPanel;
     private javax.swing.JPanel PostCiriDataPanel;
     private javax.swing.JRadioButton SudoRadioButton;
+    private javax.swing.JComboBox<String> assemblyComboBox;
     private javax.swing.ButtonGroup assemblyVersion;
     private javax.swing.JButton browseCircrnaDataButton;
     private javax.swing.JButton browseExonDataButton;
     private javax.swing.JButton browseIsoformDataButton;
     private javax.swing.JButton browseScratchFolderButton1;
-    private javax.swing.JRadioButton buttonAssembly_hg18;
-    private javax.swing.JRadioButton buttonAssembly_hg19;
-    private javax.swing.JRadioButton buttonAssembly_hg38;
     private javax.swing.JButton cancelCircrnaDataButton;
     private javax.swing.JButton cancelExonDataButton;
     private javax.swing.JButton cancelIsoformDataButton;
