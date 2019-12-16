@@ -16,4 +16,14 @@ if(length(args)==0){
 
 library(rCASC)
 
-h5tocvs(group=group, file=file, type=type)
+stpipeline(
+    group = group, 
+    scratch.folder = scratch_folder, 
+    data.folder = output_folder, 
+    genome.folder = genome_folder, 
+    fastqPathFolder = fastq_folder, 
+    ID = project_id, 
+    imgNameAndPath = tiff_file, 
+    slide = slide, 
+    area = area 
+)

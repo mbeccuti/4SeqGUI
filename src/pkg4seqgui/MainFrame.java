@@ -522,6 +522,7 @@ public class MainFrame extends javax.swing.JFrame {
         subsetcells.setViewportView(new subSetCells());
         S_splitclusters.setViewportView(new S_SplitClusters());
         S_unstablefiltering.setViewportView(new S_UnstableFiltering());
+        SingleCell_SpatialCountGeneration.setViewportView(new S_SpatialCountGeneration());
         
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
@@ -842,6 +843,7 @@ public class MainFrame extends javax.swing.JFrame {
         circRNA_wrapperSTAR = new javax.swing.JScrollPane();
         circRNA_overlap = new javax.swing.JScrollPane();
         circRNA_reformat = new javax.swing.JScrollPane();
+        SingleCell_SpatialCountGeneration = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         RNAScrollPane = new javax.swing.JScrollPane();
@@ -952,6 +954,7 @@ public class MainFrame extends javax.swing.JFrame {
         SC_IndropCountsButton = new javax.swing.JButton();
         SC_CellRangerCountButton = new javax.swing.JButton();
         SC_IndropCountsButton1 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         SubCountManipulationPanel = new javax.swing.JPanel();
         sc_countsManipulationLabel = new javax.swing.JLabel();
         sc_innerPanel2 = new javax.swing.JPanel();
@@ -1858,6 +1861,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(circRNA_wrapperSTAR, "circRNA_wrapperSTAR");
         MainPanel.add(circRNA_overlap, "circRNA_overlap");
         MainPanel.add(circRNA_reformat, "circRNA_reformat");
+        MainPanel.add(SingleCell_SpatialCountGeneration, "SC_spatial_count");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -3291,7 +3295,6 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel1.add(SC_IndropIndexButton, gridBagConstraints);
 
@@ -3307,12 +3310,11 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel1.add(SC_IndropCountsButton, gridBagConstraints);
 
         SC_CellRangerCountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cellranger_count.png"))); // NOI18N
-        SC_CellRangerCountButton.setText("10XGenomics Counts generation");
+        SC_CellRangerCountButton.setText("10XGenomics Counts Generation  ");
         SC_CellRangerCountButton.setBorderPainted(false);
         SC_CellRangerCountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3323,13 +3325,11 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel1.add(SC_CellRangerCountButton, gridBagConstraints);
 
         SC_IndropCountsButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cellranger_count.png"))); // NOI18N
-        SC_IndropCountsButton1.setText("10XGenomics Index");
+        SC_IndropCountsButton1.setText("10XGenomics Index  ");
         SC_IndropCountsButton1.setBorderPainted(false);
         SC_IndropCountsButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3340,9 +3340,25 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel1.add(SC_IndropCountsButton1, gridBagConstraints);
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cellranger_count.png"))); // NOI18N
+        jButton5.setText("Spatial Count Generation  ");
+        jButton5.setBorderPainted(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel1.add(jButton5, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -6213,6 +6229,10 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("circRNA_overlap");
     }//GEN-LAST:event_overlapPredictionButtonActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        setCard("SC_spatial_count");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -6412,6 +6432,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel SequenceAnalysisPanel;
     private javax.swing.JPanel SingleCellPanel;
     private javax.swing.JScrollPane SingleCellScrollPanel;
+    private javax.swing.JScrollPane SingleCell_SpatialCountGeneration;
     private javax.swing.JButton SparseToDense;
     private javax.swing.JButton StarChimericButton;
     private javax.swing.JButton StarchipCircleButton;
@@ -6490,6 +6511,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
