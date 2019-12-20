@@ -16,4 +16,4 @@ if(length(args)==0){
 
 library(rCASC)
 
-h5tocvs(group=group, file=file, type=type)
+h5tocsv(group=group, file=file, type=type)
