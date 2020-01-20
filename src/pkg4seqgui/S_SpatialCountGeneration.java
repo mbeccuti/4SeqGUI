@@ -13,7 +13,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author Nicola Licheri
  */
 public class S_SpatialCountGeneration extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 67756333300L;
     /**
      * Creates new form S_SpatialCountGeneration
      */
