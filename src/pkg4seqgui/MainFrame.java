@@ -23,6 +23,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -39,6 +40,8 @@ import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.prefs.Preferences;
 import javax.print.Doc;
 import javax.swing.Icon;
@@ -846,25 +849,6 @@ public class MainFrame extends javax.swing.JFrame {
         SingleCell_SpatialCountGeneration = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        RNAScrollPane = new javax.swing.JScrollPane();
-        RNAseqPanel = new javax.swing.JPanel();
-        RNAseqPanelSub1 = new javax.swing.JPanel();
-        jLabelRNAseq1 = new javax.swing.JLabel();
-        RNAseqPanelSub1M = new javax.swing.JPanel();
-        vmRNAButton = new javax.swing.JButton();
-        mRNAButton = new javax.swing.JButton();
-        SalmonIndexingButton = new javax.swing.JButton();
-        countingSalmonButton = new javax.swing.JButton();
-        RNAseqPanelSub2 = new javax.swing.JPanel();
-        jLabelRNAseq2 = new javax.swing.JLabel();
-        RNAseqPanelSub2M = new javax.swing.JPanel();
-        SampleExpButton = new javax.swing.JButton();
-        PCAButton = new javax.swing.JButton();
-        SampleSizeButton = new javax.swing.JButton();
-        ExpPowerButton = new javax.swing.JButton();
-        DeseqButton = new javax.swing.JButton();
-        ANOVAlikeButton = new javax.swing.JButton();
-        CountButton = new javax.swing.JButton();
         miRNAScrollPanel = new javax.swing.JScrollPane();
         miRNAPanel = new javax.swing.JPanel();
         miRNApanelSub1 = new javax.swing.JPanel();
@@ -995,6 +979,25 @@ public class MainFrame extends javax.swing.JFrame {
         SC_GenesPrioritizSIMLRButton = new javax.swing.JButton();
         SC_DeTwoGroupsButton = new javax.swing.JButton();
         SubBottomPanel = new javax.swing.JPanel();
+        RNAScrollPane = new javax.swing.JScrollPane();
+        RNAseqPanel = new javax.swing.JPanel();
+        RNAseqPanelSub1 = new javax.swing.JPanel();
+        jLabelRNAseq1 = new javax.swing.JLabel();
+        RNAseqPanelSub1M = new javax.swing.JPanel();
+        vmRNAButton = new javax.swing.JButton();
+        mRNAButton = new javax.swing.JButton();
+        SalmonIndexingButton = new javax.swing.JButton();
+        countingSalmonButton = new javax.swing.JButton();
+        RNAseqPanelSub2 = new javax.swing.JPanel();
+        jLabelRNAseq2 = new javax.swing.JLabel();
+        RNAseqPanelSub2M = new javax.swing.JPanel();
+        SampleExpButton = new javax.swing.JButton();
+        PCAButton = new javax.swing.JButton();
+        SampleSizeButton = new javax.swing.JButton();
+        ExpPowerButton = new javax.swing.JButton();
+        DeseqButton = new javax.swing.JButton();
+        ANOVAlikeButton = new javax.swing.JButton();
+        CountButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -1241,7 +1244,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(downloadDockerImagesButton, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1871,275 +1874,6 @@ public class MainFrame extends javax.swing.JFrame {
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jTabbedPane1.setAutoscrolls(true);
 
-        RNAScrollPane.setBackground(new java.awt.Color(255, 255, 255));
-        RNAScrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
-        RNAScrollPane.setHorizontalScrollBar(null);
-        RNAScrollPane.setName("rnaseq"); // NOI18N
-
-        RNAseqPanel.setBackground(new java.awt.Color(255, 255, 255));
-        RNAseqPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        RNAseqPanel.setName("rnaseq"); // NOI18N
-        RNAseqPanel.setLayout(new java.awt.GridBagLayout());
-
-        RNAseqPanelSub1.setBackground(new java.awt.Color(255, 255, 255));
-        RNAseqPanelSub1.setLayout(new java.awt.GridBagLayout());
-
-        jLabelRNAseq1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelRNAseq1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtabB.png"))); // NOI18N
-        jLabelRNAseq1.setText("Count table generation");
-        jLabelRNAseq1.setOpaque(true);
-        jLabelRNAseq1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRNAseq1MouseClicked(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        RNAseqPanelSub1.add(jLabelRNAseq1, gridBagConstraints);
-
-        RNAseqPanelSub1M.setBackground(new java.awt.Color(255, 255, 255));
-        RNAseqPanelSub1M.setLayout(new java.awt.GridBagLayout());
-
-        vmRNAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
-        vmRNAButton.setText("Genome indexing STAR-RSEM  ");
-        vmRNAButton.setBorderPainted(false);
-        vmRNAButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vmRNAButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        RNAseqPanelSub1M.add(vmRNAButton, gridBagConstraints);
-
-        mRNAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
-        mRNAButton.setText("Genes, isoforms counting RSEM  ");
-        mRNAButton.setBorderPainted(false);
-        mRNAButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mRNAButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        RNAseqPanelSub1M.add(mRNAButton, gridBagConstraints);
-
-        SalmonIndexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/salmon.png"))); // NOI18N
-        SalmonIndexingButton.setText("Trans. pseudo-reference building (Salmon)  ");
-        SalmonIndexingButton.setBorderPainted(false);
-        SalmonIndexingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalmonIndexingButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        RNAseqPanelSub1M.add(SalmonIndexingButton, gridBagConstraints);
-
-        countingSalmonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/salmon.png"))); // NOI18N
-        countingSalmonButton.setText("Trans. and genes counting (Salmon)  ");
-        countingSalmonButton.setBorderPainted(false);
-        countingSalmonButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countingSalmonButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        RNAseqPanelSub1M.add(countingSalmonButton, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        RNAseqPanelSub1.add(RNAseqPanelSub1M, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        RNAseqPanel.add(RNAseqPanelSub1, gridBagConstraints);
-
-        RNAseqPanelSub2.setBackground(new java.awt.Color(255, 255, 255));
-        RNAseqPanelSub2.setLayout(new java.awt.GridBagLayout());
-
-        jLabelRNAseq2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelRNAseq2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtabB.png"))); // NOI18N
-        jLabelRNAseq2.setText("Count table post-processes");
-        jLabelRNAseq2.setOpaque(true);
-        jLabelRNAseq2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRNAseq2MouseClicked(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 320;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 1.0;
-        RNAseqPanelSub2.add(jLabelRNAseq2, gridBagConstraints);
-
-        RNAseqPanelSub2M.setBackground(new java.awt.Color(255, 255, 255));
-        RNAseqPanelSub2M.setLayout(new java.awt.GridBagLayout());
-
-        SampleExpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sample.png"))); // NOI18N
-        SampleExpButton.setText("From samples to experiment  ");
-        SampleExpButton.setBorderPainted(false);
-        SampleExpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SampleExpButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        RNAseqPanelSub2M.add(SampleExpButton, gridBagConstraints);
-
-        PCAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/PCA.png"))); // NOI18N
-        PCAButton.setText(" PCA  analysis");
-        PCAButton.setBorderPainted(false);
-        PCAButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PCAButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        RNAseqPanelSub2M.add(PCAButton, gridBagConstraints);
-
-        SampleSizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
-        SampleSizeButton.setText("Sample size estimator  ");
-        SampleSizeButton.setBorderPainted(false);
-        SampleSizeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SampleSizeButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        RNAseqPanelSub2M.add(SampleSizeButton, gridBagConstraints);
-
-        ExpPowerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/power.png"))); // NOI18N
-        ExpPowerButton.setText("Experiment statistical  Power  ");
-        ExpPowerButton.setBorderPainted(false);
-        ExpPowerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExpPowerButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        RNAseqPanelSub2M.add(ExpPowerButton, gridBagConstraints);
-
-        DeseqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
-        DeseqButton.setText("DESeq2 analysis  ");
-        DeseqButton.setBorderPainted(false);
-        DeseqButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeseqButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        RNAseqPanelSub2M.add(DeseqButton, gridBagConstraints);
-
-        ANOVAlikeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anovaLike.png"))); // NOI18N
-        ANOVAlikeButton.setText("ANOVA-like  ");
-        ANOVAlikeButton.setBorderPainted(false);
-        ANOVAlikeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ANOVAlikeButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        RNAseqPanelSub2M.add(ANOVAlikeButton, gridBagConstraints);
-
-        CountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
-        CountButton.setText("Count Filter  ");
-        CountButton.setBorderPainted(false);
-        CountButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CountButtonActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
-        RNAseqPanelSub2M.add(CountButton, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weighty = 1.0;
-        RNAseqPanelSub2.add(RNAseqPanelSub2M, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-        RNAseqPanel.add(RNAseqPanelSub2, gridBagConstraints);
-
-        RNAScrollPane.setViewportView(RNAseqPanel);
-
-        jTabbedPane1.addTab("RNA seq", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtab.png")), RNAScrollPane); // NOI18N
-
         miRNAScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
         miRNAScrollPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
         miRNAScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -2170,11 +1904,23 @@ public class MainFrame extends javax.swing.JFrame {
         miRNApanelSub1.add(jLabelmiRNA1, gridBagConstraints);
 
         miRNApanelSub1M.setBackground(new java.awt.Color(255, 255, 255));
+        miRNApanelSub1M.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                miRNApanelSub1MMouseEntered(evt);
+            }
+        });
         miRNApanelSub1M.setLayout(new java.awt.GridBagLayout());
 
         jButton59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/miRNAcount.png"))); // NOI18N
         jButton59.setText(" miRNA counting  ");
         jButton59.setBorderPainted(false);
+        jButton59.setContentAreaFilled(false);
+        jButton59.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton59.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton59MouseEntered(evt);
+            }
+        });
         jButton59.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton59ActionPerformed(evt);
@@ -2227,6 +1973,13 @@ public class MainFrame extends javax.swing.JFrame {
         jButton60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/miRNAcov.png"))); // NOI18N
         jButton60.setText("Adding covariates and batches  ");
         jButton60.setBorderPainted(false);
+        jButton60.setContentAreaFilled(false);
+        jButton60.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton60.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton60MouseEntered(evt);
+            }
+        });
         jButton60.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton60ActionPerformed(evt);
@@ -2243,6 +1996,13 @@ public class MainFrame extends javax.swing.JFrame {
         PCAButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/PCA.png"))); // NOI18N
         PCAButton1.setText(" PCA  analysis");
         PCAButton1.setBorderPainted(false);
+        PCAButton1.setContentAreaFilled(false);
+        PCAButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PCAButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PCAButton1MouseEntered(evt);
+            }
+        });
         PCAButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PCAButton1ActionPerformed(evt);
@@ -2259,6 +2019,13 @@ public class MainFrame extends javax.swing.JFrame {
         CountButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
         CountButton1.setText("Count Filter  ");
         CountButton1.setBorderPainted(false);
+        CountButton1.setContentAreaFilled(false);
+        CountButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CountButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CountButton1MouseEntered(evt);
+            }
+        });
         CountButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CountButton1ActionPerformed(evt);
@@ -2276,6 +2043,13 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizeButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
         SampleSizeButton1.setText("Sample size estimator  ");
         SampleSizeButton1.setBorderPainted(false);
+        SampleSizeButton1.setContentAreaFilled(false);
+        SampleSizeButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SampleSizeButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SampleSizeButton1MouseEntered(evt);
+            }
+        });
         SampleSizeButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SampleSizeButton1ActionPerformed(evt);
@@ -2292,6 +2066,13 @@ public class MainFrame extends javax.swing.JFrame {
         ExpPowerButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/power.png"))); // NOI18N
         ExpPowerButton1.setText("Experiment statistical  Power  ");
         ExpPowerButton1.setBorderPainted(false);
+        ExpPowerButton1.setContentAreaFilled(false);
+        ExpPowerButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExpPowerButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExpPowerButton1MouseEntered(evt);
+            }
+        });
         ExpPowerButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExpPowerButton1ActionPerformed(evt);
@@ -2308,6 +2089,13 @@ public class MainFrame extends javax.swing.JFrame {
         DeseqButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
         DeseqButton2.setText("DESeq2 analysis  ");
         DeseqButton2.setBorderPainted(false);
+        DeseqButton2.setContentAreaFilled(false);
+        DeseqButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DeseqButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DeseqButton2MouseEntered(evt);
+            }
+        });
         DeseqButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeseqButton2ActionPerformed(evt);
@@ -2356,6 +2144,16 @@ public class MainFrame extends javax.swing.JFrame {
         Macs2Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqAl.png"))); // NOI18N
         Macs2Button.setText("MACS2  ");
         Macs2Button.setBorderPainted(false);
+        Macs2Button.setContentAreaFilled(false);
+        Macs2Button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Macs2Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Macs2ButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Macs2ButtonMouseEntered(evt);
+            }
+        });
         Macs2Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Macs2ButtonActionPerformed(evt);
@@ -2372,6 +2170,13 @@ public class MainFrame extends javax.swing.JFrame {
         chipseqbwaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
         chipseqbwaButton.setText("Alignment with BWA");
         chipseqbwaButton.setBorderPainted(false);
+        chipseqbwaButton.setContentAreaFilled(false);
+        chipseqbwaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chipseqbwaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                chipseqbwaButtonMouseEntered(evt);
+            }
+        });
         chipseqbwaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chipseqbwaButtonActionPerformed(evt);
@@ -2388,6 +2193,13 @@ public class MainFrame extends javax.swing.JFrame {
         bwaIndexChipseq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
         bwaIndexChipseq.setText("BWA index");
         bwaIndexChipseq.setBorderPainted(false);
+        bwaIndexChipseq.setContentAreaFilled(false);
+        bwaIndexChipseq.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bwaIndexChipseq.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bwaIndexChipseqMouseEntered(evt);
+            }
+        });
         bwaIndexChipseq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bwaIndexChipseqActionPerformed(evt);
@@ -2401,8 +2213,16 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ChipSeqPanel.add(bwaIndexChipseq, gridBagConstraints);
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/chipseqIndex.png"))); // NOI18N
         jButton4.setText("Result annotation by GTF");
         jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -2440,6 +2260,13 @@ public class MainFrame extends javax.swing.JFrame {
         Ciri2PredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/bwa.png"))); // NOI18N
         Ciri2PredictionButton.setText(" BWA+CIRI2  ");
         Ciri2PredictionButton.setBorderPainted(false);
+        Ciri2PredictionButton.setContentAreaFilled(false);
+        Ciri2PredictionButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Ciri2PredictionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Ciri2PredictionButtonMouseEntered(evt);
+            }
+        });
         Ciri2PredictionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Ciri2PredictionButtonActionPerformed(evt);
@@ -2455,6 +2282,13 @@ public class MainFrame extends javax.swing.JFrame {
         Ciri2MergeResultsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ciri.png"))); // NOI18N
         Ciri2MergeResultsButton.setText("Merge predictions  ");
         Ciri2MergeResultsButton.setBorderPainted(false);
+        Ciri2MergeResultsButton.setContentAreaFilled(false);
+        Ciri2MergeResultsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Ciri2MergeResultsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Ciri2MergeResultsButtonMouseEntered(evt);
+            }
+        });
         Ciri2MergeResultsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Ciri2MergeResultsButtonActionPerformed(evt);
@@ -2470,6 +2304,13 @@ public class MainFrame extends javax.swing.JFrame {
         StarChimericButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_starchimeric.png"))); // NOI18N
         StarChimericButton.setText("STAR Chimeric  ");
         StarChimericButton.setBorderPainted(false);
+        StarChimericButton.setContentAreaFilled(false);
+        StarChimericButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        StarChimericButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                StarChimericButtonMouseEntered(evt);
+            }
+        });
         StarChimericButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StarChimericButtonActionPerformed(evt);
@@ -2485,6 +2326,13 @@ public class MainFrame extends javax.swing.JFrame {
         StarchipCircleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_starchip.png"))); // NOI18N
         StarchipCircleButton.setText("STARchip Circle  ");
         StarchipCircleButton.setBorderPainted(false);
+        StarchipCircleButton.setContentAreaFilled(false);
+        StarchipCircleButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        StarchipCircleButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                StarchipCircleButtonMouseEntered(evt);
+            }
+        });
         StarchipCircleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 StarchipCircleButtonActionPerformed(evt);
@@ -2500,6 +2348,13 @@ public class MainFrame extends javax.swing.JFrame {
         wrapperSTARChipButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/bwa.png"))); // NOI18N
         wrapperSTARChipButton.setText("STAR +  STARChip  ");
         wrapperSTARChipButton.setBorderPainted(false);
+        wrapperSTARChipButton.setContentAreaFilled(false);
+        wrapperSTARChipButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        wrapperSTARChipButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                wrapperSTARChipButtonMouseEntered(evt);
+            }
+        });
         wrapperSTARChipButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wrapperSTARChipButtonActionPerformed(evt);
@@ -2517,6 +2372,13 @@ public class MainFrame extends javax.swing.JFrame {
         reformatPredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_reformat.png"))); // NOI18N
         reformatPredictionButton.setText("Reformat Predictions  ");
         reformatPredictionButton.setBorderPainted(false);
+        reformatPredictionButton.setContentAreaFilled(false);
+        reformatPredictionButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        reformatPredictionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                reformatPredictionButtonMouseEntered(evt);
+            }
+        });
         reformatPredictionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reformatPredictionButtonActionPerformed(evt);
@@ -2532,6 +2394,13 @@ public class MainFrame extends javax.swing.JFrame {
         overlapPredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_overlap.png"))); // NOI18N
         overlapPredictionButton.setText("Overlap Predictions  ");
         overlapPredictionButton.setBorderPainted(false);
+        overlapPredictionButton.setContentAreaFilled(false);
+        overlapPredictionButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        overlapPredictionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                overlapPredictionButtonMouseEntered(evt);
+            }
+        });
         overlapPredictionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 overlapPredictionButtonActionPerformed(evt);
@@ -2586,6 +2455,13 @@ public class MainFrame extends javax.swing.JFrame {
         CirchunterClassificButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_classification.png"))); // NOI18N
         CirchunterClassificButton2.setText("CircHunter classification  ");
         CirchunterClassificButton2.setBorderPainted(false);
+        CirchunterClassificButton2.setContentAreaFilled(false);
+        CirchunterClassificButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CirchunterClassificButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CirchunterClassificButton2MouseEntered(evt);
+            }
+        });
         CirchunterClassificButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CirchunterClassificButton2ActionPerformed(evt);
@@ -2601,6 +2477,13 @@ public class MainFrame extends javax.swing.JFrame {
         circRNAAnnotationButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_annotation.png"))); // NOI18N
         circRNAAnnotationButton2.setText("Annotation  ");
         circRNAAnnotationButton2.setBorderPainted(false);
+        circRNAAnnotationButton2.setContentAreaFilled(false);
+        circRNAAnnotationButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        circRNAAnnotationButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                circRNAAnnotationButton2MouseEntered(evt);
+            }
+        });
         circRNAAnnotationButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 circRNAAnnotationButton2ActionPerformed(evt);
@@ -2618,6 +2501,13 @@ public class MainFrame extends javax.swing.JFrame {
         downloadExonIsoformDataButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_ref_preparation.png"))); // NOI18N
         downloadExonIsoformDataButton2.setText("Download Exon and Isoform Data  ");
         downloadExonIsoformDataButton2.setBorderPainted(false);
+        downloadExonIsoformDataButton2.setContentAreaFilled(false);
+        downloadExonIsoformDataButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        downloadExonIsoformDataButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                downloadExonIsoformDataButton2MouseEntered(evt);
+            }
+        });
         downloadExonIsoformDataButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 downloadExonIsoformDataButton2ActionPerformed(evt);
@@ -2677,6 +2567,13 @@ public class MainFrame extends javax.swing.JFrame {
         BSJunctionsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_seq.png"))); // NOI18N
         BSJunctionsButton.setText("Back-splicing Junctions  ");
         BSJunctionsButton.setBorderPainted(false);
+        BSJunctionsButton.setContentAreaFilled(false);
+        BSJunctionsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BSJunctionsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BSJunctionsButtonMouseEntered(evt);
+            }
+        });
         BSJunctionsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BSJunctionsButtonActionPerformed(evt);
@@ -2692,6 +2589,13 @@ public class MainFrame extends javax.swing.JFrame {
         CircRNAStructurePredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_cirias.png"))); // NOI18N
         CircRNAStructurePredictionButton.setText("Predict Structure  ");
         CircRNAStructurePredictionButton.setBorderPainted(false);
+        CircRNAStructurePredictionButton.setContentAreaFilled(false);
+        CircRNAStructurePredictionButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CircRNAStructurePredictionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CircRNAStructurePredictionButtonMouseEntered(evt);
+            }
+        });
         CircRNAStructurePredictionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CircRNAStructurePredictionButtonActionPerformed(evt);
@@ -2749,6 +2653,13 @@ public class MainFrame extends javax.swing.JFrame {
         CircRNAQuantificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/icon_quantification.png"))); // NOI18N
         CircRNAQuantificationButton.setText("Quantification  ");
         CircRNAQuantificationButton.setBorderPainted(false);
+        CircRNAQuantificationButton.setContentAreaFilled(false);
+        CircRNAQuantificationButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CircRNAQuantificationButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CircRNAQuantificationButtonMouseEntered(evt);
+            }
+        });
         CircRNAQuantificationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CircRNAQuantificationButtonActionPerformed(evt);
@@ -2765,6 +2676,13 @@ public class MainFrame extends javax.swing.JFrame {
         circRNADESeqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
         circRNADESeqButton.setText("DESeq2 analysis  ");
         circRNADESeqButton.setBorderPainted(false);
+        circRNADESeqButton.setContentAreaFilled(false);
+        circRNADESeqButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        circRNADESeqButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                circRNADESeqButtonMouseEntered(evt);
+            }
+        });
         circRNADESeqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 circRNADESeqButtonActionPerformed(evt);
@@ -2782,6 +2700,13 @@ public class MainFrame extends javax.swing.JFrame {
         circRNAddingCovarsButtonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/circRNA_covariates.png"))); // NOI18N
         circRNAddingCovarsButtonButton.setText("Adding covariates and batches");
         circRNAddingCovarsButtonButton.setBorderPainted(false);
+        circRNAddingCovarsButtonButton.setContentAreaFilled(false);
+        circRNAddingCovarsButtonButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        circRNAddingCovarsButtonButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                circRNAddingCovarsButtonButtonMouseEntered(evt);
+            }
+        });
         circRNAddingCovarsButtonButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 circRNAddingCovarsButtonButtonActionPerformed(evt);
@@ -2871,6 +2796,13 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaQuantificationButton.setText("Quantification  ");
         mirnaQuantificationButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         mirnaQuantificationButton.setBorderPainted(false);
+        mirnaQuantificationButton.setContentAreaFilled(false);
+        mirnaQuantificationButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mirnaQuantificationButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mirnaQuantificationButtonMouseEntered(evt);
+            }
+        });
         mirnaQuantificationButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mirnaQuantificationButtonActionPerformed(evt);
@@ -2888,6 +2820,13 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaindexingButton.setText("Genome Indexing  ");
         mirnaindexingButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         mirnaindexingButton.setBorderPainted(false);
+        mirnaindexingButton.setContentAreaFilled(false);
+        mirnaindexingButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mirnaindexingButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mirnaindexingButtonMouseEntered(evt);
+            }
+        });
         mirnaindexingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mirnaindexingButtonActionPerformed(evt);
@@ -2943,6 +2882,13 @@ public class MainFrame extends javax.swing.JFrame {
         jButton61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sncRNA_covariate.png"))); // NOI18N
         jButton61.setText("Adding covariates and batches   ");
         jButton61.setBorderPainted(false);
+        jButton61.setContentAreaFilled(false);
+        jButton61.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton61.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton61MouseEntered(evt);
+            }
+        });
         jButton61.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton61ActionPerformed(evt);
@@ -2958,6 +2904,13 @@ public class MainFrame extends javax.swing.JFrame {
         PCAButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/PCA.png"))); // NOI18N
         PCAButton2.setText(" PCA  analysis");
         PCAButton2.setBorderPainted(false);
+        PCAButton2.setContentAreaFilled(false);
+        PCAButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PCAButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PCAButton2MouseEntered(evt);
+            }
+        });
         PCAButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PCAButton2ActionPerformed(evt);
@@ -2973,6 +2926,13 @@ public class MainFrame extends javax.swing.JFrame {
         SampleSizeButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
         SampleSizeButton2.setText("Sample size estimator  ");
         SampleSizeButton2.setBorderPainted(false);
+        SampleSizeButton2.setContentAreaFilled(false);
+        SampleSizeButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SampleSizeButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SampleSizeButton2MouseEntered(evt);
+            }
+        });
         SampleSizeButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SampleSizeButton2ActionPerformed(evt);
@@ -2989,6 +2949,13 @@ public class MainFrame extends javax.swing.JFrame {
         ExpPowerButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/power.png"))); // NOI18N
         ExpPowerButton2.setText("Experiment statistical  Power  ");
         ExpPowerButton2.setBorderPainted(false);
+        ExpPowerButton2.setContentAreaFilled(false);
+        ExpPowerButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExpPowerButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExpPowerButton2MouseEntered(evt);
+            }
+        });
         ExpPowerButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExpPowerButton2ActionPerformed(evt);
@@ -3029,6 +2996,13 @@ public class MainFrame extends javax.swing.JFrame {
         DeseqButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
         DeseqButton3.setText("DESeq2 analysis  ");
         DeseqButton3.setBorderPainted(false);
+        DeseqButton3.setContentAreaFilled(false);
+        DeseqButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DeseqButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DeseqButton3MouseEntered(evt);
+            }
+        });
         DeseqButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeseqButton3ActionPerformed(evt);
@@ -3044,6 +3018,13 @@ public class MainFrame extends javax.swing.JFrame {
         CountButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
         CountButton3.setText("Count Filter  ");
         CountButton3.setBorderPainted(false);
+        CountButton3.setContentAreaFilled(false);
+        CountButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CountButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CountButton3MouseEntered(evt);
+            }
+        });
         CountButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CountButton3ActionPerformed(evt);
@@ -3061,6 +3042,13 @@ public class MainFrame extends javax.swing.JFrame {
         NovaLikeButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anovaLike.png"))); // NOI18N
         NovaLikeButton3.setText("Anova Like  ");
         NovaLikeButton3.setBorderPainted(false);
+        NovaLikeButton3.setContentAreaFilled(false);
+        NovaLikeButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NovaLikeButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                NovaLikeButton3MouseEntered(evt);
+            }
+        });
         NovaLikeButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NovaLikeButton3ActionPerformed(evt);
@@ -3121,6 +3109,16 @@ public class MainFrame extends javax.swing.JFrame {
         MultiQCButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/MultiQC.png"))); // NOI18N
         MultiQCButton.setText("MultiQC analysis  ");
         MultiQCButton.setBorderPainted(false);
+        MultiQCButton.setContentAreaFilled(false);
+        MultiQCButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MultiQCButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MultiQCButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                MultiQCButtonMouseExited(evt);
+            }
+        });
         MultiQCButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MultiQCButtonActionPerformed(evt);
@@ -3137,6 +3135,13 @@ public class MainFrame extends javax.swing.JFrame {
         HeatmapButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/heatmap.png"))); // NOI18N
         HeatmapButton.setText("Heatmap generation    ");
         HeatmapButton.setBorderPainted(false);
+        HeatmapButton.setContentAreaFilled(false);
+        HeatmapButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        HeatmapButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HeatmapButtonMouseEntered(evt);
+            }
+        });
         HeatmapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HeatmapButtonActionPerformed(evt);
@@ -3154,6 +3159,13 @@ public class MainFrame extends javax.swing.JFrame {
         MergeMatrixButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/merge.png"))); // NOI18N
         MergeMatrixButton.setText("Merge Matrix");
         MergeMatrixButton.setBorderPainted(false);
+        MergeMatrixButton.setContentAreaFilled(false);
+        MergeMatrixButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MergeMatrixButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                MergeMatrixButtonMouseEntered(evt);
+            }
+        });
         MergeMatrixButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MergeMatrixButtonActionPerformed(evt);
@@ -3170,6 +3182,13 @@ public class MainFrame extends javax.swing.JFrame {
         subSetMatrixButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
         subSetMatrixButton1.setText("subSet Matrix");
         subSetMatrixButton1.setBorderPainted(false);
+        subSetMatrixButton1.setContentAreaFilled(false);
+        subSetMatrixButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        subSetMatrixButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                subSetMatrixButton1MouseEntered(evt);
+            }
+        });
         subSetMatrixButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 subSetMatrixButton1ActionPerformed(evt);
@@ -3186,6 +3205,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_dimension.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
         SC_dimension.setText("Matrix Dimension");
         SC_dimension.setBorderPainted(false);
+        SC_dimension.setContentAreaFilled(false);
+        SC_dimension.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_dimension.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_dimensionMouseEntered(evt);
+            }
+        });
         SC_dimension.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_dimensionActionPerformed(evt);
@@ -3202,6 +3228,13 @@ public class MainFrame extends javax.swing.JFrame {
         heatmaplyButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/heatmap1.png"))); // NOI18N
         heatmaplyButton.setText("Heatmaply  ");
         heatmaplyButton.setBorderPainted(false);
+        heatmaplyButton.setContentAreaFilled(false);
+        heatmaplyButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        heatmaplyButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                heatmaplyButtonMouseEntered(evt);
+            }
+        });
         heatmaplyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 heatmaplyButtonActionPerformed(evt);
@@ -3218,6 +3251,13 @@ public class MainFrame extends javax.swing.JFrame {
         SparseToDense.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
         SparseToDense.setText("Sparse To Dense");
         SparseToDense.setBorderPainted(false);
+        SparseToDense.setContentAreaFilled(false);
+        SparseToDense.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SparseToDense.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SparseToDenseMouseEntered(evt);
+            }
+        });
         SparseToDense.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SparseToDenseActionPerformed(evt);
@@ -3234,6 +3274,13 @@ public class MainFrame extends javax.swing.JFrame {
         DenseToSparse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
         DenseToSparse.setText("Dense To Sparse");
         DenseToSparse.setBorderPainted(false);
+        DenseToSparse.setContentAreaFilled(false);
+        DenseToSparse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DenseToSparse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DenseToSparseMouseEntered(evt);
+            }
+        });
         DenseToSparse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DenseToSparseActionPerformed(evt);
@@ -3286,6 +3333,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_IndropIndexButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/indrop_counts.png"))); // NOI18N
         SC_IndropIndexButton.setText("Indrop Index  ");
         SC_IndropIndexButton.setBorderPainted(false);
+        SC_IndropIndexButton.setContentAreaFilled(false);
+        SC_IndropIndexButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_IndropIndexButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_IndropIndexButtonMouseEntered(evt);
+            }
+        });
         SC_IndropIndexButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_IndropIndexButtonActionPerformed(evt);
@@ -3301,6 +3355,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_IndropCountsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/indrop_counts.png"))); // NOI18N
         SC_IndropCountsButton.setText("Indrop Counts  ");
         SC_IndropCountsButton.setBorderPainted(false);
+        SC_IndropCountsButton.setContentAreaFilled(false);
+        SC_IndropCountsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_IndropCountsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_IndropCountsButtonMouseEntered(evt);
+            }
+        });
         SC_IndropCountsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_IndropCountsButtonActionPerformed(evt);
@@ -3316,6 +3377,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_CellRangerCountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cellranger_count.png"))); // NOI18N
         SC_CellRangerCountButton.setText("10XGenomics Counts Generation  ");
         SC_CellRangerCountButton.setBorderPainted(false);
+        SC_CellRangerCountButton.setContentAreaFilled(false);
+        SC_CellRangerCountButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_CellRangerCountButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_CellRangerCountButtonMouseEntered(evt);
+            }
+        });
         SC_CellRangerCountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_CellRangerCountButtonActionPerformed(evt);
@@ -3331,6 +3399,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_IndropCountsButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cellranger_count.png"))); // NOI18N
         SC_IndropCountsButton1.setText("10XGenomics Index  ");
         SC_IndropCountsButton1.setBorderPainted(false);
+        SC_IndropCountsButton1.setContentAreaFilled(false);
+        SC_IndropCountsButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_IndropCountsButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_IndropCountsButton1MouseEntered(evt);
+            }
+        });
         SC_IndropCountsButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_IndropCountsButton1ActionPerformed(evt);
@@ -3346,6 +3421,13 @@ public class MainFrame extends javax.swing.JFrame {
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/cellranger_count.png"))); // NOI18N
         jButton5.setText("Spatial Count Generation  ");
         jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton5MouseEntered(evt);
+            }
+        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -3401,6 +3483,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_CCRemoveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ccremove.png"))); // NOI18N
         SC_CCRemoveButton.setText("Cell cycle normalization");
         SC_CCRemoveButton.setBorderPainted(false);
+        SC_CCRemoveButton.setContentAreaFilled(false);
+        SC_CCRemoveButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_CCRemoveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_CCRemoveButtonMouseEntered(evt);
+            }
+        });
         SC_CCRemoveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_CCRemoveButtonActionPerformed(evt);
@@ -3417,6 +3506,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_ScannoByGtfButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ScannoByGTF.png"))); // NOI18N
         SC_ScannoByGtfButton.setText("Annotation and Ribo/Mito filtering");
         SC_ScannoByGtfButton.setBorderPainted(false);
+        SC_ScannoByGtfButton.setContentAreaFilled(false);
+        SC_ScannoByGtfButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_ScannoByGtfButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_ScannoByGtfButtonMouseEntered(evt);
+            }
+        });
         SC_ScannoByGtfButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_ScannoByGtfButtonActionPerformed(evt);
@@ -3433,6 +3529,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_UmiNormButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/count_depth.png"))); // NOI18N
         SC_UmiNormButton.setText("Normalizing samples");
         SC_UmiNormButton.setBorderPainted(false);
+        SC_UmiNormButton.setContentAreaFilled(false);
+        SC_UmiNormButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_UmiNormButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_UmiNormButtonMouseEntered(evt);
+            }
+        });
         SC_UmiNormButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_UmiNormButtonActionPerformed(evt);
@@ -3449,6 +3552,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_GenesUmiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/gene_UMI.png"))); // NOI18N
         SC_GenesUmiButton.setText("Genes vs counts");
         SC_GenesUmiButton.setBorderPainted(false);
+        SC_GenesUmiButton.setContentAreaFilled(false);
+        SC_GenesUmiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_GenesUmiButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_GenesUmiButtonMouseEntered(evt);
+            }
+        });
         SC_GenesUmiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_GenesUmiButtonActionPerformed(evt);
@@ -3465,6 +3575,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_FilterZerosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter_zero.png"))); // NOI18N
         SC_FilterZerosButton.setText("Filter zeros  ");
         SC_FilterZerosButton.setBorderPainted(false);
+        SC_FilterZerosButton.setContentAreaFilled(false);
+        SC_FilterZerosButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_FilterZerosButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_FilterZerosButtonMouseEntered(evt);
+            }
+        });
         SC_FilterZerosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_FilterZerosButtonActionPerformed(evt);
@@ -3481,6 +3598,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_RecatPredictionButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ccremove.png"))); // NOI18N
         SC_RecatPredictionButton.setText("Cell cycle estimation");
         SC_RecatPredictionButton.setBorderPainted(false);
+        SC_RecatPredictionButton.setContentAreaFilled(false);
+        SC_RecatPredictionButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_RecatPredictionButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_RecatPredictionButtonMouseEntered(evt);
+            }
+        });
         SC_RecatPredictionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_RecatPredictionButtonActionPerformed(evt);
@@ -3497,6 +3621,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_SCNormButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/count_depth.png"))); // NOI18N
         SC_SCNormButton.setText("Normalizing sequencing depth");
         SC_SCNormButton.setBorderPainted(false);
+        SC_SCNormButton.setContentAreaFilled(false);
+        SC_SCNormButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_SCNormButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_SCNormButtonMouseEntered(evt);
+            }
+        });
         SC_SCNormButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_SCNormButtonActionPerformed(evt);
@@ -3513,6 +3644,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_TopXButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/topX.png"))); // NOI18N
         SC_TopXButton.setText("Select by expression");
         SC_TopXButton.setBorderPainted(false);
+        SC_TopXButton.setContentAreaFilled(false);
+        SC_TopXButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_TopXButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_TopXButtonMouseEntered(evt);
+            }
+        });
         SC_TopXButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_TopXButtonActionPerformed(evt);
@@ -3529,6 +3667,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_CountDepthButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/count_depth.png"))); // NOI18N
         SC_CountDepthButton.setText("Estimating sequencing depth");
         SC_CountDepthButton.setBorderPainted(false);
+        SC_CountDepthButton.setContentAreaFilled(false);
+        SC_CountDepthButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_CountDepthButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_CountDepthButtonMouseEntered(evt);
+            }
+        });
         SC_CountDepthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_CountDepthButtonActionPerformed(evt);
@@ -3545,6 +3690,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_LorenzFilterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/lorenz_filter.png"))); // NOI18N
         SC_LorenzFilterButton.setText("Lorenz filtering  ");
         SC_LorenzFilterButton.setBorderPainted(false);
+        SC_LorenzFilterButton.setContentAreaFilled(false);
+        SC_LorenzFilterButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_LorenzFilterButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_LorenzFilterButtonMouseEntered(evt);
+            }
+        });
         SC_LorenzFilterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_LorenzFilterButtonActionPerformed(evt);
@@ -3561,6 +3713,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_Counts2LogButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/log.png"))); // NOI18N
         SC_Counts2LogButton.setText("Counts to log counts");
         SC_Counts2LogButton.setBorderPainted(false);
+        SC_Counts2LogButton.setContentAreaFilled(false);
+        SC_Counts2LogButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_Counts2LogButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_Counts2LogButtonMouseEntered(evt);
+            }
+        });
         SC_Counts2LogButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_Counts2LogButtonActionPerformed(evt);
@@ -3616,6 +3775,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_BootstrapVideoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Bootstrap Video.png"))); // NOI18N
         SC_BootstrapVideoButton.setText("Perturbation effects video");
         SC_BootstrapVideoButton.setBorderPainted(false);
+        SC_BootstrapVideoButton.setContentAreaFilled(false);
+        SC_BootstrapVideoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_BootstrapVideoButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_BootstrapVideoButtonMouseEntered(evt);
+            }
+        });
         SC_BootstrapVideoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_BootstrapVideoButtonActionPerformed(evt);
@@ -3633,6 +3799,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_SimlrBootstrapButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/clusteringNgriph.png"))); // NOI18N
         SC_SimlrBootstrapButton.setText("Clustering with SIMLR");
         SC_SimlrBootstrapButton.setBorderPainted(false);
+        SC_SimlrBootstrapButton.setContentAreaFilled(false);
+        SC_SimlrBootstrapButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_SimlrBootstrapButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_SimlrBootstrapButtonMouseEntered(evt);
+            }
+        });
         SC_SimlrBootstrapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_SimlrBootstrapButtonActionPerformed(evt);
@@ -3649,6 +3822,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_SeuratBootstrapButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Seurat Bootstrap.png"))); // NOI18N
         SC_SeuratBootstrapButton.setText("Clustering with Seurat");
         SC_SeuratBootstrapButton.setBorderPainted(false);
+        SC_SeuratBootstrapButton.setContentAreaFilled(false);
+        SC_SeuratBootstrapButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_SeuratBootstrapButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_SeuratBootstrapButtonMouseEntered(evt);
+            }
+        });
         SC_SeuratBootstrapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_SeuratBootstrapButtonActionPerformed(evt);
@@ -3665,6 +3845,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_ClusteringNgriphButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/clusteringNgriph.png"))); // NOI18N
         SC_ClusteringNgriphButton.setText("Defining a range of number of Clusters to inspect with SIMLR  ");
         SC_ClusteringNgriphButton.setBorderPainted(false);
+        SC_ClusteringNgriphButton.setContentAreaFilled(false);
+        SC_ClusteringNgriphButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_ClusteringNgriphButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_ClusteringNgriphButtonMouseEntered(evt);
+            }
+        });
         SC_ClusteringNgriphButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_ClusteringNgriphButtonActionPerformed(evt);
@@ -3681,6 +3868,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_SeuratPCAEvalButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/gene_UMI.png"))); // NOI18N
         SC_SeuratPCAEvalButton.setText("Estimating PCA range for Seurat");
         SC_SeuratPCAEvalButton.setBorderPainted(false);
+        SC_SeuratPCAEvalButton.setContentAreaFilled(false);
+        SC_SeuratPCAEvalButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_SeuratPCAEvalButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_SeuratPCAEvalButtonMouseEntered(evt);
+            }
+        });
         SC_SeuratPCAEvalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_SeuratPCAEvalButtonActionPerformed(evt);
@@ -3697,6 +3891,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_TsneBootstrap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/clusteringNgriph.png"))); // NOI18N
         SC_TsneBootstrap.setText("Clustering with tSne");
         SC_TsneBootstrap.setBorderPainted(false);
+        SC_TsneBootstrap.setContentAreaFilled(false);
+        SC_TsneBootstrap.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_TsneBootstrap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_TsneBootstrapMouseEntered(evt);
+            }
+        });
         SC_TsneBootstrap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_TsneBootstrapActionPerformed(evt);
@@ -3714,6 +3915,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_ClusterStabilityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/hierarchical-structure.jpg"))); // NOI18N
         SC_ClusterStabilityButton.setText("Estimating Cluster Stability");
         SC_ClusterStabilityButton.setBorderPainted(false);
+        SC_ClusterStabilityButton.setContentAreaFilled(false);
+        SC_ClusterStabilityButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_ClusterStabilityButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_ClusterStabilityButtonMouseEntered(evt);
+            }
+        });
         SC_ClusterStabilityButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_ClusterStabilityButtonActionPerformed(evt);
@@ -3730,6 +3938,13 @@ public class MainFrame extends javax.swing.JFrame {
         S_crossLabelButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Indrop.jpg"))); // NOI18N
         S_crossLabelButton1.setText("Cross Label");
         S_crossLabelButton1.setBorderPainted(false);
+        S_crossLabelButton1.setContentAreaFilled(false);
+        S_crossLabelButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        S_crossLabelButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                S_crossLabelButton1MouseEntered(evt);
+            }
+        });
         S_crossLabelButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 S_crossLabelButton1ActionPerformed(evt);
@@ -3746,6 +3961,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_unstableFilteringButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
         SC_unstableFilteringButton.setText("UnstableFiltering");
         SC_unstableFilteringButton.setBorderPainted(false);
+        SC_unstableFilteringButton.setContentAreaFilled(false);
+        SC_unstableFilteringButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_unstableFilteringButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_unstableFilteringButtonMouseEntered(evt);
+            }
+        });
         SC_unstableFilteringButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_unstableFilteringButtonActionPerformed(evt);
@@ -3762,6 +3984,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_ClusterSplit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
         SC_ClusterSplit.setText("Split in Clusters");
         SC_ClusterSplit.setBorderPainted(false);
+        SC_ClusterSplit.setContentAreaFilled(false);
+        SC_ClusterSplit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_ClusterSplit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_ClusterSplitMouseEntered(evt);
+            }
+        });
         SC_ClusterSplit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_ClusterSplitActionPerformed(evt);
@@ -3778,6 +4007,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_ClusteringNgriphButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/clusteringNgriph.png"))); // NOI18N
         SC_ClusteringNgriphButton1.setText("Griph Large scala dataset Clustering");
         SC_ClusteringNgriphButton1.setBorderPainted(false);
+        SC_ClusteringNgriphButton1.setContentAreaFilled(false);
+        SC_ClusteringNgriphButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_ClusteringNgriphButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_ClusteringNgriphButton1MouseEntered(evt);
+            }
+        });
         SC_ClusteringNgriphButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_ClusteringNgriphButton1ActionPerformed(evt);
@@ -3794,6 +4030,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_ScanpyBootstrap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/clusteringNgriph.png"))); // NOI18N
         SC_ScanpyBootstrap.setText("Clustering with Scanpy");
         SC_ScanpyBootstrap.setBorderPainted(false);
+        SC_ScanpyBootstrap.setContentAreaFilled(false);
+        SC_ScanpyBootstrap.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_ScanpyBootstrap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_ScanpyBootstrapMouseEntered(evt);
+            }
+        });
         SC_ScanpyBootstrap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_ScanpyBootstrapActionPerformed(evt);
@@ -3851,6 +4094,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_GenesSelectionSIMLRButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
         SC_GenesSelectionSIMLRButton.setText("Genes selection with SIMLR  ");
         SC_GenesSelectionSIMLRButton.setBorderPainted(false);
+        SC_GenesSelectionSIMLRButton.setContentAreaFilled(false);
+        SC_GenesSelectionSIMLRButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_GenesSelectionSIMLRButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_GenesSelectionSIMLRButtonMouseEntered(evt);
+            }
+        });
         SC_GenesSelectionSIMLRButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_GenesSelectionSIMLRButtonActionPerformed(evt);
@@ -3868,6 +4118,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_HFCButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/heatmap.png"))); // NOI18N
         SC_HFCButton.setText("Clusters heatmap");
         SC_HFCButton.setBorderPainted(false);
+        SC_HFCButton.setContentAreaFilled(false);
+        SC_HFCButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_HFCButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_HFCButtonMouseEntered(evt);
+            }
+        });
         SC_HFCButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_HFCButtonActionPerformed(evt);
@@ -3884,6 +4141,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_AnovaLikeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anlovalike.png"))); // NOI18N
         SC_AnovaLikeButton.setText("Anova Like  ");
         SC_AnovaLikeButton.setBorderPainted(false);
+        SC_AnovaLikeButton.setContentAreaFilled(false);
+        SC_AnovaLikeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_AnovaLikeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_AnovaLikeButtonMouseEntered(evt);
+            }
+        });
         SC_AnovaLikeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_AnovaLikeButtonActionPerformed(evt);
@@ -3900,6 +4164,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_SeuratPriorButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
         SC_SeuratPriorButton.setText("Genes prioritization with Seurat");
         SC_SeuratPriorButton.setBorderPainted(false);
+        SC_SeuratPriorButton.setContentAreaFilled(false);
+        SC_SeuratPriorButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_SeuratPriorButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_SeuratPriorButtonMouseEntered(evt);
+            }
+        });
         SC_SeuratPriorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_SeuratPriorButtonActionPerformed(evt);
@@ -3916,6 +4187,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_ClustersFeaturesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
         SC_ClustersFeaturesButton.setText("Anova like gene features counts table");
         SC_ClustersFeaturesButton.setBorderPainted(false);
+        SC_ClustersFeaturesButton.setContentAreaFilled(false);
+        SC_ClustersFeaturesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_ClustersFeaturesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_ClustersFeaturesButtonMouseEntered(evt);
+            }
+        });
         SC_ClustersFeaturesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_ClustersFeaturesButtonActionPerformed(evt);
@@ -3932,6 +4210,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_GenesPrioritizSIMLRButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
         SC_GenesPrioritizSIMLRButton.setText("Genes prioritization with SIMLR  ");
         SC_GenesPrioritizSIMLRButton.setBorderPainted(false);
+        SC_GenesPrioritizSIMLRButton.setContentAreaFilled(false);
+        SC_GenesPrioritizSIMLRButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_GenesPrioritizSIMLRButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_GenesPrioritizSIMLRButtonMouseEntered(evt);
+            }
+        });
         SC_GenesPrioritizSIMLRButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_GenesPrioritizSIMLRButtonActionPerformed(evt);
@@ -3948,6 +4233,13 @@ public class MainFrame extends javax.swing.JFrame {
         SC_DeTwoGroupsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anlovalike.png"))); // NOI18N
         SC_DeTwoGroupsButton.setText("De Two groups");
         SC_DeTwoGroupsButton.setBorderPainted(false);
+        SC_DeTwoGroupsButton.setContentAreaFilled(false);
+        SC_DeTwoGroupsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SC_DeTwoGroupsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SC_DeTwoGroupsButtonMouseEntered(evt);
+            }
+        });
         SC_DeTwoGroupsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SC_DeTwoGroupsButtonActionPerformed(evt);
@@ -4004,6 +4296,352 @@ public class MainFrame extends javax.swing.JFrame {
         SingleCellScrollPanel.setViewportView(SingleCellPanel);
 
         jTabbedPane1.addTab("Single Cell", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/SingleCell.png")), SingleCellScrollPanel); // NOI18N
+
+        RNAScrollPane.setBackground(new java.awt.Color(255, 255, 255));
+        RNAScrollPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(7, 5, 7, 5));
+        RNAScrollPane.setHorizontalScrollBar(null);
+        RNAScrollPane.setName("rnaseq"); // NOI18N
+
+        RNAseqPanel.setBackground(new java.awt.Color(255, 255, 255));
+        RNAseqPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        RNAseqPanel.setName("rnaseq"); // NOI18N
+        RNAseqPanel.setLayout(new java.awt.GridBagLayout());
+
+        RNAseqPanelSub1.setBackground(new java.awt.Color(255, 255, 255));
+        RNAseqPanelSub1.setLayout(new java.awt.GridBagLayout());
+
+        jLabelRNAseq1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelRNAseq1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtabB.png"))); // NOI18N
+        jLabelRNAseq1.setText("Count table generation");
+        jLabelRNAseq1.setOpaque(true);
+        jLabelRNAseq1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelRNAseq1MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        RNAseqPanelSub1.add(jLabelRNAseq1, gridBagConstraints);
+
+        RNAseqPanelSub1M.setBackground(new java.awt.Color(255, 255, 255));
+        RNAseqPanelSub1M.setLayout(new java.awt.GridBagLayout());
+
+        vmRNAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
+        vmRNAButton.setText("Genome indexing STAR-RSEM  ");
+        vmRNAButton.setBorderPainted(false);
+        vmRNAButton.setContentAreaFilled(false);
+        vmRNAButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        vmRNAButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                vmRNAButtonMouseEntered(evt);
+            }
+        });
+        vmRNAButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vmRNAButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        RNAseqPanelSub1M.add(vmRNAButton, gridBagConstraints);
+
+        mRNAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/DNAtab.png"))); // NOI18N
+        mRNAButton.setText("Genes, isoforms counting RSEM  ");
+        mRNAButton.setBorderPainted(false);
+        mRNAButton.setContentAreaFilled(false);
+        mRNAButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mRNAButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mRNAButtonMouseEntered(evt);
+            }
+        });
+        mRNAButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mRNAButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        RNAseqPanelSub1M.add(mRNAButton, gridBagConstraints);
+
+        SalmonIndexingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/salmon.png"))); // NOI18N
+        SalmonIndexingButton.setText("Trans. pseudo-reference building (Salmon)  ");
+        SalmonIndexingButton.setBorderPainted(false);
+        SalmonIndexingButton.setContentAreaFilled(false);
+        SalmonIndexingButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SalmonIndexingButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SalmonIndexingButtonMouseEntered(evt);
+            }
+        });
+        SalmonIndexingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalmonIndexingButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        RNAseqPanelSub1M.add(SalmonIndexingButton, gridBagConstraints);
+
+        countingSalmonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/salmon.png"))); // NOI18N
+        countingSalmonButton.setText("Trans. and genes counting (Salmon)  ");
+        countingSalmonButton.setBorderPainted(false);
+        countingSalmonButton.setContentAreaFilled(false);
+        countingSalmonButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        countingSalmonButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                countingSalmonButtonMouseEntered(evt);
+            }
+        });
+        countingSalmonButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countingSalmonButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        RNAseqPanelSub1M.add(countingSalmonButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        RNAseqPanelSub1.add(RNAseqPanelSub1M, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        RNAseqPanel.add(RNAseqPanelSub1, gridBagConstraints);
+
+        RNAseqPanelSub2.setBackground(new java.awt.Color(255, 255, 255));
+        RNAseqPanelSub2.setLayout(new java.awt.GridBagLayout());
+
+        jLabelRNAseq2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelRNAseq2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtabB.png"))); // NOI18N
+        jLabelRNAseq2.setText("Count table post-processes");
+        jLabelRNAseq2.setOpaque(true);
+        jLabelRNAseq2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelRNAseq2MouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 320;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        RNAseqPanelSub2.add(jLabelRNAseq2, gridBagConstraints);
+
+        RNAseqPanelSub2M.setBackground(new java.awt.Color(255, 255, 255));
+        RNAseqPanelSub2M.setLayout(new java.awt.GridBagLayout());
+
+        SampleExpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/sample.png"))); // NOI18N
+        SampleExpButton.setText("From samples to experiment  ");
+        SampleExpButton.setBorderPainted(false);
+        SampleExpButton.setContentAreaFilled(false);
+        SampleExpButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SampleExpButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SampleExpButtonMouseEntered(evt);
+            }
+        });
+        SampleExpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SampleExpButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        RNAseqPanelSub2M.add(SampleExpButton, gridBagConstraints);
+
+        PCAButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/PCA.png"))); // NOI18N
+        PCAButton.setText(" PCA  analysis");
+        PCAButton.setBorderPainted(false);
+        PCAButton.setContentAreaFilled(false);
+        PCAButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        PCAButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PCAButtonMouseEntered(evt);
+            }
+        });
+        PCAButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PCAButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanelSub2M.add(PCAButton, gridBagConstraints);
+
+        SampleSizeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/size.png"))); // NOI18N
+        SampleSizeButton.setText("Sample size estimator  ");
+        SampleSizeButton.setBorderPainted(false);
+        SampleSizeButton.setContentAreaFilled(false);
+        SampleSizeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SampleSizeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SampleSizeButtonMouseEntered(evt);
+            }
+        });
+        SampleSizeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SampleSizeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanelSub2M.add(SampleSizeButton, gridBagConstraints);
+
+        ExpPowerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/power.png"))); // NOI18N
+        ExpPowerButton.setText("Experiment statistical  Power  ");
+        ExpPowerButton.setBorderPainted(false);
+        ExpPowerButton.setContentAreaFilled(false);
+        ExpPowerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ExpPowerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExpPowerButtonMouseEntered(evt);
+            }
+        });
+        ExpPowerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExpPowerButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanelSub2M.add(ExpPowerButton, gridBagConstraints);
+
+        DeseqButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/Deseq2.png"))); // NOI18N
+        DeseqButton.setText("DESeq2 analysis  ");
+        DeseqButton.setBorderPainted(false);
+        DeseqButton.setContentAreaFilled(false);
+        DeseqButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DeseqButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DeseqButtonMouseEntered(evt);
+            }
+        });
+        DeseqButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeseqButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanelSub2M.add(DeseqButton, gridBagConstraints);
+
+        ANOVAlikeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/anovaLike.png"))); // NOI18N
+        ANOVAlikeButton.setText("ANOVA-like  ");
+        ANOVAlikeButton.setBorderPainted(false);
+        ANOVAlikeButton.setContentAreaFilled(false);
+        ANOVAlikeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ANOVAlikeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ANOVAlikeButtonMouseEntered(evt);
+            }
+        });
+        ANOVAlikeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ANOVAlikeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanelSub2M.add(ANOVAlikeButton, gridBagConstraints);
+
+        CountButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/filter.png"))); // NOI18N
+        CountButton.setText("Count Filter  ");
+        CountButton.setBorderPainted(false);
+        CountButton.setContentAreaFilled(false);
+        CountButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CountButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CountButtonMouseEntered(evt);
+            }
+        });
+        CountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CountButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 10, 10, 10);
+        RNAseqPanelSub2M.add(CountButton, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weighty = 1.0;
+        RNAseqPanelSub2.add(RNAseqPanelSub2M, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        RNAseqPanel.add(RNAseqPanelSub2, gridBagConstraints);
+
+        RNAScrollPane.setViewportView(RNAseqPanel);
+
+        jTabbedPane1.addTab("RNA seq", new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/RNAtab.png")), RNAScrollPane); // NOI18N
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -6233,6 +6871,374 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("SC_spatial_count");
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void MultiQCButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MultiQCButtonMouseEntered
+        MultiQCButton.requestFocus();
+    }//GEN-LAST:event_MultiQCButtonMouseEntered
+
+    private void MultiQCButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MultiQCButtonMouseExited
+        
+    }//GEN-LAST:event_MultiQCButtonMouseExited
+
+    private void DenseToSparseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DenseToSparseMouseEntered
+        DenseToSparse.requestFocus();
+    }//GEN-LAST:event_DenseToSparseMouseEntered
+
+    private void SparseToDenseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SparseToDenseMouseEntered
+       SparseToDense.requestFocus();
+    }//GEN-LAST:event_SparseToDenseMouseEntered
+
+    private void subSetMatrixButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subSetMatrixButton1MouseEntered
+       subSetMatrixButton1.requestFocus();
+    }//GEN-LAST:event_subSetMatrixButton1MouseEntered
+
+    private void SC_dimensionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_dimensionMouseEntered
+       SC_dimension.requestFocus();
+    }//GEN-LAST:event_SC_dimensionMouseEntered
+
+    private void MergeMatrixButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MergeMatrixButtonMouseEntered
+       MergeMatrixButton.requestFocus();
+    }//GEN-LAST:event_MergeMatrixButtonMouseEntered
+
+    private void heatmaplyButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_heatmaplyButtonMouseEntered
+       heatmaplyButton.requestFocus();
+    }//GEN-LAST:event_heatmaplyButtonMouseEntered
+
+    private void HeatmapButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HeatmapButtonMouseEntered
+      HeatmapButton.requestFocus();
+    }//GEN-LAST:event_HeatmapButtonMouseEntered
+
+    private void vmRNAButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vmRNAButtonMouseEntered
+     vmRNAButton.requestFocus();
+    }//GEN-LAST:event_vmRNAButtonMouseEntered
+
+    private void mRNAButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mRNAButtonMouseEntered
+        mRNAButton.requestFocus();
+    }//GEN-LAST:event_mRNAButtonMouseEntered
+
+    private void SalmonIndexingButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SalmonIndexingButtonMouseEntered
+       SalmonIndexingButton.requestFocus();
+    }//GEN-LAST:event_SalmonIndexingButtonMouseEntered
+
+    private void countingSalmonButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_countingSalmonButtonMouseEntered
+        countingSalmonButton.requestFocus();
+    }//GEN-LAST:event_countingSalmonButtonMouseEntered
+
+    private void SampleExpButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SampleExpButtonMouseEntered
+       SampleExpButton.requestFocus();
+    }//GEN-LAST:event_SampleExpButtonMouseEntered
+
+    private void PCAButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PCAButtonMouseEntered
+      PCAButton.requestFocus();
+    }//GEN-LAST:event_PCAButtonMouseEntered
+
+    private void SampleSizeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SampleSizeButtonMouseEntered
+        SampleSizeButton.requestFocus();
+    }//GEN-LAST:event_SampleSizeButtonMouseEntered
+
+    private void ExpPowerButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExpPowerButtonMouseEntered
+        ExpPowerButton.requestFocus();
+    }//GEN-LAST:event_ExpPowerButtonMouseEntered
+
+    private void DeseqButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeseqButtonMouseEntered
+        DeseqButton.requestFocus();
+    }//GEN-LAST:event_DeseqButtonMouseEntered
+
+    private void ANOVAlikeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ANOVAlikeButtonMouseEntered
+        ANOVAlikeButton.requestFocus();
+    }//GEN-LAST:event_ANOVAlikeButtonMouseEntered
+
+    private void CountButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CountButtonMouseEntered
+       CountButton.requestFocus();
+    }//GEN-LAST:event_CountButtonMouseEntered
+
+    private void bwaIndexChipseqMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bwaIndexChipseqMouseEntered
+       bwaIndexChipseq.requestFocus();
+    }//GEN-LAST:event_bwaIndexChipseqMouseEntered
+
+    private void Ciri2PredictionButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ciri2PredictionButtonMouseEntered
+        Ciri2PredictionButton.requestFocus();  
+    }//GEN-LAST:event_Ciri2PredictionButtonMouseEntered
+
+    private void Ciri2MergeResultsButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Ciri2MergeResultsButtonMouseEntered
+        Ciri2MergeResultsButton.requestFocus();
+    }//GEN-LAST:event_Ciri2MergeResultsButtonMouseEntered
+
+    private void StarChimericButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StarChimericButtonMouseEntered
+        StarChimericButton.requestFocus();
+    }//GEN-LAST:event_StarChimericButtonMouseEntered
+
+    private void StarchipCircleButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StarchipCircleButtonMouseEntered
+       StarchipCircleButton.requestFocus();
+    }//GEN-LAST:event_StarchipCircleButtonMouseEntered
+
+    private void wrapperSTARChipButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wrapperSTARChipButtonMouseEntered
+         wrapperSTARChipButton.requestFocus();
+    }//GEN-LAST:event_wrapperSTARChipButtonMouseEntered
+
+    private void overlapPredictionButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_overlapPredictionButtonMouseEntered
+        overlapPredictionButton.requestFocus();
+    }//GEN-LAST:event_overlapPredictionButtonMouseEntered
+
+    private void reformatPredictionButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reformatPredictionButtonMouseEntered
+        reformatPredictionButton.requestFocus();
+    }//GEN-LAST:event_reformatPredictionButtonMouseEntered
+
+    private void downloadExonIsoformDataButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_downloadExonIsoformDataButton2MouseEntered
+        downloadExonIsoformDataButton2.requestFocus();
+    }//GEN-LAST:event_downloadExonIsoformDataButton2MouseEntered
+
+    private void CirchunterClassificButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CirchunterClassificButton2MouseEntered
+        CirchunterClassificButton2.requestFocus();
+    }//GEN-LAST:event_CirchunterClassificButton2MouseEntered
+
+    private void circRNAAnnotationButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_circRNAAnnotationButton2MouseEntered
+        circRNAAnnotationButton2.requestFocus();
+    }//GEN-LAST:event_circRNAAnnotationButton2MouseEntered
+
+    private void BSJunctionsButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BSJunctionsButtonMouseEntered
+        BSJunctionsButton.requestFocus();
+    }//GEN-LAST:event_BSJunctionsButtonMouseEntered
+
+    private void CircRNAStructurePredictionButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CircRNAStructurePredictionButtonMouseEntered
+       CircRNAStructurePredictionButton.requestFocus();
+    }//GEN-LAST:event_CircRNAStructurePredictionButtonMouseEntered
+
+    private void CircRNAQuantificationButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CircRNAQuantificationButtonMouseEntered
+        CircRNAQuantificationButton.requestFocus();
+    }//GEN-LAST:event_CircRNAQuantificationButtonMouseEntered
+
+    private void circRNAddingCovarsButtonButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_circRNAddingCovarsButtonButtonMouseEntered
+       circRNAddingCovarsButtonButton.requestFocus();
+    }//GEN-LAST:event_circRNAddingCovarsButtonButtonMouseEntered
+
+    private void circRNADESeqButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_circRNADESeqButtonMouseEntered
+        circRNADESeqButton.requestFocus();
+    }//GEN-LAST:event_circRNADESeqButtonMouseEntered
+
+    private void miRNApanelSub1MMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miRNApanelSub1MMouseEntered
+        miRNApanelSub1M.requestFocus();
+    }//GEN-LAST:event_miRNApanelSub1MMouseEntered
+
+    private void chipseqbwaButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chipseqbwaButtonMouseEntered
+        chipseqbwaButton.requestFocus();
+    }//GEN-LAST:event_chipseqbwaButtonMouseEntered
+
+    private void Macs2ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Macs2ButtonMouseClicked
+    
+    }//GEN-LAST:event_Macs2ButtonMouseClicked
+
+    private void Macs2ButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Macs2ButtonMouseEntered
+         Macs2Button.requestFocus();
+    }//GEN-LAST:event_Macs2ButtonMouseEntered
+
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+         jButton4.requestFocus();
+    }//GEN-LAST:event_jButton4MouseEntered
+
+    private void jButton59MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton59MouseEntered
+        jButton59.requestFocus();
+    }//GEN-LAST:event_jButton59MouseEntered
+
+    private void jButton60MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton60MouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_jButton60MouseEntered
+
+    private void PCAButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PCAButton1MouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_PCAButton1MouseEntered
+
+    private void SampleSizeButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SampleSizeButton1MouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SampleSizeButton1MouseEntered
+
+    private void ExpPowerButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExpPowerButton1MouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_ExpPowerButton1MouseEntered
+
+    private void DeseqButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeseqButton2MouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_DeseqButton2MouseEntered
+
+    private void CountButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CountButton1MouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_CountButton1MouseEntered
+
+    private void mirnaindexingButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mirnaindexingButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_mirnaindexingButtonMouseEntered
+
+    private void mirnaQuantificationButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mirnaQuantificationButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_mirnaQuantificationButtonMouseEntered
+
+    private void jButton61MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton61MouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_jButton61MouseEntered
+
+    private void PCAButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PCAButton2MouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_PCAButton2MouseEntered
+
+    private void SampleSizeButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SampleSizeButton2MouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SampleSizeButton2MouseEntered
+
+    private void ExpPowerButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExpPowerButton2MouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_ExpPowerButton2MouseEntered
+
+    private void NovaLikeButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NovaLikeButton3MouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_NovaLikeButton3MouseEntered
+
+    private void DeseqButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DeseqButton3MouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_DeseqButton3MouseEntered
+
+    private void CountButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CountButton3MouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_CountButton3MouseEntered
+
+    private void SC_IndropIndexButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_IndropIndexButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_IndropIndexButtonMouseEntered
+
+    private void SC_IndropCountsButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_IndropCountsButtonMouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_IndropCountsButtonMouseEntered
+
+    private void SC_IndropCountsButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_IndropCountsButton1MouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_IndropCountsButton1MouseEntered
+
+    private void SC_CellRangerCountButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_CellRangerCountButtonMouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_CellRangerCountButtonMouseEntered
+
+    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_jButton5MouseEntered
+
+    private void SC_GenesUmiButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_GenesUmiButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_GenesUmiButtonMouseEntered
+
+    private void SC_ScannoByGtfButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_ScannoByGtfButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_ScannoByGtfButtonMouseEntered
+
+    private void SC_LorenzFilterButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_LorenzFilterButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_LorenzFilterButtonMouseEntered
+
+    private void SC_TopXButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_TopXButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_TopXButtonMouseEntered
+
+    private void SC_FilterZerosButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_FilterZerosButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_FilterZerosButtonMouseEntered
+
+    private void SC_Counts2LogButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_Counts2LogButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_Counts2LogButtonMouseEntered
+
+    private void SC_CountDepthButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_CountDepthButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_CountDepthButtonMouseEntered
+
+    private void SC_SCNormButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_SCNormButtonMouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_SCNormButtonMouseEntered
+
+    private void SC_UmiNormButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_UmiNormButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_UmiNormButtonMouseEntered
+
+    private void SC_RecatPredictionButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_RecatPredictionButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_RecatPredictionButtonMouseEntered
+
+    private void SC_CCRemoveButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_CCRemoveButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_CCRemoveButtonMouseEntered
+
+    private void SC_ClusteringNgriphButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_ClusteringNgriphButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_ClusteringNgriphButtonMouseEntered
+
+    private void SC_ClusteringNgriphButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_ClusteringNgriphButton1MouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_ClusteringNgriphButton1MouseEntered
+
+    private void SC_SimlrBootstrapButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_SimlrBootstrapButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_SimlrBootstrapButtonMouseEntered
+
+    private void SC_ClusterStabilityButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_ClusterStabilityButtonMouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_ClusterStabilityButtonMouseEntered
+
+    private void SC_SeuratPCAEvalButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_SeuratPCAEvalButtonMouseEntered
+       evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_SeuratPCAEvalButtonMouseEntered
+
+    private void SC_SeuratBootstrapButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_SeuratBootstrapButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_SeuratBootstrapButtonMouseEntered
+
+    private void SC_ScanpyBootstrapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_ScanpyBootstrapMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_ScanpyBootstrapMouseEntered
+
+    private void SC_TsneBootstrapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_TsneBootstrapMouseEntered
+     evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_TsneBootstrapMouseEntered
+
+    private void SC_ClusterSplitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_ClusterSplitMouseEntered
+     evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_ClusterSplitMouseEntered
+
+    private void SC_unstableFilteringButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_unstableFilteringButtonMouseEntered
+     evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_unstableFilteringButtonMouseEntered
+
+    private void S_crossLabelButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_crossLabelButton1MouseEntered
+     evt.getComponent().requestFocus();
+    }//GEN-LAST:event_S_crossLabelButton1MouseEntered
+
+    private void SC_BootstrapVideoButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_BootstrapVideoButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_BootstrapVideoButtonMouseEntered
+
+    private void SC_DeTwoGroupsButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_DeTwoGroupsButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_DeTwoGroupsButtonMouseEntered
+
+    private void SC_AnovaLikeButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_AnovaLikeButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_AnovaLikeButtonMouseEntered
+
+    private void SC_ClustersFeaturesButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_ClustersFeaturesButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_ClustersFeaturesButtonMouseEntered
+
+    private void SC_HFCButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_HFCButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_HFCButtonMouseEntered
+
+    private void SC_SeuratPriorButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_SeuratPriorButtonMouseEntered
+      evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_SeuratPriorButtonMouseEntered
+
+    private void SC_GenesPrioritizSIMLRButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_GenesPrioritizSIMLRButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_GenesPrioritizSIMLRButtonMouseEntered
+
+    private void SC_GenesSelectionSIMLRButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SC_GenesSelectionSIMLRButtonMouseEntered
+        evt.getComponent().requestFocus();
+    }//GEN-LAST:event_SC_GenesSelectionSIMLRButtonMouseEntered
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -6249,12 +7255,12 @@ public class MainFrame extends javax.swing.JFrame {
         System.setProperty("awt.useSystemAAFontSettings","on");
         System.setProperty("swing.aatext", "true");
 
-        try {
+       try {
             //set default look and feel
            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
             //set GTK look and feel, if it is present
             for (javax.swing.UIManager.LookAndFeelInfo info: javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeel".equals(info.getClassName())) {
+                if ("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel".equals(info.getClassName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
 
                     break;
@@ -6267,7 +7273,6 @@ public class MainFrame extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-
         try{
            Thread.sleep(800L);
         }

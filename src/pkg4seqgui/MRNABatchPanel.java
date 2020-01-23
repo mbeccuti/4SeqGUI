@@ -28,7 +28,7 @@ public class MRNABatchPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    private static final long serialVersionUID = 57756123321L;
+    private static final long serialVersionUID = 57756123121L;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
