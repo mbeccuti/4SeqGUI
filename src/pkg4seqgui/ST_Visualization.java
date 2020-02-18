@@ -13,7 +13,7 @@ import javax.swing.JFileChooser;
  * @author Nicola Licheri
  */
 public class ST_Visualization extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 67756333303L;
     /**
      * Creates new form ST_Visualization
      */
@@ -318,7 +318,7 @@ public class ST_Visualization extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.5;
-        gridBagConstraints.insets = new java.awt.Insets(10, 49, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 54, 10, 10);
         jPanel4.add(S_clusterNumber, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -352,7 +352,7 @@ public class ST_Visualization extends javax.swing.JPanel {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 37, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 44, 10, 10);
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));

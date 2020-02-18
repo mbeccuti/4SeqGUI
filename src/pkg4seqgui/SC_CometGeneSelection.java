@@ -13,7 +13,7 @@ import javax.swing.JFileChooser;
  * @author Nicola Licheri
  */
 public class SC_CometGeneSelection extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 67756333301L;
     /**
      * Creates new form SC_CometGeneSelection
      */
@@ -294,7 +294,7 @@ public class SC_CometGeneSelection extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 40);
         jPanel4.add(jLabel124, gridBagConstraints);
 
         S_nthreadsNumber.setText("1");

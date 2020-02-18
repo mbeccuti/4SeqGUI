@@ -16,7 +16,7 @@ import static pkg4seqgui.MainFrame.getPreferences;
  * @author Nicola Licheri
  */
 public class SC_SharpClustering extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 67756333302L;
     /**
      * Creates new form SC_SharpClustering
      */
