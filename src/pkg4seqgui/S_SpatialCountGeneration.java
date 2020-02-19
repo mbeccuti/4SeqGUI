@@ -71,7 +71,7 @@ public class S_SpatialCountGeneration extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_SpatialCountGen.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Spatial Count Generation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 100, 0))); // NOI18N
+        S_SpatialCountGen.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Spatial Counts Generation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 100, 0))); // NOI18N
         S_SpatialCountGen.setToolTipText(null);
         S_SpatialCountGen.setLayout(new java.awt.GridBagLayout());
 

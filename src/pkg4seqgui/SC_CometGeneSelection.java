@@ -65,6 +65,7 @@ public class SC_CometGeneSelection extends javax.swing.JPanel {
         jButton40 = new javax.swing.JButton();
         vCloseButton5 = new javax.swing.JButton();
 
+        setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Gene Selection with Comet", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(253, 114, 6))); // NOI18N
         setLayout(new java.awt.GridBagLayout());
 
         jPanel1.setLayout(new java.awt.GridBagLayout());

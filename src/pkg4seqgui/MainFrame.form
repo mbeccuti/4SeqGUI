@@ -3850,6 +3850,9 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="STVisualization">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/st40.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="ST Visualization"/>
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -4057,9 +4060,9 @@
                                     <Component class="javax.swing.JButton" name="jButton5">
                                       <Properties>
                                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                                          <Image iconType="3" name="/pkg4seqgui/images/cellranger_count.png"/>
+                                          <Image iconType="3" name="/pkg4seqgui/images/st40.png"/>
                                         </Property>
-                                        <Property name="text" type="java.lang.String" value="Spatial Count Generation  "/>
+                                        <Property name="text" type="java.lang.String" value="Spatial Counts Generation  "/>
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
