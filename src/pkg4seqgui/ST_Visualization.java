@@ -61,7 +61,7 @@ public class ST_Visualization extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        S_BootstrapVideoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "ST Visualization", 0, 0, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(190, 15, 175))); // NOI18N
+        S_BootstrapVideoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "ST Visualization", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(190, 15, 175))); // NOI18N
         S_BootstrapVideoPanel.setToolTipText(null);
         S_BootstrapVideoPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -226,6 +226,8 @@ public class ST_Visualization extends javax.swing.JPanel {
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel30.add(jLabel1, gridBagConstraints);
+
+        sTissuePositionFile.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -405,7 +407,6 @@ public class ST_Visualization extends javax.swing.JPanel {
             countFile = S_countTable.getText(), 
             tissueFile = sTissuePositionFile.getText();
         
-
         if (MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
             MainFrame.checkPath(this, countFile, "counts table file") ||
             MainFrame.checkPath(this, tissueFile, "tissue position file"))
@@ -472,7 +473,7 @@ public class ST_Visualization extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
-        // TODO add your handling code here:
+        sTissuePositionFile.setText("");
     }//GEN-LAST:event_jButton32ActionPerformed
 
 

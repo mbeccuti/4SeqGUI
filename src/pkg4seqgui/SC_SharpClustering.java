@@ -34,6 +34,7 @@ public class SC_SharpClustering extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         SC_SharpClusteringPanel = new javax.swing.JPanel();
         vCloseButton5 = new javax.swing.JButton();
         S_ClusterNgriph_jButton = new javax.swing.JButton();
@@ -69,7 +70,7 @@ public class SC_SharpClustering extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        SC_SharpClusteringPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Sharp Clustering for large scale datasets", 0, 0, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(26, 151, 165))); // NOI18N
+        SC_SharpClusteringPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Sharp Clustering for large scale datasets", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(26, 151, 165))); // NOI18N
         SC_SharpClusteringPanel.setToolTipText(null);
         SC_SharpClusteringPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -439,6 +440,7 @@ public class SC_SharpClustering extends javax.swing.JPanel {
         jPanel31.add(jLabel113, gridBagConstraints);
 
         cSudoRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        buttonGroup1.add(cSudoRadioButton);
         cSudoRadioButton.setText("sudo");
         cSudoRadioButton.setToolTipText(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -449,6 +451,7 @@ public class SC_SharpClustering extends javax.swing.JPanel {
         jPanel31.add(cSudoRadioButton, gridBagConstraints);
 
         cDockerRadioButton.setBackground(new java.awt.Color(248, 248, 248));
+        buttonGroup1.add(cDockerRadioButton);
         cDockerRadioButton.setSelected(true);
         cDockerRadioButton.setText("docker");
         cDockerRadioButton.setToolTipText(null);
@@ -534,7 +537,6 @@ public class SC_SharpClustering extends javax.swing.JPanel {
         S_percent.setText("10");
         S_perplexity.setText("10");
         S_permAtTime.setText("2");
-        
     }//GEN-LAST:event_jButton40ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
@@ -640,6 +642,7 @@ public class SC_SharpClustering extends javax.swing.JPanel {
     private javax.swing.JTextField S_perplexity;
     public static javax.swing.JTextField S_seed;
     private javax.swing.JComboBox<String> S_sep;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton cDockerRadioButton;
     private javax.swing.JRadioButton cSudoRadioButton;
     private javax.swing.JButton jButton29;
