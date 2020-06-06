@@ -530,6 +530,13 @@ public class MainFrame extends javax.swing.JFrame {
         SingleCell_GeneSelectionComet.setViewportView(new SC_CometGeneSelection());
         SingleCell_SharpClustering.setViewportView(new SC_SharpClustering());
         
+        S_AE.setViewportView(new S_Autoencoder());
+        S_AE_Analysis.setViewportView(new S_AutoencoderAnalysis());
+        S_AE_Clustering.setViewportView(new S_AutoencoderClustering()); 
+        S_AE_Features.setViewportView(new S_AutoencoderFeatures());
+        S_AE_Comet.setViewportView(new S_AutoencoderCometSC());
+        S_AE_Wrapper.setViewportView(new S_AutoencoderWrapper());
+        
         circRNA_ciri2.setViewportView(new CircRNAWrapperCiriPanel());
         circRNA_postprocessing.setViewportView(new CircRNAClassificationPanel());
         circRNA_BSJunctions.setViewportView(new CircRNABSJunctionsPanel());
@@ -853,6 +860,12 @@ public class MainFrame extends javax.swing.JFrame {
         SingleCell_SharpClustering = new javax.swing.JScrollPane();
         SingleCell_GeneSelectionComet = new javax.swing.JScrollPane();
         Tools_STVisualization = new javax.swing.JScrollPane();
+        S_AE = new javax.swing.JScrollPane();
+        S_AE_Clustering = new javax.swing.JScrollPane();
+        S_AE_Features = new javax.swing.JScrollPane();
+        S_AE_Analysis = new javax.swing.JScrollPane();
+        S_AE_Comet = new javax.swing.JScrollPane();
+        S_AE_Wrapper = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         miRNAScrollPanel = new javax.swing.JScrollPane();
@@ -988,6 +1001,15 @@ public class MainFrame extends javax.swing.JFrame {
         SC_DeTwoGroupsButton = new javax.swing.JButton();
         SC_GenesSelectionSIMLRButton1 = new javax.swing.JButton();
         SubBottomPanel = new javax.swing.JPanel();
+        subAutoencoderPanel = new javax.swing.JPanel();
+        sc_autoencoderLabel = new javax.swing.JLabel();
+        sc_autoencoderPanel = new javax.swing.JPanel();
+        autoencoderButton = new javax.swing.JButton();
+        autoencoderClusteringButton = new javax.swing.JButton();
+        autoencoderAnalysisButton = new javax.swing.JButton();
+        autoencoderFeaturesButton = new javax.swing.JButton();
+        autoencoderCometButton = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         RNAScrollPane = new javax.swing.JScrollPane();
         RNAseqPanel = new javax.swing.JPanel();
         RNAseqPanelSub1 = new javax.swing.JPanel();
@@ -1253,7 +1275,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(downloadDockerImagesButton, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1877,6 +1899,12 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(SingleCell_SharpClustering, "sharpclustering");
         MainPanel.add(SingleCell_GeneSelectionComet, "geneSelectionComet");
         MainPanel.add(Tools_STVisualization, "ST_visual");
+        MainPanel.add(S_AE, "autoencoder");
+        MainPanel.add(S_AE_Clustering, "AE_clustering");
+        MainPanel.add(S_AE_Features, "AE_features");
+        MainPanel.add(S_AE_Analysis, "AE_analysis");
+        MainPanel.add(S_AE_Comet, "AE_comet");
+        MainPanel.add(S_AE_Wrapper, "AE_wrapper");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -4348,7 +4376,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
@@ -4362,7 +4390,7 @@ public class MainFrame extends javax.swing.JFrame {
         SubBottomPanel.setLayout(SubBottomPanelLayout);
         SubBottomPanelLayout.setHorizontalGroup(
             SubBottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 928, Short.MAX_VALUE)
+            .addGap(0, 470, Short.MAX_VALUE)
         );
         SubBottomPanelLayout.setVerticalGroup(
             SubBottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4377,6 +4405,138 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 60.0;
         SingleCellPanel.add(SubBottomPanel, gridBagConstraints);
+
+        subAutoencoderPanel.setLayout(new java.awt.GridBagLayout());
+
+        sc_autoencoderLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        sc_autoencoderLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/SingleCellB.png"))); // NOI18N
+        sc_autoencoderLabel.setText("Pipeline Autoencoder");
+        sc_autoencoderLabel.setToolTipText("");
+        sc_autoencoderLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sc_autoencoderLabelMouseClicked(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        subAutoencoderPanel.add(sc_autoencoderLabel, gridBagConstraints);
+
+        sc_autoencoderPanel.setBackground(new java.awt.Color(255, 255, 255));
+        sc_autoencoderPanel.setLayout(new java.awt.GridBagLayout());
+
+        autoencoderButton.setText("Autoencoder");
+        autoencoderButton.setBorderPainted(false);
+        autoencoderButton.setContentAreaFilled(false);
+        autoencoderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autoencoderButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_autoencoderPanel.add(autoencoderButton, gridBagConstraints);
+
+        autoencoderClusteringButton.setText("Autoencoder Clustering");
+        autoencoderClusteringButton.setBorderPainted(false);
+        autoencoderClusteringButton.setContentAreaFilled(false);
+        autoencoderClusteringButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autoencoderClusteringButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_autoencoderPanel.add(autoencoderClusteringButton, gridBagConstraints);
+
+        autoencoderAnalysisButton.setText("Autoencoder Analysis");
+        autoencoderAnalysisButton.setBorderPainted(false);
+        autoencoderAnalysisButton.setContentAreaFilled(false);
+        autoencoderAnalysisButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autoencoderAnalysisButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_autoencoderPanel.add(autoencoderAnalysisButton, gridBagConstraints);
+
+        autoencoderFeaturesButton.setText("Autoencoder Features");
+        autoencoderFeaturesButton.setBorderPainted(false);
+        autoencoderFeaturesButton.setContentAreaFilled(false);
+        autoencoderFeaturesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autoencoderFeaturesButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_autoencoderPanel.add(autoencoderFeaturesButton, gridBagConstraints);
+
+        autoencoderCometButton.setText("Autoencoder Comet");
+        autoencoderCometButton.setBorderPainted(false);
+        autoencoderCometButton.setContentAreaFilled(false);
+        autoencoderCometButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                autoencoderCometButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_autoencoderPanel.add(autoencoderCometButton, gridBagConstraints);
+
+        jButton6.setText("Autoencoder Wrapper");
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_autoencoderPanel.add(jButton6, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 2.0;
+        subAutoencoderPanel.add(sc_autoencoderPanel, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        SingleCellPanel.add(subAutoencoderPanel, gridBagConstraints);
 
         SingleCellScrollPanel.setViewportView(SingleCellPanel);
 
@@ -7352,6 +7512,34 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("geneSelectionComet"); 
     }//GEN-LAST:event_SC_GenesSelectionSIMLRButton1ActionPerformed
 
+    private void autoencoderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autoencoderButtonActionPerformed
+        setCard("autoencoder"); 
+    }//GEN-LAST:event_autoencoderButtonActionPerformed
+
+    private void autoencoderClusteringButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autoencoderClusteringButtonActionPerformed
+        setCard("AE_clustering");
+    }//GEN-LAST:event_autoencoderClusteringButtonActionPerformed
+
+    private void autoencoderAnalysisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autoencoderAnalysisButtonActionPerformed
+        setCard("AE_analysis"); 
+    }//GEN-LAST:event_autoencoderAnalysisButtonActionPerformed
+
+    private void autoencoderFeaturesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autoencoderFeaturesButtonActionPerformed
+        setCard("AE_features");
+    }//GEN-LAST:event_autoencoderFeaturesButtonActionPerformed
+
+    private void autoencoderCometButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_autoencoderCometButtonActionPerformed
+        setCard("AE_comet"); 
+    }//GEN-LAST:event_autoencoderCometButtonActionPerformed
+
+    private void sc_autoencoderLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sc_autoencoderLabelMouseClicked
+        toggleMenu(sc_autoencoderPanel, sc_autoencoderLabel, getClass().getResource("/pkg4seqgui/images/SingleCellB.png"));
+    }//GEN-LAST:event_sc_autoencoderLabelMouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        setCard("AE_wrapper"); 
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -7509,6 +7697,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SC_dimension;
     private javax.swing.JButton SC_unstableFilteringButton;
     private javax.swing.JButton STVisualization;
+    private javax.swing.JScrollPane S_AE;
+    private javax.swing.JScrollPane S_AE_Analysis;
+    private javax.swing.JScrollPane S_AE_Clustering;
+    private javax.swing.JScrollPane S_AE_Comet;
+    private javax.swing.JScrollPane S_AE_Features;
+    private javax.swing.JScrollPane S_AE_Wrapper;
     private javax.swing.JScrollPane S_anovaLike;
     private javax.swing.JScrollPane S_bootstrapsVideo;
     private javax.swing.JScrollPane S_ccRemove;
@@ -7571,6 +7765,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane Tools_STVisualization;
     private javax.swing.JSplitPane VerticalSplitPanel;
     private javax.swing.JButton addImagesButton;
+    private javax.swing.JButton autoencoderAnalysisButton;
+    private javax.swing.JButton autoencoderButton;
+    private javax.swing.JButton autoencoderClusteringButton;
+    private javax.swing.JButton autoencoderCometButton;
+    private javax.swing.JButton autoencoderFeaturesButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JScrollPane bwa;
     private javax.swing.JScrollPane bwaIndex;
@@ -7637,6 +7836,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton59;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
     private javax.swing.JButton jButton9;
@@ -7704,6 +7904,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox rnaSeqTabChecker;
     private javax.swing.JScrollPane sampleSizePanel;
     private javax.swing.JLabel sc_FeatureSelectionLabel;
+    private javax.swing.JLabel sc_autoencoderLabel;
+    private javax.swing.JPanel sc_autoencoderPanel;
     private javax.swing.JLabel sc_clusteringLabel;
     private javax.swing.JLabel sc_countsGenerationLabel;
     private javax.swing.JLabel sc_countsManipulationLabel;
@@ -7723,6 +7925,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel srnaP2;
     private javax.swing.JPanel srnaP3;
     private javax.swing.JPanel srnaPreprocessCounts;
+    private javax.swing.JPanel subAutoencoderPanel;
     private javax.swing.JButton subSetMatrixButton1;
     private javax.swing.JScrollPane subsetcells;
     private javax.swing.JScrollPane tenXIndexing;

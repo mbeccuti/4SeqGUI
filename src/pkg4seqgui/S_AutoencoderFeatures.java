@@ -5,6 +5,7 @@
  */
 package pkg4seqgui;
 
+import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.JFileChooser;
  * @author Nicola Licheri
  */
 public class S_AutoencoderFeatures extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 77766633334L;
     /**
      * Creates new form S_AutoencoderFeatures
      */
@@ -46,7 +47,7 @@ public class S_AutoencoderFeatures extends javax.swing.JPanel {
         browseScratch = new javax.swing.JButton();
         cancelScratch = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        projectNameTextField = new javax.swing.JTextField();
         cancelProjectName = new javax.swing.JButton();
         executeButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
@@ -204,7 +205,7 @@ public class S_AutoencoderFeatures extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        fileParameters.add(jTextField1, gridBagConstraints);
+        fileParameters.add(projectNameTextField, gridBagConstraints);
 
         cancelProjectName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
         cancelProjectName.setText("Cancel");
@@ -347,13 +348,37 @@ public class S_AutoencoderFeatures extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelScratchActionPerformed
 
     private void executeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeButtonActionPerformed
+        String projectName = projectNameTextField.getText(), 
+               inputFile = inputFileTextField.getText(), 
+               scratchFolder = scratchFolderTextField.getText();
+        String separator = separatorComboBox.getSelectedItem().toString();
+       
+        if (MainFrame.checkPath(this, inputFile, "input file") || 
+            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
+            MainFrame.checkPath(this, projectName, "name of the project")) return; 
         
+        Integer nclusters = MainFrame.checkIntValue(this, nClustersTextField.getText(), "number of clusters"); 
+        
+        if (nclusters == null)  return; 
+        
+        String outputFolder = Paths.get(inputFile).getParent().toString(); 
+        ScriptCaller params = new ScriptCaller("autofeatures.R", outputFolder)
+                .addArg("group", sudoButton.isSelected() ? "sudo" : "docker")
+                .addArg("projectName", projectName)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("file", inputFile)
+                .addArg("nCluster", nclusters)
+                .addArg("separator", separator);                
+        MainFrame.execCommand(this, "Autoencoder features", params);
     }//GEN-LAST:event_executeButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         dockerButton.setSelected(true);
         inputFileTextField.setText("");
         scratchFolderTextField.setText("");
+        projectNameTextField.setText("");
+        nClustersTextField.setText("");
+        separatorComboBox.setSelectedIndex(0);
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -362,7 +387,7 @@ public class S_AutoencoderFeatures extends javax.swing.JPanel {
     }//GEN-LAST:event_closeButtonActionPerformed
 
     private void cancelProjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelProjectNameActionPerformed
-        // TODO add your handling code here:
+        projectNameTextField.setText("");
     }//GEN-LAST:event_cancelProjectNameActionPerformed
 
     private void separatorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_separatorComboBoxActionPerformed
@@ -390,9 +415,9 @@ public class S_AutoencoderFeatures extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nClustersTextField;
     private javax.swing.JPanel otherParameters;
+    private javax.swing.JTextField projectNameTextField;
     private javax.swing.JButton resetButton;
     private javax.swing.JTextField scratchFolderTextField;
     private javax.swing.JComboBox<String> separatorComboBox;

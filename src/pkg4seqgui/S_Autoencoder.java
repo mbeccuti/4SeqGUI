@@ -5,6 +5,7 @@
  */
 package pkg4seqgui;
 
+import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 
 /**
@@ -12,7 +13,8 @@ import javax.swing.JFileChooser;
  * @author Nicola Licheri
  */
 public class S_Autoencoder extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 77766633330L;
+    
     /**
      * Creates new form S_Autoencoder
      */
@@ -30,6 +32,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        executionGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         executionParameters = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -73,6 +76,9 @@ public class S_Autoencoder extends javax.swing.JPanel {
         patienceTextField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         nPermutationsTextField = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        regularizationTextField = new javax.swing.JTextField();
+        variationalCheckBox = new javax.swing.JCheckBox();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -93,11 +99,13 @@ public class S_Autoencoder extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionParameters.add(jLabel7, gridBagConstraints);
 
+        executionGroup.add(sudoButton);
         sudoButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionParameters.add(sudoButton, gridBagConstraints);
 
+        executionGroup.add(dockerButton);
         dockerButton.setSelected(true);
         dockerButton.setText("docker");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -164,7 +172,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         jLabel3.setText("Scratch folder: ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -173,7 +181,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         scratchFolderTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
@@ -189,7 +197,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(browseScratch, gridBagConstraints);
 
@@ -202,7 +210,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(cancelScratch, gridBagConstraints);
 
@@ -235,6 +243,8 @@ public class S_Autoencoder extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(cancelProjectName, gridBagConstraints);
+
+        biasFileTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -278,16 +288,18 @@ public class S_Autoencoder extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(cancelBiasFile, gridBagConstraints);
 
-        jLabel10.setText("Output file:");
+        jLabel10.setText("Clustering file:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(jLabel10, gridBagConstraints);
+
+        clusteringOutFileTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
@@ -303,7 +315,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(browseClusteringOutputFile, gridBagConstraints);
 
@@ -316,7 +328,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(cancelClusteringOutputFile, gridBagConstraints);
 
@@ -388,7 +400,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
 
         jLabel6.setText("Separator:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -402,10 +414,10 @@ public class S_Autoencoder extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(nClustersTextField, gridBagConstraints);
 
-        jLabel1.setText("Seed: ");
+        jLabel1.setText("Random seed:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -414,14 +426,14 @@ public class S_Autoencoder extends javax.swing.JPanel {
         jLabel8.setText("Num. epochs:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel8, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -430,7 +442,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         otherParameters.add(seedTextField, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -445,7 +457,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -455,7 +467,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         jLabel11.setText("Bias:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -469,7 +481,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -479,14 +491,14 @@ public class S_Autoencoder extends javax.swing.JPanel {
         jLabel12.setText("% patience epochs:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel12, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -509,6 +521,34 @@ public class S_Autoencoder extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(nPermutationsTextField, gridBagConstraints);
+
+        jLabel14.setText("Regularization:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        otherParameters.add(jLabel14, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.3;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        otherParameters.add(regularizationTextField, gridBagConstraints);
+
+        variationalCheckBox.setText("Variational AE");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        otherParameters.add(variationalCheckBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -542,17 +582,73 @@ public class S_Autoencoder extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelScratchActionPerformed
 
     private void cancelProjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelProjectNameActionPerformed
-        // TODO add your handling code here:
+        projectNameTextField.setText("");
     }//GEN-LAST:event_cancelProjectNameActionPerformed
 
     private void executeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeButtonActionPerformed
-
+        String inputFile = inputFileTextField.getText(),
+               scratchFolder = scratchFolderTextField.getText(), 
+               biasFile = biasFileTextField.getText(), 
+               outputFile = clusteringOutFileTextField.getText(), 
+               projectName = projectNameTextField.getText(); 
+        
+        if (biasFile.isEmpty())
+            biasFile = "NULL";
+        
+        if (MainFrame.checkPath(this, inputFile, "input file") || 
+            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
+            MainFrame.checkPath(this, outputFile, "clustering output file") ||
+            MainFrame.checkPath(this, projectName, "name of the project")) return; 
+    
+        Integer nclusters, nperm, nepochs, npatience, seed, regularization;
+        
+        if ((nclusters = MainFrame.checkIntValue(this, nClustersTextField.getText(), "number of clusters")) == null ||
+            (nperm = MainFrame.checkIntValue(this, nPermutationsTextField.getText(), "number of permutations")) == null ||
+            (nepochs = MainFrame.checkIntValue(this, numEpochsTextField.getText(), "number of epochs")) == null ||
+            (npatience = MainFrame.checkIntValue(this, patienceTextField.getText(), "percentage of epochs of non-training")) == null ||
+            (seed = MainFrame.checkIntValue(this, seedTextField.getText(), "random seed value")) == null ||
+            (regularization = MainFrame.checkIntValue(this, regularizationTextField.getText(), "regulator value")) == null) return; 
+        
+        String separator =  separatorComboBox.getSelectedItem().toString(); 
+        String biasType = biasComboBox.getSelectedItem().toString(); 
+        
+        String outputFolder = Paths.get(inputFile).getParent().toString(); 
+        ScriptCaller params = new ScriptCaller("autoencoder.R", outputFolder)
+                .addArg("group", sudoButton.isSelected() ? "sudo" : "docker")
+                .addArg("projectName", projectName)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("file", inputFile)
+                .addArg("bN", biasFile)
+                .addArg("cl", outputFile)
+                .addArg("permutation", nperm)
+                .addArg("nCluster", nclusters)
+                .addArg("nEpochs", nepochs)
+                .addArg("patiencePercentage", npatience)
+                .addArg("separator", separator)
+                .addArg("bias", biasType)
+                .addArg("seed", seed)
+                .addArg("regularization", regularization)
+                .addArg("variational", variationalCheckBox.isSelected());                
+        MainFrame.execCommand(this, "Autoencoder", params);
     }//GEN-LAST:event_executeButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         dockerButton.setSelected(true);
         inputFileTextField.setText("");
         scratchFolderTextField.setText("");
+        biasFileTextField.setText("");
+        clusteringOutFileTextField.setText("");
+        
+        projectNameTextField.setText("");
+        nClustersTextField.setText("");
+        nPermutationsTextField.setText("");
+        numEpochsTextField.setText("");
+        patienceTextField.setText("");
+        seedTextField.setText("");
+        separatorComboBox.setSelectedIndex(0);
+        biasComboBox.setSelectedIndex(0);        
+        regularizationTextField.setText("");
+        variationalCheckBox.setSelected(false);
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -565,19 +661,19 @@ public class S_Autoencoder extends javax.swing.JPanel {
     }//GEN-LAST:event_separatorComboBoxActionPerformed
 
     private void browseBiasFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseBiasFileActionPerformed
-        // TODO add your handling code here:
+        MainFrame.browseTextFieldContent(this, biasFileTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseBiasFileActionPerformed
 
     private void cancelBiasFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBiasFileActionPerformed
-        // TODO add your handling code here:
+        biasFileTextField.setText("");
     }//GEN-LAST:event_cancelBiasFileActionPerformed
 
     private void browseClusteringOutputFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseClusteringOutputFileActionPerformed
-        // TODO add your handling code here:
+        MainFrame.browseTextFieldContent(this, clusteringOutFileTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseClusteringOutputFileActionPerformed
 
     private void cancelClusteringOutputFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelClusteringOutputFileActionPerformed
-        // TODO add your handling code here:
+        clusteringOutFileTextField.setText("");
     }//GEN-LAST:event_cancelClusteringOutputFileActionPerformed
 
     private void biasComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_biasComboBoxActionPerformed
@@ -601,6 +697,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
     private javax.swing.JTextField clusteringOutFileTextField;
     private javax.swing.JRadioButton dockerButton;
     private javax.swing.JButton executeButton;
+    private javax.swing.ButtonGroup executionGroup;
     private javax.swing.JPanel executionParameters;
     private javax.swing.JPanel fileParameters;
     private javax.swing.JTextField inputFileTextField;
@@ -609,6 +706,7 @@ public class S_Autoencoder extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -624,10 +722,12 @@ public class S_Autoencoder extends javax.swing.JPanel {
     private javax.swing.JPanel otherParameters;
     private javax.swing.JTextField patienceTextField;
     private javax.swing.JTextField projectNameTextField;
+    private javax.swing.JTextField regularizationTextField;
     private javax.swing.JButton resetButton;
     private javax.swing.JTextField scratchFolderTextField;
     private javax.swing.JTextField seedTextField;
     private javax.swing.JComboBox<String> separatorComboBox;
     private javax.swing.JRadioButton sudoButton;
+    private javax.swing.JCheckBox variationalCheckBox;
     // End of variables declaration//GEN-END:variables
 }

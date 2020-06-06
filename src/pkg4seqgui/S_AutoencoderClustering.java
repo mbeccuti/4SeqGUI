@@ -5,6 +5,7 @@
  */
 package pkg4seqgui;
 
+import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 
 /**
@@ -12,6 +13,7 @@ import javax.swing.JFileChooser;
  * @author Nicola Licheri
  */
 public class S_AutoencoderClustering extends javax.swing.JPanel {
+    private static final long serialVersionUID = 77766633332L;
 
     /**
      * Creates new form S_AutoencoderClustering
@@ -30,6 +32,7 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        executionGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         executionParameters = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -61,9 +64,9 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
         clusterMethodComboBox = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        pcaDimensionsTextField = new javax.swing.JTextField();
+        nPermTextField = new javax.swing.JTextField();
+        largeScaleCheckBox = new javax.swing.JCheckBox();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -84,11 +87,13 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionParameters.add(jLabel7, gridBagConstraints);
 
+        executionGroup.add(sudoButton);
         sudoButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionParameters.add(sudoButton, gridBagConstraints);
 
+        executionGroup.add(dockerButton);
         dockerButton.setSelected(true);
         dockerButton.setText("docker");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -294,7 +299,7 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
         jLabel6.setText("Separator:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel6, gridBagConstraints);
@@ -307,24 +312,24 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(nClustersTextField, gridBagConstraints);
 
-        jLabel1.setText("Seed: ");
+        jLabel1.setText("Random seed:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel1, gridBagConstraints);
 
-        jLabel8.setText("Cluster method:");
+        jLabel8.setText("Clustering method:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel8, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
@@ -339,7 +344,7 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -353,17 +358,17 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(clusterMethodComboBox, gridBagConstraints);
 
-        jLabel9.setText("PCA Dimension:");
+        jLabel9.setText("PCA dimension:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -372,38 +377,38 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
         jLabel10.setText("Num. perm. at time:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel10, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        otherParameters.add(jTextField1, gridBagConstraints);
+        otherParameters.add(pcaDimensionsTextField, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        otherParameters.add(jTextField2, gridBagConstraints);
+        otherParameters.add(nPermTextField, gridBagConstraints);
 
-        jCheckBox1.setText("Large scale");
+        largeScaleCheckBox.setText("Large scale");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        otherParameters.add(jCheckBox1, gridBagConstraints);
+        otherParameters.add(largeScaleCheckBox, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -437,17 +442,66 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelScratchActionPerformed
 
     private void cancelProjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelProjectNameActionPerformed
-        // TODO add your handling code here:
+        projectNameTextField.setText("");
     }//GEN-LAST:event_cancelProjectNameActionPerformed
 
     private void executeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeButtonActionPerformed
-
+        String projectName = projectNameTextField.getText(), 
+               inputFile = inputFileTextField.getText(), 
+               scratchFolder = scratchFolderTextField.getText();
+        String separator = separatorComboBox.getSelectedItem().toString(), 
+               clusterMethod = clusterMethodComboBox.getSelectedItem().toString();
+        Integer nclusters, seed, pcaDim = 0, nPerm = 0; 
+        boolean largeScale = largeScaleCheckBox.isSelected();
+       
+        if (MainFrame.checkPath(this, inputFile, "input file") || 
+            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
+            MainFrame.checkPath(this, projectName, "name of the project")) return; 
+        
+        if ((nclusters = MainFrame.checkIntValue(this, nClustersTextField.getText(), "number of clusters")) == null || 
+            (seed = MainFrame.checkIntValue(this, seedTextField.getText(), "seed value")) == null) return; 
+      
+        //PCA dimension is required only for SEURAT method 
+        if (clusterMethod.equals("SEURAT")) {
+            pcaDim = MainFrame.checkIntValue(this, pcaDimensionsTextField.getText(), "PCA dimensions");
+            if (pcaDim == null) 
+                return; 
+        }
+        
+        //the number of permutation is required only if large scale is selected 
+        if (largeScale) { 
+            nPerm = MainFrame.checkIntValue(this, nPermTextField.getText(), "number of permutation in parallel");
+            if (nPerm == null)
+               return; 
+        }
+        
+        String outputFolder = Paths.get(inputFile).getParent().toString(); 
+        ScriptCaller params = new ScriptCaller("autoclustering.R", outputFolder)
+                .addArg("group", sudoButton.isSelected() ? "sudo" : "docker")
+                .addArg("projectName", projectName)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("file", inputFile)
+                .addArg("nCluster", nclusters)
+                .addArg("separator", separator)
+                .addArg("pcaDimension", pcaDim)
+                .addArg("clusterMethod", clusterMethod)
+                .addArg("permAtTime", nPerm)
+                .addArg("largeScale", largeScale)
+                .addArg("seed", seed);
+        MainFrame.execCommand(this, "Autoencoder clustering", params);
     }//GEN-LAST:event_executeButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         dockerButton.setSelected(true);
         inputFileTextField.setText("");
         scratchFolderTextField.setText("");
+        projectNameTextField.setText("");
+        separatorComboBox.setSelectedIndex(0);
+        clusterMethodComboBox.setSelectedIndex(0);
+        nClustersTextField.setText("");
+        seedTextField.setText("");
+        nPermTextField.setText("");
+        largeScaleCheckBox.setSelected(false);
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -474,10 +528,10 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> clusterMethodComboBox;
     private javax.swing.JRadioButton dockerButton;
     private javax.swing.JButton executeButton;
+    private javax.swing.ButtonGroup executionGroup;
     private javax.swing.JPanel executionParameters;
     private javax.swing.JPanel fileParameters;
     private javax.swing.JTextField inputFileTextField;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -489,10 +543,11 @@ public class S_AutoencoderClustering extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JCheckBox largeScaleCheckBox;
     private javax.swing.JTextField nClustersTextField;
+    private javax.swing.JTextField nPermTextField;
     private javax.swing.JPanel otherParameters;
+    private javax.swing.JTextField pcaDimensionsTextField;
     private javax.swing.JTextField projectNameTextField;
     private javax.swing.JButton resetButton;
     private javax.swing.JTextField scratchFolderTextField;

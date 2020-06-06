@@ -5,6 +5,7 @@
  */
 package pkg4seqgui;
 
+import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 
 /**
@@ -12,6 +13,7 @@ import javax.swing.JFileChooser;
  * @author Nicola Licheri
  */
 public class S_AutoencoderAnalysis extends javax.swing.JPanel {
+    private static final long serialVersionUID = 77766633331L;
 
     /**
      * Creates new form S_AutoencoderAnalysis
@@ -30,6 +32,7 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        executionGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         executionParameters = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -79,11 +82,13 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionParameters.add(jLabel7, gridBagConstraints);
 
+        executionGroup.add(sudoButton);
         sudoButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionParameters.add(sudoButton, gridBagConstraints);
 
+        executionGroup.add(dockerButton);
         dockerButton.setSelected(true);
         dockerButton.setText("docker");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -289,7 +294,7 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         jLabel6.setText("Separator:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel6, gridBagConstraints);
@@ -302,7 +307,7 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(nClustersTextField, gridBagConstraints);
 
-        jLabel1.setText("Seed: ");
+        jLabel1.setText("Random seed:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -310,10 +315,10 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel1, gridBagConstraints);
 
-        jLabel8.setText("Sp:");
+        jLabel8.setText("Sp threshold:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel8, gridBagConstraints);
@@ -327,7 +332,7 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         otherParameters.add(seedTextField, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
@@ -342,7 +347,7 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -380,17 +385,47 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelScratchActionPerformed
 
     private void cancelProjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelProjectNameActionPerformed
-        // TODO add your handling code here:
+        projectNameTextField.setText("");
     }//GEN-LAST:event_cancelProjectNameActionPerformed
 
     private void executeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeButtonActionPerformed
-
+        String projectName = projectNameTextField.getText(), 
+               inputFile = inputFileTextField.getText(), 
+               scratchFolder = scratchFolderTextField.getText();
+        String separator = separatorComboBox.getSelectedItem().toString();
+        Integer nclusters, seed; 
+        Float sp;
+       
+        if (MainFrame.checkPath(this, inputFile, "input file") || 
+            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
+            MainFrame.checkPath(this, projectName, "name of the project")) return; 
+        
+        if ((nclusters = MainFrame.checkIntValue(this, nClustersTextField.getText(), "number of clusters")) == null || 
+            (seed = MainFrame.checkIntValue(this, seedTextField.getText(), "seed value")) == null ||
+            (sp = MainFrame.checkFloatValue(this, spTextField.getText(), "sp value")) == null) return; 
+        
+        String outputFolder = Paths.get(inputFile).getParent().toString(); 
+        ScriptCaller params = new ScriptCaller("autoanalysis.R", outputFolder)
+                .addArg("group", sudoButton.isSelected() ? "sudo" : "docker")
+                .addArg("projectName", projectName)
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("file", inputFile)
+                .addArg("nCluster", nclusters)
+                .addArg("separator", separator)
+                .addArg("Sp", sp)
+                .addArg("seed", seed);
+        MainFrame.execCommand(this, "Autoencoder analysis", params);
     }//GEN-LAST:event_executeButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         dockerButton.setSelected(true);
         inputFileTextField.setText("");
         scratchFolderTextField.setText("");
+        projectNameTextField.setText("");
+        nClustersTextField.setText("");
+        seedTextField.setText("");
+        spTextField.setText("");
+        separatorComboBox.setSelectedIndex(0);
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -412,6 +447,7 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
     private javax.swing.JButton closeButton;
     private javax.swing.JRadioButton dockerButton;
     private javax.swing.JButton executeButton;
+    private javax.swing.ButtonGroup executionGroup;
     private javax.swing.JPanel executionParameters;
     private javax.swing.JPanel fileParameters;
     private javax.swing.JTextField inputFileTextField;

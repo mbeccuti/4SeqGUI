@@ -5,6 +5,7 @@
  */
 package pkg4seqgui;
 
+import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 
 /**
@@ -12,7 +13,7 @@ import javax.swing.JFileChooser;
  * @author Nicola Licheri
  */
 public class S_AutoencoderCometSC extends javax.swing.JPanel {
-
+    private static final long serialVersionUID = 77766633333L;
     /**
      * Creates new form S_AutoencoderCometSC
      */
@@ -30,6 +31,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        executionGroup = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         executionParameters = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -44,9 +46,6 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         scratchFolderTextField = new javax.swing.JTextField();
         browseScratch = new javax.swing.JButton();
         cancelScratch = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        projectNameTextField = new javax.swing.JTextField();
-        cancelProjectName = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         outputFileTextField = new javax.swing.JTextField();
         browseOutputFile = new javax.swing.JButton();
@@ -58,13 +57,11 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         nClustersTextField = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        seedTextField = new javax.swing.JTextField();
         xValueCometTextField = new javax.swing.JTextField();
         separatorComboBox = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nthreadsTextField = new javax.swing.JTextField();
         skipVisCheckBox = new javax.swing.JCheckBox();
         countsCheckBox = new javax.swing.JCheckBox();
         jLabel11 = new javax.swing.JLabel();
@@ -72,7 +69,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Autoencoder Analysis", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(73, 9, 157))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEmptyBorder(30, 1, 1, 1), "Autoencoder Comet", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 14), new java.awt.Color(255, 51, 204))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         executionParameters.setBackground(new java.awt.Color(248, 248, 248));
@@ -89,11 +86,13 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionParameters.add(jLabel7, gridBagConstraints);
 
+        executionGroup.add(sudoButton);
         sudoButton.setText("sudo");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         executionParameters.add(sudoButton, gridBagConstraints);
 
+        executionGroup.add(dockerButton);
         dockerButton.setSelected(true);
         dockerButton.setText("docker");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -115,7 +114,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         jLabel2.setText("Input file:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -124,7 +123,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         inputFileTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
@@ -140,7 +139,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(browseInputFile, gridBagConstraints);
 
@@ -153,7 +152,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(cancelFile, gridBagConstraints);
 
@@ -202,45 +201,19 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(cancelScratch, gridBagConstraints);
 
-        jLabel4.setText("Project name: ");
+        jLabel9.setText("Clustering file:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        fileParameters.add(jLabel4, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        fileParameters.add(projectNameTextField, gridBagConstraints);
-
-        cancelProjectName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
-        cancelProjectName.setText("Cancel");
-        cancelProjectName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelProjectNameActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        fileParameters.add(cancelProjectName, gridBagConstraints);
-
-        jLabel9.setText("Output file:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(jLabel9, gridBagConstraints);
+
+        outputFileTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
@@ -256,7 +229,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(browseOutputFile, gridBagConstraints);
 
@@ -269,7 +242,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(cancelOutputFile, gridBagConstraints);
 
@@ -341,8 +314,8 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
 
         jLabel6.setText("Separator:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel6, gridBagConstraints);
@@ -355,32 +328,16 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(nClustersTextField, gridBagConstraints);
 
-        jLabel1.setText("Seed: ");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        otherParameters.add(jLabel1, gridBagConstraints);
-
         jLabel8.setText("X:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel8, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.3;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        otherParameters.add(seedTextField, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
@@ -394,8 +351,8 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -404,26 +361,24 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         jLabel10.setText("Num. threads:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel10, gridBagConstraints);
-
-        jTextField2.setText("jTextField2");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        otherParameters.add(jTextField2, gridBagConstraints);
+        otherParameters.add(nthreadsTextField, gridBagConstraints);
 
         skipVisCheckBox.setText("Skip Visualization");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(skipVisCheckBox, gridBagConstraints);
@@ -431,8 +386,8 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         countsCheckBox.setText("Counts");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(countsCheckBox, gridBagConstraints);
@@ -440,7 +395,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         jLabel11.setText("K:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         otherParameters.add(jLabel11, gridBagConstraints);
@@ -448,7 +403,7 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         kValueComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.weightx = 0.3;
@@ -486,18 +441,56 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
         scratchFolderTextField.setText("");
     }//GEN-LAST:event_cancelScratchActionPerformed
 
-    private void cancelProjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelProjectNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cancelProjectNameActionPerformed
-
     private void executeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeButtonActionPerformed
-
+        String inputFile = inputFileTextField.getText(), 
+               scratchFolder = scratchFolderTextField.getText(), 
+               clusteringFile = outputFileTextField.getText();
+        String separator = separatorComboBox.getSelectedItem().toString();
+        Integer kValue = MainFrame.checkIntValue(this, kValueComboBox.getSelectedItem().toString(), "number of genes combination"); 
+       
+        if (MainFrame.checkPath(this, inputFile, "input file") || 
+            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
+            MainFrame.checkPath(this, clusteringFile, "clustering output file")) 
+            return; 
+        
+        Integer nclusters, nthreads; 
+        
+        if ((nclusters = MainFrame.checkIntValue(this, nClustersTextField.getText(), "number of clusters")) == null || 
+            (nthreads = MainFrame.checkIntValue(this, nthreadsTextField.getText(), "number of threads")) == null) 
+            return; 
+        
+        Float xValue = MainFrame.checkFloatValue(this, xValueCometTextField.getText(), "XL-mHG comet value"); 
+        
+        if (xValue == null)
+            return;             
+        
+        String outputFolder = Paths.get(inputFile).getParent().toString(); 
+        ScriptCaller params = new ScriptCaller("autocomet.R", outputFolder)
+                .addArg("group", sudoButton.isSelected() ? "sudo" : "docker")
+                .addArg("scratch.folder", scratchFolder)
+                .addArg("file", inputFile)
+                .addArg("clustering.output", clusteringFile)
+                .addArg("X", xValue)
+                .addArg("K", kValue)
+                .addArg("counts", countsCheckBox.isSelected())
+                .addArg("skipvis", skipVisCheckBox.isSelected())
+                .addArg("threads", nthreads)
+                .addArg("nCluster", nclusters)
+                .addArg("separator", separator);                
+        MainFrame.execCommand(this, "Autoencoder comet", params);
     }//GEN-LAST:event_executeButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         dockerButton.setSelected(true);
         inputFileTextField.setText("");
         scratchFolderTextField.setText("");
+        nClustersTextField.setText("");
+        nthreadsTextField.setText("");
+        kValueComboBox.setSelectedIndex(0);
+        xValueCometTextField.setText("");
+        separatorComboBox.setSelectedIndex(0);
+        skipVisCheckBox.setSelected(false);
+        countsCheckBox.setSelected(false);
     }//GEN-LAST:event_resetButtonActionPerformed
 
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
@@ -510,11 +503,11 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
     }//GEN-LAST:event_separatorComboBoxActionPerformed
 
     private void browseOutputFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseOutputFileActionPerformed
-        // TODO add your handling code here:
+        MainFrame.browseTextFieldContent(this, outputFileTextField, JFileChooser.FILES_ONLY);
     }//GEN-LAST:event_browseOutputFileActionPerformed
 
     private void cancelOutputFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelOutputFileActionPerformed
-        // TODO add your handling code here:
+        outputFileTextField.setText("");
     }//GEN-LAST:event_cancelOutputFileActionPerformed
 
 
@@ -524,36 +517,32 @@ public class S_AutoencoderCometSC extends javax.swing.JPanel {
     private javax.swing.JButton browseScratch;
     private javax.swing.JButton cancelFile;
     private javax.swing.JButton cancelOutputFile;
-    private javax.swing.JButton cancelProjectName;
     private javax.swing.JButton cancelScratch;
     private javax.swing.JButton closeButton;
     private javax.swing.JCheckBox countsCheckBox;
     private javax.swing.JRadioButton dockerButton;
     private javax.swing.JButton executeButton;
+    private javax.swing.ButtonGroup executionGroup;
     private javax.swing.JPanel executionParameters;
     private javax.swing.JPanel fileParameters;
     private javax.swing.JTextField inputFileTextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JComboBox<String> kValueComboBox;
     private javax.swing.JTextField nClustersTextField;
+    private javax.swing.JTextField nthreadsTextField;
     private javax.swing.JPanel otherParameters;
     private javax.swing.JTextField outputFileTextField;
-    private javax.swing.JTextField projectNameTextField;
     private javax.swing.JButton resetButton;
     private javax.swing.JTextField scratchFolderTextField;
-    private javax.swing.JTextField seedTextField;
     private javax.swing.JComboBox<String> separatorComboBox;
     private javax.swing.JCheckBox skipVisCheckBox;
     private javax.swing.JRadioButton sudoButton;
