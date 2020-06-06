@@ -5,6 +5,7 @@
  */
 package pkg4seqgui;
 
+import java.io.File;
 import java.nio.file.Paths;
 import javax.swing.JFileChooser;
 
@@ -49,7 +50,6 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         cancelScratch = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         projectNameTextField = new javax.swing.JTextField();
-        cancelProjectName = new javax.swing.JButton();
         executeButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
         closeButton = new javax.swing.JButton();
@@ -203,6 +203,8 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(jLabel4, gridBagConstraints);
+
+        projectNameTextField.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -211,19 +213,6 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         gridBagConstraints.weightx = 0.3;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         fileParameters.add(projectNameTextField, gridBagConstraints);
-
-        cancelProjectName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33b.png"))); // NOI18N
-        cancelProjectName.setText("Cancel");
-        cancelProjectName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelProjectNameActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 5;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        fileParameters.add(cancelProjectName, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -370,10 +359,13 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
 
     private void browseInputFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseInputFileActionPerformed
         MainFrame.browseTextFieldContent(this, inputFileTextField, JFileChooser.FILES_ONLY);
+        File f = new File(inputFileTextField.getText()); 
+        projectNameTextField.setText(f.getParentFile().getName());
     }//GEN-LAST:event_browseInputFileActionPerformed
 
     private void cancelFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelFileActionPerformed
         inputFileTextField.setText("");
+        projectNameTextField.setText("");
     }//GEN-LAST:event_cancelFileActionPerformed
 
     private void browseScratchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browseScratchActionPerformed
@@ -383,10 +375,6 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
     private void cancelScratchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelScratchActionPerformed
         scratchFolderTextField.setText("");
     }//GEN-LAST:event_cancelScratchActionPerformed
-
-    private void cancelProjectNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelProjectNameActionPerformed
-        projectNameTextField.setText("");
-    }//GEN-LAST:event_cancelProjectNameActionPerformed
 
     private void executeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeButtonActionPerformed
         String projectName = projectNameTextField.getText(), 
@@ -442,7 +430,6 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
     private javax.swing.JButton browseInputFile;
     private javax.swing.JButton browseScratch;
     private javax.swing.JButton cancelFile;
-    private javax.swing.JButton cancelProjectName;
     private javax.swing.JButton cancelScratch;
     private javax.swing.JButton closeButton;
     private javax.swing.JRadioButton dockerButton;
