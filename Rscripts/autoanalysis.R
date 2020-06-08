@@ -20,7 +20,6 @@ separator <- ifelse(separator == "TAB", "\t", ",")
 
 autoencoderAnalysis(
     group=group,
-    projectName=projectName, 
     scratch.folder=scratch.folder, 
     file=file,
     separator=separator, 

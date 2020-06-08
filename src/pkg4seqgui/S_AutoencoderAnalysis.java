@@ -377,16 +377,14 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelScratchActionPerformed
 
     private void executeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeButtonActionPerformed
-        String projectName = projectNameTextField.getText(), 
-               inputFile = inputFileTextField.getText(), 
+        String inputFile = inputFileTextField.getText(), 
                scratchFolder = scratchFolderTextField.getText();
         String separator = separatorComboBox.getSelectedItem().toString();
         Integer nclusters, seed; 
         Float sp;
        
         if (MainFrame.checkPath(this, inputFile, "input file") || 
-            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
-            MainFrame.checkPath(this, projectName, "name of the project")) return; 
+            MainFrame.checkPath(this, scratchFolder, "scratch folder")) return; 
         
         if ((nclusters = MainFrame.checkIntValue(this, nClustersTextField.getText(), "number of clusters")) == null || 
             (seed = MainFrame.checkIntValue(this, seedTextField.getText(), "seed value")) == null ||
@@ -395,7 +393,6 @@ public class S_AutoencoderAnalysis extends javax.swing.JPanel {
         String outputFolder = Paths.get(inputFile).getParent().toString(); 
         ScriptCaller params = new ScriptCaller("autoanalysis.R", outputFolder)
                 .addArg("group", sudoButton.isSelected() ? "sudo" : "docker")
-                .addArg("projectName", projectName)
                 .addArg("scratch.folder", scratchFolder)
                 .addArg("file", inputFile)
                 .addArg("nCluster", nclusters)

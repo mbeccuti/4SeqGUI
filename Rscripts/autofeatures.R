@@ -22,6 +22,5 @@ autoFeature(
     scratch.folder=scratch.folder, 
     file=file,
     separator=separator, 
-    nCluster=nCluster, 
-    projectName=projectName
+    nCluster=nCluster
 )

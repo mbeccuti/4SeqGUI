@@ -340,14 +340,12 @@ public class S_AutoencoderFeatures extends javax.swing.JPanel {
     }//GEN-LAST:event_cancelScratchActionPerformed
 
     private void executeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executeButtonActionPerformed
-        String projectName = projectNameTextField.getText(), 
-               inputFile = inputFileTextField.getText(), 
+        String inputFile = inputFileTextField.getText(), 
                scratchFolder = scratchFolderTextField.getText();
         String separator = separatorComboBox.getSelectedItem().toString();
        
         if (MainFrame.checkPath(this, inputFile, "input file") || 
-            MainFrame.checkPath(this, scratchFolder, "scratch folder") ||
-            MainFrame.checkPath(this, projectName, "name of the project")) return; 
+            MainFrame.checkPath(this, scratchFolder, "scratch folder")) return; 
         
         Integer nclusters = MainFrame.checkIntValue(this, nClustersTextField.getText(), "number of clusters"); 
         
@@ -356,7 +354,6 @@ public class S_AutoencoderFeatures extends javax.swing.JPanel {
         String outputFolder = Paths.get(inputFile).getParent().toString(); 
         ScriptCaller params = new ScriptCaller("autofeatures.R", outputFolder)
                 .addArg("group", sudoButton.isSelected() ? "sudo" : "docker")
-                .addArg("projectName", projectName)
                 .addArg("scratch.folder", scratchFolder)
                 .addArg("file", inputFile)
                 .addArg("nCluster", nclusters)
