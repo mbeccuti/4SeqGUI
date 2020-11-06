@@ -554,7 +554,7 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaGenomeIndexing.setViewportView(new SncRNAIndexing());
         mirnaQuantification.setViewportView(new SncRNAQuantification());
 
-        heatmaply.setViewportView(new WebBrowser());
+       // heatmaply.setViewportView(new WebBrowser());
         //chipseq stuff
         MACSv2.setViewportView(new MACSv2Panel());
         bwa.setViewportView(new BWAPanel());
