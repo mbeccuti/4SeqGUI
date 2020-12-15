@@ -553,6 +553,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         mirnaGenomeIndexing.setViewportView(new SncRNAIndexing());
         mirnaQuantification.setViewportView(new SncRNAQuantification());
+        VioplotHTMLbyGenes.setViewportView(new Tools_VioHTMLbyGenesPanel());
 
        // heatmaply.setViewportView(new WebBrowser());
         //chipseq stuff
@@ -866,6 +867,7 @@ public class MainFrame extends javax.swing.JFrame {
         S_AE_Analysis = new javax.swing.JScrollPane();
         S_AE_Comet = new javax.swing.JScrollPane();
         S_AE_Wrapper = new javax.swing.JScrollPane();
+        VioplotHTMLbyGenes = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         miRNAScrollPanel = new javax.swing.JScrollPane();
@@ -949,6 +951,7 @@ public class MainFrame extends javax.swing.JFrame {
         SparseToDense = new javax.swing.JButton();
         DenseToSparse = new javax.swing.JButton();
         STVisualization = new javax.swing.JButton();
+        VioplotButton = new javax.swing.JButton();
         SingleCellScrollPanel = new javax.swing.JScrollPane();
         SingleCellPanel = new javax.swing.JPanel();
         SubCountGenerationPanel = new javax.swing.JPanel();
@@ -1275,7 +1278,7 @@ public class MainFrame extends javax.swing.JFrame {
         DownloadFrame.getContentPane().add(downloadDockerImagesButton, gridBagConstraints);
 
         jPanel1.setBackground(new java.awt.Color(194, 238, 194));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("DejaVu Sans", 1, 12), new java.awt.Color(0, 102, 51))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select a subset of Images (Optional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(0, 102, 51))); // NOI18N
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
         jLabel12.setText("Container list  file: ");
@@ -1905,6 +1908,7 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(S_AE_Analysis, "AE_analysis");
         MainPanel.add(S_AE_Comet, "AE_comet");
         MainPanel.add(S_AE_Wrapper, "AE_wrapper");
+        MainPanel.add(VioplotHTMLbyGenes, "HTMLvioplot");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -3359,6 +3363,20 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(STVisualization, gridBagConstraints);
+
+        VioplotButton.setText("Vioplot HTML by genes");
+        VioplotButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VioplotButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(VioplotButton, gridBagConstraints);
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -4906,7 +4924,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu3.setText("File");
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/52.png"))); // NOI18N
         jMenuItem3.setText("Open");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -4916,7 +4934,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem3);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/86.png"))); // NOI18N
         jMenuItem4.setText("Save");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -4926,7 +4944,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem4);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/33.png"))); // NOI18N
         jMenuItem6.setText("Exit");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -4940,7 +4958,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jMenu4.setText("Edit");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/preference.png"))); // NOI18N
         jMenuItem1.setText("Configure 4SeqGUI");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -4950,7 +4968,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem1);
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/download.png"))); // NOI18N
         jMenuItem8.setText("Download Docker Images");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -4960,7 +4978,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem8);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/docker.png"))); // NOI18N
         jMenuItem2.setText("Remove Docker Containers");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -4970,7 +4988,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem2);
 
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/tab.png"))); // NOI18N
         jMenuItem9.setText("Configure Tabs");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
@@ -4985,7 +5003,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenu5.setText("?");
         jMenu5.setToolTipText("");
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/iconDNA-small.png"))); // NOI18N
         jMenuItem7.setText("About 4SeqGUI");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -7541,6 +7559,10 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("AE_wrapper"); 
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void VioplotButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VioplotButtonActionPerformed
+        setCard("HTMLvioplot");
+    }//GEN-LAST:event_VioplotButtonActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -7765,6 +7787,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane ToolScrollPanel;
     private javax.swing.JScrollPane Tools_STVisualization;
     private javax.swing.JSplitPane VerticalSplitPanel;
+    private javax.swing.JButton VioplotButton;
+    private javax.swing.JScrollPane VioplotHTMLbyGenes;
     private javax.swing.JButton addImagesButton;
     private javax.swing.JButton autoencoderAnalysisButton;
     private javax.swing.JButton autoencoderButton;
