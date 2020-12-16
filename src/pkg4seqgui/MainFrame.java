@@ -3364,7 +3364,10 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(STVisualization, gridBagConstraints);
 
+        VioplotButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/vioplot.png"))); // NOI18N
         VioplotButton.setText("Vioplot HTML by genes");
+        VioplotButton.setBorderPainted(false);
+        VioplotButton.setContentAreaFilled(false);
         VioplotButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VioplotButtonActionPerformed(evt);

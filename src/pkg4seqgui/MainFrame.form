@@ -3936,7 +3936,12 @@
                             </Component>
                             <Component class="javax.swing.JButton" name="VioplotButton">
                               <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/vioplot.png"/>
+                                </Property>
                                 <Property name="text" type="java.lang.String" value="Vioplot HTML by genes"/>
+                                <Property name="borderPainted" type="boolean" value="false"/>
+                                <Property name="contentAreaFilled" type="boolean" value="false"/>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VioplotButtonActionPerformed"/>
