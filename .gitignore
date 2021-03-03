@@ -1,3 +1,2 @@
-build/classes/*
+build/classes/pkg4seqgui/*.class
 
-/dist/
