@@ -554,6 +554,9 @@ public class MainFrame extends javax.swing.JFrame {
         mirnaGenomeIndexing.setViewportView(new SncRNAIndexing());
         mirnaQuantification.setViewportView(new SncRNAQuantification());
         VioplotHTMLbyGenes.setViewportView(new Tools_VioHTMLbyGenesPanel());
+        S_SeuratCellCycleEstimation.setViewportView(new SeuratCellCycleEstimation());
+        S_BulkClusters.setViewportView((new Tools_BulkClusters()));
+        S_SaverNormalisation.setViewportView(new SaverNormalisation());
 
        // heatmaply.setViewportView(new WebBrowser());
         //chipseq stuff
@@ -868,6 +871,9 @@ public class MainFrame extends javax.swing.JFrame {
         S_AE_Comet = new javax.swing.JScrollPane();
         S_AE_Wrapper = new javax.swing.JScrollPane();
         VioplotHTMLbyGenes = new javax.swing.JScrollPane();
+        S_SeuratCellCycleEstimation = new javax.swing.JScrollPane();
+        S_BulkClusters = new javax.swing.JScrollPane();
+        S_SaverNormalisation = new javax.swing.JScrollPane();
         LeftPanel = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         miRNAScrollPanel = new javax.swing.JScrollPane();
@@ -952,6 +958,7 @@ public class MainFrame extends javax.swing.JFrame {
         DenseToSparse = new javax.swing.JButton();
         STVisualization = new javax.swing.JButton();
         VioplotButton = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         SingleCellScrollPanel = new javax.swing.JScrollPane();
         SingleCellPanel = new javax.swing.JPanel();
         SubCountGenerationPanel = new javax.swing.JPanel();
@@ -976,6 +983,8 @@ public class MainFrame extends javax.swing.JFrame {
         SC_CountDepthButton = new javax.swing.JButton();
         SC_LorenzFilterButton = new javax.swing.JButton();
         SC_Counts2LogButton = new javax.swing.JButton();
+        SC_SeuratCellCycleEstimation = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         SubClusteringPanel = new javax.swing.JPanel();
         sc_clusteringLabel = new javax.swing.JLabel();
         sc_innerPanel3 = new javax.swing.JPanel();
@@ -1909,6 +1918,9 @@ public class MainFrame extends javax.swing.JFrame {
         MainPanel.add(S_AE_Comet, "AE_comet");
         MainPanel.add(S_AE_Wrapper, "AE_wrapper");
         MainPanel.add(VioplotHTMLbyGenes, "HTMLvioplot");
+        MainPanel.add(S_SeuratCellCycleEstimation, "seurat_cce");
+        MainPanel.add(S_BulkClusters, "bulk_clusters");
+        MainPanel.add(S_SaverNormalisation, "saver_norm");
 
         HorizontalSplitPanel.setRightComponent(MainPanel);
 
@@ -3170,7 +3182,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3193,7 +3205,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3216,7 +3228,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3239,7 +3251,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3262,7 +3274,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3285,7 +3297,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3308,7 +3320,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3331,7 +3343,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3357,10 +3369,9 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 9;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
-        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(STVisualization, gridBagConstraints);
 
@@ -3375,11 +3386,29 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         ToolPanel.add(VioplotButton, gridBagConstraints);
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/heatmap.png"))); // NOI18N
+        jButton7.setText("Bulk Clusters  ");
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 0.1;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        ToolPanel.add(jButton7, gridBagConstraints);
 
         ToolScrollPanel.setViewportView(ToolPanel);
 
@@ -3607,7 +3636,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3630,7 +3659,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 8;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3653,7 +3682,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3676,7 +3705,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3699,7 +3728,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 11;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3722,7 +3751,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 9;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3745,7 +3774,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3768,7 +3797,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3791,7 +3820,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -3814,11 +3843,43 @@ public class MainFrame extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_innerPanel2.add(SC_Counts2LogButton, gridBagConstraints);
+
+        SC_SeuratCellCycleEstimation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/ccremove.png"))); // NOI18N
+        SC_SeuratCellCycleEstimation.setText("Seurat cell cycle estimation");
+        SC_SeuratCellCycleEstimation.setBorderPainted(false);
+        SC_SeuratCellCycleEstimation.setContentAreaFilled(false);
+        SC_SeuratCellCycleEstimation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SC_SeuratCellCycleEstimationActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel2.add(SC_SeuratCellCycleEstimation, gridBagConstraints);
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/saver.png"))); // NOI18N
+        jButton8.setText("SAVER normalisation  ");
+        jButton8.setBorderPainted(false);
+        jButton8.setContentAreaFilled(false);
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        sc_innerPanel2.add(jButton8, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -4447,6 +4508,7 @@ public class MainFrame extends javax.swing.JFrame {
         sc_autoencoderPanel.setBackground(new java.awt.Color(255, 255, 255));
         sc_autoencoderPanel.setLayout(new java.awt.GridBagLayout());
 
+        autoencoderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/AE.png"))); // NOI18N
         autoencoderButton.setText("Autoencoder");
         autoencoderButton.setBorderPainted(false);
         autoencoderButton.setContentAreaFilled(false);
@@ -4461,6 +4523,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_autoencoderPanel.add(autoencoderButton, gridBagConstraints);
 
+        autoencoderClusteringButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/AE.png"))); // NOI18N
         autoencoderClusteringButton.setText("Autoencoder Clustering");
         autoencoderClusteringButton.setBorderPainted(false);
         autoencoderClusteringButton.setContentAreaFilled(false);
@@ -4477,6 +4540,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_autoencoderPanel.add(autoencoderClusteringButton, gridBagConstraints);
 
+        autoencoderAnalysisButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/AE.png"))); // NOI18N
         autoencoderAnalysisButton.setText("Autoencoder Analysis");
         autoencoderAnalysisButton.setBorderPainted(false);
         autoencoderAnalysisButton.setContentAreaFilled(false);
@@ -4493,6 +4557,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_autoencoderPanel.add(autoencoderAnalysisButton, gridBagConstraints);
 
+        autoencoderFeaturesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/AE.png"))); // NOI18N
         autoencoderFeaturesButton.setText("Autoencoder Features");
         autoencoderFeaturesButton.setBorderPainted(false);
         autoencoderFeaturesButton.setContentAreaFilled(false);
@@ -4509,6 +4574,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_autoencoderPanel.add(autoencoderFeaturesButton, gridBagConstraints);
 
+        autoencoderCometButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/AE.png"))); // NOI18N
         autoencoderCometButton.setText("Autoencoder Comet");
         autoencoderCometButton.setBorderPainted(false);
         autoencoderCometButton.setContentAreaFilled(false);
@@ -4525,6 +4591,7 @@ public class MainFrame extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         sc_autoencoderPanel.add(autoencoderCometButton, gridBagConstraints);
 
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pkg4seqgui/images/AE.png"))); // NOI18N
         jButton6.setText("Autoencoder Wrapper");
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
@@ -7566,6 +7633,18 @@ public class MainFrame extends javax.swing.JFrame {
         setCard("HTMLvioplot");
     }//GEN-LAST:event_VioplotButtonActionPerformed
 
+    private void SC_SeuratCellCycleEstimationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SC_SeuratCellCycleEstimationActionPerformed
+        setCard("seurat_cce");
+    }//GEN-LAST:event_SC_SeuratCellCycleEstimationActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        setCard("bulk_clusters");
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        setCard("saver_norm");
+    }//GEN-LAST:event_jButton8ActionPerformed
+
 
     private void  openAbout4SeqGUI(java.awt.event.ActionEvent evt) {
         About4SeqGUIFrame.pack();
@@ -7714,6 +7793,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton SC_ScannoByGtfButton;
     private javax.swing.JButton SC_ScanpyBootstrap;
     private javax.swing.JButton SC_SeuratBootstrapButton;
+    private javax.swing.JButton SC_SeuratCellCycleEstimation;
     private javax.swing.JButton SC_SeuratPCAEvalButton;
     private javax.swing.JButton SC_SeuratPriorButton;
     private javax.swing.JButton SC_SimlrBootstrapButton;
@@ -7729,6 +7809,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane S_AE_Comet;
     private javax.swing.JScrollPane S_AE_Features;
     private javax.swing.JScrollPane S_AE_Wrapper;
+    private javax.swing.JScrollPane S_BulkClusters;
+    private javax.swing.JScrollPane S_SaverNormalisation;
+    private javax.swing.JScrollPane S_SeuratCellCycleEstimation;
     private javax.swing.JScrollPane S_anovaLike;
     private javax.swing.JScrollPane S_bootstrapsVideo;
     private javax.swing.JScrollPane S_ccRemove;
@@ -7867,6 +7950,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;

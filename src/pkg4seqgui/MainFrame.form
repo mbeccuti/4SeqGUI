@@ -2233,6 +2233,33 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                 </Container>
+                <Container class="javax.swing.JScrollPane" name="S_SeuratCellCycleEstimation">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                      <CardConstraints cardName="seurat_cce"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="S_BulkClusters">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                      <CardConstraints cardName="bulk_clusters"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="S_SaverNormalisation">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                      <CardConstraints cardName="saver_norm"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                </Container>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="LeftPanel">
@@ -2363,7 +2390,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2437,7 +2464,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2459,7 +2486,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2481,7 +2508,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2503,7 +2530,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2525,7 +2552,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2547,7 +2574,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2613,7 +2640,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -2636,7 +2663,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -2658,7 +2685,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -2680,7 +2707,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -2775,7 +2802,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2797,7 +2824,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2819,7 +2846,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2841,7 +2868,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2863,7 +2890,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2885,7 +2912,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2907,7 +2934,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -2984,7 +3011,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3006,7 +3033,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3028,7 +3055,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3105,7 +3132,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3127,7 +3154,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3204,7 +3231,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3226,7 +3253,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3248,7 +3275,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3394,7 +3421,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3421,7 +3448,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3495,7 +3522,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3517,7 +3544,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3539,7 +3566,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3561,7 +3588,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3615,7 +3642,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3637,7 +3664,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3659,7 +3686,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -3743,7 +3770,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3753,7 +3780,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3766,7 +3793,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3775,7 +3802,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="9" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3788,7 +3815,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3797,7 +3824,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3810,7 +3837,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3819,7 +3846,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3832,7 +3859,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3841,7 +3868,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3854,7 +3881,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3863,7 +3890,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="21" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="21" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3876,7 +3903,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3885,7 +3912,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3898,7 +3925,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3907,7 +3934,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3920,7 +3947,7 @@
                                 <Property name="borderPainted" type="boolean" value="false"/>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                  <Color id="Cursore predefinito"/>
+                                  <Color id="Default Cursor"/>
                                 </Property>
                               </Properties>
                               <Events>
@@ -3930,7 +3957,7 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="10" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="1.0"/>
+                                  <GridBagConstraints gridX="0" gridY="9" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -3948,7 +3975,25 @@
                               </Events>
                               <Constraints>
                                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                  <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                  <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="0.0"/>
+                                </Constraint>
+                              </Constraints>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="jButton7">
+                              <Properties>
+                                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                  <Image iconType="3" name="/pkg4seqgui/images/heatmap.png"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Bulk Clusters  "/>
+                                <Property name="borderPainted" type="boolean" value="false"/>
+                                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+                              </Events>
+                              <Constraints>
+                                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                  <GridBagConstraints gridX="0" gridY="10" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.1" weightY="1.0"/>
                                 </Constraint>
                               </Constraints>
                             </Component>
@@ -4059,7 +4104,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4081,7 +4126,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4103,7 +4148,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4125,7 +4170,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4147,7 +4192,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4226,7 +4271,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4248,7 +4293,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4257,7 +4302,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4270,7 +4315,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4279,7 +4324,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="10" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4292,7 +4337,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4301,7 +4346,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4314,7 +4359,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4323,7 +4368,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4336,7 +4381,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4345,7 +4390,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="11" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="10" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4358,7 +4403,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4367,7 +4412,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="9" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4380,7 +4425,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4389,7 +4434,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4402,7 +4447,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4411,7 +4456,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4424,7 +4469,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4433,7 +4478,7 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4446,7 +4491,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4455,7 +4500,43 @@
                                       </Events>
                                       <Constraints>
                                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-                                          <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                          <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="1.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="SC_SeuratCellCycleEstimation">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/ccremove.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="Seurat cell cycle estimation"/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                        <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SC_SeuratCellCycleEstimationActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="11" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="18" weightX="0.0" weightY="0.0"/>
+                                        </Constraint>
+                                      </Constraints>
+                                    </Component>
+                                    <Component class="javax.swing.JButton" name="jButton8">
+                                      <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/saver.png"/>
+                                        </Property>
+                                        <Property name="text" type="java.lang.String" value="SAVER normalisation  "/>
+                                        <Property name="borderPainted" type="boolean" value="false"/>
+                                        <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                      </Properties>
+                                      <Events>
+                                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+                                      </Events>
+                                      <Constraints>
+                                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+                                          <GridBagConstraints gridX="0" gridY="9" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="10" insetsLeft="10" insetsBottom="10" insetsRight="10" anchor="23" weightX="0.0" weightY="0.0"/>
                                         </Constraint>
                                       </Constraints>
                                     </Component>
@@ -4525,7 +4606,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4547,7 +4628,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4569,7 +4650,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4591,7 +4672,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4613,7 +4694,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4635,7 +4716,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4657,7 +4738,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4679,7 +4760,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4701,7 +4782,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4723,7 +4804,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4745,7 +4826,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4767,7 +4848,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4789,7 +4870,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4869,7 +4950,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4891,7 +4972,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4913,7 +4994,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4935,7 +5016,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4957,7 +5038,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -4979,7 +5060,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5001,7 +5082,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5023,7 +5104,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5115,6 +5196,9 @@
                                   <SubComponents>
                                     <Component class="javax.swing.JButton" name="autoencoderButton">
                                       <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/AE.png"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="Autoencoder"/>
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -5130,6 +5214,9 @@
                                     </Component>
                                     <Component class="javax.swing.JButton" name="autoencoderClusteringButton">
                                       <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/AE.png"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="Autoencoder Clustering"/>
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -5145,6 +5232,9 @@
                                     </Component>
                                     <Component class="javax.swing.JButton" name="autoencoderAnalysisButton">
                                       <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/AE.png"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="Autoencoder Analysis"/>
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -5160,6 +5250,9 @@
                                     </Component>
                                     <Component class="javax.swing.JButton" name="autoencoderFeaturesButton">
                                       <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/AE.png"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="Autoencoder Features"/>
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -5175,6 +5268,9 @@
                                     </Component>
                                     <Component class="javax.swing.JButton" name="autoencoderCometButton">
                                       <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/AE.png"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="Autoencoder Comet"/>
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -5190,6 +5286,9 @@
                                     </Component>
                                     <Component class="javax.swing.JButton" name="jButton6">
                                       <Properties>
+                                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                                          <Image iconType="3" name="/pkg4seqgui/images/AE.png"/>
+                                        </Property>
                                         <Property name="text" type="java.lang.String" value="Autoencoder Wrapper"/>
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -5311,7 +5410,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5333,7 +5432,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5355,7 +5454,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5377,7 +5476,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5451,7 +5550,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5473,7 +5572,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5495,7 +5594,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5517,7 +5616,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5539,7 +5638,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5561,7 +5660,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
@@ -5583,7 +5682,7 @@
                                         <Property name="borderPainted" type="boolean" value="false"/>
                                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                          <Color id="Cursore predefinito"/>
+                                          <Color id="Default Cursor"/>
                                         </Property>
                                       </Properties>
                                       <Events>
